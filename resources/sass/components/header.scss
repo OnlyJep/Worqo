@@ -1,0 +1,76 @@
+// header.scss
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw; // Full-screen width
+    height: 60px; // Adjust height as needed
+    background-color: #24067e; // Dark blue background similar to the image
+    padding: 0 20px;
+    position: fixed; // Optional: Fix the header to the top
+    top: 0;
+    left: 0;
+    z-index: 1000; // Ensure it stays above other content
+ 
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: 30px; // Space between logo and nav links
+    }
+ 
+    &__logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff; // White logo text
+    }
+ 
+    &__nav {
+      display: flex;
+      gap: 20px; // Space between nav links
+    }
+ 
+    &__link {
+      color: #ffffff; // White text for links
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+ 
+      &:hover {
+        color: #cccccc; // Light gray on hover
+      }
+    }
+ 
+    &__right {
+      display: flex;
+      align-items: center;
+      gap: 15px; // Space between icons and login button
+    }
+ 
+    &__icon {
+      color: #ffffff; // White icons
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+ 
+      &:hover {
+        color: #cccccc; // Light gray on hover
+      }
+    }
+ 
+    &__login-btn {
+      background-color: #ffd500; // Light beige background for the button
+      color: #1e1d1d; // Dark text for contrast
+      border: none;
+      border-radius: 5px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+ 
+      &:hover {
+        background-color: #fafa8f; // Slightly darker beige on hover
+      }
+    }
+  }
+

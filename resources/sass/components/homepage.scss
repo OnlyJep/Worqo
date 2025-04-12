@@ -1,346 +1,249 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap');
-
-.homepage-customer {
-  background-color: #000;
+.homepage {
+  position: relative;
+  width: 100vw;
   min-height: 100vh;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  padding: 0;
+  background-color: #fff;
   margin: 0;
-  padding-top: 60px;
+  padding: 0;
+  overflow-x: hidden;
 
-  .navbar {
+  // Background Shapes
+  .top-right-shape {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    width: 25vw; // Reduced from 30vw
+    height: 25vw; // Reduced from 30vw
+    max-width: 350px; // Reduced from 450px
+    max-height: 350px; // Reduced from 450px
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .center-left-shape {
+    position: absolute;
+    left: -115px; // Stick to the very left edge
+    top: 50%; // Move it further down to avoid overlapping with h1
+    transform: translateY(-50%);
+    width: 20vw;
+    height: 20vw;
+    max-width: 350px;
+    max-height: 350px;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  // Content Wrapper
+  .content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+    box-sizing: border-box;
+  }
+
+  // Main Content
+  .content {
+    text-align: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    position: fixed;
-    top: 0;
-    height: 60px;
-    background-color: #000000;
-    z-index: 1100;
     padding: 0 20px;
+    z-index: 5; // Increase z-index to ensure content stays above shapes
 
-    & > * {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-    }
-  }
-
-  .content-wrapper {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    margin: 0;
-    overflow-y: auto;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    position: relative;
-    z-index: 0;
-
-    -ms-overflow-style: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
-
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 4px;
-      z-index: -1;
-
-      &:hover {
-        background: rgba(0, 0, 0, 0.5);
-      }
-    }
-
-    .hero-section,
-    .logos,
-    .video-section,
-    .product-grid-wrapper {
-      width: 100%;
-    }
-
-    .hero-section {
+    h1 {
+      font-size: 2.5rem; // Reduced from 4.5rem
+      font-weight: 700; // Slightly lighter weight
+      color: #1a3c34;
+      margin-bottom: 2rem; // Reduced from 2.5rem
+      line-height: 1.3; // Adjusted from 1.2
       position: relative;
-      width: calc(100vw + 8px);
-      height: calc(100vh - 60px);
-      min-height: 600px;
-      background-color: #000000;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-      z-index: 1;
-
-      .hero-image {
-        width: calc(100vw + 8px);
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
+      z-index: 5;
+      margin-top: 20px;
+      span {
+        color: #2ecc71;
       }
 
-      .hero-text {
-        position: relative;
-        z-index: 2;
-        color: #ffffff;
-        text-align: center;
-        padding: 100px 40px 0 40px;
-        width: 100%;
+      // Ensure the line break doesn't cause uneven spacing
+      br {
+        display: block;
+        content: "";
+        margin: 0;
+      }
 
-        .hero-title {
-          font-family: 'Jost', sans-serif;
-          font-size: 48px;
-          font-weight: 500;
-          margin: 0 0 20px 0;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          line-height: 1.2;
-        }
+      @media (max-width: 768px) {
+        font-size: 2rem;
+        line-height: 1.4; // Slightly increase line height for better readability
+      }
 
-        .hero-buttons {
-          display: flex;
-          gap: 20px;
-          justify-content: center;
-          margin-top: 20px;
-
-          .learn-more-text,
-          .add-to-cart-text {
-            position: relative;
-            color: #F0F8FF;
-            font-size: 18px;
-            padding: 0 0 4px 0;
-            border: none;
-            background: none;
-            cursor: pointer;
-            text-decoration: none;
-
-            &::after {
-              content: '>';
-              color: #FF1C1C;
-              margin-left: 4px;
-            }
-
-            &::before {
-              content: '';
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              height: 2px;
-              background: #FF1C1C;
-              transform: scaleY(0);
-              transform-origin: bottom;
-              transition: transform 0.3s ease-in-out;
-              z-index: 0;
-            }
-
-            &:hover::before {
-              transform: scaleY(1);
-            }
-
-            &:hover {
-              color: #F0F8FF;
-            }
-
-            &:active {
-              color: #d1e6ff;
-            }
-          }
-
-          .add-to-cart-text {
-            color: #F0F8FF;
-
-            &:hover {
-              color: #F0F8FF;
-            }
-
-            &:active {
-              color: #d1e6ff;
-            }
-          }
-        }
+      @media (max-width: 480px) {
+        font-size: 1.5rem;
+        line-height: 1.5;
       }
     }
 
-    .logos {
-      margin-top: 0;
-      margin-bottom: 40px;
-      width: 100%;
-      background-color: #F0F8FF;
-    }
-
-    .video-section {
-      width: 100vw;
-      height: 70vh;
-      min-height: 300px;
-      position: relative;
-      overflow: hidden;
-      background-color: #000;
-      margin-bottom: 40px;
-
-      .fullscreen-video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
-    }
-
-    .product-grid-wrapper {
-      width: 100vw;
+    // Search Bar
+    .search-bar {
+      margin: 2rem 0 3rem;
       display: flex;
       justify-content: center;
-      align-items: center;
-      margin-bottom: 80px;
-      background-color: #000;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
 
-      .product-grid {
+      input {
         width: 100%;
-        background-color: #000; // Changed to black
-        padding: 20px 0;
-        margin: 0;
+        padding: 1.3rem 2rem;
+        font-size: 1.2rem;
+        border: 1px solid #e0e0e0;
+        border-right: none;
+        border-radius: 50px 0 0 50px;
+        outline: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        font-weight: 400;
+        color: #333;
 
-        h2 {
-          font-size: 24px;
-          margin-bottom: 20px;
-          color: #fff; // Changed to white for visibility on black background
-          text-align: left;
-          padding-left: 95px;
+        &::placeholder {
+          color: #999;
+        }
+
+        @media (max-width: 768px) {
+          font-size: 1rem;
+          padding: 1rem 1.5rem;
+        }
+      }
+
+      .search-button {
+        padding: 1.3rem 2rem;
+        background-color: #2ecc71;
+        border: none;
+        border-radius: 0 50px 50px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: background-color 0.3s ease;
+        // MODIFIED: Explicitly set height to match the input field and adjusted padding
+        height: 73px; // Matches the input's height (padding: 1.3rem * 2 + font-size: 1.2rem * 1.5 for line height)
+        padding: 0 2rem; // Adjusted padding to focus on horizontal spacing
+
+        svg {
+          color: #fff;
+          width: 24px;
+          height: 24px;
+        }
+
+        &:hover {
+          background-color: #27ae60;
+        }
+
+        @media (max-width: 768px) {
+          height: 48px; // Matches the input's adjusted height at this breakpoint
+          padding: 0 1.5rem; // Adjust padding for smaller screens
+        }
+      }
+    }
+
+    // Category Icons
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 3.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      position: relative; // For positioning the line
+      padding-bottom: 2rem; // Space for the line
+      border-bottom: 1px solid #ddd; // Add a horizontal line below the categories
+
+      .category-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        color: #333;
+        transition: transform 0.2s ease;
+        margin-top: 20px;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        svg {
+          color: #2ecc71;
+          width: 28px;
+          height: 28px;
+        }
+
+        span {
+          font-size: 1.1rem;
+          font-weight: 500;
+
+          @media (max-width: 768px) {
+            font-size: 0.95rem;
+          }
+
+          @media (max-width: 480px) {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+
+    // Featured Categories Buttons
+    .featured-categories {
+      display: flex;
+      justify-content: flex-start; // Changed from center to left-align
+      gap: 1.5rem;
+      flex-wrap: wrap;
+
+      button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #333;
+        background-color: transparent;
+        border: 1px solid #ddd;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #2ecc71;
+          color: #fff;
+          border-color: #2ecc71;
+        }
+
+        @media (max-width: 768px) {
+          font-size: 0.9rem;
+          padding: 0.7rem 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 0.8rem;
+          padding: 0.6rem 1.2rem;
         }
       }
     }
   }
 }
 
-// Responsive design for mobile (≤768px)
-@media (max-width: 768px) {
-  .homepage-customer {
-    padding-top: 75px;
-
-    .content-wrapper {
-      .hero-section {
-        height: calc(100vh - 75px);
-        min-height: 500px;
-        width: 100vw;
-        padding: 0;
-
-        .hero-image {
-          width: 100vw;
-          height: 100%;
-          object-fit: cover;
-          object-position: center;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
-        }
-
-        .hero-text {
-          padding: 60px 20px 0 20px;
-          text-align: center;
-
-          .hero-title {
-            font-size: 28px;
-            margin: 0 0 15px 0;
-            letter-spacing: 1px;
-          }
-
-          .hero-buttons {
-            flex-direction: row;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 15px;
-
-            .learn-more-text,
-            .add-to-cart-text {
-              font-size: 16px;
-              width: auto;
-              max-width: none;
-              margin: 0;
-            }
-          }
-        }
-      }
-
-      .logos,
-      .video-section,
-      .product-grid-wrapper {
-        width: 100vw;
-      }
-
-      .video-section {
-        height: 50vh;
-        min-height: 200px;
-      }
-
-      .product-grid-wrapper {
-        .product-grid {
-          h2 {
-            padding-left: 20px;
-          }
-        }
-      }
-    }
-  }
-}
-
-// Additional breakpoint for very small screens (≤480px)
-@media (max-width: 480px) {
-  .homepage-customer {
-    .content-wrapper {
-      .hero-section {
-        .hero-text {
-          padding: 40px 10px 0 10px;
-
-          .hero-title {
-            font-size: 24px;
-          }
-
-          .hero-buttons {
-            gap: 15px;
-
-            .learn-more-text,
-            .add-to-cart-text {
-              font-size: 14px;
-            }
-          }
-        }
-      }
-
-      .video-section {
-        height: 40vh;
-      }
-
-      .product-grid-wrapper {
-        .product-grid {
-          h2 {
-            font-size: 20px;
-            padding-left: 10px;
-          }
-        }
-      }
-    }
-  }
+// Ensure no default margins or padding on body/html
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }

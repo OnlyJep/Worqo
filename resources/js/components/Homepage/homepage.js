@@ -1,57 +1,93 @@
-// Homepage.jsx
-import React, { useState } from 'react';
-import './../../../sass/components/homepage.scss';
-import heroImage from '../../../../resources/sass/img/heroimg.svg';
-import Navbar from "../Customer/topvar_notlogin";
-import LogoSlider from "../logos/logo_slider";
-import Footer from "../footer/footer";
-import ProductGrid from "../ProductGrid/product_grid";
-import OrdersCart from "../CartModals/orders_cart";
-{/*import EmptyCart from "../CartModals/empty_cart";*/}
+import React from 'react';
+import "./../../../sass/components/homepage.scss";
+import Headerz from "../HeaderContent/Headerz";
 
+// Importing Tabler Icons
+import { IconArrowLeft, IconSearch, IconStar, IconDeviceLaptop, IconShirt, IconBook, IconLamp, IconBallFootball, IconTrendingUp } from '@tabler/icons-react';
 
+// Placeholder imports for the shapes (replace with your actual SVGs)
+import TopRightShape from "../../../../resources/sass/img/top_right_shape.svg";
+import CenterLeftShape from "../../../../resources/sass/img/center_left_shape.svg";
 
-
-
-function Homepage() {
-  const [isCartOpen, setIsCartOpen] = useState(false); 
-
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-  };
-
+const HomePage = () => {
   return (
-    <div className="homepage-customer">
-      <Navbar onCartClick={toggleCart} />
+    <div className="homepage">
+      <Headerz />
+      {/* Background Shapes */}
+      <div className="top-right-shape">
+        <img src={TopRightShape} alt="Top Right Shape" />
+      </div>
+      <div className="center-left-shape">
+        <img src={CenterLeftShape} alt="Center Left Shape" />
+      </div>
+
+      {/* Main Content */}
       <div className="content-wrapper">
-        <div className="hero-section">
-          <img src={heroImage} alt="Razer Viper V3 Pro Faker Edition" className="hero-image" />
-          <div className="hero-text">
-            <h1 className="hero-title">RAZER VIPER V3 PRO FAKER EDITION</h1>
-            <div className="hero-buttons">
-              <button className="learn-more-text">Learn More </button>
-              <button className="add-to-cart-text">Add to cart </button>
+        <div className="content">
+          <h1>
+            Give Your Items a <br />
+            <span>NextUse</span> – Sell and Earn!
+          </h1>
+
+          {/* Search Bar */}
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search for Second-Hand Treasures"
+            />
+            <button className="search-button">
+              <IconSearch size={24} />
+            </button>
+          </div>
+
+          {/* Category Icons */}
+          <div className="categories">
+            <div className="category-item">
+              <IconArrowLeft size={24} />
+              <span>Furniture</span>
+            </div>
+            <div className="category-item">
+              <IconDeviceLaptop size={24} />
+              <span>Electronics</span>
+            </div>
+            <div className="category-item">
+              <IconShirt size={24} />
+              <span>Clothing</span>
+            </div>
+            <div className="category-item">
+              <IconBook size={24} />
+              <span>Books</span>
+            </div>
+            <div className="category-item">
+              <IconLamp size={24} />
+              <span>Home Decor</span>
+            </div>
+            <div className="category-item">
+              <IconBallFootball size={24} />
+              <span>Toys & Games</span>
+            </div>
+            <div className="category-item">
+              <IconBallFootball size={24} />
+              <span>Sports Equipment</span>
+            </div>
+            <div className="category-item">
+              <IconTrendingUp size={24} />
+              <span>Trending</span>
             </div>
           </div>
-        </div>
-        <LogoSlider />
-        <div className="video-section">
-          <video autoPlay loop muted playsInline className="fullscreen-video">
-            <source src="/assets/V3PRO.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className="product-grid-wrapper">
-          <ProductGrid />
+
+          {/* Featured Categories Buttons */}
+          <div className="featured-categories">
+            <button>Vintage Furniture</button>
+            <button>Smartphones</button>
+            <button>Rare Books</button>
+            <button>Handmade Decor</button>
+            <button>Toys</button>
+          </div>
         </div>
       </div>
-      <Footer />
-      <OrdersCart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
-      {/*<EmptyCart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />*/}
-     
-    
     </div>
   );
-}
+};
 
-export default Homepage;
+export default HomePage;
