@@ -1,0 +1,126 @@
+// Import Inter font
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+.testimonials {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: left; // Changed from center to left
+  margin-top: 80px;
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #1A3C34;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    text-align: left; // Explicitly set to left
+  }
+
+  &__grid {
+    display: flex;
+    justify-content: flex-start; // Changed from center to flex-start for left alignment
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    flex: 1;
+    min-width: 280px;
+    max-width: 360px;
+    text-align: left;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #1A3C34;
+      margin: 0;
+    }
+  }
+
+  &__stars {
+    display: flex;
+    gap: 2px;
+
+    svg {
+      color: #F3C44A; // Star color
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 15px;
+
+    &__title {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      text-align: left; // Ensure left alignment on mobile
+    }
+
+    &__grid {
+      flex-direction: column;
+      align-items: flex-start; // Changed from center to flex-start for left alignment
+      gap: 25px;
+    }
+
+    &__item {
+      min-width: 100%;
+      max-width: 100%;
+    }
+
+    &__header {
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 30px 10px;
+
+    &__title {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      text-align: left; // Ensure left alignment on smaller screens
+    }
+
+    &__header {
+      h3 {
+        font-size: 1rem;
+      }
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}

@@ -1,13 +1,17 @@
 import React from 'react';
-import "./../../../sass/components/homepage.scss";
-import Headerz from "../HeaderContent/Headerz";
+import './../../../sass/components/HomepageStyles/homepage.scss';
+import Headerz from '../HeaderContent/Headerz';
+import Stats from '../StatsContent/stats';
+import ProductGrid from '../Homepage/product_grid';
+import Testimonials from '../Homepage/testimonials'; // Import the Testimonials component
+import Footer from '../FooterContent/footer'; // Import the Footer component (adjust path if needed)
 
 // Importing Tabler Icons
-import { IconArrowLeft, IconSearch, IconStar, IconDeviceLaptop, IconShirt, IconBook, IconLamp, IconBallFootball, IconTrendingUp } from '@tabler/icons-react';
+import { IconSofa, IconHorseToy, IconFlame, IconSearch, IconDeviceLaptop, IconShirt, IconBook, IconLamp, IconBallFootball } from '@tabler/icons-react';
 
 // Placeholder imports for the shapes (replace with your actual SVGs)
-import TopRightShape from "../../../../resources/sass/img/top_right_shape.svg";
-import CenterLeftShape from "../../../../resources/sass/img/center_left_shape.svg";
+import TopRightShape from '../../../../resources/sass/img/HomepageImgs/top_right_shape.svg';
+import CenterLeftShape from '../../../../resources/sass/img/HomepageImgs/center_left_shape.svg';
 
 const HomePage = () => {
   return (
@@ -43,7 +47,7 @@ const HomePage = () => {
           {/* Category Icons */}
           <div className="categories">
             <div className="category-item">
-              <IconArrowLeft size={24} />
+              <IconSofa size={24} />
               <span>Furniture</span>
             </div>
             <div className="category-item">
@@ -63,7 +67,7 @@ const HomePage = () => {
               <span>Home Decor</span>
             </div>
             <div className="category-item">
-              <IconBallFootball size={24} />
+              <IconHorseToy size={24} />
               <span>Toys & Games</span>
             </div>
             <div className="category-item">
@@ -71,7 +75,7 @@ const HomePage = () => {
               <span>Sports Equipment</span>
             </div>
             <div className="category-item">
-              <IconTrendingUp size={24} />
+              <IconFlame size={24} />
               <span>Trending</span>
             </div>
           </div>
@@ -84,8 +88,20 @@ const HomePage = () => {
             <button>Handmade Decor</button>
             <button>Toys</button>
           </div>
+
+          {/* Stats Section */}
+          <Stats />
+
+          {/* Product Grid Section */}
+          <ProductGrid />
+
+          {/* Testimonials Section */}
+          <Testimonials />
         </div>
       </div>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };

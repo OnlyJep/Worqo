@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.all-listing-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.all-listing-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr)); /* Changed to 5 columns */
+  gap: 30px;
+  justify-items: center;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0; /* Remove padding here, let the parent handle it */
+
+  .listing-item {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 0;
+    border: 2px solid #0D7A5F;
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 250px; /* Reduced max-width to fit 5 items */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .listing-image-section {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 190px;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .listing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 150px;
+  }
+
+  .listing-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    padding-bottom: 0;
+  }
+
+  .listing-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333;
+    margin: 0 0 10px 0;
+    text-align: left;
+    line-height: 1.3;
+  }
+
+  .listing-price {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0D7A5F;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  .listing-action {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -5px;
+  }
+
+  .add-to-cart-btn {
+    background: #0D7A5F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px 0 15px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    margin-left: auto;
+    letter-spacing: 0.5px;
+    position: relative;
+    right: -15px;
+    bottom: 5px;
+
+    &:hover {
+      background: darken(#138c6d, 10%);
+    }
+  }
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1200px) {
+  .all-listing-grid {
+    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* 4 items on smaller screens */
+  }
+}
+
+@media (max-width: 900px) {
+  .all-listing-grid {
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* 3 items */
+  }
+}
+
+@media (max-width: 600px) {
+  .all-listing-grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); /* 2 items */
+  }
+}
+
+@media (max-width: 480px) {
+  .all-listing-grid {
+    grid-template-columns: 1fr; /* 1 item */
+  }
+}

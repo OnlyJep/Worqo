@@ -7,6 +7,10 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Homepage from "./components/Homepage/homepage";
 import Headerz from "./components/HeaderContent/Headerz";
+import Browse from "./components/ShopContent/browse";
+
+
+
 
 
 
@@ -20,6 +24,7 @@ export default function Routers() {
         <Route path="register" element={<Register />} />
         <Route path="homepage" element={<Homepage />} />
         <Route path="headerz" element={<Headerz />} />
+        <Route path="browse" element={<Browse />} />
       </Routes>
     </Router>
   );
