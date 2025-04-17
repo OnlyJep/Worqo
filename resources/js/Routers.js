@@ -29,6 +29,8 @@ import Profile from "./components/Profile/profile";
 
 
 
+
+
 export default function Routers() {
   return (
     <Router>
@@ -44,6 +46,7 @@ export default function Routers() {
         <Route path="orders_modal" element={<Orders_modal />} />
         <Route path="pay" element={<Pay />} />
         <Route path="profile" element={<Profile />} />
+      
       
         
       

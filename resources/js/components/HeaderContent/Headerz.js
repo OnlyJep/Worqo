@@ -4,12 +4,12 @@ import './../../../sass/components/Headerz.scss';
 import { IconBell, IconShoppingBag, IconMenu2 } from '@tabler/icons-react';
 import logo from '../../../../resources/sass/img/LogoAssets/next_logo.svg';
 import OrdersModal from '../CartModals/orders_modal';
-import Loader from '../LoaderContent/loader'; // Import the Loader component
+import Loader from '../LoaderContent/loader';
 
 const Headerz = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -23,20 +23,27 @@ const Headerz = () => {
   // Navigation functions
   const goToHome = () => navigate('/');
   const goToBrowse = () => navigate('/browse');
-  const goToSell = () => navigate('/sell');
   const goToAbout = () => navigate('/about');
   
+  const goToSell = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      navigate('/register', { state: { preSelectedRole: 'seller' } });
+      setIsLoading(false);
+    }, 800);
+  };
+
   const goToLogin = () => {
-    setIsLoading(true); // Show loader
+    setIsLoading(true);
     setTimeout(() => {
       navigate('/login');
-      setIsLoading(false); // Hide loader after navigation
-    }, 1000); // Adjust delay as needed
+      setIsLoading(false);
+    }, 800);
   };
 
   return (
     <header className="headerz">
-      {isLoading && <Loader />} {/* Show loader when loading */}
+      {isLoading && <Loader />}
       <div className="headerz-container">
         {/* Mobile Menu Button */}
         <div className="mobile-menu">
@@ -45,14 +52,14 @@ const Headerz = () => {
 
         {/* Logo */}
         <div className="logo">
-          <img src={logo} alt="nextUse Logo" className="logo-img" />
+          <img src={logo} alt="nextUse Logo" className="logo-img" onClick={goToHome} style={{ cursor: 'pointer' }} />
         </div>
 
         {/* Navigation Links */}
         <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <span onClick={goToHome}>Home</span>
           <span onClick={goToBrowse}>Browse</span>
-          <span onClick={goToSell}>Sell</span>
+          <span onClick={goToSell} className="sell-link">Sell</span>
           <span onClick={goToAbout}>About us</span>
         </nav>
 

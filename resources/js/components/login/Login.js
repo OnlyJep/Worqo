@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./../../../sass/components/_login.scss";
 import Loader from '../LoaderContent/loader'; // Import the Loader component
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true); // Initial loading state
 
@@ -63,13 +65,16 @@ const Login = () => {
 
               <div className="login-password-group">
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   className="login-password-input"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                <span className="password-toggle" onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
                 <Link to="/forgot-password" className="forgot-password">
                   Forgot password?
                 </Link>

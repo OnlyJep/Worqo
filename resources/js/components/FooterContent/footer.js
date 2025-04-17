@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
 
         <div className="footer__app-download">
-          <p>Buy and Sell Second-Hand Treasures Anytime, Anywhere with the NextUse App.</p>
+          <p>Buy and Sell Second-Hand Items Anytime, Anywhere with the NextUse App.</p>
           <div className="footer__app-buttons">
             <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">
               <img src={GooglePlayBadge} alt="Get it on Google Play" />

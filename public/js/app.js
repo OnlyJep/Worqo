@@ -9177,7 +9177,7 @@ var Footer = function Footer() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "footer__app-download",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
-          children: "Buy and Sell Second-Hand Treasures Anytime, Anywhere with the NextUse App."
+          children: "Buy and Sell Second-Hand Items Anytime, Anywhere with the NextUse App."
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "footer__app-buttons",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
@@ -9239,7 +9239,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
- // Import the Loader component
+
 
 var Headerz = function Headerz() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
@@ -9253,7 +9253,7 @@ var Headerz = function Headerz() {
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
     isLoading = _useState6[0],
-    setIsLoading = _useState6[1]; // Add loading state
+    setIsLoading = _useState6[1];
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
   var toggleMenu = function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -9269,22 +9269,30 @@ var Headerz = function Headerz() {
   var goToBrowse = function goToBrowse() {
     return navigate('/browse');
   };
-  var goToSell = function goToSell() {
-    return navigate('/sell');
-  };
   var goToAbout = function goToAbout() {
     return navigate('/about');
   };
+  var goToSell = function goToSell() {
+    setIsLoading(true);
+    setTimeout(function () {
+      navigate('/register', {
+        state: {
+          preSelectedRole: 'seller'
+        }
+      });
+      setIsLoading(false);
+    }, 800);
+  };
   var goToLogin = function goToLogin() {
-    setIsLoading(true); // Show loader
+    setIsLoading(true);
     setTimeout(function () {
       navigate('/login');
-      setIsLoading(false); // Hide loader after navigation
-    }, 1000); // Adjust delay as needed
+      setIsLoading(false);
+    }, 800);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("header", {
     className: "headerz",
-    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_4__["default"], {}), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "headerz-container",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "mobile-menu",
@@ -9298,7 +9306,11 @@ var Headerz = function Headerz() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
           src: _resources_sass_img_LogoAssets_next_logo_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
           alt: "nextUse Logo",
-          className: "logo-img"
+          className: "logo-img",
+          onClick: goToHome,
+          style: {
+            cursor: 'pointer'
+          }
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("nav", {
         className: "nav-links ".concat(isMenuOpen ? 'open' : ''),
@@ -9310,6 +9322,7 @@ var Headerz = function Headerz() {
           children: "Browse"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
           onClick: goToSell,
+          className: "sell-link",
           children: "Sell"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
           onClick: goToAbout,
@@ -11171,7 +11184,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _sass_components_login_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../sass/components/_login.scss */ "./resources/sass/components/_login.scss");
 /* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -11181,6 +11195,7 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -11195,14 +11210,18 @@ var Login = function Login() {
     _useState4 = _slicedToArray(_useState3, 2),
     password = _useState4[0],
     setPassword = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
-    error = _useState6[0],
-    setError = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    showPassword = _useState6[0],
+    setShowPassword = _useState6[1]; // State to toggle password visibility
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState8 = _slicedToArray(_useState7, 2),
-    isLoading = _useState8[0],
-    setIsLoading = _useState8[1]; // Initial loading state
+    error = _useState8[0],
+    setError = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState10 = _slicedToArray(_useState9, 2),
+    isLoading = _useState10[0],
+    setIsLoading = _useState10[1]; // Initial loading state
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Simulate loading time for the page
@@ -11268,7 +11287,7 @@ var Login = function Login() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "login-password-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                type: "password",
+                type: showPassword ? "text" : "password",
                 className: "login-password-input",
                 placeholder: "Password",
                 value: password,
@@ -11276,7 +11295,13 @@ var Login = function Login() {
                   return setPassword(e.target.value);
                 },
                 required: true
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "password-toggle",
+                onClick: function onClick() {
+                  return setShowPassword(!showPassword);
+                },
+                children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEye, {})
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
                 to: "/forgot-password",
                 className: "forgot-password",
                 children: "Forgot password?"
@@ -11290,7 +11315,7 @@ var Login = function Login() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "login-signup",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-              children: ["Don't have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+              children: ["Don't have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
                 to: "/register",
                 className: "login-signup-link",
                 children: "Sign up"
@@ -11321,24 +11346,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _sass_components_register_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../sass/components/_register.scss */ "./resources/sass/components/_register.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -11366,30 +11390,30 @@ var Register = function Register() {
     _useState6 = _slicedToArray(_useState5, 2),
     passwordError = _useState6[0],
     setPasswordError = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState8 = _slicedToArray(_useState7, 2),
-    roles = _useState8[0],
-    setRoles = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState10 = _slicedToArray(_useState9, 2),
-    genders = _useState10[0],
-    setGenders = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       message: "",
       type: ""
     }),
-    _useState12 = _slicedToArray(_useState11, 2),
-    alert = _useState12[0],
-    setAlert = _useState12[1];
-
-  // Show alert function
+    _useState8 = _slicedToArray(_useState7, 2),
+    alert = _useState8[0],
+    setAlert = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState10 = _slicedToArray(_useState9, 2),
+    isLoading = _useState10[0],
+    setIsLoading = _useState10[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var timer = setTimeout(function () {
+      setIsLoading(false);
+    }, 1000);
+    return function () {
+      return clearTimeout(timer);
+    };
+  }, []);
   var showAlert = function showAlert(message, type) {
     setAlert({
       message: message,
       type: type
     });
-
-    // Auto-hide after 5 seconds
     setTimeout(function () {
       return setAlert({
         message: "",
@@ -11397,290 +11421,223 @@ var Register = function Register() {
       });
     }, 5000);
   };
-
-  // Close alert manually
   var closeAlert = function closeAlert() {
     setAlert({
       message: "",
       type: ""
     });
   };
-
-  // Fetch roles
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var fetchRoles = /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
-            case 0:
-              _context.prev = 0;
-              _context.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://localhost:8000/api/roles");
-            case 3:
-              response = _context.sent;
-              console.log("Fetched Roles:", response.data); // Debugging log
-              setRoles(response.data || []);
-              _context.next = 11;
-              break;
-            case 8:
-              _context.prev = 8;
-              _context.t0 = _context["catch"](0);
-              console.error("Error fetching roles:", _context.t0);
-            case 11:
-            case "end":
-              return _context.stop();
-          }
-        }, _callee, null, [[0, 8]]);
-      }));
-      return function fetchRoles() {
-        return _ref.apply(this, arguments);
-      };
-    }();
-    fetchRoles();
-  }, []);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var fetchGenders = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.prev = 0;
-              _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://localhost:8000/api/genders");
-            case 3:
-              response = _context2.sent;
-              console.log("Fetched Genders Data:", response.data); // Debugging log
-              setGenders(response.data || []);
-              _context2.next = 11;
-              break;
-            case 8:
-              _context2.prev = 8;
-              _context2.t0 = _context2["catch"](0);
-              console.error("Error fetching genders:", _context2.t0);
-            case 11:
-            case "end":
-              return _context2.stop();
-          }
-        }, _callee2, null, [[0, 8]]);
-      }));
-      return function fetchGenders() {
-        return _ref2.apply(this, arguments);
-      };
-    }();
-    fetchGenders();
-  }, []);
-
-  // Handle input change
   var handleChange = function handleChange(e) {
     setFormData(_objectSpread(_objectSpread({}, formData), {}, _defineProperty({}, e.target.name, e.target.value)));
     if (e.target.name === "password") {
       validatePassword(e.target.value);
     }
   };
-
-  // Validate password
   var validatePassword = function validatePassword(password) {
     var hasUppercase = /[A-Z]/.test(password);
     var hasNumber = /\d/.test(password);
     setPasswordError(!hasUppercase || !hasNumber ? "Password must contain at least 1 uppercase letter and 1 number." : "");
   };
-
-  // Handle registration
-  // Handle registration
-  var handleRegister = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3(e) {
-      var userData, response, _error$response$data$;
-      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            e.preventDefault();
-            _context3.prev = 1;
-            userData = {
-              first_name: formData.firstName || "",
-              middlename: formData.middleName.trim() ? formData.middleName : null,
-              last_name: formData.lastName || "",
-              gender: formData.gender ? parseInt(formData.gender, 10) : null,
-              suffix: formData.suffix.trim() ? formData.suffix : null,
-              email: formData.email || "",
-              password: formData.password || "",
-              role_id: formData.role ? parseInt(formData.role, 10) : null
-            };
-            console.log("🚀 Sending user data:", userData);
-            _context3.next = 6;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post("http://localhost:8000/api/register", userData);
-          case 6:
-            response = _context3.sent;
-            console.log("Registration successful:", response.data);
-            showAlert("✅ Registration successful!", "success");
-
-            // **Clear all fields after success**
-            setFormData({
-              firstName: "",
-              middleName: "",
-              lastName: "",
-              email: "",
-              password: "",
-              role: "",
-              gender: "",
-              suffix: ""
-            });
-            _context3.next = 16;
-            break;
-          case 12:
-            _context3.prev = 12;
-            _context3.t0 = _context3["catch"](1);
-            console.error("Error during registration:", _context3.t0);
-            if (_context3.t0.response) {
-              console.error("Server Response Data:", _context3.t0.response.data);
-              if ((_error$response$data$ = _context3.t0.response.data.errors) !== null && _error$response$data$ !== void 0 && _error$response$data$.email) {
-                showAlert("🚫 Email is already registered. Try another one!", "error");
-              } else {
-                showAlert("🚫 Email is already registered. Try another one!", "error");
-              }
-            } else {
-              showAlert("❌ Network error. Please try again.", "error");
-            }
-          case 16:
-          case "end":
-            return _context3.stop();
-        }
-      }, _callee3, null, [[1, 12]]);
-    }));
-    return function handleRegister(_x) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    className: "register-wrapper",
-    children: [alert.message && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "custom-alert ".concat(alert.type),
-      children: [alert.message, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        className: "alert-close-btn",
-        onClick: closeAlert,
-        children: "\xD7"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "register-card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "register-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          className: "register-title",
-          children: "Create New Account"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-          onSubmit: handleRegister,
-          className: "register-form-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "register-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              name: "firstName",
-              placeholder: "First Name",
-              value: formData.firstName,
-              onChange: handleChange,
-              required: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              name: "middleName",
-              placeholder: "Middle Name",
-              value: formData.middleName,
-              onChange: handleChange
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "text",
-            name: "lastName",
-            placeholder: "Last Name",
-            value: formData.lastName,
-            onChange: handleChange,
-            required: true
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "email",
-            name: "email",
-            placeholder: "Email",
-            value: formData.email,
-            onChange: handleChange,
-            required: true
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "register-password-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: showPassword ? "text" : "password",
-              name: "password",
-              placeholder: "Password",
-              value: formData.password,
-              onChange: handleChange,
-              required: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "password-toggle",
-              onClick: function onClick() {
-                return setShowPassword(!showPassword);
-              },
-              children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEye, {})
-            })]
-          }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            className: "error-message",
-            children: passwordError
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "register-dropdowns",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              name: "role",
-              value: formData.role,
-              onChange: handleChange,
-              required: true,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                disabled: true,
-                children: "Select Role"
-              }), roles.map(function (role) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                  value: role.id,
-                  children: role.role_name
-                }, role.id);
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              name: "gender",
-              value: formData.gender,
-              onChange: handleChange,
-              required: true,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                disabled: true,
-                children: "Select Gender"
-              }), genders.map(function (gender) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                  value: gender.id,
-                  children: gender.name
-                }, gender.id);
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              name: "suffix",
-              value: formData.suffix,
-              onChange: handleChange,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                children: "Suffix"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "Jr.",
-                children: "Jr."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "Sr.",
-                children: "Sr."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "II",
-                children: "II"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "III",
-                children: "III"
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            type: "submit",
-            className: "register-submit-btn",
-            children: "Register"
-          })]
+  var handleRegister = function handleRegister(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    setTimeout(function () {
+      showAlert("✅ Registration successful!", "success");
+      setFormData({
+        firstName: "",
+        middleName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        role: "",
+        gender: "",
+        suffix: ""
+      });
+      setIsLoading(false);
+    }, 1500);
+  };
+  var roles = [{
+    id: 1,
+    role_name: "User"
+  }, {
+    id: 2,
+    role_name: "Admin"
+  }];
+  var genders = [{
+    id: 1,
+    name: "Male"
+  }, {
+    id: 2,
+    name: "Female"
+  }, {
+    id: 3,
+    name: "Other"
+  }];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "register-wrapper",
+      children: [alert.message && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "custom-alert ".concat(alert.type),
+        children: [alert.message, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "alert-close-btn",
+          onClick: closeAlert,
+          children: "\xD7"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "register-image-section"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "register-card",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "register-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "register-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+              className: "register-title",
+              children: "Create New Account"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "register-subtitle",
+              children: "Please fill in the details to register"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+            onSubmit: handleRegister,
+            className: "register-form-container",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "register-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "register-input-group",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "text",
+                  name: "firstName",
+                  placeholder: "First Name",
+                  value: formData.firstName,
+                  onChange: handleChange,
+                  required: true
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "register-input-group",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "text",
+                  name: "middleName",
+                  placeholder: "Middle Name",
+                  value: formData.middleName,
+                  onChange: handleChange
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "register-input-group",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                type: "text",
+                name: "lastName",
+                placeholder: "Last Name",
+                value: formData.lastName,
+                onChange: handleChange,
+                required: true
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "register-input-group",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                type: "email",
+                name: "email",
+                placeholder: "Email",
+                value: formData.email,
+                onChange: handleChange,
+                required: true
+              })
+            }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              className: "register-error",
+              children: passwordError
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "register-password-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                type: showPassword ? "text" : "password",
+                name: "password",
+                placeholder: "Password",
+                value: formData.password,
+                onChange: handleChange,
+                required: true
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "password-toggle",
+                onClick: function onClick() {
+                  return setShowPassword(!showPassword);
+                },
+                children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEye, {})
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "register-input-group",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+                name: "role",
+                value: formData.role,
+                onChange: handleChange,
+                required: true,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  value: "",
+                  disabled: true,
+                  children: "Select Role"
+                }), roles.map(function (role) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                    value: role.id,
+                    children: role.role_name
+                  }, role.id);
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "register-input-group",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+                name: "gender",
+                value: formData.gender,
+                onChange: handleChange,
+                required: true,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  value: "",
+                  disabled: true,
+                  children: "Select Gender"
+                }), genders.map(function (gender) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                    value: gender.id,
+                    children: gender.name
+                  }, gender.id);
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "register-input-group",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+                name: "suffix",
+                value: formData.suffix,
+                onChange: handleChange,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  value: "",
+                  children: "Suffix"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  value: "Jr.",
+                  children: "Jr."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  value: "Sr.",
+                  children: "Sr."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  value: "II",
+                  children: "II"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  value: "III",
+                  children: "III"
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              type: "submit",
+              className: "register-submit-btn",
+              disabled: isLoading,
+              children: isLoading ? 'Registering...' : 'Register'
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "register-login",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+              children: ["Already have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+                to: "/login",
+                className: "register-login-link",
+                children: "Login"
+              })]
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "register-image-section"
+        })]
       })]
     })]
   });
@@ -18319,7 +18276,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_sideimg_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".login-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #eaf1f8;\n}\n\n.login-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #fff;\n  border-radius: 0;\n  box-shadow: none;\n}\n\n.login-content {\n  flex: 1;\n  padding: 40px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #fff;\n}\n\n.login-header {\n  text-align: center;\n  margin-bottom: 30px;\n}\n\n.login-title {\n  font-size: 24px;\n  font-weight: 600;\n  margin-bottom: 8px;\n  color: #1a1a1a;\n}\n\n.login-subtitle {\n  font-size: 14px;\n  color: #666;\n  margin: 0;\n}\n\n.login-form-container {\n  width: 100%;\n  max-width: 400px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.login-input-group,\n.login-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.login-input-group input,\n.login-password-group input {\n  width: 100%;\n  padding: 12px;\n  border: 1px solid #e0e0e0;\n  border-radius: 6px;\n  font-size: 16px;\n  color: #333;\n  background: #fff;\n}\n.login-input-group input:focus,\n.login-password-group input:focus {\n  outline: none;\n  border-color: #0D7A5F;\n}\n.login-input-group input::-moz-placeholder, .login-password-group input::-moz-placeholder {\n  color: #999;\n}\n.login-input-group input::placeholder,\n.login-password-group input::placeholder {\n  color: #999;\n}\n\n.forgot-password {\n  display: block;\n  text-align: right;\n  margin-top: 8px;\n  font-size: 13px;\n  color: #666;\n  text-decoration: none;\n}\n.forgot-password:hover {\n  color: #0D7A5F;\n  text-decoration: underline;\n}\n\n.login-submit-btn {\n  width: 100%;\n  padding: 12px;\n  background: #0D7A5F;\n  color: #ffffff;\n  font-size: 16px;\n  font-weight: 500;\n  border: none;\n  cursor: pointer;\n  border-radius: 6px;\n  margin-top: 20px;\n  transition: background 0.2s;\n}\n.login-submit-btn:hover {\n  background: rgb(8.0888888889, 75.9111111111, 59.1111111111);\n}\n\n.login-signup {\n  margin-top: 20px;\n  font-size: 14px;\n  text-align: center;\n}\n.login-signup .login-signup-link {\n  color: #0D7A5F;\n  text-decoration: none;\n  font-weight: 500;\n}\n.login-signup .login-signup-link:hover {\n  text-decoration: underline;\n}\n\n.login-error {\n  color: #ff4444;\n  font-size: 14px;\n  margin-bottom: 15px;\n  text-align: center;\n}\n\n.login-image-section {\n  flex: 1;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") center/cover no-repeat;\n  background-color: #0D7A5F;\n}\n\n/* Responsive Design */\n@media (max-width: 768px) {\n  .login-card {\n    flex-direction: column;\n    height: 100%;\n  }\n  .login-content {\n    padding: 30px;\n    width: 100%;\n  }\n  .login-form-container {\n    max-width: 100%;\n    padding: 0 20px;\n  }\n  .login-image-section {\n    height: 40vh;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".login-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #eaf1f8;\n}\n\n.login-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #fff;\n  border-radius: 0;\n  box-shadow: none;\n}\n\n.login-content {\n  flex: 1;\n  padding: 40px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #fff;\n}\n\n.login-header {\n  text-align: center;\n  margin-bottom: 30px;\n}\n\n.login-title {\n  font-size: 24px;\n  font-weight: 600;\n  margin-bottom: 8px;\n  color: #1a1a1a;\n}\n\n.login-subtitle {\n  font-size: 14px;\n  color: #666;\n  margin: 0;\n}\n\n.login-form-container {\n  width: 100%;\n  max-width: 400px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.login-input-group,\n.login-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.login-input-group input,\n.login-password-group input {\n  width: 100%;\n  padding: 12px 40px 12px 12px;\n  border: 1px solid #e0e0e0;\n  border-radius: 6px;\n  font-size: 16px;\n  color: #333;\n  background: #fff;\n}\n.login-input-group input:focus,\n.login-password-group input:focus {\n  outline: none;\n  border-color: #0D7A5F;\n  border-width: 2px;\n}\n.login-input-group input::-moz-placeholder, .login-password-group input::-moz-placeholder {\n  color: #999;\n}\n.login-input-group input::placeholder,\n.login-password-group input::placeholder {\n  color: #999;\n}\n\n.login-password-group {\n  position: relative;\n}\n.login-password-group .password-toggle {\n  position: absolute;\n  right: 12px;\n  top: 14px;\n  cursor: pointer;\n  color: #666;\n  font-size: 16px;\n  z-index: 2;\n}\n.login-password-group .forgot-password {\n  display: block;\n  text-align: right;\n  margin-top: 8px;\n  font-size: 13px;\n  color: #666;\n  text-decoration: none;\n}\n.login-password-group .forgot-password:hover {\n  color: #0D7A5F;\n  text-decoration: underline;\n}\n\n.login-submit-btn {\n  width: 100%;\n  padding: 12px;\n  background: #0D7A5F;\n  color: #ffffff;\n  font-size: 16px;\n  font-weight: 500;\n  border: none;\n  cursor: pointer;\n  border-radius: 6px;\n  margin-top: 20px;\n  transition: background 0.2s;\n}\n.login-submit-btn:hover {\n  background: rgb(8.0888888889, 75.9111111111, 59.1111111111);\n}\n\n.login-signup {\n  margin-top: 20px;\n  font-size: 14px;\n  text-align: center;\n}\n.login-signup .login-signup-link {\n  color: #0D7A5F;\n  text-decoration: none;\n  font-weight: 500;\n}\n.login-signup .login-signup-link:hover {\n  text-decoration: underline;\n}\n\n.login-error {\n  color: #ff4444;\n  font-size: 14px;\n  margin-bottom: 15px;\n  text-align: center;\n}\n\n.login-image-section {\n  flex: 1;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") center/cover no-repeat;\n  background-color: #0D7A5F;\n}\n\n/* Responsive Design */\n@media (max-width: 768px) {\n  .login-card {\n    flex-direction: column;\n    height: 100%;\n  }\n  .login-content {\n    padding: 30px;\n    width: 100%;\n  }\n  .login-form-container {\n    max-width: 100%;\n    padding: 0 20px;\n  }\n  .login-image-section {\n    height: 40vh;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -18341,15 +18298,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _img_vero_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/vero.svg */ "./resources/sass/img/vero.svg");
+/* harmony import */ var _img_sideimg_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/sideimg.svg */ "./resources/sass/img/sideimg.svg");
 // Imports
 
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_vero_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_sideimg_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".register-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #eaf1f8; /* Updated to match login.scss */\n}\n\n.register-card {\n  display: flex;\n  width: 100vw;\n  height: 100vh;\n  border-radius: 0;\n  overflow: hidden;\n  box-shadow: none;\n}\n\n.register-content {\n  background: #111; /* Updated to match login.scss */\n  padding: 60px;\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  color: white;\n}\n\n.register-title {\n  color: white;\n  font-size: 24px;\n  margin-bottom: 20px;\n}\n\n.register-form-container {\n  display: flex;\n  flex-direction: column;\n}\n\n.register-row {\n  display: flex;\n  gap: 15px;\n}\n\ninput, select {\n  width: 100%;\n  padding: 14px;\n  margin-bottom: 15px;\n  border: 1px solid #666; /* Updated border color */\n  background: transparent;\n  color: white;\n  border-radius: 6px;\n}\n\nselect {\n  background-color: #222; /* Updated dropdown background */\n  color: white;\n}\n\noption {\n  background-color: #222; /* Ensures dropdown options are visible */\n  color: white;\n}\n\n.register-password-group {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.register-password-group input {\n  width: 100%;\n  padding: 14px;\n  padding-right: 45px;\n  border: 1px solid #666;\n  background: transparent;\n  color: white;\n  border-radius: 6px;\n  font-size: 16px;\n}\n.register-password-group .password-toggle {\n  position: absolute;\n  right: 15px;\n  top: 40%;\n  transform: translateY(-50%);\n  cursor: pointer;\n  font-size: 18px;\n  color: #666;\n  transition: color 0.3s ease;\n}\n.register-password-group .password-toggle:hover {\n  color: #fff;\n}\n\n.register-dropdowns {\n  display: flex;\n  gap: 15px;\n}\n\n.register-submit-btn {\n  background: red;\n  color: white;\n  padding: 14px;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  font-weight: bold;\n  transition: 0.3s;\n}\n\n.register-submit-btn:hover {\n  background: darkred;\n}\n\n.register-image-section {\n  width: 50%;\n  height: 100vh; /* Matched size to login.scss */\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") center/cover;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.register-brand {\n  font-size: 50px;\n  font-weight: bold;\n  color: white;\n  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);\n}\n\n@media (max-width: 768px) {\n  .register-card {\n    flex-direction: column;\n  }\n  .register-content {\n    width: 100%;\n    padding: 40px;\n  }\n  .register-image-section {\n    width: 100%;\n    height: 40vh;\n  }\n}\n.custom-alert {\n  position: fixed;\n  top: 50px;\n  left: 50%;\n  transform: translateX(-50%);\n  background: rgba(0, 0, 0, 0.8);\n  color: white;\n  padding: 15px 20px;\n  border-radius: 6px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n  min-width: 300px;\n  max-width: 500px;\n  z-index: 1000;\n  animation: fadeIn 0.3s ease-in-out;\n}\n.custom-alert.success {\n  background: #28a745;\n}\n.custom-alert.error {\n  background: #dc3545;\n}\n.custom-alert .alert-close-btn {\n  background: transparent;\n  border: none;\n  color: white;\n  font-size: 20px;\n  cursor: pointer;\n  transition: 0.2s;\n}\n.custom-alert .alert-close-btn:hover {\n  color: #ddd;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translate(-50%, -20px);\n  }\n  to {\n    opacity: 1;\n    transform: translate(-50%, 0);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".register-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #eaf1f8;\n}\n\n.register-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #fff;\n  border-radius: 0;\n  box-shadow: none;\n}\n\n.register-content {\n  flex: 1;\n  padding: 40px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: flex-start;\n  background: #fff;\n  width: 100%;\n}\n\n.register-header {\n  text-align: left;\n  margin-bottom: 30px;\n}\n\n.register-title {\n  font-size: 24px;\n  font-weight: 600;\n  margin-bottom: 8px;\n  color: #1a1a1a;\n}\n\n.register-subtitle {\n  font-size: 14px;\n  color: #666;\n  margin: 0;\n}\n\n.register-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n}\n\n.register-row {\n  display: flex;\n  width: 100%;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n.register-row .register-input-group {\n  flex: 1;\n  min-width: 0;\n}\n\n.register-input-group,\n.register-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.register-input-group input, .register-input-group select,\n.register-password-group input,\n.register-password-group select {\n  width: 100%;\n  max-width: none;\n  padding: 12px 16px;\n  border: 1px solid #e0e0e0;\n  border-radius: 6px;\n  font-size: 16px;\n  color: #333;\n  background: #fff;\n  box-sizing: border-box;\n}\n.register-input-group input:focus, .register-input-group select:focus,\n.register-password-group input:focus,\n.register-password-group select:focus {\n  outline: none;\n  border-color: #0D7A5F;\n  border-width: 2px; /* Increased thickness to 2px */\n}\n.register-input-group input::-moz-placeholder, .register-input-group select::-moz-placeholder, .register-password-group input::-moz-placeholder, .register-password-group select::-moz-placeholder {\n  color: #999;\n}\n.register-input-group input::placeholder, .register-input-group select::placeholder,\n.register-password-group input::placeholder,\n.register-password-group select::placeholder {\n  color: #999;\n}\n.register-input-group select,\n.register-password-group select {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  padding-right: 40px;\n  background: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%23999' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/></svg>\") no-repeat right 12px center;\n}\n\n.register-password-group {\n  position: relative;\n}\n.register-password-group .password-toggle {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  cursor: pointer;\n  color: #666;\n}\n\n.register-submit-btn {\n  width: 100%;\n  padding: 12px;\n  background: #0D7A5F;\n  color: #ffffff;\n  font-size: 16px;\n  font-weight: 500;\n  border: none;\n  cursor: pointer;\n  border-radius: 6px;\n  margin-top: 20px;\n  transition: background 0.2s;\n}\n.register-submit-btn:hover {\n  background: rgb(8.0888888889, 75.9111111111, 59.1111111111);\n}\n.register-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n}\n\n.register-login {\n  margin-top: 20px;\n  font-size: 14px;\n  text-align: left;\n}\n.register-login .register-login-link {\n  color: #0D7A5F;\n  text-decoration: none;\n  font-weight: 500;\n}\n.register-login .register-login-link:hover {\n  text-decoration: underline;\n}\n\n.register-error {\n  color: #ff4444;\n  font-size: 14px;\n  margin-bottom: 15px;\n  text-align: left;\n}\n\n.register-image-section {\n  flex: 1;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") center/cover no-repeat;\n  background-color: #0D7A5F;\n}\n\n.custom-alert {\n  position: fixed;\n  top: 20px;\n  right: 20px;\n  padding: 15px 20px;\n  border-radius: 6px;\n  display: flex;\n  align-items: center;\n  z-index: 1000;\n}\n.custom-alert.success {\n  background: #0D7A5F;\n  color: #fff;\n}\n.custom-alert.error {\n  background: #ff4444;\n  color: #fff;\n}\n.custom-alert .alert-close-btn {\n  margin-left: 10px;\n  background: none;\n  border: none;\n  color: #fff;\n  font-size: 16px;\n  cursor: pointer;\n}\n\n/* Responsive Design */\n@media (max-width: 768px) {\n  .register-card {\n    flex-direction: column;\n    height: 100%;\n  }\n  .register-content {\n    padding: 30px;\n    width: 100%;\n    align-items: flex-start;\n  }\n  .register-form-container {\n    padding: 0 20px;\n  }\n  .register-row {\n    flex-direction: column;\n    gap: 15px;\n  }\n  .register-input-group,\n  .register-password-group {\n    width: 100%;\n  }\n  .register-submit-btn {\n    max-width: 100%;\n  }\n  .register-image-section {\n    height: 40vh;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -19066,21 +19023,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/sideimg.svg?a66e7df357ba38759b3a4331a0253b76");
-
-/***/ }),
-
-/***/ "./resources/sass/img/vero.svg":
-/*!*************************************!*\
-  !*** ./resources/sass/img/vero.svg ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/vero.svg?bd7bc76cd861d9655cce421113af0471");
 
 /***/ }),
 

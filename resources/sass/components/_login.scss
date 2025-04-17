@@ -60,7 +60,7 @@
 
   input {
     width: 100%;
-    padding: 12px;
+    padding: 12px 40px 12px 12px; // Added right padding for icon
     border: 1px solid #e0e0e0;
     border-radius: 6px;
     font-size: 16px;
@@ -70,6 +70,7 @@
     &:focus {
       outline: none;
       border-color: #0D7A5F;
+      border-width: 2px;
     }
 
     &::placeholder {
@@ -78,17 +79,31 @@
   }
 }
 
-.forgot-password {
-  display: block;
-  text-align: right;
-  margin-top: 8px;
-  font-size: 13px;
-  color: #666;
-  text-decoration: none;
+.login-password-group {
+  position: relative;
 
-  &:hover {
-    color: #0D7A5F;
-    text-decoration: underline;
+  .password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 14px; // Precise pixel alignment
+    cursor: pointer;
+    color: #666;
+    font-size: 16px; // Matches input text size
+    z-index: 2;
+  }
+
+  .forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+    text-decoration: none;
+
+    &:hover {
+      color: #0D7A5F;
+      text-decoration: underline;
+    }
   }
 }
 
