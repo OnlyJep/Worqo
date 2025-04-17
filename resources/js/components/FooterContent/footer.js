@@ -4,7 +4,7 @@ import './../../../sass/components/footer.scss';
 // Import social media SVGs
 import FacebookIcon from '../../../../resources/sass/img/iconsAssets/Facebook.svg';
 import InstagramIcon from '../../../../resources/sass/img/iconsAssets/Instagram.svg';
-import XIcon from '../../../../resources/sass/img/iconsAssets/X.svg';
+import XIcon from '../../../../resources/sass/img/iconsAssets/twitter.svg';
 import TikTokIcon from '../../../../resources/sass/img/iconsAssets/Tiktok.svg';
 import LinkedInIcon from '../../../../resources/sass/img/iconsAssets/LinkedIn.svg';
 

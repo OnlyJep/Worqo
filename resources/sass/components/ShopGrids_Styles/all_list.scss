@@ -4,16 +4,18 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  padding: 20px; /* Add padding for spacing */
 }
 
 .all-listing-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(200px, 1fr)); /* Changed to 5 columns */
-  gap: 30px;
+  grid-template-columns: repeat(5, minmax(200px, 1fr)); /* 5 columns */
+  gap: 46px;
   justify-items: center;
   margin: 0 auto;
   width: 100%;
-  padding: 0; /* Remove padding here, let the parent handle it */
+  max-width: 1200px; /* Set a max-width to align with "Sort by" */
+  padding: 0;
 
   .listing-item {
     background: #ffffff;
@@ -21,13 +23,14 @@
     padding: 0;
     border: 2px solid #0D7A5F;
     transition: transform 0.3s ease;
-    width: 100%;
-    max-width: 250px; /* Reduced max-width to fit 5 items */
+    width: 111%;
+    max-width: 250px; /* Matches old code */
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
     position: relative;
+    cursor: pointer;
 
     &:hover {
       transform: translateY(-5px);
@@ -106,7 +109,7 @@
     bottom: 5px;
 
     &:hover {
-      background: darken(#138c6d, 10%);
+      background: darken(#0D7A5F, 10%);
     }
   }
 }
@@ -114,7 +117,7 @@
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1200px) {
   .all-listing-grid {
-    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* 4 items on smaller screens */
+    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* 4 items */
   }
 }
 

@@ -37,7 +37,7 @@ const HomePage = () => {
           <div className="search-bar">
             <input
               type="text"
-              placeholder="Search for Second-Hand Treasures"
+              placeholder="Search for Second-Hand Items"
             />
             <button className="search-button">
               <IconSearch size={24} />

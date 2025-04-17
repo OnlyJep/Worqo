@@ -1,0 +1,95 @@
+.banner-container {
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    margin-top: 78px;
+  
+    .banner-slider {
+      display: flex;
+      width: 100%;
+      height: 160px;
+  
+      .banner-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        &.active {
+          opacity: 1;
+        }
+  
+        .banner-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  
+    .banner-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+  
+      .dot {
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+  
+        &.active {
+          opacity: 1;
+          background-color: #ffd700; // Yellow color for active dot
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .banner-container {
+      .banner-slider {
+        height: 100px;
+      }
+  
+      .banner-dots {
+        bottom: 8px;
+  
+        .dot {
+          width: 8px;
+          height: 8px;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .banner-container {
+      .banner-slider {
+        height: 80px;
+      }
+  
+      .banner-dots {
+        bottom: 6px;
+  
+        .dot {
+          width: 6px;
+          height: 6px;
+        }
+      }
+    }
+  }

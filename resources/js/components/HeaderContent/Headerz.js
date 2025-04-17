@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './../../../sass/components/Headerz.scss';
 import { IconBell, IconShoppingBag, IconMenu2 } from '@tabler/icons-react';
-
-// Import the SVG as a URL (not as a component)
 import logo from '../../../../resources/sass/img/LogoAssets/next_logo.svg';
+import OrdersModal from '../CartModals/orders_modal';
+import Loader from '../LoaderContent/loader'; // Import the Loader component
 
 const Headerz = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   // Navigation functions
@@ -19,9 +25,18 @@ const Headerz = () => {
   const goToBrowse = () => navigate('/browse');
   const goToSell = () => navigate('/sell');
   const goToAbout = () => navigate('/about');
+  
+  const goToLogin = () => {
+    setIsLoading(true); // Show loader
+    setTimeout(() => {
+      navigate('/login');
+      setIsLoading(false); // Hide loader after navigation
+    }, 1000); // Adjust delay as needed
+  };
 
   return (
     <header className="headerz">
+      {isLoading && <Loader />} {/* Show loader when loading */}
       <div className="headerz-container">
         {/* Mobile Menu Button */}
         <div className="mobile-menu">
@@ -44,10 +59,19 @@ const Headerz = () => {
         {/* Right Side: Icons and Login */}
         <div className="header-actions">
           <IconBell size={24} className="header-icon" />
-          <IconShoppingBag size={24} className="header-icon" />
-          <button className="login-btn">Login/Signup</button>
+          <IconShoppingBag
+            size={24}
+            className="header-icon"
+            onClick={toggleModal}
+          />
+          <button className="login-btn" onClick={goToLogin}>
+            Login/Signup
+          </button>
         </div>
       </div>
+
+      {/* OrdersModal */}
+      <OrdersModal isOpen={isModalOpen} onClose={toggleModal} />
     </header>
   );
 };

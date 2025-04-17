@@ -8,6 +8,20 @@ import Register from "./components/register/Register";
 import Homepage from "./components/Homepage/homepage";
 import Headerz from "./components/HeaderContent/Headerz";
 import Browse from "./components/ShopContent/browse";
+import Cart from "./components/CartContent/cart";
+import Complete from "./components/OrdersContent/order_complete";
+import Orders_modal from "./components/CartModals/orders_modal";
+import Pay from "./components/Payment&Info/pay";
+import Profile from "./components/Profile/profile";
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,6 +39,14 @@ export default function Routers() {
         <Route path="homepage" element={<Homepage />} />
         <Route path="headerz" element={<Headerz />} />
         <Route path="browse" element={<Browse />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="complete" element={<Complete />} />
+        <Route path="orders_modal" element={<Orders_modal />} />
+        <Route path="pay" element={<Pay />} />
+        <Route path="profile" element={<Profile />} />
+      
+        
+      
       </Routes>
     </Router>
   );

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import './../../../sass/components/browse.scss'; // Updated SCSS import
+import './../../../sass/components/browse.scss';
 import Headerz from "../HeaderContent/Headerz";
+import Banner from "../AdsContent/banner"; // Importing the Banner component
 import AllListing from '../ShopGrids/all_list';
 import { IconChevronDown } from '@tabler/icons-react';
 
-const Browse = () => { // Renamed from Shop to Browse
+const Browse = () => {
   const [selectedCategories, setSelectedCategories] = useState(["All"]);
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
   const [selectedSortOption, setSelectedSortOption] = useState("Sort by");
@@ -37,14 +38,10 @@ const Browse = () => { // Renamed from Shop to Browse
   const itemCount = 24;
 
   return (
-    <div className="browse"> {/* Updated class name */}
+    <div className="browse">
       <Headerz />
-
-      <div className="advertisement-banner">
-        <div className="ad-placeholder"></div>
-      </div>
-
-      <div className="browse-content"> {/* Updated class name */}
+      <Banner /> {/* Adding the Banner component below Headerz */}
+      <div className="browse-content">
         <h2 className="category-title">Furniture ({itemCount})</h2>
 
         <div className="content-wrapper">
@@ -147,4 +144,4 @@ const Browse = () => { // Renamed from Shop to Browse
   );
 };
 
-export default Browse; // Updated export
+export default Browse;
