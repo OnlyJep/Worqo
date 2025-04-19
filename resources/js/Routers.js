@@ -13,43 +13,34 @@ import Complete from "./components/OrdersContent/order_complete";
 import Orders_modal from "./components/CartModals/orders_modal";
 import Pay from "./components/Payment&Info/pay";
 import Profile from "./components/Profile/profile";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import AdminDashboard from "./components/adminside/admindashboard/admindashboard";
+import Products from "./components/adminside/products/Products";
+import Orders from "./components/adminside/orders/Orders";
+import Users from "./components/adminside/users/Users";
+import Categories from "./components/adminside/categories/Categories";
+import Roles from "./components/adminside/roles/Roles";
 
 export default function Routers() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="homepage" />} /> {/* Default route */}
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="homepage" element={<Homepage />} />
-        <Route path="headerz" element={<Headerz />} />
-        <Route path="browse" element={<Browse />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="complete" element={<Complete />} />
-        <Route path="orders_modal" element={<Orders_modal />} />
-        <Route path="pay" element={<Pay />} />
-        <Route path="profile" element={<Profile />} />
-      
-      
-        
-      
+        <Route path="/" element={<Navigate to="/homepage" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/homepage" element={<Homepage />} />
+        <Route path="/headerz" element={<Headerz />} />
+        <Route path="/browse" element={<Browse />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/complete" element={<Complete />} />
+        <Route path="/orders_modal" element={<Orders_modal />} />
+        <Route path="/pay" element={<Pay />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/products" element={<Products />} />
+        <Route path="/admin/orders" element={<Orders />} />
+        <Route path="/admin/users" element={<Users />} />
+        <Route path="/admin/categories" element={<Categories />} />
+        <Route path="/admin/roles" element={<Roles />} />
       </Routes>
     </Router>
   );
