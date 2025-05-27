@@ -4,44 +4,80 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #eaf1f8;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .register-card {
   display: flex;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: #ffffff;
   border-radius: 0;
   box-shadow: none;
+  overflow: hidden;
+}
+
+.register-image-section {
+  flex: 1;
+  background: #001E40 url("./../img/worqo_side.svg") no-repeat center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+
+  .register-logo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 90%;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
 }
 
 .register-content {
   flex: 1;
-  padding: 40px;
+  padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  background: #fff;
+  align-items: center;
+  background: #ffffff;
+}
+
+.register-container {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
   width: 100%;
+  max-width: 450px;
+  transition: transform 0.3s ease;
 }
 
 .register-header {
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  width: 100%;
 }
 
 .register-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #1a1a1a;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000000;
 }
 
 .register-subtitle {
-  font-size: 14px;
-  color: #666;
+  font-size: 18px;
+  color: #666666;
   margin: 0;
 }
 
@@ -49,53 +85,60 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .register-row {
-  display: flex;
   width: 100%;
-  gap: 15px;
-  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 
   .register-input-group {
     flex: 1;
-    min-width: 0;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px 24px 12px 12px;
+      font-size: 16px;
+    }
   }
 }
 
 .register-input-group,
 .register-password-group {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   position: relative;
 
-  input, select {
+  input,
+  select {
     width: 100%;
-    max-width: none;
-    padding: 12px 16px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
+    padding: 12px 40px 12px 12px; /* Adjusted for icon space */
+    border: 2px solid #001E40;
+    border-radius: 12px;
     font-size: 16px;
-    color: #333;
-    background: #fff;
-    box-sizing: border-box;
+    color: #000000;
+    background: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    appearance: none; /* Remove default arrow */
 
     &:focus {
       outline: none;
-      border-color: #0D7A5F;
-      border-width: 2px; /* Increased thickness to 2px */
+      border-color: #001E40;
+      border-width: 3px;
+      box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);
     }
 
     &::placeholder {
-      color: #999;
+      color: #999999;
     }
-  }
-
-  select {
-    appearance: none;
-    padding-right: 40px;
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%23999' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/></svg>") no-repeat right 12px center;
   }
 }
 
@@ -105,63 +148,103 @@
   .password-toggle {
     position: absolute;
     right: 12px;
+    top: 14px;
+    cursor: pointer;
+    color: #666666;
+    font-size: 18px;
+    z-index: 2;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #001E40;
+    }
+  }
+}
+
+.register-select-group {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+
+  select {
+    width: 100%;
+    padding: 12px 40px 12px 12px; /* Space for icon */
+    border: 2px solid #001E40;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #000000;
+    background: #ffffff;
+    appearance: none; /* Remove default arrow */
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: #001E40;
+      border-width: 3px;
+      box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);
+    }
+  }
+
+  .select-icon {
+    position: absolute;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    cursor: pointer;
-    color: #666;
+    color: #666666;
+    font-size: 16px;
+    pointer-events: none; /* Prevent icon from interfering with select */
   }
 }
 
 .register-submit-btn {
   width: 100%;
-  padding: 12px;
-  background: #0D7A5F;
+  padding: 16px;
+  background: #001E40;
   color: #ffffff;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   border: none;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 12px;
   margin-top: 20px;
-  transition: background 0.2s;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
 
   &:hover {
-    background: darken(#0D7A5F, 10%);
+    background: #003366;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);
   }
 
   &:disabled {
     background: #cccccc;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
   }
 }
 
 .register-login {
   margin-top: 20px;
   font-size: 14px;
-  text-align: left;
+  text-align: center;
 
   .register-login-link {
-    color: #0D7A5F;
-    text-decoration: none;
+    color: #001E40;
+    text-decoration: underline;
     font-weight: 500;
 
     &:hover {
-      text-decoration: underline;
+      color: #003366;
     }
   }
 }
 
 .register-error {
-  color: #ff4444;
-  font-size: 14px;
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.register-image-section {
-  flex: 1;
-  background: url("./../img/sideimg.svg") center/cover no-repeat;
-  background-color: #0D7A5F;
+  color: #ff0000;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
 }
 
 .custom-alert {
@@ -169,63 +252,187 @@
   top: 20px;
   right: 20px;
   padding: 15px 20px;
-  border-radius: 6px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   z-index: 1000;
+  min-width: 200px;
+  max-width: 400px;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
 
   &.success {
-    background: #0D7A5F;
-    color: #fff;
+    background: #e6ffed;
+    color: #2e7d32;
+    border: 1px solid #4caf50;
   }
 
   &.error {
-    background: #ff4444;
-    color: #fff;
+    background: #ffe6e6;
+    color: #d32f2f;
+    border: 1px solid #f44336;
   }
 
   .alert-close-btn {
-    margin-left: 10px;
     background: none;
     border: none;
-    color: #fff;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
+    color: #666666;
+    margin-left: 10px;
+
+    &:hover {
+      color: #000000;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .register-wrapper {
+    background: #ffffff;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
   .register-card {
     flex-direction: column;
-    height: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .register-image-section {
+    height: 200px;
+    width: 100%;
+    background: url("./../img/worqo_logo.svg") no-repeat center top;
+    background-size: contain;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .register-logo {
+      max-width: 250px;
+      max-height: 150px;
+    }
   }
 
   .register-content {
-    padding: 30px;
+    padding: 20px;
     width: 100%;
-    align-items: flex-start;
+    justify-content: flex-start;
   }
 
-  .register-form-container {
-    padding: 0 20px;
+  .register-container {
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    margin: 0 20px;
+  }
+
+  .register-header {
+    padding: 0;
+  }
+
+  .register-title {
+    font-size: 28px;
+  }
+
+  .register-subtitle {
+    font-size: 16px;
   }
 
   .register-row {
     flex-direction: column;
-    gap: 15px;
+
+    .register-input-group {
+      margin-right: 0;
+      margin-bottom: 20px;
+
+      input,
+      select {
+        padding: 10px 35px 10px 10px;
+        font-size: 14px;
+      }
+    }
   }
 
   .register-input-group,
   .register-password-group {
-    width: 100%;
+    input,
+    select {
+      padding: 10px 35px 10px 10px;
+      font-size: 14px;
+    }
+
+    .password-toggle {
+      top: 12px;
+      font-size: 16px;
+    }
+  }
+
+  .register-select-group .select-icon {
+    font-size: 14px;
+    right: 10px;
   }
 
   .register-submit-btn {
-    max-width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-image-section {
+    height: 180px;
+
+    .register-logo {
+      max-width: 220px;
+      max-height: 120px;
+    }
   }
 
-  .register-image-section {
-    height: 40vh;
+  .register-container {
+    padding: 20px;
+    margin: 0 15px;
+  }
+
+  .register-title {
+    font-size: 24px;
+  }
+
+  .register-subtitle {
+    font-size: 14px;
+  }
+
+  .register-submit-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .register-input-group,
+  .register-password-group {
+    input,
+    select {
+      padding: 8px 30px 8px 8px;
+      font-size: 13px;
+    }
+  }
+
+  .register-select-group .select-icon {
+    font-size: 12px;
+    right: 8px;
   }
 }

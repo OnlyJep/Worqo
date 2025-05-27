@@ -1,70 +1,107 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { MenuOutlined, HomeOutlined, FileAddOutlined, UserOutlined, TeamOutlined, UserSwitchOutlined, StarOutlined, TagsOutlined, CodeOutlined, HistoryOutlined } from '@ant-design/icons';
 import './../../../../sass/components/adminsidebar.scss';
-import { IconHome, IconPackage, IconShoppingCart, IconUsers, IconCategory, IconUserCheck } from '@tabler/icons-react';
 
-const Sidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+const AdminSidebar = ({ children }) => {
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Define navItems
-  const navItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: <IconHome className="icon" />, route: '' },
-    { id: 'products', label: 'Products', icon: <IconPackage className="icon" />, route: '/products' },
-    { id: 'orders', label: 'Orders', icon: <IconShoppingCart className="icon" />, route: '/orders' },
-    { id: 'users', label: 'Users', icon: <IconUsers className="icon" />, route: '/users' },
-    { id: 'categories', label: 'Categories', icon: <IconCategory className="icon" />, route: '/categories' },
-    { id: 'roles', label: 'Roles', icon: <IconUserCheck className="icon" />, route: '/roles' },
-  ];
-
-  // Set activeNav based on current route
-  const [activeNav, setActiveNav] = useState(() => {
-    const currentRoute = location.pathname.replace('/admin', '') || '';
-    return currentRoute === '' ? 'dashboard' : currentRoute.replace('/', '');
-  });
-
-  // Update activeNav when route changes
   useEffect(() => {
-    const currentRoute = location.pathname.replace('/admin', '') || '';
-    setActiveNav(currentRoute === '' ? 'dashboard' : currentRoute.replace('/', ''));
-  }, [location]);
+    const handleResize = () => {
+      if (window.innerWidth >= 769) setIsSidebarExpanded(true);
+      else setIsSidebarExpanded(false);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  const handleNavClick = (id, route) => {
-    setActiveNav(id);
-    navigate(`/admin${route}`);
-    if (window.innerWidth <= 768) {
-      setIsSidebarOpen(false);
-    }
-  };
+  const isActive = (path) => (location.pathname === path ? 'active' : '');
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+    setIsSidebarExpanded(!isSidebarExpanded);
   };
 
   return (
-    <>
-      <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <div className="sidebar-header">
-          <h2>Admin Panel</h2>
+    <div className="main-container">
+      <div className="navbar"></div>
+      <div className={`overlay ${isSidebarExpanded ? 'active' : ''}`} onClick={toggleSidebar}></div>
+      <div className="sidebar-wrapper">
+        <div className={`sidebar ${isSidebarExpanded ? 'expanded' : ''}`}>
+          <div className="sidebar-header">
+            {isSidebarExpanded && (
+              <button className="sidebar-toggle inside" onClick={toggleSidebar}>
+                <MenuOutlined className="toggle-icon" />
+              </button>
+            )}
+          </div>
+
+          <ul>
+            <li className={isActive('/admin')} onClick={() => navigate('/admin')}>
+              <HomeOutlined className="icon" />
+              {isSidebarExpanded && <span>Dashboard</span>}
+            </li>
+            <li className={isActive('/admin/jobs-post')} onClick={() => navigate('/admin/jobs-post')}>
+              <FileAddOutlined className="icon" />
+              {isSidebarExpanded && <span>Jobs Post</span>}
+            </li>
+            <li className={isActive('/admin/users')} onClick={() => navigate('/admin/users')}>
+              <UserOutlined className="icon" />
+              {isSidebarExpanded && <span>Users List</span>}
+            </li>
+            <li className={isActive('/admin/admins')} onClick={() => navigate('/admin/admins')}>
+              <TeamOutlined className="icon" />
+              {isSidebarExpanded && <span>Admin List</span>}
+            </li>
+            <li className={isActive('/admin/workers')} onClick={() => navigate('/admin/workers')}>
+              <UserSwitchOutlined className="icon" />
+              {isSidebarExpanded && <span>Workers List</span>}
+            </li>
+            <li className={isActive('/admin/employers')} onClick={() => navigate('/admin/employers')}>
+              <TeamOutlined className="icon" />
+              {isSidebarExpanded && <span>Employer List</span>}
+            </li>
+            <li className={isActive('/admin/reviews')} onClick={() => navigate('/admin/reviews')}>
+              <StarOutlined className="icon" />
+              {isSidebarExpanded && <span>Reviews</span>}
+            </li>
+
+            <hr className="separator" />
+
+            <div className="admin-settings-header">
+              {isSidebarExpanded && <span>Admin Settings</span>}
+            </div>
+
+            {isSidebarExpanded && (
+              <ul className="admin-settings-list">
+                <li className={isActive('/admin/skill-categories')} onClick={() => navigate('/admin/skill-categories')}>
+                  <TagsOutlined className="icon" />
+                  <span>Skill Categories</span>
+                </li>
+                <li className={isActive('/admin/color-code-manager')} onClick={() => navigate('/admin/color-code-manager')}>
+                  <CodeOutlined className="icon" />
+                  <span>Color Code Manager</span>
+                </li>
+                <li className={isActive('/admin/changelog')} onClick={() => navigate('/admin/changelog')}>
+                  <HistoryOutlined className="icon" />
+                  <span>Changelog</span>
+                </li>
+              </ul>
+            )}
+          </ul>
         </div>
-        <nav className="sidebar-nav">
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={`/admin${item.route}`}
-              className={`nav-item ${activeNav === item.id ? 'active' : ''}`}
-              onClick={() => handleNavClick(item.id, item.route)}
-            >
-              {item.icon}
-              <span>{item.label}</span>
-            </Link>
-          ))}
-        </nav>
-      </aside>
-      {isSidebarOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
-    </>
+        {!isSidebarExpanded && (
+          <button className="sidebar-toggle outside" onClick={toggleSidebar}>
+            <MenuOutlined className="toggle-icon" />
+          </button>
+        )}
+      </div>
+
+      <div className="content">{children}</div>
+    </div>
   );
 };
 
-export default Sidebar;
+export default AdminSidebar;
