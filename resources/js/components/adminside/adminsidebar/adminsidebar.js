@@ -51,15 +51,15 @@ const AdminSidebar = ({ children }) => {
               <UserOutlined className="icon" />
               {isSidebarExpanded && <span>Users List</span>}
             </li>
-            <li className={isActive('/admin/admins')} onClick={() => navigate('/admin/admins')}>
+            <li className={isActive('/admin/adminlist')} onClick={() => navigate('/admin/adminlist')}>
               <TeamOutlined className="icon" />
               {isSidebarExpanded && <span>Admin List</span>}
             </li>
-            <li className={isActive('/admin/workers')} onClick={() => navigate('/admin/workers')}>
+            <li className={isActive('/admin/workerlist')} onClick={() => navigate('/admin/workerlist')}>
               <UserSwitchOutlined className="icon" />
               {isSidebarExpanded && <span>Workers List</span>}
             </li>
-            <li className={isActive('/admin/employers')} onClick={() => navigate('/admin/employers')}>
+            <li className={isActive('/admin/employerlist')} onClick={() => navigate('/admin/employerlist')}>
               <TeamOutlined className="icon" />
               {isSidebarExpanded && <span>Employer List</span>}
             </li>

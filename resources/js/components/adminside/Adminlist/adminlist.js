@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import AdminSidebar from "./../adminsidebar/adminsidebar";
-import TopNavbar from "./../admintopnavbar/admintopnavbar";
+import AdminSidebar from "../adminsidebar/adminsidebar";
+import TopNavbar from "../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaEye, FaTrash } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
-import "./../../../../sass/components/_userlist.scss";
+import "./../../../../sass/components/_adminlist.scss";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -20,25 +20,25 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
-const getFullName = (user) => {
-  const { first_name, middlename, last_name, suffix } = user;
+const getFullName = (admin) => {
+  const { first_name, middlename, last_name, suffix } = admin;
   let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
   if (suffix) fullName += ` ${suffix}`;
   return fullName.trim() || "N/A";
 };
 
-const UsersList = () => {
-  const [users, setUsers] = useState([]);
+const AdminList = () => {
+  const [admins, setAdmins] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedAdmins, setSelectedAdmins] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [userToArchive, setUserToArchive] = useState(null);
+  const [adminToArchive, setAdminToArchive] = useState(null);
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [userToEdit, setUserToEdit] = useState(null);
+  const [adminToEdit, setAdminToEdit] = useState(null);
   const navigate = useNavigate();
 
   const baseImageUrl = "http://127.0.0.1:8000/";
@@ -50,19 +50,19 @@ const UsersList = () => {
         const token = localStorage.getItem("LaravelPassportToken");
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const [activeResponse, archivedResponse] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/users", config),
-          axios.get("http://127.0.0.1:8000/api/users/archived", config),
+          axios.get("http://127.0.0.1:8000/api/admins", config),
+          axios.get("http://127.0.0.1:8000/api/admins/archived", config),
         ]);
 
-        console.log("Active Users:", activeResponse.data);
-        console.log("Archived Users:", archivedResponse.data);
+        console.log("Active Admins:", activeResponse.data);
+        console.log("Archived Admins:", archivedResponse.data);
 
-        const activeUsers = activeResponse.data.map((user) => ({ ...user, archived: false }));
-        const archivedUsers = archivedResponse.data.map((user) => ({ ...user, archived: true }));
-        setUsers([...activeUsers, ...archivedUsers]);
+        const activeAdmins = activeResponse.data.map((admin) => ({ ...admin, archived: false }));
+        const archivedAdmins = archivedResponse.data.map((admin) => ({ ...admin, archived: true }));
+        setAdmins([...activeAdmins, ...archivedAdmins]);
       } catch (error) {
-        console.error("Error fetching users:", error);
-        setUsers([]);
+        console.error("Error fetching admins:", error);
+        setAdmins([]);
       } finally {
         setLoading(false);
       }
@@ -70,123 +70,123 @@ const UsersList = () => {
     fetchData();
   }, []);
 
-  const filteredUsers = users.filter((user) => {
-    const fullName = getFullName(user).toLowerCase();
-    const matchesSearch = fullName.includes(searchTerm.toLowerCase()) || user.email?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = user.archived === showArchived;
+  const filteredAdmins = admins.filter((admin) => {
+    const fullName = getFullName(admin).toLowerCase();
+    const matchesSearch = fullName.includes(searchTerm.toLowerCase()) || admin.email?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesArchived = admin.archived === showArchived;
     return matchesSearch && matchesArchived;
   });
 
-  const toggleSelectUser = (userId) => {
-    setSelectedUsers((prev) =>
-      prev.includes(userId)
-        ? prev.filter((id) => id !== userId)
-        : [...prev, userId]
+  const toggleSelectAdmin = (adminId) => {
+    setSelectedAdmins((prev) =>
+      prev.includes(adminId)
+        ? prev.filter((id) => id !== adminId)
+        : [...prev, adminId]
     );
   };
 
   const toggleSelectAll = () => {
-    if (selectedUsers.length === filteredUsers.length) {
-      setSelectedUsers([]);
+    if (selectedAdmins.length === filteredAdmins.length) {
+      setSelectedAdmins([]);
     } else {
-      setSelectedUsers(filteredUsers.map((user) => user.id));
+      setSelectedAdmins(filteredAdmins.map((admin) => admin.id));
     }
   };
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
     setPagination({ ...pagination, currentPage: 1 });
-    setSelectedUsers([]);
+    setSelectedAdmins([]);
   };
 
-  const handleArchiveClick = (user) => {
-    setUserToArchive(user);
+  const handleArchiveClick = (admin) => {
+    setAdminToArchive(admin);
     setIsConfirmModalOpen(true);
   };
 
   const handleArchiveConfirm = async () => {
-    if (!userToArchive) return;
+    if (!adminToArchive) return;
     try {
       const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/users/${userToArchive.id}/archive`,
+        `http://127.0.0.1:8000/api/admins/${adminToArchive.id}/archive`,
         { archived: true },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.status === 200) {
-        setUsers((prevUsers) =>
-          prevUsers.map((user) =>
-            user.id === userToArchive.id ? { ...user, archived: true } : user
+        setAdmins((prevAdmins) =>
+          prevAdmins.map((admin) =>
+            admin.id === adminToArchive.id ? { ...admin, archived: true } : admin
           )
         );
         setIsConfirmModalOpen(false);
-        setUserToArchive(null);
+        setAdminToArchive(null);
       }
     } catch (error) {
-      console.error("Error archiving user:", error);
+      console.error("Error archiving admin:", error);
     }
   };
 
-  const handleRestoreUser = async (userId) => {
+  const handleRestoreAdmin = async (adminId) => {
     try {
       const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/users/${userId}/archive`,
+        `http://127.0.0.1:8000/api/admins/${adminId}/archive`,
         { archived: false },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.status === 200) {
-        setUsers((prevUsers) =>
-          prevUsers.map((user) =>
-            user.id === userId ? { ...user, archived: false } : user
+        setAdmins((prevAdmins) =>
+          prevAdmins.map((admin) =>
+            admin.id === adminId ? { ...admin, archived: false } : admin
           )
         );
       }
     } catch (error) {
-      console.error("Error restoring user:", error);
+      console.error("Error restoring admin:", error);
     }
   };
 
   const handleBulkAction = async (action) => {
-    if (selectedUsers.length === 0) return;
+    if (selectedAdmins.length === 0) return;
     try {
       const token = localStorage.getItem("LaravelPassportToken");
-      const requests = selectedUsers.map((userId) =>
+      const requests = selectedAdmins.map((adminId) =>
         axios.patch(
-          `http://127.0.0.1:8000/api/users/${userId}/archive`,
+          `http://127.0.0.1:8000/api/admins/${adminId}/archive`,
           { archived: action === "archive" },
           { headers: { Authorization: `Bearer ${token}` } }
         )
       );
       await Promise.all(requests);
-      setUsers((prevUsers) =>
-        prevUsers.map((user) =>
-          selectedUsers.includes(user.id)
-            ? { ...user, archived: action === "archive" }
-            : user
+      setAdmins((prevAdmins) =>
+        prevAdmins.map((admin) =>
+          selectedAdmins.includes(admin.id)
+            ? { ...admin, archived: action === "archive" }
+            : admin
         )
       );
-      setSelectedUsers([]);
+      setSelectedAdmins([]);
     } catch (error) {
-      console.error(`Error ${action}ing users:`, error);
+      console.error(`Error ${action}ing admins:`, error);
     }
   };
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
-    setUserToEdit(null);
+    setAdminToEdit(null);
     setIsModalOpen(true);
   };
 
-  const handleEditClick = async (user) => {
+  const handleEditClick = async (admin) => {
     try {
       const token = localStorage.getItem("LaravelPassportToken");
-      const response = await axios.get(`http://127.0.0.1:8000/api/users/${user.id}`, {
+      const response = await axios.get(`http://127.0.0.1:8000/api/admins/${admin.id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("User data fetched for edit:", response.data);
-      setUserToEdit({
-        ...user,
+      console.log("Admin data fetched for edit:", response.data);
+      setAdminToEdit({
+        ...admin,
         first_name: response.data.first_name || "",
         middlename: response.data.middlename || "",
         last_name: response.data.last_name || "",
@@ -197,21 +197,21 @@ const UsersList = () => {
       setIsEditMode(true);
       setIsModalOpen(true);
     } catch (error) {
-      console.error("Error fetching user for edit:", error);
+      console.error("Error fetching admin for edit:", error);
     }
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
-    setUserToEdit(null);
+    setAdminToEdit(null);
   };
 
-  const handleUserAdd = async (newUser) => {
+  const handleAdminAdd = async (newAdmin) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/register",
-        newUser,
+        "http://127.0.0.1:8000/api/admins/register",
+        newAdmin,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -220,33 +220,33 @@ const UsersList = () => {
       );
       if (response.status === 201) {
         console.log("Response data:", response.data);
-        const addedUser = {
-          id: response.data.user.id,
-          first_name: response.data.user.first_name,
-          middlename: response.data.user.middlename,
-          last_name: response.data.user.last_name,
-          suffix: response.data.user.suffix,
-          email: response.data.user.email,
-          role_name: response.data.user.role_name || ["Employee", "Worker", "Contractor"][response.data.user.role_id - 1],
+        const addedAdmin = {
+          id: response.data.admin.id,
+          first_name: response.data.admin.first_name,
+          middlename: response.data.admin.middlename,
+          last_name: response.data.admin.last_name,
+          suffix: response.data.admin.suffix,
+          email: response.data.admin.email,
+          role_name: response.data.admin.role_name || ["Admin", "Super Admin", "Moderator"][response.data.admin.role_id - 1],
           profile_img: null,
-          created_at: response.data.user.created_at || new Date().toISOString(),
-          updated_at: response.data.user.updated_at || new Date().toISOString(),
+          created_at: response.data.admin.created_at || new Date().toISOString(),
+          updated_at: response.data.admin.updated_at || new Date().toISOString(),
           archived: false,
         };
-        setUsers((prevUsers) => [addedUser, ...prevUsers]);
+        setAdmins((prevAdmins) => [addedAdmin, ...prevAdmins]);
         setIsModalOpen(false);
       }
     } catch (error) {
-      console.error("Error adding user:", error.response?.data || error.message);
+      console.error("Error adding admin:", error.response?.data || error.message);
     }
   };
 
-  const handleUserUpdate = async (updatedUser) => {
+  const handleAdminUpdate = async (updatedAdmin) => {
     try {
       const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/users/${userToEdit.id}`,
-        updatedUser,
+        `http://127.0.0.1:8000/api/admins/${adminToEdit.id}`,
+        updatedAdmin,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -256,28 +256,28 @@ const UsersList = () => {
       );
       if (response.status === 200) {
         console.log("Full response from update:", response.data);
-        setUsers((prevUsers) =>
-          prevUsers.map((user) =>
-            user.id === response.data.id ? { ...response.data } : user
+        setAdmins((prevAdmins) =>
+          prevAdmins.map((admin) =>
+            admin.id === response.data.id ? { ...response.data } : admin
           )
         );
         setIsModalOpen(false);
         setIsEditMode(false);
-        setUserToEdit(null);
-        console.log("User updated successfully:", response.data);
+        setAdminToEdit(null);
+        console.log("Admin updated successfully:", response.data);
         console.log("Expected image URL:", `${baseImageUrl}${response.data.profile_img}`);
       }
     } catch (error) {
-      console.error("Error updating user:", error.response?.data || error.message);
+      console.error("Error updating admin:", error.response?.data || error.message);
       console.log("Full error response:", error.response);
     }
   };
 
-  const usersPerPage = 5;
-  const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
-  const currentUsers = filteredUsers.slice(
-    (pagination.currentPage - 1) * usersPerPage,
-    pagination.currentPage * usersPerPage
+  const adminsPerPage = 5;
+  const totalPages = Math.ceil(filteredAdmins.length / adminsPerPage);
+  const currentAdmins = filteredAdmins.slice(
+    (pagination.currentPage - 1) * adminsPerPage,
+    pagination.currentPage * adminsPerPage
   );
 
   const handlePageChange = (page) => {
@@ -343,26 +343,26 @@ const UsersList = () => {
 
   return (
     <div className="app">
-      <AdminSidebar activeItem="Users List" />
+      <AdminSidebar activeItem="Admin List" />
       <TopNavbar />
-      <div className="userlist-dashboard">
-        <div className="userlist-content">
-          <h2>{showArchived ? "Archived Users" : "Users List"}</h2>
-          <div className="userlist-header">
+      <div className="adminlist-dashboard">
+        <div className="adminlist-content">
+          <h2>{showArchived ? "Archived Admins" : "Admin List"}</h2>
+          <div className="adminlist-header">
             <div className="left-actions">
               <div className="search-container">
                 <IconSearch size={20} className="search-icon" />
                 <input
                   type="text"
                   className="search-input"
-                  placeholder="Search Users"
+                  placeholder="Search Admins"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
             </div>
             <div className="right-actions">
-              {selectedUsers.length > 0 && (
+              {selectedAdmins.length > 0 && (
                 <button
                   className="header-button archive-all-button"
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
@@ -382,14 +382,14 @@ const UsersList = () => {
             </div>
           </div>
 
-          <div className="userlist-table">
+          <div className="adminlist-table">
             <table>
               <thead>
                 <tr>
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedUsers.length === filteredUsers.length && filteredUsers.length > 0 ? (
+                        {selectedAdmins.length === filteredAdmins.length && filteredAdmins.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -408,15 +408,15 @@ const UsersList = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="6" className="loading-row">Loading users...</td>
+                    <td colSpan="6" className="loading-row">Loading admins...</td>
                   </tr>
-                ) : currentUsers.length > 0 ? (
-                  currentUsers.map((user) => (
-                    <tr key={user.id}>
+                ) : currentAdmins.length > 0 ? (
+                  currentAdmins.map((admin) => (
+                    <tr key={admin.id}>
                       <td>
                         <div className="action-icons">
-                          <span onClick={() => toggleSelectUser(user.id)} style={{ cursor: "pointer" }}>
-                            {selectedUsers.includes(user.id) ? (
+                          <span onClick={() => toggleSelectAdmin(admin.id)} style={{ cursor: "pointer" }}>
+                            {selectedAdmins.includes(admin.id) ? (
                               <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
                               <FaSquare className="checkbox-icon" size={16} />
@@ -426,50 +426,50 @@ const UsersList = () => {
                             <FaCheckCircle
                               size={16}
                               className="restore-icon"
-                              onClick={() => handleRestoreUser(user.id)}
+                              onClick={() => handleRestoreAdmin(admin.id)}
                             />
                           ) : (
                             <FaTrash
                               size={16}
                               className="delete-icon"
-                              onClick={() => handleArchiveClick(user)}
+                              onClick={() => handleArchiveClick(admin)}
                             />
                           )}
                           <FaUser
                             size={16}
                             className="edit-icon"
-                            onClick={() => handleEditClick(user)}
+                            onClick={() => handleEditClick(admin)}
                           />
                         </div>
                       </td>
                       <td className="username-cell">
                         <img
-                          src={user.profile_img ? `${baseImageUrl}${user.profile_img}` : `${baseImageUrl}images/pfp/default.png`}
+                          src={admin.profile_img ? `${baseImageUrl}${admin.profile_img}` : `${baseImageUrl}images/pfp/default.png`}
                           alt="Profile"
                           className="profile-picture"
                           onError={(e) => {
-                            console.log("Image load failed for:", `${baseImageUrl}${user.profile_img}`);
+                            console.log("Image load failed for:", `${baseImageUrl}${admin.profile_img}`);
                             e.target.src = `${baseImageUrl}images/pfp/default.png`;
                           }}
                         />
-                        {getFullName(user)}
+                        {getFullName(admin)}
                       </td>
-                      <td>{user.email || "N/A"}</td>
-                      <td>{user.role_name || ["Employee", "Worker", "Contractor"][user.role_id - 1] || "N/A"}</td>
-                      <td>{formatDate(user.created_at)}</td>
-                      <td>{formatDate(user.updated_at)}</td>
+                      <td>{admin.email || "N/A"}</td>
+                      <td>{admin.role_name || ["Admin", "Super Admin", "Moderator"][admin.role_id - 1] || "N/A"}</td>
+                      <td>{formatDate(admin.created_at)}</td>
+                      <td>{formatDate(admin.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="6">No {showArchived ? "archived" : "active"} users found</td>
+                    <td colSpan="6">No {showArchived ? "archived" : "active"} admins found</td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
 
-          <div className="userlist-pagination">
+          <div className="adminlist-pagination">
             <span>Page {pagination.currentPage} of {totalPages}</span>
             <button
               onClick={() => handlePageChange(pagination.currentPage - 1)}
@@ -492,7 +492,7 @@ const UsersList = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{getFullName(userToArchive)}"?</p>
+            <p>Do you want to archive "{getFullName(adminToArchive)}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -505,15 +505,15 @@ const UsersList = () => {
         </div>
       )}
       {isModalOpen && (
-        <UserModal
+        <AdminModal
           onClose={handleModalClose}
-          onSubmit={isEditMode ? handleUserUpdate : handleUserAdd}
+          onSubmit={isEditMode ? handleAdminUpdate : handleAdminAdd}
           isEdit={isEditMode}
-          initialData={userToEdit}
+          initialData={adminToEdit}
         />
       )}
     </div>
   );
 };
 
-export default UsersList;
+export default AdminList;

@@ -139,7 +139,7 @@
 }
 
 .sidebar-toggle {
-  background: #ff0000;
+  background: #1b2e61;
   color: white;
   border: none;
   padding: 10px;
@@ -149,6 +149,7 @@
   transition: left 0.3s ease-in-out, opacity 0.3s ease;
 
   &.outside {
+    background: #164F58;
     position: fixed;
     top: 10px;
     left: 20px;
@@ -157,6 +158,7 @@
   }
 
   &.inside {
+    background: #164F58;
     position: static;
     opacity: 1;
   }

@@ -88,9 +88,10 @@ const AdminDashboard = () => {
         <div className={`content ${isSidebarExpanded ? "sidebar-expanded" : "sidebar-collapsed"}`}>
           <div className="header">
             <h1>Dashboard</h1>
-            <div className="search-bar">
+            <div className="search-container">
               <input
                 type="text"
+                className="search-input"
                 placeholder="Search Job Requests"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -160,6 +161,7 @@ const AdminDashboard = () => {
                     <th>
                       <input
                         type="checkbox"
+                        className="checkbox"
                         onChange={handleSelectAll}
                         checked={selectedJobs.length === jobRequests.length && jobRequests.length > 0}
                       />
@@ -184,6 +186,7 @@ const AdminDashboard = () => {
                         <td>
                           <input
                             type="checkbox"
+                            className="checkbox"
                             checked={selectedJobs.includes(job.id)}
                             onChange={() => handleSelectJob(job.id)}
                           />

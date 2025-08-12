@@ -17,6 +17,11 @@ import AdminDashboard from "./components/adminside/admindashboard/admindashboard
 import Products from "./components/adminside/products/Products";
 import Orders from "./components/adminside/orders/Orders";
 import Users from "./components/adminside/users/Users";
+import Adminlist from "./components/adminside/Adminlist/adminlist"
+import JobPost from "./components/adminside/jobposting/jobposting.js"
+import Workerlists from "./components/adminside/workerlist/workerlist.js";
+import Employerlists from "./components/adminside/employerlist/employerlist.js";
+import ReviewList from "./components/adminside/ReviewList/reviewlist.js";
 import Categories from "./components/adminside/categories/Categories";
 import Roles from "./components/adminside/roles/Roles";
 
@@ -39,6 +44,11 @@ export default function Routers() {
         <Route path="/admin/products" element={<Products />} />
         <Route path="/admin/orders" element={<Orders />} />
         <Route path="/admin/users" element={<Users />} />
+        <Route path="/admin/adminlist" element={<Adminlist />} />
+        <Route path="/admin/jobs-post" element={<JobPost />} />
+        <Route path="/admin/workerlist" element={<Workerlists />} />
+        <Route path="/admin/employerlist" element={<Employerlists />} />
+        <Route path="/admin/reviews" element={<ReviewList />} />
         <Route path="/admin/categories" element={<Categories />} />
         <Route path="/admin/roles" element={<Roles />} />
       </Routes>

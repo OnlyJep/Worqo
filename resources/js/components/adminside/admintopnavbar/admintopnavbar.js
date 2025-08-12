@@ -39,10 +39,10 @@ const TopNavbar = () => {
     <div className="top-navbar">
       <div className="profile">
         <img
-          src="/default-profile.png"
+          src=""
           alt="Profile"
           className="profile-icon"
-          onError={(e) => (e.target.src = "/default-profile.png")}
+          onError={(e) => (e.target.src = "")}
         />
         <div
           className={`dropdown-toggle ${isDropdownOpen ? "open" : ""}`}
