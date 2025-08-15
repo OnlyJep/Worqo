@@ -4,6 +4,7 @@ import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
+import JobPostModal from "./JobPostModal";
 import "./../../../../sass/components/_jobposttable.scss";
 
 const formatDate = (dateString) => {

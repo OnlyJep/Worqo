@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './../../../sass/components/Headerz.scss';
-import { IconBell, IconShoppingBag, IconMenu2 } from '@tabler/icons-react';
-import logo from '../../../../resources/sass/img/LogoAssets/next_logo.svg';
+import { IconBell, IconMessage, IconMenu2 } from '@tabler/icons-react';
 import OrdersModal from '../CartModals/orders_modal';
 import Loader from '../LoaderContent/loader';
 
@@ -22,17 +21,11 @@ const Headerz = () => {
 
   // Navigation functions
   const goToHome = () => navigate('/');
-  const goToBrowse = () => navigate('/browse');
+  const goToServices = () => navigate('/services');
   const goToAbout = () => navigate('/about');
+  const goToFindJobs = () => navigate('/find-jobs');
+  const goToPostJobs = () => navigate('/post-jobs');
   
-  const goToSell = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      navigate('/register', { state: { preSelectedRole: 'seller' } });
-      setIsLoading(false);
-    }, 800);
-  };
-
   const goToLogin = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -51,22 +44,21 @@ const Headerz = () => {
         </div>
 
         {/* Logo */}
-        <div className="logo">
-          <img src={logo} alt="nextUse Logo" className="logo-img" onClick={goToHome} style={{ cursor: 'pointer' }} />
-        </div>
+        <div className="logo" onClick={goToHome} style={{ cursor: 'pointer' }}></div>
 
         {/* Navigation Links */}
         <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <span onClick={goToHome}>Home</span>
-          <span onClick={goToBrowse}>Browse</span>
-          <span onClick={goToSell} className="sell-link">Sell</span>
-          <span onClick={goToAbout}>About us</span>
+          <span onClick={goToServices}>Services</span>
+          <span onClick={goToAbout}>About Us</span>
+          <span onClick={goToFindJobs}>Find Jobs</span>
+          <span onClick={goToPostJobs}>Post Jobs</span>
         </nav>
 
         {/* Right Side: Icons and Login */}
         <div className="header-actions">
           <IconBell size={24} className="header-icon" />
-          <IconShoppingBag
+          <IconMessage
             size={24}
             className="header-icon"
             onClick={toggleModal}
@@ -83,4 +75,4 @@ const Headerz = () => {
   );
 };
 
-export default Headerz;
+export default Headerz; 

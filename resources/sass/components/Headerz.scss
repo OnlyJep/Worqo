@@ -3,63 +3,59 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #1A2A44;
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   .headerz-container {
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 0 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
 
     .mobile-menu {
       display: none;
 
       .menu-icon {
-        color: #051A09;
+        color: #FFFFFF;
         cursor: pointer;
 
         &:hover {
-          color: #2ecc71;
+          color: #00C4CC;
         }
       }
     }
 
     .logo {
-      margin-right: 2rem;
-
-      .logo-img {
-        width: 115px;
-        height: auto;
-        display: block;
-      }
+      display: block;
+      width: 400px; /* Larger logo size for prominence */
+      height: 35px; /* Adjusted height for proportion */
+      background: url('./../img/worqo_logo.svg') no-repeat center;
+      background-size: contain;
+      cursor: pointer;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
-      flex-grow: 0;
+      gap: 1.5rem;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      flex-grow: 1;
+      justify-content: center;
 
-      a,
-      span { /* Apply styles to both <a> and <span> */
-        color: #051A09;
+      span {
+        color: #FFFFFF;
         text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: 500;
-        cursor: pointer; /* Ensure spans are clickable */
+        font-size: 0.9rem;
+        font-weight: 400;
+        cursor: pointer;
 
         &:hover {
-          color: #2ecc71; /* Preserve the hover effect */
-        }
-      }
-
-      &.open {
-        @media (max-width: 768px) {
-          transform: translateX(0);
-          opacity: 1;
-          visibility: visible;
+          color: #00C4CC;
         }
       }
     }
@@ -68,30 +64,32 @@
       margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
+      flex-shrink: 0;
 
       .header-icon {
-        color: #051A09;
+        color: #FFFFFF;
         cursor: pointer;
 
         &:hover {
-          color: #2ecc71;
+          color: #00C4CC;
         }
       }
 
       .login-btn {
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 0.8rem;
         background-color: transparent;
-        color: #0D7A5F;
-        border: 2px solid #0D7A5F;
+        color: #FFFFFF;
+        border: 2px solid #FFFFFF;
         border-radius: 5px;
-        font-weight: 500;
+        font-size: 0.8rem;
+        font-weight: 400;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
 
         &:hover {
-          background-color: #0D7A5F;
-          color: #ffffff;
+          background-color: #FFFFFF;
+          color: #1A2A44;
         }
       }
     }
@@ -99,26 +97,23 @@
 
   @media (max-width: 768px) {
     .headerz-container {
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
-      position: relative;
+      padding: 0 1rem;
 
       .mobile-menu {
         display: flex;
         position: absolute;
-        left: 20px;
+        left: 1rem;
       }
 
       .logo {
         flex-grow: 1;
-        display: flex;
-        justify-content: center;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin-right: 0;
+        width: 200px; /* Large logo for mobile */
+        height: 50px;
       }
 
       .nav-links {
@@ -127,29 +122,25 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #ffffff;
+        background-color: #1A2A44;
         z-index: 999;
-        padding: 60px 20px;
+        padding: 3.5rem 1rem 1rem;
         transform: translateX(-100%);
         opacity: 0;
         visibility: hidden;
-        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
         flex-direction: column;
-        gap: 20px;
-        margin-top: 40px;
         align-items: flex-start;
-        justify-content: flex-start;
 
-        a,
-        span { /* Apply styles to both <a> and <span> in mobile view */
-          font-size: 1.2rem;
-          padding: 10px 0;
-          padding-left: 20px;
+        span {
+          font-size: 1rem;
+          padding: 0.75rem 0;
+          width: 100%;
           opacity: 0;
           transform: translateX(-20px);
           transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 
-          @for $i from 1 through 4 {
+          @for $i from 1 through 5 {
             &:nth-child(#{$i}) {
               transition-delay: #{$i * 0.1}s;
             }
@@ -157,8 +148,11 @@
         }
 
         &.open {
-          a,
-          span { /* Ensure animation applies to spans */
+          transform: translateX(0);
+          opacity: 1;
+          visibility: visible;
+
+          span {
             opacity: 1;
             transform: translateX(0);
           }
@@ -167,7 +161,7 @@
 
       .header-actions {
         position: absolute;
-        right: 20px;
+        right: 1rem;
         gap: 1rem;
 
         .login-btn {

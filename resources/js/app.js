@@ -1,42 +1,15 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Dashboard from "./components/login/Login"; // Updated import
-import axios from 'axios';
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes React and other helpers. It's a great starting point while
+ * building robust, powerful web applications using React + Laravel.
+ */
 
-axios.defaults.withCredentials = true;
+require('./bootstrap');
 
-// Other code...
+/**
+ * Next, we will create a fresh React component instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 
-
-require("./bootstrap");
-require("./Routers");
-
-const App = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar state
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen); // Toggle the sidebar visibility
-  };
-
-  return (
-    <Router>
-      <div className="app-container">
-        {/* Sidebar Component - receives isOpen as a prop */}
-        <Sidebar isOpen={isSidebarOpen} />
-
-        <div className="main-content">
-          {/* TopNavbar component with toggleSidebar function passed as a prop */}
-          <TopNavbar toggleSidebar={toggleSidebar} />
-
-          {/* Define your Routes */}
-          <Routes>
-            <Route path="/dashboard" element={<Dashboard />} /> {/* Updated route */}
-            {/* Other routes */}
-          </Routes>
-        </div>
-      </div>
-    </Router>
-  );
-};
-
-export default App;
+require('./Routers');
