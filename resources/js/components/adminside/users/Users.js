@@ -6,6 +6,7 @@ import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaEye, FaTrash } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_userlist.scss";
+import UserModal from "./Userlistmodal.js";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -53,9 +54,6 @@ const UsersList = () => {
           axios.get("http://127.0.0.1:8000/api/users", config),
           axios.get("http://127.0.0.1:8000/api/users/archived", config),
         ]);
-
-        console.log("Active Users:", activeResponse.data);
-        console.log("Archived Users:", archivedResponse.data);
 
         const activeUsers = activeResponse.data.map((user) => ({ ...user, archived: false }));
         const archivedUsers = archivedResponse.data.map((user) => ({ ...user, archived: true }));
@@ -184,15 +182,15 @@ const UsersList = () => {
       const response = await axios.get(`http://127.0.0.1:8000/api/users/${user.id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("User data fetched for edit:", response.data);
       setUserToEdit({
         ...user,
         first_name: response.data.first_name || "",
         middlename: response.data.middlename || "",
         last_name: response.data.last_name || "",
         suffix: response.data.suffix || "",
+        email: response.data.email || "",
+        role_id: response.data.role_id?.toString() || "1",
         gender: response.data.gender || "",
-        role_id: response.data.role_id || "1",
       });
       setIsEditMode(true);
       setIsModalOpen(true);
@@ -219,7 +217,6 @@ const UsersList = () => {
         }
       );
       if (response.status === 201) {
-        console.log("Response data:", response.data);
         const addedUser = {
           id: response.data.user.id,
           first_name: response.data.user.first_name,
@@ -227,8 +224,9 @@ const UsersList = () => {
           last_name: response.data.user.last_name,
           suffix: response.data.user.suffix,
           email: response.data.user.email,
-          role_name: response.data.user.role_name || ["Employee", "Worker", "Contractor"][response.data.user.role_id - 1],
-          profile_img: null,
+          role_name: response.data.user.role_name || ["Admin", "Employer", "Worker"][response.data.user.role_id - 1],
+          profile_img: response.data.user.profile_img,
+          gender: response.data.user.gender,
           created_at: response.data.user.created_at || new Date().toISOString(),
           updated_at: response.data.user.updated_at || new Date().toISOString(),
           archived: false,
@@ -255,21 +253,17 @@ const UsersList = () => {
         }
       );
       if (response.status === 200) {
-        console.log("Full response from update:", response.data);
         setUsers((prevUsers) =>
           prevUsers.map((user) =>
-            user.id === response.data.id ? { ...response.data } : user
+            user.id === response.data.id ? { ...response.data, archived: user.archived } : user
           )
         );
         setIsModalOpen(false);
         setIsEditMode(false);
         setUserToEdit(null);
-        console.log("User updated successfully:", response.data);
-        console.log("Expected image URL:", `${baseImageUrl}${response.data.profile_img}`);
       }
     } catch (error) {
       console.error("Error updating user:", error.response?.data || error.message);
-      console.log("Full error response:", error.response);
     }
   };
 
@@ -448,14 +442,13 @@ const UsersList = () => {
                           alt="Profile"
                           className="profile-picture"
                           onError={(e) => {
-                            console.log("Image load failed for:", `${baseImageUrl}${user.profile_img}`);
                             e.target.src = `${baseImageUrl}images/pfp/default.png`;
                           }}
                         />
                         {getFullName(user)}
                       </td>
                       <td>{user.email || "N/A"}</td>
-                      <td>{user.role_name || ["Employee", "Worker", "Contractor"][user.role_id - 1] || "N/A"}</td>
+                      <td>{user.role_name || ["Admin", "Employer", "Worker"][user.role_id - 1] || "N/A"}</td>
                       <td>{formatDate(user.created_at)}</td>
                       <td>{formatDate(user.updated_at)}</td>
                     </tr>

@@ -24,6 +24,10 @@ import Employerlists from "./components/adminside/employerlist/employerlist.js";
 import ReviewList from "./components/adminside/ReviewList/reviewlist.js";
 import Categories from "./components/adminside/categories/Categories";
 import Roles from "./components/adminside/roles/Roles";
+import SkillCategories from "./components/adminside/skillscategories/skillcategories.js";
+import ColorCodeCollars from "./components/adminside/colorcodecollars/collars.js";
+import Ranks from "./components/adminside/ranks/Ranks.js";
+import RolesManagement from "./components/adminside/roles/Roles.js";
 
 export default function Routers() {
   return (
@@ -51,6 +55,10 @@ export default function Routers() {
         <Route path="/admin/reviews" element={<ReviewList />} />
         <Route path="/admin/categories" element={<Categories />} />
         <Route path="/admin/roles" element={<Roles />} />
+        <Route path="/admin/skill-categories" element={<SkillCategories />} />
+        <Route path="/admin/color-code-manager" element={<ColorCodeCollars />} />
+        <Route path="/admin/ranks" element={<Ranks />} />
+        <Route path="/admin/roles-management" element={<RolesManagement />} />
       </Routes>
     </Router>
   );

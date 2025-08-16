@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import AdminSidebar from "../adminsidebar/adminsidebar";
-import TopNavbar from "../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaEye, FaTrash } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
-import "./../../../../sass/components/_adminlist.scss";
-import AdminModal from "./adminlistmodal.js";
+import AdminSidebar from "./../adminsidebar/adminsidebar";
+import TopNavbar from "./../admintopnavbar/admintopnavbar";
+import SkillModal from "./SkillModal";
+import "./../../../../sass/components/_skillscategories.scss";
+import axios from "axios";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -21,28 +20,18 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
-const getFullName = (admin) => {
-  const { first_name, middlename, last_name, suffix } = admin;
-  let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
-  if (suffix) fullName += ` ${suffix}`;
-  return fullName.trim() || "N/A";
-};
-
-const AdminList = () => {
-  const [admins, setAdmins] = useState([]);
+const SkillsCategories = () => {
+  const [skills, setSkills] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
-  const [selectedAdmins, setSelectedAdmins] = useState([]);
+  const [selectedSkills, setSelectedSkills] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [adminToArchive, setAdminToArchive] = useState(null);
+  const [skillToArchive, setSkillToArchive] = useState(null);
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [adminToEdit, setAdminToEdit] = useState(null);
-  const navigate = useNavigate();
-
-  const baseImageUrl = "http://127.0.0.1:8000/";
+  const [skillToEdit, setSkillToEdit] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,16 +40,26 @@ const AdminList = () => {
         const token = localStorage.getItem("LaravelPassportToken");
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const [activeResponse, archivedResponse] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/admins", config),
-          axios.get("http://127.0.0.1:8000/api/admins/archived", config),
+          axios.get("http://127.0.0.1:8000/api/skills", config),
+          axios.get("http://127.0.0.1:8000/api/skills/archived", config),
         ]);
 
-        const activeAdmins = activeResponse.data.map((admin) => ({ ...admin, archived: false }));
-        const archivedAdmins = archivedResponse.data.map((admin) => ({ ...admin, archived: true }));
-        setAdmins([...activeAdmins, ...archivedAdmins]);
+        const activeSkills = activeResponse.data.map((skill) => ({
+          ...skill,
+          archived: false,
+          created_at: skill.created_at || new Date().toISOString(),
+          updated_at: skill.updated_at || new Date().toISOString(),
+        }));
+        const archivedSkills = archivedResponse.data.map((skill) => ({
+          ...skill,
+          archived: true,
+          created_at: skill.created_at || new Date().toISOString(),
+          updated_at: skill.updated_at || new Date().toISOString(),
+        }));
+        setSkills([...activeSkills, ...archivedSkills]);
       } catch (error) {
-        console.error("Error fetching admins:", error);
-        setAdmins([]);
+        console.error("Error fetching skills:", error);
+        setSkills([]);
       } finally {
         setLoading(false);
       }
@@ -68,208 +67,181 @@ const AdminList = () => {
     fetchData();
   }, []);
 
-  const filteredAdmins = admins.filter((admin) => {
-    const fullName = getFullName(admin).toLowerCase();
-    const matchesSearch = fullName.includes(searchTerm.toLowerCase()) || admin.email?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = admin.archived === showArchived;
+  const filteredSkills = skills.filter((skill) => {
+    const matchesSearch = skill.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesArchived = skill.archived === showArchived;
     return matchesSearch && matchesArchived;
   });
 
-  const toggleSelectAdmin = (adminId) => {
-    setSelectedAdmins((prev) =>
-      prev.includes(adminId)
-        ? prev.filter((id) => id !== adminId)
-        : [...prev, adminId]
+  const toggleSelectSkill = (skillId) => {
+    setSelectedSkills((prev) =>
+      prev.includes(skillId)
+        ? prev.filter((id) => id !== skillId)
+        : [...prev, skillId]
     );
   };
 
   const toggleSelectAll = () => {
-    if (selectedAdmins.length === filteredAdmins.length) {
-      setSelectedAdmins([]);
+    if (selectedSkills.length === filteredSkills.length) {
+      setSelectedSkills([]);
     } else {
-      setSelectedAdmins(filteredAdmins.map((admin) => admin.id));
+      setSelectedSkills(filteredSkills.map((skill) => skill.id));
     }
   };
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
     setPagination({ ...pagination, currentPage: 1 });
-    setSelectedAdmins([]);
+    setSelectedSkills([]);
   };
 
-  const handleArchiveClick = (admin) => {
-    setAdminToArchive(admin);
+  const handleArchiveClick = (skill) => {
+    setSkillToArchive(skill);
     setIsConfirmModalOpen(true);
   };
 
   const handleArchiveConfirm = async () => {
-    if (!adminToArchive) return;
+    if (!skillToArchive) return;
     try {
       const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/admins/${adminToArchive.id}/archive`,
+        `http://127.0.0.1:8000/api/skills/${skillToArchive.id}/archive`,
         { archived: true },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.status === 200) {
-        setAdmins((prevAdmins) =>
-          prevAdmins.map((admin) =>
-            admin.id === adminToArchive.id ? { ...admin, archived: true } : admin
+        setSkills((prevSkills) =>
+          prevSkills.map((skill) =>
+            skill.id === skillToArchive.id ? { ...skill, archived: true } : skill
           )
         );
         setIsConfirmModalOpen(false);
-        setAdminToArchive(null);
+        setSkillToArchive(null);
       }
     } catch (error) {
-      console.error("Error archiving admin:", error);
+      console.error("Error archiving skill:", error);
     }
   };
 
-  const handleRestoreAdmin = async (adminId) => {
+  const handleRestoreSkill = async (skillId) => {
     try {
       const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/admins/${adminId}/archive`,
+        `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
         { archived: false },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.status === 200) {
-        setAdmins((prevAdmins) =>
-          prevAdmins.map((admin) =>
-            admin.id === adminId ? { ...admin, archived: false } : admin
+        setSkills((prevSkills) =>
+          prevSkills.map((skill) =>
+            skill.id === skillId ? { ...skill, archived: false } : skill
           )
         );
       }
     } catch (error) {
-      console.error("Error restoring admin:", error);
+      console.error("Error restoring skill:", error);
     }
   };
 
   const handleBulkAction = async (action) => {
-    if (selectedAdmins.length === 0) return;
+    if (selectedSkills.length === 0) return;
     try {
       const token = localStorage.getItem("LaravelPassportToken");
-      const requests = selectedAdmins.map((adminId) =>
+      const requests = selectedSkills.map((skillId) =>
         axios.patch(
-          `http://127.0.0.1:8000/api/admins/${adminId}/archive`,
+          `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
           { archived: action === "archive" },
           { headers: { Authorization: `Bearer ${token}` } }
         )
       );
       await Promise.all(requests);
-      setAdmins((prevAdmins) =>
-        prevAdmins.map((admin) =>
-          selectedAdmins.includes(admin.id)
-            ? { ...admin, archived: action === "archive" }
-            : admin
+      setSkills((prevSkills) =>
+        prevSkills.map((skill) =>
+          selectedSkills.includes(skill.id)
+            ? { ...skill, archived: action === "archive" }
+            : skill
         )
       );
-      setSelectedAdmins([]);
+      setSelectedSkills([]);
     } catch (error) {
-      console.error(`Error ${action}ing admins:`, error);
+      console.error(`Error ${action}ing skills:`, error);
     }
   };
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
-    setAdminToEdit(null);
+    setSkillToEdit(null);
     setIsModalOpen(true);
   };
 
-  const handleEditClick = async (admin) => {
-    try {
-      const token = localStorage.getItem("LaravelPassportToken");
-      const response = await axios.get(`http://127.0.0.1:8000/api/admins/${admin.id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setAdminToEdit({
-        ...admin,
-        first_name: response.data.first_name || "",
-        middlename: response.data.middlename || "",
-        last_name: response.data.last_name || "",
-        suffix: response.data.suffix || "",
-        email: response.data.email || "",
-        role_id: "1", // Fixed to Admin
-      });
-      setIsEditMode(true);
-      setIsModalOpen(true);
-    } catch (error) {
-      console.error("Error fetching admin for edit:", error);
-    }
+  const handleEditClick = (skill) => {
+    setSkillToEdit({ id: skill.id, name: skill.name });
+    setIsEditMode(true);
+    setIsModalOpen(true);
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
-    setAdminToEdit(null);
+    setSkillToEdit(null);
   };
 
-  const handleAdminAdd = async (newAdmin) => {
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/admins/register",
-        newAdmin,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      if (response.status === 201) {
-        const addedAdmin = {
-          id: response.data.admin.id,
-          first_name: response.data.admin.first_name,
-          middlename: response.data.admin.middlename,
-          last_name: response.data.admin.last_name,
-          suffix: response.data.admin.suffix,
-          email: response.data.admin.email,
-          role_name: response.data.admin.role_name || "Admin",
-          profile_img: response.data.admin.profile_img,
-          created_at: response.data.admin.created_at || new Date().toISOString(),
-          updated_at: response.data.admin.updated_at || new Date().toISOString(),
-          archived: false,
-        };
-        setAdmins((prevAdmins) => [addedAdmin, ...prevAdmins]);
-        setIsModalOpen(false);
-      }
-    } catch (error) {
-      console.error("Error adding admin:", error.response?.data || error.message);
-    }
-  };
-
-  const handleAdminUpdate = async (updatedAdmin) => {
+  const handleSkillAdd = async (newSkill) => {
     try {
       const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/admins/${adminToEdit.id}`,
-        updatedAdmin,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
+        "http://127.0.0.1:8000/api/skills",
+        { name: newSkill.name },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (response.status === 201) {
+        setSkills((prevSkills) => [
+          {
+            id: response.data.id,
+            name: response.data.name,
+            archived: false,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
           },
-        }
+          ...prevSkills,
+        ]);
+        setIsModalOpen(false);
+      }
+    } catch (error) {
+      console.error("Error adding skill:", error.response?.data || error.message);
+    }
+  };
+
+  const handleSkillUpdate = async (updatedSkill) => {
+    try {
+      const token = localStorage.getItem("LaravelPassportToken");
+      const response = await axios.put(
+        `http://127.0.0.1:8000/api/skills/${skillToEdit.id}`,
+        { name: updatedSkill.name },
+        { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.status === 200) {
-        setAdmins((prevAdmins) =>
-          prevAdmins.map((admin) =>
-            admin.id === response.data.id ? { ...response.data, archived: admin.archived } : admin
+        setSkills((prevSkills) =>
+          prevSkills.map((skill) =>
+            skill.id === skillToEdit.id
+              ? { ...skill, name: response.data.name, updated_at: new Date().toISOString() }
+              : skill
           )
         );
         setIsModalOpen(false);
         setIsEditMode(false);
-        setAdminToEdit(null);
+        setSkillToEdit(null);
       }
     } catch (error) {
-      console.error("Error updating admin:", error.response?.data || error.message);
+      console.error("Error updating skill:", error.response?.data || error.message);
     }
   };
 
-  const adminsPerPage = 5;
-  const totalPages = Math.ceil(filteredAdmins.length / adminsPerPage);
-  const currentAdmins = filteredAdmins.slice(
-    (pagination.currentPage - 1) * adminsPerPage,
-    pagination.currentPage * adminsPerPage
+  const skillsPerPage = 8;
+  const totalPages = Math.ceil(filteredSkills.length / skillsPerPage);
+  const currentSkills = filteredSkills.slice(
+    (pagination.currentPage - 1) * skillsPerPage,
+    pagination.currentPage * skillsPerPage
   );
 
   const handlePageChange = (page) => {
@@ -335,26 +307,26 @@ const AdminList = () => {
 
   return (
     <div className="app">
-      <AdminSidebar activeItem="Admin List" />
+      <AdminSidebar activeItem="Skills Categories" />
       <TopNavbar />
-      <div className="adminlist-dashboard">
-        <div className="adminlist-content">
-          <h2>{showArchived ? "Archived Admins" : "Admin List"}</h2>
-          <div className="adminlist-header">
+      <div className="skillscategories-dashboard">
+        <div className="skillscategories-content">
+          <h2>{showArchived ? "Archived Skills" : "Skills Categories"}</h2>
+          <div className="skillscategories-header">
             <div className="left-actions">
               <div className="search-container">
                 <IconSearch size={20} className="search-icon" />
                 <input
                   type="text"
                   className="search-input"
-                  placeholder="Search Admins"
+                  placeholder="Search Skills"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
             </div>
             <div className="right-actions">
-              {selectedAdmins.length > 0 && (
+              {selectedSkills.length > 0 && (
                 <button
                   className="header-button archive-all-button"
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
@@ -373,15 +345,14 @@ const AdminList = () => {
               </button>
             </div>
           </div>
-
-          <div className="adminlist-table">
+          <div className="skillscategories-table">
             <table>
               <thead>
                 <tr>
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedAdmins.length === filteredAdmins.length && filteredAdmins.length > 0 ? (
+                        {selectedSkills.length === filteredSkills.length && filteredSkills.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -390,9 +361,7 @@ const AdminList = () => {
                       Actions
                     </div>
                   </th>
-                  <th>Full Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
+                  <th>Skill Name</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -400,15 +369,17 @@ const AdminList = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="6" className="loading-row">Loading admins...</td>
+                    <td colSpan="4" className="loading-row">
+                      Loading skills...
+                    </td>
                   </tr>
-                ) : currentAdmins.length > 0 ? (
-                  currentAdmins.map((admin) => (
-                    <tr key={admin.id}>
-                      <td>
+                ) : currentSkills.length > 0 ? (
+                  currentSkills.map((skill) => (
+                    <tr key={skill.id}>
+                      <td data-label="Actions">
                         <div className="action-icons">
-                          <span onClick={() => toggleSelectAdmin(admin.id)} style={{ cursor: "pointer" }}>
-                            {selectedAdmins.includes(admin.id) ? (
+                          <span onClick={() => toggleSelectSkill(skill.id)} style={{ cursor: "pointer" }}>
+                            {selectedSkills.includes(skill.id) ? (
                               <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
                               <FaSquare className="checkbox-icon" size={16} />
@@ -418,49 +389,38 @@ const AdminList = () => {
                             <FaCheckCircle
                               size={16}
                               className="restore-icon"
-                              onClick={() => handleRestoreAdmin(admin.id)}
+                              onClick={() => handleRestoreSkill(skill.id)}
                             />
                           ) : (
                             <FaTrash
                               size={16}
                               className="delete-icon"
-                              onClick={() => handleArchiveClick(admin)}
+                              onClick={() => handleArchiveClick(skill)}
                             />
                           )}
-                          <FaUser
+                          <FaPencilAlt
                             size={16}
                             className="edit-icon"
-                            onClick={() => handleEditClick(admin)}
+                            onClick={() => handleEditClick(skill)}
                           />
                         </div>
                       </td>
-                      <td className="username-cell">
-                        <img
-                          src={admin.profile_img ? `${baseImageUrl}${admin.profile_img}` : `${baseImageUrl}images/pfp/default.png`}
-                          alt="Profile"
-                          className="profile-picture"
-                          onError={(e) => {
-                            e.target.src = `${baseImageUrl}images/pfp/default.png`;
-                          }}
-                        />
-                        {getFullName(admin)}
+                      <td data-label="Skill Name" className="skill-name-cell">
+                        {skill.name}
                       </td>
-                      <td>{admin.email || "N/A"}</td>
-                      <td>{admin.role_name || "Admin"}</td>
-                      <td>{formatDate(admin.created_at)}</td>
-                      <td>{formatDate(admin.updated_at)}</td>
+                      <td data-label="Created At">{formatDate(skill.created_at)}</td>
+                      <td data-label="Updated At">{formatDate(skill.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="6">No {showArchived ? "archived" : "active"} admins found</td>
+                    <td colSpan="4">No {showArchived ? "archived" : "active"} skills found</td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
-
-          <div className="adminlist-pagination">
+          <div className="skillscategories-pagination">
             <span>Page {pagination.currentPage} of {totalPages}</span>
             <button
               onClick={() => handlePageChange(pagination.currentPage - 1)}
@@ -478,12 +438,11 @@ const AdminList = () => {
           </div>
         </div>
       </div>
-
       {isConfirmModalOpen && (
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{getFullName(adminToArchive)}"?</p>
+            <p>Do you want to archive "{skillToArchive?.name}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -496,15 +455,15 @@ const AdminList = () => {
         </div>
       )}
       {isModalOpen && (
-        <AdminModal
+        <SkillModal
           onClose={handleModalClose}
-          onSubmit={isEditMode ? handleAdminUpdate : handleAdminAdd}
+          onSubmit={isEditMode ? handleSkillUpdate : handleSkillAdd}
           isEdit={isEditMode}
-          initialData={adminToEdit}
+          initialData={skillToEdit}
         />
       )}
     </div>
   );
 };
 
-export default AdminList;
+export default SkillsCategories;

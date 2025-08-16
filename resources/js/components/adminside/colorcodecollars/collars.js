@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
-import "./../../../../sass/components/_reviewstable.scss";
-import ReviewModal from "./reviewlistmodal.js";
+import { FaTag } from "react-icons/fa"; // Replaced FaCollar with FaTag
+import "./../../../../sass/components/_colorcodecollars.scss";
+import ColorCodeCollarsModal from "./ColorCodeCollarsModal";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -20,53 +21,28 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
-const getFullName = (person) => {
-  const { first_name, middlename, last_name, suffix } = person;
-  let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
-  if (suffix) fullName += ` ${suffix}`;
-  return fullName.trim() || "N/A";
-};
-
-const ReviewsTable = () => {
-  const [reviews, setReviews] = useState([
+const ColorCodeCollars = () => {
+  const [collars, setCollars] = useState([
     {
       id: 1,
-      employer: {
-        company_name: "TechCorp Inc.",
-        owner: { first_name: "Alice", middlename: null, last_name: "Brown", suffix: null },
-      },
-      worker: { first_name: "John", middlename: "A", last_name: "Doe", suffix: null },
-      rating: 4,
-      comment: "John is reliable and skilled, but could improve communication.",
-      hasImage: true,
+      name: "Manual Labor",
+      color: "#4A90E2",
       created_at: "2025-01-01T10:00:00Z",
       updated_at: "2025-02-01T12:00:00Z",
       archived: false,
     },
     {
       id: 2,
-      employer: {
-        company_name: "BuildEasy LLC",
-        owner: { first_name: "Bob", middlename: "C", last_name: "Davis", suffix: "Jr" },
-      },
-      worker: { first_name: "Jane", middlename: null, last_name: "Smith", suffix: "Jr" },
-      rating: 5,
-      comment: "Jane exceeded expectations with excellent work ethic.",
-      hasImage: false,
+      name: "Service Industry",
+      color: "#FF69B4",
       created_at: "2025-03-15T09:30:00Z",
       updated_at: "2025-04-01T11:00:00Z",
       archived: false,
     },
     {
       id: 3,
-      employer: {
-        company_name: "GreenWorks Co.",
-        owner: { first_name: "Carol", middlename: null, last_name: "Evans", suffix: null },
-      },
-      worker: { first_name: "Mike", middlename: "B", last_name: "Johnson", suffix: null },
-      rating: 3,
-      comment: "Mike's work is satisfactory but needs more attention to detail.",
-      hasImage: true,
+      name: "Corporate Management",
+      color: "#FFFFFF",
       created_at: "2025-05-10T14:00:00Z",
       updated_at: "2025-06-01T15:00:00Z",
       archived: true,
@@ -74,98 +50,90 @@ const ReviewsTable = () => {
   ]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
-  const [selectedReviews, setSelectedReviews] = useState([]);
+  const [selectedCollars, setSelectedCollars] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [reviewToArchive, setReviewToArchive] = useState(null);
+  const [collarToArchive, setCollarToArchive] = useState(null);
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [reviewToEdit, setReviewToEdit] = useState(null);
+  const [collarToEdit, setCollarToEdit] = useState(null);
   const navigate = useNavigate();
 
-  const filteredReviews = reviews.filter((review) => {
-    const employerName = review.employer.company_name?.toLowerCase() || "";
-    const workerName = getFullName(review.worker).toLowerCase();
-    const matchesSearch =
-      employerName.includes(searchTerm.toLowerCase()) ||
-      workerName.includes(searchTerm.toLowerCase()) ||
-      review.comment?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = review.archived === showArchived;
+  const filteredCollars = collars.filter((collar) => {
+    const matchesSearch = collar.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesArchived = collar.archived === showArchived;
     return matchesSearch && matchesArchived;
   });
 
-  const toggleSelectReview = (reviewId) => {
-    setSelectedReviews((prev) =>
-      prev.includes(reviewId)
-        ? prev.filter((id) => id !== reviewId)
-        : [...prev, reviewId]
+  const toggleSelectCollar = (collarId) => {
+    setSelectedCollars((prev) =>
+      prev.includes(collarId)
+        ? prev.filter((id) => id !== collarId)
+        : [...prev, collarId]
     );
   };
 
   const toggleSelectAll = () => {
-    if (selectedReviews.length === filteredReviews.length) {
-      setSelectedReviews([]);
+    if (selectedCollars.length === filteredCollars.length) {
+      setSelectedCollars([]);
     } else {
-      setSelectedReviews(filteredReviews.map((review) => review.id));
+      setSelectedCollars(filteredCollars.map((collar) => collar.id));
     }
   };
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
     setPagination({ ...pagination, currentPage: 1 });
-    setSelectedReviews([]);
+    setSelectedCollars([]);
   };
 
-  const handleArchiveClick = (review) => {
-    setReviewToArchive(review);
+  const handleArchiveClick = (collar) => {
+    setCollarToArchive(collar);
     setIsConfirmModalOpen(true);
   };
 
   const handleArchiveConfirm = () => {
-    if (!reviewToArchive) return;
-    setReviews((prevReviews) =>
-      prevReviews.map((review) =>
-        review.id === reviewToArchive.id ? { ...review, archived: true } : review
+    if (!collarToArchive) return;
+    setCollars((prevCollars) =>
+      prevCollars.map((collar) =>
+        collar.id === collarToArchive.id ? { ...collar, archived: true } : collar
       )
     );
     setIsConfirmModalOpen(false);
-    setReviewToArchive(null);
+    setCollarToArchive(null);
   };
 
-  const handleRestoreReview = (reviewId) => {
-    setReviews((prevReviews) =>
-      prevReviews.map((review) =>
-        review.id === reviewId ? { ...review, archived: false } : review
+  const handleRestoreCollar = (collarId) => {
+    setCollars((prevCollars) =>
+      prevCollars.map((collar) =>
+        collar.id === collarId ? { ...collar, archived: false } : collar
       )
     );
   };
 
   const handleBulkAction = (action) => {
-    if (selectedReviews.length === 0) return;
-    setReviews((prevReviews) =>
-      prevReviews.map((review) =>
-        selectedReviews.includes(review.id)
-          ? { ...review, archived: action === "archive" }
-          : review
+    if (selectedCollars.length === 0) return;
+    setCollars((prevCollars) =>
+      prevCollars.map((collar) =>
+        selectedCollars.includes(collar.id)
+          ? { ...collar, archived: action === "archive" }
+          : collar
       )
     );
-    setSelectedReviews([]);
+    setSelectedCollars([]);
   };
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
-    setReviewToEdit(null);
+    setCollarToEdit({});
     setIsModalOpen(true);
   };
 
-  const handleEditClick = (review) => {
-    setReviewToEdit({
-      ...review,
-      employer: review.employer || { company_name: "", owner: { first_name: "", middlename: "", last_name: "", suffix: "" } },
-      worker: review.worker || { first_name: "", middlename: "", last_name: "", suffix: "" },
-      rating: review.rating || 0,
-      comment: review.comment || "",
-      image: null, // Image not preserved for edit
+  const handleEditClick = (collar) => {
+    setCollarToEdit({
+      id: collar.id,
+      name: collar.name || "",
+      color: collar.color || "",
     });
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -174,61 +142,45 @@ const ReviewsTable = () => {
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
-    setReviewToEdit(null);
+    setCollarToEdit(null);
   };
 
-  const handleReviewAdd = (newReview) => {
-    const addedReview = {
-      id: reviews.length + 1,
-      employer: newReview.employer || { company_name: "Unknown", owner: { first_name: "Unknown", middlename: null, last_name: "Owner", suffix: null } },
-      worker: newReview.worker || { first_name: "Unknown", middlename: null, last_name: "Worker", suffix: null },
-      rating: newReview.rating || 0,
-      comment: newReview.comment || "",
-      hasImage: !!newReview.image,
+  const handleCollarAdd = (newCollar) => {
+    const addedCollar = {
+      id: collars.length + 1,
+      name: newCollar.name,
+      color: newCollar.color,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
       archived: false,
     };
-    setReviews((prevReviews) => [addedReview, ...prevReviews]);
+    setCollars((prevCollars) => [addedCollar, ...prevCollars]);
     setIsModalOpen(false);
   };
 
-  const handleReviewUpdate = (updatedReview) => {
-    setReviews((prevReviews) =>
-      prevReviews.map((review) =>
-        review.id === reviewToEdit.id
+  const handleCollarUpdate = (updatedCollar) => {
+    setCollars((prevCollars) =>
+      prevCollars.map((collar) =>
+        collar.id === collarToEdit.id
           ? {
-              ...review,
-              employer: updatedReview.employer,
-              worker: updatedReview.worker,
-              rating: updatedReview.rating,
-              comment: updatedReview.comment,
-              hasImage: !!updatedReview.image,
+              ...collar,
+              name: updatedCollar.name,
+              color: updatedCollar.color,
               updated_at: new Date().toISOString(),
             }
-          : review
+          : collar
       )
     );
     setIsModalOpen(false);
     setIsEditMode(false);
-    setReviewToEdit(null);
+    setCollarToEdit(null);
   };
 
-  const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <span key={i} className={i <= rating ? "star filled" : "star"}>★</span>
-      );
-    }
-    return stars;
-  };
-
-  const reviewsPerPage = 5;
-  const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
-  const currentReviews = filteredReviews.slice(
-    (pagination.currentPage - 1) * reviewsPerPage,
-    pagination.currentPage * reviewsPerPage
+  const collarsPerPage = 5;
+  const totalPages = Math.ceil(filteredCollars.length / collarsPerPage);
+  const currentCollars = filteredCollars.slice(
+    (pagination.currentPage - 1) * collarsPerPage,
+    pagination.currentPage * collarsPerPage
   );
 
   const handlePageChange = (page) => {
@@ -294,26 +246,26 @@ const ReviewsTable = () => {
 
   return (
     <div className="app">
-      <AdminSidebar activeItem="Reviews List" />
+      <AdminSidebar activeItem="Color Code Collars" />
       <TopNavbar />
-      <div className="reviewstable-dashboard">
-        <div className="reviewstable-content">
-          <h2>{showArchived ? "Archived Reviews" : "Reviews List"}</h2>
-          <div className="reviewstable-header">
+      <div className="colorcodecollars-dashboard">
+        <div className="colorcodecollars-content">
+          <h2>{showArchived ? "Archived Collars" : "Color Code Collars"}</h2>
+          <div className="colorcodecollars-header">
             <div className="left-actions">
               <div className="search-container">
                 <IconSearch size={20} className="search-icon" />
                 <input
                   type="text"
                   className="search-input"
-                  placeholder="Search Reviews"
+                  placeholder="Search Collars"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
             </div>
             <div className="right-actions">
-              {selectedReviews.length > 0 && (
+              {selectedCollars.length > 0 && (
                 <button
                   className="header-button archive-all-button"
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
@@ -332,15 +284,14 @@ const ReviewsTable = () => {
               </button>
             </div>
           </div>
-
-          <div className="reviewstable-table">
+          <div className="colorcodecollars-table">
             <table>
               <thead>
                 <tr>
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedReviews.length === filteredReviews.length && filteredReviews.length > 0 ? (
+                        {selectedCollars.length === filteredCollars.length && filteredCollars.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -349,23 +300,20 @@ const ReviewsTable = () => {
                       Actions
                     </div>
                   </th>
-                  <th>Employer</th>
-                  <th>Worker</th>
-                  <th>Rating</th>
-                  <th>Comment</th>
-                  <th>Image</th>
+                  <th>Collar Name</th>
+                  <th>Collar Color</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
               </thead>
               <tbody>
-                {currentReviews.length > 0 ? (
-                  currentReviews.map((review) => (
-                    <tr key={review.id}>
-                      <td>
+                {currentCollars.length > 0 ? (
+                  currentCollars.map((collar) => (
+                    <tr key={collar.id}>
+                      <td data-label="Actions">
                         <div className="action-icons">
-                          <span onClick={() => toggleSelectReview(review.id)} style={{ cursor: "pointer" }}>
-                            {selectedReviews.includes(review.id) ? (
+                          <span onClick={() => toggleSelectCollar(collar.id)} style={{ cursor: "pointer" }}>
+                            {selectedCollars.includes(collar.id) ? (
                               <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
                               <FaSquare className="checkbox-icon" size={16} />
@@ -375,41 +323,48 @@ const ReviewsTable = () => {
                             <FaCheckCircle
                               size={16}
                               className="restore-icon"
-                              onClick={() => handleRestoreReview(review.id)}
+                              onClick={() => handleRestoreCollar(collar.id)}
                             />
                           ) : (
                             <FaTrash
                               size={16}
                               className="delete-icon"
-                              onClick={() => handleArchiveClick(review)}
+                              onClick={() => handleArchiveClick(collar)}
                             />
                           )}
-                          <FaUser
+                          <FaPencilAlt
                             size={16}
                             className="edit-icon"
-                            onClick={() => handleEditClick(review)}
+                            onClick={() => handleEditClick(collar)}
                           />
                         </div>
                       </td>
-                      <td className="employer-cell">{review.employer.company_name || "N/A"}</td>
-                      <td className="worker-cell">{getFullName(review.worker)}</td>
-                      <td className="rating-cell">{renderStars(review.rating)}</td>
-                      <td className="comment-cell">{review.comment || "N/A"}</td>
-                      <td>{review.hasImage ? "Yes" : "No"}</td>
-                      <td>{formatDate(review.created_at)}</td>
-                      <td>{formatDate(review.updated_at)}</td>
+                      <td data-label="Collar Name" className="collar-name-cell">{collar.name || "N/A"}</td>
+                      <td data-label="Collar Color">
+                        <span className="collar-type">
+                          <FaTag
+                            className="collar-icon"
+                            style={{
+                              color: collar.color,
+                              borderColor: collar.color,
+                            }}
+                          />
+                          {collar.color}
+                        </span>
+                      </td>
+                      <td data-label="Created At">{formatDate(collar.created_at)}</td>
+                      <td data-label="Updated At">{formatDate(collar.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="8">No {showArchived ? "archived" : "active"} reviews found</td>
+                    <td colSpan="5">No {showArchived ? "archived" : "active"} collars found</td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
-
-          <div className="reviewstable-pagination">
+          <div className="colorcodecollars-pagination">
             <span>Page {pagination.currentPage} of {totalPages}</span>
             <button
               onClick={() => handlePageChange(pagination.currentPage - 1)}
@@ -427,12 +382,11 @@ const ReviewsTable = () => {
           </div>
         </div>
       </div>
-
       {isConfirmModalOpen && (
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive review for "{getFullName(reviewToArchive?.worker)}"?</p>
+            <p>Do you want to archive "{collarToArchive?.name}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -445,15 +399,15 @@ const ReviewsTable = () => {
         </div>
       )}
       {isModalOpen && (
-        <ReviewModal
+        <ColorCodeCollarsModal
           onClose={handleModalClose}
-          onSubmit={isEditMode ? handleReviewUpdate : handleReviewAdd}
+          onSubmit={isEditMode ? handleCollarUpdate : handleCollarAdd}
           isEdit={isEditMode}
-          initialData={reviewToEdit}
+          initialData={collarToEdit || {}}
         />
       )}
     </div>
   );
 };
 
-export default ReviewsTable;
+export default ColorCodeCollars;

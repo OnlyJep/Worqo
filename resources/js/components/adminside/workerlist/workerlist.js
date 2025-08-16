@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaEye, FaTrash } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_workerlist.scss";
+import WorkerModal from "./workerlistmodal.js";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -166,6 +167,7 @@ const WorkerList = () => {
       middlename: worker.middlename || "",
       last_name: worker.last_name || "",
       suffix: worker.suffix || "",
+      email: worker.email || "",
       gender: worker.gender || "",
       work_type: worker.work_type || "part-time",
       credentials: worker.credentials || [],
@@ -262,7 +264,11 @@ const WorkerList = () => {
           </button>
         );
         if (startPage > 2) {
-          pageNumbers.push(<span key="start-ellipsis" className="ellipsis">...</span>);
+          pageNumbers.push(
+            <span key="start-ellipsis" className="ellipsis">
+              ...
+            </span>
+          );
         }
       }
 
@@ -280,7 +286,11 @@ const WorkerList = () => {
 
       if (endPage < totalPages) {
         if (endPage < totalPages - 1) {
-          pageNumbers.push(<span key="end-ellipsis" className="ellipsis">...</span>);
+          pageNumbers.push(
+            <span key="end-ellipsis" className="ellipsis">
+              ...
+            </span>
+          );
         }
         pageNumbers.push(
           <button key={totalPages} onClick={() => handlePageChange(totalPages)}>
@@ -333,7 +343,6 @@ const WorkerList = () => {
               </button>
             </div>
           </div>
-
           <div className="workerlist-table">
             <table>
               <thead>
@@ -364,7 +373,10 @@ const WorkerList = () => {
                     <tr key={worker.id}>
                       <td>
                         <div className="action-icons">
-                          <span onClick={() => toggleSelectWorker(worker.id)} style={{ cursor: "pointer" }}>
+                          <span
+                            onClick={() => toggleSelectWorker(worker.id)}
+                            style={{ cursor: "pointer" }}
+                          >
                             {selectedWorkers.includes(worker.id) ? (
                               <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
@@ -392,7 +404,11 @@ const WorkerList = () => {
                         </div>
                       </td>
                       <td className="username-cell">{getFullName(worker)}</td>
-                      <td>{worker.work_type ? worker.work_type.replace('-', ' ').replace(/\b\w/g, c => c.toUpperCase()) : "N/A"}</td>
+                      <td>
+                        {worker.work_type
+                          ? worker.work_type.replace('-', ' ').replace(/\b\w/g, c => c.toUpperCase())
+                          : "N/A"}
+                      </td>
                       <td>{worker.credentials?.length > 0 ? worker.credentials.join(", ") : "None"}</td>
                       <td>{worker.email || "N/A"}</td>
                       <td>{formatDate(worker.created_at)}</td>
@@ -401,37 +417,35 @@ const WorkerList = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="7">No {showArchived ? "archived" : "active"} workers found</td>
+                    <td colSpan={7}>{`No ${showArchived ? "archived" : "active"} workers found`}</td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
-
           <div className="workerlist-pagination">
-            <span>Page {pagination.currentPage} of {totalPages}</span>
+            <span>{`Page ${pagination.currentPage} of ${totalPages}`}</span>
             <button
               onClick={() => handlePageChange(pagination.currentPage - 1)}
               disabled={pagination.currentPage <= 1}
             >
-              {"<"}
+              &lt;
             </button>
             {renderPagination()}
             <button
               onClick={() => handlePageChange(pagination.currentPage + 1)}
               disabled={pagination.currentPage >= totalPages}
             >
-              {">"}
+              &gt;
             </button>
           </div>
         </div>
       </div>
-
       {isConfirmModalOpen && (
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{getFullName(workerToArchive)}"?</p>
+            <p>{`Do you want to archive "${getFullName(workerToArchive)}"?`}</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive

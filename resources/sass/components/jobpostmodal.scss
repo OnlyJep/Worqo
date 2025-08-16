@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,95 +12,110 @@
 }
 
 .jobpostmodal {
-  background: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  width: 600px;
-  max-width: 90%;
-  max-height: 80vh;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  width: 680px;
+  max-width: 95%;
+  max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 
   h2 {
-    margin: 0 0 20px;
-    font-size: 24px;
-    color: #333;
+    margin: 0 0 32px;
+    font-size: 28px;
+    color: #1a202c;
+    text-align: center;
+    font-weight: 700;
   }
 
   .jobpostmodal-content {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 24px;
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 10px;
 
       label {
         font-weight: 600;
-        color: #333;
+        color: #2d3748;
+        font-size: 16px;
       }
 
       input,
       textarea,
       select {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 14px;
+        padding: 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 15px;
         width: 100%;
         box-sizing: border-box;
+        background: #f7fafc;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:focus {
+          border-color: #3182ce;
+          box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+          outline: none;
+        }
       }
 
       textarea {
-        min-height: 100px;
+        min-height: 120px;
         resize: vertical;
       }
 
       .owner-fields {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 16px;
       }
 
       .skill-row {
         display: flex;
-        gap: 10px;
+        gap: 16px;
         align-items: center;
 
-        input,
         select {
           flex: 1;
+          min-width: 150px;
         }
 
         .remove-skill {
-          background: #ff4d4f;
-          color: #fff;
+          background: #e53e3e;
+          color: #ffffff;
           border: none;
-          padding: 8px 12px;
-          border-radius: 4px;
+          padding: 10px 20px;
+          border-radius: 8px;
           cursor: pointer;
           font-size: 14px;
+          font-weight: 500;
+          transition: background 0.3s ease;
 
           &:hover {
-            background: #d9363e;
+            background: #c53030;
           }
         }
       }
 
       .add-skill {
-        background: #1890ff;
-        color: #fff;
+        background: #3182ce;
+        color: #ffffff;
         border: none;
-        padding: 8px 12px;
-        border-radius: 4px;
+        padding: 10px 20px;
+        border-radius: 8px;
         cursor: pointer;
         font-size: 14px;
-        width: fit-content;
+        font-weight: 500;
+        align-self: flex-start;
+        transition: background 0.3s ease;
 
         &:hover {
-          background: #40a9ff;
+          background: #2b6cb0;
         }
       }
     }
@@ -109,34 +124,38 @@
   .jobpostmodal-buttons {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 16px;
+    margin-top: 32px;
 
     .submit-button {
-      background: #1890ff;
-      color: #fff;
+      background: #3182ce;
+      color: #ffffff;
       border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
+      padding: 12px 32px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s ease;
 
       &:hover {
-        background: #40a9ff;
+        background: #2b6cb0;
       }
     }
 
     .cancel-button {
-      background: #f5f5f5;
-      color: #333;
-      border: 1px solid #ccc;
-      padding: 10px 20px;
-      border-radius: 4px;
+      background: #edf2f7;
+      color: #4a5568;
+      border: 1px solid #e2e8f0;
+      padding: 12px 32px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s ease;
 
       &:hover {
-        background: #e0e0e0;
+        background: #e2e8f0;
       }
     }
   }
@@ -148,7 +167,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,55 +175,61 @@
 }
 
 .confirm-modal {
-  background: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  width: 400px;
-  max-width: 90%;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  width: 440px;
+  max-width: 95%;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 
   h3 {
-    margin: 0 0 10px;
-    font-size: 20px;
-    color: #333;
+    margin: 0 0 16px;
+    font-size: 24px;
+    color: #1a202c;
+    font-weight: 700;
   }
 
   p {
-    margin: 0 0 20px;
-    color: #555;
+    margin: 0 0 24px;
+    color: #718096;
+    font-size: 15px;
   }
 
   .confirm-modal-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 16px;
 
     .confirm-button {
-      background: #ff4d4f;
-      color: #fff;
+      background: #e53e3e;
+      color: #ffffff;
       border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
+      padding: 12px 32px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s ease;
 
       &:hover {
-        background: #d9363e;
+        background: #c53030;
       }
     }
 
     .cancel-button {
-      background: #f5f5f5;
-      color: #333;
-      border: 1px solid #ccc;
-      padding: 10px 20px;
-      border-radius: 4px;
+      background: #edf2f7;
+      color: #4a5568;
+      border: 1px solid #e2e8f0;
+      padding: 12px 32px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background 0.3s ease;
 
       &:hover {
-        background: #e0e0e0;
+        background: #e2e8f0;
       }
     }
   }

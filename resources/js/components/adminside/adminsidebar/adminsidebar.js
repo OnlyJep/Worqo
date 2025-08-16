@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { MenuOutlined, HomeOutlined, FileAddOutlined, UserOutlined, TeamOutlined, UserSwitchOutlined, StarOutlined, TagsOutlined, CodeOutlined, HistoryOutlined } from '@ant-design/icons';
+import { MenuOutlined, HomeOutlined, FileAddOutlined, UserOutlined, TeamOutlined, UserSwitchOutlined, StarOutlined, TagsOutlined, CodeOutlined, TrophyOutlined, SafetyOutlined, BellOutlined } from '@ant-design/icons';
 import './../../../../sass/components/adminsidebar.scss';
 
 const AdminSidebar = ({ children }) => {
@@ -82,11 +82,15 @@ const AdminSidebar = ({ children }) => {
                 </li>
                 <li className={isActive('/admin/color-code-manager')} onClick={() => navigate('/admin/color-code-manager')}>
                   <CodeOutlined className="icon" />
-                  <span>Color Code Manager</span>
+                  <span>Color Code Collars</span>
                 </li>
-                <li className={isActive('/admin/changelog')} onClick={() => navigate('/admin/changelog')}>
-                  <HistoryOutlined className="icon" />
-                  <span>Changelog</span>
+                <li className={isActive('/admin/ranks')} onClick={() => navigate('/admin/ranks')}>
+                  <TrophyOutlined className="icon" />
+                  <span>Ranks & Badges</span>
+                </li>
+                <li className={isActive('/admin/roles-management')} onClick={() => navigate('/admin/roles-management')}>
+                  <SafetyOutlined className="icon" />
+                  <span>Roles Management</span>
                 </li>
               </ul>
             )}

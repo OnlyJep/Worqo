@@ -1,0 +1,221 @@
+.employermodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto;
+}
+
+.employermodal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  h2 {
+    margin: 0 0 16px;
+    font-size: 22px;
+    color: #1a202c;
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .employermodal-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      label {
+        font-weight: 500;
+        color: #2d3748;
+        font-size: 13px;
+        font-family: 'Inter', sans-serif;
+      }
+
+      input,
+      .color-picker,
+      .icon-select {
+        padding: 8px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        background: #f9fafb;
+        font-family: 'Inter', sans-serif;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+          outline: none;
+        }
+
+        &.error {
+          border-color: #ef4444;
+          box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+        }
+      }
+
+      .color-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .color-picker {
+          height: 40px;
+          padding: 4px;
+          cursor: pointer;
+        }
+
+        .rank-icon-preview {
+          font-size: 20px;
+          border: 2px solid;
+          border-radius: 6px;
+          padding: 4px;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+      }
+
+      .error {
+        color: #ef4444;
+        font-size: 12px;
+        margin-top: 2px;
+        font-family: 'Inter', sans-serif;
+      }
+    }
+  }
+
+  .employermodal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+
+    .submit-button {
+      background: #3b82f6;
+      color: #ffffff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #2563eb;
+      }
+    }
+
+    .cancel-button {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #e5e7eb;
+      }
+    }
+  }
+
+  .employermodal-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .employermodal-content::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 8px;
+  }
+
+  .employermodal-content::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .employermodal {
+      width: 90%;
+      max-height: 80vh;
+      padding: 16px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .employermodal-content {
+      gap: 10px;
+    }
+
+    .form-group {
+      gap: 4px;
+
+      label {
+        font-size: 12px;
+      }
+
+      input,
+      .color-picker,
+      .icon-select {
+        font-size: 13px;
+        padding: 6px;
+      }
+
+      .color-wrapper {
+        .rank-icon-preview {
+          font-size: 18px;
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+
+    .employermodal-buttons {
+      flex-direction: column;
+      gap: 8px;
+
+      .submit-button,
+      .cancel-button {
+        padding: 8px;
+        font-size: 13px;
+      }
+    }
+  }
+}

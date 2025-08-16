@@ -32,10 +32,9 @@ const JobPostTable = () => {
     {
       id: 1,
       company_name: "TechCorp Inc.",
-      owner: { first_name: "Alice", middlename: null, last_name: "Brown", suffix: null },
-      skills: [{ name: "Maid", rank: "Bronze 3" }],
+      owner_id: "1", // Updated to use owner_id instead of owner object
+      skills: [{ name: "Maid", rank: "Entry" }],
       description: "Looking for a reliable maid for office cleaning and maintenance.",
-      requirements: "2+ years experience, attention to detail, flexible schedule.",
       created_at: "2025-01-10T09:00:00Z",
       updated_at: "2025-02-15T11:00:00Z",
       archived: false,
@@ -43,10 +42,9 @@ const JobPostTable = () => {
     {
       id: 2,
       company_name: "BuildEasy LLC",
-      owner: { first_name: "Bob", middlename: "C", last_name: "Davis", suffix: "Jr" },
-      skills: [{ name: "Plumber", rank: "Bronze 3" }],
+      owner_id: "2", // Updated to use owner_id
+      skills: [{ name: "Plumber", rank: "Entry" }],
       description: "Seeking a skilled plumber for residential and commercial projects.",
-      requirements: "3+ years experience, licensed plumber, own tools preferred.",
       created_at: "2025-03-20T10:30:00Z",
       updated_at: "2025-04-05T12:00:00Z",
       archived: false,
@@ -54,10 +52,9 @@ const JobPostTable = () => {
     {
       id: 3,
       company_name: "GreenWorks Co.",
-      owner: { first_name: "Carol", middlename: null, last_name: "Evans", suffix: null },
-      skills: [{ name: "Electrician", rank: "Bronze 3" }],
+      owner_id: "3", // Updated to use owner_id
+      skills: [{ name: "Electrician", rank: "Entry" }],
       description: "Need a certified electrician for wiring and installation tasks.",
-      requirements: "2+ years in electrical work, certification required, safety-focused.",
       created_at: "2025-05-15T14:00:00Z",
       updated_at: "2025-06-10T15:00:00Z",
       archived: true,
@@ -76,11 +73,11 @@ const JobPostTable = () => {
 
   const filteredPosts = jobPosts.filter((post) => {
     const companyName = post.company_name?.toLowerCase() || "";
-    const ownerName = getFullName(post.owner).toLowerCase();
+    const ownerName = getFullName({ first_name: "John", last_name: "Doe", suffix: "" }); // Mock owner name based on owner_id
     const skills = post.skills.map((skill) => skill.name.toLowerCase()).join(" ");
     const matchesSearch =
       companyName.includes(searchTerm.toLowerCase()) ||
-      ownerName.includes(searchTerm.toLowerCase()) ||
+      ownerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       skills.includes(searchTerm.toLowerCase());
     const matchesArchived = post.archived === showArchived;
     return matchesSearch && matchesArchived;
@@ -154,10 +151,9 @@ const JobPostTable = () => {
     setPostToEdit({
       ...post,
       company_name: post.company_name || "",
-      owner: post.owner || { first_name: "", middlename: "", last_name: "", suffix: "" },
-      skills: post.skills || [{ name: "", rank: "Bronze 3" }],
+      owner_id: post.owner_id || "",
+      skills: post.skills || [{ name: "", rank: "Entry" }],
       description: post.description || "",
-      requirements: post.requirements || "",
     });
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -173,10 +169,9 @@ const JobPostTable = () => {
     const addedPost = {
       id: jobPosts.length + 1,
       company_name: newPost.company_name || "Unknown",
-      owner: newPost.owner || { first_name: "Unknown", middlename: null, last_name: "Owner", suffix: null },
-      skills: newPost.skills || [{ name: "Unknown", rank: "Bronze 3" }],
+      owner_id: newPost.owner_id || "1", // Default to first employer
+      skills: newPost.skills || [{ name: "Unknown", rank: "Entry" }],
       description: newPost.description || "",
-      requirements: newPost.requirements || "",
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
       archived: false,
@@ -192,10 +187,9 @@ const JobPostTable = () => {
           ? {
               ...post,
               company_name: updatedPost.company_name,
-              owner: updatedPost.owner,
+              owner_id: updatedPost.owner_id,
               skills: updatedPost.skills,
               description: updatedPost.description,
-              requirements: updatedPost.requirements,
               updated_at: new Date().toISOString(),
             }
           : post
@@ -335,7 +329,6 @@ const JobPostTable = () => {
                   <th>Owner</th>
                   <th>Skills</th>
                   <th>Description</th>
-                  <th>Requirements</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -374,7 +367,7 @@ const JobPostTable = () => {
                         </div>
                       </td>
                       <td className="company-cell">{post.company_name || "N/A"}</td>
-                      <td className="owner-cell">{getFullName(post.owner)}</td>
+                      <td className="owner-cell">{getFullName({ first_name: "John", last_name: "Doe", suffix: "" })}</td>
                       <td className="skills-cell">
                         {post.skills.map((skill, index) => (
                           <span key={index} className="skill-badge">
@@ -384,14 +377,13 @@ const JobPostTable = () => {
                         ))}
                       </td>
                       <td className="description-cell">{post.description || "N/A"}</td>
-                      <td className="requirements-cell">{post.requirements || "N/A"}</td>
                       <td>{formatDate(post.created_at)}</td>
                       <td>{formatDate(post.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="8">No {showArchived ? "archived" : "active"} job posts found</td>
+                    <td colSpan="7">No {showArchived ? "archived" : "active"} job posts found</td>
                   </tr>
                 )}
               </tbody>

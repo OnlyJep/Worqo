@@ -1,0 +1,366 @@
+import React, { useState, useEffect } from "react";
+import "./../../../../sass/components/jobpostmodal.scss";
+
+const JobPostModal = ({ onClose, onSubmit, isEdit, initialData }) => {
+  const [formData, setFormData] = useState({
+    company_name: "",
+    owner_id: "",
+    skills: [{ name: "", rank: "Entry" }],
+    description: "",
+    salary: "",
+    job_type: "full-time",
+    location: "Butuan City",
+    application_deadline: "",
+  });
+  const [errors, setErrors] = useState({});
+
+  // Mock list of employers (replace with actual API call or prop)
+  const employers = [
+    { id: "1", first_name: "John", last_name: "Doe", suffix: "" },
+    { id: "2", first_name: "Jane", last_name: "Smith", suffix: "Jr." },
+    { id: "3", first_name: "Robert", last_name: "Johnson", suffix: "" },
+  ];
+
+  // Comprehensive list of skills from OnlineJobs.ph
+  const availableSkills = [
+    "Virtual Assistant",
+    "Wordpress Developer",
+    "SEO",
+    "Graphic Designer",
+    "Social Media Marketer",
+    "PHP Developer",
+    "Real Estate Virtual Assistant",
+    "Content Writer",
+    "Amazon Expert",
+    "Sales Representative",
+    "Marketing Specialist",
+    "Shopify Developer",
+    "Video Editor",
+    "Data Entry",
+    "Web Developer",
+    "Project Manager",
+    "GoHighLevel",
+    "Facebook Ads Manager",
+    "Lead Generation",
+    "Email Marketer",
+    "eBay Virtual Assistant",
+    "Customer Service",
+    "Google Ads Manager",
+    "Magento Developer",
+    "Web Designer",
+    "Copywriter",
+    "QuickBooks",
+    "PPC",
+    "Ecommerce Researcher",
+    "Accountant",
+    "iOS Developer",
+    "Photoshop",
+    "Logo Design",
+    "Shirt Design",
+    "Print Design",
+    "Quality Assurance",
+    "Software QA Testing",
+    "Event Planner",
+    "Research",
+    "Travel Planning",
+    "Bookkeeping",
+    "Business Plans",
+    "Excel",
+    "Admin Assistant",
+    "Email Management",
+    "Blogging",
+    "Creative Writing",
+    "Appointment Setter",
+    "Translation",
+    "Tutoring Teaching",
+    "Architectural and Engineering Services",
+    "Design Project Management",
+    "Web Content Writing",
+    "Community Moderation",
+    "AI Tools",
+    "JSON",
+    "CAD/CAM",
+    "CRM",
+    "Cold Calling",
+    "Financial Accounting",
+    "Forecasting",
+    "Meta Business Suite",
+    "Amazon Ads",
+    "Performance Marketing",
+    "Content Creation",
+    "Product Sourcing",
+    "Adobe Premiere Pro",
+    "Clickfunnels",
+    "Kajabi",
+    "Active Campaign",
+    "Node JS",
+    "REST API",
+    "Outbound Sales",
+    "Sales Support",
+    "Local SEO",
+    "On-Page Backlinks",
+    "Google Data Studio",
+    "Notion Database Management",
+    "Web Design & Page Layout",
+    "Clickup",
+    "Power BI",
+    "PowerApps",
+    "Integration",
+    "Make.com"
+  ];
+
+  // Professional job-oriented ranks
+  const professionalRanks = [
+    "Entry",
+    "Associate",
+    "Professional",
+    "Senior",
+    "Expert"
+  ];
+
+  useEffect(() => {
+    if (isEdit && initialData) {
+      setFormData({
+        company_name: initialData.company_name || "",
+        owner_id: initialData.owner_id || "",
+        skills: initialData.skills?.length > 0 ? initialData.skills : [{ name: "", rank: "Entry" }],
+        description: initialData.description || "",
+        salary: initialData.salary || "",
+        job_type: initialData.job_type || "full-time",
+        location: "Butuan City",
+        application_deadline: initialData.application_deadline || "",
+      });
+    }
+  }, [isEdit, initialData]);
+
+  const handleInputChange = (e, field) => {
+    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+    setErrors((prev) => ({ ...prev, [field]: "" }));
+  };
+
+  const handleSkillChange = (index, field, value) => {
+    setFormData((prev) => {
+      const newSkills = [...prev.skills];
+      newSkills[index] = { ...newSkills[index], [field]: value };
+      return { ...prev, skills: newSkills };
+    });
+    setErrors((prev) => ({ ...prev, skills: "" }));
+  };
+
+  const addSkill = () => {
+    setFormData((prev) => ({
+      ...prev,
+      skills: [...prev.skills, { name: "", rank: "Entry" }],
+    }));
+  };
+
+  const removeSkill = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      skills: prev.skills.filter((_, i) => i !== index),
+    }));
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.company_name) newErrors.company_name = "Company name is required";
+    if (!formData.owner_id) newErrors.owner_id = "Owner is required";
+    if (!formData.description) newErrors.description = "Job description is required";
+    if (!formData.job_type) newErrors.job_type = "Job type is required";
+    if (!formData.application_deadline) newErrors.application_deadline = "Application deadline is required";
+    if (formData.salary && isNaN(formData.salary) || formData.salary < 1) {
+      newErrors.salary = "Salary must be a number greater than or equal to 1";
+    }
+    if (!formData.skills.some(skill => skill.name)) {
+      newErrors.skills = "At least one valid skill is required";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      onSubmit(formData);
+    }
+  };
+
+  return React.createElement(
+    "div",
+    { className: "jobpostmodal-overlay" },
+    React.createElement(
+      "div",
+      { className: "jobpostmodal" },
+      React.createElement("h2", null, isEdit ? "Edit Job Post" : "Create Job Post"),
+      React.createElement(
+        "div",
+        { className: "jobpostmodal-content" },
+        React.createElement(
+          "div",
+          { className: "form-group" },
+          React.createElement("label", { htmlFor: "company_name" }, "Company Name"),
+          React.createElement("input", {
+            id: "company_name",
+            type: "text",
+            value: formData.company_name,
+            onChange: (e) => handleInputChange(e, "company_name"),
+            placeholder: "Enter company name",
+          }),
+          errors.company_name && React.createElement("span", { className: "error" }, errors.company_name)
+        ),
+        React.createElement(
+          "div",
+          { className: "form-group" },
+          React.createElement("label", { htmlFor: "owner_id" }, "Owner"),
+          React.createElement(
+            "select",
+            {
+              id: "owner_id",
+              value: formData.owner_id,
+              onChange: (e) => handleInputChange(e, "owner_id"),
+              required: true,
+            },
+            React.createElement("option", { value: "", disabled: true }, "Select Employer"),
+            employers.map((employer) =>
+              React.createElement(
+                "option",
+                { key: employer.id, value: employer.id },
+                `${employer.first_name} ${employer.last_name} ${employer.suffix}`
+              )
+            )
+          ),
+          errors.owner_id && React.createElement("span", { className: "error" }, errors.owner_id)
+        ),
+        React.createElement(
+          "div",
+          { className: "form-group" },
+          React.createElement("label", null, "Skills Required"),
+          formData.skills.map((skill, index) =>
+            React.createElement(
+              "div",
+              { key: index, className: "skill-row" },
+              React.createElement(
+                "select",
+                {
+                  value: skill.name,
+                  onChange: (e) => handleSkillChange(index, "name", e.target.value),
+                },
+                React.createElement("option", { value: "", disabled: true }, "Select Skill"),
+                availableSkills.map((skillOption) =>
+                  React.createElement("option", { key: skillOption, value: skillOption }, skillOption)
+                )
+              ),
+              React.createElement(
+                "select",
+                {
+                  value: skill.rank,
+                  onChange: (e) => handleSkillChange(index, "rank", e.target.value),
+                },
+                professionalRanks.map((rank) =>
+                  React.createElement("option", { key: rank, value: rank }, rank)
+                )
+              ),
+              formData.skills.length > 1 &&
+                React.createElement(
+                  "button",
+                  { className: "remove-skill", onClick: () => removeSkill(index) },
+                  "Remove"
+                )
+            )
+          ),
+          React.createElement(
+            "button",
+            { className: "add-skill", onClick: addSkill },
+            "Add Another Skill"
+          ),
+          errors.skills && React.createElement("span", { className: "error" }, errors.skills)
+        ),
+        React.createElement(
+          "div",
+          { className: "form-group" },
+          React.createElement("label", { htmlFor: "description" }, "Job Description"),
+          React.createElement("textarea", {
+            id: "description",
+            value: formData.description,
+            onChange: (e) => handleInputChange(e, "description"),
+            placeholder: "Describe the job role and responsibilities",
+          }),
+          errors.description && React.createElement("span", { className: "error" }, errors.description)
+        ),
+        React.createElement(
+          "div",
+          { className: "form-group" },
+          React.createElement("label", { htmlFor: "salary" }, "Salary (PHP)"),
+          React.createElement("input", {
+            id: "salary",
+            type: "number",
+            value: formData.salary,
+            onChange: (e) => handleInputChange(e, "salary"),
+            placeholder: "Enter salary (e.g., 500)",
+            min: "1",
+          }),
+          errors.salary && React.createElement("span", { className: "error" }, errors.salary)
+        ),
+        React.createElement(
+          "div",
+          { className: "form-group" },
+          React.createElement("label", { htmlFor: "job_type" }, "Job Type"),
+          React.createElement(
+            "select",
+            {
+              id: "job_type",
+              value: formData.job_type,
+              onChange: (e) => handleInputChange(e, "job_type"),
+              required: true,
+            },
+            React.createElement("option", { value: "full-time" }, "Full Time"),
+            React.createElement("option", { value: "part-time" }, "Part Time"),
+            React.createElement("option", { value: "contract" }, "Contract"),
+            React.createElement("option", { value: "temporary" }, "Temporary")
+          ),
+          errors.job_type && React.createElement("span", { className: "error" }, errors.job_type)
+        ),
+        React.createElement(
+          "div",
+          { className: "form-group" },
+          React.createElement("label", { htmlFor: "location" }, "Location"),
+          React.createElement("input", {
+            id: "location",
+            type: "text",
+            value: formData.location,
+            readOnly: true,
+          })
+        ),
+        React.createElement(
+          "div",
+          { className: "form-group" },
+          React.createElement("label", { htmlFor: "application_deadline" }, "Application Deadline"),
+          React.createElement("input", {
+            id: "application_deadline",
+            type: "date",
+            value: formData.application_deadline,
+            onChange: (e) => handleInputChange(e, "application_deadline"),
+            required: true,
+          }),
+          errors.application_deadline && React.createElement("span", { className: "error" }, errors.application_deadline)
+        )
+      ),
+      React.createElement(
+        "div",
+        { className: "jobpostmodal-buttons" },
+        React.createElement(
+          "button",
+          { className: "submit-button", onClick: handleSubmit },
+          isEdit ? "Update" : "Create"
+        ),
+        React.createElement(
+          "button",
+          { className: "cancel-button", onClick: onClose },
+          "Cancel"
+        )
+      )
+    )
+  );
+};
+
+export default JobPostModal;

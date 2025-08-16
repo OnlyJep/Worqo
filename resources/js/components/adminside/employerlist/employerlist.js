@@ -5,6 +5,7 @@ import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_employerlist.scss";
+import EmployerModal from "./employerlistmodal.js";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -334,127 +335,127 @@ const EmployerList = () => {
                 <FaEye size={20} className="button-icon" />
                 <span className="button-text">{showArchived ? "View Active" : "View Archived"}</span>
               </button>
-              </div>
             </div>
-            <div className="employerlist-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>
-                      <div className="header-actions-icon">
-                        <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                          {selectedEmployers.length === filteredEmployers.length && filteredEmployers.length > 0 ? (
-                            <FaCheckSquare className="checkbox-icon" />
-                          ) : (
-                            <FaSquare className="checkbox-icon" />
-                          )}
-                        </span>
-                        Actions
-                      </div>
-                    </th>
-                    <th>Company Name</th>
-                    <th>Owner</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Credentials</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentEmployers.length > 0 ? (
-                    currentEmployers.map((employer) => (
-                      <tr key={employer.id}>
-                        <td data-label="Actions">
-                          <div className="action-icons">
-                            <span onClick={() => toggleSelectEmployer(employer.id)} style={{ cursor: "pointer" }}>
-                              {selectedEmployers.includes(employer.id) ? (
-                                <FaCheckSquare className="checkbox-icon" size={16} />
-                              ) : (
-                                <FaSquare className="checkbox-icon" size={16} />
-                              )}
-                            </span>
-                            {showArchived ? (
-                              <FaCheckCircle
-                                size={16}
-                                className="restore-icon"
-                                onClick={() => handleRestoreEmployer(employer.id)}
-                              />
+          </div>
+          <div className="employerlist-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <div className="header-actions-icon">
+                      <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
+                        {selectedEmployers.length === filteredEmployers.length && filteredEmployers.length > 0 ? (
+                          <FaCheckSquare className="checkbox-icon" />
+                        ) : (
+                          <FaSquare className="checkbox-icon" />
+                        )}
+                      </span>
+                      Actions
+                    </div>
+                  </th>
+                  <th>Company Name</th>
+                  <th>Owner</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Credentials</th>
+                  <th>Created At</th>
+                  <th>Updated At</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentEmployers.length > 0 ? (
+                  currentEmployers.map((employer) => (
+                    <tr key={employer.id}>
+                      <td data-label="Actions">
+                        <div className="action-icons">
+                          <span onClick={() => toggleSelectEmployer(employer.id)} style={{ cursor: "pointer" }}>
+                            {selectedEmployers.includes(employer.id) ? (
+                              <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
-                              <FaTrash
-                                size={16}
-                                className="delete-icon"
-                                onClick={() => handleArchiveClick(employer)}
-                              />
+                              <FaSquare className="checkbox-icon" size={16} />
                             )}
-                            <FaUser
+                          </span>
+                          {showArchived ? (
+                            <FaCheckCircle
                               size={16}
-                              className="edit-icon"
-                              onClick={() => handleEditClick(employer)}
+                              className="restore-icon"
+                              onClick={() => handleRestoreEmployer(employer.id)}
                             />
-                          </div>
-                        </td>
-                        <td data-label="Company Name" className="company-name-cell">{employer.company_name || "N/A"}</td>
-                        <td data-label="Owner" className="owner-cell">{getFullName(employer.owner)}</td>
-                        <td data-label="Email">{employer.email || "N/A"}</td>
-                        <td data-label="Phone">{employer.phone || "N/A"}</td>
-                        <td data-label="Credentials">{employer.credentials?.length > 0 ? employer.credentials.join(", ") : "None"}</td>
-                        <td data-label="Created At">{formatDate(employer.created_at)}</td>
-                        <td data-label="Updated At">{formatDate(employer.updated_at)}</td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan="8">No {showArchived ? "archived" : "active"} employers found</td>
+                          ) : (
+                            <FaTrash
+                              size={16}
+                              className="delete-icon"
+                              onClick={() => handleArchiveClick(employer)}
+                            />
+                          )}
+                          <FaUser
+                            size={16}
+                            className="edit-icon"
+                            onClick={() => handleEditClick(employer)}
+                          />
+                        </div>
+                      </td>
+                      <td data-label="Company Name" className="company-name-cell">{employer.company_name || "N/A"}</td>
+                      <td data-label="Owner" className="owner-cell">{getFullName(employer.owner)}</td>
+                      <td data-label="Email">{employer.email || "N/A"}</td>
+                      <td data-label="Phone">{employer.phone || "N/A"}</td>
+                      <td data-label="Credentials">{employer.credentials?.length > 0 ? employer.credentials.join(", ") : "None"}</td>
+                      <td data-label="Created At">{formatDate(employer.created_at)}</td>
+                      <td data-label="Updated At">{formatDate(employer.updated_at)}</td>
                     </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-            <div className="employerlist-pagination">
-              <span>Page {pagination.currentPage} of {totalPages}</span>
-              <button
-                onClick={() => handlePageChange(pagination.currentPage - 1)}
-                disabled={pagination.currentPage <= 1}
-              >
-                {"<"}
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="8">No {showArchived ? "archived" : "active"} employers found</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+          <div className="employerlist-pagination">
+            <span>Page {pagination.currentPage} of {totalPages}</span>
+            <button
+              onClick={() => handlePageChange(pagination.currentPage - 1)}
+              disabled={pagination.currentPage <= 1}
+            >
+              {"<"}
+            </button>
+            {renderPagination()}
+            <button
+              onClick={() => handlePageChange(pagination.currentPage + 1)}
+              disabled={pagination.currentPage >= totalPages}
+            >
+              {">"}
+            </button>
+          </div>
+        </div>
+      </div>
+      {isConfirmModalOpen && (
+        <div className="confirm-modal-overlay">
+          <div className="confirm-modal">
+            <h3>Are you sure?</h3>
+            <p>Do you want to archive "{employerToArchive?.company_name}"?</p>
+            <div className="confirm-modal-buttons">
+              <button className="confirm-button" onClick={handleArchiveConfirm}>
+                Yes, Archive
               </button>
-              {renderPagination()}
-              <button
-                onClick={() => handlePageChange(pagination.currentPage + 1)}
-                disabled={pagination.currentPage >= totalPages}
-              >
-                {">"}
+              <button className="cancel-button" onClick={() => setIsConfirmModalOpen(false)}>
+                Cancel
               </button>
             </div>
           </div>
         </div>
-        {isConfirmModalOpen && (
-          <div className="confirm-modal-overlay">
-            <div className="confirm-modal">
-              <h3>Are you sure?</h3>
-              <p>Do you want to archive "{employerToArchive?.company_name}"?</p>
-              <div className="confirm-modal-buttons">
-                <button className="confirm-button" onClick={handleArchiveConfirm}>
-                  Yes, Archive
-                </button>
-                <button className="cancel-button" onClick={() => setIsConfirmModalOpen(false)}>
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-        {isModalOpen && (
-          <EmployerModal
-            onClose={handleModalClose}
-            onSubmit={isEditMode ? handleEmployerUpdate : handleEmployerAdd}
-            isEdit={isEditMode}
-            initialData={employerToEdit}
-          />
-        )}
-      </div>
-    );
-  };
-  
-  export default EmployerList;
+      )}
+      {isModalOpen && (
+        <EmployerModal
+          onClose={handleModalClose}
+          onSubmit={isEditMode ? handleEmployerUpdate : handleEmployerAdd}
+          isEdit={isEditMode}
+          initialData={employerToEdit}
+        />
+      )}
+    </div>
+  );
+};
+
+export default EmployerList;
