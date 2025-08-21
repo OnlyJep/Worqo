@@ -7,7 +7,9 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Homepage from "./components/Homepage/homepage";
 import Headerz from "./components/HeaderContent/Headerz";
-import Browse from "./components/ShopContent/browse";
+import Service from "./components/HeaderContent/Service";
+import Browse from "./components/ShopContent/browseblue";
+import BrowseWhite from "./components/ShopContent/browsewhite";
 import Cart from "./components/CartContent/cart";
 import Complete from "./components/OrdersContent/order_complete";
 import Orders_modal from "./components/CartModals/orders_modal";
@@ -28,6 +30,7 @@ import SkillCategories from "./components/adminside/skillscategories/skillcatego
 import ColorCodeCollars from "./components/adminside/colorcodecollars/collars.js";
 import Ranks from "./components/adminside/ranks/Ranks.js";
 import RolesManagement from "./components/adminside/roles/Roles.js";
+import FindJob from "./components/HeaderContent/findjob";
 
 export default function Routers() {
   return (
@@ -37,8 +40,11 @@ export default function Routers() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/homepage" element={<Homepage />} />
+        <Route path="/services" element={<Service />} />
         <Route path="/headerz" element={<Headerz />} />
+        <Route path="/find-jobs" element={<FindJob />} />
         <Route path="/browse" element={<Browse />} />
+        <Route path="/browse-white" element={<BrowseWhite />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/complete" element={<Complete />} />
         <Route path="/orders_modal" element={<Orders_modal />} />

@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './../../../sass/components/banner.scss';
 
-// Updated image imports with your provided file paths
-import bannerOne from '../../../../resources/sass/img/BannerAssets/banner_one.svg';
-import bannerTwo from '../../../../resources/sass/img/BannerAssets/main_banner.svg';
-import bannerThree from '../../../../resources/sass/img/BannerAssets/fiesta.svg';
+// Use the provided hero image
+import heroImage from '../../../../resources/sass/img/Rectangle 9721.svg';
 
 const banners = [
-  { src: bannerOne, alt: 'Banner 1' },
-  { src: bannerTwo, alt: 'Banner 2' },
-  { src: bannerThree, alt: 'Banner 3' },
+  { src: heroImage, alt: 'Hero' },
 ];
 
 const Banner = () => {
