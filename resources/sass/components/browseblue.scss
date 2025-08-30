@@ -16,10 +16,10 @@
 
     .header-section {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between; // Pushes sort-by to the right
       align-items: center;
-      margin-bottom: 1.5rem;
-      gap: 100px;
+      margin-bottom: 2rem; // Increased margin to separate from profiles
+      padding-right: 40px; // Ensures sort-by is in the far right corner
 
       .category-title {
         margin-right: 0;
@@ -28,50 +28,68 @@
       .search-bar {
         display: flex;
         align-items: center;
-        gap: 4px;
-        margin-left: 48px;
+        gap: 8px; // Increased gap for spacing
 
         .search-input {
           width: 300px;
           max-width: 60vw;
-          height: 36px;
+          height: 40px;
           border: 1px solid #c9ced6;
-          border-radius: 2px;
-          padding: 0 10px;
-          font-size: 14px;
+          border-radius: 4px;
+          padding: 0 12px;
+          font-size: 16px;
           color: #111827;
+          outline: none;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: #0a2a40;
+          }
         }
 
         .search-btn {
-          width: 32px;
-          height: 32px;
+          width: 40px;
+          height: 40px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           background-color: #0a2a40;
           border: 0;
-          border-radius: 2px;
+          border-radius: 4px;
           cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #08203a;
+          }
         }
       }
 
       .sort-wrapper {
         position: relative;
         display: flex;
-        align-items: flex;
+        align-items: center;
 
         .sort-by {
           display: flex;
-          align-items: fle;
-          gap: 6px;
-          font-size: 14px;
+          align-items: center;
+          gap: 8px;
+          font-size: 16px;
           color: #000000;
           cursor: pointer;
+          padding: 8px 16px;
+          border: 1px solid #c9ced6;
+          border-radius: 4px;
+          transition: border-color 0.3s ease;
+
+          &:hover {
+            border-color: #0a2a40;
+          }
         }
 
         .sort-icon {
-          width: 16px;
-          height: 16px;
+          width: 18px;
+          height: 18px;
           stroke: #000000;
           stroke-width: 2;
         }
@@ -81,20 +99,22 @@
           top: 100%;
           right: 0;
           background-color: #fff;
-          border-radius: 5px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 6px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           z-index: 10;
-          min-width: 150px;
-          border: 1px solid #E6F2EF;
+          min-width: 180px;
+          border: 1px solid #e6f2ef;
+          margin-top: 4px;
 
           .sort-option {
-            padding: 0.5rem 1rem;
+            padding: 10px 16px;
+            font-size: 14px;
             color: #333;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
 
             &:hover {
-              background-color: #E6F2EF;
+              background-color: #e6f2ef;
               color: #000000;
             }
           }
@@ -103,90 +123,220 @@
     }
 
     .category-title {
-      font-size: 1.75rem;
+      font-size: 2rem;
       font-weight: 800;
       color: #0b0d0f;
       margin: 0;
       text-transform: uppercase;
-      line-height: 1.1;
+      line-height: 1.2;
     }
-
-    // removed after-header image
-
-    // removed legacy grid wrappers/styles
   }
 
   .content-layout {
     display: grid;
     grid-template-columns: 400px 1fr;
     gap: 24px;
+    align-items: stretch;
+    min-height: calc(100vh - 200px);
   }
 
   .filters-sidebar {
     background: #0a2a40;
     color: #fff;
-    padding: 40px;
+    padding: 24px;
     border-radius: 6px;
+    position: sticky;
+    top: 20px;
+    height: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     .filters-title {
-      font-size: 12px;
-      letter-spacing: .5px;
-      opacity: .85;
-      margin: 0 0 12px;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      opacity: 0.85;
+      margin: 0 0 20px;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 
     .filter-group {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
 
-      label { font-size: 10px; opacity: .75; }
-      select, input[type="number"], .search-descriptions {
-        height: 28px;
-        border: none;
-        border-radius: 4px;
-        padding: 0 8px;
+      label {
+        font-size: 14px;
+        opacity: 0.75;
+        font-weight: 500;
+        text-transform: uppercase;
       }
-      .range { display: flex; align-items: center; gap: 8px; }
-      .search-descriptions { width: 100%; }
+
+      select,
+      input[type="number"],
+      .search-descriptions {
+        height: 40px;
+        border: 1px solid #1e4a6e;
+        border-radius: 6px;
+        padding: 0 12px;
+        font-size: 14px;
+        color: #fff;
+        background: #0f3a5a;
+        outline: none;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          border-color: #1ec64b;
+        }
+      }
+
+      .range {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        input[type="number"] {
+          width: 80px;
+        }
+
+        span {
+          font-size: 14px;
+          color: #b0c4de;
+        }
+      }
+
+      .search-descriptions {
+        width: 100%;
+        padding: 8px 12px;
+      }
     }
 
     .apply-btn {
       width: 100%;
-      height: 30px;
+      height: 40px;
       border: none;
-      border-radius: 16px;
-      background: #0d7a5f;
+      border-radius: 20px;
+      background: #1ec64b;
       color: #fff;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #1aa33f;
+      }
     }
   }
 
   .results-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
 
   .result-card {
     background: linear-gradient(180deg, #f3f7fb 0%, #eef3f7 100%);
-    border-radius: 6px;
-    padding: 12px;
-    .card-inner { display: grid; grid-template-columns: 120px 1fr 140px; align-items: start; gap: 16px; }
-    .avatar { width: 80px; height: 80px; border-radius: 50%; background: #e6e9ef; }
-    .status-dot { width: 8px; height: 8px; background: #1ec64b; border-radius: 50%; display: inline-block; margin-right: 6px; }
-    .status-text { font-size: 10px; color: #1b2430; opacity: .85; }
-    .name { margin: 0; font-size: 14px; }
-    .role { margin-left: 8px; font-size: 10px; color: #3c556e; }
-    .label { font-size: 10px; color: #73839b; margin-bottom: 4px; }
-    .value { font-size: 12px; color: #1b2430; }
-    .desc { margin-top: 8px; font-size: 12px; color: #1b2430; opacity: .9; }
-    .skills-row { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .chip { background: #fff; border: 1px solid #d9e2ec; border-radius: 4px; padding: 2px 6px; font-size: 10px; color: #284b63; }
-    .view-btn { width: 110px; height: 28px; border: none; border-radius: 16px; background: #0d7a5f; color: #fff; cursor: pointer; }
-    .stars { margin-top: 8px; color: #0d7a5f; letter-spacing: 2px; }
+    border-radius: 8px;
+    padding: 16px;
+
+    .card-inner {
+      display: grid;
+      grid-template-columns: 120px 1fr 140px;
+      align-items: start;
+      gap: 20px;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #e6e9ef;
+    }
+
+    .status-text {
+      font-size: 14px;
+      color: green;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      &:before {
+        content: "●";
+        color: #1ec64b;
+        font-size: 12px;
+      }
+    }
+
+    .name {
+      margin: 0;
+      font-size: 18px;
+      color: #0a2a40; // Blue color for profile name
+    }
+
+    .role {
+      margin-left: 12px;
+      font-size: 14px;
+      color: #3c556e;
+    }
+
+    .label {
+      font-size: 12px;
+      color: #73839b;
+      margin-bottom: 6px;
+    }
+
+    .value {
+      font-size: 14px;
+      color: #1b2430;
+    }
+
+    .desc {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #1b2430;
+      opacity: 0.9;
+    }
+
+    .skills-row {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: #fff;
+      border: 1px solid #d9e2ec;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: #284b63;
+    }
+
+    .view-btn {
+      width: 130px;
+      height: 36px;
+      border: none;
+      border-radius: 18px;
+      background: #0a2a40;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #08203a;
+      }
+    }
+
+    .stars {
+      margin-top: 12px;
+      color: #0a2a40; // Blue color for stars
+      font-size: 20px;
+      letter-spacing: 4px;
+    }
   }
 
   @media (max-width: 768px) {
@@ -196,14 +346,56 @@
       .header-section {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 1.5rem;
+      }
+
+      .content-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .filters-sidebar {
+        position: relative;
+        top: 0;
+        margin-bottom: 20px;
+        height: auto;
       }
     }
   }
 
   @media (max-width: 480px) {
-    // no grid styles
+    .browse-content {
+      padding: 0 10px 10px;
+    }
+
+    .header-section .search-bar .search-input {
+      width: 200px;
+    }
+
+    .result-card .card-inner {
+      grid-template-columns: 80px 1fr 100px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+    }
+
+    .name {
+      font-size: 16px;
+    }
+
+    .role {
+      font-size: 12px;
+    }
+
+    .view-btn {
+      width: 110px;
+      font-size: 12px;
+    }
+
+    .stars {
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
   }
 }
-
-

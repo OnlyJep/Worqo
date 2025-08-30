@@ -19,8 +19,8 @@ import AdminDashboard from "./components/adminside/admindashboard/admindashboard
 import Products from "./components/adminside/products/Products";
 import Orders from "./components/adminside/orders/Orders";
 import Users from "./components/adminside/users/Users";
-import Adminlist from "./components/adminside/Adminlist/adminlist"
-import JobPost from "./components/adminside/jobposting/jobposting.js"
+import Adminlist from "./components/adminside/Adminlist/adminlist";
+import JobPost from "./components/adminside/jobposting/jobposting.js";
 import Workerlists from "./components/adminside/workerlist/workerlist.js";
 import Employerlists from "./components/adminside/employerlist/employerlist.js";
 import ReviewList from "./components/adminside/ReviewList/reviewlist.js";
@@ -31,6 +31,7 @@ import ColorCodeCollars from "./components/adminside/colorcodecollars/collars.js
 import Ranks from "./components/adminside/ranks/Ranks.js";
 import RolesManagement from "./components/adminside/roles/Roles.js";
 import FindJob from "./components/HeaderContent/findjob";
+import JobProfile from "./components/HeaderContent/JobProfile"; // New component
 
 export default function Routers() {
   return (
@@ -43,13 +44,14 @@ export default function Routers() {
         <Route path="/services" element={<Service />} />
         <Route path="/headerz" element={<Headerz />} />
         <Route path="/find-jobs" element={<FindJob />} />
+        <Route path="/job/:jobId" element={<JobProfile />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/browse-white" element={<BrowseWhite />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/complete" element={<Complete />} />
         <Route path="/orders_modal" element={<Orders_modal />} />
         <Route path="/pay" element={<Pay />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:workerId" element={<Profile />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/products" element={<Products />} />
         <Route path="/admin/orders" element={<Orders />} />

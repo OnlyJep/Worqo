@@ -1,0 +1,224 @@
+.adminmodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto;
+}
+
+.adminmodal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  h2 {
+    margin: 0 0 16px;
+    font-size: 22px;
+    color: #1E90FF; // Blue theme
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .adminmodal-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      &.name-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        @media (max-width: 400px) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .name-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      label {
+        font-weight: 500;
+        color: #2d3748;
+        font-size: 13px;
+        font-family: 'Inter', sans-serif;
+      }
+
+      input,
+      textarea {
+        padding: 8px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        background: #f9fafb;
+        font-family: 'Inter', sans-serif;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+          border-color: #1E90FF; // Blue theme
+          box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
+          outline: none;
+        }
+
+        &:disabled {
+          background: #e5e7eb;
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+      }
+
+      textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+    }
+  }
+
+  .adminmodal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+
+    .submit-button {
+      background: #1E90FF; // Blue theme
+      color: #ffffff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #104E8B; // Darker blue
+      }
+    }
+
+    .cancel-button {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #e5e7eb;
+      }
+    }
+  }
+
+  .adminmodal-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .adminmodal-content::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 8px;
+  }
+
+  .adminmodal-content::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .adminmodal {
+      width: 90%;
+      max-height: 80vh;
+      padding: 16px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .adminmodal-content {
+      gap: 10px;
+    }
+
+    .form-group {
+      gap: 4px;
+
+      label {
+        font-size: 12px;
+      }
+
+      input,
+      textarea {
+        font-size: 13px;
+        padding: 6px;
+      }
+    }
+
+    .adminmodal-buttons {
+      flex-direction: column;
+      gap: 8px;
+
+      .submit-button,
+      .cancel-button {
+        padding: 8px;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    color: #fff;
+    font-size: 14px;
+
+    &.error {
+      background-color: #dc3545;
+    }
+
+    &.processing {
+      background-color: #17a2b8;
+    }
+
+    &.success {
+      background-color: #28a745;
+    }
+  }
+}
