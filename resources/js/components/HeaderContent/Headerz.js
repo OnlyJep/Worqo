@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './../../../sass/components/Headerz.scss';
-import { IconBell, IconMessage, IconMenu2 } from '@tabler/icons-react';
-import OrdersModal from '../CartModals/orders_modal';
+import { IconBell, IconMenu2, IconMessageCircle } from '@tabler/icons-react';
 import Loader from '../LoaderContent/loader';
 
 const Headerz = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(2); // Sample unread count
   const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
   };
 
   // Navigation functions
@@ -30,6 +25,14 @@ const Headerz = () => {
     setIsLoading(true);
     setTimeout(() => {
       navigate('/login');
+      setIsLoading(false);
+    }, 800);
+  };
+
+  const goToNotifications = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      navigate('/notifications');
       setIsLoading(false);
     }, 800);
   };
@@ -57,22 +60,29 @@ const Headerz = () => {
 
         {/* Right Side: Icons and Login */}
         <div className="header-actions">
-          <IconBell size={24} className="header-icon" />
-          <IconMessage
-            size={24}
-            className="header-icon"
-            onClick={toggleModal}
+          <div className="notification-wrapper" onClick={goToNotifications}>
+            <IconBell 
+              size={24} 
+              className="header-icon" 
+              style={{ cursor: 'pointer' }}
+            />
+            {unreadCount > 0 && (
+              <span className="notification-badge">{unreadCount}</span>
+            )}
+          </div>
+          <IconMessageCircle 
+            size={24} 
+            className="header-icon message-icon" 
+            style={{ cursor: 'pointer' }}
+            onClick={() => navigate('/message')}
           />
           <button className="login-btn" onClick={goToLogin}>
             Login/Signup
           </button>
         </div>
       </div>
-
-      {/* OrdersModal */}
-      <OrdersModal isOpen={isModalOpen} onClose={toggleModal} />
     </header>
   );
 };
 
-export default Headerz; 
+export default Headerz;

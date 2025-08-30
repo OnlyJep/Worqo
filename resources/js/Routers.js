@@ -10,7 +10,6 @@ import Headerz from "./components/HeaderContent/Headerz";
 import Service from "./components/HeaderContent/Service";
 import Browse from "./components/ShopContent/browseblue";
 import BrowseWhite from "./components/ShopContent/browsewhite";
-import Cart from "./components/CartContent/cart";
 import Complete from "./components/OrdersContent/order_complete";
 import Orders_modal from "./components/CartModals/orders_modal";
 import Pay from "./components/Payment&Info/pay";
@@ -32,6 +31,9 @@ import Ranks from "./components/adminside/ranks/Ranks.js";
 import RolesManagement from "./components/adminside/roles/Roles.js";
 import FindJob from "./components/HeaderContent/findjob";
 import JobProfile from "./components/HeaderContent/JobProfile"; // New component
+import AboutUs from "./components/HeaderContent/AboutUs";
+import Message from "./components/HeaderContent/Message";
+import Notif from "./components/HeaderContent/Notif";
 
 export default function Routers() {
   return (
@@ -45,9 +47,11 @@ export default function Routers() {
         <Route path="/headerz" element={<Headerz />} />
         <Route path="/find-jobs" element={<FindJob />} />
         <Route path="/job/:jobId" element={<JobProfile />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/message" element={<Message />} />
+        <Route path="/notifications" element={<Notif />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/browse-white" element={<BrowseWhite />} />
-        <Route path="/cart" element={<Cart />} />
         <Route path="/complete" element={<Complete />} />
         <Route path="/orders_modal" element={<Orders_modal />} />
         <Route path="/pay" element={<Pay />} />

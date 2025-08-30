@@ -67,6 +67,38 @@
       gap: 1rem;
       flex-shrink: 0;
 
+      .notification-wrapper {
+        position: relative;
+        cursor: pointer;
+
+        .header-icon {
+          color: #FFFFFF;
+          cursor: pointer;
+
+          &:hover {
+            color: #00C4CC;
+          }
+        }
+
+        .notification-badge {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          background-color: #dc3545;
+          color: white;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.7rem;
+          font-weight: 600;
+          border: 2px solid #1A2A44;
+          animation: pulse 2s infinite;
+        }
+      }
+
       .header-icon {
         color: #FFFFFF;
         cursor: pointer;
@@ -164,10 +196,33 @@
         right: 1rem;
         gap: 1rem;
 
+        .notification-wrapper {
+          .notification-badge {
+            width: 16px;
+            height: 16px;
+            font-size: 0.6rem;
+            top: -6px;
+            right: -6px;
+          }
+        }
+
         .login-btn {
           display: none;
         }
       }
     }
+  }
+}
+
+// Animation keyframes
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
