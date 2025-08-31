@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom"; // Correct for React 17
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
-// Import components directly
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Homepage from "./components/Homepage/homepage";
@@ -18,16 +17,16 @@ import Products from "./components/adminside/products/Products";
 import Orders from "./components/adminside/orders/Orders";
 import Users from "./components/adminside/users/Users";
 import Adminlist from "./components/adminside/Adminlist/adminlist";
-import JobPost from "./components/adminside/jobposting/jobposting.js";
-import Workerlists from "./components/adminside/workerlist/workerlist.js";
-import Employerlists from "./components/adminside/employerlist/employerlist.js";
-import ReviewList from "./components/adminside/ReviewList/reviewlist.js";
+import JobPost from "./components/adminside/jobposting/jobposting";
+import Workerlists from "./components/adminside/workerlist/workerlist";
+import Employerlists from "./components/adminside/employerlist/employerlist";
+import ReviewList from "./components/adminside/ReviewList/reviewlist";
 import Categories from "./components/adminside/categories/Categories";
 import Roles from "./components/adminside/roles/Roles";
-import SkillCategories from "./components/adminside/skillscategories/skillcategories.js";
-import ColorCodeCollars from "./components/adminside/colorcodecollars/collars.js";
-import Ranks from "./components/adminside/ranks/Ranks.js";
-import RolesManagement from "./components/adminside/roles/Roles.js";
+import SkillCategories from "./components/adminside/skillscategories/skillcategories";
+import ColorCodeCollars from "./components/adminside/colorcodecollars/collars";
+import Ranks from "./components/adminside/ranks/Ranks";
+import RolesManagement from "./components/adminside/roles/Roles";
 import FindJob from "./components/HeaderContent/findjob";
 import JobProfile from "./components/HeaderContent/JobProfile";
 import AboutUs from "./components/HeaderContent/AboutUs";
@@ -252,6 +251,5 @@ export default function Routers() {
 }
 
 if (document.getElementById("root")) {
-  const root = ReactDOM.createRoot(document.getElementById("root"));
-  root.render(<Routers />);
+  ReactDOM.render(<Routers />, document.getElementById("root"));
 }

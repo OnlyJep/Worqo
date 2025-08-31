@@ -12,6 +12,12 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
     password: "",
     role_id: "",
     gender_id: "",
+    contact_number: "",
+    street: "",
+    city: "",
+    province: "",
+    postal_code: "",
+    country: "",
     profile_img: null,
   });
   const [errors, setErrors] = useState({});
@@ -22,8 +28,11 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
   const [isLoading, setIsLoading] = useState(true);
   const fileInputRef = useRef(null);
   const isSubmitting = useRef(false);
+  const mounted = useRef(true);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
+    mounted.current = true;
     const fetchData = async () => {
       try {
         setIsLoading(true);
@@ -42,18 +51,29 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
             headers: { Authorization: `Bearer ${authToken}` },
           }),
         ]);
-        setRoles(Array.isArray(rolesRes.data) ? rolesRes.data : []);
-        setGenders(Array.isArray(gendersRes.data) ? gendersRes.data : []);
-        setSuffixes(Array.isArray(suffixesRes.data) ? suffixesRes.data : []);
+        if (mounted.current) {
+          setRoles(Array.isArray(rolesRes.data) ? rolesRes.data : []);
+          setGenders(Array.isArray(gendersRes.data) ? gendersRes.data : []);
+          setSuffixes(Array.isArray(suffixesRes.data) ? suffixesRes.data : []);
+        }
       } catch (error) {
         console.error("Error fetching dropdown data:", {
           message: error.message,
           status: error.response?.status,
           details: error.response?.data,
         });
-        setErrors({ general: error.message === "No auth token found. Please log in." ? error.message : "Failed to load dropdown data. Please try again." });
+        if (mounted.current) {
+          setErrors({
+            general:
+              error.message === "No auth token found. Please log in."
+                ? error.message
+                : "Failed to load dropdown data. Please try again.",
+          });
+        }
       } finally {
-        setIsLoading(false);
+        if (mounted.current) {
+          setIsLoading(false);
+        }
       }
     };
 
@@ -69,12 +89,27 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
         password: "",
         role_id: initialData.role_id ? String(initialData.role_id) : "",
         gender_id: initialData.gender_id ? String(initialData.gender_id) : "",
+        contact_number: initialData.contact_number || "",
+        street: initialData.street || "",
+        city: initialData.city || "",
+        province: initialData.province || "",
+        postal_code: initialData.postal_code || "",
+        country: initialData.country || "",
         profile_img: null,
       };
-      setFormData(initialFormData);
+      if (mounted.current) {
+        setFormData(initialFormData);
+      }
       console.log("Initial data received:", initialData);
       console.log("Initial form data set:", initialFormData);
     }
+
+    return () => {
+      mounted.current = false;
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, [isEdit, initialData]);
 
   useEffect(() => {
@@ -85,11 +120,13 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
       const validRoleId = roles.some((r) => String(r.id) === String(initialData.role_id))
         ? String(initialData.role_id)
         : "";
-      setFormData((prev) => ({
-        ...prev,
-        gender_id: validGenderId,
-        role_id: validRoleId,
-      }));
+      if (mounted.current) {
+        setFormData((prev) => ({
+          ...prev,
+          gender_id: validGenderId,
+          role_id: validRoleId,
+        }));
+      }
     }
   }, [isEdit, initialData, isLoading, genders, roles]);
 
@@ -97,35 +134,46 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
     const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
     if (field === "profile_img" && value) {
       if (value.size > 2048 * 1024) {
-        setErrors((prev) => ({ ...prev, profile_img: "Image must not exceed 2 MB" }));
+        if (mounted.current) {
+          setErrors((prev) => ({ ...prev, profile_img: "Image must not exceed 2 MB" }));
+        }
         return;
       }
       if (!["image/jpeg", "image/png", "image/jpg"].includes(value.type)) {
-        setErrors((prev) => ({ ...prev, profile_img: "Image must be JPEG, PNG, or JPG" }));
+        if (mounted.current) {
+          setErrors((prev) => ({ ...prev, profile_img: "Image must be JPEG, PNG, or JPG" }));
+        }
         return;
       }
     }
-    setFormData((prev) => ({ ...prev, [field]: value }));
-    setErrors((prev) => ({ ...prev, [field]: "" }));
+    if (mounted.current) {
+      setFormData((prev) => ({ ...prev, [field]: value }));
+      setErrors((prev) => ({ ...prev, [field]: "" }));
+    }
     console.log(`Updated ${field}:`, value);
   };
 
   const removeImage = () => {
-    setFormData((prev) => ({ ...prev, profile_img: null }));
-    setErrors((prev) => ({ ...prev, profile_img: "" }));
-    if (fileInputRef.current) fileInputRef.current.value = "";
+    if (mounted.current) {
+      setFormData((prev) => ({ ...prev, profile_img: null }));
+      setErrors((prev) => ({ ...prev, profile_img: "" }));
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
   };
 
   const validateForm = () => {
     const newErrors = {};
-    if (!isEdit) {
-      // Strict validation for creating new users
-      if (!formData.first_name) newErrors.first_name = "First name is required";
-      if (!formData.last_name) newErrors.last_name = "Last name is required";
-      if (!formData.email) newErrors.email = "Email is required";
-      if (!formData.role_id) newErrors.role_id = "Role is required";
-      if (!formData.gender_id) newErrors.gender_id = "Gender is required";
-      if (!formData.password) newErrors.password = "Password is required for new users";
+    const requiredFields = ['first_name', 'last_name', 'email', 'role_id', 'gender_id'];
+
+    requiredFields.forEach((field) => {
+      const value = isEdit ? (formData[field] || initialData?.[field]) : formData[field];
+      if (!value || value === "") {
+        newErrors[field] = `${field.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())} is required`;
+      }
+    });
+
+    if (!isEdit && !formData.password) {
+      newErrors.password = "Password is required for new users";
     }
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Invalid email format";
@@ -142,8 +190,16 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
     if (formData.suffix_id && !suffixes.some((suffix) => String(suffix.id) === String(formData.suffix_id))) {
       newErrors.suffix_id = "Please select a valid suffix";
     }
+    if (formData.contact_number && !/^\+?[\d\s-]{7,20}$/.test(formData.contact_number)) {
+      newErrors.contact_number = "Invalid contact number format";
+    }
+    if (formData.postal_code && !/^[A-Za-z0-9\s-]{3,20}$/.test(formData.postal_code)) {
+      newErrors.postal_code = "Invalid postal code format";
+    }
 
-    setErrors(newErrors);
+    if (mounted.current) {
+      setErrors(newErrors);
+    }
     console.log("Validation errors:", newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -164,60 +220,88 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
 
     const authToken = localStorage.getItem("auth_token");
     if (!authToken) {
-      setErrors({ general: "No auth token found. Please log in." });
+      if (mounted.current) {
+        setErrors({ general: "No auth token found. Please log in." });
+      }
       console.log("No auth token found.");
       return;
     }
 
     isSubmitting.current = true;
-    setErrors({});
-    setSuccessMessage("");
+    if (mounted.current) {
+      setErrors({});
+      setSuccessMessage("");
+    }
 
     try {
       const submitData = new FormData();
-      // Append fields only if they have changed or are required for create
-      if (formData.first_name || !isEdit) submitData.append("first_name", formData.first_name);
-      if (formData.middlename !== undefined) submitData.append("middlename", formData.middlename);
-      if (formData.last_name || !isEdit) submitData.append("last_name", formData.last_name);
-      if (formData.gender_id || !isEdit) submitData.append("gender_id", formData.gender_id);
-      if (formData.suffix_id !== undefined) submitData.append("suffix_id", formData.suffix_id);
-      if (formData.role_id || !isEdit) submitData.append("role_id", formData.role_id);
-      if (formData.email || !isEdit) submitData.append("email", formData.email);
+      submitData.append("first_name", formData.first_name || initialData?.first_name || "");
+      submitData.append("middlename", formData.middlename ?? "");
+      submitData.append("last_name", formData.last_name || initialData?.last_name || "");
+      submitData.append("gender_id", formData.gender_id || initialData?.gender_id || "");
+      submitData.append("suffix_id", formData.suffix_id ?? "");
+      submitData.append("role_id", formData.role_id || initialData?.role_id || "");
+      submitData.append("email", formData.email || initialData?.email || "");
+      submitData.append("contact_number", formData.contact_number ?? "");
+      submitData.append("street", formData.street ?? "");
+      submitData.append("city", formData.city ?? "");
+      submitData.append("province", formData.province ?? "");
+      submitData.append("postal_code", formData.postal_code ?? "");
+      submitData.append("country", formData.country ?? "");
       if (formData.password) submitData.append("password", formData.password);
-      if (formData.profile_img) submitData.append("profile_img", formData.profile_img);
-      // Explicitly send empty profile_img to clear it
-      if (isEdit && formData.profile_img === null && initialData?.profile_img) {
+      if (formData.profile_img) {
+        submitData.append("profile_img", formData.profile_img);
+      } else if (isEdit && formData.profile_img === null && initialData?.profile_img) {
         submitData.append("profile_img", "");
       }
 
-      const url = isEdit ? `http://127.0.0.1:8000/api/users/${initialData?.id}` : "http://127.0.0.1:8000/api/users";
-      const method = isEdit ? "put" : "post";
-
-      // Log FormData for debugging
       const formDataObj = {};
-      submitData.forEach((value, key) => { formDataObj[key] = value instanceof File ? value.name : value; });
-      console.log("Sending data:", { url, method, data: formDataObj });
-
-      const response = await axios({
-        method,
-        url,
-        data: submitData,
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${authToken}`,
-        },
+      submitData.forEach((value, key) => {
+        formDataObj[key] = value instanceof File ? value.name : value;
       });
+      console.log("Sending data:", { data: formDataObj });
+
+      let response;
+      if (isEdit) {
+        response = await axios.put(
+          `http://127.0.0.1:8000/api/users/${initialData?.id}`,
+          submitData,
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        );
+      } else {
+        response = await axios.post(
+          "http://127.0.0.1:8000/api/users",
+          submitData,
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${authToken}`,
+            },
+          }
+        );
+      }
 
       console.log("Server response:", response.data);
 
-      if (response.status === (isEdit ? 200 : 201)) {
-        await onSubmit(response.data.user);
-        setSuccessMessage(isEdit ? "User updated successfully" : "User created successfully");
-        setErrors({});
-        setTimeout(() => {
-          setSuccessMessage("");
-          onClose();
+      if (response.status === (isEdit ? 200 : 201) && mounted.current) {
+        if (isEdit && response.data.message === "No changes were made") {
+          setSuccessMessage("No changes were made");
+        } else {
+          await onSubmit(response.data.user);
+          setSuccessMessage(isEdit ? "User updated successfully" : "User created successfully");
+        }
+        timeoutRef.current = setTimeout(() => {
+          if (mounted.current) {
+            setSuccessMessage("");
+            onClose();
+          }
         }, 2000);
       }
     } catch (error) {
@@ -226,8 +310,12 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
         status: error.response?.status,
         data: error.response?.data,
       });
-      const errorData = error.response?.data?.messages || error.response?.data || { general: `Failed to ${isEdit ? "update" : "create"} user` };
-      setErrors(errorData);
+      if (mounted.current) {
+        const errorData = error.response?.data?.messages || error.response?.data || {
+          general: `Failed to ${isEdit ? "update" : "create"} user`,
+        };
+        setErrors(errorData);
+      }
     } finally {
       isSubmitting.current = false;
     }
@@ -332,7 +420,7 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               <option value="">Select Gender</option>
               {genders.map((gender) => (
                 <option key={gender.id} value={gender.id}>
-                  {gender.name || gender.gender_name} {/* Support both 'name' and 'gender_name' */}
+                  {gender.name || gender.gender_name}
                 </option>
               ))}
             </select>
@@ -354,6 +442,72 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               ))}
             </select>
             {errors.role_id && <span className="error">{errors.role_id}</span>}
+          </div>
+          <div className="form-group">
+            <label htmlFor="contact_number">Contact Number</label>
+            <input
+              id="contact_number"
+              type="text"
+              value={formData.contact_number}
+              onChange={(e) => handleInputChange(e, "contact_number")}
+              placeholder="Contact Number (optional)"
+            />
+            {errors.contact_number && <span className="error">{errors.contact_number}</span>}
+          </div>
+          <div className="form-group">
+            <label htmlFor="street">Street</label>
+            <input
+              id="street"
+              type="text"
+              value={formData.street}
+              onChange={(e) => handleInputChange(e, "street")}
+              placeholder="Street (optional)"
+            />
+            {errors.street && <span className="error">{errors.street}</span>}
+          </div>
+          <div className="form-group">
+            <label htmlFor="city">City</label>
+            <input
+              id="city"
+              type="text"
+              value={formData.city}
+              onChange={(e) => handleInputChange(e, "city")}
+              placeholder="City (optional)"
+            />
+            {errors.city && <span className="error">{errors.city}</span>}
+          </div>
+          <div className="form-group">
+            <label htmlFor="province">Province</label>
+            <input
+              id="province"
+              type="text"
+              value={formData.province}
+              onChange={(e) => handleInputChange(e, "province")}
+              placeholder="Province (optional)"
+            />
+            {errors.province && <span className="error">{errors.province}</span>}
+          </div>
+          <div className="form-group">
+            <label htmlFor="postal_code">Postal Code</label>
+            <input
+              id="postal_code"
+              type="text"
+              value={formData.postal_code}
+              onChange={(e) => handleInputChange(e, "postal_code")}
+              placeholder="Postal Code (optional)"
+            />
+            {errors.postal_code && <span className="error">{errors.postal_code}</span>}
+          </div>
+          <div className="form-group">
+            <label htmlFor="country">Country</label>
+            <input
+              id="country"
+              type="text"
+              value={formData.country}
+              onChange={(e) => handleInputChange(e, "country")}
+              placeholder="Country (optional)"
+            />
+            {errors.country && <span className="error">{errors.country}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="profile_img">Profile Picture</label>

@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
 class AdminUserController extends Controller
 {
@@ -28,23 +27,7 @@ class AdminUserController extends Controller
                 ->with(['role', 'profile.gender', 'profile.suffix'])
                 ->get()
                 ->map(function ($user) {
-                    return [
-                        'id' => $user->id,
-                        'username' => $user->username,
-                        'email' => $user->email,
-                        'role_id' => $user->role_id,
-                        'role_name' => $user->role ? $user->role->role_name : null,
-                        'gender_id' => $user->profile ? $user->profile->gender_id : null,
-                        'gender_name' => $user->profile && $user->profile->gender ? $user->profile->gender->name : null,
-                        'suffix_id' => $user->profile ? $user->profile->suffix_id : null,
-                        'suffix_name' => $user->profile && $user->profile->suffix ? $user->profile->suffix->suffix_name : null,
-                        'first_name' => $user->profile ? $user->profile->first_name : null,
-                        'middlename' => $user->profile ? $user->profile->middlename : null,
-                        'last_name' => $user->profile ? $user->profile->last_name : null,
-                        'profile_img' => $user->profile ? $user->profile->profile_img : null,
-                        'created_at' => $user->created_at,
-                        'updated_at' => $user->updated_at,
-                    ];
+                    return $this->formatUserResponse($user);
                 });
 
             return response()->json($users, 200);
@@ -66,23 +49,7 @@ class AdminUserController extends Controller
                 ->with(['role', 'profile.gender', 'profile.suffix'])
                 ->get()
                 ->map(function ($user) {
-                    return [
-                        'id' => $user->id,
-                        'username' => $user->username,
-                        'email' => $user->email,
-                        'role_id' => $user->role_id,
-                        'role_name' => $user->role ? $user->role->role_name : null,
-                        'gender_id' => $user->profile ? $user->profile->gender_id : null,
-                        'gender_name' => $user->profile && $user->profile->gender ? $user->profile->gender->name : null,
-                        'suffix_id' => $user->profile ? $user->profile->suffix_id : null,
-                        'suffix_name' => $user->profile && $user->profile->suffix ? $user->profile->suffix->suffix_name : null,
-                        'first_name' => $user->profile ? $user->profile->first_name : null,
-                        'middlename' => $user->profile ? $user->profile->middlename : null,
-                        'last_name' => $user->profile ? $user->profile->last_name : null,
-                        'profile_img' => $user->profile ? $user->profile->profile_img : null,
-                        'created_at' => $user->created_at,
-                        'updated_at' => $user->updated_at,
-                    ];
+                    return $this->formatUserResponse($user);
                 });
 
             return response()->json($users, 200);
@@ -102,24 +69,7 @@ class AdminUserController extends Controller
     {
         try {
             $user = User::with(['role', 'profile.gender', 'profile.suffix'])->findOrFail($id);
-
-            return response()->json([
-                'id' => $user->id,
-                'username' => $user->username,
-                'email' => $user->email,
-                'role_id' => $user->role_id,
-                'role_name' => $user->role ? $user->role->role_name : null,
-                'gender_id' => $user->profile ? $user->profile->gender_id : null,
-                'gender_name' => $user->profile && $user->profile->gender ? $user->profile->gender->name : null,
-                'suffix_id' => $user->profile ? $user->profile->suffix_id : null,
-                'suffix_name' => $user->profile && $user->profile->suffix ? $user->profile->suffix->suffix_name : null,
-                'first_name' => $user->profile ? $user->profile->first_name : null,
-                'middlename' => $user->profile ? $user->profile->middlename : null,
-                'last_name' => $user->profile ? $user->profile->last_name : null,
-                'profile_img' => $user->profile ? $user->profile->profile_img : null,
-                'created_at' => $user->created_at,
-                'updated_at' => $user->updated_at,
-            ], 200);
+            return response()->json($this->formatUserResponse($user), 200);
         } catch (\Exception $e) {
             Log::error('Error fetching user: ' . $e->getMessage());
             return response()->json(['message' => 'User not found'], 404);
@@ -144,6 +94,12 @@ class AdminUserController extends Controller
                 'role_id' => 'required|exists:roles,id',
                 'gender_id' => 'required|exists:genders,id',
                 'suffix_id' => 'nullable|exists:suffixes,id',
+                'contact_number' => 'nullable|string|max:20',
+                'street' => 'nullable|string|max:255',
+                'city' => 'nullable|string|max:255',
+                'province' => 'nullable|string|max:255',
+                'postal_code' => 'nullable|string|max:20',
+                'country' => 'nullable|string|max:255',
                 'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
@@ -151,11 +107,14 @@ class AdminUserController extends Controller
                 return response()->json(['messages' => $validator->errors()], 422);
             }
 
+            $validated = $validator->validated();
+            $username = strtolower($validated['first_name'] . '.' . $validated['last_name']);
+
             $userData = [
-                'username' => Str::slug($request->first_name . ' ' . $request->last_name),
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'role_id' => $request->role_id,
+                'username' => $username,
+                'email' => $validated['email'],
+                'password' => Hash::make($validated['password']),
+                'role_id' => $validated['role_id'],
                 'archived' => false,
             ];
 
@@ -163,11 +122,17 @@ class AdminUserController extends Controller
 
             $profileData = [
                 'user_id' => $user->id,
-                'first_name' => $request->first_name,
-                'middlename' => $request->middlename,
-                'last_name' => $request->last_name,
-                'gender_id' => $request->gender_id,
-                'suffix_id' => $request->suffix_id ?: null,
+                'first_name' => $validated['first_name'],
+                'middlename' => $validated['middlename'] ?? null,
+                'last_name' => $validated['last_name'],
+                'gender_id' => $validated['gender_id'],
+                'suffix_id' => $validated['suffix_id'] ?? null,
+                'contact_number' => $validated['contact_number'] ?? null,
+                'street' => $validated['street'] ?? null,
+                'city' => $validated['city'] ?? null,
+                'province' => $validated['province'] ?? null,
+                'postal_code' => $validated['postal_code'] ?? null,
+                'country' => $validated['country'] ?? null,
             ];
 
             if ($request->hasFile('profile_img')) {
@@ -177,24 +142,10 @@ class AdminUserController extends Controller
 
             $profile = Profile::create($profileData);
 
+            $user->load(['role', 'profile.gender', 'profile.suffix']);
+
             return response()->json([
-                'user' => [
-                    'id' => $user->id,
-                    'username' => $user->username,
-                    'email' => $user->email,
-                    'role_id' => $user->role_id,
-                    'role_name' => $user->role ? $user->role->role_name : null,
-                    'gender_id' => $profile->gender_id,
-                    'gender_name' => $profile->gender ? $profile->gender->name : null,
-                    'suffix_id' => $profile->suffix_id,
-                    'suffix_name' => $profile->suffix ? $profile->suffix->suffix_name : null,
-                    'first_name' => $profile->first_name,
-                    'middlename' => $profile->middlename,
-                    'last_name' => $profile->last_name,
-                    'profile_img' => $profile->profile_img,
-                    'created_at' => $user->created_at,
-                    'updated_at' => $user->updated_at,
-                ],
+                'user' => $this->formatUserResponse($user),
                 'message' => 'User created successfully',
             ], 201);
         } catch (\Exception $e) {
@@ -216,19 +167,23 @@ class AdminUserController extends Controller
             $user = User::findOrFail($id);
             $profile = Profile::where('user_id', $id)->firstOrFail();
 
-            // Log the incoming request data for debugging
             Log::info('Update request data:', $request->all());
 
-            // Validation rules for update: all fields are optional
             $validator = Validator::make($request->all(), [
-                'first_name' => 'sometimes|string|max:255',
+                'first_name' => 'sometimes|required|string|max:255',
                 'middlename' => 'nullable|string|max:255',
-                'last_name' => 'sometimes|string|max:255',
-                'email' => 'sometimes|email|unique:users,email,' . $id,
+                'last_name' => 'sometimes|required|string|max:255',
+                'email' => 'sometimes|required|email|unique:users,email,' . $id,
                 'password' => 'nullable|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-                'role_id' => 'sometimes|exists:roles,id',
-                'gender_id' => 'sometimes|exists:genders,id',
+                'role_id' => 'sometimes|required|exists:roles,id',
+                'gender_id' => 'sometimes|required|exists:genders,id',
                 'suffix_id' => 'nullable|exists:suffixes,id',
+                'contact_number' => 'nullable|string|max:20',
+                'street' => 'nullable|string|max:255',
+                'city' => 'nullable|string|max:255',
+                'province' => 'nullable|string|max:255',
+                'postal_code' => 'nullable|string|max:20',
+                'country' => 'nullable|string|max:255',
                 'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
@@ -237,91 +192,132 @@ class AdminUserController extends Controller
                 return response()->json(['messages' => $validator->errors()], 422);
             }
 
-            // Prepare user data for update
-            $userData = [];
-            if ($request->filled('email')) {
-                $userData['email'] = $request->email;
-            }
-            if ($request->filled('role_id')) {
-                $userData['role_id'] = $request->role_id;
-            }
-            if ($request->filled('password')) {
-                $userData['password'] = Hash::make($request->password);
-            }
-            // Update username if first_name or last_name is provided
-            if ($request->filled('first_name') || $request->filled('last_name')) {
-                $firstName = $request->filled('first_name') ? $request->first_name : $profile->first_name;
-                $lastName = $request->filled('last_name') ? $request->last_name : $profile->last_name;
-                $userData['username'] = Str::slug($firstName . ' ' . $lastName);
+            $validated = $validator->validated();
+
+            // Prepare user data
+            $userData = [
+                'email' => $validated['email'] ?? $user->email,
+                'role_id' => $validated['role_id'] ?? $user->role_id,
+            ];
+            if (isset($validated['password']) && $validated['password']) {
+                $userData['password'] = Hash::make($validated['password']);
             }
 
-            // Prepare profile data for update
-            $profileData = [];
-            if ($request->filled('first_name')) {
-                $profileData['first_name'] = $request->first_name;
+            // Always update username based on first_name and last_name
+            $firstName = $validated['first_name'] ?? $profile->first_name;
+            $lastName = $validated['last_name'] ?? $profile->last_name;
+            $newUsername = strtolower($firstName . '.' . $lastName);
+            if ($newUsername !== $user->username) {
+                $userData['username'] = $newUsername;
             }
-            if ($request->has('middlename')) {
-                $profileData['middlename'] = $request->middlename ?: null;
-            }
-            if ($request->filled('last_name')) {
-                $profileData['last_name'] = $request->last_name;
-            }
-            if ($request->filled('gender_id')) {
-                $profileData['gender_id'] = $request->gender_id;
-            }
-            if ($request->has('suffix_id')) {
-                $profileData['suffix_id'] = $request->suffix_id ?: null;
-            }
+
+            // Prepare profile data
+            $profileData = [
+                'first_name' => $validated['first_name'] ?? $profile->first_name,
+                'middlename' => $validated['middlename'] ?? $profile->middlename,
+                'last_name' => $validated['last_name'] ?? $profile->last_name,
+                'gender_id' => $validated['gender_id'] ?? $profile->gender_id,
+                'suffix_id' => $validated['suffix_id'] ?? $profile->suffix_id,
+                'contact_number' => $validated['contact_number'] ?? $profile->contact_number,
+                'street' => $validated['street'] ?? $profile->street,
+                'city' => $validated['city'] ?? $profile->city,
+                'province' => $validated['province'] ?? $profile->province,
+                'postal_code' => $validated['postal_code'] ?? $profile->postal_code,
+                'country' => $validated['country'] ?? $profile->country,
+            ];
+
+            // Handle profile image
             if ($request->hasFile('profile_img')) {
                 if ($profile->profile_img) {
                     Storage::disk('public')->delete($profile->profile_img);
                 }
                 $path = $request->file('profile_img')->store('profiles', 'public');
                 $profileData['profile_img'] = $path;
+            } elseif ($request->has('profile_img') && $request->input('profile_img') === '') {
+                if ($profile->profile_img) {
+                    Storage::disk('public')->delete($profile->profile_img);
+                }
+                $profileData['profile_img'] = null;
             }
 
-            // Update only if there are changes
-            if (!empty($userData)) {
-                $user->update($userData);
-                Log::info('User updated:', $userData);
+            $updated = false;
+
+            // Attempt to update user
+            if ($user->fill($userData)->isDirty()) {
+                if ($user->save()) {
+                    Log::info('User updated:', $userData);
+                    $updated = true;
+                } else {
+                    Log::warning('Failed to update user:', $userData);
+                }
             } else {
-                Log::info('No user data to update');
+                Log::info('No changes detected for user:', $userData);
             }
 
-            if (!empty($profileData)) {
-                $profile->update($profileData);
-                Log::info('Profile updated:', $profileData);
+            // Attempt to update profile
+            if ($profile->fill($profileData)->isDirty()) {
+                if ($profile->save()) {
+                    Log::info('Profile updated:', $profileData);
+                    $updated = true;
+                } else {
+                    Log::warning('Failed to update profile:', $profileData);
+                }
             } else {
-                Log::info('No profile data to update');
+                Log::info('No changes detected for profile:', $profileData);
             }
 
-            // Refresh relationships to ensure updated data
+            if (!$updated) {
+                Log::info('No changes were made to user or profile');
+                return response()->json([
+                    'user' => $this->formatUserResponse($user),
+                    'message' => 'No changes were made',
+                ], 200);
+            }
+
             $user->load(['role', 'profile.gender', 'profile.suffix']);
 
             return response()->json([
-                'user' => [
-                    'id' => $user->id,
-                    'username' => $user->username,
-                    'email' => $user->email,
-                    'role_id' => $user->role_id,
-                    'role_name' => $user->role ? $user->role->role_name : null,
-                    'gender_id' => $profile->gender_id,
-                    'gender_name' => $profile->gender ? $profile->gender->name : null,
-                    'suffix_id' => $profile->suffix_id,
-                    'suffix_name' => $profile->suffix ? $profile->suffix->suffix_name : null,
-                    'first_name' => $profile->first_name,
-                    'middlename' => $profile->middlename,
-                    'last_name' => $profile->last_name,
-                    'profile_img' => $profile->profile_img,
-                    'created_at' => $user->created_at,
-                    'updated_at' => $user->updated_at,
-                ],
+                'user' => $this->formatUserResponse($user),
                 'message' => 'User updated successfully',
             ], 200);
         } catch (\Exception $e) {
             Log::error('Error updating user: ' . $e->getMessage());
             return response()->json(['message' => 'Server error'], 500);
         }
+    }
+
+    /**
+     * Helper method to format user response.
+     *
+     * @param User $user
+     * @return array
+     */
+    private function formatUserResponse($user)
+    {
+        $profile = $user->profile;
+        return [
+            'id' => $user->id,
+            'username' => $user->username,
+            'email' => $user->email,
+            'role_id' => $user->role_id,
+            'role_name' => $user->role ? $user->role->role_name : null,
+            'gender_id' => $profile ? $profile->gender_id : null,
+            'gender_name' => $profile && $profile->gender ? $profile->gender->name : null,
+            'suffix_id' => $profile ? $profile->suffix_id : null,
+            'suffix_name' => $profile && $profile->suffix ? $profile->suffix->suffix_name : null,
+            'first_name' => $profile ? $profile->first_name : null,
+            'middlename' => $profile ? $profile->middlename : null,
+            'last_name' => $profile ? $profile->last_name : null,
+            'contact_number' => $profile ? $profile->contact_number : null,
+            'street' => $profile ? $profile->street : null,
+            'city' => $profile ? $profile->city : null,
+            'province' => $profile ? $profile->province : null,
+            'postal_code' => $profile ? $profile->postal_code : null,
+            'country' => $profile ? $profile->country : null,
+            'profile_img' => $profile ? $profile->profile_img : null,
+            'created_at' => $user->created_at,
+            'updated_at' => $user->updated_at,
+        ];
     }
 
     /**

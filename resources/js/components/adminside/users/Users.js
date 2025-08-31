@@ -37,28 +37,29 @@ const UsersList = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const [activeResponse, archivedResponse] = await Promise.all([
+        axios.get("http://127.0.0.1:8000/api/users"),
+        axios.get("http://127.0.0.1:8000/api/users/archived"),
+      ]);
+
+      const activeUsers = activeResponse.data.map((user) => ({ ...user, archived: false }));
+      const archivedUsers = archivedResponse.data.map((user) => ({ ...user, archived: true }));
+      setUsers([...activeUsers, ...archivedUsers]);
+    } catch (error) {
+      console.error("Error fetching users:", error.response?.data || error.message);
+      setError("Failed to fetch users. Please check the server or network.");
+      setUsers([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const [activeResponse, archivedResponse] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/users"),
-          axios.get("http://127.0.0.1:8000/api/users/archived"),
-        ]);
-
-        const activeUsers = activeResponse.data.map((user) => ({ ...user, archived: false }));
-        const archivedUsers = archivedResponse.data.map((user) => ({ ...user, archived: true }));
-        setUsers([...activeUsers, ...archivedUsers]);
-      } catch (error) {
-        console.error("Error fetching users:", error.response?.data || error.message);
-        setError("Failed to fetch users. Please check the server or network.");
-        setUsers([]);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchData();
   }, [navigate]);
 
@@ -112,11 +113,7 @@ const UsersList = () => {
         }
       );
       if (response.status === 200) {
-        setUsers((prevUsers) =>
-          prevUsers.map((user) =>
-            user.id === userToArchive.id ? { ...user, archived: true } : user
-          )
-        );
+        await fetchData();
         setIsConfirmModalOpen(false);
         setUserToArchive(null);
       }
@@ -147,11 +144,7 @@ const UsersList = () => {
         }
       );
       if (response.status === 200) {
-        setUsers((prevUsers) =>
-          prevUsers.map((user) =>
-            user.id === userId ? { ...user, archived: false } : user
-          )
-        );
+        await fetchData();
       }
     } catch (error) {
       console.error("Error restoring user:", error.response?.data || error.message);
@@ -183,13 +176,7 @@ const UsersList = () => {
         )
       );
       await Promise.all(requests);
-      setUsers((prevUsers) =>
-        prevUsers.map((user) =>
-          selectedUsers.includes(user.id)
-            ? { ...user, archived: action === "archive" }
-            : user
-        )
-      );
+      await fetchData();
       setSelectedUsers([]);
     } catch (error) {
       console.error(`Error ${action}ing users:`, error.response?.data || error.message);
@@ -215,7 +202,7 @@ const UsersList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       const response = await axios.get(`http://127.0.0.1:8000/api/users/${user.id}`, {
-        headers: { Accept: "application/json" },
+        headers: { Accept: "application/json", Authorization: `Bearer ${authToken}` },
       });
       if (response.status === 200) {
         setUserToEdit(response.data);
@@ -238,27 +225,8 @@ const UsersList = () => {
 
   const handleUserAdd = async (newUser) => {
     try {
-      const authToken = localStorage.getItem("auth_token");
-      if (!authToken) {
-        throw new Error("No auth token found. Please log in.");
-      }
-      const formData = new FormData();
-      for (let key in newUser) {
-        if (newUser[key] !== null && newUser[key] !== '') {
-          formData.append(key, newUser[key]);
-        }
-      }
-      const response = await axios.post("http://127.0.0.1:8000/api/users", formData, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-          Accept: "application/json",
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      if (response.status === 201) {
-        setUsers((prevUsers) => [response.data.user, ...prevUsers]);
-        setIsModalOpen(false);
-      }
+      await fetchData();
+      setIsModalOpen(false);
     } catch (error) {
       console.error("Error adding user:", error.response?.data || error.message);
       throw error;
@@ -267,52 +235,10 @@ const UsersList = () => {
 
   const handleUserUpdate = async (updatedUser) => {
     try {
-      const authToken = localStorage.getItem("auth_token");
-      if (!authToken) {
-        throw new Error("No auth token found. Please log in.");
-      }
-      const formData = new FormData();
-      // Always include email to ensure it’s sent
-      formData.append("email", updatedUser.email || userToEdit?.email || "");
-      if (updatedUser.first_name) formData.append("first_name", updatedUser.first_name.trim());
-      if (updatedUser.middlename) formData.append("middlename", updatedUser.middlename.trim());
-      if (updatedUser.last_name) formData.append("last_name", updatedUser.last_name.trim());
-      if (updatedUser.suffix_id && parseInt(updatedUser.suffix_id))
-        formData.append("suffix_id", parseInt(updatedUser.suffix_id));
-      if (updatedUser.password) formData.append("password", updatedUser.password);
-      if (updatedUser.role_id && parseInt(updatedUser.role_id))
-        formData.append("role_id", parseInt(updatedUser.role_id));
-      if (updatedUser.gender_id && parseInt(updatedUser.gender_id))
-        formData.append("gender_id", parseInt(updatedUser.gender_id));
-      if (updatedUser.profile_img) formData.append("profile_img", updatedUser.profile_img);
-
-      console.log("Sending update data:", {
-        url: `http://127.0.0.1:8000/api/users/${userToEdit.id}`,
-        method: "PUT",
-        data: Object.fromEntries([...formData.entries()]),
-      });
-
-      const response = await axios.put(
-        `http://127.0.0.1:8000/api/users/${userToEdit.id}`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-            Accept: "application/json",
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      if (response.status === 200) {
-        setUsers((prevUsers) =>
-          prevUsers.map((user) =>
-            user.id === response.data.user.id ? { ...response.data.user, archived: user.archived } : user
-          )
-        );
-        setIsModalOpen(false);
-        setIsEditMode(false);
-        setUserToEdit(null);
-      }
+      await fetchData();
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setUserToEdit(null);
     } catch (error) {
       console.error("Error updating user:", {
         message: error.message,

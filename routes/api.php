@@ -11,7 +11,7 @@ use App\Http\Controllers\AdminUserController;
 
 // AUTHENTICATION ROUTES (Passport)
 Route::post('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:api')->name('logout');
 
 // PROFILE ROUTE (Requires Authentication)
