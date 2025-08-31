@@ -1,40 +1,94 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import "./../../../sass/components/_login.scss";
-import Loader from "../LoaderContent/loader";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import './../../../sass/components/_login.scss';
+import Loader from '../LoaderContent/loader';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
 
+  // Initialize component and check for remembered email
   useEffect(() => {
+    const rememberedEmail = localStorage.getItem('remembered_email');
+    if (rememberedEmail) {
+      setEmail(rememberedEmail);
+      setRememberMe(true);
+    }
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError(null);
 
     if (!email || !password) {
-      setError("Please fill in all fields.");
+      setError('Please fill in all fields.');
+      setIsLoading(false);
       return;
     }
 
     setIsLoading(true);
-    console.log("Login attempted with:", { email, password, rememberMe });
 
-    setTimeout(() => {
-      window.location.href = "/homepage";
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      console.log('API Response:', data); // Debug API response
+
+      if (response.ok) {
+        // Store token and user data
+        localStorage.setItem('auth_token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+
+        // Handle "Remember Me" functionality
+        if (rememberMe) {
+          localStorage.setItem('remembered_email', email);
+        } else {
+          localStorage.removeItem('remembered_email');
+        }
+
+        // Role-based redirection
+        const userRole = data.user.role_id;
+        console.log('User Role:', userRole); // Debug role_id
+        if (userRole === 1 || userRole === 2) {
+          setTimeout(() => {
+            navigate('/homepage', { replace: true });
+            setIsLoading(false);
+          }, 500);
+        } else if (userRole === 3) {
+          setTimeout(() => {
+            navigate('/admin', { replace: true });
+            setIsLoading(false);
+          }, 500);
+        } else {
+          setError('Invalid role');
+          setIsLoading(false);
+        }
+      } else {
+        setError(data.message || 'Invalid email or password.');
+        setIsLoading(false);
+      }
+    } catch (error) {
+      setError('An error occurred. Please try again later.');
+      console.error('Login error:', error);
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -65,7 +119,7 @@ const Login = () => {
 
               <div className="login-password-group">
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   className="login-password-input"
                   placeholder="Password"
                   value={password}
@@ -92,13 +146,13 @@ const Login = () => {
               </div>
 
               <button type="submit" className="login-submit-btn" disabled={isLoading}>
-                {isLoading ? "Logging in..." : "Login"}
+                {isLoading ? 'Logging in...' : 'Login'}
               </button>
             </form>
 
             <div className="login-signup">
               <p>
-                Not Registered Yet?{" "}
+                Not Registered Yet?{' '}
                 <Link to="/register" className="login-signup-link">
                   Create an account
                 </Link>

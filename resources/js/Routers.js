@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 // Import components directly
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
@@ -30,52 +29,326 @@ import ColorCodeCollars from "./components/adminside/colorcodecollars/collars.js
 import Ranks from "./components/adminside/ranks/Ranks.js";
 import RolesManagement from "./components/adminside/roles/Roles.js";
 import FindJob from "./components/HeaderContent/findjob";
-import JobProfile from "./components/HeaderContent/JobProfile"; // New component
+import JobProfile from "./components/HeaderContent/JobProfile";
 import AboutUs from "./components/HeaderContent/AboutUs";
 import Message from "./components/HeaderContent/Message";
 import Notif from "./components/HeaderContent/Notif";
+
+// Protected Route Component
+const ProtectedRoute = ({ children, allowedRoles }) => {
+  const location = useLocation();
+  const { isAuthenticated, userRole } = useMemo(() => {
+    const token = localStorage.getItem("auth_token");
+    const storedUser = localStorage.getItem("user");
+    if (token && storedUser) {
+      const user = JSON.parse(storedUser);
+      return { isAuthenticated: true, userRole: user.role_id };
+    }
+    return { isAuthenticated: false, userRole: null };
+  }, []); // Empty dependency array to run once on mount
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
+  }
+
+  if (allowedRoles && !allowedRoles.includes(userRole)) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
+};
+
+// Auth Check for Public Routes
+const AuthCheck = ({ children }) => {
+  const location = useLocation();
+  const { isAuthenticated, userRole } = useMemo(() => {
+    const token = localStorage.getItem("auth_token");
+    const storedUser = localStorage.getItem("user");
+    if (token && storedUser) {
+      const user = JSON.parse(storedUser);
+      return { isAuthenticated: true, userRole: user.role_id };
+    }
+    return { isAuthenticated: false, userRole: null };
+  }, []); // Empty dependency array to run once on mount
+
+  if (isAuthenticated) {
+    // Define the target route based on role
+    const targetRoute = userRole === 3 ? "/admin" : "/homepage";
+    // Only redirect if not already on an allowed route
+    if (
+      (userRole === 1 || userRole === 2 || userRole === 3) &&
+      location.pathname !== "/homepage" &&
+      location.pathname !== targetRoute &&
+      !location.pathname.startsWith("/admin")
+    ) {
+      return <Navigate to={targetRoute} replace />;
+    }
+    return children; // Allow access to /homepage for all roles, or /admin for role_id 3
+  }
+
+  return children;
+};
 
 export default function Routers() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/homepage" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/homepage" element={<Homepage />} />
-        <Route path="/services" element={<Service />} />
-        <Route path="/headerz" element={<Headerz />} />
-        <Route path="/find-jobs" element={<FindJob />} />
-        <Route path="/job/:jobId" element={<JobProfile />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/message" element={<Message />} />
-        <Route path="/notifications" element={<Notif />} />
-        <Route path="/browse" element={<Browse />} />
-        <Route path="/browse-white" element={<BrowseWhite />} />
-        <Route path="/complete" element={<Complete />} />
-        <Route path="/orders_modal" element={<Orders_modal />} />
-        <Route path="/pay" element={<Pay />} />
-        <Route path="/profile/:workerId" element={<Profile />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/admin/products" element={<Products />} />
-        <Route path="/admin/orders" element={<Orders />} />
-        <Route path="/admin/users" element={<Users />} />
-        <Route path="/admin/adminlist" element={<Adminlist />} />
-        <Route path="/admin/jobs-post" element={<JobPost />} />
-        <Route path="/admin/workerlist" element={<Workerlists />} />
-        <Route path="/admin/employerlist" element={<Employerlists />} />
-        <Route path="/admin/reviews" element={<ReviewList />} />
-        <Route path="/admin/categories" element={<Categories />} />
-        <Route path="/admin/roles" element={<Roles />} />
-        <Route path="/admin/skill-categories" element={<SkillCategories />} />
-        <Route path="/admin/color-code-manager" element={<ColorCodeCollars />} />
-        <Route path="/admin/ranks" element={<Ranks />} />
-        <Route path="/admin/roles-management" element={<RolesManagement />} />
+        <Route
+          path="/login"
+          element={
+            <AuthCheck>
+              <Login />
+            </AuthCheck>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <AuthCheck>
+              <Register />
+            </AuthCheck>
+          }
+        />
+        <Route
+          path="/homepage"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Homepage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Service />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/headerz"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Headerz />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/find-jobs"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <FindJob />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/job/:jobId"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <JobProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <AboutUs />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/message"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Message />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Notif />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/browse"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Browse />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/browse-white"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <BrowseWhite />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/complete"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Complete />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/orders_modal"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Orders_modal />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/pay"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Pay />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile/:workerId"
+          element={
+            <ProtectedRoute allowedRoles={[1, 2, 3]}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/products"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Products />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/orders"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Orders />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Users />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/adminlist"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Adminlist />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/jobs-post"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <JobPost />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/workerlist"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Workerlists />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/employerlist"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Employerlists />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/reviews"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <ReviewList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/categories"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Categories />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/roles"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Roles />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/skill-categories"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <SkillCategories />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/color-code-manager"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <ColorCodeCollars />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/ranks"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Ranks />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/roles-management"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <RolesManagement />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );
 }
 
 if (document.getElementById("root")) {
-  ReactDOM.render(<Routers />, document.getElementById("root"));
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<Routers />);
 }

@@ -20,12 +20,80 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState("");
   const [alert, setAlert] = useState({ message: "", type: "" });
   const [isLoading, setIsLoading] = useState(true);
+  const [suffixes, setSuffixes] = useState([]);
+  const [roles, setRoles] = useState([]);
+  const [genders, setGenders] = useState([]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
+    // Clear any existing authentication token to ensure not logged in
+    localStorage.removeItem('auth_token');
+
+    const fetchData = async () => {
+      try {
+        // Fetch suffixes
+        const suffixResponse = await fetch('http://127.0.0.1:8000/api/suffixes', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+        if (!suffixResponse.ok) {
+          throw new Error(`Failed to fetch suffixes: ${suffixResponse.status}`);
+        }
+        const suffixData = await suffixResponse.json();
+        setSuffixes(suffixData.filter(suffix => !suffix.archived));
+
+        // Fetch roles
+        const roleResponse = await fetch('http://127.0.0.1:8000/api/roles', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+        if (!roleResponse.ok) {
+          throw new Error(`Failed to fetch roles: ${roleResponse.status}`);
+        }
+        const roleData = await roleResponse.json();
+        setRoles(roleData);
+
+        // Fetch genders
+        const genderResponse = await fetch('http://127.0.0.1:8000/api/genders', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        });
+        if (!genderResponse.ok) {
+          throw new Error(`Failed to fetch genders: ${genderResponse.status}`);
+        }
+        const genderData = await genderResponse.json();
+        setGenders([
+          { value: "", label: "Select Gender", disabled: true },
+          ...genderData.map(gender => ({
+            value: gender.gender_name,
+            label: gender.gender_name
+          }))
+        ]);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+        showAlert(`Failed to load registration data: ${error.message}`, "error");
+        // Fallback data
+        setSuffixes([
+          { id: 1, suffix_name: "Jr.", archived: false },
+          { id: 2, suffix_name: "Sr.", archived: false },
+          { id: 3, suffix_name: "II", archived: false },
+          { id: 4, suffix_name: "III", archived: false },
+        ]);
+        setRoles([
+          { id: 1, role_name: "Worker" },
+          { id: 2, role_name: "Employer" },
+        ]);
+        setGenders([
+          { value: "", label: "Select Gender", disabled: true },
+          { value: "Female", label: "Female" },
+          { value: "Male", label: "Male" },
+          { value: "Custom", label: "Custom" },
+        ]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const showAlert = (message, type) => {
@@ -54,7 +122,7 @@ const Register = () => {
     );
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     if (
       !formData.firstName ||
@@ -73,33 +141,48 @@ const Register = () => {
     }
 
     setIsLoading(true);
-    setTimeout(() => {
-      showAlert("✅ Registration successful!", "success");
-      setFormData({
-        firstName: "",
-        middleName: "",
-        lastName: "",
-        suffix: "",
-        email: "",
-        password: "",
-        role: "",
-        gender: "",
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: formData.firstName,
+          middle_name: formData.middleName,
+          last_name: formData.lastName,
+          suffix: formData.suffix,
+          email: formData.email,
+          password: formData.password,
+          role_id: formData.role,
+          gender: formData.gender,
+        }),
       });
+
+      const data = await response.json();
+      if (!response.ok) {
+        showAlert(data.error || "Registration failed", "error");
+      } else {
+        showAlert("✅ Registration successful!", "success");
+        setFormData({
+          firstName: "",
+          middleName: "",
+          lastName: "",
+          suffix: "",
+          email: "",
+          password: "",
+          role: "",
+          gender: "",
+        });
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      showAlert("Registration failed: Network error", "error");
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
-
-  const roles = [
-    { id: 1, role_name: "Worker" },
-    { id: 2, role_name: "Employer" },
-  ];
-
-  const genderOptions = [
-    { value: "", label: "Select Gender", disabled: true },
-    { value: "Female", label: "Female" },
-    { value: "Male", label: "Male" },
-    { value: "Custom", label: "Custom" },
-  ];
 
   return (
     <>
@@ -161,10 +244,11 @@ const Register = () => {
                     onChange={handleChange}
                   >
                     <option value="">Suffix (optional)</option>
-                    <option value="Jr.">Jr.</option>
-                    <option value="Sr.">Sr.</option>
-                    <option value="II">II</option>
-                    <option value="III">III</option>
+                    {suffixes.map((suffix) => (
+                      <option key={suffix.id} value={suffix.suffix_name}>
+                        {suffix.suffix_name}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -219,7 +303,7 @@ const Register = () => {
                   onChange={handleChange}
                   required
                 >
-                  {genderOptions.map((option) => (
+                  {genders.map((option) => (
                     <option
                       key={option.value}
                       value={option.value}

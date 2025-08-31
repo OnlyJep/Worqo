@@ -6,7 +6,8 @@ import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaEye, FaTrash } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_userlist.scss";
-import UserModal from "./Userlistmodal.js";
+import UserModal from "./Userlistmodal";
+import Loader from "./../../LoaderContent/loader";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -21,13 +22,6 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
-const getFullName = (user) => {
-  const { first_name, middlename, last_name, suffix } = user;
-  let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
-  if (suffix) fullName += ` ${suffix}`;
-  return fullName.trim() || "N/A";
-};
-
 const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,46 +34,44 @@ const UsersList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [userToEdit, setUserToEdit] = useState(null);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
-
-  const baseImageUrl = "http://127.0.0.1:8000/";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const token = localStorage.getItem("LaravelPassportToken");
-        const config = { headers: { Authorization: `Bearer ${token}` } };
+        setError(null);
+
         const [activeResponse, archivedResponse] = await Promise.all([
-          axios.get("http://127.0.0.1:8000/api/users", config),
-          axios.get("http://127.0.0.1:8000/api/users/archived", config),
+          axios.get("http://127.0.0.1:8000/api/users"),
+          axios.get("http://127.0.0.1:8000/api/users/archived"),
         ]);
 
         const activeUsers = activeResponse.data.map((user) => ({ ...user, archived: false }));
         const archivedUsers = archivedResponse.data.map((user) => ({ ...user, archived: true }));
         setUsers([...activeUsers, ...archivedUsers]);
       } catch (error) {
-        console.error("Error fetching users:", error);
+        console.error("Error fetching users:", error.response?.data || error.message);
+        setError("Failed to fetch users. Please check the server or network.");
         setUsers([]);
       } finally {
         setLoading(false);
       }
     };
     fetchData();
-  }, []);
+  }, [navigate]);
 
   const filteredUsers = users.filter((user) => {
-    const fullName = getFullName(user).toLowerCase();
-    const matchesSearch = fullName.includes(searchTerm.toLowerCase()) || user.email?.toLowerCase().includes(searchTerm.toLowerCase());
+    const username = user.username?.toLowerCase() || "";
+    const matchesSearch = username.includes(searchTerm.toLowerCase()) || user.email?.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesArchived = user.archived === showArchived;
     return matchesSearch && matchesArchived;
   });
 
   const toggleSelectUser = (userId) => {
     setSelectedUsers((prev) =>
-      prev.includes(userId)
-        ? prev.filter((id) => id !== userId)
-        : [...prev, userId]
+      prev.includes(userId) ? prev.filter((id) => id !== userId) : [...prev, userId]
     );
   };
 
@@ -105,11 +97,9 @@ const UsersList = () => {
   const handleArchiveConfirm = async () => {
     if (!userToArchive) return;
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.patch(
         `http://127.0.0.1:8000/api/users/${userToArchive.id}/archive`,
-        { archived: true },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { archived: true }
       );
       if (response.status === 200) {
         setUsers((prevUsers) =>
@@ -122,16 +112,15 @@ const UsersList = () => {
       }
     } catch (error) {
       console.error("Error archiving user:", error);
+      setError("Failed to archive user. Please try again.");
     }
   };
 
   const handleRestoreUser = async (userId) => {
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.patch(
         `http://127.0.0.1:8000/api/users/${userId}/archive`,
-        { archived: false },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { archived: false }
       );
       if (response.status === 200) {
         setUsers((prevUsers) =>
@@ -142,18 +131,17 @@ const UsersList = () => {
       }
     } catch (error) {
       console.error("Error restoring user:", error);
+      setError("Failed to restore user. Please try again.");
     }
   };
 
   const handleBulkAction = async (action) => {
     if (selectedUsers.length === 0) return;
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
       const requests = selectedUsers.map((userId) =>
         axios.patch(
           `http://127.0.0.1:8000/api/users/${userId}/archive`,
-          { archived: action === "archive" },
-          { headers: { Authorization: `Bearer ${token}` } }
+          { archived: action === "archive" }
         )
       );
       await Promise.all(requests);
@@ -167,6 +155,7 @@ const UsersList = () => {
       setSelectedUsers([]);
     } catch (error) {
       console.error(`Error ${action}ing users:`, error);
+      setError(`Failed to ${action} users. Please try again.`);
     }
   };
 
@@ -178,24 +167,20 @@ const UsersList = () => {
 
   const handleEditClick = async (user) => {
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
+      setLoading(true);
       const response = await axios.get(`http://127.0.0.1:8000/api/users/${user.id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { "Accept": "application/json" },
       });
-      setUserToEdit({
-        ...user,
-        first_name: response.data.first_name || "",
-        middlename: response.data.middlename || "",
-        last_name: response.data.last_name || "",
-        suffix: response.data.suffix || "",
-        email: response.data.email || "",
-        role_id: response.data.role_id?.toString() || "1",
-        gender: response.data.gender || "",
-      });
-      setIsEditMode(true);
-      setIsModalOpen(true);
+      if (response.status === 200) {
+        setUserToEdit(response.data);
+        setIsEditMode(true);
+        setIsModalOpen(true);
+      }
     } catch (error) {
-      console.error("Error fetching user for edit:", error);
+      console.error("Error fetching user for edit:", error.response?.data || error.message);
+      setError("Failed to fetch user data. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -207,47 +192,42 @@ const UsersList = () => {
 
   const handleUserAdd = async (newUser) => {
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/api/register",
-        newUser,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+      const formData = new FormData();
+      for (let key in newUser) {
+        if (newUser[key] !== null && newUser[key] !== '') {
+          formData.append(key, newUser[key]);
         }
-      );
+      }
+      const response = await axios.post("http://127.0.0.1:8000/api/users", formData, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "multipart/form-data",
+        },
+      });
       if (response.status === 201) {
-        const addedUser = {
-          id: response.data.user.id,
-          first_name: response.data.user.first_name,
-          middlename: response.data.user.middlename,
-          last_name: response.data.user.last_name,
-          suffix: response.data.user.suffix,
-          email: response.data.user.email,
-          role_name: response.data.user.role_name || ["Admin", "Employer", "Worker"][response.data.user.role_id - 1],
-          profile_img: response.data.user.profile_img,
-          gender: response.data.user.gender,
-          created_at: response.data.user.created_at || new Date().toISOString(),
-          updated_at: response.data.user.updated_at || new Date().toISOString(),
-          archived: false,
-        };
-        setUsers((prevUsers) => [addedUser, ...prevUsers]);
+        setUsers((prevUsers) => [response.data.user, ...prevUsers]);
         setIsModalOpen(false);
       }
     } catch (error) {
       console.error("Error adding user:", error.response?.data || error.message);
+      throw error;
     }
   };
 
   const handleUserUpdate = async (updatedUser) => {
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
-      const response = await axios.post(
+      const formData = new FormData();
+      for (let key in updatedUser) {
+        if (updatedUser[key] !== null && updatedUser[key] !== '') {
+          formData.append(key, updatedUser[key]);
+        }
+      }
+      const response = await axios.put(
         `http://127.0.0.1:8000/api/users/${userToEdit.id}`,
-        updatedUser,
+        formData,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Accept: "application/json",
             "Content-Type": "multipart/form-data",
           },
         }
@@ -255,7 +235,7 @@ const UsersList = () => {
       if (response.status === 200) {
         setUsers((prevUsers) =>
           prevUsers.map((user) =>
-            user.id === response.data.id ? { ...response.data, archived: user.archived } : user
+            user.id === response.data.user.id ? { ...response.data.user, archived: user.archived } : user
           )
         );
         setIsModalOpen(false);
@@ -264,6 +244,7 @@ const UsersList = () => {
       }
     } catch (error) {
       console.error("Error updating user:", error.response?.data || error.message);
+      throw error;
     }
   };
 
@@ -337,11 +318,13 @@ const UsersList = () => {
 
   return (
     <div className="app">
+      {loading && <Loader />}
       <AdminSidebar activeItem="Users List" />
       <TopNavbar />
       <div className="userlist-dashboard">
         <div className="userlist-content">
           <h2>{showArchived ? "Archived Users" : "Users List"}</h2>
+          {error && <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>{error}</div>}
           <div className="userlist-header">
             <div className="left-actions">
               <div className="search-container">
@@ -392,7 +375,7 @@ const UsersList = () => {
                       Actions
                     </div>
                   </th>
-                  <th>Full Name</th>
+                  <th>Username</th>
                   <th>Email</th>
                   <th>Role</th>
                   <th>Created At</th>
@@ -436,17 +419,7 @@ const UsersList = () => {
                           />
                         </div>
                       </td>
-                      <td className="username-cell">
-                        <img
-                          src={user.profile_img ? `${baseImageUrl}${user.profile_img}` : `${baseImageUrl}images/pfp/default.png`}
-                          alt="Profile"
-                          className="profile-picture"
-                          onError={(e) => {
-                            e.target.src = `${baseImageUrl}images/pfp/default.png`;
-                          }}
-                        />
-                        {getFullName(user)}
-                      </td>
+                      <td className="username-cell">{user.username || "N/A"}</td>
                       <td>{user.email || "N/A"}</td>
                       <td>{user.role_name || ["Admin", "Employer", "Worker"][user.role_id - 1] || "N/A"}</td>
                       <td>{formatDate(user.created_at)}</td>
@@ -485,7 +458,7 @@ const UsersList = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{getFullName(userToArchive)}"?</p>
+            <p>Do you want to archive "{userToArchive?.username}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive

@@ -9,7 +9,6 @@ class GenderController extends Controller
 {
     public function getGenders(): JsonResponse
     {
-        return response()->json(Gender::all());
+        return response()->json(Gender::all(['id', 'gender_name']), 200);
     }
 }
-

@@ -7,15 +7,14 @@ use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
-        $roles = ['Buyer', 'Seller', 'Admin'];
+        $roles = [
+            ['role_name' => 'Worker', 'created_at' => now(), 'updated_at' => now()],
+            ['role_name' => 'Employer', 'created_at' => now(), 'updated_at' => now()],
+            ['role_name' => 'Admin', 'created_at' => now(), 'updated_at' => now()],
+        ];
 
-        foreach ($roles as $role) {
-            DB::table('roles')->updateOrInsert(
-                ['role_name' => $role], // Check if role exists
-                ['created_at' => now(), 'updated_at' => now()] // Insert if not exists
-            );
-        }
+        DB::table('roles')->insert($roles);
     }
 }
