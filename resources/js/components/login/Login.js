@@ -181,14 +181,6 @@ const Login = () => {
               </button>
             </form>
 
-            <button
-              onClick={handleLogout}
-              className="logout-btn"
-              disabled={isLoading || !localStorage.getItem('auth_token')}
-            >
-              {isLoading ? 'Logging out...' : 'Logout'}
-            </button>
-
             <div className="login-signup">
               <p>
                 Not Registered Yet?{' '}

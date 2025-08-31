@@ -2,436 +2,355 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Role;
 use App\Models\Profile;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
+use App\Models\Role;
+use App\Models\Gender;
+use App\Models\Suffix;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AdminUserController extends Controller
 {
-    public function getUsers(): JsonResponse
+    /**
+     * Display a listing of active users.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
     {
         try {
-            $users = User::where('users.archived', false)
-                ->join('roles', 'users.role_id', '=', 'roles.id')
-                ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
-                ->select(
-                    'users.id',
-                    'users.id as user_id',
-                    'users.role_id',
-                    'profiles.first_name',
-                    'profiles.middlename',
-                    'profiles.last_name',
-                    'profiles.gender_id',
-                    'profiles.suffix_id',
-                    'profiles.contact_number',
-                    'profiles.street',
-                    'profiles.city',
-                    'profiles.province',
-                    'profiles.postal_code',
-                    'profiles.country',
-                    'profiles.profile_img',
-                    'users.created_at',
-                    'users.updated_at',
-                    'users.archived',
-                    'users.username',
-                    'users.email',
-                    'roles.role_name'
-                )
-                ->get();
-            Log::info('Fetched active users', ['count' => $users->count()]);
-            return response()->json($users);
+            $users = User::where('archived', false)
+                ->with(['role', 'profile.gender', 'profile.suffix'])
+                ->get()
+                ->map(function ($user) {
+                    return [
+                        'id' => $user->id,
+                        'username' => $user->username,
+                        'email' => $user->email,
+                        'role_id' => $user->role_id,
+                        'role_name' => $user->role ? $user->role->role_name : null,
+                        'gender_id' => $user->profile ? $user->profile->gender_id : null,
+                        'gender_name' => $user->profile && $user->profile->gender ? $user->profile->gender->name : null,
+                        'suffix_id' => $user->profile ? $user->profile->suffix_id : null,
+                        'suffix_name' => $user->profile && $user->profile->suffix ? $user->profile->suffix->suffix_name : null,
+                        'first_name' => $user->profile ? $user->profile->first_name : null,
+                        'middlename' => $user->profile ? $user->profile->middlename : null,
+                        'last_name' => $user->profile ? $user->profile->last_name : null,
+                        'profile_img' => $user->profile ? $user->profile->profile_img : null,
+                        'created_at' => $user->created_at,
+                        'updated_at' => $user->updated_at,
+                    ];
+                });
+
+            return response()->json($users, 200);
         } catch (\Exception $e) {
-            Log::error('Error in getUsers: ' . $e->getMessage(), [
-                'trace' => $e->getTraceAsString(),
-                'query' => 'SELECT users.id, users.id as user_id, users.role_id, profiles.first_name, profiles.middlename, profiles.last_name, profiles.gender_id, profiles.suffix_id, profiles.contact_number, profiles.street, profiles.city, profiles.province, profiles.postal_code, profiles.country, profiles.profile_img, users.created_at, users.updated_at, users.archived, users.username, users.email, roles.role_name FROM users JOIN roles ON users.role_id = roles.id LEFT JOIN profiles ON users.id = profiles.user_id WHERE users.archived = 0'
-            ]);
-            return response()->json(['error' => 'Internal Server Error: ' . $e->getMessage()], 500);
+            Log::error('Error fetching active users: ' . $e->getMessage());
+            return response()->json(['message' => 'Server error'], 500);
         }
     }
 
-    public function getArchivedUsers(): JsonResponse
+    /**
+     * Display a listing of archived users.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function archived()
     {
         try {
-            $users = User::where('users.archived', true)
-                ->join('roles', 'users.role_id', '=', 'roles.id')
-                ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
-                ->select(
-                    'users.id',
-                    'users.id as user_id',
-                    'users.role_id',
-                    'profiles.first_name',
-                    'profiles.middlename',
-                    'profiles.last_name',
-                    'profiles.gender_id',
-                    'profiles.suffix_id',
-                    'profiles.contact_number',
-                    'profiles.street',
-                    'profiles.city',
-                    'profiles.province',
-                    'profiles.postal_code',
-                    'profiles.country',
-                    'profiles.profile_img',
-                    'users.created_at',
-                    'users.updated_at',
-                    'users.archived',
-                    'users.username',
-                    'users.email',
-                    'roles.role_name'
-                )
-                ->get();
-            Log::info('Fetched archived users', ['count' => $users->count()]);
-            return response()->json($users);
+            $users = User::where('archived', true)
+                ->with(['role', 'profile.gender', 'profile.suffix'])
+                ->get()
+                ->map(function ($user) {
+                    return [
+                        'id' => $user->id,
+                        'username' => $user->username,
+                        'email' => $user->email,
+                        'role_id' => $user->role_id,
+                        'role_name' => $user->role ? $user->role->role_name : null,
+                        'gender_id' => $user->profile ? $user->profile->gender_id : null,
+                        'gender_name' => $user->profile && $user->profile->gender ? $user->profile->gender->name : null,
+                        'suffix_id' => $user->profile ? $user->profile->suffix_id : null,
+                        'suffix_name' => $user->profile && $user->profile->suffix ? $user->profile->suffix->suffix_name : null,
+                        'first_name' => $user->profile ? $user->profile->first_name : null,
+                        'middlename' => $user->profile ? $user->profile->middlename : null,
+                        'last_name' => $user->profile ? $user->profile->last_name : null,
+                        'profile_img' => $user->profile ? $user->profile->profile_img : null,
+                        'created_at' => $user->created_at,
+                        'updated_at' => $user->updated_at,
+                    ];
+                });
+
+            return response()->json($users, 200);
         } catch (\Exception $e) {
-            Log::error('Error in getArchivedUsers: ' . $e->getMessage(), [
-                'trace' => $e->getTraceAsString(),
-                'query' => 'SELECT users.id, users.id as user_id, users.role_id, profiles.first_name, profiles.middlename, profiles.last_name, profiles.gender_id, profiles.suffix_id, profiles.contact_number, profiles.street, profiles.city, profiles.province, profiles.postal_code, profiles.country, profiles.profile_img, users.created_at, users.updated_at, users.archived, users.username, users.email, roles.role_name FROM users JOIN roles ON users.role_id = roles.id LEFT JOIN profiles ON users.id = profiles.user_id WHERE users.archived = 1'
-            ]);
-            return response()->json(['error' => 'Internal Server Error: ' . $e->getMessage()], 500);
+            Log::error('Error fetching archived users: ' . $e->getMessage());
+            return response()->json(['message' => 'Server error'], 500);
         }
     }
 
-    public function archive(Request $request, $id): JsonResponse
+    /**
+     * Display a specific user.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show($id)
     {
         try {
-            $user = User::findOrFail($id);
-            $user->archived = $request->input('archived', false);
-            $user->save();
-            Log::info('User archived status updated', ['user_id' => $id, 'archived' => $user->archived]);
-            return response()->json($user);
+            $user = User::with(['role', 'profile.gender', 'profile.suffix'])->findOrFail($id);
+
+            return response()->json([
+                'id' => $user->id,
+                'username' => $user->username,
+                'email' => $user->email,
+                'role_id' => $user->role_id,
+                'role_name' => $user->role ? $user->role->role_name : null,
+                'gender_id' => $user->profile ? $user->profile->gender_id : null,
+                'gender_name' => $user->profile && $user->profile->gender ? $user->profile->gender->name : null,
+                'suffix_id' => $user->profile ? $user->profile->suffix_id : null,
+                'suffix_name' => $user->profile && $user->profile->suffix ? $user->profile->suffix->suffix_name : null,
+                'first_name' => $user->profile ? $user->profile->first_name : null,
+                'middlename' => $user->profile ? $user->profile->middlename : null,
+                'last_name' => $user->profile ? $user->profile->last_name : null,
+                'profile_img' => $user->profile ? $user->profile->profile_img : null,
+                'created_at' => $user->created_at,
+                'updated_at' => $user->updated_at,
+            ], 200);
         } catch (\Exception $e) {
-            Log::error('Error in archive user: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Internal Server Error: ' . $e->getMessage()], 500);
+            Log::error('Error fetching user: ' . $e->getMessage());
+            return response()->json(['message' => 'User not found'], 404);
         }
     }
 
-    public function getUserList(): JsonResponse
+    /**
+     * Store a new user and their profile.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(Request $request)
     {
         try {
-            $users = User::whereIn('role_id', [1, 2, 3])
-                ->join('roles', 'users.role_id', '=', 'roles.id')
-                ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
-                ->select(
-                    'users.id',
-                    'users.id as user_id',
-                    'users.role_id',
-                    'profiles.first_name',
-                    'profiles.middlename',
-                    'profiles.last_name',
-                    'profiles.gender_id',
-                    'profiles.suffix_id',
-                    'profiles.contact_number',
-                    'profiles.street',
-                    'profiles.city',
-                    'profiles.province',
-                    'profiles.postal_code',
-                    'profiles.country',
-                    'profiles.profile_img',
-                    'users.created_at',
-                    'users.updated_at',
-                    'users.username',
-                    'users.email',
-                    'roles.role_name'
-                )
-                ->get();
-            Log::info('Fetched user list', ['count' => $users->count()]);
-            return response()->json(['users' => $users]);
-        } catch (\Exception $e) {
-            Log::error('Error in getUserList: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Internal Server Error'], 500);
-        }
-    }
-
-    public function update(Request $request, $id): JsonResponse
-    {
-        try {
-            Log::info('User update request received:', [
-                'data' => $request->all(),
-                'files' => $request->hasFile('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file detected',
-                'raw_input' => $request->input(),
-            ]);
-
-            $user = User::findOrFail($id);
-            $profile = Profile::where('user_id', $id)->firstOrFail();
-
-            $validated = $request->validate([
+            $validator = Validator::make($request->all(), [
                 'first_name' => 'required|string|max:255',
                 'middlename' => 'nullable|string|max:255',
                 'last_name' => 'required|string|max:255',
-                'suffix_id' => 'nullable|exists:suffixes,id',
-                'email' => 'required|email|max:255|unique:users,email,' . $id,
-                'password' => 'nullable|string|min:8',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
                 'role_id' => 'required|exists:roles,id',
                 'gender_id' => 'required|exists:genders,id',
+                'suffix_id' => 'nullable|exists:suffixes,id',
                 'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
-            // Generate username from first_name and last_name
-            $baseUsername = strtolower(
-                str_replace(' ', '', $validated['first_name']) . '.' .
-                str_replace(' ', '', $validated['last_name'])
-            );
-            $username = $baseUsername;
-            $counter = 1;
-            while (User::where('username', $username)->where('id', '!=', $id)->exists()) {
-                $username = $baseUsername . $counter;
-                $counter++;
+            if ($validator->fails()) {
+                return response()->json(['messages' => $validator->errors()], 422);
             }
 
-            $user->update([
-                'email' => $validated['email'],
-                'role_id' => $validated['role_id'],
-                'username' => $username,
-                'password' => $request->password ? Hash::make($request->password) : $user->password,
-            ]);
-
-            $profileData = [
-                'first_name' => $validated['first_name'],
-                'middlename' => $validated['middlename'] ?? null,
-                'last_name' => $validated['last_name'],
-                'suffix_id' => $validated['suffix_id'] ? (int)$validated['suffix_id'] : null,
-                'gender_id' => (int)$validated['gender_id'],
-                'contact_number' => $request->input('contact_number') ?? null,
-                'street' => $request->input('street') ?? null,
-                'city' => $request->input('city') ?? null,
-                'province' => $request->input('province') ?? null,
-                'postal_code' => $request->input('postal_code') ?? null,
-                'country' => $request->input('country') ?? null,
+            $userData = [
+                'username' => Str::slug($request->first_name . ' ' . $request->last_name),
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role_id' => $request->role_id,
+                'archived' => false,
             ];
 
-            if ($request->hasFile('profile_img')) {
-                Log::info('Processing profile image upload', ['file' => $request->file('profile_img')->getClientOriginalName()]);
-                if ($profile->profile_img && file_exists(public_path($profile->profile_img))) {
-                    unlink(public_path($profile->profile_img));
-                    Log::info('Deleted old profile image', ['old_file' => $profile->profile_img]);
-                }
-                $image = $request->file('profile_img');
-                $imageName = time() . '_' . $image->getClientOriginalName();
-                $destinationPath = public_path('images/pfp/');
-                if (!file_exists($destinationPath)) {
-                    mkdir($destinationPath, 0777, true);
-                    Log::info('Created directory', ['path' => $destinationPath]);
-                }
-                $image->move($destinationPath, $imageName);
-                $fullPath = 'images/pfp/' . $imageName;
-                Log::info('Image moved to:', ['path' => public_path($fullPath)]);
-                if (file_exists(public_path($fullPath))) {
-                    Log::info('File confirmed exists', ['file' => $fullPath]);
-                } else {
-                    Log::error('File not found after moving', ['file' => $fullPath]);
-                }
-                $profileData['profile_img'] = $fullPath;
-                Log::info('Profile data updated with new image', ['new_file' => $fullPath]);
-            }
-
-            $profile->fill($profileData)->save();
-            Log::info('Profile saved to database', ['profile' => $profile->toArray()]);
-
-            $updatedUser = User::where('users.id', $id)
-                ->join('roles', 'users.role_id', '=', 'roles.id')
-                ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
-                ->select(
-                    'users.id',
-                    'users.id as user_id',
-                    'users.role_id',
-                    'profiles.first_name',
-                    'profiles.middlename',
-                    'profiles.last_name',
-                    'profiles.gender_id',
-                    'profiles.suffix_id',
-                    'profiles.contact_number',
-                    'profiles.street',
-                    'profiles.city',
-                    'profiles.province',
-                    'profiles.postal_code',
-                    'profiles.country',
-                    'profiles.profile_img',
-                    'users.created_at',
-                    'users.updated_at',
-                    'users.archived',
-                    'users.username',
-                    'users.email',
-                    'roles.role_name'
-                )
-                ->firstOrFail();
-
-            Log::info('User updated successfully', ['user_id' => $id, 'username' => $updatedUser->username, 'profile_img' => $updatedUser->profile_img]);
-            return response()->json(['user' => $updatedUser, 'message' => 'User updated successfully'], 200);
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            Log::error('Validation error in user update:', [
-                'errors' => $e->errors(),
-                'request_data' => $request->all(),
-                'files' => $request->file('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file'
-            ]);
-            return response()->json(['error' => $e->errors()], 422);
-        } catch (\Exception $e) {
-            Log::error('Error updating user: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Internal Server Error: ' . $e->getMessage()], 500);
-        }
-    }
-
-    public function store(Request $request): JsonResponse
-    {
-        try {
-            Log::info('User creation request received:', [
-                'data' => $request->all(),
-                'files' => $request->hasFile('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file detected',
-                'raw_input' => $request->input(),
-            ]);
-
-            $validated = $request->validate([
-                'first_name' => 'required|string|max:255',
-                'middlename' => 'nullable|string|max:255',
-                'last_name' => 'required|string|max:255',
-                'suffix_id' => 'nullable|exists:suffixes,id',
-                'email' => 'required|email|max:255|unique:users,email',
-                'password' => 'required|string|min:8',
-                'role_id' => 'required|exists:roles,id',
-                'gender_id' => 'required|exists:genders,id',
-                'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            ]);
-
-            // Generate username from first_name and last_name
-            $baseUsername = strtolower(
-                str_replace(' ', '', $validated['first_name']) . '.' .
-                str_replace(' ', '', $validated['last_name'])
-            );
-            $username = $baseUsername;
-            $counter = 1;
-            while (User::where('username', $username)->exists()) {
-                $username = $baseUsername . $counter;
-                $counter++;
-            }
-
-            $user = new User();
-            $user->email = $validated['email'];
-            $user->role_id = $validated['role_id'];
-            $user->username = $username;
-            $user->password = Hash::make($validated['password']);
-            $user->save();
+            $user = User::create($userData);
 
             $profileData = [
                 'user_id' => $user->id,
-                'first_name' => $validated['first_name'],
-                'middlename' => $validated['middlename'] ?? null,
-                'last_name' => $validated['last_name'],
-                'suffix_id' => $validated['suffix_id'] ? (int)$validated['suffix_id'] : null,
-                'gender_id' => (int)$validated['gender_id'],
-                'contact_number' => $request->input('contact_number') ?? null,
-                'street' => $request->input('street') ?? null,
-                'city' => $request->input('city') ?? null,
-                'province' => $request->input('province') ?? null,
-                'postal_code' => $request->input('postal_code') ?? null,
-                'country' => $request->input('country') ?? null,
+                'first_name' => $request->first_name,
+                'middlename' => $request->middlename,
+                'last_name' => $request->last_name,
+                'gender_id' => $request->gender_id,
+                'suffix_id' => $request->suffix_id ?: null,
             ];
 
             if ($request->hasFile('profile_img')) {
-                Log::info('Processing profile image upload', ['file' => $request->file('profile_img')->getClientOriginalName()]);
-                $image = $request->file('profile_img');
-                $imageName = time() . '_' . $image->getClientOriginalName();
-                $destinationPath = public_path('images/pfp/');
-                if (!file_exists($destinationPath)) {
-                    mkdir($destinationPath, 0777, true);
-                    Log::info('Created directory', ['path' => $destinationPath]);
-                }
-                $image->move($destinationPath, $imageName);
-                $fullPath = 'images/pfp/' . $imageName;
-                Log::info('Image moved to:', ['path' => public_path($fullPath)]);
-                if (file_exists(public_path($fullPath))) {
-                    Log::info('File confirmed exists', ['file' => $fullPath]);
-                } else {
-                    Log::error('File not found after moving', ['file' => $fullPath]);
-                }
-                $profileData['profile_img'] = $fullPath;
-                Log::info('Profile data updated with new image', ['new_file' => $fullPath]);
+                $path = $request->file('profile_img')->store('profiles', 'public');
+                $profileData['profile_img'] = $path;
             }
 
-            $profile = new Profile($profileData);
-            $profile->save();
-            Log::info('Profile saved to database', ['profile' => $profile->toArray()]);
+            $profile = Profile::create($profileData);
 
-            $createdUser = User::where('users.id', $user->id)
-                ->join('roles', 'users.role_id', '=', 'roles.id')
-                ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
-                ->select(
-                    'users.id',
-                    'users.id as user_id',
-                    'users.role_id',
-                    'profiles.first_name',
-                    'profiles.middlename',
-                    'profiles.last_name',
-                    'profiles.gender_id',
-                    'profiles.suffix_id',
-                    'profiles.contact_number',
-                    'profiles.street',
-                    'profiles.city',
-                    'profiles.province',
-                    'profiles.postal_code',
-                    'profiles.country',
-                    'profiles.profile_img',
-                    'users.created_at',
-                    'users.updated_at',
-                    'users.archived',
-                    'users.username',
-                    'users.email',
-                    'roles.role_name'
-                )
-                ->firstOrFail();
-
-            Log::info('User created successfully', ['user_id' => $user->id, 'username' => $createdUser->username, 'profile_img' => $createdUser->profile_img]);
-            return response()->json(['user' => $createdUser, 'message' => 'User created successfully'], 201);
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            Log::error('Validation error in user creation:', [
-                'errors' => $e->errors(),
-                'request_data' => $request->all(),
-                'files' => $request->file('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file'
-            ]);
-            return response()->json(['error' => $e->errors()], 422);
+            return response()->json([
+                'user' => [
+                    'id' => $user->id,
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'role_id' => $user->role_id,
+                    'role_name' => $user->role ? $user->role->role_name : null,
+                    'gender_id' => $profile->gender_id,
+                    'gender_name' => $profile->gender ? $profile->gender->name : null,
+                    'suffix_id' => $profile->suffix_id,
+                    'suffix_name' => $profile->suffix ? $profile->suffix->suffix_name : null,
+                    'first_name' => $profile->first_name,
+                    'middlename' => $profile->middlename,
+                    'last_name' => $profile->last_name,
+                    'profile_img' => $profile->profile_img,
+                    'created_at' => $user->created_at,
+                    'updated_at' => $user->updated_at,
+                ],
+                'message' => 'User created successfully',
+            ], 201);
         } catch (\Exception $e) {
-            Log::error('Error creating user: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Internal Server Error: ' . $e->getMessage()], 500);
+            Log::error('Error creating user: ' . $e->getMessage());
+            return response()->json(['message' => 'Server error'], 500);
         }
     }
 
-    public function getUser($id): JsonResponse
+    /**
+     * Update an existing user and their profile.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(Request $request, $id)
     {
         try {
-            $user = User::where('users.id', $id)
-                ->join('roles', 'users.role_id', '=', 'roles.id')
-                ->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
-                ->select(
-                    'users.id',
-                    'users.id as user_id',
-                    'users.role_id',
-                    'profiles.first_name',
-                    'profiles.middlename',
-                    'profiles.last_name',
-                    'profiles.gender_id',
-                    'profiles.suffix_id',
-                    'profiles.contact_number',
-                    'profiles.street',
-                    'profiles.city',
-                    'profiles.province',
-                    'profiles.postal_code',
-                    'profiles.country',
-                    'profiles.profile_img',
-                    'users.created_at',
-                    'users.updated_at',
-                    'users.archived',
-                    'users.username',
-                    'users.email',
-                    'roles.role_name'
-                )
-                ->firstOrFail();
-            Log::info('Fetched single user', ['user_id' => $id]);
-            return response()->json($user);
+            $user = User::findOrFail($id);
+            $profile = Profile::where('user_id', $id)->firstOrFail();
+
+            // Log the incoming request data for debugging
+            Log::info('Update request data:', $request->all());
+
+            // Validation rules for update: all fields are optional
+            $validator = Validator::make($request->all(), [
+                'first_name' => 'sometimes|string|max:255',
+                'middlename' => 'nullable|string|max:255',
+                'last_name' => 'sometimes|string|max:255',
+                'email' => 'sometimes|email|unique:users,email,' . $id,
+                'password' => 'nullable|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+                'role_id' => 'sometimes|exists:roles,id',
+                'gender_id' => 'sometimes|exists:genders,id',
+                'suffix_id' => 'nullable|exists:suffixes,id',
+                'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed:', $validator->errors()->toArray());
+                return response()->json(['messages' => $validator->errors()], 422);
+            }
+
+            // Prepare user data for update
+            $userData = [];
+            if ($request->filled('email')) {
+                $userData['email'] = $request->email;
+            }
+            if ($request->filled('role_id')) {
+                $userData['role_id'] = $request->role_id;
+            }
+            if ($request->filled('password')) {
+                $userData['password'] = Hash::make($request->password);
+            }
+            // Update username if first_name or last_name is provided
+            if ($request->filled('first_name') || $request->filled('last_name')) {
+                $firstName = $request->filled('first_name') ? $request->first_name : $profile->first_name;
+                $lastName = $request->filled('last_name') ? $request->last_name : $profile->last_name;
+                $userData['username'] = Str::slug($firstName . ' ' . $lastName);
+            }
+
+            // Prepare profile data for update
+            $profileData = [];
+            if ($request->filled('first_name')) {
+                $profileData['first_name'] = $request->first_name;
+            }
+            if ($request->has('middlename')) {
+                $profileData['middlename'] = $request->middlename ?: null;
+            }
+            if ($request->filled('last_name')) {
+                $profileData['last_name'] = $request->last_name;
+            }
+            if ($request->filled('gender_id')) {
+                $profileData['gender_id'] = $request->gender_id;
+            }
+            if ($request->has('suffix_id')) {
+                $profileData['suffix_id'] = $request->suffix_id ?: null;
+            }
+            if ($request->hasFile('profile_img')) {
+                if ($profile->profile_img) {
+                    Storage::disk('public')->delete($profile->profile_img);
+                }
+                $path = $request->file('profile_img')->store('profiles', 'public');
+                $profileData['profile_img'] = $path;
+            }
+
+            // Update only if there are changes
+            if (!empty($userData)) {
+                $user->update($userData);
+                Log::info('User updated:', $userData);
+            } else {
+                Log::info('No user data to update');
+            }
+
+            if (!empty($profileData)) {
+                $profile->update($profileData);
+                Log::info('Profile updated:', $profileData);
+            } else {
+                Log::info('No profile data to update');
+            }
+
+            // Refresh relationships to ensure updated data
+            $user->load(['role', 'profile.gender', 'profile.suffix']);
+
+            return response()->json([
+                'user' => [
+                    'id' => $user->id,
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'role_id' => $user->role_id,
+                    'role_name' => $user->role ? $user->role->role_name : null,
+                    'gender_id' => $profile->gender_id,
+                    'gender_name' => $profile->gender ? $profile->gender->name : null,
+                    'suffix_id' => $profile->suffix_id,
+                    'suffix_name' => $profile->suffix ? $profile->suffix->suffix_name : null,
+                    'first_name' => $profile->first_name,
+                    'middlename' => $profile->middlename,
+                    'last_name' => $profile->last_name,
+                    'profile_img' => $profile->profile_img,
+                    'created_at' => $user->created_at,
+                    'updated_at' => $user->updated_at,
+                ],
+                'message' => 'User updated successfully',
+            ], 200);
         } catch (\Exception $e) {
-            Log::error('Error fetching user: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'User not found'], 404);
+            Log::error('Error updating user: ' . $e->getMessage());
+            return response()->json(['message' => 'Server error'], 500);
+        }
+    }
+
+    /**
+     * Archive or restore a user.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function archive(Request $request, $id)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'archived' => 'required|boolean',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['messages' => $validator->errors()], 422);
+            }
+
+            $user = User::findOrFail($id);
+            $user->update(['archived' => $request->archived]);
+
+            return response()->json([
+                'message' => $request->archived ? 'User archived successfully' : 'User restored successfully',
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error archiving/restoring user: ' . $e->getMessage());
+            return response()->json(['message' => 'Server error'], 500);
         }
     }
 }

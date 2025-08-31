@@ -97,9 +97,19 @@ const UsersList = () => {
   const handleArchiveConfirm = async () => {
     if (!userToArchive) return;
     try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
       const response = await axios.patch(
         `http://127.0.0.1:8000/api/users/${userToArchive.id}/archive`,
-        { archived: true }
+        { archived: true },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json",
+          },
+        }
       );
       if (response.status === 200) {
         setUsers((prevUsers) =>
@@ -111,16 +121,30 @@ const UsersList = () => {
         setUserToArchive(null);
       }
     } catch (error) {
-      console.error("Error archiving user:", error);
-      setError("Failed to archive user. Please try again.");
+      console.error("Error archiving user:", error.response?.data || error.message);
+      setError(
+        error.response?.status === 401
+          ? "Unauthorized: Please log in again."
+          : "Failed to archive user. Please try again."
+      );
     }
   };
 
   const handleRestoreUser = async (userId) => {
     try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
       const response = await axios.patch(
         `http://127.0.0.1:8000/api/users/${userId}/archive`,
-        { archived: false }
+        { archived: false },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json",
+          },
+        }
       );
       if (response.status === 200) {
         setUsers((prevUsers) =>
@@ -130,18 +154,32 @@ const UsersList = () => {
         );
       }
     } catch (error) {
-      console.error("Error restoring user:", error);
-      setError("Failed to restore user. Please try again.");
+      console.error("Error restoring user:", error.response?.data || error.message);
+      setError(
+        error.response?.status === 401
+          ? "Unauthorized: Please log in again."
+          : "Failed to restore user. Please try again."
+      );
     }
   };
 
   const handleBulkAction = async (action) => {
     if (selectedUsers.length === 0) return;
     try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
       const requests = selectedUsers.map((userId) =>
         axios.patch(
           `http://127.0.0.1:8000/api/users/${userId}/archive`,
-          { archived: action === "archive" }
+          { archived: action === "archive" },
+          {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+              Accept: "application/json",
+            },
+          }
         )
       );
       await Promise.all(requests);
@@ -154,8 +192,12 @@ const UsersList = () => {
       );
       setSelectedUsers([]);
     } catch (error) {
-      console.error(`Error ${action}ing users:`, error);
-      setError(`Failed to ${action} users. Please try again.`);
+      console.error(`Error ${action}ing users:`, error.response?.data || error.message);
+      setError(
+        error.response?.status === 401
+          ? "Unauthorized: Please log in again."
+          : `Failed to ${action} users. Please try again.`
+      );
     }
   };
 
@@ -168,8 +210,12 @@ const UsersList = () => {
   const handleEditClick = async (user) => {
     try {
       setLoading(true);
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
       const response = await axios.get(`http://127.0.0.1:8000/api/users/${user.id}`, {
-        headers: { "Accept": "application/json" },
+        headers: { Accept: "application/json" },
       });
       if (response.status === 200) {
         setUserToEdit(response.data);
@@ -192,6 +238,10 @@ const UsersList = () => {
 
   const handleUserAdd = async (newUser) => {
     try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
       const formData = new FormData();
       for (let key in newUser) {
         if (newUser[key] !== null && newUser[key] !== '') {
@@ -200,6 +250,7 @@ const UsersList = () => {
       }
       const response = await axios.post("http://127.0.0.1:8000/api/users", formData, {
         headers: {
+          Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
           "Content-Type": "multipart/form-data",
         },
@@ -216,17 +267,37 @@ const UsersList = () => {
 
   const handleUserUpdate = async (updatedUser) => {
     try {
-      const formData = new FormData();
-      for (let key in updatedUser) {
-        if (updatedUser[key] !== null && updatedUser[key] !== '') {
-          formData.append(key, updatedUser[key]);
-        }
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
       }
+      const formData = new FormData();
+      // Always include email to ensure it’s sent
+      formData.append("email", updatedUser.email || userToEdit?.email || "");
+      if (updatedUser.first_name) formData.append("first_name", updatedUser.first_name.trim());
+      if (updatedUser.middlename) formData.append("middlename", updatedUser.middlename.trim());
+      if (updatedUser.last_name) formData.append("last_name", updatedUser.last_name.trim());
+      if (updatedUser.suffix_id && parseInt(updatedUser.suffix_id))
+        formData.append("suffix_id", parseInt(updatedUser.suffix_id));
+      if (updatedUser.password) formData.append("password", updatedUser.password);
+      if (updatedUser.role_id && parseInt(updatedUser.role_id))
+        formData.append("role_id", parseInt(updatedUser.role_id));
+      if (updatedUser.gender_id && parseInt(updatedUser.gender_id))
+        formData.append("gender_id", parseInt(updatedUser.gender_id));
+      if (updatedUser.profile_img) formData.append("profile_img", updatedUser.profile_img);
+
+      console.log("Sending update data:", {
+        url: `http://127.0.0.1:8000/api/users/${userToEdit.id}`,
+        method: "PUT",
+        data: Object.fromEntries([...formData.entries()]),
+      });
+
       const response = await axios.put(
         `http://127.0.0.1:8000/api/users/${userToEdit.id}`,
         formData,
         {
           headers: {
+            Authorization: `Bearer ${authToken}`,
             Accept: "application/json",
             "Content-Type": "multipart/form-data",
           },
@@ -243,7 +314,11 @@ const UsersList = () => {
         setUserToEdit(null);
       }
     } catch (error) {
-      console.error("Error updating user:", error.response?.data || error.message);
+      console.error("Error updating user:", {
+        message: error.message,
+        status: error.response?.status,
+        data: error.response?.data,
+      });
       throw error;
     }
   };

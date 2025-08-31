@@ -34,6 +34,18 @@ class Profile extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    // Relationship with genders table
+    public function gender()
+    {
+        return $this->belongsTo(Gender::class, 'gender_id', 'id');
+    }
+
+    // Relationship with suffixes table
+    public function suffix()
+    {
+        return $this->belongsTo(Suffix::class, 'suffix_id', 'id');
+    }
+
     // Accessor for profile_img URL
     public function getProfileImgAttribute($value)
     {

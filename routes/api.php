@@ -17,14 +17,13 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:api
 // PROFILE ROUTE (Requires Authentication)
 Route::post('/profiles', [ProfileController::class, 'store'])->middleware('auth:api');
 
-// USER MANAGEMENT ROUTES (No authentication)
-Route::get('/users', [AdminUserController::class, 'getUsers'])->name('users.index');
-Route::get('/users/archived', [AdminUserController::class, 'getArchivedUsers'])->name('users.archived');
-Route::get('/users/{id}', [AdminUserController::class, 'getUser'])->name('users.show');
-Route::post('/users', [AdminUserController::class, 'store'])->name('users.store');
-Route::put('/users/{id}', [AdminUserController::class, 'update'])->name('users.update');
-Route::patch('/users/{id}/archive', [AdminUserController::class, 'archive'])->name('users.archive');
-Route::get('/users/list', [AdminUserController::class, 'getUserList'])->name('users.list');
+// api.php
+Route::get('/users', [AdminUserController::class, 'index']);
+Route::get('/users/archived', [AdminUserController::class, 'archived']);
+Route::get('/users/{id}', [AdminUserController::class, 'show']);
+Route::post('/users', [AdminUserController::class, 'store']);
+Route::put('/users/{id}', [AdminUserController::class, 'update']);
+Route::patch('/users/{id}/archive', [AdminUserController::class, 'archive']);
 
 // FETCH FOR REGISTRATION ROLES, GENDERS, AND SUFFIXES
 Route::get('/roles', [RolesController::class, 'index']);

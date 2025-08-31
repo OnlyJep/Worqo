@@ -154103,9 +154103,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _sass_components_usermodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../sass/components/usermodal.scss */ "./resources/sass/components/usermodal.scss");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -154122,7 +154121,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
 
 
 
@@ -154154,66 +154152,84 @@ var UserModal = function UserModal(_ref) {
     _useState6 = _slicedToArray(_useState5, 2),
     successMessage = _useState6[0],
     setSuccessMessage = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState8 = _slicedToArray(_useState7, 2),
-    loading = _useState8[0],
-    setLoading = _useState8[1];
+    roles = _useState8[0],
+    setRoles = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState0 = _slicedToArray(_useState9, 2),
-    roles = _useState0[0],
-    setRoles = _useState0[1];
+    genders = _useState0[0],
+    setGenders = _useState0[1];
   var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState10 = _slicedToArray(_useState1, 2),
-    genders = _useState10[0],
-    setGenders = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    suffixes = _useState10[0],
+    setSuffixes = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState12 = _slicedToArray(_useState11, 2),
-    suffixes = _useState12[0],
-    setSuffixes = _useState12[1];
+    isLoading = _useState12[0],
+    setIsLoading = _useState12[1];
   var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var isSubmitting = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var fetchData = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var _yield$Promise$all, _yield$Promise$all2, rolesRes, gendersRes, suffixesRes, _error$response, _error$response2, _error$response3, _error$response4, _t;
+        var authToken, _yield$Promise$all, _yield$Promise$all2, rolesRes, gendersRes, suffixesRes, _error$response, _error$response2, _t;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
               _context.p = 0;
-              setLoading(true);
-              _context.n = 1;
-              return Promise.all([axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/roles/all"), axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/genders"), axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/suffixes")]);
+              setIsLoading(true);
+              authToken = localStorage.getItem("auth_token");
+              if (authToken) {
+                _context.n = 1;
+                break;
+              }
+              throw new Error("No auth token found. Please log in.");
             case 1:
+              _context.n = 2;
+              return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/roles/all", {
+                headers: {
+                  Authorization: "Bearer ".concat(authToken)
+                }
+              }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/genders", {
+                headers: {
+                  Authorization: "Bearer ".concat(authToken)
+                }
+              }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/suffixes", {
+                headers: {
+                  Authorization: "Bearer ".concat(authToken)
+                }
+              })]);
+            case 2:
               _yield$Promise$all = _context.v;
               _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 3);
               rolesRes = _yield$Promise$all2[0];
               gendersRes = _yield$Promise$all2[1];
               suffixesRes = _yield$Promise$all2[2];
-              setRoles(rolesRes.data || []);
-              setGenders(gendersRes.data || []);
-              setSuffixes(suffixesRes.data || []);
-              _context.n = 3;
+              setRoles(Array.isArray(rolesRes.data) ? rolesRes.data : []);
+              setGenders(Array.isArray(gendersRes.data) ? gendersRes.data : []);
+              setSuffixes(Array.isArray(suffixesRes.data) ? suffixesRes.data : []);
+              _context.n = 4;
               break;
-            case 2:
-              _context.p = 2;
-              _t = _context.v;
-              console.error("Error fetching dropdown data:", {
-                roles: (_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data,
-                genders: (_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data,
-                suffixes: (_error$response3 = _t.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data,
-                message: _t.message,
-                status: (_error$response4 = _t.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.status
-              });
-              setErrors({
-                general: "Failed to load dropdown data. Please try again."
-              });
             case 3:
               _context.p = 3;
-              setLoading(false);
-              return _context.f(3);
+              _t = _context.v;
+              console.error("Error fetching dropdown data:", {
+                message: _t.message,
+                status: (_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.status,
+                details: (_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data
+              });
+              setErrors({
+                general: _t.message === "No auth token found. Please log in." ? _t.message : "Failed to load dropdown data. Please try again."
+              });
             case 4:
+              _context.p = 4;
+              setIsLoading(false);
+              return _context.f(4);
+            case 5:
               return _context.a(2);
           }
-        }, _callee, null, [[0, 2, 3, 4]]);
+        }, _callee, null, [[0, 3, 4, 5]]);
       }));
       return function fetchData() {
         return _ref2.apply(this, arguments);
@@ -154221,399 +154237,482 @@ var UserModal = function UserModal(_ref) {
     }();
     fetchData();
     if (isEdit && initialData) {
-      setFormData({
+      var initialFormData = {
         first_name: initialData.first_name || "",
         middlename: initialData.middlename || "",
         last_name: initialData.last_name || "",
-        suffix_id: initialData.suffix_id ? initialData.suffix_id.toString() : "",
+        suffix_id: initialData.suffix_id ? String(initialData.suffix_id) : "",
         email: initialData.email || "",
         password: "",
-        role_id: initialData.role_id ? initialData.role_id.toString() : "",
-        gender_id: initialData.gender_id ? initialData.gender_id.toString() : "",
+        role_id: initialData.role_id ? String(initialData.role_id) : "",
+        gender_id: initialData.gender_id ? String(initialData.gender_id) : "",
         profile_img: null
-      });
+      };
+      setFormData(initialFormData);
+      console.log("Initial data received:", initialData);
+      console.log("Initial form data set:", initialFormData);
     }
   }, [isEdit, initialData]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (isEdit && initialData && !isLoading && genders.length > 0 && roles.length > 0) {
+      var validGenderId = genders.some(function (g) {
+        return String(g.id) === String(initialData.gender_id);
+      }) ? String(initialData.gender_id) : "";
+      var validRoleId = roles.some(function (r) {
+        return String(r.id) === String(initialData.role_id);
+      }) ? String(initialData.role_id) : "";
+      setFormData(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          gender_id: validGenderId,
+          role_id: validRoleId
+        });
+      });
+    }
+  }, [isEdit, initialData, isLoading, genders, roles]);
   var handleInputChange = function handleInputChange(e, field) {
     var value = e.target.type === "file" ? e.target.files[0] : e.target.value;
     if (field === "profile_img" && value) {
       if (value.size > 2048 * 1024) {
-        setErrors(_objectSpread(_objectSpread({}, errors), {}, {
-          profile_img: "Image must not exceed 2 MB"
-        }));
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            profile_img: "Image must not exceed 2 MB"
+          });
+        });
         return;
       }
       if (!["image/jpeg", "image/png", "image/jpg"].includes(value.type)) {
-        setErrors(_objectSpread(_objectSpread({}, errors), {}, {
-          profile_img: "Image must be JPEG, PNG, or JPG"
-        }));
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            profile_img: "Image must be JPEG, PNG, or JPG"
+          });
+        });
         return;
       }
     }
-    setFormData(_objectSpread(_objectSpread({}, formData), {}, _defineProperty({}, field, value)));
-    setErrors(_objectSpread(_objectSpread({}, errors), {}, _defineProperty({}, field, "")));
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, value));
+    });
+    setErrors(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, ""));
+    });
+    console.log("Updated ".concat(field, ":"), value);
   };
   var removeImage = function removeImage() {
-    setFormData(_objectSpread(_objectSpread({}, formData), {}, {
-      profile_img: null
-    }));
-    setErrors(_objectSpread(_objectSpread({}, errors), {}, {
-      profile_img: ""
-    }));
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        profile_img: null
+      });
+    });
+    setErrors(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        profile_img: ""
+      });
+    });
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
   var validateForm = function validateForm() {
     var newErrors = {};
-    if (!formData.first_name.trim()) {
-      newErrors.first_name = "First name is required";
+    if (!isEdit) {
+      // Strict validation for creating new users
+      if (!formData.first_name) newErrors.first_name = "First name is required";
+      if (!formData.last_name) newErrors.last_name = "Last name is required";
+      if (!formData.email) newErrors.email = "Email is required";
+      if (!formData.role_id) newErrors.role_id = "Role is required";
+      if (!formData.gender_id) newErrors.gender_id = "Gender is required";
+      if (!formData.password) newErrors.password = "Password is required for new users";
     }
-    if (!formData.last_name.trim()) {
-      newErrors.last_name = "Last name is required";
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
-    if (!isEdit && !formData.password) {
-      newErrors.password = "Password is required";
-    } else if (formData.password && formData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters";
+    if (formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
+      newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit";
     }
-    if (!formData.role_id || !roles.some(function (role) {
-      return role.id.toString() === formData.role_id;
-    })) {
-      newErrors.role_id = "Please select a valid role";
-    }
-    if (!formData.gender_id || !genders.some(function (gender) {
-      return gender.id.toString() === formData.gender_id;
+    if (formData.gender_id && !genders.some(function (gender) {
+      return String(gender.id) === String(formData.gender_id);
     })) {
       newErrors.gender_id = "Please select a valid gender";
     }
+    if (formData.role_id && !roles.some(function (role) {
+      return String(role.id) === String(formData.role_id);
+    })) {
+      newErrors.role_id = "Please select a valid role";
+    }
+    if (formData.suffix_id && !suffixes.some(function (suffix) {
+      return String(suffix.id) === String(formData.suffix_id);
+    })) {
+      newErrors.suffix_id = "Please select a valid suffix";
+    }
     setErrors(newErrors);
+    console.log("Validation errors:", newErrors);
     return Object.keys(newErrors).length === 0;
   };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
-      var submitData, url, method, response, _error$response5, _error$response6, errorData, _t2;
+      var authToken, submitData, url, method, formDataObj, response, _error$response3, _error$response4, _error$response5, _error$response6, errorData, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
             e.preventDefault();
-            if (validateForm()) {
+            if (!(isSubmitting.current || isLoading)) {
               _context2.n = 1;
               break;
             }
-            console.log("Validation failed:", errors);
+            console.log("Submission or loading in progress, ignoring.");
             return _context2.a(2);
           case 1:
-            setLoading(true);
+            console.log("Form data before validation:", formData);
+            if (validateForm()) {
+              _context2.n = 2;
+              break;
+            }
+            console.log("Client-side validation failed:", errors);
+            return _context2.a(2);
+          case 2:
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context2.n = 3;
+              break;
+            }
+            setErrors({
+              general: "No auth token found. Please log in."
+            });
+            console.log("No auth token found.");
+            return _context2.a(2);
+          case 3:
+            isSubmitting.current = true;
             setErrors({});
             setSuccessMessage("");
-            _context2.p = 2;
-            submitData = new FormData();
-            submitData.append("first_name", formData.first_name.trim());
-            submitData.append("middlename", formData.middlename.trim() || "");
-            submitData.append("last_name", formData.last_name.trim());
-            submitData.append("suffix_id", formData.suffix_id ? parseInt(formData.suffix_id) : "");
-            submitData.append("email", formData.email.trim());
+            _context2.p = 4;
+            submitData = new FormData(); // Append fields only if they have changed or are required for create
+            if (formData.first_name || !isEdit) submitData.append("first_name", formData.first_name);
+            if (formData.middlename !== undefined) submitData.append("middlename", formData.middlename);
+            if (formData.last_name || !isEdit) submitData.append("last_name", formData.last_name);
+            if (formData.gender_id || !isEdit) submitData.append("gender_id", formData.gender_id);
+            if (formData.suffix_id !== undefined) submitData.append("suffix_id", formData.suffix_id);
+            if (formData.role_id || !isEdit) submitData.append("role_id", formData.role_id);
+            if (formData.email || !isEdit) submitData.append("email", formData.email);
             if (formData.password) submitData.append("password", formData.password);
-            submitData.append("role_id", parseInt(formData.role_id));
-            submitData.append("gender_id", parseInt(formData.gender_id));
             if (formData.profile_img) submitData.append("profile_img", formData.profile_img);
-            url = isEdit ? "http://127.0.0.1:8000/api/users/".concat(initialData.id) : "http://127.0.0.1:8000/api/users";
-            method = isEdit ? "put" : "post";
-            _context2.n = 3;
-            return (0,axios__WEBPACK_IMPORTED_MODULE_3__["default"])({
+            // Explicitly send empty profile_img to clear it
+            if (isEdit && formData.profile_img === null && initialData !== null && initialData !== void 0 && initialData.profile_img) {
+              submitData.append("profile_img", "");
+            }
+            url = isEdit ? "http://127.0.0.1:8000/api/users/".concat(initialData === null || initialData === void 0 ? void 0 : initialData.id) : "http://127.0.0.1:8000/api/users";
+            method = isEdit ? "put" : "post"; // Log FormData for debugging
+            formDataObj = {};
+            submitData.forEach(function (value, key) {
+              formDataObj[key] = value instanceof File ? value.name : value;
+            });
+            console.log("Sending data:", {
+              url: url,
+              method: method,
+              data: formDataObj
+            });
+            _context2.n = 5;
+            return (0,axios__WEBPACK_IMPORTED_MODULE_2__["default"])({
               method: method,
               url: url,
               data: submitData,
               headers: {
-                "Accept": "application/json",
-                "Content-Type": "multipart/form-data"
+                Accept: "application/json",
+                "Content-Type": "multipart/form-data",
+                Authorization: "Bearer ".concat(authToken)
               }
             });
-          case 3:
+          case 5:
             response = _context2.v;
+            console.log("Server response:", response.data);
             if (!(response.status === (isEdit ? 200 : 201))) {
-              _context2.n = 5;
+              _context2.n = 7;
               break;
             }
-            _context2.n = 4;
+            _context2.n = 6;
             return onSubmit(response.data.user);
-          case 4:
+          case 6:
             setSuccessMessage(isEdit ? "User updated successfully" : "User created successfully");
+            setErrors({});
             setTimeout(function () {
               setSuccessMessage("");
               onClose();
             }, 2000);
-          case 5:
-            _context2.n = 7;
+          case 7:
+            _context2.n = 9;
             break;
-          case 6:
-            _context2.p = 6;
+          case 8:
+            _context2.p = 8;
             _t2 = _context2.v;
-            console.error("Error submitting form:", ((_error$response5 = _t2.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t2.message);
-            errorData = ((_error$response6 = _t2.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.error) || {
+            console.error("Error submitting form:", {
+              message: _t2.message,
+              status: (_error$response3 = _t2.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status,
+              data: (_error$response4 = _t2.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data
+            });
+            errorData = ((_error$response5 = _t2.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.messages) || ((_error$response6 = _t2.response) === null || _error$response6 === void 0 ? void 0 : _error$response6.data) || {
               general: "Failed to ".concat(isEdit ? "update" : "create", " user")
             };
             setErrors(errorData);
-          case 7:
-            _context2.p = 7;
-            setLoading(false);
-            return _context2.f(7);
-          case 8:
+          case 9:
+            _context2.p = 9;
+            isSubmitting.current = false;
+            return _context2.f(9);
+          case 10:
             return _context2.a(2);
         }
-      }, _callee2, null, [[2, 6, 7, 8]]);
+      }, _callee2, null, [[4, 8, 9, 10]]);
     }));
     return function handleSubmit(_x) {
       return _ref3.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      className: "usermodal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "usermodal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-          children: isEdit ? "Edit User" : "Add New User"
-        }), successMessage && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "success-message",
-          style: {
-            color: "green",
-            marginBottom: "10px"
-          },
-          children: successMessage
-        }), errors.general && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "usermodal-overlay",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "usermodal",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+        children: isEdit ? "Edit User" : "Add New User"
+      }), successMessage && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "success-message",
+        style: {
+          color: "green",
+          marginBottom: "10px"
+        },
+        children: successMessage
+      }), errors.general && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "error-message",
+        style: {
+          color: "red",
+          marginBottom: "10px"
+        },
+        children: errors.general
+      }), Object.keys(errors).filter(function (key) {
+        return key !== "general" && errors[key];
+      }).map(function (key) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "error-message",
           style: {
             color: "red",
             marginBottom: "10px"
           },
-          children: errors.general
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "usermodal-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "form-group name-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "name-field",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                htmlFor: "first_name",
-                children: "First Name"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                id: "first_name",
-                type: "text",
-                value: formData.first_name,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "first_name");
-                },
-                placeholder: "First Name",
-                required: true
-              }), errors.first_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "error",
-                children: errors.first_name
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "name-field",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                htmlFor: "middlename",
-                children: "Middle Name"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                id: "middlename",
-                type: "text",
-                value: formData.middlename,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "middlename");
-                },
-                placeholder: "Middle Name (optional)"
-              }), errors.middlename && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "error",
-                children: errors.middlename
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "name-field",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                htmlFor: "last_name",
-                children: "Last Name"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                id: "last_name",
-                type: "text",
-                value: formData.last_name,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "last_name");
-                },
-                placeholder: "Last Name",
-                required: true
-              }), errors.last_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "error",
-                children: errors.last_name
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "name-field",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                htmlFor: "suffix_id",
-                children: "Suffix"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-                id: "suffix_id",
-                value: formData.suffix_id,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "suffix_id");
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                  value: "",
-                  children: "None"
-                }), suffixes.map(function (suffix) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    value: suffix.id,
-                    children: suffix.suffix_name || "None"
-                  }, suffix.id);
-                })]
-              }), errors.suffix_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                className: "error",
-                children: errors.suffix_id
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "email",
-              children: "Email"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-              id: "email",
-              type: "email",
-              value: formData.email,
+          children: errors[key]
+        }, key);
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "usermodal-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group name-row",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "name-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              htmlFor: "first_name",
+              children: "First Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              id: "first_name",
+              type: "text",
+              value: formData.first_name,
               onChange: function onChange(e) {
-                return handleInputChange(e, "email");
+                return handleInputChange(e, "first_name");
               },
-              placeholder: "Enter email address",
-              required: true
-            }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              placeholder: "First Name"
+            }), errors.first_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "error",
-              children: errors.email
+              children: errors.first_name
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "password",
-              children: isEdit ? "New Password" : "Password"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-              id: "password",
-              type: "password",
-              value: formData.password,
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "name-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              htmlFor: "middlename",
+              children: "Middle Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              id: "middlename",
+              type: "text",
+              value: formData.middlename,
               onChange: function onChange(e) {
-                return handleInputChange(e, "password");
+                return handleInputChange(e, "middlename");
               },
-              placeholder: isEdit ? "New password (optional)" : "Enter password",
-              required: !isEdit
-            }), errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              placeholder: "Middle Name (optional)"
+            }), errors.middlename && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "error",
-              children: errors.password
+              children: errors.middlename
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "gender_id",
-              children: "Gender"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-              id: "gender_id",
-              value: formData.gender_id,
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "name-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              htmlFor: "last_name",
+              children: "Last Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              id: "last_name",
+              type: "text",
+              value: formData.last_name,
               onChange: function onChange(e) {
-                return handleInputChange(e, "gender_id");
+                return handleInputChange(e, "last_name");
               },
-              required: true,
-              disabled: loading || genders.length === 0,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+              placeholder: "Last Name"
+            }), errors.last_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "error",
+              children: errors.last_name
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "name-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              htmlFor: "suffix_id",
+              children: "Suffix"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+              id: "suffix_id",
+              value: formData.suffix_id,
+              onChange: function onChange(e) {
+                return handleInputChange(e, "suffix_id");
+              },
+              disabled: isLoading || suffixes.length === 0,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
                 value: "",
-                children: "Select Gender"
-              }), genders.map(function (gender) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                  value: gender.id,
-                  children: gender.gender_name
-                }, gender.id);
+                children: "None"
+              }), suffixes.map(function (suffix) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  value: suffix.id,
+                  children: suffix.suffix_name || "None"
+                }, suffix.id);
               })]
-            }), errors.gender_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            }), errors.suffix_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "error",
-              children: errors.gender_id
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "role_id",
-              children: "Role"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-              id: "role_id",
-              value: formData.role_id,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "role_id");
-              },
-              required: true,
-              disabled: loading || roles.length === 0,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                value: "",
-                children: "Select Role"
-              }), roles.map(function (role) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                  value: role.id,
-                  children: role.role_name
-                }, role.id);
-              })]
-            }), errors.role_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "error",
-              children: errors.role_id
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "profile_img",
-              children: "Profile Picture"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-              id: "profile_img",
-              type: "file",
-              accept: "image/jpeg,image/png,image/jpg",
-              onChange: function onChange(e) {
-                return handleInputChange(e, "profile_img");
-              },
-              ref: fileInputRef
-            }), formData.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "profile-img-preview",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                src: URL.createObjectURL(formData.profile_img),
-                alt: "Profile Preview",
-                className: "preview-img"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-                className: "remove-img-button",
-                onClick: removeImage,
-                children: "Remove Image"
-              })]
-            }), (initialData === null || initialData === void 0 ? void 0 : initialData.profile_img) && !formData.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "profile-img-preview",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                src: "http://127.0.0.1:8000/".concat(initialData.profile_img),
-                alt: "Current Profile",
-                className: "preview-img"
-              })
-            }), errors.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "error",
-              children: errors.profile_img
+              children: errors.suffix_id
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "usermodal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "submit-button",
-            onClick: handleSubmit,
-            disabled: loading || roles.length === 0 || genders.length === 0,
-            children: isEdit ? "Update" : "Create"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "cancel-button",
-            onClick: onClose,
-            disabled: loading,
-            children: "Cancel"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            htmlFor: "email",
+            children: "Email"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            id: "email",
+            type: "email",
+            value: formData.email,
+            onChange: function onChange(e) {
+              return handleInputChange(e, "email");
+            },
+            placeholder: "Enter email address"
+          }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "error",
+            children: errors.email
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            htmlFor: "password",
+            children: isEdit ? "New Password (Optional)" : "Password"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            id: "password",
+            type: "password",
+            value: formData.password,
+            onChange: function onChange(e) {
+              return handleInputChange(e, "password");
+            },
+            placeholder: isEdit ? "New password (optional)" : "Enter password"
+          }), errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "error",
+            children: errors.password
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            htmlFor: "gender_id",
+            children: "Gender"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            id: "gender_id",
+            value: formData.gender_id,
+            onChange: function onChange(e) {
+              return handleInputChange(e, "gender_id");
+            },
+            disabled: isLoading || genders.length === 0,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "",
+              children: "Select Gender"
+            }), genders.map(function (gender) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("option", {
+                value: gender.id,
+                children: [gender.name || gender.gender_name, " "]
+              }, gender.id);
+            })]
+          }), errors.gender_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "error",
+            children: errors.gender_id
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            htmlFor: "role_id",
+            children: "Role"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            id: "role_id",
+            value: formData.role_id,
+            onChange: function onChange(e) {
+              return handleInputChange(e, "role_id");
+            },
+            disabled: isLoading || roles.length === 0,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "",
+              children: "Select Role"
+            }), roles.map(function (role) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                value: role.id,
+                children: role.role_name
+              }, role.id);
+            })]
+          }), errors.role_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "error",
+            children: errors.role_id
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            htmlFor: "profile_img",
+            children: "Profile Picture"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            id: "profile_img",
+            type: "file",
+            accept: "image/jpeg,image/png,image/jpg",
+            onChange: function onChange(e) {
+              return handleInputChange(e, "profile_img");
+            },
+            ref: fileInputRef
+          }), formData.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "profile-img-preview",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              src: URL.createObjectURL(formData.profile_img),
+              alt: "Profile Preview",
+              className: "preview-img"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              className: "remove-img-button",
+              onClick: removeImage,
+              children: "Remove Image"
+            })]
+          }), (initialData === null || initialData === void 0 ? void 0 : initialData.profile_img) && !formData.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "profile-img-preview",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              src: "http://127.0.0.1:8000".concat(initialData.profile_img),
+              alt: "Current Profile",
+              className: "preview-img"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              className: "remove-img-button",
+              onClick: removeImage,
+              children: "Remove Image"
+            })]
+          }), errors.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "error",
+            children: errors.profile_img
           })]
         })]
-      })
-    })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "usermodal-buttons",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "submit-button",
+          onClick: handleSubmit,
+          disabled: isSubmitting.current || isLoading,
+          children: isEdit ? "Update" : "Create"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "cancel-button",
+          onClick: onClose,
+          children: "Cancel"
+        })]
+      })]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserModal);
@@ -154830,7 +154929,7 @@ var UsersList = function UsersList() {
   };
   var handleArchiveConfirm = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var response, _t2;
+      var authToken, response, _error$response2, _error$response3, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -154841,11 +154940,23 @@ var UsersList = function UsersList() {
             return _context2.a(2);
           case 1:
             _context2.p = 1;
-            _context2.n = 2;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context2.n = 2;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 2:
+            _context2.n = 3;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("http://127.0.0.1:8000/api/users/".concat(userToArchive.id, "/archive"), {
               archived: true
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
             });
-          case 2:
+          case 3:
             response = _context2.v;
             if (response.status === 200) {
               setUsers(function (prevUsers) {
@@ -154858,17 +154969,17 @@ var UsersList = function UsersList() {
               setIsConfirmModalOpen(false);
               setUserToArchive(null);
             }
-            _context2.n = 4;
+            _context2.n = 5;
             break;
-          case 3:
-            _context2.p = 3;
-            _t2 = _context2.v;
-            console.error("Error archiving user:", _t2);
-            setError("Failed to archive user. Please try again.");
           case 4:
+            _context2.p = 4;
+            _t2 = _context2.v;
+            console.error("Error archiving user:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
+            setError(((_error$response3 = _t2.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 401 ? "Unauthorized: Please log in again." : "Failed to archive user. Please try again.");
+          case 5:
             return _context2.a(2);
         }
-      }, _callee2, null, [[1, 3]]);
+      }, _callee2, null, [[1, 4]]);
     }));
     return function handleArchiveConfirm() {
       return _ref2.apply(this, arguments);
@@ -154876,16 +154987,28 @@ var UsersList = function UsersList() {
   }();
   var handleRestoreUser = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(userId) {
-      var response, _t3;
+      var authToken, response, _error$response4, _error$response5, _t3;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
             _context3.p = 0;
-            _context3.n = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context3.n = 1;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 1:
+            _context3.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("http://127.0.0.1:8000/api/users/".concat(userId, "/archive"), {
               archived: false
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
             });
-          case 1:
+          case 2:
             response = _context3.v;
             if (response.status === 200) {
               setUsers(function (prevUsers) {
@@ -154896,17 +155019,17 @@ var UsersList = function UsersList() {
                 });
               });
             }
-            _context3.n = 3;
+            _context3.n = 4;
             break;
-          case 2:
-            _context3.p = 2;
-            _t3 = _context3.v;
-            console.error("Error restoring user:", _t3);
-            setError("Failed to restore user. Please try again.");
           case 3:
+            _context3.p = 3;
+            _t3 = _context3.v;
+            console.error("Error restoring user:", ((_error$response4 = _t3.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t3.message);
+            setError(((_error$response5 = _t3.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.status) === 401 ? "Unauthorized: Please log in again." : "Failed to restore user. Please try again.");
+          case 4:
             return _context3.a(2);
         }
-      }, _callee3, null, [[0, 2]]);
+      }, _callee3, null, [[0, 3]]);
     }));
     return function handleRestoreUser(_x) {
       return _ref3.apply(this, arguments);
@@ -154914,7 +155037,7 @@ var UsersList = function UsersList() {
   }();
   var handleBulkAction = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(action) {
-      var requests, _t4;
+      var authToken, requests, _error$response6, _error$response7, _t4;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
@@ -154925,14 +155048,26 @@ var UsersList = function UsersList() {
             return _context4.a(2);
           case 1:
             _context4.p = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context4.n = 2;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 2:
             requests = selectedUsers.map(function (userId) {
               return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("http://127.0.0.1:8000/api/users/".concat(userId, "/archive"), {
                 archived: action === "archive"
+              }, {
+                headers: {
+                  Authorization: "Bearer ".concat(authToken),
+                  Accept: "application/json"
+                }
               });
             });
-            _context4.n = 2;
+            _context4.n = 3;
             return Promise.all(requests);
-          case 2:
+          case 3:
             setUsers(function (prevUsers) {
               return prevUsers.map(function (user) {
                 return selectedUsers.includes(user.id) ? _objectSpread(_objectSpread({}, user), {}, {
@@ -154941,17 +155076,17 @@ var UsersList = function UsersList() {
               });
             });
             setSelectedUsers([]);
-            _context4.n = 4;
+            _context4.n = 5;
             break;
-          case 3:
-            _context4.p = 3;
-            _t4 = _context4.v;
-            console.error("Error ".concat(action, "ing users:"), _t4);
-            setError("Failed to ".concat(action, " users. Please try again."));
           case 4:
+            _context4.p = 4;
+            _t4 = _context4.v;
+            console.error("Error ".concat(action, "ing users:"), ((_error$response6 = _t4.response) === null || _error$response6 === void 0 ? void 0 : _error$response6.data) || _t4.message);
+            setError(((_error$response7 = _t4.response) === null || _error$response7 === void 0 ? void 0 : _error$response7.status) === 401 ? "Unauthorized: Please log in again." : "Failed to ".concat(action, " users. Please try again."));
+          case 5:
             return _context4.a(2);
         }
-      }, _callee4, null, [[1, 3]]);
+      }, _callee4, null, [[1, 4]]);
     }));
     return function handleBulkAction(_x2) {
       return _ref4.apply(this, arguments);
@@ -154964,40 +155099,47 @@ var UsersList = function UsersList() {
   };
   var handleEditClick = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(user) {
-      var response, _error$response2, _t5;
+      var authToken, response, _error$response8, _t5;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
             _context5.p = 0;
             setLoading(true);
-            _context5.n = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context5.n = 1;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 1:
+            _context5.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/users/".concat(user.id), {
               headers: {
-                "Accept": "application/json"
+                Accept: "application/json"
               }
             });
-          case 1:
+          case 2:
             response = _context5.v;
             if (response.status === 200) {
               setUserToEdit(response.data);
               setIsEditMode(true);
               setIsModalOpen(true);
             }
-            _context5.n = 3;
+            _context5.n = 4;
             break;
-          case 2:
-            _context5.p = 2;
-            _t5 = _context5.v;
-            console.error("Error fetching user for edit:", ((_error$response2 = _t5.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t5.message);
-            setError("Failed to fetch user data. Please try again.");
           case 3:
             _context5.p = 3;
-            setLoading(false);
-            return _context5.f(3);
+            _t5 = _context5.v;
+            console.error("Error fetching user for edit:", ((_error$response8 = _t5.response) === null || _error$response8 === void 0 ? void 0 : _error$response8.data) || _t5.message);
+            setError("Failed to fetch user data. Please try again.");
           case 4:
+            _context5.p = 4;
+            setLoading(false);
+            return _context5.f(4);
+          case 5:
             return _context5.a(2);
         }
-      }, _callee5, null, [[0, 2, 3, 4]]);
+      }, _callee5, null, [[0, 3, 4, 5]]);
     }));
     return function handleEditClick(_x3) {
       return _ref5.apply(this, arguments);
@@ -155010,25 +155152,33 @@ var UsersList = function UsersList() {
   };
   var handleUserAdd = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(newUser) {
-      var formData, key, response, _error$response3, _t6;
+      var authToken, formData, key, response, _error$response9, _t6;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
             _context6.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context6.n = 1;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 1:
             formData = new FormData();
             for (key in newUser) {
               if (newUser[key] !== null && newUser[key] !== '') {
                 formData.append(key, newUser[key]);
               }
             }
-            _context6.n = 1;
+            _context6.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/users", formData, {
               headers: {
+                Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json",
                 "Content-Type": "multipart/form-data"
               }
             });
-          case 1:
+          case 2:
             response = _context6.v;
             if (response.status === 201) {
               setUsers(function (prevUsers) {
@@ -155036,17 +155186,17 @@ var UsersList = function UsersList() {
               });
               setIsModalOpen(false);
             }
-            _context6.n = 3;
+            _context6.n = 4;
             break;
-          case 2:
-            _context6.p = 2;
-            _t6 = _context6.v;
-            console.error("Error adding user:", ((_error$response3 = _t6.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t6.message);
-            throw _t6;
           case 3:
+            _context6.p = 3;
+            _t6 = _context6.v;
+            console.error("Error adding user:", ((_error$response9 = _t6.response) === null || _error$response9 === void 0 ? void 0 : _error$response9.data) || _t6.message);
+            throw _t6;
+          case 4:
             return _context6.a(2);
         }
-      }, _callee6, null, [[0, 2]]);
+      }, _callee6, null, [[0, 3]]);
     }));
     return function handleUserAdd(_x4) {
       return _ref6.apply(this, arguments);
@@ -155054,25 +155204,42 @@ var UsersList = function UsersList() {
   }();
   var handleUserUpdate = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(updatedUser) {
-      var formData, key, response, _error$response4, _t7;
+      var authToken, formData, response, _error$response0, _error$response1, _t7;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
           case 0:
             _context7.p = 0;
-            formData = new FormData();
-            for (key in updatedUser) {
-              if (updatedUser[key] !== null && updatedUser[key] !== '') {
-                formData.append(key, updatedUser[key]);
-              }
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context7.n = 1;
+              break;
             }
-            _context7.n = 1;
+            throw new Error("No auth token found. Please log in.");
+          case 1:
+            formData = new FormData(); // Always include email to ensure it’s sent
+            formData.append("email", updatedUser.email || (userToEdit === null || userToEdit === void 0 ? void 0 : userToEdit.email) || "");
+            if (updatedUser.first_name) formData.append("first_name", updatedUser.first_name.trim());
+            if (updatedUser.middlename) formData.append("middlename", updatedUser.middlename.trim());
+            if (updatedUser.last_name) formData.append("last_name", updatedUser.last_name.trim());
+            if (updatedUser.suffix_id && parseInt(updatedUser.suffix_id)) formData.append("suffix_id", parseInt(updatedUser.suffix_id));
+            if (updatedUser.password) formData.append("password", updatedUser.password);
+            if (updatedUser.role_id && parseInt(updatedUser.role_id)) formData.append("role_id", parseInt(updatedUser.role_id));
+            if (updatedUser.gender_id && parseInt(updatedUser.gender_id)) formData.append("gender_id", parseInt(updatedUser.gender_id));
+            if (updatedUser.profile_img) formData.append("profile_img", updatedUser.profile_img);
+            console.log("Sending update data:", {
+              url: "http://127.0.0.1:8000/api/users/".concat(userToEdit.id),
+              method: "PUT",
+              data: Object.fromEntries(_toConsumableArray(formData.entries()))
+            });
+            _context7.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].put("http://127.0.0.1:8000/api/users/".concat(userToEdit.id), formData, {
               headers: {
+                Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json",
                 "Content-Type": "multipart/form-data"
               }
             });
-          case 1:
+          case 2:
             response = _context7.v;
             if (response.status === 200) {
               setUsers(function (prevUsers) {
@@ -155086,17 +155253,21 @@ var UsersList = function UsersList() {
               setIsEditMode(false);
               setUserToEdit(null);
             }
-            _context7.n = 3;
+            _context7.n = 4;
             break;
-          case 2:
-            _context7.p = 2;
-            _t7 = _context7.v;
-            console.error("Error updating user:", ((_error$response4 = _t7.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t7.message);
-            throw _t7;
           case 3:
+            _context7.p = 3;
+            _t7 = _context7.v;
+            console.error("Error updating user:", {
+              message: _t7.message,
+              status: (_error$response0 = _t7.response) === null || _error$response0 === void 0 ? void 0 : _error$response0.status,
+              data: (_error$response1 = _t7.response) === null || _error$response1 === void 0 ? void 0 : _error$response1.data
+            });
+            throw _t7;
+          case 4:
             return _context7.a(2);
         }
-      }, _callee7, null, [[0, 2]]);
+      }, _callee7, null, [[0, 3]]);
     }));
     return function handleUserUpdate(_x5) {
       return _ref7.apply(this, arguments);
@@ -156934,11 +157105,6 @@ var Login = function Login() {
               disabled: isLoading,
               children: isLoading ? 'Logging in...' : 'Login'
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-            onClick: handleLogout,
-            className: "logout-btn",
-            disabled: isLoading || !localStorage.getItem('auth_token'),
-            children: isLoading ? 'Logging out...' : 'Logout'
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "login-signup",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
