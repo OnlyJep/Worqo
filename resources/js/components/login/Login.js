@@ -13,7 +13,6 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
-  // Initialize component and check for remembered email
   useEffect(() => {
     const rememberedEmail = localStorage.getItem('remembered_email');
     if (rememberedEmail) {
@@ -49,23 +48,20 @@ const Login = () => {
       });
 
       const data = await response.json();
-      console.log('API Response:', data); // Debug API response
+      console.log('API Response:', data);
 
       if (response.ok) {
-        // Store token and user data
         localStorage.setItem('auth_token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
 
-        // Handle "Remember Me" functionality
         if (rememberMe) {
           localStorage.setItem('remembered_email', email);
         } else {
           localStorage.removeItem('remembered_email');
         }
 
-        // Role-based redirection
         const userRole = data.user.role_id;
-        console.log('User Role:', userRole); // Debug role_id
+        console.log('User Role:', userRole);
         if (userRole === 1 || userRole === 2) {
           setTimeout(() => {
             navigate('/homepage', { replace: true });
@@ -87,6 +83,41 @@ const Login = () => {
     } catch (error) {
       setError('An error occurred. Please try again later.');
       console.error('Login error:', error);
+      setIsLoading(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    const token = localStorage.getItem('auth_token');
+    if (!token) {
+      setError('No active session found.');
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('remembered_email');
+        navigate('/login', { replace: true });
+      } else {
+        setError(data.message || 'Logout failed.');
+      }
+    } catch (error) {
+      setError('An error occurred during logout.');
+      console.error('Logout error:', error);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -149,6 +180,14 @@ const Login = () => {
                 {isLoading ? 'Logging in...' : 'Login'}
               </button>
             </form>
+
+            <button
+              onClick={handleLogout}
+              className="logout-btn"
+              disabled={isLoading || !localStorage.getItem('auth_token')}
+            >
+              {isLoading ? 'Logging out...' : 'Logout'}
+            </button>
 
             <div className="login-signup">
               <p>

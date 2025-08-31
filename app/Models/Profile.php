@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Profile extends Model
 {
@@ -22,18 +23,20 @@ class Profile extends Model
         'profile_img',
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
+    // Relationship with users table
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function gender()
+    // Accessor for profile_img URL
+    public function getProfileImgAttribute($value)
     {
-        return $this->belongsTo(Gender::class, 'gender_id');
-    }
-
-    public function suffix()
-    {
-        return $this->belongsTo(Suffix::class, 'suffix_id');
+        return $value ? Storage::url($value) : null;
     }
 }

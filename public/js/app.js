@@ -138855,30 +138855,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// Protected Route Component
+// Authentication utility function
 
+var useAuth = function useAuth() {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
+    var token = localStorage.getItem("auth_token");
+    var storedUser = localStorage.getItem("user");
+    if (token && storedUser) {
+      var user = JSON.parse(storedUser);
+      return {
+        isAuthenticated: true,
+        userRole: user.role_id
+      };
+    }
+    return {
+      isAuthenticated: false,
+      userRole: null
+    };
+  }, []); // Empty dependency array to run once on mount
+};
+
+// Protected Route Component
 var ProtectedRoute = function ProtectedRoute(_ref) {
   var children = _ref.children,
     allowedRoles = _ref.allowedRoles;
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
-  var _useMemo = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
-      var token = localStorage.getItem("auth_token");
-      var storedUser = localStorage.getItem("user");
-      if (token && storedUser) {
-        var user = JSON.parse(storedUser);
-        return {
-          isAuthenticated: true,
-          userRole: user.role_id
-        };
-      }
-      return {
-        isAuthenticated: false,
-        userRole: null
-      };
-    }, []),
-    isAuthenticated = _useMemo.isAuthenticated,
-    userRole = _useMemo.userRole; // Empty dependency array to run once on mount
-
+  var _useAuth = useAuth(),
+    isAuthenticated = _useAuth.isAuthenticated,
+    userRole = _useAuth.userRole;
   if (!isAuthenticated) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/login",
@@ -138897,144 +138901,104 @@ var ProtectedRoute = function ProtectedRoute(_ref) {
   return children;
 };
 
-// Auth Check for Public Routes
-var AuthCheck = function AuthCheck(_ref2) {
+// Public Route Component (for Login and Register)
+var PublicRoute = function PublicRoute(_ref2) {
   var children = _ref2.children;
+  var _useAuth2 = useAuth(),
+    isAuthenticated = _useAuth2.isAuthenticated,
+    userRole = _useAuth2.userRole;
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
-  var _useMemo2 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
-      var token = localStorage.getItem("auth_token");
-      var storedUser = localStorage.getItem("user");
-      if (token && storedUser) {
-        var user = JSON.parse(storedUser);
-        return {
-          isAuthenticated: true,
-          userRole: user.role_id
-        };
-      }
-      return {
-        isAuthenticated: false,
-        userRole: null
-      };
-    }, []),
-    isAuthenticated = _useMemo2.isAuthenticated,
-    userRole = _useMemo2.userRole; // Empty dependency array to run once on mount
-
   if (isAuthenticated) {
-    // Define the target route based on role
+    // Redirect based on user role
     var targetRoute = userRole === 3 ? "/admin" : "/homepage";
-    // Only redirect if not already on an allowed route
-    if ((userRole === 1 || userRole === 2 || userRole === 3) && location.pathname !== "/homepage" && location.pathname !== targetRoute && !location.pathname.startsWith("/admin")) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
-        to: targetRoute,
-        replace: true
-      });
-    }
-    return children; // Allow access to /homepage for all roles, or /admin for role_id 3
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+      to: targetRoute,
+      replace: true,
+      state: {
+        from: location
+      }
+    });
   }
   return children;
+};
+
+// Root Route Component to handle initial redirect
+var RootRoute = function RootRoute() {
+  var _useAuth3 = useAuth(),
+    isAuthenticated = _useAuth3.isAuthenticated,
+    userRole = _useAuth3.userRole;
+  if (!isAuthenticated) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+      to: "/homepage",
+      replace: true
+    });
+  }
+
+  // Redirect based on user role
+  var targetRoute = userRole === 3 ? "/admin" : "/homepage";
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    to: targetRoute,
+    replace: true
+  });
 };
 function Routers() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.BrowserRouter, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
-          to: "/homepage"
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(RootRoute, {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/login",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(AuthCheck, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(PublicRoute, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_login_Login__WEBPACK_IMPORTED_MODULE_4__["default"], {})
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/register",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(AuthCheck, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(PublicRoute, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_register_Register__WEBPACK_IMPORTED_MODULE_5__["default"], {})
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/homepage",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_Homepage_homepage__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_Homepage_homepage__WEBPACK_IMPORTED_MODULE_6__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/services",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_Service__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_Service__WEBPACK_IMPORTED_MODULE_8__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/headerz",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_7__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/find-jobs",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_29__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_29__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/job/:jobId",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_30__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_30__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/about",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_31__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_31__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/message",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_32__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_32__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/notifications",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_33__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_33__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/browse",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_ShopContent_browseblue__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_ShopContent_browseblue__WEBPACK_IMPORTED_MODULE_9__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/browse-white",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_ShopContent_browsewhite__WEBPACK_IMPORTED_MODULE_10__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_ShopContent_browsewhite__WEBPACK_IMPORTED_MODULE_10__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/complete",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_OrdersContent_order_complete__WEBPACK_IMPORTED_MODULE_11__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_OrdersContent_order_complete__WEBPACK_IMPORTED_MODULE_11__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/orders_modal",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_CartModals_orders_modal__WEBPACK_IMPORTED_MODULE_12__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_CartModals_orders_modal__WEBPACK_IMPORTED_MODULE_12__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/pay",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_Payment_Info_pay__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_Payment_Info_pay__WEBPACK_IMPORTED_MODULE_13__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/profile/:workerId",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
-          allowedRoles: [1, 2, 3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_Profile_profile__WEBPACK_IMPORTED_MODULE_14__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(_components_Profile_profile__WEBPACK_IMPORTED_MODULE_14__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_34__.jsx)(ProtectedRoute, {
@@ -156734,8 +156698,6 @@ var Login = function Login() {
     rememberMe = _useState10[0],
     setRememberMe = _useState10[1];
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-
-  // Initialize component and check for remembered email
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var rememberedEmail = localStorage.getItem('remembered_email');
     if (rememberedEmail) {
@@ -156785,23 +156747,17 @@ var Login = function Login() {
             return response.json();
           case 4:
             data = _context.v;
-            console.log('API Response:', data); // Debug API response
-
+            console.log('API Response:', data);
             if (response.ok) {
-              // Store token and user data
               localStorage.setItem('auth_token', data.token);
               localStorage.setItem('user', JSON.stringify(data.user));
-
-              // Handle "Remember Me" functionality
               if (rememberMe) {
                 localStorage.setItem('remembered_email', email);
               } else {
                 localStorage.removeItem('remembered_email');
               }
-
-              // Role-based redirection
               userRole = data.user.role_id;
-              console.log('User Role:', userRole); // Debug role_id
+              console.log('User Role:', userRole);
               if (userRole === 1 || userRole === 2) {
                 setTimeout(function () {
                   navigate('/homepage', {
@@ -156839,6 +156795,67 @@ var Login = function Login() {
     }));
     return function handleLogin(_x) {
       return _ref.apply(this, arguments);
+    };
+  }();
+  var handleLogout = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var token, response, data, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            token = localStorage.getItem('auth_token');
+            if (token) {
+              _context2.n = 1;
+              break;
+            }
+            setError('No active session found.');
+            return _context2.a(2);
+          case 1:
+            setIsLoading(true);
+            _context2.p = 2;
+            _context2.n = 3;
+            return fetch('http://127.0.0.1:8000/api/logout', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': "Bearer ".concat(token)
+              }
+            });
+          case 3:
+            response = _context2.v;
+            _context2.n = 4;
+            return response.json();
+          case 4:
+            data = _context2.v;
+            if (response.ok) {
+              localStorage.removeItem('auth_token');
+              localStorage.removeItem('user');
+              localStorage.removeItem('remembered_email');
+              navigate('/login', {
+                replace: true
+              });
+            } else {
+              setError(data.message || 'Logout failed.');
+            }
+            _context2.n = 6;
+            break;
+          case 5:
+            _context2.p = 5;
+            _t2 = _context2.v;
+            setError('An error occurred during logout.');
+            console.error('Logout error:', _t2);
+          case 6:
+            _context2.p = 6;
+            setIsLoading(false);
+            return _context2.f(6);
+          case 7:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[2, 5, 6, 7]]);
+    }));
+    return function handleLogout() {
+      return _ref2.apply(this, arguments);
     };
   }();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
@@ -156917,6 +156934,11 @@ var Login = function Login() {
               disabled: isLoading,
               children: isLoading ? 'Logging in...' : 'Login'
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            onClick: handleLogout,
+            className: "logout-btn",
+            disabled: isLoading || !localStorage.getItem('auth_token'),
+            children: isLoading ? 'Logging out...' : 'Logout'
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "login-signup",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {

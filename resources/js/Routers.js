@@ -34,10 +34,9 @@ import AboutUs from "./components/HeaderContent/AboutUs";
 import Message from "./components/HeaderContent/Message";
 import Notif from "./components/HeaderContent/Notif";
 
-// Protected Route Component
-const ProtectedRoute = ({ children, allowedRoles }) => {
-  const location = useLocation();
-  const { isAuthenticated, userRole } = useMemo(() => {
+// Authentication utility function
+const useAuth = () => {
+  return useMemo(() => {
     const token = localStorage.getItem("auth_token");
     const storedUser = localStorage.getItem("user");
     if (token && storedUser) {
@@ -46,6 +45,12 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
     }
     return { isAuthenticated: false, userRole: null };
   }, []); // Empty dependency array to run once on mount
+};
+
+// Protected Route Component
+const ProtectedRoute = ({ children, allowedRoles }) => {
+  const location = useLocation();
+  const { isAuthenticated, userRole } = useAuth();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace state={{ from: location }} />;
@@ -58,170 +63,68 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   return children;
 };
 
-// Auth Check for Public Routes
-const AuthCheck = ({ children }) => {
+// Public Route Component (for Login and Register)
+const PublicRoute = ({ children }) => {
+  const { isAuthenticated, userRole } = useAuth();
   const location = useLocation();
-  const { isAuthenticated, userRole } = useMemo(() => {
-    const token = localStorage.getItem("auth_token");
-    const storedUser = localStorage.getItem("user");
-    if (token && storedUser) {
-      const user = JSON.parse(storedUser);
-      return { isAuthenticated: true, userRole: user.role_id };
-    }
-    return { isAuthenticated: false, userRole: null };
-  }, []); // Empty dependency array to run once on mount
 
   if (isAuthenticated) {
-    // Define the target route based on role
+    // Redirect based on user role
     const targetRoute = userRole === 3 ? "/admin" : "/homepage";
-    // Only redirect if not already on an allowed route
-    if (
-      (userRole === 1 || userRole === 2 || userRole === 3) &&
-      location.pathname !== "/homepage" &&
-      location.pathname !== targetRoute &&
-      !location.pathname.startsWith("/admin")
-    ) {
-      return <Navigate to={targetRoute} replace />;
-    }
-    return children; // Allow access to /homepage for all roles, or /admin for role_id 3
+    return <Navigate to={targetRoute} replace state={{ from: location }} />;
   }
 
   return children;
+};
+
+// Root Route Component to handle initial redirect
+const RootRoute = () => {
+  const { isAuthenticated, userRole } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/homepage" replace />;
+  }
+
+  // Redirect based on user role
+  const targetRoute = userRole === 3 ? "/admin" : "/homepage";
+  return <Navigate to={targetRoute} replace />;
 };
 
 export default function Routers() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/homepage" />} />
+        <Route path="/" element={<RootRoute />} />
         <Route
           path="/login"
           element={
-            <AuthCheck>
+            <PublicRoute>
               <Login />
-            </AuthCheck>
+            </PublicRoute>
           }
         />
         <Route
           path="/register"
           element={
-            <AuthCheck>
+            <PublicRoute>
               <Register />
-            </AuthCheck>
+            </PublicRoute>
           }
         />
-        <Route
-          path="/homepage"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Homepage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/services"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Service />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/headerz"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Headerz />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/find-jobs"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <FindJob />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/job/:jobId"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <JobProfile />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <AboutUs />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/message"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Message />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/notifications"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Notif />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/browse"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Browse />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/browse-white"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <BrowseWhite />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/complete"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Complete />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/orders_modal"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Orders_modal />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/pay"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Pay />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/profile/:workerId"
-          element={
-            <ProtectedRoute allowedRoles={[1, 2, 3]}>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/homepage" element={<Homepage />} />
+        <Route path="/services" element={<Service />} />
+        <Route path="/headerz" element={<Headerz />} />
+        <Route path="/find-jobs" element={<FindJob />} />
+        <Route path="/job/:jobId" element={<JobProfile />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/message" element={<Message />} />
+        <Route path="/notifications" element={<Notif />} />
+        <Route path="/browse" element={<Browse />} />
+        <Route path="/browse-white" element={<BrowseWhite />} />
+        <Route path="/complete" element={<Complete />} />
+        <Route path="/orders_modal" element={<Orders_modal />} />
+        <Route path="/pay" element={<Pay />} />
+        <Route path="/profile/:workerId" element={<Profile />} />
         <Route
           path="/admin"
           element={
