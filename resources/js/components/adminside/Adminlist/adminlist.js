@@ -42,7 +42,7 @@ const AdminList = () => {
   const [adminToEdit, setAdminToEdit] = useState(null);
   const navigate = useNavigate();
 
-  const baseImageUrl = "http://127.0.0.1:8000/";
+  const baseImageUrl = "http://127.0.0.1:8000/storage/";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,9 +55,13 @@ const AdminList = () => {
           axios.get("http://127.0.0.1:8000/api/admins/archived", config),
         ]);
 
-        const activeAdmins = activeResponse.data.map((admin) => ({ ...admin, archived: false }));
-        const archivedAdmins = archivedResponse.data.map((admin) => ({ ...admin, archived: true }));
+        const activeAdmins = activeResponse.data.admins.map((admin) => ({ ...admin, archived: false }));
+        const archivedAdmins = archivedResponse.data.admins.map((admin) => ({ ...admin, archived: true }));
         setAdmins([...activeAdmins, ...archivedAdmins]);
+        setPagination({
+          currentPage: activeResponse.data.pagination.currentPage,
+          totalPages: activeResponse.data.pagination.totalPages,
+        });
       } catch (error) {
         console.error("Error fetching admins:", error);
         setAdmins([]);
@@ -149,22 +153,21 @@ const AdminList = () => {
     if (selectedAdmins.length === 0) return;
     try {
       const token = localStorage.getItem("LaravelPassportToken");
-      const requests = selectedAdmins.map((adminId) =>
-        axios.patch(
-          `http://127.0.0.1:8000/api/admins/${adminId}/archive`,
-          { archived: action === "archive" },
-          { headers: { Authorization: `Bearer ${token}` } }
-        )
+      const response = await axios.post(
+        `http://127.0.0.1:8000/api/admins/bulk-archive`,
+        { admin_ids: selectedAdmins, action: action },
+        { headers: { Authorization: `Bearer ${token}` } }
       );
-      await Promise.all(requests);
-      setAdmins((prevAdmins) =>
-        prevAdmins.map((admin) =>
-          selectedAdmins.includes(admin.id)
-            ? { ...admin, archived: action === "archive" }
-            : admin
-        )
-      );
-      setSelectedAdmins([]);
+      if (response.status === 200) {
+        setAdmins((prevAdmins) =>
+          prevAdmins.map((admin) =>
+            selectedAdmins.includes(admin.id)
+              ? { ...admin, archived: action === "archive" }
+              : admin
+          )
+        );
+        setSelectedAdmins([]);
+      }
     } catch (error) {
       console.error(`Error ${action}ing admins:`, error);
     }
@@ -183,13 +186,13 @@ const AdminList = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAdminToEdit({
-        ...admin,
+        ...response.data,
         first_name: response.data.first_name || "",
         middlename: response.data.middlename || "",
         last_name: response.data.last_name || "",
         suffix: response.data.suffix || "",
         email: response.data.email || "",
-        role_id: "1", // Fixed to Admin
+        role_id: "3", // Fixed to Admin role_id
       });
       setIsEditMode(true);
       setIsModalOpen(true);
@@ -206,27 +209,20 @@ const AdminList = () => {
 
   const handleAdminAdd = async (newAdmin) => {
     try {
+      const token = localStorage.getItem("LaravelPassportToken");
       const response = await axios.post(
         "http://127.0.0.1:8000/api/admins/register",
         newAdmin,
         {
           headers: {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
         }
       );
       if (response.status === 201) {
         const addedAdmin = {
-          id: response.data.admin.id,
-          first_name: response.data.admin.first_name,
-          middlename: response.data.admin.middlename,
-          last_name: response.data.admin.last_name,
-          suffix: response.data.admin.suffix,
-          email: response.data.admin.email,
-          role_name: response.data.admin.role_name || "Admin",
-          profile_img: response.data.admin.profile_img,
-          created_at: response.data.admin.created_at || new Date().toISOString(),
-          updated_at: response.data.admin.updated_at || new Date().toISOString(),
+          ...response.data.admin,
           archived: false,
         };
         setAdmins((prevAdmins) => [addedAdmin, ...prevAdmins]);
@@ -253,7 +249,7 @@ const AdminList = () => {
       if (response.status === 200) {
         setAdmins((prevAdmins) =>
           prevAdmins.map((admin) =>
-            admin.id === response.data.id ? { ...response.data, archived: admin.archived } : admin
+            admin.id === response.data.admin.id ? { ...response.data.admin, archived: admin.archived } : admin
           )
         );
         setIsModalOpen(false);

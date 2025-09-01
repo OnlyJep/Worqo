@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_reviewstable.scss";
 import ReviewModal from "./reviewlistmodal.js";
+
+const API_BASE_URL = "http://127.0.0.1:8000/api";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -21,57 +24,22 @@ const formatDate = (dateString) => {
 };
 
 const getFullName = (person) => {
-  const { first_name, middlename, last_name, suffix } = person;
-  let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
+  if (!person) {
+    console.warn("Person is null or undefined");
+    return "N/A";
+  }
+  const { first_name, middlename, last_name, suffix, username } = person;
+  let fullName = `${first_name || username || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
   if (suffix) fullName += ` ${suffix}`;
-  return fullName.trim() || "N/A";
+  const result = fullName.trim() || "N/A";
+  console.log(`getFullName for ${username || "unknown"}: ${result}`);
+  return result;
 };
 
 const ReviewsTable = () => {
-  const [reviews, setReviews] = useState([
-    {
-      id: 1,
-      employer: {
-        company_name: "TechCorp Inc.",
-        owner: { first_name: "Alice", middlename: null, last_name: "Brown", suffix: null },
-      },
-      worker: { first_name: "John", middlename: "A", last_name: "Doe", suffix: null },
-      rating: 4,
-      comment: "John is reliable and skilled, but could improve communication.",
-      hasImage: true,
-      created_at: "2025-01-01T10:00:00Z",
-      updated_at: "2025-02-01T12:00:00Z",
-      archived: false,
-    },
-    {
-      id: 2,
-      employer: {
-        company_name: "BuildEasy LLC",
-        owner: { first_name: "Bob", middlename: "C", last_name: "Davis", suffix: "Jr" },
-      },
-      worker: { first_name: "Jane", middlename: null, last_name: "Smith", suffix: "Jr" },
-      rating: 5,
-      comment: "Jane exceeded expectations with excellent work ethic.",
-      hasImage: false,
-      created_at: "2025-03-15T09:30:00Z",
-      updated_at: "2025-04-01T11:00:00Z",
-      archived: false,
-    },
-    {
-      id: 3,
-      employer: {
-        company_name: "GreenWorks Co.",
-        owner: { first_name: "Carol", middlename: null, last_name: "Evans", suffix: null },
-      },
-      worker: { first_name: "Mike", middlename: "B", last_name: "Johnson", suffix: null },
-      rating: 3,
-      comment: "Mike's work is satisfactory but needs more attention to detail.",
-      hasImage: true,
-      created_at: "2025-05-10T14:00:00Z",
-      updated_at: "2025-06-01T15:00:00Z",
-      archived: true,
-    },
-  ]);
+  const [reviews, setReviews] = useState([]);
+  const [employers, setEmployers] = useState([]);
+  const [workers, setWorkers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedReviews, setSelectedReviews] = useState([]);
@@ -81,17 +49,97 @@ const ReviewsTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [reviewToEdit, setReviewToEdit] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // Fetch employers and workers
+  useEffect(() => {
+    let isMounted = true;
+    const source = axios.CancelToken.source();
+
+    const fetchUsers = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const [employerResponse, workerResponse] = await Promise.all([
+          axios.get(`${API_BASE_URL}/userroles?role_id=2`, { cancelToken: source.token }),
+          axios.get(`${API_BASE_URL}/userroles?role_id=1`, { cancelToken: source.token }),
+        ]);
+        if (isMounted) {
+          console.log("Employers:", employerResponse.data);
+          console.log("Workers:", workerResponse.data);
+          setEmployers(employerResponse.data || []);
+          setWorkers(workerResponse.data || []);
+        }
+      } catch (err) {
+        if (axios.isCancel(err)) {
+          console.log("Users fetch canceled:", err.message);
+        } else if (isMounted) {
+          setError("Failed to fetch users. Please try again.");
+          console.error(err);
+        }
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+    fetchUsers();
+
+    return () => {
+      isMounted = false;
+      source.cancel("Users fetch canceled due to component unmount");
+    };
+  }, []);
+
+  // Fetch reviews from API
+  const fetchReviews = async () => {
+    setLoading(true);
+    setError(null);
+    const source = axios.CancelToken.source();
+    try {
+      const response = await axios.get(`${API_BASE_URL}/reviews`, {
+        params: {
+          archived: showArchived ? 1 : 0,
+          search: searchTerm,
+          page: pagination.currentPage,
+        },
+        cancelToken: source.token,
+      });
+      console.log("Reviews response:", response.data);
+      // Normalize reviewed_user to reviewedUser
+      const normalizedReviews = (response.data.data || []).map((review) => ({
+        ...review,
+        reviewedUser: review.reviewed_user || review.reviewedUser || null,
+      }));
+      setReviews(normalizedReviews);
+      setPagination({
+        currentPage: response.data.meta?.current_page || 1,
+        totalPages: response.data.meta?.total_pages || 1,
+      });
+    } catch (err) {
+      if (axios.isCancel(err)) {
+        console.log("Reviews fetch canceled:", err.message);
+      } else {
+        setError(err.response?.data?.error || "Failed to fetch reviews. Please try again.");
+        console.error(err);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchReviews();
+  }, [showArchived, searchTerm, pagination.currentPage]);
+
   const filteredReviews = reviews.filter((review) => {
-    const employerName = review.employer.company_name?.toLowerCase() || "";
-    const workerName = getFullName(review.worker).toLowerCase();
+    const employerName = getFullName(review.user).toLowerCase();
+    const workerName = getFullName(review.reviewedUser).toLowerCase();
     const matchesSearch =
       employerName.includes(searchTerm.toLowerCase()) ||
       workerName.includes(searchTerm.toLowerCase()) ||
       review.comment?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = review.archived === showArchived;
-    return matchesSearch && matchesArchived;
+    return matchesSearch;
   });
 
   const toggleSelectReview = (reviewId) => {
@@ -112,7 +160,7 @@ const ReviewsTable = () => {
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
-    setPagination({ ...pagination, currentPage: 1 });
+    setPagination({ currentPage: 1, totalPages: 1 });
     setSelectedReviews([]);
   };
 
@@ -121,94 +169,76 @@ const ReviewsTable = () => {
     setIsConfirmModalOpen(true);
   };
 
-  const handleArchiveConfirm = () => {
+  const handleArchiveConfirm = async () => {
     if (!reviewToArchive) return;
-    setReviews((prevReviews) =>
-      prevReviews.map((review) =>
-        review.id === reviewToArchive.id ? { ...review, archived: true } : review
-      )
-    );
-    setIsConfirmModalOpen(false);
-    setReviewToArchive(null);
+    setLoading(true);
+    setError(null);
+    try {
+      await axios.patch(`${API_BASE_URL}/reviews/${reviewToArchive.id}/archive`);
+      await fetchReviews();
+      setIsConfirmModalOpen(false);
+      setReviewToArchive(null);
+    } catch (err) {
+      setError(err.response?.data?.error || "Failed to archive review. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleRestoreReview = (reviewId) => {
-    setReviews((prevReviews) =>
-      prevReviews.map((review) =>
-        review.id === reviewId ? { ...review, archived: false } : review
-      )
-    );
+  const handleRestoreReview = async (reviewId) => {
+    setLoading(true);
+    setError(null);
+    try {
+      await axios.patch(`${API_BASE_URL}/reviews/${reviewId}/restore`);
+      await fetchReviews();
+    } catch (err) {
+      setError(err.response?.data?.error || "Failed to restore review. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleBulkAction = (action) => {
+  const handleBulkAction = async (action) => {
     if (selectedReviews.length === 0) return;
-    setReviews((prevReviews) =>
-      prevReviews.map((review) =>
-        selectedReviews.includes(review.id)
-          ? { ...review, archived: action === "archive" }
-          : review
-      )
-    );
-    setSelectedReviews([]);
+    setLoading(true);
+    setError(null);
+    try {
+      await axios.post(`${API_BASE_URL}/reviews/bulk`, {
+        action,
+        review_ids: selectedReviews,
+      });
+      await fetchReviews();
+      setSelectedReviews([]);
+    } catch (err) {
+      setError(err.response?.data?.error || `Failed to perform bulk ${action}. Please try again.`);
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleAddNewClick = () => {
+    console.log("Add New clicked, opening modal");
     setIsEditMode(false);
     setReviewToEdit(null);
     setIsModalOpen(true);
   };
 
   const handleEditClick = (review) => {
+    console.log("Edit clicked for review:", review);
     setReviewToEdit({
       ...review,
-      employer: review.employer || { company_name: "", owner: { first_name: "", middlename: "", last_name: "", suffix: "" } },
-      worker: review.worker || { first_name: "", middlename: "", last_name: "", suffix: "" },
-      rating: review.rating || 0,
-      comment: review.comment || "",
-      image: null, // Image not preserved for edit
+      user: review.user || { id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "", username: "" },
+      reviewedUser: review.reviewedUser || { id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "", username: "" },
     });
     setIsEditMode(true);
     setIsModalOpen(true);
   };
 
   const handleModalClose = () => {
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setReviewToEdit(null);
-  };
-
-  const handleReviewAdd = (newReview) => {
-    const addedReview = {
-      id: reviews.length + 1,
-      employer: newReview.employer || { company_name: "Unknown", owner: { first_name: "Unknown", middlename: null, last_name: "Owner", suffix: null } },
-      worker: newReview.worker || { first_name: "Unknown", middlename: null, last_name: "Worker", suffix: null },
-      rating: newReview.rating || 0,
-      comment: newReview.comment || "",
-      hasImage: !!newReview.image,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      archived: false,
-    };
-    setReviews((prevReviews) => [addedReview, ...prevReviews]);
-    setIsModalOpen(false);
-  };
-
-  const handleReviewUpdate = (updatedReview) => {
-    setReviews((prevReviews) =>
-      prevReviews.map((review) =>
-        review.id === reviewToEdit.id
-          ? {
-              ...review,
-              employer: updatedReview.employer,
-              worker: updatedReview.worker,
-              rating: updatedReview.rating,
-              comment: updatedReview.comment,
-              hasImage: !!updatedReview.image,
-              updated_at: new Date().toISOString(),
-            }
-          : review
-      )
-    );
+    console.log("Closing modal");
     setIsModalOpen(false);
     setIsEditMode(false);
     setReviewToEdit(null);
@@ -225,24 +255,23 @@ const ReviewsTable = () => {
   };
 
   const reviewsPerPage = 5;
-  const totalPages = Math.ceil(filteredReviews.length / reviewsPerPage);
   const currentReviews = filteredReviews.slice(
     (pagination.currentPage - 1) * reviewsPerPage,
     pagination.currentPage * reviewsPerPage
   );
 
   const handlePageChange = (page) => {
-    setPagination({ ...pagination, currentPage: page });
+    setPagination((prev) => ({ ...prev, currentPage: page }));
   };
 
   const renderPagination = () => {
     const pageNumbers = [];
     const maxPagesToShow = 5;
     const startPage = Math.max(1, pagination.currentPage - Math.floor(maxPagesToShow / 2));
-    const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+    const endPage = Math.min(pagination.totalPages, startPage + maxPagesToShow - 1);
 
-    if (totalPages <= maxPagesToShow) {
-      for (let i = 1; i <= totalPages; i++) {
+    if (pagination.totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= pagination.totalPages; i++) {
         pageNumbers.push(
           <button
             key={i}
@@ -277,13 +306,13 @@ const ReviewsTable = () => {
         );
       }
 
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
+      if (endPage < pagination.totalPages) {
+        if (endPage < pagination.totalPages - 1) {
           pageNumbers.push(<span key="end-ellipsis" className="ellipsis">...</span>);
         }
         pageNumbers.push(
-          <button key={totalPages} onClick={() => handlePageChange(totalPages)}>
-            {totalPages}
+          <button key={pagination.totalPages} onClick={() => handlePageChange(pagination.totalPages)}>
+            {pagination.totalPages}
           </button>
         );
       }
@@ -299,6 +328,8 @@ const ReviewsTable = () => {
       <div className="reviewstable-dashboard">
         <div className="reviewstable-content">
           <h2>{showArchived ? "Archived Reviews" : "Reviews List"}</h2>
+          {error && <div className="error-message">{error}</div>}
+          {loading && <div className="loading-message">Loading...</div>}
           <div className="reviewstable-header">
             <div className="left-actions">
               <div className="search-container">
@@ -317,16 +348,17 @@ const ReviewsTable = () => {
                 <button
                   className="header-button archive-all-button"
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
+                  disabled={loading}
                 >
                   <IconArchive size={20} className="button-icon" />
                   <span className="button-text">{showArchived ? "Restore All" : "Archive All"}</span>
                 </button>
               )}
-              <button className="header-button" onClick={handleAddNewClick}>
+              <button className="header-button" onClick={handleAddNewClick} disabled={loading}>
                 <IconPlus size={20} className="button-icon" />
                 <span className="button-text">Add New</span>
               </button>
-              <button className="header-button" onClick={handleToggleArchived}>
+              <button className="header-button" onClick={handleToggleArchived} disabled={loading}>
                 <FaEye size={20} className="button-icon" />
                 <span className="button-text">{showArchived ? "View Active" : "View Archived"}</span>
               </button>
@@ -349,11 +381,10 @@ const ReviewsTable = () => {
                       Actions
                     </div>
                   </th>
-                  <th>Employer</th>
-                  <th>Worker</th>
+                  <th>Reviewer</th>
+                  <th>Reviewed User</th>
                   <th>Rating</th>
                   <th>Comment</th>
-                  <th>Image</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -391,18 +422,17 @@ const ReviewsTable = () => {
                           />
                         </div>
                       </td>
-                      <td className="employer-cell">{review.employer.company_name || "N/A"}</td>
-                      <td className="worker-cell">{getFullName(review.worker)}</td>
+                      <td className="reviewer-cell">{getFullName(review.user)}</td>
+                      <td className="reviewed-user-cell">{getFullName(review.reviewedUser)}</td>
                       <td className="rating-cell">{renderStars(review.rating)}</td>
                       <td className="comment-cell">{review.comment || "N/A"}</td>
-                      <td>{review.hasImage ? "Yes" : "No"}</td>
                       <td>{formatDate(review.created_at)}</td>
                       <td>{formatDate(review.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="8">No {showArchived ? "archived" : "active"} reviews found</td>
+                    <td colSpan="7">No {showArchived ? "archived" : "active"} reviews found</td>
                   </tr>
                 )}
               </tbody>
@@ -410,17 +440,17 @@ const ReviewsTable = () => {
           </div>
 
           <div className="reviewstable-pagination">
-            <span>Page {pagination.currentPage} of {totalPages}</span>
+            <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
             <button
               onClick={() => handlePageChange(pagination.currentPage - 1)}
-              disabled={pagination.currentPage <= 1}
+              disabled={pagination.currentPage <= 1 || loading}
             >
               {"<"}
             </button>
             {renderPagination()}
             <button
               onClick={() => handlePageChange(pagination.currentPage + 1)}
-              disabled={pagination.currentPage >= totalPages}
+              disabled={pagination.currentPage >= pagination.totalPages || loading}
             >
               {">"}
             </button>
@@ -432,12 +462,12 @@ const ReviewsTable = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive review for "{getFullName(reviewToArchive?.worker)}"?</p>
+            <p>Do you want to archive review for "{getFullName(reviewToArchive?.reviewedUser)}"?</p>
             <div className="confirm-modal-buttons">
-              <button className="confirm-button" onClick={handleArchiveConfirm}>
+              <button className="confirm-button" onClick={handleArchiveConfirm} disabled={loading}>
                 Yes, Archive
               </button>
-              <button className="cancel-button" onClick={() => setIsConfirmModalOpen(false)}>
+              <button className="cancel-button" onClick={() => setIsConfirmModalOpen(false)} disabled={loading}>
                 Cancel
               </button>
             </div>
@@ -447,9 +477,11 @@ const ReviewsTable = () => {
       {isModalOpen && (
         <ReviewModal
           onClose={handleModalClose}
-          onSubmit={isEditMode ? handleReviewUpdate : handleReviewAdd}
+          onRefresh={fetchReviews}
           isEdit={isEditMode}
           initialData={reviewToEdit}
+          employers={employers}
+          workers={workers}
         />
       )}
     </div>

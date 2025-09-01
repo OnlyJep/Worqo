@@ -11,11 +11,14 @@
   padding: 0 20px;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: visible;
 
   .profile {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 10px;
+    overflow: visible;
 
     .profile-icon {
       width: 36px;
@@ -23,6 +26,7 @@
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid #4A90E2;
+      cursor: pointer;
     }
 
     .dropdown-toggle {
@@ -40,11 +44,16 @@
         }
       }
 
-      &.open .dropdown-icon {
-        transform: rotate(180deg);
+      &.open {
+        .dropdown-menu {
+          display: block !important; /* Ensure visibility */
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
       }
 
       .dropdown-menu {
+        display: none;
         position: absolute;
         top: 50px;
         right: 0;
@@ -53,7 +62,8 @@
         border-radius: 6px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         min-width: 160px;
-        z-index: 999;
+        z-index: 10000;
+        overflow: visible;
 
         ul {
           list-style: none;
@@ -61,6 +71,9 @@
           padding: 8px 0;
 
           li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             padding: 10px 20px;
             font-size: 14px;
             color: #333333;
@@ -68,6 +81,11 @@
 
             &:hover {
               background: #F4F6F9;
+            }
+
+            .menu-icon {
+              font-size: 14px;
+              color: #333333;
             }
           }
         }

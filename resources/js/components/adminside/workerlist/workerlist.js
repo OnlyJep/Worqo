@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
@@ -20,81 +21,100 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
-const getFullName = (worker) => {
-  const { first_name, middlename, last_name, suffix } = worker;
-  let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
-  if (suffix) fullName += ` ${suffix}`;
+const getFullName = (worker, suffixes = []) => {
+  const { first_name, middlename, last_name, suffix_id } = worker?.profile || {};
+  let fullName = `${first_name || ""}${middlename ? " " + middlename : ""} ${last_name || ""}`;
+  if (suffix_id && suffixes.length > 0) {
+    const suffix = suffixes.find((s) => s.id === parseInt(suffix_id))?.suffix_name;
+    if (suffix) fullName += ` ${suffix}`;
+  }
   return fullName.trim() || "N/A";
 };
 
 const WorkerList = () => {
-  const [workers, setWorkers] = useState([
-    {
-      id: 1,
-      first_name: "John",
-      middlename: "A",
-      last_name: "Doe",
-      suffix: null,
-      email: "john.doe@example.com",
-      work_type: "full-time",
-      credentials: ["CPR Certified", "First Aid"],
-      gender: "Male",
-      role_id: 2,
-      role_name: "Worker",
-      created_at: "2025-01-01T10:00:00Z",
-      updated_at: "2025-02-01T12:00:00Z",
-      archived: false,
-    },
-    {
-      id: 2,
-      first_name: "Jane",
-      middlename: null,
-      last_name: "Smith",
-      suffix: "Jr",
-      email: "jane.smith@example.com",
-      work_type: "part-time",
-      credentials: ["OSHA Certified"],
-      gender: "Female",
-      role_id: 2,
-      role_name: "Worker",
-      created_at: "2025-03-15T09:30:00Z",
-      updated_at: "2025-04-01T11:00:00Z",
-      archived: false,
-    },
-    {
-      id: 3,
-      first_name: "Mike",
-      middlename: "B",
-      last_name: "Johnson",
-      suffix: null,
-      email: "mike.johnson@example.com",
-      work_type: "one-time",
-      credentials: ["Welding Certificate", "Safety Training"],
-      gender: "Male",
-      role_id: 2,
-      role_name: "Worker",
-      created_at: "2025-05-10T14:00:00Z",
-      updated_at: "2025-06-01T15:00:00Z",
-      archived: true,
-    },
-  ]);
+  const [workers, setWorkers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedWorkers, setSelectedWorkers] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [workerToArchive, setWorkerToArchive] = useState(null);
-  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
+  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1, totalItems: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [workerToEdit, setWorkerToEdit] = useState(null);
+  const [genders, setGenders] = useState([]);
+  const [suffixes, setSuffixes] = useState([]);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const filteredWorkers = workers.filter((worker) => {
-    const fullName = getFullName(worker).toLowerCase();
-    const matchesSearch = fullName.includes(searchTerm.toLowerCase()) || worker.email?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = worker.archived === showArchived;
-    return matchesSearch && matchesArchived;
-  });
+  // Fetch workers, genders, and suffixes
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchWorkers(pagination.currentPage, showArchived, controller.signal);
+    fetchGenders(controller.signal);
+    fetchSuffixes(controller.signal);
+
+    return () => controller.abort();
+  }, [pagination.currentPage, showArchived, searchTerm]);
+
+  const fetchWorkers = async (page = 1, archived = false, signal) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        setError("Please log in to view workers.");
+        return;
+      }
+      const response = await axios.get(`http://127.0.0.1:8000/api/workers${archived ? '/archived' : ''}`, {
+        headers: { Authorization: `Bearer ${authToken}` },
+        params: { page, limit: 5, search: searchTerm },
+        signal,
+        timeout: 10000,
+      });
+      setWorkers(response.data.workers || []);
+      setPagination({
+        currentPage: response.data.pagination.currentPage,
+        totalPages: response.data.pagination.totalPages,
+        totalItems: response.data.pagination.totalItems,
+      });
+      setError("");
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      setError(err.response?.data?.error || "Failed to fetch workers.");
+      console.error("Fetch workers error:", err.response?.data || err.message);
+    }
+  };
+
+  const fetchGenders = async (signal) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.get("http://127.0.0.1:8000/api/genders", {
+        headers: { Authorization: `Bearer ${authToken}` },
+        signal,
+        timeout: 5000,
+      });
+      setGenders(Array.isArray(response.data) ? response.data : []);
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      console.error("Error fetching genders:", err);
+      setError("Failed to fetch genders. Please try again.");
+    }
+  };
+
+  const fetchSuffixes = async (signal) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.get("http://127.0.0.1:8000/api/suffixes", {
+        headers: { Authorization: `Bearer ${authToken}` },
+        signal,
+        timeout: 5000,
+      });
+      setSuffixes(Array.isArray(response.data) ? response.data : []);
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      console.error("Error fetching suffixes:", err);
+      setError("Failed to fetch suffixes. Please try again.");
+    }
+  };
 
   const toggleSelectWorker = (workerId) => {
     setSelectedWorkers((prev) =>
@@ -105,10 +125,10 @@ const WorkerList = () => {
   };
 
   const toggleSelectAll = () => {
-    if (selectedWorkers.length === filteredWorkers.length) {
+    if (selectedWorkers.length === workers.length) {
       setSelectedWorkers([]);
     } else {
-      setSelectedWorkers(filteredWorkers.map((worker) => worker.id));
+      setSelectedWorkers(workers.map((worker) => worker.id));
     }
   };
 
@@ -123,134 +143,181 @@ const WorkerList = () => {
     setIsConfirmModalOpen(true);
   };
 
-  const handleArchiveConfirm = () => {
+  const handleArchiveConfirm = async () => {
     if (!workerToArchive) return;
-    setWorkers((prevWorkers) =>
-      prevWorkers.map((worker) =>
-        worker.id === workerToArchive.id ? { ...worker, archived: true } : worker
-      )
-    );
-    setIsConfirmModalOpen(false);
-    setWorkerToArchive(null);
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      await axios.patch(
+        `http://127.0.0.1:8000/api/workers/${workerToArchive.id}/archive`,
+        { archived: true },
+        { headers: { Authorization: `Bearer ${authToken}` }, timeout: 5000 }
+      );
+      await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+      setIsConfirmModalOpen(false);
+      setWorkerToArchive(null);
+      setError("");
+    } catch (err) {
+      setError(err.response?.data?.error || "Failed to archive worker.");
+      console.error("Archive error:", err.response?.data || err.message);
+    }
   };
 
-  const handleRestoreWorker = (workerId) => {
-    setWorkers((prevWorkers) =>
-      prevWorkers.map((worker) =>
-        worker.id === workerId ? { ...worker, archived: false } : worker
-      )
-    );
+  const handleRestoreWorker = async (workerId) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      await axios.patch(
+        `http://127.0.0.1:8000/api/workers/${workerId}/archive`,
+        { archived: false },
+        { headers: { Authorization: `Bearer ${authToken}` }, timeout: 5000 }
+      );
+      await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+      setError("");
+    } catch (err) {
+      setError(err.response?.data?.error || "Failed to restore worker.");
+      console.error("Restore error:", err.response?.data || err.message);
+    }
   };
 
-  const handleBulkAction = (action) => {
+  const handleBulkAction = async (action) => {
     if (selectedWorkers.length === 0) return;
-    setWorkers((prevWorkers) =>
-      prevWorkers.map((worker) =>
-        selectedWorkers.includes(worker.id)
-          ? { ...worker, archived: action === "archive" }
-          : worker
-      )
-    );
-    setSelectedWorkers([]);
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      await axios.post(
+        `http://127.0.0.1:8000/api/workers/bulk-archive`,
+        { worker_ids: selectedWorkers, action },
+        { headers: { Authorization: `Bearer ${authToken}` }, timeout: 10000 }
+      );
+      await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+      setSelectedWorkers([]);
+      setError("");
+    } catch (err) {
+      setError(err.response?.data?.error || `Failed to ${action} workers.`);
+      console.error("Bulk action error:", err.response?.data || err.message);
+    }
   };
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
     setWorkerToEdit(null);
     setIsModalOpen(true);
+    setError("");
   };
 
-  const handleEditClick = (worker) => {
-    setWorkerToEdit({
-      ...worker,
-      first_name: worker.first_name || "",
-      middlename: worker.middlename || "",
-      last_name: worker.last_name || "",
-      suffix: worker.suffix || "",
-      email: worker.email || "",
-      gender: worker.gender || "",
-      work_type: worker.work_type || "part-time",
-      credentials: worker.credentials || [],
-    });
-    setIsEditMode(true);
-    setIsModalOpen(true);
+  const handleEditClick = async (worker) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.get(`http://127.0.0.1:8000/api/workers/${worker.id}`, {
+        headers: { Authorization: `Bearer ${authToken}` },
+        timeout: 5000,
+      });
+      console.log("Fetched worker data:", response.data); // Debug API response
+      setWorkerToEdit({
+        id: response.data.id,
+        email: response.data.email || "",
+        username: response.data.username || "",
+        first_name: response.data.profile?.first_name || "",
+        middlename: response.data.profile?.middlename || "",
+        last_name: response.data.profile?.last_name || "",
+        suffix_id: response.data.profile?.suffix_id ? String(response.data.profile.suffix_id) : "",
+        gender_id: response.data.profile?.gender_id ? String(response.data.profile.gender_id) : "",
+        contact_number: response.data.profile?.contact_number || "",
+        street: response.data.profile?.street || "",
+        city: response.data.profile?.city || "Butuan City",
+        province: response.data.profile?.province || "Agusan Del Norte",
+        postal_code: response.data.profile?.postal_code || "8600",
+        country: response.data.profile?.country || "Philippines",
+        work_type: response.data.worker?.work_type || "part-time",
+        credentials: response.data.worker?.credentials || [], // Expecting [{name: "Resume/CV", photo: "path/to/file"}, ...]
+        role_id: "1",
+        profile_img: null,
+      });
+      setIsEditMode(true);
+      setIsModalOpen(true);
+      setError("");
+    } catch (err) {
+      setError(err.response?.data?.error || "Failed to fetch worker details.");
+      console.error("Fetch worker details error:", err.response?.data || err.message);
+    }
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
     setWorkerToEdit(null);
+    setError("");
   };
 
-  const handleWorkerAdd = (newWorker) => {
-    const addedWorker = {
-      id: workers.length + 1,
-      first_name: newWorker.first_name,
-      middlename: newWorker.middlename || null,
-      last_name: newWorker.last_name,
-      suffix: newWorker.suffix || null,
-      email: newWorker.email,
-      work_type: newWorker.work_type,
-      credentials: newWorker.credentials || [],
-      gender: newWorker.gender || null,
-      role_id: 2,
-      role_name: "Worker",
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      archived: false,
-    };
-    setWorkers((prevWorkers) => [addedWorker, ...prevWorkers]);
-    setIsModalOpen(false);
+  const handleWorkerAdd = async (formData, signal) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.post("http://127.0.0.1:8000/api/workers", formData, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "multipart/form-data",
+        },
+        timeout: 10000,
+        signal,
+      });
+      await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+      setIsModalOpen(false);
+      setError("");
+      return response.data;
+    } catch (err) {
+      if (err.name === "AbortError") {
+        console.log("Add request was aborted");
+        return;
+      }
+      console.error("Error adding worker:", err.response?.data || err.message);
+      throw err;
+    }
   };
 
-  const handleWorkerUpdate = (updatedWorker) => {
-    setWorkers((prevWorkers) =>
-      prevWorkers.map((worker) =>
-        worker.id === workerToEdit.id
-          ? {
-              ...worker,
-              first_name: updatedWorker.first_name,
-              middlename: updatedWorker.middlename || null,
-              last_name: updatedWorker.last_name,
-              suffix: updatedWorker.suffix || null,
-              email: updatedWorker.email,
-              work_type: updatedWorker.work_type,
-              credentials: updatedWorker.credentials || [],
-              gender: updatedWorker.gender || null,
-              updated_at: new Date().toISOString(),
-            }
-          : worker
-      )
-    );
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setWorkerToEdit(null);
-  };
-
-  const workersPerPage = 5;
-  const totalPages = Math.ceil(filteredWorkers.length / workersPerPage);
-  const currentWorkers = filteredWorkers.slice(
-    (pagination.currentPage - 1) * workersPerPage,
-    pagination.currentPage * workersPerPage
-  );
-
-  const handlePageChange = (page) => {
-    setPagination({ ...pagination, currentPage: page });
+  const handleWorkerUpdate = async (formData, signal) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      console.log("Sending update request with FormData:", formData); // Debug request
+      const response = await axios.post(
+        `http://127.0.0.1:8000/api/workers/${workerToEdit.id}?_method=PUT`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            "Content-Type": "multipart/form-data",
+            Accept: "application/json",
+          },
+          timeout: 10000,
+          signal,
+        }
+      );
+      await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setWorkerToEdit(null);
+      setError("");
+      return response.data;
+    } catch (err) {
+      if (err.name === "AbortError") {
+        console.log("Update request was aborted");
+        return;
+      }
+      console.error("Error updating worker:", err.response?.data || err.message);
+      throw err;
+    }
   };
 
   const renderPagination = () => {
     const pageNumbers = [];
     const maxPagesToShow = 5;
     const startPage = Math.max(1, pagination.currentPage - Math.floor(maxPagesToShow / 2));
-    const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+    const endPage = Math.min(pagination.totalPages, startPage + maxPagesToShow - 1);
 
-    if (totalPages <= maxPagesToShow) {
-      for (let i = 1; i <= totalPages; i++) {
+    if (pagination.totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= pagination.totalPages; i++) {
         pageNumbers.push(
           <button
             key={i}
             className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => handlePageChange(i)}
+            onClick={() => fetchWorkers(i, showArchived)}
           >
             {i}
           </button>
@@ -259,16 +326,12 @@ const WorkerList = () => {
     } else {
       if (startPage > 1) {
         pageNumbers.push(
-          <button key={1} onClick={() => handlePageChange(1)}>
+          <button key={1} onClick={() => fetchWorkers(1, showArchived)}>
             1
           </button>
         );
         if (startPage > 2) {
-          pageNumbers.push(
-            <span key="start-ellipsis" className="ellipsis">
-              ...
-            </span>
-          );
+          pageNumbers.push(<span key="start-ellipsis" className="ellipsis">...</span>);
         }
       }
 
@@ -277,24 +340,20 @@ const WorkerList = () => {
           <button
             key={i}
             className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => handlePageChange(i)}
+            onClick={() => fetchWorkers(i, showArchived)}
           >
             {i}
           </button>
         );
       }
 
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-          pageNumbers.push(
-            <span key="end-ellipsis" className="ellipsis">
-              ...
-            </span>
-          );
+      if (endPage < pagination.totalPages) {
+        if (endPage < pagination.totalPages - 1) {
+          pageNumbers.push(<span key="end-ellipsis" className="ellipsis">...</span>);
         }
         pageNumbers.push(
-          <button key={totalPages} onClick={() => handlePageChange(totalPages)}>
-            {totalPages}
+          <button key={pagination.totalPages} onClick={() => fetchWorkers(pagination.totalPages, showArchived)}>
+            {pagination.totalPages}
           </button>
         );
       }
@@ -310,6 +369,7 @@ const WorkerList = () => {
       <div className="workerlist-dashboard">
         <div className="workerlist-content">
           <h2>{showArchived ? "Archived Workers" : "Worker List"}</h2>
+          {error && <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>{error}</div>}
           <div className="workerlist-header">
             <div className="left-actions">
               <div className="search-container">
@@ -350,7 +410,7 @@ const WorkerList = () => {
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedWorkers.length === filteredWorkers.length && filteredWorkers.length > 0 ? (
+                        {selectedWorkers.length === workers.length && workers.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -368,8 +428,8 @@ const WorkerList = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentWorkers.length > 0 ? (
-                  currentWorkers.map((worker) => (
+                {workers.length > 0 ? (
+                  workers.map((worker) => (
                     <tr key={worker.id}>
                       <td>
                         <div className="action-icons">
@@ -403,13 +463,17 @@ const WorkerList = () => {
                           />
                         </div>
                       </td>
-                      <td className="username-cell">{getFullName(worker)}</td>
+                      <td className="username-cell">{getFullName(worker, suffixes)}</td>
                       <td>
-                        {worker.work_type
-                          ? worker.work_type.replace('-', ' ').replace(/\b\w/g, c => c.toUpperCase())
+                        {worker.worker?.work_type
+                          ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, (c) => c.toUpperCase())
                           : "N/A"}
                       </td>
-                      <td>{worker.credentials?.length > 0 ? worker.credentials.join(", ") : "None"}</td>
+                      <td>
+                        {worker.worker?.credentials?.length > 0
+                          ? worker.worker.credentials.map((cred) => cred.name).join(", ")
+                          : "None"}
+                      </td>
                       <td>{worker.email || "N/A"}</td>
                       <td>{formatDate(worker.created_at)}</td>
                       <td>{formatDate(worker.updated_at)}</td>
@@ -424,17 +488,17 @@ const WorkerList = () => {
             </table>
           </div>
           <div className="workerlist-pagination">
-            <span>{`Page ${pagination.currentPage} of ${totalPages}`}</span>
+            <span>{`Page ${pagination.currentPage} of ${pagination.totalPages}`}</span>
             <button
-              onClick={() => handlePageChange(pagination.currentPage - 1)}
+              onClick={() => fetchWorkers(pagination.currentPage - 1, showArchived)}
               disabled={pagination.currentPage <= 1}
             >
               &lt;
             </button>
             {renderPagination()}
             <button
-              onClick={() => handlePageChange(pagination.currentPage + 1)}
-              disabled={pagination.currentPage >= totalPages}
+              onClick={() => fetchWorkers(pagination.currentPage + 1, showArchived)}
+              disabled={pagination.currentPage >= pagination.totalPages}
             >
               &gt;
             </button>
@@ -445,7 +509,7 @@ const WorkerList = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>{`Do you want to archive "${getFullName(workerToArchive)}"?`}</p>
+            <p>{`Do you want to archive "${getFullName(workerToArchive, suffixes)}"?`}</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -463,6 +527,8 @@ const WorkerList = () => {
           onSubmit={isEditMode ? handleWorkerUpdate : handleWorkerAdd}
           isEdit={isEditMode}
           initialData={workerToEdit}
+          genders={genders}
+          suffixes={suffixes}
         />
       )}
     </div>

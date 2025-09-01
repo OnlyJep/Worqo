@@ -4,12 +4,19 @@ const SkillModal = ({ onClose, onSubmit, isEdit, initialData }) => {
   const [name, setName] = useState(initialData?.name || "");
   const [error, setError] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!name.trim()) {
       setError("Skill name is required");
       return;
     }
-    onSubmit({ name });
+    try {
+      await onSubmit({ name });
+      setError("");
+    } catch (error) {
+      const errorMessage = error || "An error occurred";
+      setError(errorMessage);
+      alert(errorMessage);
+    }
   };
 
   return (

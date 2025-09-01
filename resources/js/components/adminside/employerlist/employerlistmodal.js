@@ -1,230 +1,116 @@
 import React, { useState, useEffect, useRef } from "react";
-import * as pdfjsLib from 'pdfjs-dist';
-import mammoth from 'mammoth';
-import Tesseract from 'tesseract.js';
 import "./../../../../sass/components/employermodal.scss";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
-
-// Compile keywords into a single regex for faster matching, prioritizing common ones
-const credentialKeywords = {
-  "BIR Registration": ["bir registration", "bureau of internal revenue"],
-  "DTI Registration": ["dti registration", "department of trade and industry"],
-  "SEC Registration": ["sec registration", "securities and exchange commission"],
-  "Business Permit": ["business permit", "mayor's permit"],
-  "Barangay Business Clearance": ["barangay business clearance"],
-  "DOLE Registration": ["dole registration", "department of labor and employment"],
-  "SSS Employer": ["sss employer", "social security system employer"],
-  "PhilHealth Employer": ["philhealth employer"],
-  "Pag-IBIG Employer": ["pag-ibig employer"],
-  "Articles of Incorporation": ["articles of incorporation"],
-  "By-Laws": ["by-laws"],
-  "Treasurer's Affidavit": ["treasurer's affidavit"],
-  "Unknown": [],
-};
-
-const keywordRegex = new RegExp(
-  Object.entries(credentialKeywords)
-    .flatMap(([type, keywords]) => keywords.map(kw => `\\b${kw}\\b`))
-    .join('|'),
-  'i'
-);
-
-const detectType = (text) => {
-  if (!text || !keywordRegex.test(text)) return 'Unknown';
-  const lowerText = text.toLowerCase();
-  for (const [type, keywords] of Object.entries(credentialKeywords)) {
-    if (keywords.some(kw => lowerText.includes(kw))) {
-      return type;
-    }
-  }
-  return 'Unknown';
-};
-
-// Downscale image to 300x300 pixels for faster OCR
-const downscaleImage = (file) => {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.src = URL.createObjectURL(file);
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      const maxDimension = 300;
-      let { width, height } = img;
-      if (width > height) {
-        if (width > maxDimension) {
-          height = Math.round((height * maxDimension) / width);
-          width = maxDimension;
-        }
-      } else {
-        if (height > maxDimension) {
-          width = Math.round((width * maxDimension) / height);
-          height = maxDimension;
-        }
-      }
-      canvas.width = width;
-      canvas.height = height;
-      ctx.drawImage(img, 0, 0, width, height);
-      canvas.toBlob((blob) => {
-        resolve(new File([blob], file.name, { type: file.type }));
-      }, file.type);
-    };
-  });
-};
-
-const extractText = async (file) => {
-  try {
-    if (file.type === 'application/pdf') {
-      const loadingTask = pdfjsLib.getDocument(URL.createObjectURL(file));
-      const pdf = await loadingTask.promise;
-      const page = await pdf.getPage(1); // Limit to first page
-      const content = await page.getTextContent();
-      return content.items.map(item => item.str).join(' ');
-    } else if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || file.type === 'application/msword') {
-      const arrayBuffer = await file.arrayBuffer();
-      const result = await mammoth.extractRawText({ arrayBuffer });
-      return result.value.slice(0, 5000); // Limit to 5000 characters
-    } else if (file.type.startsWith('image/')) {
-      const downscaledFile = await downscaleImage(file);
-      const { data: { text } } = await Tesseract.recognize(URL.createObjectURL(downscaledFile), 'eng', {
-        tessedit_pageseg_mode: Tesseract.PSM.SINGLE_BLOCK,
-        tessedit_ocr_engine_mode: Tesseract.OEM.TESSERACT_ONLY,
-        tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ',
-      });
-      return text;
-    }
-    return '';
-  } catch (error) {
-    console.error(`Error processing file ${file.name}:`, error);
-    return '';
-  }
-};
-
-// Debounce function to limit rapid file input processing
-const debounce = (func, wait) => {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-};
-
-const EmployerModal = ({ onClose, onSubmit, isEdit, initialData }) => {
+const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes }) => {
   const [formData, setFormData] = useState({
     company_name: "",
+    company_phone: "",
+    company_email: "",
+    company_address: "",
+    username: "",
     email: "",
     password: "",
-    phone: "",
-    owner: {
-      first_name: "",
-      middlename: "",
-      last_name: "",
-      suffix: "",
-    },
-    credentials: [],
-    role_id: "3",
+    role_id: "2",
+    first_name: "",
+    middlename: "",
+    last_name: "",
+    suffix_id: "",
+    gender_id: "",
+    contact_number: "",
+    street: "",
+    city: "Butuan City",
+    province: "Agusan Del Norte",
+    postal_code: "8600",
+    country: "Philippines",
+    profile_img: null,
   });
-  const [credentialTypes, setCredentialTypes] = useState([]);
+
   const [errors, setErrors] = useState({});
+  const [apiError, setApiError] = useState("");
   const fileInputRef = useRef(null);
-  const fileCache = useRef(new Map());
+  const abortControllerRef = useRef(null);
 
   useEffect(() => {
     if (isEdit && initialData) {
       setFormData({
         company_name: initialData.company_name || "",
+        company_phone: initialData.company_phone || "",
+        company_email: initialData.company_email || "",
+        company_address: initialData.company_address || "",
+        username: initialData.username || "",
         email: initialData.email || "",
         password: "",
-        phone: initialData.phone || "",
-        owner: {
-          first_name: initialData.owner?.first_name || "",
-          middlename: initialData.owner?.middlename || "",
-          last_name: initialData.owner?.last_name || "",
-          suffix: initialData.owner?.suffix || "",
-        },
-        credentials: initialData.credentials || [],
-        role_id: "3",
+        role_id: "2",
+        first_name: initialData.first_name || "",
+        middlename: initialData.middlename || "",
+        last_name: initialData.last_name || "",
+        suffix_id: initialData.suffix_id || "",
+        gender_id: initialData.gender_id || "",
+        contact_number: initialData.contact_number || "",
+        street: initialData.street || "",
+        city: initialData.city || "Butuan City",
+        province: initialData.province || "Agusan Del Norte",
+        postal_code: initialData.postal_code || "8600",
+        country: initialData.country || "Philippines",
+        profile_img: null,
       });
-      setCredentialTypes(initialData.credentials || []);
+      setApiError("");
+      setErrors({});
     }
+
+    // Cleanup function to abort pending requests
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
   }, [isEdit, initialData]);
 
-  useEffect(() => {
-    const detectCredentials = debounce(async () => {
-      const types = await Promise.all(Array.from(formData.credentials).map(async (file) => {
-        const cacheKey = `${file.name}-${file.size}-${file.lastModified}`;
-        if (fileCache.current.has(cacheKey)) {
-          return fileCache.current.get(cacheKey).type;
-        }
-        const text = await extractText(file);
-        const type = detectType(text);
-        fileCache.current.set(cacheKey, { text, type });
-        return type;
-      }));
-      setCredentialTypes(types);
-    }, 300);
-
-    if (formData.credentials.length > 0) {
-      detectCredentials();
-    } else {
-      setCredentialTypes([]);
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
-      }
-    }
-  }, [formData.credentials]);
-
   const handleInputChange = (e, field) => {
-    const value = e.target.value;
+    const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
+
+    if ((field === "company_phone" || field === "contact_number") && value) {
+      if (!/^\d*$/.test(value)) return;
+    }
+
+    if (field === "first_name" || field === "last_name") {
+      const newData = { ...formData, [field]: value };
+      newData.username = `${newData.first_name}.${newData.last_name}`.toLowerCase();
+      setFormData(newData);
+      setErrors((prev) => ({ ...prev, [field]: "" }));
+      setApiError("");
+      return;
+    }
+
     setFormData((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: "" }));
+    setApiError("");
   };
 
-  const handleOwnerChange = (e, ownerField) => {
-    const value = e.target.value;
-    setFormData((prev) => ({
-      ...prev,
-      owner: { ...prev.owner, [ownerField]: value },
-    }));
-    setErrors((prev) => ({ ...prev, [`owner_${ownerField}`]: "" }));
-  };
-
-  const handleFileChange = (e) => {
-    const files = Array.from(e.target.files);
-    setFormData((prev) => ({ ...prev, credentials: files }));
-    setErrors((prev) => ({ ...prev, credentials: "" }));
-  };
-
-  const removeCredential = (index) => {
-    setFormData((prev) => ({
-      ...prev,
-      credentials: prev.credentials.filter((_, i) => i !== index),
-    }));
-    setCredentialTypes((prev) => prev.filter((_, i) => i !== index));
-    setErrors((prev) => ({ ...prev, credentials: "" }));
-    if (formData.credentials.length === 1 && fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
+  const removeImage = () => {
+    setFormData((prev) => ({ ...prev, profile_img: null }));
+    if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
   const validateForm = () => {
     const newErrors = {};
     if (!formData.company_name) newErrors.company_name = "Company name is required";
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+    if (!formData.company_email) newErrors.company_email = "Company email is required";
+    if (!formData.email) newErrors.email = "User email is required";
+    if (!formData.first_name) newErrors.first_name = "First name is required";
+    if (!formData.last_name) newErrors.last_name = "Last name is required";
+    if (!isEdit && !formData.password) newErrors.password = "Password is required";
+    if (formData.company_email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.company_email)) {
+      newErrors.company_email = "Invalid company email format";
     }
-    if (!isEdit && !formData.password) {
-      newErrors.password = "Password is required";
-    } else if (!isEdit && formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid user email format";
     }
-    if (!formData.owner.first_name) newErrors.owner_first_name = "Owner first name is required";
-    if (!formData.owner.last_name) newErrors.owner_last_name = "Owner last name is required";
-    if (!formData.role_id) newErrors.role_id = "Role is required";
-    if (formData.credentials.some(file => !['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png'].includes(file.type))) {
-      newErrors.credentials = "Credentials must be PDF, Word, JPG, or PNG";
+    if (formData.company_phone && !/^\d{10,15}$/.test(formData.company_phone)) {
+      newErrors.company_phone = "Company phone must be 10-15 digits";
+    }
+    if (formData.contact_number && !/^\d{10,15}$/.test(formData.contact_number)) {
+      newErrors.contact_number = "Contact number must be 10-15 digits";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -232,168 +118,274 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      const submitData = {
-        company_name: formData.company_name,
-        email: formData.email,
-        password: formData.password || null,
-        phone: formData.phone || null,
-        owner: formData.owner,
-        credentials: credentialTypes.length > 0 ? credentialTypes : [],
-        role_id: formData.role_id,
-      };
-      onSubmit(submitData);
-      onClose();
+    if (!validateForm()) return;
+
+    const submitData = new FormData();
+    // Always include required fields
+    submitData.append("company_name", formData.company_name || "");
+    submitData.append("company_email", formData.company_email || "");
+    submitData.append("email", formData.email || "");
+    submitData.append("first_name", formData.first_name || "");
+    submitData.append("last_name", formData.last_name || "");
+
+    // Include optional fields if they have values
+    if (formData.company_phone) submitData.append("company_phone", formData.company_phone);
+    if (formData.company_address) submitData.append("company_address", formData.company_address);
+    if (formData.username) submitData.append("username", formData.username);
+    if (formData.password && (isEdit ? formData.password : true)) submitData.append("password", formData.password);
+    if (formData.middlename !== null && formData.middlename !== "") submitData.append("middlename", formData.middlename);
+    if (formData.suffix_id) submitData.append("suffix_id", formData.suffix_id);
+    if (formData.gender_id) submitData.append("gender_id", formData.gender_id);
+    if (formData.contact_number) submitData.append("contact_number", formData.contact_number);
+    if (formData.street) submitData.append("street", formData.street);
+    if (formData.city) submitData.append("city", formData.city);
+    if (formData.province) submitData.append("province", formData.province);
+    if (formData.postal_code) submitData.append("postal_code", formData.postal_code);
+    if (formData.country) submitData.append("country", formData.country);
+    if (formData.profile_img) submitData.append("profile_img", formData.profile_img);
+
+    // Always include role_id
+    submitData.append("role_id", formData.role_id);
+
+    // Log FormData for debugging
+    for (let [key, value] of submitData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+    // Create a new AbortController for this request
+    abortControllerRef.current = new AbortController();
+
+    try {
+      await onSubmit(submitData, abortControllerRef.current.signal);
+      setApiError("");
+      setErrors({});
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Request was aborted");
+        return;
+      }
+      if (error.response?.data?.errors) {
+        setErrors(error.response.data.errors);
+        setApiError("Please correct the errors in the form: " + JSON.stringify(error.response.data.errors));
+      } else {
+        setApiError(error.response?.data?.message || "An error occurred. Please try again.");
+      }
     }
   };
 
   return (
-    <div className="adminmodal-overlay">
-      <div className="adminmodal">
+    <div className="employermodal-overlay">
+      <div className="employermodal">
         <h2>{isEdit ? "Edit Employer" : "Add New Employer"}</h2>
-        <div className="adminmodal-content">
-          <div className="form-group">
-            <label htmlFor="company_name">Company Name</label>
-            <input
-              id="company_name"
-              type="text"
-              value={formData.company_name}
-              onChange={(e) => handleInputChange(e, "company_name")}
-              placeholder="Company Name"
-              required
-            />
-            {errors.company_name && <span className="error">{errors.company_name}</span>}
+        {apiError && <div className="error api-error">{apiError}</div>}
+        {Object.keys(errors).length > 0 && (
+          <div className="error validation-errors">
+            {Object.entries(errors).map(([field, message]) => (
+              <div key={field}>{message}</div>
+            ))}
           </div>
-          <div className="form-group name-row">
-            <div className="name-field">
-              <label htmlFor="owner_first_name">Owner First Name</label>
+        )}
+        <form className="employermodal-content" onSubmit={handleSubmit}>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Company Name</label>
               <input
-                id="owner_first_name"
                 type="text"
-                value={formData.owner.first_name}
-                onChange={(e) => handleOwnerChange(e, "first_name")}
-                placeholder="First Name"
+                value={formData.company_name}
+                onChange={(e) => handleInputChange(e, "company_name")}
                 required
               />
-              {errors.owner_first_name && <span className="error">{errors.owner_first_name}</span>}
+              {errors.company_name && <span className="error">{errors.company_name}</span>}
             </div>
-            <div className="name-field">
-              <label htmlFor="owner_middlename">Owner Middle Name</label>
+            <div className="form-group">
+              <label>Company Phone</label>
               <input
-                id="owner_middlename"
-                type="text"
-                value={formData.owner.middlename}
-                onChange={(e) => handleOwnerChange(e, "middlename")}
-                placeholder="Middle Name (optional)"
+                type="tel"
+                value={formData.company_phone}
+                onChange={(e) => handleInputChange(e, "company_phone")}
+                placeholder="1234567890"
               />
+              {errors.company_phone && <span className="error">{errors.company_phone}</span>}
             </div>
-            <div className="name-field">
-              <label htmlFor="owner_last_name">Owner Last Name</label>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Company Email</label>
               <input
-                id="owner_last_name"
-                type="text"
-                value={formData.owner.last_name}
-                onChange={(e) => handleOwnerChange(e, "last_name")}
-                placeholder="Last Name"
+                type="email"
+                value={formData.company_email}
+                onChange={(e) => handleInputChange(e, "company_email")}
                 required
               />
-              {errors.owner_last_name && <span className="error">{errors.owner_last_name}</span>}
+              {errors.company_email && <span className="error">{errors.company_email}</span>}
             </div>
-            <div className="name-field">
-              <label htmlFor="owner_suffix">Owner Suffix</label>
+            <div className="form-group">
+              <label>Company Address</label>
+              <input
+                type="text"
+                value={formData.company_address}
+                onChange={(e) => handleInputChange(e, "company_address")}
+              />
+              {errors.company_address && <span className="error">{errors.company_address}</span>}
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>First Name</label>
+              <input
+                type="text"
+                value={formData.first_name}
+                onChange={(e) => handleInputChange(e, "first_name")}
+                required
+              />
+              {errors.first_name && <span className="error">{errors.first_name}</span>}
+            </div>
+            <div className="form-group">
+              <label>Middle Name (optional)</label>
+              <input
+                type="text"
+                value={formData.middlename}
+                onChange={(e) => handleInputChange(e, "middlename")}
+              />
+              {errors.middlename && <span className="error">{errors.middlename}</span>}
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Last Name</label>
+              <input
+                type="text"
+                value={formData.last_name}
+                onChange={(e) => handleInputChange(e, "last_name")}
+                required
+              />
+              {errors.last_name && <span className="error">{errors.last_name}</span>}
+            </div>
+            <div className="form-group">
+              <label>Suffix (optional)</label>
               <select
-                id="owner_suffix"
-                value={formData.owner.suffix}
-                onChange={(e) => handleOwnerChange(e, "suffix")}
+                value={formData.suffix_id}
+                onChange={(e) => handleInputChange(e, "suffix_id")}
               >
                 <option value="">None</option>
-                <option value="Jr">Jr</option>
-                <option value="Sr">Sr</option>
-                <option value="II">II</option>
-                <option value="III">III</option>
-                <option value="IV">IV</option>
+                {(suffixes || []).map((suffix) => (
+                  <option key={suffix.id} value={suffix.id}>
+                    {suffix.suffix_name || suffix.name}
+                  </option>
+                ))}
               </select>
+              {errors.suffix_id && <span className="error">{errors.suffix_id}</span>}
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Contact Number</label>
+              <input
+                type="tel"
+                value={formData.contact_number}
+                onChange={(e) => handleInputChange(e, "contact_number")}
+                placeholder="1234567890"
+              />
+              {errors.contact_number && <span className="error">{errors.contact_number}</span>}
+            </div>
+            <div className="form-group">
+              <label>Street</label>
+              <input
+                type="text"
+                value={formData.street}
+                onChange={(e) => handleInputChange(e, "street")}
+              />
+              {errors.street && <span className="error">{errors.street}</span>}
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>City</label>
+              <input type="text" value={formData.city} disabled />
+            </div>
+            <div className="form-group">
+              <label>Province</label>
+              <input type="text" value={formData.province} disabled />
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label>Postal Code</label>
+              <input type="text" value={formData.postal_code} disabled />
+            </div>
+            <div className="form-group">
+              <label>Country</label>
+              <input type="text" value={formData.country} disabled />
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label>Email</label>
             <input
-              id="email"
               type="email"
               value={formData.email}
               onChange={(e) => handleInputChange(e, "email")}
-              placeholder="Enter email address"
               required
             />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="password">{isEdit ? "New Password" : "Password"}</label>
+            <label>{isEdit ? "New Password (optional)" : "Password"}</label>
             <input
-              id="password"
               type="password"
               value={formData.password}
               onChange={(e) => handleInputChange(e, "password")}
-              placeholder={isEdit ? "New password (optional)" : "Enter password"}
               required={!isEdit}
             />
             {errors.password && <span className="error">{errors.password}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="phone">Phone</label>
-            <input
-              id="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={(e) => handleInputChange(e, "phone")}
-              placeholder="Enter phone number (optional)"
-            />
+            <label>Gender</label>
+            <select
+              value={formData.gender_id}
+              onChange={(e) => handleInputChange(e, "gender_id")}
+            >
+              <option value="">Select Gender</option>
+              {(genders || []).map((gender) => (
+                <option key={gender.id} value={gender.id}>
+                  {gender.gender_name}
+                </option>
+              ))}
+            </select>
+            {errors.gender_id && <span className="error">{errors.gender_id}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="credentials">Credentials (Upload Files)</label>
+            <label>Role</label>
+            <select value={formData.role_id} disabled>
+              <option value="2">Employer</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Profile Picture (optional)</label>
             <input
-              id="credentials"
               type="file"
-              multiple
-              accept=".pdf,.doc,.docx,.jpg,.png"
-              onChange={handleFileChange}
+              accept="image/*"
+              onChange={(e) => handleInputChange(e, "profile_img")}
               ref={fileInputRef}
             />
-            <div className="file-preview">
-              {Array.from(formData.credentials).map((file, index) => (
-                <div key={index} className="file-preview-item">
-                  <span className="file-name">
-                    {file.name} (
-                    {credentialTypes[index] ? credentialTypes[index] : <span className="spinner">Detecting...</span>}
-                    )
-                  </span>
-                  <button
-                    className="remove-file-button"
-                    onClick={() => removeCredential(index)}
-                  >
-                    Remove
-                  </button>
-                </div>
-              ))}
-            </div>
-            {errors.credentials && <span className="error">{errors.credentials}</span>}
+            {formData.profile_img && (
+              <div className="profile-img-preview">
+                <img src={URL.createObjectURL(formData.profile_img)} alt="Preview" />
+                <button type="button" onClick={removeImage}>
+                  Remove
+                </button>
+              </div>
+            )}
+            {errors.profile_img && <span className="error">{errors.profile_img}</span>}
           </div>
-          <div className="form-group">
-            <label htmlFor="role_id">Role</label>
-            <select id="role_id" value={formData.role_id} disabled>
-              <option value="3">Employer</option>
-            </select>
-            {errors.role_id && <span className="error">{errors.role_id}</span>}
+          <div className="employermodal-buttons">
+            <button className="submit-button" type="submit">
+              {isEdit ? "Update" : "Create"}
+            </button>
+            <button className="cancel-button" type="button" onClick={onClose}>
+              Cancel
+            </button>
           </div>
-        </div>
-        <div className="adminmodal-buttons">
-          <button className="submit-button" onClick={handleSubmit}>
-            {isEdit ? "Update" : "Create"}
-          </button>
-          <button className="cancel-button" onClick={onClose}>
-            Cancel
-          </button>
-        </div>
+        </form>
       </div>
     </div>
   );

@@ -1,38 +1,38 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./../../../../sass/components/usermodal.scss";
+import { FaTimes } from "react-icons/fa";
 import axios from "axios";
+import "./../../../../sass/components/usermodal.scss";
 
 const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
   const [formData, setFormData] = useState({
-    first_name: "",
-    middlename: "",
-    last_name: "",
-    suffix_id: "",
-    email: "",
+    first_name: initialData?.first_name || "",
+    middlename: initialData?.middlename || "",
+    last_name: initialData?.last_name || "",
+    suffix_id: initialData?.suffix_id ? String(initialData.suffix_id) : "",
+    email: initialData?.email || "",
     password: "",
-    role_id: "",
-    gender_id: "",
-    contact_number: "",
-    street: "",
-    city: "",
-    province: "",
-    postal_code: "",
-    country: "",
+    role_id: initialData?.role_id ? String(initialData.role_id) : "",
+    gender_id: initialData?.gender_id ? String(initialData.gender_id) : "",
+    contact_number: initialData?.contact_number || "",
+    street: initialData?.street || "",
+    city: initialData?.city || "Butuan City",
+    province: initialData?.province || "Agusan Del Norte",
+    postal_code: initialData?.postal_code || "8600",
+    country: initialData?.country || "Philippines",
     profile_img: null,
+    image_url: initialData?.image_url || null,
   });
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState("");
+  const [apiError, setApiError] = useState("");
   const [roles, setRoles] = useState([]);
   const [genders, setGenders] = useState([]);
   const [suffixes, setSuffixes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const fileInputRef = useRef(null);
-  const isSubmitting = useRef(false);
-  const mounted = useRef(true);
-  const timeoutRef = useRef(null);
+  const abortControllerRef = useRef(null);
 
   useEffect(() => {
-    mounted.current = true;
+    abortControllerRef.current = new AbortController();
     const fetchData = async () => {
       try {
         setIsLoading(true);
@@ -43,44 +43,52 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
         const [rolesRes, gendersRes, suffixesRes] = await Promise.all([
           axios.get("http://127.0.0.1:8000/api/roles/all", {
             headers: { Authorization: `Bearer ${authToken}` },
+            signal: abortControllerRef.current.signal,
+          }).catch((err) => {
+            console.error("Roles fetch error:", err.response?.data || err.message);
+            throw err;
           }),
           axios.get("http://127.0.0.1:8000/api/genders", {
             headers: { Authorization: `Bearer ${authToken}` },
+            signal: abortControllerRef.current.signal,
+          }).catch((err) => {
+            console.error("Genders fetch error:", err.response?.data || err.message);
+            throw err;
           }),
           axios.get("http://127.0.0.1:8000/api/suffixes", {
             headers: { Authorization: `Bearer ${authToken}` },
+            signal: abortControllerRef.current.signal,
+          }).catch((err) => {
+            console.error("Suffixes fetch error:", err.response?.data || err.message);
+            throw err;
           }),
         ]);
-        if (mounted.current) {
-          setRoles(Array.isArray(rolesRes.data) ? rolesRes.data : []);
-          setGenders(Array.isArray(gendersRes.data) ? gendersRes.data : []);
-          setSuffixes(Array.isArray(suffixesRes.data) ? suffixesRes.data : []);
+
+        console.log("Roles response:", rolesRes.data);
+        const rolesData = rolesRes.data?.roles && Array.isArray(rolesRes.data.roles) ? rolesRes.data.roles : [];
+        setRoles(rolesData);
+        setGenders(Array.isArray(gendersRes.data) ? gendersRes.data : []);
+        setSuffixes(Array.isArray(suffixesRes.data) ? suffixesRes.data : []);
+        if (rolesData.length === 0) {
+          setApiError("No roles available. Please contact the administrator.");
         }
       } catch (error) {
-        console.error("Error fetching dropdown data:", {
-          message: error.message,
-          status: error.response?.status,
-          details: error.response?.data,
-        });
-        if (mounted.current) {
-          setErrors({
-            general:
-              error.message === "No auth token found. Please log in."
-                ? error.message
-                : "Failed to load dropdown data. Please try again.",
-          });
-        }
+        if (error.name === "AbortError") return;
+        console.error("Error fetching dropdown data:", error.response?.data || error.message);
+        setApiError(
+          error.message === "No auth token found. Please log in."
+            ? error.message
+            : "Failed to load dropdown data. Please try again."
+        );
       } finally {
-        if (mounted.current) {
-          setIsLoading(false);
-        }
+        setIsLoading(false);
       }
     };
 
     fetchData();
 
     if (isEdit && initialData) {
-      const initialFormData = {
+      setFormData({
         first_name: initialData.first_name || "",
         middlename: initialData.middlename || "",
         last_name: initialData.last_name || "",
@@ -91,94 +99,73 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
         gender_id: initialData.gender_id ? String(initialData.gender_id) : "",
         contact_number: initialData.contact_number || "",
         street: initialData.street || "",
-        city: initialData.city || "",
-        province: initialData.province || "",
-        postal_code: initialData.postal_code || "",
-        country: initialData.country || "",
+        city: initialData.city || "Butuan City",
+        province: initialData.province || "Agusan Del Norte",
+        postal_code: initialData.postal_code || "8600",
+        country: initialData.country || "Philippines",
         profile_img: null,
-      };
-      if (mounted.current) {
-        setFormData(initialFormData);
-      }
-      console.log("Initial data received:", initialData);
-      console.log("Initial form data set:", initialFormData);
+        image_url: initialData.image_url || null,
+      });
+      setErrors({});
+      setApiError("");
     }
 
     return () => {
-      mounted.current = false;
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
       }
     };
   }, [isEdit, initialData]);
 
-  useEffect(() => {
-    if (isEdit && initialData && !isLoading && genders.length > 0 && roles.length > 0) {
-      const validGenderId = genders.some((g) => String(g.id) === String(initialData.gender_id))
-        ? String(initialData.gender_id)
-        : "";
-      const validRoleId = roles.some((r) => String(r.id) === String(initialData.role_id))
-        ? String(initialData.role_id)
-        : "";
-      if (mounted.current) {
-        setFormData((prev) => ({
-          ...prev,
-          gender_id: validGenderId,
-          role_id: validRoleId,
-        }));
-      }
-    }
-  }, [isEdit, initialData, isLoading, genders, roles]);
-
   const handleInputChange = (e, field) => {
+    // Prevent changes to locked fields
+    if (["city", "province", "postal_code", "country"].includes(field)) {
+      return;
+    }
     const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
     if (field === "profile_img" && value) {
       if (value.size > 2048 * 1024) {
-        if (mounted.current) {
-          setErrors((prev) => ({ ...prev, profile_img: "Image must not exceed 2 MB" }));
-        }
+        setErrors((prev) => ({ ...prev, profile_img: "Image must not exceed 2 MB" }));
         return;
       }
       if (!["image/jpeg", "image/png", "image/jpg"].includes(value.type)) {
-        if (mounted.current) {
-          setErrors((prev) => ({ ...prev, profile_img: "Image must be JPEG, PNG, or JPG" }));
-        }
+        setErrors((prev) => ({ ...prev, profile_img: "Image must be JPEG, PNG, or JPG" }));
         return;
       }
     }
-    if (mounted.current) {
-      setFormData((prev) => ({ ...prev, [field]: value }));
-      setErrors((prev) => ({ ...prev, [field]: "" }));
+    if (field === "contact_number" && value && !/^\+?[\d\s-]*$/.test(value)) {
+      return;
     }
-    console.log(`Updated ${field}:`, value);
+    if (field === "postal_code" && value && !/^[A-Za-z0-9\s-]*$/.test(value)) {
+      return;
+    }
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: "" }));
+    setApiError("");
   };
 
   const removeImage = () => {
-    if (mounted.current) {
-      setFormData((prev) => ({ ...prev, profile_img: null }));
-      setErrors((prev) => ({ ...prev, profile_img: "" }));
-      if (fileInputRef.current) fileInputRef.current.value = "";
-    }
+    setFormData((prev) => ({ ...prev, profile_img: null, image_url: null }));
+    setErrors((prev) => ({ ...prev, profile_img: "" }));
+    if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
   const validateForm = () => {
     const newErrors = {};
-    const requiredFields = ['first_name', 'last_name', 'email', 'role_id', 'gender_id'];
+    const requiredFields = isEdit
+      ? ["first_name", "last_name", "email", "role_id", "gender_id"]
+      : ["first_name", "last_name", "email", "password", "role_id", "gender_id"];
 
     requiredFields.forEach((field) => {
-      const value = isEdit ? (formData[field] || initialData?.[field]) : formData[field];
-      if (!value || value === "") {
-        newErrors[field] = `${field.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())} is required`;
+      if (!formData[field] || formData[field] === "") {
+        newErrors[field] = `${field.replace("_", " ").replace(/\b\w/g, (l) => l.toUpperCase())} is required`;
       }
     });
 
-    if (!isEdit && !formData.password) {
-      newErrors.password = "Password is required for new users";
-    }
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
-    if (formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
+    if (!isEdit && formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
       newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit";
     }
     if (formData.gender_id && !genders.some((gender) => String(gender.id) === String(formData.gender_id))) {
@@ -197,127 +184,37 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
       newErrors.postal_code = "Invalid postal code format";
     }
 
-    if (mounted.current) {
-      setErrors(newErrors);
-    }
-    console.log("Validation errors:", newErrors);
+    setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSubmitting.current || isLoading) {
-      console.log("Submission or loading in progress, ignoring.");
-      return;
-    }
+    if (isLoading) return;
 
-    console.log("Form data before validation:", formData);
+    if (!validateForm()) return;
 
-    if (!validateForm()) {
-      console.log("Client-side validation failed:", errors);
-      return;
-    }
-
-    const authToken = localStorage.getItem("auth_token");
-    if (!authToken) {
-      if (mounted.current) {
-        setErrors({ general: "No auth token found. Please log in." });
-      }
-      console.log("No auth token found.");
-      return;
-    }
-
-    isSubmitting.current = true;
-    if (mounted.current) {
-      setErrors({});
-      setSuccessMessage("");
-    }
-
+    abortControllerRef.current = new AbortController();
     try {
-      const submitData = new FormData();
-      submitData.append("first_name", formData.first_name || initialData?.first_name || "");
-      submitData.append("middlename", formData.middlename ?? "");
-      submitData.append("last_name", formData.last_name || initialData?.last_name || "");
-      submitData.append("gender_id", formData.gender_id || initialData?.gender_id || "");
-      submitData.append("suffix_id", formData.suffix_id ?? "");
-      submitData.append("role_id", formData.role_id || initialData?.role_id || "");
-      submitData.append("email", formData.email || initialData?.email || "");
-      submitData.append("contact_number", formData.contact_number ?? "");
-      submitData.append("street", formData.street ?? "");
-      submitData.append("city", formData.city ?? "");
-      submitData.append("province", formData.province ?? "");
-      submitData.append("postal_code", formData.postal_code ?? "");
-      submitData.append("country", formData.country ?? "");
-      if (formData.password) submitData.append("password", formData.password);
-      if (formData.profile_img) {
-        submitData.append("profile_img", formData.profile_img);
-      } else if (isEdit && formData.profile_img === null && initialData?.profile_img) {
-        submitData.append("profile_img", "");
-      }
-
-      const formDataObj = {};
-      submitData.forEach((value, key) => {
-        formDataObj[key] = value instanceof File ? value.name : value;
-      });
-      console.log("Sending data:", { data: formDataObj });
-
-      let response;
-      if (isEdit) {
-        response = await axios.put(
-          `http://127.0.0.1:8000/api/users/${initialData?.id}`,
-          submitData,
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${authToken}`,
-            },
-          }
-        );
-      } else {
-        response = await axios.post(
-          "http://127.0.0.1:8000/api/users",
-          submitData,
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${authToken}`,
-            },
-          }
-        );
-      }
-
-      console.log("Server response:", response.data);
-
-      if (response.status === (isEdit ? 200 : 201) && mounted.current) {
-        if (isEdit && response.data.message === "No changes were made") {
-          setSuccessMessage("No changes were made");
-        } else {
-          await onSubmit(response.data.user);
-          setSuccessMessage(isEdit ? "User updated successfully" : "User created successfully");
-        }
-        timeoutRef.current = setTimeout(() => {
-          if (mounted.current) {
-            setSuccessMessage("");
-            onClose();
-          }
-        }, 2000);
-      }
+      await onSubmit(formData, abortControllerRef.current.signal);
+      setApiError("");
+      setErrors({});
     } catch (error) {
-      console.error("Error submitting form:", {
-        message: error.message,
-        status: error.response?.status,
-        data: error.response?.data,
-      });
-      if (mounted.current) {
-        const errorData = error.response?.data?.messages || error.response?.data || {
-          general: `Failed to ${isEdit ? "update" : "create"} user`,
-        };
-        setErrors(errorData);
+      if (error.name === "AbortError") {
+        console.log("Request was aborted");
+        return;
       }
-    } finally {
-      isSubmitting.current = false;
+      console.error("Error submitting form:", error.response?.data || error.message);
+      if (error.response?.data?.messages) {
+        setErrors(error.response.data.messages);
+        setApiError("Please correct the errors in the form.");
+      } else {
+        setApiError(
+          error.response?.status === 401
+            ? "Unauthorized: Please log in again."
+            : `Failed to ${isEdit ? "update" : "create"} user: ${error.response?.data?.message || error.message}`
+        );
+      }
     }
   };
 
@@ -325,16 +222,15 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
     <div className="usermodal-overlay">
       <div className="usermodal">
         <h2>{isEdit ? "Edit User" : "Add New User"}</h2>
-        {successMessage && <div className="success-message" style={{ color: "green", marginBottom: "10px" }}>{successMessage}</div>}
-        {errors.general && <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>{errors.general}</div>}
-        {Object.keys(errors)
-          .filter((key) => key !== "general" && errors[key])
-          .map((key) => (
-            <div key={key} className="error-message" style={{ color: "red", marginBottom: "10px" }}>
-              {errors[key]}
-            </div>
-          ))}
-        <div className="usermodal-content">
+        {apiError && <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>{apiError}</div>}
+        {Object.keys(errors).length > 0 && (
+          <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>
+            {Object.entries(errors).map(([field, message]) => (
+              <div key={field}>{message}</div>
+            ))}
+          </div>
+        )}
+        <form className="usermodal-content" onSubmit={handleSubmit}>
           <div className="form-group name-row">
             <div className="name-field">
               <label htmlFor="first_name">First Name</label>
@@ -344,6 +240,7 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
                 value={formData.first_name}
                 onChange={(e) => handleInputChange(e, "first_name")}
                 placeholder="First Name"
+                required
               />
               {errors.first_name && <span className="error">{errors.first_name}</span>}
             </div>
@@ -366,6 +263,7 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
                 value={formData.last_name}
                 onChange={(e) => handleInputChange(e, "last_name")}
                 placeholder="Last Name"
+                required
               />
               {errors.last_name && <span className="error">{errors.last_name}</span>}
             </div>
@@ -395,11 +293,12 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               value={formData.email}
               onChange={(e) => handleInputChange(e, "email")}
               placeholder="Enter email address"
+              required
             />
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="password">{isEdit ? "New Password (Optional)" : "Password"}</label>
+            <label htmlFor="password">{isEdit ? "New Password (optional)" : "Password"}</label>
             <input
               id="password"
               type="password"
@@ -416,6 +315,7 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               value={formData.gender_id}
               onChange={(e) => handleInputChange(e, "gender_id")}
               disabled={isLoading || genders.length === 0}
+              required
             >
               <option value="">Select Gender</option>
               {genders.map((gender) => (
@@ -433,6 +333,7 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               value={formData.role_id}
               onChange={(e) => handleInputChange(e, "role_id")}
               disabled={isLoading || roles.length === 0}
+              required
             >
               <option value="">Select Role</option>
               {roles.map((role) => (
@@ -472,7 +373,8 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               type="text"
               value={formData.city}
               onChange={(e) => handleInputChange(e, "city")}
-              placeholder="City (optional)"
+              placeholder="City"
+              readOnly
             />
             {errors.city && <span className="error">{errors.city}</span>}
           </div>
@@ -483,7 +385,8 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               type="text"
               value={formData.province}
               onChange={(e) => handleInputChange(e, "province")}
-              placeholder="Province (optional)"
+              placeholder="Province"
+              readOnly
             />
             {errors.province && <span className="error">{errors.province}</span>}
           </div>
@@ -494,7 +397,8 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               type="text"
               value={formData.postal_code}
               onChange={(e) => handleInputChange(e, "postal_code")}
-              placeholder="Postal Code (optional)"
+              placeholder="Postal Code"
+              readOnly
             />
             {errors.postal_code && <span className="error">{errors.postal_code}</span>}
           </div>
@@ -505,12 +409,13 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               type="text"
               value={formData.country}
               onChange={(e) => handleInputChange(e, "country")}
-              placeholder="Country (optional)"
+              placeholder="Country"
+              readOnly
             />
             {errors.country && <span className="error">{errors.country}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="profile_img">Profile Picture</label>
+            <label htmlFor="profile_img">Profile Picture (optional)</label>
             <input
               id="profile_img"
               type="file"
@@ -518,45 +423,38 @@ const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               onChange={(e) => handleInputChange(e, "profile_img")}
               ref={fileInputRef}
             />
-            {formData.profile_img && (
+            {(formData.profile_img || formData.image_url) && (
               <div className="profile-img-preview">
                 <img
-                  src={URL.createObjectURL(formData.profile_img)}
+                  src={
+                    formData.profile_img
+                      ? URL.createObjectURL(formData.profile_img)
+                      : formData.image_url || "https://via.placeholder.com/100"
+                  }
                   alt="Profile Preview"
                   className="preview-img"
+                  style={{ width: "100px", height: "100px", objectFit: "contain" }}
                 />
-                <button className="remove-img-button" onClick={removeImage}>
-                  Remove Image
-                </button>
-              </div>
-            )}
-            {initialData?.profile_img && !formData.profile_img && (
-              <div className="profile-img-preview">
-                <img
-                  src={`http://127.0.0.1:8000${initialData.profile_img}`}
-                  alt="Current Profile"
-                  className="preview-img"
-                />
-                <button className="remove-img-button" onClick={removeImage}>
-                  Remove Image
+                <button className="remove-img-button" type="button" onClick={removeImage}>
+                  <FaTimes size={16} />
                 </button>
               </div>
             )}
             {errors.profile_img && <span className="error">{errors.profile_img}</span>}
           </div>
-        </div>
-        <div className="usermodal-buttons">
-          <button
-            className="submit-button"
-            onClick={handleSubmit}
-            disabled={isSubmitting.current || isLoading}
-          >
-            {isEdit ? "Update" : "Create"}
-          </button>
-          <button className="cancel-button" onClick={onClose}>
-            Cancel
-          </button>
-        </div>
+          <div className="usermodal-buttons">
+            <button
+              className="submit-button"
+              type="submit"
+              disabled={isLoading}
+            >
+              {isEdit ? "Update" : "Create"}
+            </button>
+            <button className="cancel-button" type="button" onClick={onClose}>
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );

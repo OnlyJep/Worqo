@@ -1,4 +1,4 @@
-.employermodal-overlay {
+.adminmodal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   overflow: auto;
 }
 
-.employermodal {
+.adminmodal {
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
@@ -33,7 +33,7 @@
     font-family: 'Inter', sans-serif;
   }
 
-  .employermodal-content {
+  .adminmodal-content {
     flex: 1;
     overflow-y: auto;
     padding-right: 8px;
@@ -54,8 +54,7 @@
       }
 
       input,
-      .color-picker,
-      .icon-select {
+      .image-upload {
         padding: 8px;
         border: 1px solid #d1d5db;
         border-radius: 8px;
@@ -78,28 +77,40 @@
         }
       }
 
-      .color-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+      .image-upload-wrapper {
+        position: relative;
 
-        .color-picker {
-          height: 40px;
-          padding: 4px;
-          cursor: pointer;
-        }
+        .image-preview {
+          margin-top: 10px;
+          position: relative;
+          display: inline-block;
 
-        .rank-icon-preview {
-          font-size: 20px;
-          border: 2px solid;
-          border-radius: 6px;
-          padding: 4px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.2s ease;
+          img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+          }
+
+          .remove-image-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #ef4444;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #ffffff;
+
+            &:hover {
+              background: #dc2626;
+            }
+          }
         }
       }
 
@@ -112,7 +123,7 @@
     }
   }
 
-  .employermodal-buttons {
+  .adminmodal-buttons {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
@@ -155,22 +166,22 @@
     }
   }
 
-  .employermodal-content::-webkit-scrollbar {
+  .adminmodal-content::-webkit-scrollbar {
     width: 6px;
   }
 
-  .employermodal-content::-webkit-scrollbar-track {
+  .adminmodal-content::-webkit-scrollbar-track {
     background: #f1f5f9;
     border-radius: 8px;
   }
 
-  .employermodal-content::-webkit-scrollbar-thumb {
+  .adminmodal-content::-webkit-scrollbar-thumb {
     background: #9ca3af;
     border-radius: 8px;
   }
 
   @media (max-width: 600px) {
-    .employermodal {
+    .adminmodal {
       width: 90%;
       max-height: 80vh;
       padding: 16px;
@@ -180,7 +191,7 @@
       font-size: 20px;
     }
 
-    .employermodal-content {
+    .adminmodal-content {
       gap: 10px;
     }
 
@@ -192,22 +203,23 @@
       }
 
       input,
-      .color-picker,
-      .icon-select {
+      .image-upload {
         font-size: 13px;
         padding: 6px;
       }
 
-      .color-wrapper {
-        .rank-icon-preview {
-          font-size: 18px;
-          width: 28px;
-          height: 28px;
-        }
+      .image-upload-wrapper .image-preview img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .image-upload-wrapper .image-preview .remove-image-button {
+        width: 18px;
+        height: 18px;
       }
     }
 
-    .employermodal-buttons {
+    .adminmodal-buttons {
       flex-direction: column;
       gap: 8px;
 

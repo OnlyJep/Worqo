@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
@@ -21,27 +22,48 @@ const formatDate = (dateString) => {
 };
 
 const Roles = () => {
-  const [roles, setRoles] = useState([
-    { id: 1, name: "Admin", created_at: "2025-01-01T10:00:00Z", updated_at: "2025-02-01T12:00:00Z", archived: false },
-    { id: 2, name: "Employer", created_at: "2025-03-15T09:30:00Z", updated_at: "2025-04-01T11:00:00Z", archived: false },
-    { id: 3, name: "Worker", created_at: "2025-05-10T14:00:00Z", updated_at: "2025-06-01T15:00:00Z", archived: false },
-  ]);
+  const [roles, setRoles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [roleToArchive, setRoleToArchive] = useState(null);
-  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
+  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1, totalItems: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [roleToEdit, setRoleToEdit] = useState(null);
   const navigate = useNavigate();
 
-  const filteredRoles = roles.filter((role) => {
-    const matchesSearch = role.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = role.archived === showArchived;
-    return matchesSearch && matchesArchived;
-  });
+  // Fetch roles from API
+  const fetchRoles = async () => {
+    try {
+      const response = await axios.get("/api/roles/all", {
+        params: {
+          search: searchTerm,
+          archived: showArchived,
+          page: pagination.currentPage,
+          limit: 5,
+        },
+      });
+      const mappedRoles = response.data.roles.map((role) => ({
+        ...role,
+        name: role.role_name,
+      }));
+      setRoles(mappedRoles);
+      setPagination({
+        currentPage: response.data.pagination.currentPage,
+        totalPages: response.data.pagination.totalPages,
+        totalItems: response.data.pagination.totalItems,
+      });
+    } catch (error) {
+      console.error("Error fetching roles:", error.response?.data?.error || error.message);
+    }
+  };
+
+  // Fetch roles when searchTerm, showArchived, or currentPage changes
+  useEffect(() => {
+    fetchRoles();
+  }, [searchTerm, showArchived, pagination.currentPage]);
 
   const toggleSelectRole = (roleId) => {
     setSelectedRoles((prev) =>
@@ -50,10 +72,10 @@ const Roles = () => {
   };
 
   const toggleSelectAll = () => {
-    if (selectedRoles.length === filteredRoles.length) {
+    if (selectedRoles.length === roles.length) {
       setSelectedRoles([]);
     } else {
-      setSelectedRoles(filteredRoles.map((role) => role.id));
+      setSelectedRoles(roles.map((role) => role.id));
     }
   };
 
@@ -68,35 +90,39 @@ const Roles = () => {
     setIsConfirmModalOpen(true);
   };
 
-  const handleArchiveConfirm = () => {
+  const handleArchiveConfirm = async () => {
     if (!roleToArchive) return;
-    setRoles((prevRoles) =>
-      prevRoles.map((role) =>
-        role.id === roleToArchive.id ? { ...role, archived: true } : role
-      )
-    );
-    setIsConfirmModalOpen(false);
-    setRoleToArchive(null);
+    try {
+      await axios.patch(`/api/roles/${roleToArchive.id}/archive`, { archived: true });
+      setIsConfirmModalOpen(false);
+      setRoleToArchive(null);
+      await fetchRoles(); // Refresh table
+    } catch (error) {
+      console.error("Error archiving role:", error.response?.data?.error || error.message);
+    }
   };
 
-  const handleRestoreRole = (roleId) => {
-    setRoles((prevRoles) =>
-      prevRoles.map((role) =>
-        role.id === roleId ? { ...role, archived: false } : role
-      )
-    );
+  const handleRestoreRole = async (roleId) => {
+    try {
+      await axios.patch(`/api/roles/${roleId}/archive`, { archived: false });
+      await fetchRoles(); // Refresh table
+    } catch (error) {
+      console.error("Error restoring role:", error.response?.data?.error || error.message);
+    }
   };
 
-  const handleBulkAction = (action) => {
+  const handleBulkAction = async (action) => {
     if (selectedRoles.length === 0) return;
-    setRoles((prevRoles) =>
-      prevRoles.map((role) =>
-        selectedRoles.includes(role.id)
-          ? { ...role, archived: action === "archive" }
-          : role
-      )
-    );
-    setSelectedRoles([]);
+    try {
+      await axios.post("/api/roles/bulk-archive", {
+        role_ids: selectedRoles,
+        action,
+      });
+      setSelectedRoles([]);
+      await fetchRoles(); // Refresh table
+    } catch (error) {
+      console.error(`Error performing bulk ${action}:`, error.response?.data?.error || error.message);
+    }
   };
 
   const handleAddNewClick = () => {
@@ -120,41 +146,27 @@ const Roles = () => {
     setRoleToEdit(null);
   };
 
-  const handleRoleAdd = (newRole) => {
-    const addedRole = {
-      id: roles.length + 1,
-      name: newRole.name,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      archived: false,
-    };
-    setRoles((prevRoles) => [addedRole, ...prevRoles]);
-    setIsModalOpen(false);
+  const handleRoleAdd = async (newRole) => {
+    try {
+      await axios.post("/api/roles", { role_name: newRole.name });
+      setIsModalOpen(false);
+      await fetchRoles(); // Refresh table
+    } catch (error) {
+      console.error("Error adding role:", error.response?.data?.error || error.message);
+    }
   };
 
-  const handleRoleUpdate = (updatedRole) => {
-    setRoles((prevRoles) =>
-      prevRoles.map((role) =>
-        role.id === roleToEdit.id
-          ? {
-              ...role,
-              name: updatedRole.name,
-              updated_at: new Date().toISOString(),
-            }
-          : role
-      )
-    );
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setRoleToEdit(null);
+  const handleRoleUpdate = async (updatedRole) => {
+    try {
+      await axios.put(`/api/roles/${roleToEdit.id}`, { role_name: updatedRole.name });
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setRoleToEdit(null);
+      await fetchRoles(); // Refresh table
+    } catch (error) {
+      console.error("Error updating role:", error.response?.data?.error || error.message);
+    }
   };
-
-  const rolesPerPage = 5;
-  const totalPages = Math.ceil(filteredRoles.length / rolesPerPage);
-  const currentRoles = filteredRoles.slice(
-    (pagination.currentPage - 1) * rolesPerPage,
-    pagination.currentPage * rolesPerPage
-  );
 
   const handlePageChange = (page) => {
     setPagination({ ...pagination, currentPage: page });
@@ -163,6 +175,7 @@ const Roles = () => {
   const renderPagination = () => {
     const pageNumbers = [];
     const maxPagesToShow = 5;
+    const totalPages = pagination.totalPages;
     const startPage = Math.max(1, pagination.currentPage - Math.floor(maxPagesToShow / 2));
     const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
@@ -244,7 +257,7 @@ const Roles = () => {
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
                 >
                   <IconArchive size={20} className="button-icon" />
-                  <span className="button-text">{showArchived ? "Restore All" : "Archive Marisa All"}</span>
+                  <span className="button-text">{showArchived ? "Restore All" : "Archive All"}</span>
                 </button>
               )}
               <button className="header-button" onClick={handleAddNewClick}>
@@ -264,7 +277,7 @@ const Roles = () => {
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedRoles.length === filteredRoles.length && filteredRoles.length > 0 ? (
+                        {selectedRoles.length === roles.length && roles.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -279,8 +292,8 @@ const Roles = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentRoles.length > 0 ? (
-                  currentRoles.map((role) => (
+                {roles.length > 0 ? (
+                  roles.map((role) => (
                     <tr key={role.id}>
                       <td data-label="Actions">
                         <div className="action-icons">
@@ -325,7 +338,7 @@ const Roles = () => {
             </table>
           </div>
           <div className="ranks-pagination">
-            <span>Page {pagination.currentPage} of {totalPages}</span>
+            <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
             <button
               onClick={() => handlePageChange(pagination.currentPage - 1)}
               disabled={pagination.currentPage <= 1}
@@ -335,7 +348,7 @@ const Roles = () => {
             {renderPagination()}
             <button
               onClick={() => handlePageChange(pagination.currentPage + 1)}
-              disabled={pagination.currentPage >= totalPages}
+              disabled={pagination.currentPage >= pagination.totalPages}
             >
               {">"}
             </button>

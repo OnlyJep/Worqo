@@ -8,41 +8,66 @@ use App\Models\Role;
 use App\Models\Gender;
 use App\Models\Suffix;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class AdminUserController extends Controller
 {
     /**
-     * Display a listing of active users.
+     * Display a listing of users with optional search, archived filter, and pagination.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
         try {
-            $users = User::where('archived', false)
-                ->with(['role', 'profile.gender', 'profile.suffix'])
-                ->get()
-                ->map(function ($user) {
-                    return $this->formatUserResponse($user);
-                });
+            $search = $request->query('search', '');
+            $archived = $request->query('archived', null);
+            $page = $request->query('page', 1);
+            $limit = $request->query('limit', 5);
 
-            return response()->json($users, 200);
+            $query = User::with(['role', 'profile.gender', 'profile.suffix']);
+
+            if (!empty($search)) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('username', 'like', '%' . $search . '%')
+                      ->orWhere('email', 'like', '%' . $search . '%');
+                });
+            }
+
+            if (!is_null($archived)) {
+                $query->where('archived', filter_var($archived, FILTER_VALIDATE_BOOLEAN));
+            }
+
+            $users = $query->paginate($limit, ['*'], 'page', $page);
+
+            return response()->json([
+                'users' => collect($users->items())->map(function ($user) {
+                    return $this->formatUserResponse($user);
+                })->toArray(),
+                'pagination' => [
+                    'currentPage' => $users->currentPage(),
+                    'totalPages' => $users->lastPage(),
+                    'totalItems' => $users->total(),
+                ],
+            ], 200);
         } catch (\Exception $e) {
-            Log::error('Error fetching active users: ' . $e->getMessage());
-            return response()->json(['message' => 'Server error'], 500);
+            Log::error('Error fetching users: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['messages' => ['general' => 'Failed to fetch users']], 500);
         }
     }
 
     /**
      * Display a listing of archived users.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function archived()
+    public function archived(): JsonResponse
     {
         try {
             $users = User::where('archived', true)
@@ -54,8 +79,8 @@ class AdminUserController extends Controller
 
             return response()->json($users, 200);
         } catch (\Exception $e) {
-            Log::error('Error fetching archived users: ' . $e->getMessage());
-            return response()->json(['message' => 'Server error'], 500);
+            Log::error('Error fetching archived users: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['messages' => ['general' => 'Failed to fetch archived users']], 500);
         }
     }
 
@@ -63,16 +88,16 @@ class AdminUserController extends Controller
      * Display a specific user.
      *
      * @param int $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function show($id)
+    public function show($id): JsonResponse
     {
         try {
             $user = User::with(['role', 'profile.gender', 'profile.suffix'])->findOrFail($id);
             return response()->json($this->formatUserResponse($user), 200);
         } catch (\Exception $e) {
-            Log::error('Error fetching user: ' . $e->getMessage());
-            return response()->json(['message' => 'User not found'], 404);
+            Log::error('Error fetching user: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['messages' => ['general' => 'User not found']], 404);
         }
     }
 
@@ -80,20 +105,25 @@ class AdminUserController extends Controller
      * Store a new user and their profile.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         try {
+            Log::info('User creation request received:', [
+                'data' => $request->all(),
+                'files' => $request->hasFile('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file detected',
+            ]);
+
             $validator = Validator::make($request->all(), [
                 'first_name' => 'required|string|max:255',
                 'middlename' => 'nullable|string|max:255',
                 'last_name' => 'required|string|max:255',
                 'email' => 'required|email|unique:users,email',
                 'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-                'role_id' => 'required|exists:roles,id',
-                'gender_id' => 'required|exists:genders,id',
-                'suffix_id' => 'nullable|exists:suffixes,id',
+                'role_id' => 'required|integer|exists:roles,id',
+                'gender_id' => 'required|integer|exists:genders,id',
+                'suffix_id' => 'nullable|integer|exists:suffixes,id',
                 'contact_number' => 'nullable|string|max:20',
                 'street' => 'nullable|string|max:255',
                 'city' => 'nullable|string|max:255',
@@ -104,17 +134,20 @@ class AdminUserController extends Controller
             ]);
 
             if ($validator->fails()) {
+                Log::warning('Validation failed for user creation:', $validator->errors()->toArray());
                 return response()->json(['messages' => $validator->errors()], 422);
             }
 
             $validated = $validator->validated();
             $username = strtolower($validated['first_name'] . '.' . $validated['last_name']);
+            $usernameCount = User::where('username', $username)->count();
+            $uniqueUsername = $usernameCount > 0 ? $username . '.' . time() : $username;
 
             $userData = [
-                'username' => $username,
+                'username' => $uniqueUsername,
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
-                'role_id' => $validated['role_id'],
+                'role_id' => (int)$validated['role_id'],
                 'archived' => false,
             ];
 
@@ -125,7 +158,7 @@ class AdminUserController extends Controller
                 'first_name' => $validated['first_name'],
                 'middlename' => $validated['middlename'] ?? null,
                 'last_name' => $validated['last_name'],
-                'gender_id' => $validated['gender_id'],
+                'gender_id' => (int)$validated['gender_id'],
                 'suffix_id' => $validated['suffix_id'] ?? null,
                 'contact_number' => $validated['contact_number'] ?? null,
                 'street' => $validated['street'] ?? null,
@@ -138,9 +171,10 @@ class AdminUserController extends Controller
             if ($request->hasFile('profile_img')) {
                 $path = $request->file('profile_img')->store('profiles', 'public');
                 $profileData['profile_img'] = $path;
+                Log::info('Profile image uploaded', ['new_file' => $path]);
             }
 
-            $profile = Profile::create($profileData);
+            Profile::create($profileData);
 
             $user->load(['role', 'profile.gender', 'profile.suffix']);
 
@@ -149,8 +183,8 @@ class AdminUserController extends Controller
                 'message' => 'User created successfully',
             ], 201);
         } catch (\Exception $e) {
-            Log::error('Error creating user: ' . $e->getMessage());
-            return response()->json(['message' => 'Server error'], 500);
+            Log::error('Error creating user: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['messages' => ['general' => 'Failed to create user']], 500);
         }
     }
 
@@ -159,25 +193,29 @@ class AdminUserController extends Controller
      *
      * @param Request $request
      * @param int $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id): JsonResponse
     {
         try {
+            Log::info('User update request received:', [
+                'user_id' => $id,
+                'data' => $request->all(),
+                'files' => $request->hasFile('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file detected',
+            ]);
+
             $user = User::findOrFail($id);
             $profile = Profile::where('user_id', $id)->firstOrFail();
 
-            Log::info('Update request data:', $request->all());
-
             $validator = Validator::make($request->all(), [
-                'first_name' => 'sometimes|required|string|max:255',
+                'first_name' => 'required|string|max:255',
                 'middlename' => 'nullable|string|max:255',
-                'last_name' => 'sometimes|required|string|max:255',
-                'email' => 'sometimes|required|email|unique:users,email,' . $id,
+                'last_name' => 'required|string|max:255',
+                'email' => 'required|email|max:255|unique:users,email,' . $id,
                 'password' => 'nullable|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-                'role_id' => 'sometimes|required|exists:roles,id',
-                'gender_id' => 'sometimes|required|exists:genders,id',
-                'suffix_id' => 'nullable|exists:suffixes,id',
+                'role_id' => 'required|integer|exists:roles,id',
+                'gender_id' => 'required|integer|exists:genders,id',
+                'suffix_id' => 'nullable|integer|exists:suffixes,id',
                 'contact_number' => 'nullable|string|max:20',
                 'street' => 'nullable|string|max:255',
                 'city' => 'nullable|string|max:255',
@@ -188,35 +226,48 @@ class AdminUserController extends Controller
             ]);
 
             if ($validator->fails()) {
-                Log::warning('Validation failed:', $validator->errors()->toArray());
+                Log::warning('Validation failed for user update:', [
+                    'errors' => $validator->errors()->toArray(),
+                    'input' => $request->all(),
+                ]);
                 return response()->json(['messages' => $validator->errors()], 422);
             }
 
             $validated = $validator->validated();
 
+            // Normalize empty strings to null for nullable fields
+            $nullableFields = [
+                'middlename', 'suffix_id', 'contact_number',
+                'street', 'city', 'province', 'postal_code', 'country'
+            ];
+            foreach ($nullableFields as $field) {
+                if (isset($validated[$field]) && $validated[$field] === '') {
+                    $validated[$field] = null;
+                }
+            }
+
             // Prepare user data
             $userData = [
-                'email' => $validated['email'] ?? $user->email,
-                'role_id' => $validated['role_id'] ?? $user->role_id,
+                'email' => $validated['email'],
+                'role_id' => (int)$validated['role_id'],
             ];
             if (isset($validated['password']) && $validated['password']) {
                 $userData['password'] = Hash::make($validated['password']);
             }
 
-            // Always update username based on first_name and last_name
-            $firstName = $validated['first_name'] ?? $profile->first_name;
-            $lastName = $validated['last_name'] ?? $profile->last_name;
+            // Update username
+            $firstName = $validated['first_name'];
+            $lastName = $validated['last_name'];
             $newUsername = strtolower($firstName . '.' . $lastName);
-            if ($newUsername !== $user->username) {
-                $userData['username'] = $newUsername;
-            }
+            $usernameCount = User::where('username', $newUsername)->where('id', '!=', $id)->count();
+            $userData['username'] = $usernameCount > 0 ? $newUsername . '.' . $id : $newUsername;
 
             // Prepare profile data
             $profileData = [
-                'first_name' => $validated['first_name'] ?? $profile->first_name,
+                'first_name' => $validated['first_name'],
                 'middlename' => $validated['middlename'] ?? $profile->middlename,
-                'last_name' => $validated['last_name'] ?? $profile->last_name,
-                'gender_id' => $validated['gender_id'] ?? $profile->gender_id,
+                'last_name' => $validated['last_name'],
+                'gender_id' => (int)$validated['gender_id'],
                 'suffix_id' => $validated['suffix_id'] ?? $profile->suffix_id,
                 'contact_number' => $validated['contact_number'] ?? $profile->contact_number,
                 'street' => $validated['street'] ?? $profile->street,
@@ -230,49 +281,31 @@ class AdminUserController extends Controller
             if ($request->hasFile('profile_img')) {
                 if ($profile->profile_img) {
                     Storage::disk('public')->delete($profile->profile_img);
+                    Log::info('Deleted old profile image', ['old_file' => $profile->profile_img]);
                 }
                 $path = $request->file('profile_img')->store('profiles', 'public');
                 $profileData['profile_img'] = $path;
-            } elseif ($request->has('profile_img') && $request->input('profile_img') === '') {
+                Log::info('Profile image uploaded', ['new_file' => $path]);
+            } elseif ($request->input('profile_img') === '') {
                 if ($profile->profile_img) {
                     Storage::disk('public')->delete($profile->profile_img);
+                    Log::info('Deleted profile image', ['old_file' => $profile->profile_img]);
                 }
                 $profileData['profile_img'] = null;
             }
 
-            $updated = false;
+            // Begin transaction
+            DB::beginTransaction();
 
-            // Attempt to update user
-            if ($user->fill($userData)->isDirty()) {
-                if ($user->save()) {
-                    Log::info('User updated:', $userData);
-                    $updated = true;
-                } else {
-                    Log::warning('Failed to update user:', $userData);
-                }
-            } else {
-                Log::info('No changes detected for user:', $userData);
-            }
+            $user->fill($userData);
+            $user->save();
+            Log::info('User updated:', ['changes' => $user->getChanges()]);
 
-            // Attempt to update profile
-            if ($profile->fill($profileData)->isDirty()) {
-                if ($profile->save()) {
-                    Log::info('Profile updated:', $profileData);
-                    $updated = true;
-                } else {
-                    Log::warning('Failed to update profile:', $profileData);
-                }
-            } else {
-                Log::info('No changes detected for profile:', $profileData);
-            }
+            $profile->fill($profileData);
+            $profile->save();
+            Log::info('Profile updated:', ['changes' => $profile->getChanges()]);
 
-            if (!$updated) {
-                Log::info('No changes were made to user or profile');
-                return response()->json([
-                    'user' => $this->formatUserResponse($user),
-                    'message' => 'No changes were made',
-                ], 200);
-            }
+            DB::commit();
 
             $user->load(['role', 'profile.gender', 'profile.suffix']);
 
@@ -280,9 +313,82 @@ class AdminUserController extends Controller
                 'user' => $this->formatUserResponse($user),
                 'message' => 'User updated successfully',
             ], 200);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            DB::rollBack();
+            Log::warning('Validation error:', [
+                'errors' => $e->errors(),
+                'input' => $request->all(),
+            ]);
+            return response()->json(['messages' => $e->errors()], 422);
         } catch (\Exception $e) {
-            Log::error('Error updating user: ' . $e->getMessage());
-            return response()->json(['message' => 'Server error'], 500);
+            DB::rollBack();
+            Log::error('Error updating user: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['messages' => ['general' => 'Failed to update user']], 500);
+        }
+    }
+
+    /**
+     * Archive or restore a user.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function archive(Request $request, $id): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'archived' => 'required|boolean',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for archive:', $validator->errors()->toArray());
+                return response()->json(['messages' => $validator->errors()], 422);
+            }
+
+            $user = User::findOrFail($id);
+            $user->update(['archived' => $request->archived]);
+
+            return response()->json([
+                'message' => $request->archived ? 'User archived successfully' : 'User restored successfully',
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error archiving/restoring user: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['messages' => ['general' => 'Failed to archive/restore user']], 500);
+        }
+    }
+
+    /**
+     * Bulk archive or restore users.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function bulkArchive(Request $request): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'user_ids' => 'required|array',
+                'user_ids.*' => 'integer|exists:users,id',
+                'action' => 'required|in:archive,restore',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for bulk archive:', $validator->errors()->toArray());
+                return response()->json(['messages' => $validator->errors()], 422);
+            }
+
+            $userIds = $request->user_ids;
+            $archived = $request->action === 'archive';
+
+            User::whereIn('id', $userIds)->update(['archived' => $archived]);
+
+            return response()->json([
+                'message' => $archived ? 'Users archived successfully' : 'Users restored successfully',
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error in bulk archive/restore: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['messages' => ['general' => 'Failed to perform bulk action']], 500);
         }
     }
 
@@ -317,36 +423,7 @@ class AdminUserController extends Controller
             'profile_img' => $profile ? $profile->profile_img : null,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
+            'archived' => $user->archived,
         ];
-    }
-
-    /**
-     * Archive or restore a user.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function archive(Request $request, $id)
-    {
-        try {
-            $validator = Validator::make($request->all(), [
-                'archived' => 'required|boolean',
-            ]);
-
-            if ($validator->fails()) {
-                return response()->json(['messages' => $validator->errors()], 422);
-            }
-
-            $user = User::findOrFail($id);
-            $user->update(['archived' => $request->archived]);
-
-            return response()->json([
-                'message' => $request->archived ? 'User archived successfully' : 'User restored successfully',
-            ], 200);
-        } catch (\Exception $e) {
-            Log::error('Error archiving/restoring user: ' . $e->getMessage());
-            return response()->json(['message' => 'Server error'], 500);
-        }
     }
 }

@@ -1,212 +1,242 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
+import axios from "axios";
 import "./../../../../sass/components/reviewmodal.scss";
 
-const ReviewModal = ({ onClose, onSubmit, isEdit, initialData, employers, workers }) => {
+const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, workers }) => {
   const [formData, setFormData] = useState({
-    employer: { company_name: "", owner: { first_name: "", middlename: "", last_name: "", suffix: "" } },
-    worker: { first_name: "", middlename: "", last_name: "", suffix: "" },
+    user: { id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "" },
+    reviewedUser: { id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "" },
     rating: 0,
     comment: "",
-    image: null,
   });
   const [hoverRating, setHoverRating] = useState(0);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
+  // Initialize form data for edit mode
   useEffect(() => {
     if (isEdit && initialData) {
       setFormData({
-        employer: initialData.employer || { company_name: "", owner: { first_name: "", middlename: "", last_name: "", suffix: "" } },
-        worker: initialData.worker || { first_name: "", middlename: "", last_name: "", suffix: "" },
+        user: initialData.user || {
+          id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "",
+        },
+        reviewedUser: initialData.reviewedUser || {
+          id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "",
+        },
         rating: initialData.rating || 0,
         comment: initialData.comment || "",
-        image: null,
       });
     }
   }, [isEdit, initialData]);
 
   const getFullName = (person) => {
-    const { first_name, middlename, last_name, suffix } = person;
-    let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
+    if (!person) return "N/A";
+    const { first_name, middlename, last_name, suffix, username } = person;
+    let fullName = `${first_name || username || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
     if (suffix) fullName += ` ${suffix}`;
     return fullName.trim() || "N/A";
   };
 
-  const handleEmployerChange = (e) => {
-    const selectedCompany = e.target.value;
-    const selectedEmployer = (employers ?? []).find(emp => emp.company_name === selectedCompany) || {
-      company_name: "",
-      owner: { first_name: "", middlename: "", last_name: "", suffix: "" }
+  const handleUserChange = (e) => {
+    const selectedId = e.target.value;
+    const selectedUser = employers.find((user) => user.id === parseInt(selectedId)) || {
+      id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "",
     };
-    setFormData((prev) => ({ ...prev, employer: selectedEmployer }));
-    setErrors((prev) => ({ ...prev, employer: "" }));
+    console.log("Selected reviewer:", selectedUser);
+    setFormData((prev) => ({
+      ...prev,
+      user: selectedUser,
+      reviewedUser: { id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "" },
+    }));
+    setErrors((prev) => ({ ...prev, user: "", reviewedUser: "" }));
+    setSubmitError(null);
   };
 
-  const handleWorkerChange = (e) => {
-    const selectedName = e.target.value;
-    const selectedWorker = (workers ?? []).find(worker => getFullName(worker) === selectedName) || {
-      first_name: "", middlename: "", last_name: "", suffix: ""
+  const handleReviewedUserChange = (e) => {
+    const selectedId = e.target.value;
+    const selectedUser = workers.find((user) => user.id === parseInt(selectedId)) || {
+      id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "",
     };
-    setFormData((prev) => ({ ...prev, worker: selectedWorker }));
-    setErrors((prev) => ({ ...prev, worker: "" }));
+    console.log("Selected reviewed user:", selectedUser);
+    setFormData((prev) => ({ ...prev, reviewedUser: selectedUser }));
+    setErrors((prev) => ({ ...prev, reviewedUser: "" }));
+    setSubmitError(null);
   };
 
   const handleInputChange = (e, field) => {
     const value = e.target.value;
     setFormData((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: "" }));
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setFormData((prev) => ({ ...prev, image: file }));
-      setErrors((prev) => ({ ...prev, image: "" }));
-    }
-  };
-
-  const removeImage = () => {
-    setFormData((prev) => ({ ...prev, image: null }));
+    setSubmitError(null);
   };
 
   const setRating = (newRating) => {
     setFormData((prev) => ({ ...prev, rating: newRating }));
     setErrors((prev) => ({ ...prev, rating: "" }));
+    setSubmitError(null);
   };
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.employer.company_name) newErrors.employer = "Employer is required";
-    if (!formData.worker.first_name || !formData.worker.last_name) newErrors.worker = "Worker is required";
+    if (!formData.user.id) newErrors.user = "Reviewer is required";
+    if (!formData.reviewedUser.id) newErrors.reviewedUser = "Reviewed user is required";
     if (formData.rating === 0) newErrors.rating = "Rating is required";
-    if (!formData.comment) newErrors.comment = "Comment is required";
-    if (formData.image && !['image/jpeg', 'image/png'].includes(formData.image.type)) {
-      newErrors.image = "Image must be JPG or PNG";
+    if (formData.comment.length > 1000) newErrors.comment = "Comment cannot exceed 1000 characters";
+    if (formData.user.role_id === 2 && formData.reviewedUser.role_id !== 1) {
+      newErrors.reviewedUser = "Employers can only review workers";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      const submitData = {
-        employer: formData.employer,
-        worker: formData.worker,
+    if (!validateForm()) return;
+
+    setSubmitError(null);
+    setLoading(true);
+
+    const source = axios.CancelToken.source();
+    let isMounted = true;
+
+    try {
+      const payload = {
+        user_id: parseInt(formData.user.id),
+        reviewed_user_id: parseInt(formData.reviewedUser.id),
         rating: formData.rating,
         comment: formData.comment,
-        hasImage: !!formData.image,
       };
-      onSubmit(submitData);
-      onClose();
+
+      const url = isEdit
+        ? `http://127.0.0.1:8000/api/reviews/${initialData.id}`
+        : "http://127.0.0.1:8000/api/reviews";
+
+      await axios({
+        method: isEdit ? "PUT" : "POST",
+        url,
+        data: payload,
+        headers: { "Content-Type": "application/json" },
+        cancelToken: source.token,
+      });
+
+      if (isMounted) {
+        onRefresh();
+        onClose();
+      }
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        console.log("Submit canceled:", error.message);
+      } else if (isMounted) {
+        if (error.response?.status === 422) {
+          const validationErrors = error.response.data.errors || {};
+          setErrors((prev) => ({
+            ...prev,
+            ...Object.keys(validationErrors).reduce((acc, key) => ({
+              ...acc,
+              [key]: validationErrors[key][0],
+            }), {}),
+          }));
+          setSubmitError("Please correct the errors in the form.");
+        } else {
+          setSubmitError("Failed to submit review. Please try again.");
+          console.error("Submit error:", error.response?.data || error);
+        }
+      }
+    } finally {
+      if (isMounted) setLoading(false);
     }
+
+    return () => {
+      isMounted = false;
+      source.cancel("Submit canceled due to component unmount");
+    };
   };
 
   return (
     <div className="reviewmodal-overlay">
       <div className="reviewmodal">
         <h2>{isEdit ? "Edit Review" : "Add New Review"}</h2>
-        <div className="reviewmodal-content">
-          <div className="form-group">
-            <label htmlFor="employer">Employer</label>
-            <select
-              id="employer"
-              value={formData.employer.company_name}
-              onChange={handleEmployerChange}
-              required
-            >
-              <option value="">Select Employer</option>
-              {(employers ?? []).map((emp, index) => (
-                <option key={index} value={emp.company_name}>
-                  {emp.company_name || "N/A"}
-                </option>
-              ))}
-            </select>
-            {errors.employer && <span className="error">{errors.employer}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="worker">Worker</label>
-            <select
-              id="worker"
-              value={getFullName(formData.worker)}
-              onChange={handleWorkerChange}
-              required
-            >
-              <option value="">Select Worker</option>
-              {(workers ?? []).map((worker, index) => (
-                <option key={index} value={getFullName(worker)}>
-                  {getFullName(worker)}
-                </option>
-              ))}
-            </select>
-            {errors.worker && <span className="error">{errors.worker}</span>}
-          </div>
-          <div className="form-group">
-            <label>Rating</label>
-            <div className="star-rating">
-              {[...Array(5)].map((_, index) => {
-                const ratingValue = index + 1;
-                return (
-                  <label key={index}>
-                    <input
-                      type="radio"
-                      name="rating"
-                      value={ratingValue}
-                      onClick={() => setRating(ratingValue)}
-                      style={{ display: "none" }}
-                    />
-                    <FaStar
-                      className="star"
-                      color={ratingValue <= (hoverRating || formData.rating) ? "#ffc107" : "#e4e5e9"}
-                      size={25}
-                      onMouseEnter={() => setHoverRating(ratingValue)}
-                      onMouseLeave={() => setHoverRating(0)}
-                    />
-                  </label>
-                );
-              })}
+        {submitError && <div className="error">{submitError}</div>}
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <div className="reviewmodal-content">
+            <div className="form-group">
+              <label htmlFor="user">Reviewer (Employer)</label>
+              <select id="user" value={formData.user.id} onChange={handleUserChange} required>
+                <option value="">Select Reviewer</option>
+                {employers.map((emp) => (
+                  <option key={emp.id} value={emp.id}>
+                    {getFullName(emp)} (Employer)
+                  </option>
+                ))}
+              </select>
+              {errors.user && <span className="error">{errors.user}</span>}
             </div>
-            {errors.rating && <span className="error">{errors.rating}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="comment">Comment</label>
-            <textarea
-              id="comment"
-              value={formData.comment}
-              onChange={(e) => handleInputChange(e, "comment")}
-              placeholder="Enter comment"
-              required
-            />
-            {errors.comment && <span className="error">{errors.comment}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="image">Upload Image (Optional)</label>
-            <input
-              id="image"
-              type="file"
-              accept="image/jpeg,image/png"
-              onChange={handleImageChange}
-            />
-            {formData.image && (
-              <div className="profile-img-preview">
-                <img
-                  src={URL.createObjectURL(formData.image)}
-                  alt="Preview"
-                  className="preview-img"
-                />
-                <button className="remove-img-button" onClick={removeImage}>
-                  Remove
-                </button>
+            <div className="form-group">
+              <label htmlFor="reviewedUser">Reviewed User (Worker)</label>
+              <select
+                id="reviewedUser"
+                value={formData.reviewedUser.id}
+                onChange={handleReviewedUserChange}
+                required
+                disabled={!formData.user.id}
+              >
+                <option value="">Select Reviewed User</option>
+                {workers.map((worker) => (
+                  <option key={worker.id} value={worker.id}>
+                    {getFullName(worker)} (Worker)
+                  </option>
+                ))}
+              </select>
+              {errors.reviewedUser && <span className="error">{errors.reviewedUser}</span>}
+            </div>
+            <div className="form-group">
+              <label>Rating</label>
+              <div className="star-rating">
+                {[...Array(5)].map((_, index) => {
+                  const ratingValue = index + 1;
+                  return (
+                    <label key={index}>
+                      <input
+                        type="radio"
+                        name="rating"
+                        value={ratingValue}
+                        onClick={() => setRating(ratingValue)}
+                        style={{ display: "none" }}
+                      />
+                      <FaStar
+                        className="star"
+                        color={ratingValue <= (hoverRating || formData.rating) ? "#ffc107" : "#e4e5e9"}
+                        size={25}
+                        onMouseEnter={() => setHoverRating(ratingValue)}
+                        onMouseLeave={() => setHoverRating(0)}
+                      />
+                    </label>
+                  );
+                })}
               </div>
-            )}
-            {errors.image && <span className="error">{errors.image}</span>}
+              {errors.rating && <span className="error">{errors.rating}</span>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="comment">Comment</label>
+              <textarea
+                id="comment"
+                value={formData.comment}
+                onChange={(e) => handleInputChange(e, "comment")}
+                placeholder="Enter comment"
+              />
+              {errors.comment && <span className="error">{errors.comment}</span>}
+            </div>
           </div>
-        </div>
+        )}
         <div className="reviewmodal-buttons">
-          <button className="submit-button" onClick={handleSubmit}>
+          <button className="submit-button" onClick={handleSubmit} disabled={loading}>
             {isEdit ? "Update" : "Create"}
           </button>
-          <button className="cancel-button" onClick={onClose}>
+          <button className="cancel-button" onClick={onClose} disabled={loading}>
             Cancel
           </button>
         </div>

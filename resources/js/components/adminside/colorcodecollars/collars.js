@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
-import { FaTag } from "react-icons/fa"; // Replaced FaCollar with FaTag
+import { FaTag } from "react-icons/fa";
 import "./../../../../sass/components/_colorcodecollars.scss";
 import ColorCodeCollarsModal from "./ColorCodeCollarsModal";
 
@@ -22,62 +23,80 @@ const formatDate = (dateString) => {
 };
 
 const ColorCodeCollars = () => {
-  const [collars, setCollars] = useState([
-    {
-      id: 1,
-      name: "Manual Labor",
-      color: "#4A90E2",
-      created_at: "2025-01-01T10:00:00Z",
-      updated_at: "2025-02-01T12:00:00Z",
-      archived: false,
-    },
-    {
-      id: 2,
-      name: "Service Industry",
-      color: "#FF69B4",
-      created_at: "2025-03-15T09:30:00Z",
-      updated_at: "2025-04-01T11:00:00Z",
-      archived: false,
-    },
-    {
-      id: 3,
-      name: "Corporate Management",
-      color: "#FFFFFF",
-      created_at: "2025-05-10T14:00:00Z",
-      updated_at: "2025-06-01T15:00:00Z",
-      archived: true,
-    },
-  ]);
+  const [collars, setCollars] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedCollars, setSelectedCollars] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [collarToArchive, setCollarToArchive] = useState(null);
-  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
+  const [isConfirmDeleteModalOpen, setIsConfirmDeleteModalOpen] = useState(false);
+  const [collarToDelete, setCollarToDelete] = useState(null);
+  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1, totalItems: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [collarToEdit, setCollarToEdit] = useState(null);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const API_BASE_URL = "http://127.0.0.1:8000/api";
 
-  const filteredCollars = collars.filter((collar) => {
-    const matchesSearch = collar.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = collar.archived === showArchived;
-    return matchesSearch && matchesArchived;
-  });
+  // Fetch collars from API
+  const fetchCollars = async (signal) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/collars`, {
+        params: {
+          search: searchTerm,
+          archived: showArchived,
+          page: pagination.currentPage,
+          per_page: 5,
+        },
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
+        },
+        signal,
+      });
+      setCollars(response.data.collars);
+      setPagination({
+        currentPage: response.data.pagination.currentPage,
+        totalPages: response.data.pagination.totalPages,
+        totalItems: response.data.pagination.totalItems,
+      });
+      setError(null);
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Fetch collars aborted");
+        return;
+      }
+      if (error.response?.status === 401) {
+        localStorage.removeItem("auth_token");
+        navigate("/login");
+        setError("Unauthorized: Please log in again.");
+      } else {
+        setError(error.response?.data?.error || "Failed to fetch collars. Please try again.");
+        console.error("Error fetching collars:", error.response?.data?.error || error.message);
+      }
+    }
+  };
+
+  // Fetch collars when searchTerm, showArchived, or currentPage changes
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchCollars(controller.signal);
+    return () => {
+      controller.abort();
+    };
+  }, [searchTerm, showArchived, pagination.currentPage]);
 
   const toggleSelectCollar = (collarId) => {
     setSelectedCollars((prev) =>
-      prev.includes(collarId)
-        ? prev.filter((id) => id !== collarId)
-        : [...prev, collarId]
+      prev.includes(collarId) ? prev.filter((id) => id !== collarId) : [...prev, collarId]
     );
   };
 
   const toggleSelectAll = () => {
-    if (selectedCollars.length === filteredCollars.length) {
+    if (selectedCollars.length === collars.length) {
       setSelectedCollars([]);
     } else {
-      setSelectedCollars(filteredCollars.map((collar) => collar.id));
+      setSelectedCollars(collars.map((collar) => collar.id));
     }
   };
 
@@ -85,6 +104,7 @@ const ColorCodeCollars = () => {
     setShowArchived((prev) => !prev);
     setPagination({ ...pagination, currentPage: 1 });
     setSelectedCollars([]);
+    setError(null);
   };
 
   const handleArchiveClick = (collar) => {
@@ -92,104 +112,181 @@ const ColorCodeCollars = () => {
     setIsConfirmModalOpen(true);
   };
 
-  const handleArchiveConfirm = () => {
+  const handleArchiveConfirm = async () => {
     if (!collarToArchive) return;
-    setCollars((prevCollars) =>
-      prevCollars.map((collar) =>
-        collar.id === collarToArchive.id ? { ...collar, archived: true } : collar
-      )
-    );
-    setIsConfirmModalOpen(false);
-    setCollarToArchive(null);
+    try {
+      await axios.patch(
+        `${API_BASE_URL}/collars/${collarToArchive.id}/archive`,
+        { archived: true },
+        { headers: { Authorization: `Bearer ${localStorage.getItem("auth_token")}` } }
+      );
+      setIsConfirmModalOpen(false);
+      setCollarToArchive(null);
+      setError(null);
+      await fetchCollars(new AbortController().signal);
+    } catch (error) {
+      if (error.response?.status === 401) {
+        localStorage.removeItem("auth_token");
+        navigate("/login");
+        setError("Unauthorized: Please log in again.");
+      } else {
+        setError(error.response?.data?.error || "Failed to archive collar. Please try again.");
+        console.error("Error archiving collar:", error.response?.data?.error || error.message);
+      }
+    }
   };
 
-  const handleRestoreCollar = (collarId) => {
-    setCollars((prevCollars) =>
-      prevCollars.map((collar) =>
-        collar.id === collarId ? { ...collar, archived: false } : collar
-      )
-    );
+  const handleDeleteClick = (collar) => {
+    setCollarToDelete(collar);
+    setIsConfirmDeleteModalOpen(true);
   };
 
-  const handleBulkAction = (action) => {
+  const handleDeleteConfirm = async () => {
+    if (!collarToDelete) return;
+    try {
+      await axios.delete(`${API_BASE_URL}/collars/${collarToDelete.id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("auth_token")}` },
+      });
+      setIsConfirmDeleteModalOpen(false);
+      setCollarToDelete(null);
+      setError(null);
+      await fetchCollars(new AbortController().signal);
+    } catch (error) {
+      if (error.response?.status === 401) {
+        localStorage.removeItem("auth_token");
+        navigate("/login");
+        setError("Unauthorized: Please log in again.");
+      } else {
+        setError(error.response?.data?.error || "Failed to delete collar. Please try again.");
+        console.error("Error deleting collar:", error.response?.data?.error || error.message);
+      }
+    }
+  };
+
+  const handleRestoreCollar = async (collarId) => {
+    try {
+      await axios.patch(
+        `${API_BASE_URL}/collars/${collarId}/restore`,
+        { archived: false },
+        { headers: { Authorization: `Bearer ${localStorage.getItem("auth_token")}` } }
+      );
+      setError(null);
+      await fetchCollars(new AbortController().signal);
+    } catch (error) {
+      if (error.response?.status === 401) {
+        localStorage.removeItem("auth_token");
+        navigate("/login");
+        setError("Unauthorized: Please log in again.");
+      } else {
+        setError(error.response?.data?.error || "Failed to restore collar. Please try again.");
+        console.error("Error restoring collar:", error.response?.data?.error || error.message);
+      }
+    }
+  };
+
+  const handleBulkAction = async (action) => {
     if (selectedCollars.length === 0) return;
-    setCollars((prevCollars) =>
-      prevCollars.map((collar) =>
-        selectedCollars.includes(collar.id)
-          ? { ...collar, archived: action === "archive" }
-          : collar
-      )
-    );
-    setSelectedCollars([]);
+    try {
+      await axios.post(
+        `${API_BASE_URL}/collars/${action === "archive" ? "bulk-archive" : "bulk-restore"}`,
+        { collar_ids: selectedCollars },
+        { headers: { Authorization: `Bearer ${localStorage.getItem("auth_token")}` } }
+      );
+      setSelectedCollars([]);
+      setError(null);
+      await fetchCollars(new AbortController().signal);
+    } catch (error) {
+      if (error.response?.status === 401) {
+        localStorage.removeItem("auth_token");
+        navigate("/login");
+        setError("Unauthorized: Please log in again.");
+      } else {
+        setError(error.response?.data?.error || `Failed to perform bulk ${action}. Please try again.`);
+        console.error(`Error performing bulk ${action}:`, error.response?.data?.error || error.message);
+      }
+    }
   };
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
     setCollarToEdit({});
     setIsModalOpen(true);
+    setError(null);
   };
 
   const handleEditClick = (collar) => {
     setCollarToEdit({
       id: collar.id,
       name: collar.name || "",
-      color: collar.color || "",
+      color: collar.color || "#4A90E2",
     });
     setIsEditMode(true);
     setIsModalOpen(true);
+    setError(null);
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
     setCollarToEdit(null);
+    setError(null);
   };
 
-  const handleCollarAdd = (newCollar) => {
-    const addedCollar = {
-      id: collars.length + 1,
-      name: newCollar.name,
-      color: newCollar.color,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      archived: false,
-    };
-    setCollars((prevCollars) => [addedCollar, ...prevCollars]);
-    setIsModalOpen(false);
+  const handleCollarAdd = async (newCollar) => {
+    try {
+      await axios.post(
+        `${API_BASE_URL}/collars`,
+        { name: newCollar.name, color: newCollar.color },
+        { headers: { Authorization: `Bearer ${localStorage.getItem("auth_token")}` } }
+      );
+      setIsModalOpen(false);
+      setError(null);
+      await fetchCollars(new AbortController().signal);
+    } catch (error) {
+      if (error.response?.status === 401) {
+        localStorage.removeItem("auth_token");
+        navigate("/login");
+        setError("Unauthorized: Please log in again.");
+      } else {
+        setError(error.response?.data?.error || "Failed to add collar. Please try again.");
+        console.error("Error adding collar:", error.response?.data?.error || error.message);
+      }
+    }
   };
 
-  const handleCollarUpdate = (updatedCollar) => {
-    setCollars((prevCollars) =>
-      prevCollars.map((collar) =>
-        collar.id === collarToEdit.id
-          ? {
-              ...collar,
-              name: updatedCollar.name,
-              color: updatedCollar.color,
-              updated_at: new Date().toISOString(),
-            }
-          : collar
-      )
-    );
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setCollarToEdit(null);
+  const handleCollarUpdate = async (updatedCollar) => {
+    try {
+      await axios.put(
+        `${API_BASE_URL}/collars/${collarToEdit.id}`,
+        { name: updatedCollar.name, color: updatedCollar.color },
+        { headers: { Authorization: `Bearer ${localStorage.getItem("auth_token")}` } }
+      );
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setCollarToEdit(null);
+      setError(null);
+      await fetchCollars(new AbortController().signal);
+    } catch (error) {
+      if (error.response?.status === 401) {
+        localStorage.removeItem("auth_token");
+        navigate("/login");
+        setError("Unauthorized: Please log in again.");
+      } else {
+        setError(error.response?.data?.error || "Failed to update collar. Please try again.");
+        console.error("Error updating collar:", error.response?.data?.error || error.message);
+      }
+    }
   };
-
-  const collarsPerPage = 5;
-  const totalPages = Math.ceil(filteredCollars.length / collarsPerPage);
-  const currentCollars = filteredCollars.slice(
-    (pagination.currentPage - 1) * collarsPerPage,
-    pagination.currentPage * collarsPerPage
-  );
 
   const handlePageChange = (page) => {
     setPagination({ ...pagination, currentPage: page });
+    setError(null);
   };
 
   const renderPagination = () => {
     const pageNumbers = [];
     const maxPagesToShow = 5;
+    const totalPages = pagination.totalPages;
     const startPage = Math.max(1, pagination.currentPage - Math.floor(maxPagesToShow / 2));
     const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
@@ -251,6 +348,11 @@ const ColorCodeCollars = () => {
       <div className="colorcodecollars-dashboard">
         <div className="colorcodecollars-content">
           <h2>{showArchived ? "Archived Collars" : "Color Code Collars"}</h2>
+          {error && (
+            <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>
+              {error}
+            </div>
+          )}
           <div className="colorcodecollars-header">
             <div className="left-actions">
               <div className="search-container">
@@ -291,7 +393,7 @@ const ColorCodeCollars = () => {
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedCollars.length === filteredCollars.length && filteredCollars.length > 0 ? (
+                        {selectedCollars.length === collars.length && collars.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -307,8 +409,8 @@ const ColorCodeCollars = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentCollars.length > 0 ? (
-                  currentCollars.map((collar) => (
+                {collars.length > 0 ? (
+                  collars.map((collar) => (
                     <tr key={collar.id}>
                       <td data-label="Actions">
                         <div className="action-icons">
@@ -326,17 +428,19 @@ const ColorCodeCollars = () => {
                               onClick={() => handleRestoreCollar(collar.id)}
                             />
                           ) : (
-                            <FaTrash
-                              size={16}
-                              className="delete-icon"
-                              onClick={() => handleArchiveClick(collar)}
-                            />
+                            <>
+                              <FaTrash
+                                size={16}
+                                className="delete-icon"
+                                onClick={() => handleDeleteClick(collar)}
+                              />
+                              <FaPencilAlt
+                                size={16}
+                                className="edit-icon"
+                                onClick={() => handleEditClick(collar)}
+                              />
+                            </>
                           )}
-                          <FaPencilAlt
-                            size={16}
-                            className="edit-icon"
-                            onClick={() => handleEditClick(collar)}
-                          />
                         </div>
                       </td>
                       <td data-label="Collar Name" className="collar-name-cell">{collar.name || "N/A"}</td>
@@ -365,7 +469,7 @@ const ColorCodeCollars = () => {
             </table>
           </div>
           <div className="colorcodecollars-pagination">
-            <span>Page {pagination.currentPage} of {totalPages}</span>
+            <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
             <button
               onClick={() => handlePageChange(pagination.currentPage - 1)}
               disabled={pagination.currentPage <= 1}
@@ -375,7 +479,7 @@ const ColorCodeCollars = () => {
             {renderPagination()}
             <button
               onClick={() => handlePageChange(pagination.currentPage + 1)}
-              disabled={pagination.currentPage >= totalPages}
+              disabled={pagination.currentPage >= pagination.totalPages}
             >
               {">"}
             </button>
@@ -392,6 +496,22 @@ const ColorCodeCollars = () => {
                 Yes, Archive
               </button>
               <button className="cancel-button" onClick={() => setIsConfirmModalOpen(false)}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {isConfirmDeleteModalOpen && (
+        <div className="confirm-modal-overlay">
+          <div className="confirm-modal">
+            <h3>Are you sure?</h3>
+            <p>Do you want to permanently delete "{collarToDelete?.name}"?</p>
+            <div className="confirm-modal-buttons">
+              <button className="confirm-button" onClick={handleDeleteConfirm}>
+                Yes, Delete
+              </button>
+              <button className="cancel-button" onClick={() => setIsConfirmDeleteModalOpen(false)}>
                 Cancel
               </button>
             </div>

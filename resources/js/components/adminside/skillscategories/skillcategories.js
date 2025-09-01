@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
+import { message } from 'antd'; // Import Ant Design message
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import SkillModal from "./SkillModal";
@@ -37,7 +38,10 @@ const SkillsCategories = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const token = localStorage.getItem("LaravelPassportToken");
+        const token = localStorage.getItem("auth_token");
+        if (!token) {
+          throw new Error("No authentication token found. Please log in.");
+        }
         const config = { headers: { Authorization: `Bearer ${token}` } };
         const [activeResponse, archivedResponse] = await Promise.all([
           axios.get("http://127.0.0.1:8000/api/skills", config),
@@ -59,6 +63,7 @@ const SkillsCategories = () => {
         setSkills([...activeSkills, ...archivedSkills]);
       } catch (error) {
         console.error("Error fetching skills:", error);
+        message.error(error.message || "Failed to fetch skills");
         setSkills([]);
       } finally {
         setLoading(false);
@@ -68,7 +73,7 @@ const SkillsCategories = () => {
   }, []);
 
   const filteredSkills = skills.filter((skill) => {
-    const matchesSearch = skill.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = (skill.name || "").toLowerCase().includes(searchTerm.toLowerCase());
     const matchesArchived = skill.archived === showArchived;
     return matchesSearch && matchesArchived;
   });
@@ -103,7 +108,7 @@ const SkillsCategories = () => {
   const handleArchiveConfirm = async () => {
     if (!skillToArchive) return;
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
+      const token = localStorage.getItem("auth_token");
       const response = await axios.patch(
         `http://127.0.0.1:8000/api/skills/${skillToArchive.id}/archive`,
         { archived: true },
@@ -115,17 +120,19 @@ const SkillsCategories = () => {
             skill.id === skillToArchive.id ? { ...skill, archived: true } : skill
           )
         );
+        message.success(`Skill "${skillToArchive.name || "N/A"}" archived successfully`);
         setIsConfirmModalOpen(false);
         setSkillToArchive(null);
       }
     } catch (error) {
       console.error("Error archiving skill:", error);
+      message.error(error.response?.data?.message || "Failed to archive skill");
     }
   };
 
   const handleRestoreSkill = async (skillId) => {
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
+      const token = localStorage.getItem("auth_token");
       const response = await axios.patch(
         `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
         { archived: false },
@@ -137,16 +144,18 @@ const SkillsCategories = () => {
             skill.id === skillId ? { ...skill, archived: false } : skill
           )
         );
+        message.success("Skill restored successfully");
       }
     } catch (error) {
       console.error("Error restoring skill:", error);
+      message.error(error.response?.data?.message || "Failed to restore skill");
     }
   };
 
   const handleBulkAction = async (action) => {
     if (selectedSkills.length === 0) return;
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
+      const token = localStorage.getItem("auth_token");
       const requests = selectedSkills.map((skillId) =>
         axios.patch(
           `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
@@ -163,8 +172,14 @@ const SkillsCategories = () => {
         )
       );
       setSelectedSkills([]);
+      message.success(
+        action === "archive"
+          ? "Selected skills archived successfully"
+          : "Selected skills restored successfully"
+      );
     } catch (error) {
       console.error(`Error ${action}ing skills:`, error);
+      message.error(error.response?.data?.message || `Failed to ${action} skills`);
     }
   };
 
@@ -175,7 +190,7 @@ const SkillsCategories = () => {
   };
 
   const handleEditClick = (skill) => {
-    setSkillToEdit({ id: skill.id, name: skill.name });
+    setSkillToEdit({ id: skill.id, name: skill.name || "" });
     setIsEditMode(true);
     setIsModalOpen(true);
   };
@@ -188,7 +203,7 @@ const SkillsCategories = () => {
 
   const handleSkillAdd = async (newSkill) => {
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
+      const token = localStorage.getItem("auth_token");
       const response = await axios.post(
         "http://127.0.0.1:8000/api/skills",
         { name: newSkill.name },
@@ -200,21 +215,23 @@ const SkillsCategories = () => {
             id: response.data.id,
             name: response.data.name,
             archived: false,
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString(),
+            created_at: response.data.created_at || new Date().toISOString(),
+            updated_at: response.data.updated_at || new Date().toISOString(),
           },
           ...prevSkills,
         ]);
         setIsModalOpen(false);
+        message.success(`Skill "${newSkill.name}" added successfully`);
       }
     } catch (error) {
-      console.error("Error adding skill:", error.response?.data || error.message);
+      console.error("Error adding skill:", error);
+      throw error.response?.data?.errors?.name?.[0] || "Failed to add skill";
     }
   };
 
   const handleSkillUpdate = async (updatedSkill) => {
     try {
-      const token = localStorage.getItem("LaravelPassportToken");
+      const token = localStorage.getItem("auth_token");
       const response = await axios.put(
         `http://127.0.0.1:8000/api/skills/${skillToEdit.id}`,
         { name: updatedSkill.name },
@@ -224,16 +241,22 @@ const SkillsCategories = () => {
         setSkills((prevSkills) =>
           prevSkills.map((skill) =>
             skill.id === skillToEdit.id
-              ? { ...skill, name: response.data.name, updated_at: new Date().toISOString() }
+              ? {
+                  ...skill,
+                  name: response.data.name,
+                  updated_at: response.data.updated_at || new Date().toISOString(),
+                }
               : skill
           )
         );
         setIsModalOpen(false);
         setIsEditMode(false);
         setSkillToEdit(null);
+        message.success(`Skill "${updatedSkill.name}" updated successfully`);
       }
     } catch (error) {
-      console.error("Error updating skill:", error.response?.data || error.message);
+      console.error("Error updating skill:", error);
+      throw error.response?.data?.errors?.name?.[0] || "Failed to update skill";
     }
   };
 
@@ -406,7 +429,7 @@ const SkillsCategories = () => {
                         </div>
                       </td>
                       <td data-label="Skill Name" className="skill-name-cell">
-                        {skill.name}
+                        {skill.name || "N/A"}
                       </td>
                       <td data-label="Created At">{formatDate(skill.created_at)}</td>
                       <td data-label="Updated At">{formatDate(skill.updated_at)}</td>
@@ -442,7 +465,7 @@ const SkillsCategories = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{skillToArchive?.name}"?</p>
+            <p>Do you want to archive "{skillToArchive?.name || "N/A"}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive

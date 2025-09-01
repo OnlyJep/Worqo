@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
+import "./../../../../sass/components/_ranksModal.scss";
 import RanksModal from "./RanksModal";
-import "./../../../../sass/components/_ranks.scss";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -21,29 +22,50 @@ const formatDate = (dateString) => {
 };
 
 const Ranks = () => {
-  const [ranks, setRanks] = useState([
-    { id: 1, name: "Verified", image: "https://img.icons8.com/color/40/verified-badge.png", required_reviews: 1500, created_at: "2025-01-01T10:00:00Z", updated_at: "2025-02-01T12:00:00Z", archived: false },
-    { id: 2, name: "Associate", image: "https://via.placeholder.com/40?text=Associate", required_reviews: 30, created_at: "2025-03-15T09:30:00Z", updated_at: "2025-04-01T11:00:00Z", archived: false },
-    { id: 3, name: "Professional", image: "https://via.placeholder.com/40?text=Professional", required_reviews: 50, created_at: "2025-05-10T14:00:00Z", updated_at: "2025-06-01T15:00:00Z", archived: true },
-    { id: 4, name: "Senior", image: "https://via.placeholder.com/40?text=Senior", required_reviews: 75, created_at: "2025-07-01T08:00:00Z", updated_at: "2025-08-01T10:00:00Z", archived: false },
-    { id: 5, name: "Expert", image: "https://via.placeholder.com/40?text=Expert", required_reviews: 100, created_at: "2025-09-01T13:00:00Z", updated_at: "2025-10-01T14:00:00Z", archived: false },
-  ]);
+  const [ranks, setRanks] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedRanks, setSelectedRanks] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [rankToArchive, setRankToArchive] = useState(null);
-  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
+  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1, totalItems: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [rankToEdit, setRankToEdit] = useState(null);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const filteredRanks = ranks.filter((rank) => {
-    const matchesSearch = rank.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = rank.archived === showArchived;
-    return matchesSearch && matchesArchived;
-  });
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchRanks(controller.signal);
+    return () => controller.abort();
+  }, [searchTerm, showArchived, pagination.currentPage]);
+
+  const fetchRanks = async (signal) => {
+    try {
+      const response = await axios.get("/api/ranks", {
+        params: {
+          search: searchTerm,
+          archived: showArchived,
+          page: pagination.currentPage,
+          limit: 5,
+        },
+        signal,
+        timeout: 10000,
+      });
+      setRanks(response.data.ranks);
+      setPagination({
+        currentPage: response.data.pagination.currentPage,
+        totalPages: response.data.pagination.totalPages,
+        totalItems: response.data.pagination.totalItems,
+      });
+      setError("");
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error fetching ranks:", error.response?.data?.error || error.message);
+      setError("Failed to fetch ranks. Please try again.");
+    }
+  };
 
   const toggleSelectRank = (rankId) => {
     setSelectedRanks((prev) =>
@@ -52,10 +74,10 @@ const Ranks = () => {
   };
 
   const toggleSelectAll = () => {
-    if (selectedRanks.length === filteredRanks.length) {
+    if (selectedRanks.length === ranks.length) {
       setSelectedRanks([]);
     } else {
-      setSelectedRanks(filteredRanks.map((rank) => rank.id));
+      setSelectedRanks(ranks.map((rank) => rank.id));
     }
   };
 
@@ -70,107 +92,149 @@ const Ranks = () => {
     setIsConfirmModalOpen(true);
   };
 
-  const handleArchiveConfirm = () => {
+  const handleArchiveConfirm = async () => {
     if (!rankToArchive) return;
-    setRanks((prevRanks) =>
-      prevRanks.map((rank) =>
-        rank.id === rankToArchive.id ? { ...rank, archived: true } : rank
-      )
-    );
-    setIsConfirmModalOpen(false);
-    setRankToArchive(null);
+    try {
+      await axios.patch(`/api/ranks/${rankToArchive.id}/archive`, { archived: true }, { timeout: 5000 });
+      setIsConfirmModalOpen(false);
+      setRankToArchive(null);
+      await fetchRanks(new AbortController().signal);
+      setError("");
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error archiving rank:", error.response?.data?.error || error.message);
+      setError("Failed to archive rank. Please try again.");
+    }
   };
 
-  const handleRestoreRank = (rankId) => {
-    setRanks((prevRanks) =>
-      prevRanks.map((rank) =>
-        rank.id === rankId ? { ...rank, archived: false } : rank
-      )
-    );
+  const handleRestoreRank = async (rankId) => {
+    try {
+      await axios.patch(`/api/ranks/${rankId}/archive`, { archived: false }, { timeout: 5000 });
+      await fetchRanks(new AbortController().signal);
+      setError("");
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error restoring rank:", error.response?.data?.error || error.message);
+      setError("Failed to restore rank. Please try again.");
+    }
   };
 
-  const handleBulkAction = (action) => {
+  const handleBulkAction = async (action) => {
     if (selectedRanks.length === 0) return;
-    setRanks((prevRanks) =>
-      prevRanks.map((rank) =>
-        selectedRanks.includes(rank.id)
-          ? { ...rank, archived: action === "archive" }
-          : rank
-      )
-    );
-    setSelectedRanks([]);
+    try {
+      await axios.post(
+        "/api/ranks/bulk-archive",
+        { rank_ids: selectedRanks, action },
+        { timeout: 10000 }
+      );
+      setSelectedRanks([]);
+      await fetchRanks(new AbortController().signal);
+      setError("");
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error(`Error performing bulk ${action}:`, error.response?.data?.error || error.message);
+      setError(`Failed to perform bulk ${action}. Please try again.`);
+    }
   };
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
-    setRankToEdit({});
+    setRankToEdit({ name: "", required_reviews: 0, image: null });
     setIsModalOpen(true);
+    setError("");
   };
 
   const handleEditClick = (rank) => {
     setRankToEdit({
       id: rank.id,
       name: rank.name || "",
-      image: rank.image || "",
+      image: null, // No file selected initially
+      image_url: rank.image ? `/storage/${rank.image}` : null, // Store existing image URL
       required_reviews: rank.required_reviews || 0,
     });
     setIsEditMode(true);
     setIsModalOpen(true);
+    setError("");
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
     setRankToEdit(null);
+    setError("");
   };
 
-  const handleRankAdd = (newRank) => {
-    const addedRank = {
-      id: ranks.length + 1,
-      name: newRank.name,
-      image: newRank.image,
-      required_reviews: newRank.required_reviews,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      archived: false,
-    };
-    setRanks((prevRanks) => [addedRank, ...prevRanks]);
-    setIsModalOpen(false);
+  const handleRankAdd = async (formData, signal) => {
+    try {
+      const submitData = new FormData();
+      submitData.append("name", formData.name || "");
+      if (formData.image instanceof File) {
+        submitData.append("image", formData.image);
+      }
+      submitData.append("required_reviews", formData.required_reviews || 0);
+
+      for (let [key, value] of submitData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+
+      const response = await axios.post("/api/ranks", submitData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        timeout: 10000,
+        signal,
+      });
+      setIsModalOpen(false);
+      await fetchRanks(new AbortController().signal);
+      setError("");
+      return response.data;
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Add request was aborted");
+        return;
+      }
+      console.error("Error adding rank:", error.response?.data?.error || error.message);
+      throw error;
+    }
   };
 
-  const handleRankUpdate = (updatedRank) => {
-    setRanks((prevRanks) =>
-      prevRanks.map((rank) =>
-        rank.id === rankToEdit.id
-          ? {
-              ...rank,
-              name: updatedRank.name,
-              image: updatedRank.image,
-              required_reviews: updatedRank.required_reviews,
-              updated_at: new Date().toISOString(),
-            }
-          : rank
-      )
-    );
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setRankToEdit(null);
-  };
+  const handleRankUpdate = async (formData, signal) => {
+    try {
+      const submitData = new FormData();
+      submitData.append("name", formData.name || "");
+      if (formData.image instanceof File) {
+        submitData.append("image", formData.image);
+      }
+      submitData.append("required_reviews", formData.required_reviews || 0);
+      submitData.append("_method", "PUT");
 
-  const ranksPerPage = 5;
-  const totalPages = Math.ceil(filteredRanks.length / ranksPerPage);
-  const currentRanks = filteredRanks.slice(
-    (pagination.currentPage - 1) * ranksPerPage,
-    pagination.currentPage * ranksPerPage
-  );
+      for (let [key, value] of submitData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
 
-  const handlePageChange = (page) => {
-    setPagination({ ...pagination, currentPage: page });
+      const response = await axios.post(`/api/ranks/${rankToEdit.id}`, submitData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        timeout: 10000,
+        signal,
+      });
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setRankToEdit(null);
+      await fetchRanks(new AbortController().signal);
+      setError("");
+      return response.data;
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Update request was aborted");
+        return;
+      }
+      console.error("Error updating rank:", error.response?.data?.error || error.message);
+      throw error;
+    }
   };
 
   const renderPagination = () => {
     const pageNumbers = [];
     const maxPagesToShow = 5;
+    const totalPages = pagination.totalPages;
     const startPage = Math.max(1, pagination.currentPage - Math.floor(maxPagesToShow / 2));
     const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
@@ -180,7 +244,7 @@ const Ranks = () => {
           <button
             key={i}
             className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => handlePageChange(i)}
+            onClick={() => setPagination({ ...pagination, currentPage: i })}
           >
             {i}
           </button>
@@ -189,7 +253,7 @@ const Ranks = () => {
     } else {
       if (startPage > 1) {
         pageNumbers.push(
-          <button key={1} onClick={() => handlePageChange(1)}>
+          <button key={1} onClick={() => setPagination({ ...pagination, currentPage: 1 })}>
             1
           </button>
         );
@@ -203,7 +267,7 @@ const Ranks = () => {
           <button
             key={i}
             className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => handlePageChange(i)}
+            onClick={() => setPagination({ ...pagination, currentPage: i })}
           >
             {i}
           </button>
@@ -215,7 +279,10 @@ const Ranks = () => {
           pageNumbers.push(<span key="end-ellipsis" className="ellipsis">...</span>);
         }
         pageNumbers.push(
-          <button key={totalPages} onClick={() => handlePageChange(totalPages)}>
+          <button
+            key={totalPages}
+            onClick={() => setPagination({ ...pagination, currentPage: totalPages })}
+          >
             {totalPages}
           </button>
         );
@@ -232,6 +299,7 @@ const Ranks = () => {
       <div className="ranks-dashboard">
         <div className="ranks-content">
           <h2>{showArchived ? "Archived Ranks" : "Ranks"}</h2>
+          {error && <div className="error">{error}</div>}
           <div className="ranks-header">
             <div className="left-actions">
               <div className="search-container">
@@ -272,7 +340,7 @@ const Ranks = () => {
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedRanks.length === filteredRanks.length && filteredRanks.length > 0 ? (
+                        {selectedRanks.length === ranks.length && ranks.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -289,8 +357,8 @@ const Ranks = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentRanks.length > 0 ? (
-                  currentRanks.map((rank) => (
+                {ranks.length > 0 ? (
+                  ranks.map((rank) => (
                     <tr key={rank.id}>
                       <td data-label="Actions">
                         <div className="action-icons">
@@ -324,7 +392,7 @@ const Ranks = () => {
                       <td data-label="Rank Name" className="rank-name-cell">{rank.name || "N/A"}</td>
                       <td data-label="Rank Image">
                         <img
-                          src={rank.image}
+                          src={rank.image ? `/storage/${rank.image}` : "https://via.placeholder.com/40"}
                           alt={rank.name}
                           style={{ width: "40px", height: "40px", objectFit: "contain" }}
                         />
@@ -343,17 +411,17 @@ const Ranks = () => {
             </table>
           </div>
           <div className="ranks-pagination">
-            <span>Page {pagination.currentPage} of {totalPages}</span>
+            <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
             <button
-              onClick={() => handlePageChange(pagination.currentPage - 1)}
+              onClick={() => setPagination({ ...pagination, currentPage: pagination.currentPage - 1 })}
               disabled={pagination.currentPage <= 1}
             >
               {"<"}
             </button>
             {renderPagination()}
             <button
-              onClick={() => handlePageChange(pagination.currentPage + 1)}
-              disabled={pagination.currentPage >= totalPages}
+              onClick={() => setPagination({ ...pagination, currentPage: pagination.currentPage + 1 })}
+              disabled={pagination.currentPage >= pagination.totalPages}
             >
               {">"}
             </button>
@@ -381,7 +449,7 @@ const Ranks = () => {
           onClose={handleModalClose}
           onSubmit={isEditMode ? handleRankUpdate : handleRankAdd}
           isEdit={isEditMode}
-          initialData={rankToEdit || {}}
+          initialData={rankToEdit || { name: "", required_reviews: 0, image: null }}
         />
       )}
     </div>

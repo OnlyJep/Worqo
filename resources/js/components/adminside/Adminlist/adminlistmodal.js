@@ -9,7 +9,7 @@ const AdminModal = ({ onClose, onSubmit, isEdit, initialData }) => {
     suffix: "",
     email: "",
     password: "",
-    role_id: "1",
+    role_id: "3", // Updated to match backend role_id for Admin
     profile_img: null,
   });
   const [errors, setErrors] = useState({});
@@ -24,7 +24,7 @@ const AdminModal = ({ onClose, onSubmit, isEdit, initialData }) => {
         suffix: initialData.suffix || "",
         email: initialData.email || "",
         password: "",
-        role_id: "1",
+        role_id: "3", // Updated to match backend role_id for Admin
         profile_img: null,
       });
     }
@@ -194,14 +194,14 @@ const AdminModal = ({ onClose, onSubmit, isEdit, initialData }) => {
               value: formData.role_id,
               disabled: true,
             },
-            React.createElement("option", { value: "1" }, "Admin")
+            React.createElement("option", { value: "3" }, "Admin") // Updated to match backend role_id
           ),
           errors.role_id && React.createElement("span", { className: "error" }, errors.role_id)
         ),
         React.createElement(
           "div",
           { className: "form-group" },
-          React.createElement("label", { htmlFor: "profile_img" }, "Profile Picture"),
+          React.createElement("label", { htmlFor: "profile_img" }, "Profile Picture (Optional)"),
           React.createElement("input", {
             id: "profile_img",
             type: "file",

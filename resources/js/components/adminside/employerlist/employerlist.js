@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
@@ -21,63 +22,17 @@ const formatDate = (dateString) => {
 };
 
 const getFullName = (person) => {
-  const { first_name, middlename, last_name, suffix } = person;
-  let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
-  if (suffix) fullName += ` ${suffix}`;
+  const { first_name, middlename, last_name, suffix_id, suffixes } = person || {};
+  let fullName = `${first_name || ""}${middlename ? " " + middlename : ""} ${last_name || ""}`;
+  if (suffix_id && suffixes) {
+    const suffix = suffixes.find((s) => s.id === suffix_id)?.name || suffixes.find((s) => s.id === suffix_id)?.suffix_name;
+    if (suffix) fullName += ` ${suffix}`;
+  }
   return fullName.trim() || "N/A";
 };
 
 const EmployerList = () => {
-  const [employers, setEmployers] = useState([
-    {
-      id: 1,
-      company_name: "TechCorp Inc.",
-      email: "contact@techcorp.com",
-      phone: "123-456-7890",
-      credentials: ["ISO 9001", "BBB Accredited"],
-      owner: {
-        first_name: "Alice",
-        middlename: null,
-        last_name: "Brown",
-        suffix: null,
-      },
-      created_at: "2025-01-01T10:00:00Z",
-      updated_at: "2025-02-01T12:00:00Z",
-      archived: false,
-    },
-    {
-      id: 2,
-      company_name: "BuildEasy LLC",
-      email: "info@buildeasy.com",
-      phone: "987-654-3210",
-      credentials: ["LEED Certified"],
-      owner: {
-        first_name: "Bob",
-        middlename: "C",
-        last_name: "Davis",
-        suffix: "Jr",
-      },
-      created_at: "2025-03-15T09:30:00Z",
-      updated_at: "2025-04-01T11:00:00Z",
-      archived: false,
-    },
-    {
-      id: 3,
-      company_name: "GreenWorks Co.",
-      email: "support@greenworks.com",
-      phone: "555-123-4567",
-      credentials: ["EPA Certified", "Green Business"],
-      owner: {
-        first_name: "Carol",
-        middlename: null,
-        last_name: "Evans",
-        suffix: null,
-      },
-      created_at: "2025-05-10T14:00:00Z",
-      updated_at: "2025-06-01T15:00:00Z",
-      archived: true,
-    },
-  ]);
+  const [employers, setEmployers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedEmployers, setSelectedEmployers] = useState([]);
@@ -87,16 +42,65 @@ const EmployerList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [employerToEdit, setEmployerToEdit] = useState(null);
+  const [genders, setGenders] = useState([]);
+  const [suffixes, setSuffixes] = useState([]);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // Fetch employers, genders, and suffixes
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchEmployers(controller.signal);
+    fetchGenders(controller.signal);
+    fetchSuffixes(controller.signal);
+
+    return () => controller.abort();
+  }, [showArchived]);
+
+  const fetchEmployers = async (signal) => {
+    try {
+      const response = await axios.get(
+        showArchived ? "/api/employers/archived" : "/api/employers",
+        { signal, timeout: 10000 }
+      );
+      setEmployers(response.data);
+      setError("");
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error fetching employers:", error);
+      setError("Failed to fetch employers. Please try again.");
+    }
+  };
+
+  const fetchGenders = async (signal) => {
+    try {
+      const response = await axios.get("/api/genders", { signal, timeout: 5000 });
+      setGenders(response.data);
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error fetching genders:", error);
+      setError("Failed to fetch genders. Please try again.");
+    }
+  };
+
+  const fetchSuffixes = async (signal) => {
+    try {
+      const response = await axios.get("/api/suffixes", { signal, timeout: 5000 });
+      setSuffixes(response.data);
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error fetching suffixes:", error);
+      setError("Failed to fetch suffixes. Please try again.");
+    }
+  };
+
   const filteredEmployers = employers.filter((employer) => {
-    const ownerFullName = getFullName(employer.owner).toLowerCase();
+    const ownerFullName = getFullName({ ...employer.profile, suffixes }).toLowerCase();
     const matchesSearch =
-      employer.company_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      employer.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (employer.employer?.company_name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (employer.email || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
       ownerFullName.includes(searchTerm.toLowerCase());
-    const matchesArchived = employer.archived === showArchived;
-    return matchesSearch && matchesArchived;
+    return matchesSearch;
   });
 
   const toggleSelectEmployer = (employerId) => {
@@ -117,7 +121,7 @@ const EmployerList = () => {
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
-    setPagination({ ...pagination, currentPage: 1 });
+    setPagination({ currentPage: 1, totalPages: 1 });
     setSelectedEmployers([]);
   };
 
@@ -126,107 +130,145 @@ const EmployerList = () => {
     setIsConfirmModalOpen(true);
   };
 
-  const handleArchiveConfirm = () => {
+  const handleArchiveConfirm = async () => {
     if (!employerToArchive) return;
-    setEmployers((prevEmployers) =>
-      prevEmployers.map((employer) =>
-        employer.id === employerToArchive.id ? { ...employer, archived: true } : employer
-      )
-    );
-    setIsConfirmModalOpen(false);
-    setEmployerToArchive(null);
+    try {
+      await axios.patch(`/api/employers/${employerToArchive.id}/archive`, {}, { timeout: 5000 });
+      await fetchEmployers(new AbortController().signal);
+      setIsConfirmModalOpen(false);
+      setEmployerToArchive(null);
+      setError("");
+    } catch (error) {
+      console.error("Error archiving employer:", error);
+      setError("Failed to archive employer. Please try again.");
+    }
   };
 
-  const handleRestoreEmployer = (employerId) => {
-    setEmployers((prevEmployers) =>
-      prevEmployers.map((employer) =>
-        employer.id === employerId ? { ...employer, archived: false } : employer
-      )
-    );
+  const handleRestoreEmployer = async (employerId) => {
+    try {
+      await axios.patch(`/api/employers/${employerId}/restore`, {}, { timeout: 5000 });
+      await fetchEmployers(new AbortController().signal);
+      setError("");
+    } catch (error) {
+      console.error("Error restoring employer:", error);
+      setError("Failed to restore employer. Please try again.");
+    }
   };
 
-  const handleBulkAction = (action) => {
+  const handleBulkAction = async (action) => {
     if (selectedEmployers.length === 0) return;
-    setEmployers((prevEmployers) =>
-      prevEmployers.map((employer) =>
-        selectedEmployers.includes(employer.id)
-          ? { ...employer, archived: action === "archive" }
-          : employer
-      )
-    );
-    setSelectedEmployers([]);
+    try {
+      await Promise.all(
+        selectedEmployers.map((id) =>
+          axios.patch(`/api/employers/${id}/${action}`, {}, { timeout: 5000 })
+        )
+      );
+      await fetchEmployers(new AbortController().signal);
+      setSelectedEmployers([]);
+      setError("");
+    } catch (error) {
+      console.error(`Error performing bulk ${action}:`, error);
+      setError(`Failed to perform bulk ${action}. Please try again.`);
+    }
   };
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
     setEmployerToEdit(null);
     setIsModalOpen(true);
+    setError("");
   };
 
-  const handleEditClick = (employer) => {
-    setEmployerToEdit({
-      ...employer,
-      company_name: employer.company_name || "",
-      email: employer.email || "",
-      phone: employer.phone || "",
-      credentials: employer.credentials || [],
-      owner: employer.owner || {
-        first_name: "",
-        middlename: "",
-        last_name: "",
-        suffix: "",
-      },
-    });
-    setIsEditMode(true);
-    setIsModalOpen(true);
+  const handleEditClick = async (employer) => {
+    try {
+      const response = await axios.get(`/api/employers/${employer.id}`, { timeout: 5000 });
+      console.log("Fetched employer data:", response.data); // Debug API response
+      setEmployerToEdit({
+        id: response.data.id,
+        company_name: response.data.employer?.company_name || "",
+        company_phone: response.data.employer?.company_phone || "",
+        company_email: response.data.employer?.company_email || "",
+        company_address: response.data.employer?.company_address || "",
+        email: response.data.email || "",
+        username: response.data.username || "",
+        first_name: response.data.profile?.first_name || "",
+        middlename: response.data.profile?.middlename || "",
+        last_name: response.data.profile?.last_name || "",
+        suffix_id: response.data.profile?.suffix_id || "",
+        gender_id: response.data.profile?.gender_id || "",
+        contact_number: response.data.profile?.contact_number || "",
+        street: response.data.profile?.street || "",
+        city: response.data.profile?.city || "Butuan City",
+        province: response.data.profile?.province || "Agusan Del Norte",
+        postal_code: response.data.profile?.postal_code || "8600",
+        country: response.data.profile?.country || "Philippines",
+        role_id: "2",
+        profile_img: null,
+      });
+      setIsEditMode(true);
+      setIsModalOpen(true);
+      setError("");
+    } catch (error) {
+      console.error("Error fetching employer details:", error);
+      setError("Failed to fetch employer details. Please try again.");
+    }
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
     setEmployerToEdit(null);
+    setError("");
   };
 
-  const handleEmployerAdd = (newEmployer) => {
-    const addedEmployer = {
-      id: employers.length + 1,
-      company_name: newEmployer.company_name,
-      email: newEmployer.email,
-      phone: newEmployer.phone || null,
-      credentials: newEmployer.credentials || [],
-      owner: newEmployer.owner || {
-        first_name: "Unknown",
-        middlename: null,
-        last_name: "Owner",
-        suffix: null,
-      },
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      archived: false,
-    };
-    setEmployers((prevEmployers) => [addedEmployer, ...prevEmployers]);
-    setIsModalOpen(false);
+  const handleEmployerAdd = async (formData, signal) => {
+    try {
+      formData.append("role_id", "2");
+      const response = await axios.post("/api/employers", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        timeout: 10000,
+        signal,
+      });
+      await fetchEmployers(new AbortController().signal);
+      setIsModalOpen(false);
+      setError("");
+      return response.data;
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Add request was aborted");
+        return;
+      }
+      console.error("Error adding employer:", error);
+      throw error;
+    }
   };
 
-  const handleEmployerUpdate = (updatedEmployer) => {
-    setEmployers((prevEmployers) =>
-      prevEmployers.map((employer) =>
-        employer.id === employerToEdit.id
-          ? {
-              ...employer,
-              company_name: updatedEmployer.company_name,
-              email: updatedEmployer.email,
-              phone: updatedEmployer.phone || null,
-              credentials: updatedEmployer.credentials || [],
-              owner: updatedEmployer.owner,
-              updated_at: new Date().toISOString(),
-            }
-          : employer
-      )
-    );
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setEmployerToEdit(null);
+  const handleEmployerUpdate = async (formData, signal) => {
+    try {
+      formData.append("role_id", "2");
+      console.log("Sending update request with FormData:", formData); // Debug request
+      const response = await axios.post(`/api/employers/${employerToEdit.id}?_method=PUT`, formData, {
+        headers: { 
+          "Content-Type": "multipart/form-data",
+          "Accept": "application/json"
+        },
+        timeout: 10000,
+        signal,
+      });
+      await fetchEmployers(new AbortController().signal);
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setEmployerToEdit(null);
+      setError("");
+      return response.data;
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Update request was aborted");
+        return;
+      }
+      console.error("Error updating employer:", error);
+      throw error;
+    }
   };
 
   const employersPerPage = 5;
@@ -237,7 +279,7 @@ const EmployerList = () => {
   );
 
   const handlePageChange = (page) => {
-    setPagination({ ...pagination, currentPage: page });
+    setPagination({ currentPage: page, totalPages });
   };
 
   const renderPagination = () => {
@@ -304,6 +346,7 @@ const EmployerList = () => {
       <div className="employerlist-dashboard">
         <div className="employerlist-content">
           <h2>{showArchived ? "Archived Employers" : "Employer List"}</h2>
+          {error && <div className="error">{error}</div>}
           <div className="employerlist-header">
             <div className="left-actions">
               <div className="search-container">
@@ -357,7 +400,7 @@ const EmployerList = () => {
                   <th>Owner</th>
                   <th>Email</th>
                   <th>Phone</th>
-                  <th>Credentials</th>
+                  <th>Address</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -395,11 +438,11 @@ const EmployerList = () => {
                           />
                         </div>
                       </td>
-                      <td data-label="Company Name" className="company-name-cell">{employer.company_name || "N/A"}</td>
-                      <td data-label="Owner" className="owner-cell">{getFullName(employer.owner)}</td>
+                      <td data-label="Company Name" className="company-name-cell">{employer.employer?.company_name || "N/A"}</td>
+                      <td data-label="Owner" className="owner-cell">{getFullName({ ...employer.profile, suffixes })}</td>
                       <td data-label="Email">{employer.email || "N/A"}</td>
-                      <td data-label="Phone">{employer.phone || "N/A"}</td>
-                      <td data-label="Credentials">{employer.credentials?.length > 0 ? employer.credentials.join(", ") : "None"}</td>
+                      <td data-label="Phone">{employer.profile?.contact_number || "N/A"}</td>
+                      <td data-label="Address">{employer.employer?.company_address || "N/A"}</td>
                       <td data-label="Created At">{formatDate(employer.created_at)}</td>
                       <td data-label="Updated At">{formatDate(employer.updated_at)}</td>
                     </tr>
@@ -434,7 +477,7 @@ const EmployerList = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{employerToArchive?.company_name}"?</p>
+            <p>Do you want to archive "{employerToArchive?.employer?.company_name || "N/A"}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -452,6 +495,8 @@ const EmployerList = () => {
           onSubmit={isEditMode ? handleEmployerUpdate : handleEmployerAdd}
           isEdit={isEditMode}
           initialData={employerToEdit}
+          genders={genders}
+          suffixes={suffixes}
         />
       )}
     </div>

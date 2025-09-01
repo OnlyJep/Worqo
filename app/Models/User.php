@@ -35,6 +35,32 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class, 'user_id', 'id');
     }
 
+    // Relationship with employers table through profiles
+    public function employer()
+    {
+        return $this->hasOneThrough(
+            Employer::class, // Target model
+            Profile::class,  // Intermediate model
+            'user_id',       // Foreign key on Profile table
+            'profile_id',    // Foreign key on Employer table
+            'id',            // Local key on User table
+            'id'             // Local key on Profile table
+        );
+    }
+
+    // Relationship with workers table through profiles
+    public function worker()
+    {
+        return $this->hasOneThrough(
+            Worker::class,   // Target model
+            Profile::class,  // Intermediate model
+            'user_id',       // Foreign key on Profile table
+            'profile_id',    // Foreign key on Worker table
+            'id',            // Local key on User table
+            'id'             // Local key on Profile table
+        );
+    }
+
     // Relationship with roles table
     public function role()
     {

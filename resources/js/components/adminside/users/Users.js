@@ -37,38 +37,44 @@ const UsersList = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const fetchData = async () => {
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchData(controller.signal);
+    return () => controller.abort();
+  }, [searchTerm, showArchived, pagination.currentPage]);
+
+  const fetchData = async (signal) => {
     try {
       setLoading(true);
       setError(null);
-
-      const [activeResponse, archivedResponse] = await Promise.all([
-        axios.get("http://127.0.0.1:8000/api/users"),
-        axios.get("http://127.0.0.1:8000/api/users/archived"),
-      ]);
-
-      const activeUsers = activeResponse.data.map((user) => ({ ...user, archived: false }));
-      const archivedUsers = archivedResponse.data.map((user) => ({ ...user, archived: true }));
-      setUsers([...activeUsers, ...archivedUsers]);
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      const response = await axios.get("http://127.0.0.1:8000/api/users", {
+        params: { archived: showArchived, search: searchTerm, page: pagination.currentPage, limit: 5 },
+        headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+        signal,
+        timeout: 10000,
+      });
+      setUsers(response.data.users);
+      setPagination({
+        currentPage: response.data.pagination.currentPage,
+        totalPages: response.data.pagination.totalPages,
+      });
     } catch (error) {
+      if (error.name === "AbortError") return;
       console.error("Error fetching users:", error.response?.data || error.message);
-      setError("Failed to fetch users. Please check the server or network.");
+      setError(
+        error.response?.status === 401
+          ? "Unauthorized: Please log in again."
+          : "Failed to fetch users. Please check the server or network."
+      );
       setUsers([]);
     } finally {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    fetchData();
-  }, [navigate]);
-
-  const filteredUsers = users.filter((user) => {
-    const username = user.username?.toLowerCase() || "";
-    const matchesSearch = username.includes(searchTerm.toLowerCase()) || user.email?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesArchived = user.archived === showArchived;
-    return matchesSearch && matchesArchived;
-  });
 
   const toggleSelectUser = (userId) => {
     setSelectedUsers((prev) =>
@@ -77,10 +83,14 @@ const UsersList = () => {
   };
 
   const toggleSelectAll = () => {
-    if (selectedUsers.length === filteredUsers.length) {
+    const currentUsers = filteredUsers.slice(
+      (pagination.currentPage - 1) * usersPerPage,
+      pagination.currentPage * usersPerPage
+    );
+    if (selectedUsers.length === currentUsers.length) {
       setSelectedUsers([]);
     } else {
-      setSelectedUsers(filteredUsers.map((user) => user.id));
+      setSelectedUsers(currentUsers.map((user) => user.id));
     }
   };
 
@@ -102,22 +112,20 @@ const UsersList = () => {
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      const response = await axios.patch(
+      await axios.patch(
         `http://127.0.0.1:8000/api/users/${userToArchive.id}/archive`,
         { archived: true },
         {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-            Accept: "application/json",
-          },
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 5000,
         }
       );
-      if (response.status === 200) {
-        await fetchData();
-        setIsConfirmModalOpen(false);
-        setUserToArchive(null);
-      }
+      setIsConfirmModalOpen(false);
+      setUserToArchive(null);
+      await fetchData(new AbortController().signal);
+      setError(null);
     } catch (error) {
+      if (error.name === "AbortError") return;
       console.error("Error archiving user:", error.response?.data || error.message);
       setError(
         error.response?.status === 401
@@ -133,20 +141,18 @@ const UsersList = () => {
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      const response = await axios.patch(
+      await axios.patch(
         `http://127.0.0.1:8000/api/users/${userId}/archive`,
         { archived: false },
         {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-            Accept: "application/json",
-          },
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 5000,
         }
       );
-      if (response.status === 200) {
-        await fetchData();
-      }
+      await fetchData(new AbortController().signal);
+      setError(null);
     } catch (error) {
+      if (error.name === "AbortError") return;
       console.error("Error restoring user:", error.response?.data || error.message);
       setError(
         error.response?.status === 401
@@ -163,22 +169,19 @@ const UsersList = () => {
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      const requests = selectedUsers.map((userId) =>
-        axios.patch(
-          `http://127.0.0.1:8000/api/users/${userId}/archive`,
-          { archived: action === "archive" },
-          {
-            headers: {
-              Authorization: `Bearer ${authToken}`,
-              Accept: "application/json",
-            },
-          }
-        )
+      await axios.post(
+        "http://127.0.0.1:8000/api/users/bulk-archive",
+        { user_ids: selectedUsers, action },
+        {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 10000,
+        }
       );
-      await Promise.all(requests);
-      await fetchData();
       setSelectedUsers([]);
+      await fetchData(new AbortController().signal);
+      setError(null);
     } catch (error) {
+      if (error.name === "AbortError") return;
       console.error(`Error ${action}ing users:`, error.response?.data || error.message);
       setError(
         error.response?.status === 401
@@ -190,75 +193,181 @@ const UsersList = () => {
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
-    setUserToEdit(null);
+    setUserToEdit({
+      first_name: "",
+      middlename: "",
+      last_name: "",
+      suffix_id: "",
+      email: "",
+      password: "",
+      role_id: "",
+      gender_id: "",
+      contact_number: "",
+      street: "",
+      city: "",
+      province: "",
+      postal_code: "",
+      country: "",
+      profile_img: null,
+      image_url: null,
+    });
     setIsModalOpen(true);
+    setError(null);
   };
 
-  const handleEditClick = async (user) => {
-    try {
-      setLoading(true);
-      const authToken = localStorage.getItem("auth_token");
-      if (!authToken) {
-        throw new Error("No auth token found. Please log in.");
-      }
-      const response = await axios.get(`http://127.0.0.1:8000/api/users/${user.id}`, {
-        headers: { Accept: "application/json", Authorization: `Bearer ${authToken}` },
-      });
-      if (response.status === 200) {
-        setUserToEdit(response.data);
-        setIsEditMode(true);
-        setIsModalOpen(true);
-      }
-    } catch (error) {
-      console.error("Error fetching user for edit:", error.response?.data || error.message);
-      setError("Failed to fetch user data. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+  const handleEditClick = (user) => {
+    setUserToEdit({
+      id: user.id,
+      first_name: user.first_name || "",
+      middlename: user.middlename || "",
+      last_name: user.last_name || "",
+      suffix_id: user.suffix_id ? String(user.suffix_id) : "",
+      email: user.email || "",
+      password: "",
+      role_id: user.role_id ? String(user.role_id) : "",
+      gender_id: user.gender_id ? String(user.gender_id) : "",
+      contact_number: user.contact_number || "",
+      street: user.street || "",
+      city: user.city || "",
+      province: user.province || "",
+      postal_code: user.postal_code || "",
+      country: user.country || "",
+      profile_img: null,
+      image_url: user.profile_img ? `http://127.0.0.1:8000/storage/${user.profile_img}` : null,
+    });
+    setIsEditMode(true);
+    setIsModalOpen(true);
+    setError(null);
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
     setUserToEdit(null);
+    setError(null);
   };
 
-  const handleUserAdd = async (newUser) => {
+  const handleUserAdd = async (formData, signal) => {
     try {
-      await fetchData();
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      const submitData = new FormData();
+      submitData.append("first_name", formData.first_name || "");
+      submitData.append("middlename", formData.middlename || "");
+      submitData.append("last_name", formData.last_name || "");
+      submitData.append("suffix_id", formData.suffix_id || "");
+      submitData.append("email", formData.email || "");
+      if (formData.password) submitData.append("password", formData.password);
+      submitData.append("role_id", formData.role_id || "");
+      submitData.append("gender_id", formData.gender_id || "");
+      submitData.append("contact_number", formData.contact_number || "");
+      submitData.append("street", formData.street || "");
+      submitData.append("city", formData.city || "");
+      submitData.append("province", formData.province || "");
+      submitData.append("postal_code", formData.postal_code || "");
+      submitData.append("country", formData.country || "");
+      if (formData.profile_img instanceof File) {
+        submitData.append("profile_img", formData.profile_img);
+      }
+
+      for (let [key, value] of submitData.entries()) {
+        console.log(`${key}: ${value instanceof File ? value.name : value}`);
+      }
+
+      const response = await axios.post("http://127.0.0.1:8000/api/users", submitData, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "multipart/form-data",
+          Accept: "application/json",
+        },
+        timeout: 10000,
+        signal,
+      });
       setIsModalOpen(false);
+      await fetchData(new AbortController().signal);
+      setError(null);
+      return response.data;
     } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Add request was aborted");
+        return;
+      }
       console.error("Error adding user:", error.response?.data || error.message);
       throw error;
     }
   };
 
-  const handleUserUpdate = async (updatedUser) => {
+  const handleUserUpdate = async (formData, signal) => {
     try {
-      await fetchData();
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      const submitData = new FormData();
+      submitData.append("first_name", formData.first_name || "");
+      submitData.append("middlename", formData.middlename || "");
+      submitData.append("last_name", formData.last_name || "");
+      submitData.append("suffix_id", formData.suffix_id || "");
+      submitData.append("email", formData.email || "");
+      if (formData.password) submitData.append("password", formData.password);
+      submitData.append("role_id", formData.role_id || "");
+      submitData.append("gender_id", formData.gender_id || "");
+      submitData.append("contact_number", formData.contact_number || "");
+      submitData.append("street", formData.street || "");
+      submitData.append("city", formData.city || "");
+      submitData.append("province", formData.province || "");
+      submitData.append("postal_code", formData.postal_code || "");
+      submitData.append("country", formData.country || "");
+      if (formData.profile_img instanceof File) {
+        submitData.append("profile_img", formData.profile_img);
+      } else if (formData.profile_img === null && userToEdit.image_url) {
+        submitData.append("profile_img", "");
+      }
+      submitData.append("_method", "PUT");
+
+      for (let [key, value] of submitData.entries()) {
+        console.log(`${key}: ${value instanceof File ? value.name : value}`);
+      }
+
+      const response = await axios.post(`http://127.0.0.1:8000/api/users/${userToEdit.id}`, submitData, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          "Content-Type": "multipart/form-data",
+          Accept: "application/json",
+        },
+        timeout: 10000,
+        signal,
+      });
       setIsModalOpen(false);
       setIsEditMode(false);
       setUserToEdit(null);
+      await fetchData(new AbortController().signal);
+      setError(null);
+      return response.data;
     } catch (error) {
-      console.error("Error updating user:", {
-        message: error.message,
-        status: error.response?.status,
-        data: error.response?.data,
-      });
+      if (error.name === "AbortError") {
+        console.log("Update request was aborted");
+        return;
+      }
+      console.error("Error updating user:", error.response?.data || error.message);
       throw error;
     }
   };
 
   const usersPerPage = 5;
+  const filteredUsers = users.filter((user) => {
+    const username = user.username?.toLowerCase() || "";
+    const matchesSearch = username.includes(searchTerm.toLowerCase()) || user.email?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesArchived = user.archived === showArchived;
+    return matchesSearch && matchesArchived;
+  });
   const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
   const currentUsers = filteredUsers.slice(
     (pagination.currentPage - 1) * usersPerPage,
     pagination.currentPage * usersPerPage
   );
-
-  const handlePageChange = (page) => {
-    setPagination({ ...pagination, currentPage: page });
-  };
 
   const renderPagination = () => {
     const pageNumbers = [];
@@ -272,7 +381,7 @@ const UsersList = () => {
           <button
             key={i}
             className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => handlePageChange(i)}
+            onClick={() => setPagination({ ...pagination, currentPage: i })}
           >
             {i}
           </button>
@@ -281,7 +390,7 @@ const UsersList = () => {
     } else {
       if (startPage > 1) {
         pageNumbers.push(
-          <button key={1} onClick={() => handlePageChange(1)}>
+          <button key={1} onClick={() => setPagination({ ...pagination, currentPage: 1 })}>
             1
           </button>
         );
@@ -295,7 +404,7 @@ const UsersList = () => {
           <button
             key={i}
             className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => handlePageChange(i)}
+            onClick={() => setPagination({ ...pagination, currentPage: i })}
           >
             {i}
           </button>
@@ -307,7 +416,7 @@ const UsersList = () => {
           pageNumbers.push(<span key="end-ellipsis" className="ellipsis">...</span>);
         }
         pageNumbers.push(
-          <button key={totalPages} onClick={() => handlePageChange(totalPages)}>
+          <button key={totalPages} onClick={() => setPagination({ ...pagination, currentPage: totalPages })}>
             {totalPages}
           </button>
         );
@@ -359,7 +468,6 @@ const UsersList = () => {
               </button>
             </div>
           </div>
-
           <div className="userlist-table">
             <table>
               <thead>
@@ -367,7 +475,7 @@ const UsersList = () => {
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedUsers.length === filteredUsers.length && filteredUsers.length > 0 ? (
+                        {selectedUsers.length === currentUsers.length && currentUsers.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -435,18 +543,17 @@ const UsersList = () => {
               </tbody>
             </table>
           </div>
-
           <div className="userlist-pagination">
             <span>Page {pagination.currentPage} of {totalPages}</span>
             <button
-              onClick={() => handlePageChange(pagination.currentPage - 1)}
+              onClick={() => setPagination({ ...pagination, currentPage: pagination.currentPage - 1 })}
               disabled={pagination.currentPage <= 1}
             >
               {"<"}
             </button>
             {renderPagination()}
             <button
-              onClick={() => handlePageChange(pagination.currentPage + 1)}
+              onClick={() => setPagination({ ...pagination, currentPage: pagination.currentPage + 1 })}
               disabled={pagination.currentPage >= totalPages}
             >
               {">"}
@@ -454,7 +561,6 @@ const UsersList = () => {
           </div>
         </div>
       </div>
-
       {isConfirmModalOpen && (
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
