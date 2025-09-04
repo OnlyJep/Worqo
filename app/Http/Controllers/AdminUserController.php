@@ -364,33 +364,33 @@ class AdminUserController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function bulkArchive(Request $request): JsonResponse
-    {
-        try {
-            $validator = Validator::make($request->all(), [
-                'user_ids' => 'required|array',
-                'user_ids.*' => 'integer|exists:users,id',
-                'action' => 'required|in:archive,restore',
-            ]);
+public function bulkArchive(Request $request): JsonResponse
+{
+    try {
+        $validator = Validator::make($request->all(), [
+            'user_ids' => 'required|array',
+            'user_ids.*' => 'integer|exists:users,id',
+            'action' => 'required|in:archive,restore',
+        ]);
 
-            if ($validator->fails()) {
-                Log::warning('Validation failed for bulk archive:', $validator->errors()->toArray());
-                return response()->json(['messages' => $validator->errors()], 422);
-            }
-
-            $userIds = $request->user_ids;
-            $archived = $request->action === 'archive';
-
-            User::whereIn('id', $userIds)->update(['archived' => $archived]);
-
-            return response()->json([
-                'message' => $archived ? 'Users archived successfully' : 'Users restored successfully',
-            ], 200);
-        } catch (\Exception $e) {
-            Log::error('Error in bulk archive/restore: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['messages' => ['general' => 'Failed to perform bulk action']], 500);
+        if ($validator->fails()) {
+            Log::warning('Validation failed for bulk archive:', $validator->errors()->toArray());
+            return response()->json(['messages' => $validator->errors()], 422);
         }
+
+        $userIds = $request->user_ids;
+        $archived = $request->action === 'archive';
+
+        User::whereIn('id', $userIds)->update(['archived' => $archived]);
+
+        return response()->json([
+            'message' => $archived ? 'Users archived successfully' : 'Users restored successfully',
+        ], 200);
+    } catch (\Exception $e) {
+        Log::error('Error in bulk archive/restore: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+        return response()->json(['messages' => ['general' => 'Failed to perform bulk action']], 500);
     }
+}
 
     /**
      * Helper method to format user response.

@@ -26,7 +26,7 @@ class User extends Authenticatable
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'archived' => 'boolean',
+        // Remove 'archived' => 'boolean' to treat archived as integer (1 or 0)
     ];
 
     // Relationship with profiles table

@@ -1,93 +1,150 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import JobPostModal from "./JobPostModal";
 import "./../../../../sass/components/_jobposttable.scss";
 
+class ErrorBoundary extends React.Component {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return <div>Something went wrong. Please refresh the page.</div>;
+    }
+    return this.props.children;
+  }
+}
+
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  }).format(date);
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return "N/A";
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    }).format(date);
+  } catch {
+    return "N/A";
+  }
 };
 
-const getFullName = (person) => {
-  const { first_name, middlename, last_name, suffix } = person;
+const getProfileName = (profile) => {
+  if (!profile) {
+    console.log("No profile provided to getProfileName");
+    return "N/A";
+  }
+  const { first_name, middlename, last_name, suffix } = profile;
   let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
   if (suffix) fullName += ` ${suffix}`;
-  return fullName.trim() || "N/A";
+  const name = fullName.trim() || "N/A";
+  console.log("Profile name generated:", name, "from profile:", profile);
+  return name;
 };
 
 const JobPostTable = () => {
-  const [jobPosts, setJobPosts] = useState([
-    {
-      id: 1,
-      company_name: "TechCorp Inc.",
-      owner_id: "1", // Updated to use owner_id instead of owner object
-      skills: [{ name: "Maid", rank: "Entry" }],
-      description: "Looking for a reliable maid for office cleaning and maintenance.",
-      created_at: "2025-01-10T09:00:00Z",
-      updated_at: "2025-02-15T11:00:00Z",
-      archived: false,
-    },
-    {
-      id: 2,
-      company_name: "BuildEasy LLC",
-      owner_id: "2", // Updated to use owner_id
-      skills: [{ name: "Plumber", rank: "Entry" }],
-      description: "Seeking a skilled plumber for residential and commercial projects.",
-      created_at: "2025-03-20T10:30:00Z",
-      updated_at: "2025-04-05T12:00:00Z",
-      archived: false,
-    },
-    {
-      id: 3,
-      company_name: "GreenWorks Co.",
-      owner_id: "3", // Updated to use owner_id
-      skills: [{ name: "Electrician", rank: "Entry" }],
-      description: "Need a certified electrician for wiring and installation tasks.",
-      created_at: "2025-05-15T14:00:00Z",
-      updated_at: "2025-06-10T15:00:00Z",
-      archived: true,
-    },
-  ]);
+  const [jobPosts, setJobPosts] = useState([]);
+  const [companies, setCompanies] = useState({});
+  const [profiles, setProfiles] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedPosts, setSelectedPosts] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [postToArchive, setPostToArchive] = useState(null);
-  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
+  const [pagination, setPagination] = useState({ current_page: 1, total_pages: 1, total_items: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [postToEdit, setPostToEdit] = useState(null);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  const fetchJobPosts = async () => {
+    try {
+      const response = await axios.get("http://127.0.0.1:8000/api/jobposts", {
+        params: {
+          search: searchTerm,
+          archived: showArchived,
+          page: pagination.current_page,
+        },
+      });
+      setJobPosts(Array.isArray(response.data.job_posts.data) ? response.data.job_posts.data : []);
+      setPagination(response.data.pagination || { current_page: 1, total_pages: 1, total_items: 0 });
+
+      const companiesResponse = await axios.get("http://127.0.0.1:8000/api/companies");
+      const profilesResponse = await axios.get("http://127.0.0.1:8000/api/users");
+
+      const companiesData = Array.isArray(companiesResponse.data.companies)
+        ? companiesResponse.data.companies
+        : [];
+      const profilesData = Array.isArray(profilesResponse.data.data)
+        ? profilesResponse.data.data
+        : Array.isArray(profilesResponse.data)
+        ? profilesResponse.data
+        : [];
+
+      setCompanies(
+        companiesData.reduce((acc, company) => {
+          if (company.id && company.company_name) {
+            try {
+              company.parsed_profile_ids = JSON.parse(company.profile_id || "[]").map(String);
+            } catch (e) {
+              company.parsed_profile_ids = [];
+            }
+            acc[company.id] = company;
+          }
+          return acc;
+        }, {})
+      );
+      setProfiles(
+        profilesData.reduce((acc, profile) => {
+          if (profile.id) acc[profile.id] = profile;
+          return acc;
+        }, {})
+      );
+      setError(null);
+    } catch (error) {
+      console.error("Error fetching job posts:", {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status,
+      });
+      message.error("Failed to load job posts. Please try again.");
+      setError("Failed to load job posts. Please try again.");
+    }
+  };
+
+  useEffect(() => {
+    fetchJobPosts();
+  }, [searchTerm, showArchived, pagination.current_page]);
+
   const filteredPosts = jobPosts.filter((post) => {
-    const companyName = post.company_name?.toLowerCase() || "";
-    const ownerName = getFullName({ first_name: "John", last_name: "Doe", suffix: "" }); // Mock owner name based on owner_id
-    const skills = post.skills.map((skill) => skill.name.toLowerCase()).join(" ");
+    if (!post) return false;
+    const companyName = companies[post.company_id]?.company_name?.toLowerCase() || "";
+    const ownerName = getProfileName(post.profile)?.toLowerCase() || "";
+    const skills = Array.isArray(post.skills_formatted)
+      ? post.skills_formatted.join(" ").toLowerCase()
+      : "";
     const matchesSearch =
       companyName.includes(searchTerm.toLowerCase()) ||
-      ownerName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      ownerName.includes(searchTerm.toLowerCase()) ||
       skills.includes(searchTerm.toLowerCase());
-    const matchesArchived = post.archived === showArchived;
-    return matchesSearch && matchesArchived;
+    return matchesSearch;
   });
 
   const toggleSelectPost = (postId) => {
     setSelectedPosts((prev) =>
-      prev.includes(postId)
-        ? prev.filter((id) => id !== postId)
-        : [...prev, postId]
+      prev.includes(postId) ? prev.filter((id) => id !== postId) : [...prev, postId]
     );
   };
 
@@ -101,7 +158,7 @@ const JobPostTable = () => {
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
-    setPagination({ ...pagination, currentPage: 1 });
+    setPagination({ ...pagination, current_page: 1 });
     setSelectedPosts([]);
   };
 
@@ -110,35 +167,55 @@ const JobPostTable = () => {
     setIsConfirmModalOpen(true);
   };
 
-  const handleArchiveConfirm = () => {
+  const handleArchiveConfirm = async () => {
     if (!postToArchive) return;
-    setJobPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postToArchive.id ? { ...post, archived: true } : post
-      )
-    );
-    setIsConfirmModalOpen(false);
-    setPostToArchive(null);
+    try {
+      await axios.patch(`http://127.0.0.1:8000/api/jobposts/${postToArchive.id}/archive`, {
+        archived: true,
+      });
+      message.success(`Job post for "${companies[postToArchive.company_id]?.company_name || "N/A"}" archived successfully`);
+      setIsConfirmModalOpen(false);
+      setPostToArchive(null);
+      fetchJobPosts(); // Refresh data after archiving
+    } catch (error) {
+      console.error("Error archiving job post:", error);
+      message.error(error.response?.data?.message || "Failed to archive job post.");
+      setError(error.response?.data?.message || "Failed to archive job post.");
+    }
   };
 
-  const handleRestorePost = (postId) => {
-    setJobPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postId ? { ...post, archived: false } : post
-      )
-    );
+  const handleRestorePost = async (postId) => {
+    try {
+      await axios.patch(`http://127.0.0.1:8000/api/jobposts/${postId}/archive`, {
+        archived: false,
+      });
+      message.success("Job post restored successfully");
+      fetchJobPosts(); // Refresh data after restoring
+    } catch (error) {
+      console.error("Error restoring job post:", error);
+      message.error(error.response?.data?.message || "Failed to restore job post.");
+      setError(error.response?.data?.message || "Failed to restore job post.");
+    }
   };
 
-  const handleBulkAction = (action) => {
-    if (selectedPosts.length === 0) return;
-    setJobPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        selectedPosts.includes(post.id)
-          ? { ...post, archived: action === "archive" }
-          : post
-      )
-    );
-    setSelectedPosts([]);
+  const handleBulkAction = async (action) => {
+    if (selectedPosts.length === 0) {
+      message.warning("No job posts selected.");
+      return;
+    }
+    try {
+      await axios.post("http://127.0.0.1:8000/api/jobposts/bulk-archive", {
+        ids: selectedPosts,
+        archived: action === "archive",
+      });
+      message.success(`Selected job posts ${action === "archive" ? "archived" : "restored"} successfully`);
+      setSelectedPosts([]);
+      fetchJobPosts(); // Refresh data after bulk action
+    } catch (error) {
+      console.error(`Error performing bulk ${action}:`, error);
+      message.error(error.response?.data?.message || `Failed to ${action} job posts.`);
+      setError(error.response?.data?.message || `Failed to ${action} job posts.`);
+    }
   };
 
   const handleAddNewClick = () => {
@@ -148,13 +225,7 @@ const JobPostTable = () => {
   };
 
   const handleEditClick = (post) => {
-    setPostToEdit({
-      ...post,
-      company_name: post.company_name || "",
-      owner_id: post.owner_id || "",
-      skills: post.skills || [{ name: "", rank: "Entry" }],
-      description: post.description || "",
-    });
+    setPostToEdit(post);
     setIsEditMode(true);
     setIsModalOpen(true);
   };
@@ -165,65 +236,56 @@ const JobPostTable = () => {
     setPostToEdit(null);
   };
 
-  const handlePostAdd = (newPost) => {
-    const addedPost = {
-      id: jobPosts.length + 1,
-      company_name: newPost.company_name || "Unknown",
-      owner_id: newPost.owner_id || "1", // Default to first employer
-      skills: newPost.skills || [{ name: "Unknown", rank: "Entry" }],
-      description: newPost.description || "",
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      archived: false,
-    };
-    setJobPosts((prevPosts) => [addedPost, ...prevPosts]);
-    setIsModalOpen(false);
+  const handlePostAdd = async (newPost) => {
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/jobposts", newPost);
+      setJobPosts((prevPosts) => [response.data, ...prevPosts]);
+      message.success("Job post created successfully");
+      setIsModalOpen(false);
+      fetchJobPosts(); // Refresh data after adding
+    } catch (error) {
+      console.error("Error adding job post:", error);
+      message.error(error.response?.data?.message || "Failed to create job post.");
+      throw error;
+    }
   };
 
-  const handlePostUpdate = (updatedPost) => {
-    setJobPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postToEdit.id
-          ? {
-              ...post,
-              company_name: updatedPost.company_name,
-              owner_id: updatedPost.owner_id,
-              skills: updatedPost.skills,
-              description: updatedPost.description,
-              updated_at: new Date().toISOString(),
-            }
-          : post
-      )
-    );
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setPostToEdit(null);
-  };
-
-  const postsPerPage = 5;
-  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-  const currentPosts = filteredPosts.slice(
-    (pagination.currentPage - 1) * postsPerPage,
-    pagination.currentPage * postsPerPage
-  );
-
-  const handlePageChange = (page) => {
-    setPagination({ ...pagination, currentPage: page });
+  const handlePostUpdate = async (updatedPost) => {
+    try {
+      const response = await axios.put(
+        `http://127.0.0.1:8000/api/jobposts/${postToEdit.id}`,
+        updatedPost
+      );
+      setJobPosts((prevPosts) =>
+        prevPosts.map((post) =>
+          post.id === postToEdit.id ? response.data : post
+        )
+      );
+      message.success("Job post updated successfully");
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setPostToEdit(null);
+      fetchJobPosts(); // Refresh data after updating
+    } catch (error) {
+      console.error("Error updating job post:", error);
+      message.error(error.response?.data?.message || "Failed to update job post.");
+      throw error;
+    }
   };
 
   const renderPagination = () => {
     const pageNumbers = [];
     const maxPagesToShow = 5;
-    const startPage = Math.max(1, pagination.currentPage - Math.floor(maxPagesToShow / 2));
-    const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+    const startPage = Math.max(1, pagination.current_page - Math.floor(maxPagesToShow / 2));
+    const endPage = Math.min(pagination.total_pages, startPage + maxPagesToShow - 1);
 
-    if (totalPages <= maxPagesToShow) {
-      for (let i = 1; i <= totalPages; i++) {
+    if (pagination.total_pages <= maxPagesToShow) {
+      for (let i = 1; i <= pagination.total_pages; i++) {
         pageNumbers.push(
           <button
             key={i}
-            className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => handlePageChange(i)}
+            className={pagination.current_page === i ? "active" : ""}
+            onClick={() => setPagination({ ...pagination, current_page: i })}
           >
             {i}
           </button>
@@ -232,7 +294,7 @@ const JobPostTable = () => {
     } else {
       if (startPage > 1) {
         pageNumbers.push(
-          <button key={1} onClick={() => handlePageChange(1)}>
+          <button key={1} onClick={() => setPagination({ ...pagination, current_page: 1 })}>
             1
           </button>
         );
@@ -245,21 +307,24 @@ const JobPostTable = () => {
         pageNumbers.push(
           <button
             key={i}
-            className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => handlePageChange(i)}
+            className={pagination.current_page === i ? "active" : ""}
+            onClick={() => setPagination({ ...pagination, current_page: i })}
           >
             {i}
           </button>
         );
       }
 
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
+      if (endPage < pagination.total_pages) {
+        if (endPage < pagination.total_pages - 1) {
           pageNumbers.push(<span key="end-ellipsis" className="ellipsis">...</span>);
         }
         pageNumbers.push(
-          <button key={totalPages} onClick={() => handlePageChange(totalPages)}>
-            {totalPages}
+          <button
+            key={pagination.total_pages}
+            onClick={() => setPagination({ ...pagination, current_page: pagination.total_pages })}
+          >
+            {pagination.total_pages}
           </button>
         );
       }
@@ -275,6 +340,7 @@ const JobPostTable = () => {
       <div className="jobposttable-dashboard">
         <div className="jobposttable-content">
           <h2>{showArchived ? "Archived Job Posts" : "Job Posts"}</h2>
+          {error && <div className="error-message">{error}</div>}
           <div className="jobposttable-header">
             <div className="left-actions">
               <div className="search-container">
@@ -308,112 +374,114 @@ const JobPostTable = () => {
               </button>
             </div>
           </div>
-
-          <div className="jobposttable-table">
-            <table>
-              <thead>
-                <tr>
-                  <th>
-                    <div className="header-actions-icon">
-                      <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedPosts.length === filteredPosts.length && filteredPosts.length > 0 ? (
-                          <FaCheckSquare className="checkbox-icon" />
-                        ) : (
-                          <FaSquare className="checkbox-icon" />
-                        )}
-                      </span>
-                      Actions
-                    </div>
-                  </th>
-                  <th>Company</th>
-                  <th>Owner</th>
-                  <th>Skills</th>
-                  <th>Description</th>
-                  <th>Created At</th>
-                  <th>Updated At</th>
-                </tr>
-              </thead>
-              <tbody>
-                {currentPosts.length > 0 ? (
-                  currentPosts.map((post) => (
-                    <tr key={post.id}>
-                      <td>
-                        <div className="action-icons">
-                          <span onClick={() => toggleSelectPost(post.id)} style={{ cursor: "pointer" }}>
-                            {selectedPosts.includes(post.id) ? (
-                              <FaCheckSquare className="checkbox-icon" size={16} />
-                            ) : (
-                              <FaSquare className="checkbox-icon" size={16} />
-                            )}
-                          </span>
-                          {showArchived ? (
-                            <FaCheckCircle
-                              size={16}
-                              className="restore-icon"
-                              onClick={() => handleRestorePost(post.id)}
-                            />
-                          ) : (
-                            <FaTrash
-                              size={16}
-                              className="delete-icon"
-                              onClick={() => handleArchiveClick(post)}
-                            />
-                          )}
-                          <FaUser
-                            size={16}
-                            className="edit-icon"
-                            onClick={() => handleEditClick(post)}
-                          />
-                        </div>
-                      </td>
-                      <td className="company-cell">{post.company_name || "N/A"}</td>
-                      <td className="owner-cell">{getFullName({ first_name: "John", last_name: "Doe", suffix: "" })}</td>
-                      <td className="skills-cell">
-                        {post.skills.map((skill, index) => (
-                          <span key={index} className="skill-badge">
-                            <span className="skill-name">{skill.name}</span>
-                            <span className="skill-rank">{skill.rank}</span>
-                          </span>
-                        ))}
-                      </td>
-                      <td className="description-cell">{post.description || "N/A"}</td>
-                      <td>{formatDate(post.created_at)}</td>
-                      <td>{formatDate(post.updated_at)}</td>
-                    </tr>
-                  ))
-                ) : (
+          <ErrorBoundary>
+            <div className="jobposttable-table">
+              <table>
+                <thead>
                   <tr>
-                    <td colSpan="7">No {showArchived ? "archived" : "active"} job posts found</td>
+                    <th>
+                      <div className="header-actions-icon">
+                        <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
+                          {selectedPosts.length === filteredPosts.length && filteredPosts.length > 0 ? (
+                            <FaCheckSquare className="checkbox-icon" />
+                          ) : (
+                            <FaSquare className="checkbox-icon" />
+                          )}
+                        </span>
+                        Actions
+                      </div>
+                    </th>
+                    <th>Company</th>
+                    <th>Owner</th>
+                    <th>Skills</th>
+                    <th>Description</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
                   </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-
+                </thead>
+                <tbody>
+                  {filteredPosts.length > 0 ? (
+                    filteredPosts.map((post) => (
+                      <tr key={post.id}>
+                        <td>
+                          <div className="action-icons">
+                            <span onClick={() => toggleSelectPost(post.id)} style={{ cursor: "pointer" }}>
+                              {selectedPosts.includes(post.id) ? (
+                                <FaCheckSquare className="checkbox-icon" size={16} />
+                              ) : (
+                                <FaSquare className="checkbox-icon" size={16} />
+                              )}
+                            </span>
+                            {showArchived ? (
+                              <FaCheckCircle
+                                size={16}
+                                className="restore-icon"
+                                onClick={() => handleRestorePost(post.id)}
+                              />
+                            ) : (
+                              <FaTrash
+                                size={16}
+                                className="delete-icon"
+                                onClick={() => handleArchiveClick(post)}
+                              />
+                            )}
+                            <FaEdit
+                              size={16}
+                              className="edit-icon"
+                              onClick={() => handleEditClick(post)}
+                            />
+                          </div>
+                        </td>
+                        <td className="company-cell">{companies[post.company_id]?.company_name || "N/A"}</td>
+                        <td className="owner-cell">{getProfileName(post.profile)}</td>
+                        <td className="skills-cell">
+                          {Array.isArray(post.skills_formatted) && post.skills_formatted.length > 0 ? (
+                            post.skills_formatted.map((skill, index) => (
+                              <span key={index} className="skill-badge">
+                                {skill || "N/A"}
+                              </span>
+                            ))
+                          ) : (
+                            "N/A"
+                          )}
+                        </td>
+                        <td className="description-cell">{post.description || "N/A"}</td>
+                        <td>{formatDate(post.created_at)}</td>
+                        <td>{formatDate(post.updated_at)}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="7">No {showArchived ? "archived" : "active"} job posts found</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </ErrorBoundary>
           <div className="jobposttable-pagination">
-            <span>Page {pagination.currentPage} of {totalPages}</span>
+            <span>Page {pagination.current_page} of {pagination.total_pages}</span>
             <button
-              onClick={() => handlePageChange(pagination.currentPage - 1)}
-              disabled={pagination.currentPage <= 1}
+              onClick={() => setPagination({ ...pagination, current_page: pagination.current_page - 1 })}
+              disabled={pagination.current_page <= 1}
             >
               {"<"}
             </button>
             {renderPagination()}
             <button
-              onClick={() => handlePageChange(pagination.currentPage + 1)}
-              disabled={pagination.currentPage >= totalPages}
+              onClick={() => setPagination({ ...pagination, current_page: pagination.current_page + 1 })}
+              disabled={pagination.current_page >= pagination.total_pages}
             >
               {">"}
             </button>
           </div>
         </div>
       </div>
-
       {isConfirmModalOpen && (
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive job post for "{postToArchive?.company_name}"?</p>
+            <p>Do you want to archive job post for "{companies[postToArchive?.company_id]?.company_name || "N/A"}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -426,12 +494,15 @@ const JobPostTable = () => {
         </div>
       )}
       {isModalOpen && (
-        <JobPostModal
-          onClose={handleModalClose}
-          onSubmit={isEditMode ? handlePostUpdate : handlePostAdd}
-          isEdit={isEditMode}
-          initialData={postToEdit}
-        />
+        <ErrorBoundary>
+          <JobPostModal
+            onClose={handleModalClose}
+            onSubmit={isEditMode ? handlePostUpdate : handlePostAdd}
+            isEdit={isEditMode}
+            initialData={postToEdit}
+            onRefresh={fetchJobPosts}
+          />
+        </ErrorBoundary>
       )}
     </div>
   );

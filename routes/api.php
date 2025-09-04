@@ -16,6 +16,10 @@ use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\WorkerController;
 use App\Http\Controllers\AdminListController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\JobPostController;
+use App\Http\Controllers\DashboardController;
 
 // AUTHENTICATION ROUTES
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -35,6 +39,7 @@ Route::get('/users/{id}', [AdminUserController::class, 'show']);
 Route::post('/users', [AdminUserController::class, 'store']);
 Route::put('/users/{id}', [AdminUserController::class, 'update']);
 Route::patch('/users/{id}/archive', [AdminUserController::class, 'archive']);
+Route::post('/users/bulk-archive', [AdminUserController::class, 'bulkArchive']);
 
 // ROLES ROUTES
 Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
@@ -77,6 +82,14 @@ Route::post('/skills', [SkillController::class, 'store']);
 Route::put('/skills/{id}', [SkillController::class, 'update']);
 Route::patch('/skills/{id}/archive', [SkillController::class, 'archive']);
 
+// SERVICES ROUTES
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
+Route::get('/services/{id}', [ServiceController::class, 'show'])->name('services.show');
+Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
+Route::put('/services/{id}', [ServiceController::class, 'update'])->name('services.update');
+Route::patch('/services/{id}/archive', [ServiceController::class, 'archive'])->name('services.archive');
+Route::post('/services/bulk-archive', [ServiceController::class, 'bulkArchive'])->name('services.bulkArchive');
+
 // FETCH FOR REGISTRATION GENDERS AND SUFFIXES
 Route::get('/genders', [GenderController::class, 'getGenders']);
 Route::get('/suffixes', [SuffixController::class, 'getSuffixes']);
@@ -96,14 +109,35 @@ Route::get('/workers/archived', [WorkerController::class, 'archived'])->name('wo
 Route::get('/workers/{id}', [WorkerController::class, 'show'])->name('workers.show');
 Route::post('/workers', [WorkerController::class, 'store'])->name('workers.store');
 Route::put('/workers/{id}', [WorkerController::class, 'update'])->name('workers.update');
-Route::patch('/workers/{id}/archive', [WorkerController::class, 'archive'])->name('workers.archive');
+Route::patch('/workers/{id}/archive', [WorkerController::class, 'updateArchiveStatus'])->name('workers.archive');
 Route::post('/workers/bulk-archive', [WorkerController::class, 'bulkArchive'])->name('workers.bulkArchive');
 
 // ADMIN ROUTES
-Route::get('/admins', [AdminListController::class, 'index'])->name('admins.index');
-Route::get('/admins/archived', [AdminListController::class, 'archived'])->name('admins.archived');
-Route::get('/admins/{id}', [AdminListController::class, 'show'])->name('admins.show');
-Route::post('/admins/register', [AdminListController::class, 'register'])->name('admins.register');
-Route::post('/admins/{id}', [AdminListController::class, 'update'])->name('admins.update');
-Route::patch('/admins/{id}/archive', [AdminListController::class, 'archive'])->name('admins.archive');
-Route::post('/admins/bulk-archive', [AdminListController::class, 'bulkArchive'])->name('admins.bulkArchive');
+Route::get('/admins', [AdminListController::class, 'index']);
+Route::get('/admins/archived', [AdminListController::class, 'archived']);
+Route::get('/admins/{id}', [AdminListController::class, 'show']);
+Route::post('/admins', [AdminListController::class, 'store']);
+Route::put('/admins/{id}', [AdminListController::class, 'update']);
+Route::patch('/admins/{id}/archive', [AdminListController::class, 'archive']);
+Route::post('/admins/bulk-archive', [AdminListController::class, 'bulkArchive']);
+
+// COMPANY ROUTES
+Route::get('/companies', [CompanyController::class, 'index'])->name('companies.index');
+Route::get('/companies/archived', [CompanyController::class, 'archived'])->name('companies.archived');
+Route::get('/companies/{id}', [CompanyController::class, 'show'])->name('companies.show');
+Route::post('/companies', [CompanyController::class, 'store'])->name('companies.store');
+Route::put('/companies/{id}', [CompanyController::class, 'update'])->name('companies.update');
+Route::patch('/companies/{id}/archive', [CompanyController::class, 'archive'])->name('companies.archive');
+Route::post('/companies/bulk-archive', [CompanyController::class, 'bulkArchive'])->name('companies.bulk-archive');
+
+// JOB POST ROUTES
+Route::get('/jobposts', [JobPostController::class, 'index'])->name('jobposts.index');
+Route::get('/jobposts/{jobPost}', [JobPostController::class, 'show'])->name('jobposts.show');
+Route::post('/jobposts', [JobPostController::class, 'store'])->name('jobposts.store');
+Route::put('/jobposts/{jobPost}', [JobPostController::class, 'update'])->name('jobposts.update');
+Route::patch('/jobposts/{jobPost}/archive', [JobPostController::class, 'archive'])->name('jobposts.archive');
+Route::delete('/jobposts/{jobPost}', [JobPostController::class, 'destroy'])->name('jobposts.destroy');
+Route::post('/jobposts/bulk-archive', [JobPostController::class, 'bulkArchive'])->name('jobposts.bulkArchive');
+
+// DASHBOARD STATS ROUTE
+Route::get('/dashboard-stats', [DashboardController::class, 'getDashboardStats'])->name('dashboard.stats');

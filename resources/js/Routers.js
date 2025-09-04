@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import ReactDOM from "react-dom"; // Correct for React 17
+import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
@@ -32,8 +32,9 @@ import JobProfile from "./components/HeaderContent/JobProfile";
 import AboutUs from "./components/HeaderContent/AboutUs";
 import Message from "./components/HeaderContent/Message";
 import Notif from "./components/HeaderContent/Notif";
+import Services from "./components/adminside/services/Services";
+import Company from "./components/adminside/company/Company.js";
 
-// Authentication utility function
 const useAuth = () => {
   return useMemo(() => {
     const token = localStorage.getItem("auth_token");
@@ -43,10 +44,9 @@ const useAuth = () => {
       return { isAuthenticated: true, userRole: user.role_id };
     }
     return { isAuthenticated: false, userRole: null };
-  }, []); // Empty dependency array to run once on mount
+  }, []);
 };
 
-// Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const location = useLocation();
   const { isAuthenticated, userRole } = useAuth();
@@ -62,13 +62,11 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   return children;
 };
 
-// Public Route Component (for Login and Register)
 const PublicRoute = ({ children }) => {
   const { isAuthenticated, userRole } = useAuth();
   const location = useLocation();
 
   if (isAuthenticated) {
-    // Redirect based on user role
     const targetRoute = userRole === 3 ? "/admin" : "/homepage";
     return <Navigate to={targetRoute} replace state={{ from: location }} />;
   }
@@ -76,7 +74,6 @@ const PublicRoute = ({ children }) => {
   return children;
 };
 
-// Root Route Component to handle initial redirect
 const RootRoute = () => {
   const { isAuthenticated, userRole } = useAuth();
 
@@ -84,7 +81,6 @@ const RootRoute = () => {
     return <Navigate to="/homepage" replace />;
   }
 
-  // Redirect based on user role
   const targetRoute = userRole === 3 ? "/admin" : "/homepage";
   return <Navigate to={targetRoute} replace />;
 };
@@ -241,6 +237,22 @@ export default function Routers() {
           element={
             <ProtectedRoute allowedRoles={[3]}>
               <RolesManagement />
+            </ProtectedRoute>
+          }
+        />
+              <Route
+          path="/admin/company"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Company />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/services"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Services />
             </ProtectedRoute>
           }
         />

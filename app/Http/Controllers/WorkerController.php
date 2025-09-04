@@ -5,29 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Worker;
 use App\Models\Profile;
 use App\Models\User;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Collection;
-use App\Models\Suffix;
 
 class WorkerController extends Controller
 {
-    /**
-     * Fetch active workers with role_id = 1.
-     *
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function index(Request $request): JsonResponse
     {
         try {
             $search = $request->query('search', '');
             $page = $request->query('page', 1);
-            $limit = $request->query('limit', 5);
+            $limit = $request->query('limit', 10);
 
             $query = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
@@ -44,7 +37,6 @@ class WorkerController extends Controller
 
             $workers = $query->paginate($limit, ['*'], 'page', $page);
 
-            // Create Profile and Worker records if they don't exist
             foreach ($workers as $user) {
                 if (!$user->profile) {
                     $user->profile()->create([
@@ -63,6 +55,8 @@ class WorkerController extends Controller
                         ['profile_id' => $user->profile->id],
                         [
                             'work_type' => 'part-time',
+                            'skills_id' => null,
+                            'credentials_name' => null,
                             'credentials_photo' => null,
                             'archived' => false,
                         ]
@@ -70,7 +64,6 @@ class WorkerController extends Controller
                 }
             }
 
-            // Re-fetch to include newly created records
             $workers = $query->paginate($limit, ['*'], 'page', $page);
 
             $response = [
@@ -84,7 +77,12 @@ class WorkerController extends Controller
                 ],
             ];
 
-            Log::info('Fetched active workers', ['count' => $workers->count(), 'page' => $page, 'limit' => $limit]);
+            Log::info('Fetched active workers with role_id = 1', [
+                'count' => $workers->count(),
+                'page' => $page,
+                'limit' => $limit,
+                'total' => $workers->total(),
+            ]);
 
             return response()->json($response, 200);
         } catch (\Exception $e) {
@@ -93,18 +91,12 @@ class WorkerController extends Controller
         }
     }
 
-    /**
-     * Fetch archived workers with role_id = 1.
-     *
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function archived(Request $request): JsonResponse
     {
         try {
             $search = $request->query('search', '');
             $page = $request->query('page', 1);
-            $limit = $request->query('limit', 5);
+            $limit = $request->query('limit', 10);
 
             $query = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
@@ -121,7 +113,6 @@ class WorkerController extends Controller
 
             $workers = $query->paginate($limit, ['*'], 'page', $page);
 
-            // Create Profile and Worker records if they don't exist
             foreach ($workers as $user) {
                 if (!$user->profile) {
                     $user->profile()->create([
@@ -140,6 +131,8 @@ class WorkerController extends Controller
                         ['profile_id' => $user->profile->id],
                         [
                             'work_type' => 'part-time',
+                            'skills_id' => null,
+                            'credentials_name' => null,
                             'credentials_photo' => null,
                             'archived' => true,
                         ]
@@ -147,7 +140,6 @@ class WorkerController extends Controller
                 }
             }
 
-            // Re-fetch to include newly created records
             $workers = $query->paginate($limit, ['*'], 'page', $page);
 
             $response = [
@@ -161,7 +153,12 @@ class WorkerController extends Controller
                 ],
             ];
 
-            Log::info('Fetched archived workers', ['count' => $workers->count(), 'page' => $page, 'limit' => $limit]);
+            Log::info('Fetched archived workers with role_id = 1', [
+                'count' => $workers->count(),
+                'page' => $page,
+                'limit' => $limit,
+                'total' => $workers->total(),
+            ]);
 
             return response()->json($response, 200);
         } catch (\Exception $e) {
@@ -170,12 +167,6 @@ class WorkerController extends Controller
         }
     }
 
-    /**
-     * Fetch a single worker by ID with role_id = 1.
-     *
-     * @param int $id
-     * @return JsonResponse
-     */
     public function show($id): JsonResponse
     {
         try {
@@ -200,6 +191,8 @@ class WorkerController extends Controller
                     ['profile_id' => $user->profile->id],
                     [
                         'work_type' => 'part-time',
+                        'skills_id' => null,
+                        'credentials_name' => null,
                         'credentials_photo' => null,
                         'archived' => $user->archived,
                     ]
@@ -209,7 +202,7 @@ class WorkerController extends Controller
                     ->findOrFail($id);
             }
 
-            Log::info('Fetched worker', ['id' => $id]);
+            Log::info('Fetched worker with role_id = 1', ['id' => $id]);
             return response()->json($this->formatWorker($user), 200);
         } catch (\Exception $e) {
             Log::error('Error fetching worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
@@ -217,12 +210,6 @@ class WorkerController extends Controller
         }
     }
 
-    /**
-     * Create a new worker with role_id = 1.
-     *
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function store(Request $request): JsonResponse
     {
         try {
@@ -237,13 +224,17 @@ class WorkerController extends Controller
                 'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
                 'street' => 'nullable|string|max:255',
                 'work_type' => 'required|in:part-time,full-time,one-time',
+                'skills_id' => 'nullable|array',
+                'skills_id.*' => 'integer|exists:skills,id',
                 'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-                'credentials_photo.*' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                'credentials' => 'nullable|array',
+                'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
+                'credentials.*.credentials_photo' => 'required_with:credentials.*.credentials_name|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
             ]);
 
             if ($validator->fails()) {
                 Log::warning('Validation failed for worker creation', ['errors' => $validator->errors()->toArray()]);
-                return response()->json(['error' => $validator->errors()->first()], 400);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
             }
 
             $user = User::create([
@@ -270,26 +261,44 @@ class WorkerController extends Controller
             ];
 
             if ($request->hasFile('profile_img')) {
-                $profileData['profile_img'] = $request->file('profile_img')->store('profiles', 'public');
+                $file = $request->file('profile_img');
+                $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                $path = $file->storeAs('profiles', $filename, 'public');
+                $profileData['profile_img'] = $path;
             }
 
             $profile = Profile::create($profileData);
 
-            $credentials = [];
-            if ($request->hasFile('credentials_photo')) {
-                foreach ($request->file('credentials_photo') as $file) {
-                    $credentials[] = $file->store('credentials', 'public');
+            $credentials_name = [];
+            $credentials_photo = [];
+            if ($request->has('credentials') && is_array($request->credentials)) {
+                foreach ($request->credentials as $credential) {
+                    if (isset($credential['credentials_name']) && isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
+                        $file = $credential['credentials_photo'];
+                        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                        $path = $file->storeAs('credentialsphoto', $filename, 'public');
+                        $credentials_name[] = $credential['credentials_name'];
+                        $credentials_photo[] = $path;
+                    }
                 }
             }
 
             $worker = Worker::create([
                 'profile_id' => $profile->id,
                 'work_type' => $request->work_type,
-                'credentials_photo' => $credentials ?: null,
+                'skills_id' => $request->skills_id ?? null,
+                'credentials_name' => !empty($credentials_name) ? $credentials_name : null,
+                'credentials_photo' => !empty($credentials_photo) ? $credentials_photo : null,
                 'archived' => false,
             ]);
 
-            Log::info('Worker created', ['worker_id' => $worker->id, 'profile_id' => $profile->id]);
+            Log::info('Worker created', [
+                'worker_id' => $worker->id,
+                'profile_id' => $profile->id,
+                'skills_id' => $request->skills_id,
+                'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo
+            ]);
 
             return response()->json([
                 'message' => 'Worker created successfully',
@@ -301,13 +310,6 @@ class WorkerController extends Controller
         }
     }
 
-    /**
-     * Update an existing worker with role_id = 1.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return JsonResponse
-     */
     public function update(Request $request, $id): JsonResponse
     {
         try {
@@ -333,6 +335,8 @@ class WorkerController extends Controller
                     ['profile_id' => $user->profile->id],
                     [
                         'work_type' => $request->work_type ?? 'part-time',
+                        'skills_id' => null,
+                        'credentials_name' => null,
                         'credentials_photo' => null,
                         'archived' => $user->archived,
                     ]
@@ -353,13 +357,17 @@ class WorkerController extends Controller
                 'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
                 'street' => 'nullable|string|max:255',
                 'work_type' => 'required|in:part-time,full-time,one-time',
+                'skills_id' => 'nullable|array',
+                'skills_id.*' => 'integer|exists:skills,id',
                 'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-                'credentials_photo.*' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                'credentials' => 'nullable|array',
+                'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
+                'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
             ]);
 
             if ($validator->fails()) {
                 Log::warning('Validation failed for worker update', ['errors' => $validator->errors()->toArray()]);
-                return response()->json(['error' => $validator->errors()->first()], 400);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
             }
 
             $user->update([
@@ -376,39 +384,67 @@ class WorkerController extends Controller
                 'gender_id' => $request->gender_id,
                 'contact_number' => $request->contact_number,
                 'street' => $request->street,
-                'city' => $request->city ?? $user->profile->city ?? 'Butuan City',
-                'province' => $request->province ?? $user->profile->province ?? 'Agusan Del Norte',
-                'postal_code' => $request->postal_code ?? $user->profile->postal_code ?? '8600',
-                'country' => $request->country ?? $user->profile->country ?? 'Philippines',
+                'city' => $request->city ?? $user->profile->city,
+                'province' => $request->province ?? $user->profile->province,
+                'postal_code' => $request->postal_code ?? $user->profile->postal_code,
+                'country' => $request->country ?? $user->profile->country,
             ];
 
             if ($request->hasFile('profile_img')) {
-                if ($user->profile->profile_img) {
+                if ($user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
                     Storage::disk('public')->delete($user->profile->profile_img);
                 }
-                $profileData['profile_img'] = $request->file('profile_img')->store('profiles', 'public');
+                $file = $request->file('profile_img');
+                $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                $path = $file->storeAs('profiles', $filename, 'public');
+                $profileData['profile_img'] = $path;
             }
 
             $user->profile->update($profileData);
 
-            $credentials = $user->worker->credentials_photo ?? [];
-            if ($request->hasFile('credentials_photo')) {
-                foreach ($user->worker->credentials_photo ?? [] as $oldFile) {
-                    Storage::disk('public')->delete($oldFile);
+            $credentials_name = [];
+            $credentials_photo = [];
+            $existing_credentials_name = $user->worker->credentials_name ?? [];
+            $existing_credentials_photo = $user->worker->credentials_photo ?? [];
+
+            if ($request->has('credentials') && is_array($request->credentials)) {
+                foreach ($request->credentials as $index => $credential) {
+                    if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
+                        $credentials_name[] = $credential['credentials_name'];
+                        if (isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
+                            $file = $credential['credentials_photo'];
+                            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                            $path = $file->storeAs('credentialsphoto', $filename, 'public');
+                            $credentials_photo[] = $path;
+                        } else if (isset($existing_credentials_photo[$index]) && !empty($existing_credentials_photo[$index])) {
+                            $credentials_photo[] = $existing_credentials_photo[$index];
+                        } else {
+                            $credentials_photo[] = null;
+                        }
+                    }
                 }
-                $credentials = [];
-                foreach ($request->file('credentials_photo') as $file) {
-                    $credentials[] = $file->store('credentials', 'public');
+
+                foreach ($existing_credentials_photo as $index => $oldPhoto) {
+                    if ($oldPhoto && !in_array($oldPhoto, $credentials_photo) && Storage::disk('public')->exists($oldPhoto)) {
+                        Storage::disk('public')->delete($oldPhoto);
+                    }
                 }
             }
 
             $user->worker->update([
                 'work_type' => $request->work_type,
-                'credentials_photo' => $credentials ?: null,
+                'skills_id' => $request->skills_id ?? null,
+                'credentials_name' => !empty($credentials_name) ? $credentials_name : null,
+                'credentials_photo' => !empty($credentials_photo) ? $credentials_photo : null,
                 'archived' => $user->archived,
             ]);
 
-            Log::info('Worker updated', ['worker_id' => $user->worker->id]);
+            Log::info('Worker updated', [
+                'worker_id' => $user->worker->id,
+                'skills_id' => $request->skills_id,
+                'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo
+            ]);
 
             return response()->json([
                 'message' => 'Worker updated successfully',
@@ -420,190 +456,122 @@ class WorkerController extends Controller
         }
     }
 
-    /**
-     * Archive or restore a worker with role_id = 1.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return JsonResponse
-     */
-    public function archive(Request $request, $id): JsonResponse
+    public function updateArchiveStatus(Request $request, $id): JsonResponse
     {
         try {
+            $validator = Validator::make($request->all(), [
+                'archived' => 'required|boolean',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for archive status update', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
             $user = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
                 ->findOrFail($id);
 
-            if (!$user->profile) {
-                $user->profile()->create([
-                    'user_id' => $user->id,
-                    'first_name' => 'Unknown',
-                    'last_name' => 'Worker',
-                    'email' => $user->email,
-                    'city' => 'Butuan City',
-                    'province' => 'Agusan Del Norte',
-                    'postal_code' => '8600',
-                    'country' => 'Philippines',
-                ]);
+            $newStatus = $request->input('archived');
+            if ($user->archived === $newStatus) {
+                return response()->json(['error' => 'Worker is already ' . ($newStatus ? 'archived' : 'restored')], 400);
             }
 
-            if (!$user->worker) {
-                Worker::updateOrCreate(
-                    ['profile_id' => $user->profile->id],
-                    [
-                        'work_type' => 'part-time',
-                        'credentials_photo' => null,
-                        'archived' => $user->archived,
-                    ]
-                );
-                $user = User::with(['profile', 'worker'])
-                    ->where('role_id', 1)
-                    ->findOrFail($id);
+            $user->update(['archived' => $newStatus]);
+
+            if ($user->worker) {
+                $user->worker->update(['archived' => $newStatus]);
             }
 
-            $archived = $request->input('archived', true);
-            $user->update(['archived' => $archived]);
-            $user->worker->update(['archived' => $archived]);
-
-            Log::info('Worker archived/restored', ['id' => $id, 'archived' => $archived]);
-
-            return response()->json([
-                'message' => $archived ? 'Worker archived successfully' : 'Worker restored successfully',
-                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
-            ], 200);
+            Log::info('Worker archive status updated', ['id' => $id, 'archived' => $newStatus]);
+            return response()->json(['message' => 'Worker ' . ($newStatus ? 'archived' : 'restored') . ' successfully'], 200);
         } catch (\Exception $e) {
-            Log::error('Error archiving/restoring worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to archive/restore worker: ' . $e->getMessage()], 500);
+            Log::error('Error updating worker archive status: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update worker archive status: ' . $e->getMessage()], 500);
         }
     }
 
-    /**
-     * Bulk archive or restore workers with role_id = 1.
-     *
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function bulkArchive(Request $request): JsonResponse
     {
         try {
             $validator = Validator::make($request->all(), [
                 'worker_ids' => 'required|array',
                 'worker_ids.*' => 'integer|exists:users,id',
-                'action' => 'required|in:archive,restore',
+                'archived' => 'required|boolean',
             ]);
 
             if ($validator->fails()) {
                 Log::warning('Validation failed for bulk archive', ['errors' => $validator->errors()->toArray()]);
-                return response()->json(['error' => $validator->errors()->first()], 400);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
             }
 
-            $workerIds = $request->worker_ids;
-            $archived = $request->action === 'archive';
+            $ids = $request->input('worker_ids', []);
+            $archived = $request->input('archived');
 
-            $users = User::with(['profile', 'worker'])
+            $users = User::whereIn('id', $ids)
                 ->where('role_id', 1)
-                ->whereIn('id', $workerIds)
+                ->where('archived', !$archived)
                 ->get();
 
+            if ($users->isEmpty()) {
+                return response()->json(['error' => 'No valid workers found for ' . ($archived ? 'archiving' : 'restoring')], 400);
+            }
+
             foreach ($users as $user) {
-                if (!$user->profile) {
-                    $user->profile()->create([
-                        'user_id' => $user->id,
-                        'first_name' => 'Unknown',
-                        'last_name' => 'Worker',
-                        'email' => $user->email,
-                        'city' => 'Butuan City',
-                        'province' => 'Agusan Del Norte',
-                        'postal_code' => '8600',
-                        'country' => 'Philippines',
-                    ]);
-                }
-                if (!$user->worker && $user->profile) {
-                    Worker::updateOrCreate(
-                        ['profile_id' => $user->profile->id],
-                        [
-                            'work_type' => 'part-time',
-                            'credentials_photo' => null,
-                            'archived' => $archived,
-                        ]
-                    );
+                $user->update(['archived' => $archived]);
+                if ($user->worker) {
+                    $user->worker->update(['archived' => $archived]);
                 }
             }
 
-            $validWorkers = User::whereIn('id', $workerIds)
-                ->where('role_id', 1)
-                ->update(['archived' => $archived]);
-
-            Worker::whereIn('profile_id', Profile::whereIn('user_id', $workerIds)->pluck('id'))
-                ->update(['archived' => $archived]);
-
-            Log::info('Bulk archive/restore completed', ['worker_ids' => $workerIds, 'archived' => $archived]);
-
-            return response()->json([
-                'message' => $archived ? 'Workers archived successfully' : 'Workers restored successfully',
-                'affected' => $validWorkers,
-            ], 200);
+            Log::info('Workers bulk updated', ['ids' => $ids, 'archived' => $archived]);
+            return response()->json(['message' => 'Workers ' . ($archived ? 'archived' : 'restored') . ' successfully'], 200);
         } catch (\Exception $e) {
-            Log::error('Error in bulk archive/restore: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to perform bulk action: ' . $e->getMessage()], 500);
+            Log::error('Error bulk updating workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update workers: ' . $e->getMessage()], 500);
         }
     }
 
-    /**
-     * Format worker data for response to match the provided JSON structure.
-     *
-     * @param User $user
-     * @return array
-     */
-    protected function formatWorker(User $user): array
+    protected function formatWorker($user)
     {
-        $suffix = $user->profile && $user->profile->suffix_id
-            ? Suffix::find($user->profile->suffix_id)->suffix_name ?? ''
-            : '';
-
-        $fullName = trim(
-            ($user->profile->first_name ?? 'N/A') . ' ' .
-            ($user->profile->middlename ?? '') . ' ' .
-            ($user->profile->last_name ?? 'N/A') . ' ' .
-            $suffix
-        );
-
         return [
             'id' => $user->id,
-            'username' => $user->username ?? 'N/A',
-            'email' => $user->email ?? 'N/A',
+            'username' => $user->username,
+            'email' => $user->email,
             'role_id' => $user->role_id,
-            'created_at' => $user->created_at ? $user->created_at->toIso8601String() : null,
-            'updated_at' => $user->updated_at ? $user->updated_at->toIso8601String() : null,
+            'created_at' => $user->created_at->toIso8601String(),
+            'updated_at' => $user->updated_at->toIso8601String(),
             'archived' => $user->archived,
             'profile' => $user->profile ? [
                 'id' => $user->profile->id,
                 'user_id' => $user->profile->user_id,
-                'full_name' => $fullName,
-                'first_name' => $user->profile->first_name ?? 'N/A',
+                'full_name' => trim("{$user->profile->first_name} {$user->profile->middlename} {$user->profile->last_name} " . ($user->profile->suffix ? $user->profile->suffix->suffix_name : '')),
+                'first_name' => $user->profile->first_name,
                 'middlename' => $user->profile->middlename,
-                'last_name' => $user->profile->last_name ?? 'N/A',
+                'last_name' => $user->profile->last_name,
                 'gender_id' => $user->profile->gender_id,
                 'suffix_id' => $user->profile->suffix_id,
-                'suffix' => $suffix,
+                'suffix' => $user->profile->suffix ? $user->profile->suffix->suffix_name : '',
                 'contact_number' => $user->profile->contact_number,
                 'street' => $user->profile->street,
-                'city' => $user->profile->city ?? 'Butuan City',
-                'province' => $user->profile->province ?? 'Agusan Del Norte',
-                'postal_code' => $user->profile->postal_code ?? '8600',
-                'country' => $user->profile->country ?? 'Philippines',
-                'profile_img' => $user->profile->profile_img ? Storage::url($user->profile->profile_img) : null,
-                'created_at' => $user->profile->created_at ? $user->profile->created_at->toIso8601String() : null,
-                'updated_at' => $user->profile->updated_at ? $user->profile->updated_at->toIso8601String() : null,
+                'city' => $user->profile->city,
+                'province' => $user->profile->province,
+                'postal_code' => $user->profile->postal_code,
+                'country' => $user->profile->country,
+                'profile_img' => $user->profile->profile_img,
+                'created_at' => $user->profile->created_at->toIso8601String(),
+                'updated_at' => $user->profile->updated_at->toIso8601String(),
             ] : null,
             'worker' => $user->worker ? [
                 'id' => $user->worker->id,
                 'profile_id' => $user->worker->profile_id,
                 'work_type' => $user->worker->work_type,
-                'credentials_photo' => $user->worker->credentials_photo ? array_map(fn($path) => Storage::url($path), $user->worker->credentials_photo) : [],
-                'created_at' => $user->worker->created_at ? $user->worker->created_at->toIso8601String() : null,
-                'updated_at' => $user->worker->updated_at ? $user->worker->updated_at->toIso8601String() : null,
-                'laravel_through_key' => $user->worker->profile_id,
+                'skills_id' => $user->worker->skills_id,
+                'credentials_name' => $user->worker->credentials_name,
+                'credentials_photo' => $user->worker->credentials_photo,
+                'created_at' => $user->worker->created_at->toIso8601String(),
+                'updated_at' => $user->worker->updated_at->toIso8601String(),
+                'laravel_through_key' => $user->id,
             ] : null,
         ];
     }

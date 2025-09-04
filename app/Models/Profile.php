@@ -46,9 +46,4 @@ class Profile extends Model
         return $this->belongsTo(Suffix::class, 'suffix_id', 'id');
     }
 
-    // Accessor for profile_img URL
-    public function getProfileImgAttribute($value)
-    {
-        return $value ? Storage::url($value) : null;
-    }
 }

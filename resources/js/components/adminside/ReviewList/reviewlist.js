@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_reviewstable.scss";
 import ReviewModal from "./reviewlistmodal.js";
@@ -28,7 +28,7 @@ const getFullName = (person) => {
     console.warn("Person is null or undefined");
     return "N/A";
   }
-  const { first_name, middlename, last_name, suffix, username } = person;
+  const { first_name, middlename, last_name, suffix, username } = person.profile || person;
   let fullName = `${first_name || username || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
   if (suffix) fullName += ` ${suffix}`;
   const result = fullName.trim() || "N/A";
@@ -51,6 +51,7 @@ const ReviewsTable = () => {
   const [reviewToEdit, setReviewToEdit] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [dataLoaded, setDataLoaded] = useState(false);
   const navigate = useNavigate();
 
   // Fetch employers and workers
@@ -63,14 +64,18 @@ const ReviewsTable = () => {
       setError(null);
       try {
         const [employerResponse, workerResponse] = await Promise.all([
-          axios.get(`${API_BASE_URL}/userroles?role_id=2`, { cancelToken: source.token }),
-          axios.get(`${API_BASE_URL}/userroles?role_id=1`, { cancelToken: source.token }),
+          axios.get(`${API_BASE_URL}/employers`, { cancelToken: source.token }),
+          axios.get(`${API_BASE_URL}/workers`, { cancelToken: source.token }),
         ]);
         if (isMounted) {
           console.log("Employers:", employerResponse.data);
           console.log("Workers:", workerResponse.data);
-          setEmployers(employerResponse.data || []);
-          setWorkers(workerResponse.data || []);
+          // Handle nested workers array
+          const employersData = Array.isArray(employerResponse.data) ? employerResponse.data : [];
+          const workersData = Array.isArray(workerResponse.data.workers) ? workerResponse.data.workers : [];
+          setEmployers(employersData);
+          setWorkers(workersData);
+          setDataLoaded(true);
         }
       } catch (err) {
         if (axios.isCancel(err)) {
@@ -106,8 +111,7 @@ const ReviewsTable = () => {
         cancelToken: source.token,
       });
       console.log("Reviews response:", response.data);
-      // Normalize reviewed_user to reviewedUser
-      const normalizedReviews = (response.data.data || []).map((review) => ({
+      const normalizedReviews = (Array.isArray(response.data.data) ? response.data.data : []).map((review) => ({
         ...review,
         reviewedUser: review.reviewed_user || review.reviewedUser || null,
       }));
@@ -220,6 +224,10 @@ const ReviewsTable = () => {
   };
 
   const handleAddNewClick = () => {
+    if (!dataLoaded) {
+      setError("Please wait until user data is loaded.");
+      return;
+    }
     console.log("Add New clicked, opening modal");
     setIsEditMode(false);
     setReviewToEdit(null);
@@ -227,6 +235,10 @@ const ReviewsTable = () => {
   };
 
   const handleEditClick = (review) => {
+    if (!dataLoaded) {
+      setError("Please wait until user data is loaded.");
+      return;
+    }
     console.log("Edit clicked for review:", review);
     setReviewToEdit({
       ...review,
@@ -354,7 +366,11 @@ const ReviewsTable = () => {
                   <span className="button-text">{showArchived ? "Restore All" : "Archive All"}</span>
                 </button>
               )}
-              <button className="header-button" onClick={handleAddNewClick} disabled={loading}>
+              <button
+                className="header-button"
+                onClick={handleAddNewClick}
+                disabled={loading || !dataLoaded}
+              >
                 <IconPlus size={20} className="button-icon" />
                 <span className="button-text">Add New</span>
               </button>
@@ -415,7 +431,7 @@ const ReviewsTable = () => {
                               onClick={() => handleArchiveClick(review)}
                             />
                           )}
-                          <FaUser
+                          <FaEdit
                             size={16}
                             className="edit-icon"
                             onClick={() => handleEditClick(review)}

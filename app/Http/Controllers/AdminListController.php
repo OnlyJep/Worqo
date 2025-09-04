@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Role;
+use App\Models\Gender;
 use App\Models\Suffix;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class AdminListController extends Controller
 {
     /**
-     * Fetch active admins with role_id = 3.
+     * Display a listing of users with optional search, archived filter, and pagination.
      *
      * @param Request $request
      * @return JsonResponse
@@ -24,132 +27,67 @@ class AdminListController extends Controller
     {
         try {
             $search = $request->query('search', '');
+            $archived = $request->query('archived', null);
             $page = $request->query('page', 1);
             $limit = $request->query('limit', 5);
 
-            $query = User::with('profile')
-                ->where('role_id', 3)
-                ->where('archived', false);
+            $query = User::with(['role', 'profile.gender', 'profile.suffix'])
+                ->where('role_id', 3); // Only fetch Admins
 
             if (!empty($search)) {
-                $query->whereHas('profile', function ($q) use ($search) {
-                    $q->where('first_name', 'like', '%' . $search . '%')
-                      ->orWhere('middlename', 'like', '%' . $search . '%')
-                      ->orWhere('last_name', 'like', '%' . $search . '%')
+                $query->where(function ($q) use ($search) {
+                    $q->where('username', 'like', '%' . $search . '%')
                       ->orWhere('email', 'like', '%' . $search . '%');
                 });
             }
 
-            $admins = $query->paginate($limit, ['*'], 'page', $page);
-
-            // Create Profile records if they don't exist
-            foreach ($admins as $user) {
-                if (!$user->profile) {
-                    $user->profile()->create([
-                        'user_id' => $user->id,
-                        'first_name' => 'Unknown',
-                        'last_name' => 'Admin',
-                        'email' => $user->email,
-                        'city' => 'Butuan City',
-                        'province' => 'Agusan Del Norte',
-                        'postal_code' => '8600',
-                        'country' => 'Philippines',
-                    ]);
-                }
+            if (!is_null($archived)) {
+                $query->where('archived', filter_var($archived, FILTER_VALIDATE_BOOLEAN));
             }
 
-            // Re-fetch to include newly created records
-            $admins = $query->paginate($limit, ['*'], 'page', $page);
+            $users = $query->paginate($limit, ['*'], 'page', $page);
 
-            $response = [
-                'admins' => collect($admins->items())->map(function ($user) {
-                    return $this->formatAdmin($user);
+            return response()->json([
+                'users' => collect($users->items())->map(function ($user) {
+                    return $this->formatUserResponse($user);
                 })->toArray(),
                 'pagination' => [
-                    'currentPage' => $admins->currentPage(),
-                    'totalPages' => $admins->lastPage(),
-                    'totalItems' => $admins->total(),
+                    'currentPage' => $users->currentPage(),
+                    'totalPages' => $users->lastPage(),
+                    'totalItems' => $users->total(),
                 ],
-            ];
-
-            Log::info('Fetched active admins', ['count' => $admins->count(), 'page' => $page, 'limit' => $limit]);
-
-            return response()->json($response, 200);
+            ], 200);
         } catch (\Exception $e) {
             Log::error('Error fetching admins: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to fetch admins: ' . $e->getMessage()], 500);
+            return response()->json(['messages' => ['general' => 'Failed to fetch admins']], 500);
         }
     }
 
     /**
-     * Fetch archived admins with role_id = 3.
+     * Display a listing of archived admins.
      *
-     * @param Request $request
      * @return JsonResponse
      */
-    public function archived(Request $request): JsonResponse
+    public function archived(): JsonResponse
     {
         try {
-            $search = $request->query('search', '');
-            $page = $request->query('page', 1);
-            $limit = $request->query('limit', 5);
-
-            $query = User::with('profile')
+            $users = User::where('archived', true)
                 ->where('role_id', 3)
-                ->where('archived', true);
-
-            if (!empty($search)) {
-                $query->whereHas('profile', function ($q) use ($search) {
-                    $q->where('first_name', 'like', '%' . $search . '%')
-                      ->orWhere('middlename', 'like', '%' . $search . '%')
-                      ->orWhere('last_name', 'like', '%' . $search . '%')
-                      ->orWhere('email', 'like', '%' . $search . '%');
+                ->with(['role', 'profile.gender', 'profile.suffix'])
+                ->get()
+                ->map(function ($user) {
+                    return $this->formatUserResponse($user);
                 });
-            }
 
-            $admins = $query->paginate($limit, ['*'], 'page', $page);
-
-            // Create Profile records if they don't exist
-            foreach ($admins as $user) {
-                if (!$user->profile) {
-                    $user->profile()->create([
-                        'user_id' => $user->id,
-                        'first_name' => 'Unknown',
-                        'last_name' => 'Admin',
-                        'email' => $user->email,
-                        'city' => 'Butuan City',
-                        'province' => 'Agusan Del Norte',
-                        'postal_code' => '8600',
-                        'country' => 'Philippines',
-                    ]);
-                }
-            }
-
-            // Re-fetch to include newly created records
-            $admins = $query->paginate($limit, ['*'], 'page', $page);
-
-            $response = [
-                'admins' => collect($admins->items())->map(function ($user) {
-                    return $this->formatAdmin($user);
-                })->toArray(),
-                'pagination' => [
-                    'currentPage' => $admins->currentPage(),
-                    'totalPages' => $admins->lastPage(),
-                    'totalItems' => $admins->total(),
-                ],
-            ];
-
-            Log::info('Fetched archived admins', ['count' => $admins->count(), 'page' => $page, 'limit' => $limit]);
-
-            return response()->json($response, 200);
+            return response()->json($users, 200);
         } catch (\Exception $e) {
             Log::error('Error fetching archived admins: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to fetch archived admins: ' . $e->getMessage()], 500);
+            return response()->json(['messages' => ['general' => 'Failed to fetch archived admins']], 500);
         }
     }
 
     /**
-     * Fetch a single admin by ID with role_id = 3.
+     * Display a specific admin.
      *
      * @param int $id
      * @return JsonResponse
@@ -157,100 +95,92 @@ class AdminListController extends Controller
     public function show($id): JsonResponse
     {
         try {
-            $user = User::with('profile')
+            $user = User::with(['role', 'profile.gender', 'profile.suffix'])
                 ->where('role_id', 3)
                 ->findOrFail($id);
-
-            if (!$user->profile) {
-                $user->profile()->create([
-                    'user_id' => $user->id,
-                    'first_name' => 'Unknown',
-                    'last_name' => 'Admin',
-                    'email' => $user->email,
-                    'city' => 'Butuan City',
-                    'province' => 'Agusan Del Norte',
-                    'postal_code' => '8600',
-                    'country' => 'Philippines',
-                ]);
-                $user = User::with('profile')
-                    ->where('role_id', 3)
-                    ->findOrFail($id);
-            }
-
-            Log::info('Fetched admin', ['id' => $id]);
-            return response()->json($this->formatAdmin($user), 200);
+            return response()->json($this->formatUserResponse($user), 200);
         } catch (\Exception $e) {
             Log::error('Error fetching admin: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Admin not found: ' . $e->getMessage()], 404);
+            return response()->json(['messages' => ['general' => 'Admin not found']], 404);
         }
     }
 
     /**
-     * Create a new admin with role_id = 3.
+     * Store a new admin and their profile.
      *
      * @param Request $request
      * @return JsonResponse
      */
-    public function register(Request $request): JsonResponse
+    public function store(Request $request): JsonResponse
     {
         try {
+            Log::info('Admin creation request received:', [
+                'data' => $request->all(),
+                'files' => $request->hasFile('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file detected',
+            ]);
+
             $validator = Validator::make($request->all(), [
                 'first_name' => 'required|string|max:255',
                 'middlename' => 'nullable|string|max:255',
                 'last_name' => 'required|string|max:255',
-                'suffix' => 'nullable|string|in:Jr,Sr,II,III,IV',
-                'email' => 'required|email|max:255|unique:users,email',
+                'email' => 'required|email|unique:users,email',
                 'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-                'role_id' => 'required|integer|in:3',
+                'gender_id' => 'required|integer|exists:genders,id',
+                'suffix_id' => 'nullable|integer|exists:suffixes,id',
                 'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
             if ($validator->fails()) {
-                Log::warning('Validation failed for admin creation', ['errors' => $validator->errors()->toArray()]);
-                return response()->json(['error' => $validator->errors()->first()], 400);
+                Log::warning('Validation failed for admin creation:', $validator->errors()->toArray());
+                return response()->json(['messages' => $validator->errors()], 422);
             }
 
-            $user = User::create([
-                'username' => $request->username ?? strtolower($request->first_name . '.' . $request->last_name),
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
-                'role_id' => 3,
+            $validated = $validator->validated();
+            $username = strtolower($validated['first_name'] . '.' . $validated['last_name']);
+            $usernameCount = User::where('username', $username)->count();
+            $uniqueUsername = $usernameCount > 0 ? $username . '.' . time() : $username;
+
+            $userData = [
+                'username' => $uniqueUsername,
+                'email' => $validated['email'],
+                'password' => Hash::make($validated['password']),
+                'role_id' => 3, // Fixed to Admin role
                 'archived' => false,
-            ]);
+            ];
+
+            $user = User::create($userData);
 
             $profileData = [
                 'user_id' => $user->id,
-                'first_name' => $request->first_name,
-                'middlename' => $request->middlename,
-                'last_name' => $request->last_name,
-                'suffix' => $request->suffix,
-                'email' => $request->email,
-                'city' => 'Butuan City',
-                'province' => 'Agusan Del Norte',
-                'postal_code' => '8600',
-                'country' => 'Philippines',
+                'first_name' => $validated['first_name'],
+                'middlename' => $validated['middlename'] ?? null,
+                'last_name' => $validated['last_name'],
+                'gender_id' => (int)$validated['gender_id'],
+                'suffix_id' => $validated['suffix_id'] ?? null,
             ];
 
             if ($request->hasFile('profile_img')) {
-                $profileData['profile_img'] = $request->file('profile_img')->store('profiles', 'public');
+                $path = $request->file('profile_img')->store('profiles', 'public');
+                $profileData['profile_img'] = $path;
+                Log::info('Profile image uploaded', ['new_file' => $path]);
             }
 
-            $profile = Profile::create($profileData);
+            Profile::create($profileData);
 
-            Log::info('Admin created', ['user_id' => $user->id, 'profile_id' => $profile->id]);
+            $user->load(['role', 'profile.gender', 'profile.suffix']);
 
             return response()->json([
+                'user' => $this->formatUserResponse($user),
                 'message' => 'Admin created successfully',
-                'admin' => $this->formatAdmin($user->load('profile')),
             ], 201);
         } catch (\Exception $e) {
             Log::error('Error creating admin: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to create admin: ' . $e->getMessage()], 500);
+            return response()->json(['messages' => ['general' => 'Failed to create admin']], 500);
         }
     }
 
     /**
-     * Update an existing admin with role_id = 3.
+     * Update an existing admin and their profile.
      *
      * @param Request $request
      * @param int $id
@@ -259,83 +189,121 @@ class AdminListController extends Controller
     public function update(Request $request, $id): JsonResponse
     {
         try {
-            $user = User::with('profile')
-                ->where('role_id', 3)
-                ->findOrFail($id);
+            Log::info('Admin update request received:', [
+                'user_id' => $id,
+                'data' => $request->all(),
+                'files' => $request->hasFile('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file detected',
+            ]);
 
-            if (!$user->profile) {
-                $user->profile()->create([
-                    'user_id' => $user->id,
-                    'first_name' => $request->first_name ?? 'Unknown',
-                    'last_name' => $request->last_name ?? 'Admin',
-                    'email' => $user->email,
-                    'city' => 'Butuan City',
-                    'province' => 'Agusan Del Norte',
-                    'postal_code' => '8600',
-                    'country' => 'Philippines',
-                ]);
-                $user = User::with('profile')
-                    ->where('role_id', 3)
-                    ->findOrFail($id);
-            }
+            $user = User::where('role_id', 3)->findOrFail($id);
+            $profile = Profile::where('user_id', $id)->firstOrFail();
 
             $validator = Validator::make($request->all(), [
                 'first_name' => 'required|string|max:255',
                 'middlename' => 'nullable|string|max:255',
                 'last_name' => 'required|string|max:255',
-                'suffix' => 'nullable|string|in:Jr,Sr,II,III,IV',
-                'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
+                'email' => 'required|email|max:255|unique:users,email,' . $id,
                 'password' => 'nullable|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-                'role_id' => 'required|integer|in:3',
+                'gender_id' => 'required|integer|exists:genders,id',
+                'suffix_id' => 'nullable|integer|exists:suffixes,id',
                 'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
             if ($validator->fails()) {
-                Log::warning('Validation failed for admin update', ['errors' => $validator->errors()->toArray()]);
-                return response()->json(['error' => $validator->errors()->first()], 400);
+                Log::warning('Validation failed for admin update:', [
+                    'errors' => $validator->errors()->toArray(),
+                    'input' => $request->all(),
+                ]);
+                return response()->json(['messages' => $validator->errors()], 422);
             }
 
-            $user->update([
-                'username' => $request->username ?? $user->username,
-                'email' => $request->email,
-                'password' => $request->password ? bcrypt($request->password) : $user->password,
-            ]);
+            $validated = $validator->validated();
 
+            // Normalize empty strings to null for nullable fields
+            $nullableFields = ['middlename', 'suffix_id'];
+            foreach ($nullableFields as $field) {
+                if (isset($validated[$field]) && $validated[$field] === '') {
+                    $validated[$field] = null;
+                }
+            }
+
+            // Prepare user data
+            $userData = [
+                'email' => $validated['email'],
+                'role_id' => 3, // Fixed to Admin role
+            ];
+            if (isset($validated['password']) && $validated['password']) {
+                $userData['password'] = Hash::make($validated['password']);
+            }
+
+            // Update username
+            $firstName = $validated['first_name'];
+            $lastName = $validated['last_name'];
+            $newUsername = strtolower($firstName . '.' . $lastName);
+            $usernameCount = User::where('username', $newUsername)->where('id', '!=', $id)->count();
+            $userData['username'] = $usernameCount > 0 ? $newUsername . '.' . $id : $newUsername;
+
+            // Prepare profile data
             $profileData = [
-                'first_name' => $request->first_name,
-                'middlename' => $request->middlename,
-                'last_name' => $request->last_name,
-                'suffix' => $request->suffix,
-                'email' => $request->email,
-                'city' => $request->city ?? $user->profile->city ?? 'Butuan City',
-                'province' => $request->province ?? $user->profile->province ?? 'Agusan Del Norte',
-                'postal_code' => $request->postal_code ?? $user->profile->postal_code ?? '8600',
-                'country' => $request->country ?? $user->profile->country ?? 'Philippines',
+                'first_name' => $validated['first_name'],
+                'middlename' => $validated['middlename'] ?? $profile->middlename,
+                'last_name' => $validated['last_name'],
+                'gender_id' => (int)$validated['gender_id'],
+                'suffix_id' => $validated['suffix_id'] ?? $profile->suffix_id,
             ];
 
+            // Handle profile image
             if ($request->hasFile('profile_img')) {
-                if ($user->profile->profile_img) {
-                    Storage::disk('public')->delete($user->profile->profile_img);
+                if ($profile->profile_img) {
+                    Storage::disk('public')->delete($profile->profile_img);
+                    Log::info('Deleted old profile image', ['old_file' => $profile->profile_img]);
                 }
-                $profileData['profile_img'] = $request->file('profile_img')->store('profiles', 'public');
+                $path = $request->file('profile_img')->store('profiles', 'public');
+                $profileData['profile_img'] = $path;
+                Log::info('Profile image uploaded', ['new_file' => $path]);
+            } elseif ($request->input('profile_img') === '') {
+                if ($profile->profile_img) {
+                    Storage::disk('public')->delete($profile->profile_img);
+                    Log::info('Deleted profile image', ['old_file' => $profile->profile_img]);
+                }
+                $profileData['profile_img'] = null;
             }
 
-            $user->profile->update($profileData);
+            // Begin transaction
+            DB::beginTransaction();
 
-            Log::info('Admin updated', ['user_id' => $user->id]);
+            $user->fill($userData);
+            $user->save();
+            Log::info('Admin updated:', ['changes' => $user->getChanges()]);
+
+            $profile->fill($profileData);
+            $profile->save();
+            Log::info('Profile updated:', ['changes' => $profile->getChanges()]);
+
+            DB::commit();
+
+            $user->load(['role', 'profile.gender', 'profile.suffix']);
 
             return response()->json([
+                'user' => $this->formatUserResponse($user),
                 'message' => 'Admin updated successfully',
-                'admin' => $this->formatAdmin($user->load('profile')),
             ], 200);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            DB::rollBack();
+            Log::warning('Validation error:', [
+                'errors' => $e->errors(),
+                'input' => $request->all(),
+            ]);
+            return response()->json(['messages' => $e->errors()], 422);
         } catch (\Exception $e) {
+            DB::rollBack();
             Log::error('Error updating admin: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to update admin: ' . $e->getMessage()], 500);
+            return response()->json(['messages' => ['general' => 'Failed to update admin']], 500);
         }
     }
 
     /**
-     * Archive or restore an admin with role_id = 3.
+     * Archive or restore an admin.
      *
      * @param Request $request
      * @param int $id
@@ -344,43 +312,29 @@ class AdminListController extends Controller
     public function archive(Request $request, $id): JsonResponse
     {
         try {
-            $user = User::with('profile')
-                ->where('role_id', 3)
-                ->findOrFail($id);
+            $validator = Validator::make($request->all(), [
+                'archived' => 'required|boolean',
+            ]);
 
-            if (!$user->profile) {
-                $user->profile()->create([
-                    'user_id' => $user->id,
-                    'first_name' => 'Unknown',
-                    'last_name' => 'Admin',
-                    'email' => $user->email,
-                    'city' => 'Butuan City',
-                    'province' => 'Agusan Del Norte',
-                    'postal_code' => '8600',
-                    'country' => 'Philippines',
-                ]);
-                $user = User::with('profile')
-                    ->where('role_id', 3)
-                    ->findOrFail($id);
+            if ($validator->fails()) {
+                Log::warning('Validation failed for archive:', $validator->errors()->toArray());
+                return response()->json(['messages' => $validator->errors()], 422);
             }
 
-            $archived = $request->input('archived', true);
-            $user->update(['archived' => $archived]);
-
-            Log::info('Admin archived/restored', ['id' => $id, 'archived' => $archived]);
+            $user = User::where('role_id', 3)->findOrFail($id);
+            $user->update(['archived' => $request->archived]);
 
             return response()->json([
-                'message' => $archived ? 'Admin archived successfully' : 'Admin restored successfully',
-                'admin' => $this->formatAdmin($user->load('profile')),
+                'message' => $request->archived ? 'Admin archived successfully' : 'Admin restored successfully',
             ], 200);
         } catch (\Exception $e) {
             Log::error('Error archiving/restoring admin: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to archive/restore admin: ' . $e->getMessage()], 500);
+            return response()->json(['messages' => ['general' => 'Failed to archive/restore admin']], 500);
         }
     }
 
     /**
-     * Bulk archive or restore admins with role_id = 3.
+     * Bulk archive or restore admins.
      *
      * @param Request $request
      * @return JsonResponse
@@ -389,88 +343,57 @@ class AdminListController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'admin_ids' => 'required|array',
-                'admin_ids.*' => 'integer|exists:users,id',
+                'user_ids' => 'required|array',
+                'user_ids.*' => 'integer|exists:users,id',
                 'action' => 'required|in:archive,restore',
             ]);
 
             if ($validator->fails()) {
-                Log::warning('Validation failed for bulk archive', ['errors' => $validator->errors()->toArray()]);
-                return response()->json(['error' => $validator->errors()->first()], 400);
+                Log::warning('Validation failed for bulk archive:', $validator->errors()->toArray());
+                return response()->json(['messages' => $validator->errors()], 422);
             }
 
-            $adminIds = $request->admin_ids;
+            $userIds = $request->user_ids;
             $archived = $request->action === 'archive';
 
-            $users = User::with('profile')
-                ->where('role_id', 3)
-                ->whereIn('id', $adminIds)
-                ->get();
-
-            foreach ($users as $user) {
-                if (!$user->profile) {
-                    $user->profile()->create([
-                        'user_id' => $user->id,
-                        'first_name' => 'Unknown',
-                        'last_name' => 'Admin',
-                        'email' => $user->email,
-                        'city' => 'Butuan City',
-                        'province' => 'Agusan Del Norte',
-                        'postal_code' => '8600',
-                        'country' => 'Philippines',
-                    ]);
-                }
-            }
-
-            $validAdmins = User::whereIn('id', $adminIds)
+            User::whereIn('id', $userIds)
                 ->where('role_id', 3)
                 ->update(['archived' => $archived]);
 
-            Log::info('Bulk archive/restore completed', ['admin_ids' => $adminIds, 'archived' => $archived]);
-
             return response()->json([
                 'message' => $archived ? 'Admins archived successfully' : 'Admins restored successfully',
-                'affected' => $validAdmins,
             ], 200);
         } catch (\Exception $e) {
             Log::error('Error in bulk archive/restore: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to perform bulk action: ' . $e->getMessage()], 500);
+            return response()->json(['messages' => ['general' => 'Failed to perform bulk action']], 500);
         }
     }
 
     /**
-     * Format admin data for response to match the frontend expectations.
+     * Helper method to format admin response.
      *
      * @param User $user
      * @return array
      */
-    protected function formatAdmin(User $user): array
+    private function formatUserResponse($user)
     {
-        $suffix = $user->profile && $user->profile->suffix
-            ? $user->profile->suffix
-            : '';
-
-        $fullName = trim(
-            ($user->profile->first_name ?? 'N/A') . ' ' .
-            ($user->profile->middlename ?? '') . ' ' .
-            ($user->profile->last_name ?? 'N/A') . ' ' .
-            $suffix
-        );
-
+        $profile = $user->profile;
         return [
             'id' => $user->id,
-            'username' => $user->username ?? 'N/A',
-            'email' => $user->email ?? 'N/A',
+            'username' => $user->username,
+            'email' => $user->email,
             'role_id' => $user->role_id,
-            'role_name' => 'Admin',
-            'first_name' => $user->profile->first_name ?? 'N/A',
-            'middlename' => $user->profile->middlename,
-            'last_name' => $user->profile->last_name ?? 'N/A',
-            'suffix' => $suffix,
-            'full_name' => $fullName,
-            'profile_img' => $user->profile->profile_img ? Storage::url($user->profile->profile_img) : null,
-            'created_at' => $user->created_at ? $user->created_at->toIso8601String() : null,
-            'updated_at' => $user->updated_at ? $user->updated_at->toIso8601String() : null,
+            'role_name' => $user->role ? $user->role->role_name : null,
+            'gender_id' => $profile ? $profile->gender_id : null,
+            'gender_name' => $profile && $profile->gender ? $profile->gender->name : null,
+            'suffix_id' => $profile ? $profile->suffix_id : null,
+            'suffix_name' => $profile && $profile->suffix ? $profile->suffix->suffix_name : null,
+            'first_name' => $profile ? $profile->first_name : null,
+            'middlename' => $profile ? $profile->middlename : null,
+            'last_name' => $profile ? $profile->last_name : null,
+            'profile_img' => $profile ? $profile->profile_img : null,
+            'created_at' => $user->created_at,
+            'updated_at' => $user->updated_at,
             'archived' => $user->archived,
         ];
     }

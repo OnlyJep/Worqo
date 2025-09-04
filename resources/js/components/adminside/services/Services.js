@@ -5,50 +5,25 @@ import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
-import "./../../../../sass/components/_adminlist.scss";
-import AdminModal from "./AdminListModal";
+import "./../../../../sass/components/_userlist.scss";
+import ServiceModal from "./Servicemodal";
 import Loader from "./../../LoaderContent/loader";
 import { message } from "antd";
 
-const formatDate = (dateString) => {
-  if (!dateString) return "N/A";
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  }).format(date);
-};
-
-const getFullName = (person) => {
-  const { first_name, middlename, last_name, suffix } = person;
-  let fullName = `${first_name || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
-  if (suffix) fullName += ` ${suffix}`;
-  return fullName.trim() || "N/A";
-};
-
-const AdminList = () => {
-  const [admins, setAdmins] = useState([]);
+const Services = () => {
+  const [services, setServices] = useState([]);
+  const [skills, setSkills] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
-  const [selectedAdmins, setSelectedAdmins] = useState([]);
+  const [selectedServices, setSelectedServices] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [adminToArchive, setAdminToArchive] = useState(null);
+  const [serviceToArchive, setServiceToArchive] = useState(null);
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [adminToEdit, setAdminToEdit] = useState(null);
+  const [serviceToEdit, setServiceToEdit] = useState(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetchData(controller.signal);
-    return () => controller.abort();
-  }, [searchTerm, showArchived, pagination.currentPage]);
 
   const fetchData = async (signal) => {
     try {
@@ -57,204 +32,66 @@ const AdminList = () => {
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      const response = await axios.get("http://127.0.0.1:8000/api/admins", {
-        params: { archived: showArchived, search: searchTerm, page: pagination.currentPage, limit: 5 },
-        headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-        signal,
-        timeout: 10000,
-      });
-      setAdmins(response.data.users);
+      const [servicesResponse, skillsResponse] = await Promise.all([
+        axios.get("http://127.0.0.1:8000/api/services", {
+          params: { archived: showArchived, search: searchTerm, page: pagination.currentPage, limit: 5 },
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          signal,
+          timeout: 10000,
+        }),
+        axios.get("http://127.0.0.1:8000/api/skills", {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          signal,
+          timeout: 5000,
+        }),
+      ]);
+      console.log("Skills Response:", skillsResponse.data);
+      const skillsData = Array.isArray(skillsResponse.data) ? skillsResponse.data : skillsResponse.data.skills || [];
+      setServices(servicesResponse.data.services || []);
       setPagination({
-        currentPage: response.data.pagination.currentPage,
-        totalPages: response.data.pagination.totalPages,
+        currentPage: servicesResponse.data.pagination.currentPage,
+        totalPages: servicesResponse.data.pagination.totalPages,
       });
-      setSelectedAdmins([]);
+      setSkills(skillsData);
+      console.log("Skills State:", skillsData);
+      setSelectedServices([]);
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error fetching admins:", error.response?.data || error.message);
+      console.error("Error fetching data:", error.response?.data || error.message);
       message.error(
         error.response?.status === 401
           ? "Unauthorized: Please log in again."
-          : "Failed to fetch admins. Please check the server or network."
+          : "Failed to fetch data. Please check the server or network."
       );
-      setAdmins([]);
+      setServices([]);
+      setSkills([]);
     } finally {
       setLoading(false);
     }
   };
 
-  const toggleSelectAdmin = (adminId) => {
-    setSelectedAdmins((prev) =>
-      prev.includes(adminId) ? prev.filter((id) => id !== adminId) : [...prev, adminId]
-    );
-  };
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchData(controller.signal);
+    return () => controller.abort();
+  }, [searchTerm, showArchived, pagination.currentPage]);
 
-  const toggleSelectAll = () => {
-    if (selectedAdmins.length === admins.length) {
-      setSelectedAdmins([]);
-    } else {
-      setSelectedAdmins(admins.map((admin) => admin.id));
-    }
-  };
-
-  const handleToggleArchived = () => {
-    setShowArchived((prev) => !prev);
-    setPagination({ ...pagination, currentPage: 1 });
-    setSelectedAdmins([]);
-  };
-
-  const handleArchiveClick = (admin) => {
-    setAdminToArchive(admin);
-    setIsConfirmModalOpen(true);
-  };
-
-  const handleArchiveConfirm = async () => {
-    if (!adminToArchive) return;
-    try {
-      const authToken = localStorage.getItem("auth_token");
-      if (!authToken) {
-        throw new Error("No auth token found. Please log in.");
-      }
-      await axios.patch(
-        `http://127.0.0.1:8000/api/admins/${adminToArchive.id}/archive`,
-        { archived: true },
-        {
-          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-          timeout: 5000,
-        }
-      );
-      setIsConfirmModalOpen(false);
-      setAdminToArchive(null);
-      message.success("Admin archived successfully");
-      await fetchData(new AbortController().signal);
-    } catch (error) {
-      if (error.name === "AbortError") return;
-      console.error("Error archiving admin:", error.response?.data || error.message);
-      message.error(
-        error.response?.status === 401
-          ? "Unauthorized: Please log in again."
-          : "Failed to archive admin. Please try again."
-      );
-    }
-  };
-
-  const handleRestoreAdmin = async (adminId) => {
-    try {
-      const authToken = localStorage.getItem("auth_token");
-      if (!authToken) {
-        throw new Error("No auth token found. Please log in.");
-      }
-      await axios.patch(
-        `http://127.0.0.1:8000/api/admins/${adminId}/archive`,
-        { archived: false },
-        {
-          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-          timeout: 5000,
-        }
-      );
-      message.success("Admin restored successfully");
-      await fetchData(new AbortController().signal);
-    } catch (error) {
-      if (error.name === "AbortError") return;
-      console.error("Error restoring admin:", error.response?.data || error.message);
-      message.error(
-        error.response?.status === 401
-          ? "Unauthorized: Please log in again."
-          : "Failed to restore admin. Please try again."
-      );
-    }
-  };
-
-  const handleBulkAction = async (action) => {
-    if (selectedAdmins.length === 0) {
-      message.warning("No admins selected");
-      return;
-    }
-    try {
-      const authToken = localStorage.getItem("auth_token");
-      if (!authToken) {
-        throw new Error("No auth token found. Please log in.");
-      }
-      await axios.post(
-        "http://127.0.0.1:8000/api/admins/bulk-archive",
-        { user_ids: selectedAdmins, action },
-        {
-          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-          timeout: 10000,
-        }
-      );
-      setSelectedAdmins([]);
-      message.success(`Admins ${action}d successfully`);
-      await fetchData(new AbortController().signal);
-    } catch (error) {
-      if (error.name === "AbortError") return;
-      console.error(`Error ${action}ing admins:`, error.response?.data || error.message);
-      message.error(
-        error.response?.status === 401
-          ? "Unauthorized: Please log in again."
-          : `Failed to ${action} admins. Please try again.`
-      );
-    }
-  };
-
-  const handleAddNewClick = () => {
-    setIsEditMode(false);
-    setAdminToEdit({
-      first_name: "",
-      middlename: "",
-      last_name: "",
-      suffix_id: "",
-      email: "",
-      password: "",
-      gender_id: "",
-      profile_img: null,
-      image_url: null,
-    });
-    setIsModalOpen(true);
-  };
-
-  const handleEditClick = (admin) => {
-    setAdminToEdit({
-      id: admin.id,
-      first_name: admin.first_name || "",
-      middlename: admin.middlename || "",
-      last_name: admin.last_name || "",
-      suffix_id: admin.suffix_id ? String(admin.suffix_id) : "",
-      email: admin.email || "",
-      password: "",
-      gender_id: admin.gender_id ? String(admin.gender_id) : "",
-      profile_img: null,
-      image_url: admin.profile_img ? `http://127.0.0.1:8000/storage/${admin.profile_img}` : null,
-    });
-    setIsEditMode(true);
-    setIsModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setAdminToEdit(null);
-  };
-
-  const handleAdminAdd = async (formData, signal) => {
+  const handleServiceAdd = async (formData, signal) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
       const submitData = new FormData();
-      submitData.append("first_name", formData.first_name || "");
-      submitData.append("middlename", formData.middlename || "");
-      submitData.append("last_name", formData.last_name || "");
-      submitData.append("suffix_id", formData.suffix_id || "");
-      submitData.append("email", formData.email || "");
-      if (formData.password) submitData.append("password", formData.password);
-      submitData.append("gender_id", formData.gender_id || "");
-      if (formData.profile_img instanceof File) {
-        submitData.append("profile_img", formData.profile_img);
+      submitData.append("name", formData.name || "");
+      submitData.append("description", formData.description || "");
+      submitData.append("color_collar_id", formData.color_collar_id || "");
+      formData.skill_ids.forEach((id) => submitData.append("skill_ids[]", id));
+      if (formData.service_image instanceof File) {
+        submitData.append("service_image", formData.service_image);
       }
 
-      const response = await axios.post("http://127.0.0.1:8000/api/admins", submitData, {
+      const response = await axios.post("http://127.0.0.1:8000/api/services", submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
@@ -264,39 +101,35 @@ const AdminList = () => {
         signal,
       });
       setIsModalOpen(false);
-      message.success("Admin added successfully");
-      await fetchData(new AbortController().signal);
+      message.success("Service added successfully");
+      await fetchData(signal);
       return response.data;
     } catch (error) {
-      if (error.name === "AbortError") return;
-      console.error("Error adding admin:", error.response?.data || error.message);
-      message.error("Failed to add admin. Please try again.");
+      if (error.name === "AbortError") throw error;
+      console.error("Error adding service:", error.response?.data || error.message);
       throw error;
     }
   };
 
-  const handleAdminUpdate = async (formData, signal) => {
+  const handleServiceUpdate = async (formData, signal) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
       const submitData = new FormData();
-      submitData.append("first_name", formData.first_name || "");
-      submitData.append("middlename", formData.middlename || "");
-      submitData.append("last_name", formData.last_name || "");
-      submitData.append("suffix_id", formData.suffix_id || "");
-      submitData.append("email", formData.email || "");
-      if (formData.password) submitData.append("password", formData.password);
-      submitData.append("gender_id", formData.gender_id || "");
-      if (formData.profile_img instanceof File) {
-        submitData.append("profile_img", formData.profile_img);
-      } else if (formData.profile_img === null && adminToEdit.image_url) {
-        submitData.append("profile_img", "");
+      submitData.append("name", formData.name || "");
+      submitData.append("description", formData.description || "");
+      submitData.append("color_collar_id", formData.color_collar_id || "");
+      formData.skill_ids.forEach((id) => submitData.append("skill_ids[]", id));
+      if (formData.service_image instanceof File) {
+        submitData.append("service_image", formData.service_image);
+      } else if (formData.service_image === null && formData.image_url) {
+        submitData.append("service_image", "");
       }
       submitData.append("_method", "PUT");
 
-      const response = await axios.post(`http://127.0.0.1:8000/api/admins/${adminToEdit.id}`, submitData, {
+      const response = await axios.post(`http://127.0.0.1:8000/api/services/${serviceToEdit.id}`, submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
@@ -307,16 +140,165 @@ const AdminList = () => {
       });
       setIsModalOpen(false);
       setIsEditMode(false);
-      setAdminToEdit(null);
-      message.success("Admin updated successfully");
-      await fetchData(new AbortController().signal);
+      setServiceToEdit(null);
+      message.success("Service updated successfully");
+      await fetchData(signal);
       return response.data;
     } catch (error) {
-      if (error.name === "AbortError") return;
-      console.error("Error updating admin:", error.response?.data || error.message);
-      message.error("Failed to update admin. Please try again.");
+      if (error.name === "AbortError") throw error;
+      console.error("Error updating service:", error.response?.data || error.message);
       throw error;
     }
+  };
+
+  const toggleSelectService = (serviceId) => {
+    setSelectedServices((prev) =>
+      prev.includes(serviceId) ? prev.filter((id) => id !== serviceId) : [...prev, serviceId]
+    );
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedServices.length === services.length) {
+      setSelectedServices([]);
+    } else {
+      setSelectedServices(services.map((service) => service.id));
+    }
+  };
+
+  const handleToggleArchived = () => {
+    setShowArchived((prev) => !prev);
+    setPagination({ ...pagination, currentPage: 1 });
+    setSelectedServices([]);
+  };
+
+  const handleArchiveClick = (service) => {
+    setServiceToArchive(service);
+    setIsConfirmModalOpen(true);
+  };
+
+  const handleArchiveConfirm = async () => {
+    if (!serviceToArchive) return;
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      await axios.patch(
+        `http://127.0.0.1:8000/api/services/${serviceToArchive.id}/archive`,
+        { archived: true },
+        {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 5000,
+        }
+      );
+      setIsConfirmModalOpen(false);
+      setServiceToArchive(null);
+      message.success("Service archived successfully");
+      const controller = new AbortController();
+      await fetchData(controller.signal);
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error archiving service:", error.response?.data || error.message);
+      message.error(
+        error.response?.status === 401
+          ? "Unauthorized: Please log in again."
+          : "Failed to archive service. Please try again."
+      );
+    }
+  };
+
+  const handleRestoreService = async (serviceId) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      await axios.patch(
+        `http://127.0.0.1:8000/api/services/${serviceId}/archive`,
+        { archived: false },
+        {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 5000,
+        }
+      );
+      message.success("Service restored successfully");
+      const controller = new AbortController();
+      await fetchData(controller.signal);
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error restoring service:", error.response?.data || error.message);
+      message.error(
+        error.response?.status === 401
+          ? "Unauthorized: Please log in again."
+          : "Failed to restore service. Please try again."
+      );
+    }
+  };
+
+  const handleBulkAction = async (action) => {
+    if (selectedServices.length === 0) {
+      message.warning("No services selected");
+      return;
+    }
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      await axios.post(
+        "http://127.0.0.1:8000/api/services/bulk-archive",
+        { service_ids: selectedServices, action },
+        {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 10000,
+        }
+      );
+      setSelectedServices([]);
+      message.success(`Services ${action}d successfully`);
+      const controller = new AbortController();
+      await fetchData(controller.signal);
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error(`Error ${action}ing services:`, error.response?.data || error.message);
+      message.error(
+        error.response?.status === 401
+          ? "Unauthorized: Please log in again."
+          : `Failed to ${action} services. Please try again.`
+      );
+    }
+  };
+
+  const handleAddNewClick = () => {
+    setIsEditMode(false);
+    setServiceToEdit({
+      name: "",
+      description: "",
+      color_collar_id: "",
+      skill_ids: [],
+      service_image: null,
+      image_url: null,
+    });
+    setIsModalOpen(true);
+  };
+
+  const handleEditClick = (service) => {
+    setServiceToEdit({
+      id: service.id,
+      name: service.name || "",
+      description: service.description || "",
+      color_collar_id: service.color_collar_id ? String(service.color_collar_id) : "",
+      skill_ids: service.skills ? service.skills.map((skill) => String(skill.id)) : [],
+      service_image: null,
+      image_url: service.service_image ? `http://127.0.0.1:8000/storage/${service.service_image}` : null,
+    });
+    setIsEditMode(true);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setIsEditMode(false);
+    setServiceToEdit(null);
   };
 
   const renderPagination = () => {
@@ -379,26 +361,26 @@ const AdminList = () => {
   return (
     <div className="app">
       {loading && <Loader />}
-      <AdminSidebar activeItem="Admins List" />
+      <AdminSidebar activeItem="Services" />
       <TopNavbar />
-      <div className="adminlist-dashboard">
-        <div className="adminlist-content">
-          <h2>{showArchived ? "Archived Admins" : "Admins List"}</h2>
-          <div className="adminlist-header">
+      <div className="userlist-dashboard">
+        <div className="userlist-content">
+          <h2>{showArchived ? "Archived Services" : "Services"}</h2>
+          <div className="userlist-header">
             <div className="left-actions">
               <div className="search-container">
                 <IconSearch size={20} className="search-icon" />
                 <input
                   type="text"
                   className="search-input"
-                  placeholder="Search Admins"
+                  placeholder="Search Services"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
             </div>
             <div className="right-actions">
-              {selectedAdmins.length > 0 && (
+              {selectedServices.length > 0 && (
                 <button
                   className="header-button archive-all-button"
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
@@ -417,14 +399,14 @@ const AdminList = () => {
               </button>
             </div>
           </div>
-          <div className="adminlist-table">
+          <div className="userlist-table">
             <table>
               <thead>
                 <tr>
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedAdmins.length === admins.length && admins.length > 0 ? (
+                        {selectedServices.length === services.length && services.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -433,26 +415,25 @@ const AdminList = () => {
                       Actions
                     </div>
                   </th>
-                  <th>Profile Image</th>
-                  <th>Full Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
-                  <th>Created At</th>
-                  <th>Updated At</th>
+                  <th>Service Image</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Color Collar</th>
+                  <th>Fetch Skills</th>
                 </tr>
               </thead>
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="7" className="loading-row">Loading admins...</td>
+                    <td colSpan="6" className="loading-row">Loading services...</td>
                   </tr>
-                ) : admins.length > 0 ? (
-                  admins.map((admin) => (
-                    <tr key={admin.id}>
+                ) : services.length > 0 ? (
+                  services.map((service) => (
+                    <tr key={service.id}>
                       <td>
                         <div className="action-icons">
-                          <span onClick={() => toggleSelectAdmin(admin.id)} style={{ cursor: "pointer" }}>
-                            {selectedAdmins.includes(admin.id) ? (
+                          <span onClick={() => toggleSelectService(service.id)} style={{ cursor: "pointer" }}>
+                            {selectedServices.includes(service.id) ? (
                               <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
                               <FaSquare className="checkbox-icon" size={16} />
@@ -462,50 +443,49 @@ const AdminList = () => {
                             <FaCheckCircle
                               size={16}
                               className="restore-icon"
-                              onClick={() => handleRestoreAdmin(admin.id)}
+                              onClick={() => handleRestoreService(service.id)}
                             />
                           ) : (
                             <FaTrash
                               size={16}
                               className="delete-icon"
-                              onClick={() => handleArchiveClick(admin)}
+                              onClick={() => handleArchiveClick(service)}
                             />
                           )}
                           <FaEdit
                             size={16}
                             className="edit-icon"
-                            onClick={() => handleEditClick(admin)}
+                            onClick={() => handleEditClick(service)}
                           />
                         </div>
                       </td>
                       <td>
-                        {admin.profile_img ? (
+                        {service.service_image ? (
                           <img
-                            src={`http://127.0.0.1:8000/storage/${admin.profile_img}`}
-                            alt="Profile"
-                            className="profile-img"
-                            style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}
+                            src={`http://127.0.0.1:8000/storage/${service.service_image}`}
+                            alt="Service"
+                            className="service-img"
+                            style={{ width: "40px", height: "40px", borderRadius: "8px", objectFit: "cover" }}
                           />
                         ) : (
                           "N/A"
                         )}
                       </td>
-                      <td className="fullname-cell">{getFullName(admin)}</td>
-                      <td>{admin.email || "N/A"}</td>
-                      <td>{admin.role_name || "Admin"}</td>
-                      <td>{formatDate(admin.created_at)}</td>
-                      <td>{formatDate(admin.updated_at)}</td>
+                      <td>{service.name || "N/A"}</td>
+                      <td>{service.description || "N/A"}</td>
+                      <td>{service.color_collar_name || "N/A"}</td>
+                      <td>{service.skills ? service.skills.map((skill) => skill.name).join(", ") : "N/A"}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="7">No {showArchived ? "archived" : "active"} admins found</td>
+                    <td colSpan="6">No {showArchived ? "archived" : "active"} services found</td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
-          <div className="adminlist-pagination">
+          <div className="userlist-pagination">
             <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
             <button
               onClick={() => setPagination({ ...pagination, currentPage: pagination.currentPage - 1 })}
@@ -527,7 +507,7 @@ const AdminList = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{getFullName(adminToArchive)}"?</p>
+            <p>Do you want to archive "{serviceToArchive?.name}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -540,15 +520,16 @@ const AdminList = () => {
         </div>
       )}
       {isModalOpen && (
-        <AdminModal
+        <ServiceModal
           onClose={handleModalClose}
-          onSubmit={isEditMode ? handleAdminUpdate : handleAdminAdd}
+          onSubmit={isEditMode ? handleServiceUpdate : handleServiceAdd}
           isEdit={isEditMode}
-          initialData={adminToEdit}
+          initialData={serviceToEdit}
+          skills={skills}
         />
       )}
     </div>
   );
 };
 
-export default AdminList;
+export default Services;

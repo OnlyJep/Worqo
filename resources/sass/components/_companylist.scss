@@ -18,7 +18,7 @@ body {
   background: #F4F6F9;
 }
 
-.workerlist-dashboard {
+.companylist-dashboard {
   flex: 1;
   padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);
   display: flex;
@@ -49,7 +49,7 @@ body {
     padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);
   }
 
-  .workerlist-content {
+  .companylist-content {
     width: 100%;
     background: #FFFFFF;
 
@@ -60,7 +60,7 @@ body {
       margin: 0 0 clamp(16px, 3vw, 24px);
     }
 
-    .workerlist-header {
+    .companylist-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -224,7 +224,7 @@ body {
       }
     }
 
-    .workerlist-table {
+    .companylist-table {
       overflow-x: auto;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -276,13 +276,6 @@ body {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-
-          &.username-cell,
-          &[data-label="Email"],
-          &[data-label="Credentials"] {
-            text-align: left;
-            white-space: normal;
-          }
         }
 
         tr {
@@ -290,20 +283,6 @@ body {
 
           &:last-child {
             border-bottom: none;
-          }
-        }
-
-        .username-cell {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: clamp(8px, 2vw, 10px);
-
-          .profile-picture {
-            width: clamp(32px, 8vw, 40px);
-            height: clamp(32px, 8vw, 40px);
-            object-fit: cover;
-            border-radius: 50%;
           }
         }
 
@@ -337,27 +316,6 @@ body {
           }
         }
 
-        .credential-item {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 4px;
-
-          .credential-link {
-            background: none;
-            border: none;
-            color: #4A90E2;
-            cursor: pointer;
-            font-size: clamp(12px, 3vw, 14px);
-            text-decoration: underline;
-            transition: color 0.2s ease;
-
-            &:hover {
-              color: #357ABD;
-            }
-          }
-        }
-
         th:nth-child(1),
         td:nth-child(1) {
           width: clamp(60px, 10vw, 80px);
@@ -372,20 +330,20 @@ body {
 
         th:nth-child(3),
         td:nth-child(3) {
-          width: clamp(100px, 15vw, 120px);
-          min-width: 100px;
+          width: clamp(150px, 25vw, 200px);
+          min-width: 150px;
         }
 
         th:nth-child(4),
         td:nth-child(4) {
-          width: clamp(150px, 25vw, 200px);
-          min-width: 150px;
+          width: clamp(100px, 15vw, 120px);
+          min-width: 100px;
         }
 
         th:nth-child(5),
         td:nth-child(5) {
-          width: clamp(150px, 25vw, 200px);
-          min-width: 150px;
+          width: clamp(120px, 20vw, 140px);
+          min-width: 120px;
         }
 
         th:nth-child(6),
@@ -399,10 +357,16 @@ body {
           width: clamp(120px, 20vw, 140px);
           min-width: 120px;
         }
+
+        th:nth-child(8),
+        td:nth-child(8) {
+          width: clamp(120px, 20vw, 140px);
+          min-width: 120px;
+        }
       }
     }
 
-    .workerlist-pagination {
+    .companylist-pagination {
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -467,7 +431,8 @@ body {
       @media (max-width: 480px) {
         gap: 6px;
 
-        button, .ellipsis {
+        button,
+        .ellipsis {
           width: clamp(28px, 7vw, 32px);
           height: clamp(28px, 7vw, 32px);
           font-size: clamp(10px, 2.5vw, 12px);
@@ -555,110 +520,6 @@ body {
 
       .confirm-button,
       .cancel-button {
-        width: 100%;
-        padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);
-      }
-    }
-  }
-}
-
-.preview-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.preview-modal {
-  background: #FFFFFF;
-  padding: clamp(16px, 4vw, 20px);
-  border-radius: 8px;
-  width: 100%;
-  max-width: clamp(400px, 80vw, 600px);
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(12px, 3vw, 16px);
-
-  h3 {
-    font-size: clamp(16px, 4vw, 20px);
-    font-weight: 600;
-    color: #333333;
-    margin: 0;
-  }
-
-  .preview-image {
-    max-width: 100%;
-    max-height: 60vh;
-    object-fit: contain;
-    border-radius: 5px;
-    border: 1px solid #EEEEEE;
-  }
-
-  .preview-file {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(8px, 2vw, 10px);
-
-    p {
-      font-size: clamp(12px, 3vw, 14px);
-      color: #666666;
-      margin: 0;
-    }
-
-    .download-button {
-      padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
-      background: #4A90E2;
-      color: #FFFFFF;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: clamp(12px, 3vw, 14px);
-      transition: background 0.3s ease, transform 0.2s ease;
-
-      &:hover {
-        background: darken(#4A90E2, 10%);
-        transform: translateY(-2px);
-      }
-    }
-  }
-
-  .preview-modal-buttons {
-    display: flex;
-    justify-content: center;
-    gap: clamp(8px, 2vw, 10px);
-
-    .close-button {
-      padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
-      background: #DDDDDD;
-      color: #333333;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-      font-size: clamp(12px, 3vw, 14px);
-
-      &:hover {
-        background: darken(#DDDDDD, 10%);
-        transform: translateY(-2px);
-      }
-    }
-
-    @media (max-width: 480px) {
-      flex-direction: column;
-      gap: 8px;
-
-      .close-button {
         width: 100%;
         padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);
       }

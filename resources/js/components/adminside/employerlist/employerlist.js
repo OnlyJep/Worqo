@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaUser, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_employerlist.scss";
 import EmployerModal from "./employerlistmodal.js";
@@ -431,7 +431,7 @@ const EmployerList = () => {
                               onClick={() => handleArchiveClick(employer)}
                             />
                           )}
-                          <FaUser
+                          <FaEdit
                             size={16}
                             className="edit-icon"
                             onClick={() => handleEditClick(employer)}

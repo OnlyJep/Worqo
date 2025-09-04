@@ -1,81 +1,113 @@
-import React, { useState } from "react";
-import AdminSidebar from "./../adminsidebar/adminsidebar";
-import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaUser, FaBriefcase, FaCheckCircle, FaChartLine, FaEye, FaTrash } from "react-icons/fa";
-import "./../../../../sass/components/admin_dashboard.scss";
-
-// Static data for stats
-const stats = {
-  total_workers: 1200,
-  total_job_postings: 150,
-  total_completed_jobs: 85,
-  total_engagement: 45,
-};
-
-// Static data for job requests
-const jobRequests = [
-  {
-    id: 1,
-    worker: "John Doe",
-    category: "Construction",
-    request_date: "2025-05-27",
-    location: "Butuan City",
-    status: "Pending",
-  },
-  {
-    id: 2,
-    worker: "Jane Smith",
-    category: "Electrical",
-    request_date: "2025-05-26",
-    location: "Butuan City",
-    status: "Accepted",
-  },
-  {
-    id: 3,
-    worker: "Mike Johnson",
-    category: "Plumbing",
-    request_date: "2025-05-25",
-    location: "Butuan City",
-    status: "Completed",
-  },
-  {
-    id: 4,
-    worker: "Anna Lee",
-    category: "Carpentry",
-    request_date: "2025-05-24",
-    location: "Butuan City",
-    status: "Pending",
-  },
-  {
-    id: 5,
-    worker: "Chris Brown",
-    category: "Painting",
-    request_date: "2025-05-23",
-    location: "Butuan City",
-    status: "Accepted",
-  },
-];
+import React, { useState, useEffect } from 'react';
+import { FaUser, FaBriefcase, FaUserShield, FaClipboardList, FaBuilding } from 'react-icons/fa';
+import Chart from 'chart.js/auto';
+import AdminSidebar from './../adminsidebar/adminsidebar';
+import TopNavbar from './../admintopnavbar/admintopnavbar';
+import './../../../../sass/components/admin_dashboard.scss';
 
 const AdminDashboard = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedJobs, setSelectedJobs] = useState([]);
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
+  const [stats, setStats] = useState({
+    total_workers: 0,
+    total_employers: 0,
+    total_admins: 0,
+    total_users: 0,
+    total_job_postings: 0,
+    total_completed_jobs: 0,
+    total_companies: 0,
+  });
+  const [workerChartData, setWorkerChartData] = useState({
+    labels: [],
+    data: [],
+  });
+  const [employerChartData, setEmployerChartData] = useState({
+    labels: [],
+    data: [],
+  });
 
-  const handleSelectAll = () => {
-    if (selectedJobs.length === jobRequests.length) {
-      setSelectedJobs([]);
-    } else {
-      setSelectedJobs(jobRequests.map((job) => job.id));
+  // Fetch data from API
+  useEffect(() => {
+    fetch('/api/dashboard-stats')
+      .then(response => response.json())
+      .then(data => {
+        setStats(data.stats);
+        setWorkerChartData(data.worker_chart_data);
+        setEmployerChartData(data.employer_chart_data);
+      })
+      .catch(error => console.error('Error fetching dashboard stats:', error));
+  }, []);
+
+  // Initialize Worker Registration Chart
+  useEffect(() => {
+    const ctx = document.getElementById('workerRegistrationsChart')?.getContext('2d');
+    if (ctx) {
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: workerChartData.labels,
+          datasets: [
+            {
+              label: 'Workers',
+              data: workerChartData.data,
+              borderColor: '#4A90E2',
+              backgroundColor: 'rgba(74, 144, 226, 0.2)',
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: 'Registrations' },
+            },
+            x: {
+              title: { display: true, text: 'Date' },
+            },
+          },
+        },
+      });
+      return () => chart.destroy();
     }
-  };
+  }, [workerChartData]);
 
-  const handleSelectJob = (id) => {
-    setSelectedJobs((prevSelected) =>
-      prevSelected.includes(id)
-        ? prevSelected.filter((jobId) => jobId !== id)
-        : [...prevSelected, id]
-    );
-  };
+  // Initialize Employer Registration Chart
+  useEffect(() => {
+    const ctx = document.getElementById('employerRegistrationsChart')?.getContext('2d');
+    if (ctx) {
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: employerChartData.labels,
+          datasets: [
+            {
+              label: 'Employers',
+              data: employerChartData.data,
+              borderColor: '#4CAF50',
+              backgroundColor: 'rgba(76, 175, 80, 0.2)',
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: 'Registrations' },
+            },
+            x: {
+              title: { display: true, text: 'Date' },
+            },
+          },
+        },
+      });
+      return () => chart.destroy();
+    }
+  }, [employerChartData]);
 
   return (
     <div className="app">
@@ -85,125 +117,61 @@ const AdminDashboard = () => {
           isSidebarExpanded={isSidebarExpanded}
           setIsSidebarExpanded={setIsSidebarExpanded}
         />
-        <div className={`content ${isSidebarExpanded ? "sidebar-expanded" : "sidebar-collapsed"}`}>
+        <div className={`content ${isSidebarExpanded ? 'sidebar-expanded' : 'sidebar-collapsed'}`}>
           <div className="header">
             <h1>Dashboard</h1>
-            <div className="search-container">
-              <input
-                type="text"
-                className="search-input"
-                placeholder="Search Job Requests"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="stats-grid">
+            {[
+              { icon: FaUser, title: 'Total Workers', value: stats.total_workers, change: '+5% this week', positive: true },
+              { icon: FaBriefcase, title: 'Total Employers', value: stats.total_employers, change: '+3% this week', positive: true },
+              { icon: FaUserShield, title: 'Total Admins', value: stats.total_admins, change: 'Updated today', positive: false },
+            ].map((stat, index) => (
+              <div key={index} className="stat-card">
+                <stat.icon className="icon" />
+                <div className="stat-info">
+                  <h3>{stat.title}</h3>
+                  <p className="value">{stat.value}</p>
+                  <p className={`change ${stat.positive ? 'positive' : ''}`}>{stat.change}</p>
+                </div>
+              </div>
+            ))}
           </div>
           <div className="stats-grid">
-            <div className="stat-card">
-              <FaUser className="icon" />
-              <div className="stat-info">
-                <h3>Total Workers</h3>
-                <p className="value">{stats.total_workers}</p>
-                <p className="change positive">+5% this week</p>
+            {[
+              { icon: FaClipboardList, title: 'Total Job Postings', value: stats.total_job_postings, change: '+10% this week', positive: true },
+              { icon: FaBuilding, title: 'Total Companies', value: stats.total_companies, change: 'Updated today', positive: false },
+            ].map((stat, index) => (
+              <div key={index} className="stat-card">
+                <stat.icon className="icon" />
+                <div className="stat-info">
+                  <h3>{stat.title}</h3>
+                  <p className="value">{stat.value}</p>
+                  <p className={`change ${stat.positive ? 'positive' : ''}`}>{stat.change}</p>
+                </div>
               </div>
-            </div>
-            <div className="stat-card">
-              <FaBriefcase className="icon" />
-              <div className="stat-info">
-                <h3>Job Postings</h3>
-                <p className="value">{stats.total_job_postings}</p>
-                <p className="change positive">+20% this week</p>
-              </div>
-            </div>
-            <div className="stat-card">
-              <FaCheckCircle className="icon" />
-              <div className="stat-info">
-                <h3>Completed Jobs</h3>
-                <p className="value">{stats.total_completed_jobs}</p>
-                <p className="change positive">+10% today</p>
-              </div>
-            </div>
-            <div className="stat-card">
-              <FaChartLine className="icon" />
-              <div className="stat-info">
-                <h3>Engagement</h3>
-                <p className="value">{stats.total_engagement}</p>
-                <p className="change">Updated today</p>
-              </div>
-            </div>
+            ))}
           </div>
+
+          {/* Charts Grid */}
           <div className="charts-grid">
             <div className="chart-card">
-              <h4>Job Postings by Skill</h4>
-              <p className="subtitle">Distribution by skill type</p>
-              <div className="chart-placeholder">[Chart: Bar]</div>
-              <p className="update-info">Updated 2 hours ago</p>
-            </div>
-            <div className="chart-card">
               <h4>Worker Registrations</h4>
-              <p className="subtitle">New registrations this week</p>
-              <div className="chart-placeholder">[Chart: Line Graph]</div>
+              <p className="subtitle">New worker registrations this week</p>
+              <div className="chart-placeholder">
+                <canvas id="workerRegistrationsChart"></canvas>
+              </div>
               <p className="update-info">Updated 10 min ago</p>
             </div>
             <div className="chart-card">
-              <h4>Job Completion Rate</h4>
-              <p className="subtitle">Completions this week</p>
-              <div className="chart-placeholder">[Chart: Line Graph]</div>
-              <p className="update-info">Just updated</p>
-            </div>
-          </div>
-          <div className="job-requests">
-            <h3>Recent Job Requests</h3>
-            <div className="job-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>
-                      <input
-                        type="checkbox"
-                        className="checkbox"
-                        onChange={handleSelectAll}
-                        checked={selectedJobs.length === jobRequests.length && jobRequests.length > 0}
-                      />
-                    </th>
-                    <th>Actions</th>
-                    <th>Worker</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {jobRequests
-                    .filter(
-                      (job) =>
-                        job.worker.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        job.category.toLowerCase().includes(searchTerm.toLowerCase())
-                    )
-                    .map((job) => (
-                      <tr key={job.id}>
-                        <td>
-                          <input
-                            type="checkbox"
-                            className="checkbox"
-                            checked={selectedJobs.includes(job.id)}
-                            onChange={() => handleSelectJob(job.id)}
-                          />
-                        </td>
-                        <td>
-                          <FaEye className="action-icon view-icon" />
-                          <FaTrash className="action-icon delete-icon" />
-                        </td>
-                        <td>{job.worker}</td>
-                        <td>{job.category}</td>
-                        <td>{new Date(job.request_date).toLocaleDateString()}</td>
-                        <td>{job.location}</td>
-                        <td>{job.status}</td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
+              <h4>Employer Registrations</h4>
+              <p className="subtitle">New employer registrations this week</p>
+              <div className="chart-placeholder">
+                <canvas id="employerRegistrationsChart"></canvas>
+              </div>
+              <p className="update-info">Updated 10 min ago</p>
             </div>
           </div>
         </div>

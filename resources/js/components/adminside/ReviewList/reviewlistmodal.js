@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaStar } from "react-icons/fa";
 import axios from "axios";
 import "./../../../../sass/components/reviewmodal.scss";
@@ -14,26 +14,44 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState(null);
+  const abortControllerRef = useRef(null);
 
   // Initialize form data for edit mode
   useEffect(() => {
+    abortControllerRef.current = new AbortController();
     if (isEdit && initialData) {
       setFormData({
         user: initialData.user || {
-          id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "",
+          id: "",
+          role_id: null,
+          first_name: "",
+          middlename: "",
+          last_name: "",
+          suffix: "",
         },
         reviewedUser: initialData.reviewedUser || {
-          id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "",
+          id: "",
+          role_id: null,
+          first_name: "",
+          middlename: "",
+          last_name: "",
+          suffix: "",
         },
         rating: initialData.rating || 0,
         comment: initialData.comment || "",
       });
     }
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
   }, [isEdit, initialData]);
 
   const getFullName = (person) => {
     if (!person) return "N/A";
-    const { first_name, middlename, last_name, suffix, username } = person;
+    const profile = person.profile || person;
+    const { first_name, middlename, last_name, suffix, username } = profile;
     let fullName = `${first_name || username || ""} ${middlename ? middlename + " " : ""}${last_name || ""}`;
     if (suffix) fullName += ` ${suffix}`;
     return fullName.trim() || "N/A";
@@ -42,7 +60,12 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
   const handleUserChange = (e) => {
     const selectedId = e.target.value;
     const selectedUser = employers.find((user) => user.id === parseInt(selectedId)) || {
-      id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "",
+      id: "",
+      role_id: null,
+      first_name: "",
+      middlename: "",
+      last_name: "",
+      suffix: "",
     };
     console.log("Selected reviewer:", selectedUser);
     setFormData((prev) => ({
@@ -57,7 +80,12 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
   const handleReviewedUserChange = (e) => {
     const selectedId = e.target.value;
     const selectedUser = workers.find((user) => user.id === parseInt(selectedId)) || {
-      id: "", role_id: null, first_name: "", middlename: "", last_name: "", suffix: "",
+      id: "",
+      role_id: null,
+      first_name: "",
+      middlename: "",
+      last_name: "",
+      suffix: "",
     };
     console.log("Selected reviewed user:", selectedUser);
     setFormData((prev) => ({ ...prev, reviewedUser: selectedUser }));
@@ -94,12 +122,8 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
     setSubmitError(null);
     setLoading(true);
-
-    const source = axios.CancelToken.source();
-    let isMounted = true;
 
     try {
       const payload = {
@@ -108,27 +132,22 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
         rating: formData.rating,
         comment: formData.comment,
       };
-
       const url = isEdit
         ? `http://127.0.0.1:8000/api/reviews/${initialData.id}`
-        : "http://127.0.0.1:8000/api/reviews";
-
+        : `http://127.0.0.1:8000/api/reviews`; // Fixed URL typo
       await axios({
         method: isEdit ? "PUT" : "POST",
         url,
         data: payload,
         headers: { "Content-Type": "application/json" },
-        cancelToken: source.token,
+        signal: abortControllerRef.current.signal,
       });
-
-      if (isMounted) {
-        onRefresh();
-        onClose();
-      }
+      await onRefresh();
+      onClose();
     } catch (error) {
-      if (axios.isCancel(error)) {
+      if (error.name === "AbortError") {
         console.log("Submit canceled:", error.message);
-      } else if (isMounted) {
+      } else {
         if (error.response?.status === 422) {
           const validationErrors = error.response.data.errors || {};
           setErrors((prev) => ({
@@ -145,14 +164,16 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
         }
       }
     } finally {
-      if (isMounted) setLoading(false);
+      setLoading(false);
     }
-
-    return () => {
-      isMounted = false;
-      source.cancel("Submit canceled due to component unmount");
-    };
   };
+
+  // Filter workers to only include those with role_id: 1
+  const filteredWorkers = workers.filter((worker) => worker.role_id === 1);
+
+  // Check if workers and employers are arrays
+  const isWorkersLoaded = Array.isArray(filteredWorkers);
+  const isEmployersLoaded = Array.isArray(employers);
 
   return (
     <div className="reviewmodal-overlay">
@@ -161,6 +182,8 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
         {submitError && <div className="error">{submitError}</div>}
         {loading ? (
           <div>Loading...</div>
+        ) : !isWorkersLoaded || !isEmployersLoaded ? (
+          <div>Error: User data not loaded. Please try again later.</div>
         ) : (
           <div className="reviewmodal-content">
             <div className="form-group">
@@ -185,7 +208,7 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
                 disabled={!formData.user.id}
               >
                 <option value="">Select Reviewed User</option>
-                {workers.map((worker) => (
+                {filteredWorkers.map((worker) => (
                   <option key={worker.id} value={worker.id}>
                     {getFullName(worker)} (Worker)
                   </option>
@@ -233,7 +256,11 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
           </div>
         )}
         <div className="reviewmodal-buttons">
-          <button className="submit-button" onClick={handleSubmit} disabled={loading}>
+          <button
+            className="submit-button"
+            onClick={handleSubmit}
+            disabled={loading || !isWorkersLoaded || !isEmployersLoaded}
+          >
             {isEdit ? "Update" : "Create"}
           </button>
           <button className="cancel-button" onClick={onClose} disabled={loading}>
