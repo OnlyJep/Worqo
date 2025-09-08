@@ -109,6 +109,7 @@ Route::get('/workers/archived', [WorkerController::class, 'archived'])->name('wo
 Route::get('/workers/{id}', [WorkerController::class, 'show'])->name('workers.show');
 Route::post('/workers', [WorkerController::class, 'store'])->name('workers.store');
 Route::put('/workers/{id}', [WorkerController::class, 'update'])->name('workers.update');
+Route::put('/workers/{id}/skills', [WorkerController::class, 'updateSkills'])->name('workers.updateSkills');
 Route::patch('/workers/{id}/archive', [WorkerController::class, 'updateArchiveStatus'])->name('workers.archive');
 Route::post('/workers/bulk-archive', [WorkerController::class, 'bulkArchive'])->name('workers.bulkArchive');
 

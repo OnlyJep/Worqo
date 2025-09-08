@@ -532,6 +532,73 @@ class WorkerController extends Controller
         }
     }
 
+    public function updateSkills(Request $request, $id): JsonResponse
+    {
+        try {
+            Log::info('Skills update request received', [
+                'user_id' => $id,
+                'data' => $request->all()
+            ]);
+            
+            $validator = Validator::make($request->all(), [
+                'skills_id' => 'required|array',
+                'skills_id.*.skill_id' => 'required|integer',
+                'skills_id.*.experience_level' => 'required|string|in:beginner,intermediate,advanced,expert',
+                'skills_id.*.description' => 'nullable|string|max:1000',
+                'skills_id.*.is_primary' => 'boolean',
+                'skills_id.*.is_additional' => 'boolean',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for skills update', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $user = User::with(['profile', 'worker'])->findOrFail($id);
+
+            if (!$user->profile) {
+                return response()->json(['error' => 'User profile not found'], 404);
+            }
+
+            if (!$user->worker) {
+                Worker::create([
+                    'profile_id' => $user->profile->id,
+                    'work_type' => 'part-time',
+                    'skills_id' => null,
+                    'credentials_name' => null,
+                    'credentials_photo' => null,
+                    'archived' => false,
+                ]);
+                $user = $user->load(['profile', 'worker']);
+            }
+
+            $updateResult = $user->worker->update([
+                'skills_id' => $request->skills_id,
+            ]);
+
+            if (!$updateResult) {
+                Log::error('Failed to update worker skills', [
+                    'worker_id' => $user->worker->id,
+                    'skills_data' => $request->skills_id
+                ]);
+                return response()->json(['error' => 'Failed to update skills in database'], 500);
+            }
+
+            Log::info('Worker skills updated successfully', [
+                'worker_id' => $user->worker->id,
+                'skills_count' => count($request->skills_id)
+            ]);
+
+            return response()->json([
+                'message' => 'Skills updated successfully',
+                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating worker skills: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update skills: ' . $e->getMessage()], 500);
+        }
+    }
+
     protected function formatWorker($user)
     {
         return [

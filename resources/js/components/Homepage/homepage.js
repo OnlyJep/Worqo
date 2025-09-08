@@ -1,13 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './../../../sass/components/HomepageStyles/homepage.scss';
 import Headerz from '../HeaderContent/Headerz';
 import Stats from '../StatsContent/stats';
 import Footer from '../FooterContent/footer';
-
-// Importing Tabler Icons
+import SkillRatingModal from '../SkillRatingModal/SkillRatingModal';
 import { IconSearch } from '@tabler/icons-react';
 
 const HomePage = () => {
+  const [showProfileModal, setShowProfileModal] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isProfileComplete, setIsProfileComplete] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in and is a worker
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      const parsedUser = JSON.parse(userData);
+      setUser(parsedUser);
+
+      // Check if user is a worker (role_id = 1) and if profile is complete
+      if (parsedUser.role_id === 1) {
+        const skills = localStorage.getItem('userSkills');
+        if (!skills || JSON.parse(skills).length < 5) {
+          setShowProfileModal(true); // Show modal if skills are not set or incomplete
+        } else {
+          setIsProfileComplete(true);
+        }
+      }
+    }
+  }, []);
+
+  const handleProfileModalComplete = () => {
+    setShowProfileModal(false);
+    // Mark profile as complete and save to localStorage
+    const skills = localStorage.getItem('userSkills');
+    if (skills && JSON.parse(skills).length >= 5) {
+      setIsProfileComplete(true);
+      localStorage.setItem('isProfileComplete', 'true');
+    }
+    // Reload or redirect to refresh the homepage
+    window.location.reload(); // Simulates returning to homepage
+  };
+
   return (
     <div className="homepage">
       <Headerz />
@@ -73,8 +107,22 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* Profile Completion Prompt */}
+      {!isProfileComplete && user && user.role_id === 1 && (
+        <div className="profile-prompt">
+          <p>You must complete setting up your profile to access all features. <button onClick={() => setShowProfileModal(true)}>Complete Now</button></p>
+        </div>
+      )}
+
       {/* Footer Section */}
       <Footer />
+      
+      {/* Profile Completion Modal for Workers */}
+      <SkillRatingModal
+        isOpen={showProfileModal}
+        onClose={() => setShowProfileModal(false)}
+        onComplete={handleProfileModalComplete}
+      />
     </div>
   );
 };

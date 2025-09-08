@@ -62,7 +62,14 @@ const Login = () => {
 
         const userRole = data.user.role_id;
         console.log('User Role:', userRole);
-        if (userRole === 1 || userRole === 2) {
+        
+        // Check if user is a worker (role_id 1) and redirect to homepage first
+        if (userRole === 1) {
+          setTimeout(() => {
+            navigate('/homepage', { replace: true });
+            setIsLoading(false);
+          }, 500);
+        } else if (userRole === 2) {
           setTimeout(() => {
             navigate('/homepage', { replace: true });
             setIsLoading(false);
@@ -86,6 +93,7 @@ const Login = () => {
       setIsLoading(false);
     }
   };
+
 
   const handleLogout = async () => {
     const token = localStorage.getItem('auth_token');
@@ -131,7 +139,7 @@ const Login = () => {
           <div className="login-content">
             <div className="login-header">
               <h2 className="login-title">Login to Your Account</h2>
-              <p className="login-subtitle">See what’s going on with your business</p>
+              <p className="login-subtitle">See what's going on with your business</p>
             </div>
 
             {error && <p className="login-error">{error}</p>}
