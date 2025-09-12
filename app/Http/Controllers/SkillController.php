@@ -11,12 +11,13 @@ class SkillController extends Controller
 {
     public function index()
     {
-        $skills = Skill::active()->get(['id', 'skill_name', 'created_at', 'updated_at']);
-        Log::info('Active Skills Raw:', $skills->toArray()); // Debug raw data
+        $skills = Skill::active()->get(['id', 'skill_name', 'sub_skills', 'created_at', 'updated_at']);
+        Log::info('Active Skills Raw:', $skills->toArray());
         $skills = $skills->map(function ($skill) {
             return [
                 'id' => $skill->id,
                 'name' => $skill->skill_name,
+                'sub_skills' => $skill->sub_skills ?? [],
                 'created_at' => $skill->created_at,
                 'updated_at' => $skill->updated_at,
             ];
@@ -26,12 +27,13 @@ class SkillController extends Controller
 
     public function archived()
     {
-        $skills = Skill::archived()->get(['id', 'skill_name', 'created_at', 'updated_at']);
-        Log::info('Archived Skills Raw:', $skills->toArray()); // Debug raw data
+        $skills = Skill::archived()->get(['id', 'skill_name', 'sub_skills', 'created_at', 'updated_at']);
+        Log::info('Archived Skills Raw:', $skills->toArray());
         $skills = $skills->map(function ($skill) {
             return [
                 'id' => $skill->id,
                 'name' => $skill->skill_name,
+                'sub_skills' => $skill->sub_skills ?? [],
                 'created_at' => $skill->created_at,
                 'updated_at' => $skill->updated_at,
             ];
@@ -43,6 +45,8 @@ class SkillController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:skills,skill_name',
+            'sub_skills' => 'nullable|array',
+            'sub_skills.*' => 'string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -51,12 +55,14 @@ class SkillController extends Controller
 
         $skill = Skill::create([
             'skill_name' => $request->name,
+            'sub_skills' => $request->sub_skills ?? [],
             'archived' => false,
         ]);
 
         return response()->json([
             'id' => $skill->id,
             'name' => $skill->skill_name,
+            'sub_skills' => $skill->sub_skills ?? [],
             'created_at' => $skill->created_at,
             'updated_at' => $skill->updated_at,
         ], 201);
@@ -68,6 +74,8 @@ class SkillController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:skills,skill_name,' . $id,
+            'sub_skills' => 'nullable|array',
+            'sub_skills.*' => 'string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -76,11 +84,13 @@ class SkillController extends Controller
 
         $skill->update([
             'skill_name' => $request->name,
+            'sub_skills' => $request->sub_skills ?? [],
         ]);
 
         return response()->json([
             'id' => $skill->id,
             'name' => $skill->skill_name,
+            'sub_skills' => $skill->sub_skills ?? [],
             'created_at' => $skill->created_at,
             'updated_at' => $skill->updated_at,
         ], 200);

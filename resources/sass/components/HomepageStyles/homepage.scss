@@ -61,7 +61,6 @@
       }
     }
 
-    // Search Bar
     .search-bar {
       margin: 8rem 0 6rem;
       display: flex;
@@ -125,7 +124,6 @@
     }
   }
 
-  // Work Searches Section
   .work-searches-section {
     background-color: #FFFFFF;
     padding: 60px 20px;
@@ -205,39 +203,40 @@
           }
         }
       }
+
       .profile-prompt {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #20B2AA;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  text-align: center;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #20B2AA;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-align: center;
 
-  p {
-    margin: 0;
-    font-size: 16px;
-  }
+        p {
+          margin: 0;
+          font-size: 16px;
+        }
 
-  button {
-    background-color: #fff;
-    color: #20B2AA;
-    border: none;
-    padding: 5px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-    font-weight: 600;
+        button {
+          background-color: #fff;
+          color: #20B2AA;
+          border: none;
+          padding: 5px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-left: 10px;
+          font-weight: 600;
 
-    &:hover {
-      background-color: #e0f0f0;
-    }
-  }
-}
+          &:hover {
+            background-color: #e0f0f0;
+          }
+        }
+      }
 
       .see-more-btn {
         padding: 0.8rem 2rem;
@@ -268,9 +267,259 @@
       }
     }
   }
+
+  .skill-details-modal {
+    .modal-content {
+      background: #FFFFFF;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h3 {
+          margin: 0;
+          font-size: 1.5rem;
+          color: #000000;
+          font-weight: 600;
+        }
+
+        .close-icon {
+          cursor: pointer;
+          color: #000000;
+        }
+      }
+
+      .modal-body {
+        .sub-skills-section {
+          margin-bottom: 20px;
+
+          .sub-skills-label {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #000000;
+            margin-bottom: 8px;
+            display: block;
+
+            .required {
+              color: #FF4D4F;
+              font-size: 0.9rem;
+            }
+          }
+
+          .sub-skills-instruction {
+            font-size: 0.9rem;
+            color: #666666;
+            margin-bottom: 12px;
+          }
+
+          .sub-skills-container {
+            display: flex;
+            gap: 20px;
+            background: #F9FAFB;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #E5E7EB;
+
+            @media (max-width: 480px) {
+              flex-direction: column;
+              gap: 15px;
+            }
+          }
+
+          .available-sub-skills,
+          .selected-sub-skills {
+            flex: 1;
+            padding: 10px;
+            background: #FFFFFF;
+            border-radius: 4px;
+            border: 1px solid #E5E7EB;
+            min-height: 150px;
+
+            h4 {
+              font-size: 1rem;
+              font-weight: 600;
+              color: #000000;
+              margin: 0 0 10px 0;
+            }
+
+            .sub-skills-list {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+
+              .sub-skill-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 12px;
+                border-bottom: 1px solid #F0F0F0;
+                transition: background-color 0.2s ease;
+
+                &:last-child {
+                  border-bottom: none;
+                }
+
+                &:hover {
+                  background-color: #F1F5F9;
+                }
+
+                .sub-skill-text {
+                  font-size: 0.95rem;
+                  color: #000000; // Ensure sub-skill text is black
+                  font-weight: 400;
+                }
+
+                .add-sub-skill-btn,
+                .remove-sub-skill-btn {
+                  background: #F1F5F9;
+                  border: none;
+                  cursor: pointer;
+                  padding: 6px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  transition: background-color 0.2s ease;
+
+                  svg {
+                    color: #001E40;
+                    width: 16px;
+                    height: 16px;
+                  }
+
+                  &:hover {
+                    background-color: #E6F7FF;
+                  }
+
+                  &:focus {
+                    outline: 2px solid #20B2AA;
+                    outline-offset: 2px;
+                  }
+                }
+
+                .remove-sub-skill-btn:hover {
+                  background-color: #FFF1F0;
+                }
+              }
+            }
+
+            .no-sub-skills {
+              font-size: 0.9rem;
+              color: #666666;
+              text-align: center;
+              margin: 20px 0;
+            }
+          }
+        }
+
+        .no-sub-skills {
+          font-size: 0.95rem;
+          color: #666666;
+          text-align: center;
+          margin: 20px 0;
+        }
+      }
+
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+
+        .save-btn {
+          padding: 10px 20px;
+          font-size: 1rem;
+          font-weight: 500;
+          color: #FFFFFF;
+          background-color: #001E40;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #003087;
+          }
+
+          &:disabled {
+            background-color: #B0B0B0;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+
+  .credentials-container {
+    margin-top: 20px;
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 10px;
+      color: #666;
+    }
+  }
+
+  .credential-section {
+    .credential-dropdown {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .credential-upload {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      input[type="file"] {
+        flex-grow: 1;
+      }
+      button {
+        padding: 8px 16px;
+        background-color: #1890ff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+          background-color: #40a9ff;
+        }
+      }
+    }
+    .credential-list {
+      margin-top: 10px;
+    }
+    .credential-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      button {
+        background-color: #ff4d4f;
+        color: white;
+        border: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+          background-color: #ff7875;
+        }
+      }
+    }
+    .error {
+      color: #ff4d4f;
+      font-size: 12px;
+      margin-top: 4px;
+      display: block;
+    }
+  }
 }
 
-// Ensure no default margins or padding on body/html
 html, body {
   margin: 0;
   padding: 0;

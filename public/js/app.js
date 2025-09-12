@@ -22474,6 +22474,37 @@ const IconMessageCircle = (0,_createReactComponent_mjs__WEBPACK_IMPORTED_MODULE_
 
 /***/ }),
 
+/***/ "./node_modules/@tabler/icons-react/dist/esm/icons/IconMinus.mjs":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@tabler/icons-react/dist/esm/icons/IconMinus.mjs ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconNode: () => (/* binding */ __iconNode),
+/* harmony export */   "default": () => (/* binding */ IconMinus)
+/* harmony export */ });
+/* harmony import */ var _createReactComponent_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createReactComponent.mjs */ "./node_modules/@tabler/icons-react/dist/esm/createReactComponent.mjs");
+/**
+ * @license @tabler/icons-react v3.34.1 - MIT
+ *
+ * This source code is licensed under the MIT license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconNode = [["path", { "d": "M5 12l14 0", "key": "svg-0" }]];
+const IconMinus = (0,_createReactComponent_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])("outline", "minus", "Minus", __iconNode);
+
+
+//# sourceMappingURL=IconMinus.mjs.map
+
+
+/***/ }),
+
 /***/ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs":
 /*!**********************************************************************!*\
   !*** ./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs ***!
@@ -68412,7 +68443,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".homepage {\n  position: relative;\n  width: 100%;\n  min-height: 100vh;\n  background-color: #FFFFFF;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n  margin-top: 50px;\n}\n.homepage .content-wrapper {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  min-height: 50vh;\n  padding: 80px 20px 40px;\n  box-sizing: border-box;\n  background: linear-gradient(to bottom, #7A8CA0, #FFFFFF);\n  width: 100%;\n  text-align: center;\n}\n.homepage .content-wrapper h1 {\n  font-size: 2.5rem;\n  font-weight: 700;\n  color: #ffffff;\n  margin-bottom: 1rem;\n  line-height: 1.3;\n  position: relative;\n  z-index: 5;\n  margin-top: 0;\n  text-align: center;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper h1 {\n    font-size: 2rem;\n    line-height: 1.4;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper h1 {\n    font-size: 1.5rem;\n    line-height: 1.5;\n  }\n}\n.homepage .content-wrapper .sub-headline {\n  font-size: 1rem;\n  color: #ffffff;\n  margin-bottom: 2rem;\n  font-weight: 400;\n  line-height: 1.5;\n  text-align: center;\n  max-width: 700px;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .sub-headline {\n    font-size: 1rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .sub-headline {\n    font-size: 0.9rem;\n  }\n}\n.homepage .content-wrapper .search-bar {\n  margin: 8rem 0 6rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  max-width: 800px;\n  width: 100%;\n}\n.homepage .content-wrapper .search-bar input {\n  width: 100%;\n  padding: 1rem 1.5rem;\n  font-size: 1.1rem;\n  border: 1px solid #E6E6E6;\n  border-right: none;\n  border-radius: 8px 0 0 8px;\n  outline: none;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  font-weight: 400;\n  color: #000000;\n  background-color: #FFFFFF;\n}\n.homepage .content-wrapper .search-bar input::-moz-placeholder {\n  color: #999999;\n}\n.homepage .content-wrapper .search-bar input::placeholder {\n  color: #999999;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar input {\n    font-size: 1rem;\n    padding: 0.8rem 1.2rem;\n  }\n}\n.homepage .content-wrapper .search-bar .search-button {\n  padding: 1rem 1.5rem;\n  background-color: #001E40;\n  border: none;\n  border-radius: 0 8px 8px 0;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: background-color 0.3s ease;\n  height: 56px;\n  padding: 0 1.5rem;\n}\n.homepage .content-wrapper .search-bar .search-button svg {\n  color: #FFFFFF;\n  width: 24px;\n  height: 24px;\n}\n.homepage .content-wrapper .search-bar .search-button:hover {\n  background-color: #000000;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar .search-button {\n    height: 48px;\n    padding: 0 1.2rem;\n  }\n}\n.homepage .work-searches-section {\n  background-color: #FFFFFF;\n  padding: 60px 20px;\n  min-height: 50vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n}\n.homepage .work-searches-section .work-searches-content {\n  text-align: center;\n  width: 100%;\n  padding: 0 20px;\n}\n.homepage .work-searches-section .work-searches-content h2 {\n  font-size: 2.2rem;\n  font-weight: 700;\n  color: #000000;\n  margin-bottom: 10rem;\n  line-height: 1.3;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content h2 {\n    font-size: 1.8rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content h2 {\n    font-size: 1.5rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .underline {\n  width: 60px;\n  height: 3px;\n  background-color: #001E40;\n  margin: 0 auto 3rem;\n  border-radius: 2px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4rem;\n  margin-bottom: 3rem;\n  flex-wrap: wrap;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .job-categories {\n    flex-direction: column;\n    gap: 2rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  text-align: center;\n  max-width: 300px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n  font-size: 1.1rem;\n  color: #000000;\n  font-weight: 500;\n  padding: 0.5rem 0;\n  cursor: pointer;\n  transition: color 0.3s ease;\n  text-align: center;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category:hover {\n  color: #001E40;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n    font-size: 1rem;\n    text-align: center;\n  }\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt {\n  position: fixed;\n  bottom: 20px;\n  left: 50%;\n  transform: translateX(-50%);\n  background-color: #20B2AA;\n  color: white;\n  padding: 15px 30px;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);\n  z-index: 1000;\n  text-align: center;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt p {\n  margin: 0;\n  font-size: 16px;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt button {\n  background-color: #fff;\n  color: #20B2AA;\n  border: none;\n  padding: 5px 15px;\n  border-radius: 5px;\n  cursor: pointer;\n  margin-left: 10px;\n  font-weight: 600;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt button:hover {\n  background-color: #e0f0f0;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn {\n  padding: 0.8rem 2rem;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #001E40;\n  background-color: #FFFFFF;\n  border: 2px solid #7A8CA0;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n  border-color: #001E40;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .see-more-btn {\n    font-size: 0.9rem;\n    padding: 0.7rem 1.5rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content .see-more-btn {\n    font-size: 0.8rem;\n    padding: 0.6rem 1.2rem;\n  }\n}\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".homepage {\n  position: relative;\n  width: 100%;\n  min-height: 100vh;\n  background-color: #FFFFFF;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n  margin-top: 50px;\n}\n.homepage .content-wrapper {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  min-height: 50vh;\n  padding: 80px 20px 40px;\n  box-sizing: border-box;\n  background: linear-gradient(to bottom, #7A8CA0, #FFFFFF);\n  width: 100%;\n  text-align: center;\n}\n.homepage .content-wrapper h1 {\n  font-size: 2.5rem;\n  font-weight: 700;\n  color: #ffffff;\n  margin-bottom: 1rem;\n  line-height: 1.3;\n  position: relative;\n  z-index: 5;\n  margin-top: 0;\n  text-align: center;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper h1 {\n    font-size: 2rem;\n    line-height: 1.4;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper h1 {\n    font-size: 1.5rem;\n    line-height: 1.5;\n  }\n}\n.homepage .content-wrapper .sub-headline {\n  font-size: 1rem;\n  color: #ffffff;\n  margin-bottom: 2rem;\n  font-weight: 400;\n  line-height: 1.5;\n  text-align: center;\n  max-width: 700px;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .sub-headline {\n    font-size: 1rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .content-wrapper .sub-headline {\n    font-size: 0.9rem;\n  }\n}\n.homepage .content-wrapper .search-bar {\n  margin: 8rem 0 6rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  max-width: 800px;\n  width: 100%;\n}\n.homepage .content-wrapper .search-bar input {\n  width: 100%;\n  padding: 1rem 1.5rem;\n  font-size: 1.1rem;\n  border: 1px solid #E6E6E6;\n  border-right: none;\n  border-radius: 8px 0 0 8px;\n  outline: none;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  font-weight: 400;\n  color: #000000;\n  background-color: #FFFFFF;\n}\n.homepage .content-wrapper .search-bar input::-moz-placeholder {\n  color: #999999;\n}\n.homepage .content-wrapper .search-bar input::placeholder {\n  color: #999999;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar input {\n    font-size: 1rem;\n    padding: 0.8rem 1.2rem;\n  }\n}\n.homepage .content-wrapper .search-bar .search-button {\n  padding: 1rem 1.5rem;\n  background-color: #001E40;\n  border: none;\n  border-radius: 0 8px 8px 0;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: background-color 0.3s ease;\n  height: 56px;\n  padding: 0 1.5rem;\n}\n.homepage .content-wrapper .search-bar .search-button svg {\n  color: #FFFFFF;\n  width: 24px;\n  height: 24px;\n}\n.homepage .content-wrapper .search-bar .search-button:hover {\n  background-color: #000000;\n}\n@media (max-width: 768px) {\n  .homepage .content-wrapper .search-bar .search-button {\n    height: 48px;\n    padding: 0 1.2rem;\n  }\n}\n.homepage .work-searches-section {\n  background-color: #FFFFFF;\n  padding: 60px 20px;\n  min-height: 50vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n}\n.homepage .work-searches-section .work-searches-content {\n  text-align: center;\n  width: 100%;\n  padding: 0 20px;\n}\n.homepage .work-searches-section .work-searches-content h2 {\n  font-size: 2.2rem;\n  font-weight: 700;\n  color: #000000;\n  margin-bottom: 10rem;\n  line-height: 1.3;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content h2 {\n    font-size: 1.8rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content h2 {\n    font-size: 1.5rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .underline {\n  width: 60px;\n  height: 3px;\n  background-color: #001E40;\n  margin: 0 auto 3rem;\n  border-radius: 2px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4rem;\n  margin-bottom: 3rem;\n  flex-wrap: wrap;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .job-categories {\n    flex-direction: column;\n    gap: 2rem;\n  }\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  text-align: center;\n  max-width: 300px;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n  font-size: 1.1rem;\n  color: #000000;\n  font-weight: 500;\n  padding: 0.5rem 0;\n  cursor: pointer;\n  transition: color 0.3s ease;\n  text-align: center;\n}\n.homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category:hover {\n  color: #001E40;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .job-categories .category-column .job-category {\n    font-size: 1rem;\n    text-align: center;\n  }\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt {\n  position: fixed;\n  bottom: 20px;\n  left: 50%;\n  transform: translateX(-50%);\n  background-color: #20B2AA;\n  color: white;\n  padding: 15px 30px;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);\n  z-index: 1000;\n  text-align: center;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt p {\n  margin: 0;\n  font-size: 16px;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt button {\n  background-color: #fff;\n  color: #20B2AA;\n  border: none;\n  padding: 5px 15px;\n  border-radius: 5px;\n  cursor: pointer;\n  margin-left: 10px;\n  font-weight: 600;\n}\n.homepage .work-searches-section .work-searches-content .profile-prompt button:hover {\n  background-color: #e0f0f0;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn {\n  padding: 0.8rem 2rem;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #001E40;\n  background-color: #FFFFFF;\n  border: 2px solid #7A8CA0;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.homepage .work-searches-section .work-searches-content .see-more-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n  border-color: #001E40;\n}\n@media (max-width: 768px) {\n  .homepage .work-searches-section .work-searches-content .see-more-btn {\n    font-size: 0.9rem;\n    padding: 0.7rem 1.5rem;\n  }\n}\n@media (max-width: 480px) {\n  .homepage .work-searches-section .work-searches-content .see-more-btn {\n    font-size: 0.8rem;\n    padding: 0.6rem 1.2rem;\n  }\n}\n.homepage .skill-details-modal .modal-content {\n  background: #FFFFFF;\n  border-radius: 8px;\n  padding: 20px;\n  max-width: 600px;\n  width: 100%;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n.homepage .skill-details-modal .modal-content .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.homepage .skill-details-modal .modal-content .modal-header h3 {\n  margin: 0;\n  font-size: 1.5rem;\n  color: #000000;\n  font-weight: 600;\n}\n.homepage .skill-details-modal .modal-content .modal-header .close-icon {\n  cursor: pointer;\n  color: #000000;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section {\n  margin-bottom: 20px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-label {\n  font-size: 1.1rem;\n  font-weight: 500;\n  color: #000000;\n  margin-bottom: 8px;\n  display: block;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-label .required {\n  color: #FF4D4F;\n  font-size: 0.9rem;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-instruction {\n  font-size: 0.9rem;\n  color: #666666;\n  margin-bottom: 12px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-container {\n  display: flex;\n  gap: 20px;\n  background: #F9FAFB;\n  padding: 15px;\n  border-radius: 6px;\n  border: 1px solid #E5E7EB;\n}\n@media (max-width: 480px) {\n  .homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .sub-skills-container {\n    flex-direction: column;\n    gap: 15px;\n  }\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills {\n  flex: 1;\n  padding: 10px;\n  background: #FFFFFF;\n  border-radius: 4px;\n  border: 1px solid #E5E7EB;\n  min-height: 150px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills h4,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills h4 {\n  font-size: 1rem;\n  font-weight: 600;\n  color: #000000;\n  margin: 0 0 10px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 12px;\n  border-bottom: 1px solid #F0F0F0;\n  transition: background-color 0.2s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item:last-child,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item:last-child {\n  border-bottom: none;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item:hover {\n  background-color: #F1F5F9;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .sub-skill-text,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .sub-skill-text {\n  font-size: 0.95rem;\n  color: #000000;\n  font-weight: 400;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn {\n  background: #F1F5F9;\n  border: none;\n  cursor: pointer;\n  padding: 6px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background-color 0.2s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn svg,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn svg {\n  color: #001E40;\n  width: 16px;\n  height: 16px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover {\n  background-color: #E6F7FF;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .add-sub-skill-btn:focus,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:focus {\n  outline: 2px solid #20B2AA;\n  outline-offset: 2px;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .sub-skills-list .sub-skill-item .remove-sub-skill-btn:hover {\n  background-color: #FFF1F0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .available-sub-skills .no-sub-skills,\n.homepage .skill-details-modal .modal-content .modal-body .sub-skills-section .selected-sub-skills .no-sub-skills {\n  font-size: 0.9rem;\n  color: #666666;\n  text-align: center;\n  margin: 20px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-body .no-sub-skills {\n  font-size: 0.95rem;\n  color: #666666;\n  text-align: center;\n  margin: 20px 0;\n}\n.homepage .skill-details-modal .modal-content .modal-footer {\n  display: flex;\n  justify-content: flex-end;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn {\n  padding: 10px 20px;\n  font-size: 1rem;\n  font-weight: 500;\n  color: #FFFFFF;\n  background-color: #001E40;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn:hover {\n  background-color: #003087;\n}\n.homepage .skill-details-modal .modal-content .modal-footer .save-btn:disabled {\n  background-color: #B0B0B0;\n  cursor: not-allowed;\n}\n.homepage .credentials-container {\n  margin-top: 20px;\n}\n.homepage .credentials-container h3 {\n  font-size: 18px;\n  margin-bottom: 10px;\n}\n.homepage .credentials-container p {\n  margin-bottom: 10px;\n  color: #666;\n}\n.homepage .credential-section .credential-dropdown {\n  width: 100%;\n  margin-bottom: 10px;\n}\n.homepage .credential-section .credential-upload {\n  display: flex;\n  gap: 10px;\n  margin-bottom: 10px;\n}\n.homepage .credential-section .credential-upload input[type=file] {\n  flex-grow: 1;\n}\n.homepage .credential-section .credential-upload button {\n  padding: 8px 16px;\n  background-color: #1890ff;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.homepage .credential-section .credential-upload button:hover {\n  background-color: #40a9ff;\n}\n.homepage .credential-section .credential-list {\n  margin-top: 10px;\n}\n.homepage .credential-section .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 8px;\n}\n.homepage .credential-section .credential-item button {\n  background-color: #ff4d4f;\n  color: white;\n  border: none;\n  padding: 4px 8px;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.homepage .credential-section .credential-item button:hover {\n  background-color: #ff7875;\n}\n.homepage .credential-section .error {\n  color: #ff4d4f;\n  font-size: 12px;\n  margin-top: 4px;\n  display: block;\n}\n\nhtml, body {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n  overflow-x: hidden;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -68535,6 +68566,30 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.adminlist-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.adminlist-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.adminlist-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .adminlist-dashboard.sidebar-expanded, .adminlist-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .adminlist-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.adminlist-dashboard .adminlist-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.adminlist-dashboard .adminlist-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.adminlist-dashboard .adminlist-content .adminlist-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .left-actions .search-container {\n  position: relative;\n  width: 100%;\n  max-width: clamp(180px, 40vw, 200px);\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .left-actions .search-container .search-icon {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: clamp(14px, 3vw, 16px);\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .left-actions .search-container .search-input {\n  width: 100%;\n  padding: 8px 12px 8px 35px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .left-actions .search-container .search-input:focus {\n  border-color: #4A90E2;\n  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);\n}\n@media (max-width: 768px) {\n  .adminlist-dashboard .adminlist-content .adminlist-header .left-actions .search-container .search-input {\n    max-width: 100%;\n  }\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #4A90E2;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions .header-button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  border-color: #4A90E2;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions .archive-all-button {\n  background: #D81B60;\n  color: #FFFFFF;\n  border-color: #D81B60;\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.adminlist-dashboard .adminlist-content .adminlist-header .right-actions .archive-all-button:hover {\n  background: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  border-color: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .adminlist-dashboard .adminlist-content .adminlist-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .adminlist-dashboard .adminlist-content .adminlist-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .adminlist-dashboard .adminlist-content .adminlist-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .adminlist-dashboard .adminlist-content .adminlist-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .adminlist-dashboard .adminlist-content .adminlist-header .left-actions {\n    flex: 1;\n  }\n  .adminlist-dashboard .adminlist-content .adminlist-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .adminlist-dashboard .adminlist-content .adminlist-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .adminlist-dashboard .adminlist-content .adminlist-header .left-actions,\n  .adminlist-dashboard .adminlist-content .adminlist-header .right-actions {\n    width: 100%;\n  }\n  .adminlist-dashboard .adminlist-content .adminlist-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.adminlist-dashboard .adminlist-content .adminlist-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table {\n  width: 100%;\n  min-width: 600px;\n  border-collapse: collapse;\n  table-layout: auto;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #4A90E2;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #357ABD;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table td.username-cell, .adminlist-dashboard .adminlist-content .adminlist-table table td[data-label=Email] {\n  text-align: left;\n  white-space: normal;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table tr:last-child {\n  border-bottom: none;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table .username-cell {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: clamp(8px, 2vw, 10px);\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table .username-cell .profile-picture {\n  width: clamp(32px, 8vw, 40px);\n  height: clamp(32px, 8vw, 40px);\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .checkbox-icon,\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .delete-icon,\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .edit-icon,\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .restore-icon {\n  color: #4A90E2;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .checkbox-icon:hover,\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .delete-icon:hover,\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .edit-icon:hover,\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .restore-icon:hover {\n  color: #357ABD;\n  transform: scale(1.2);\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .delete-icon {\n  color: #D81B60;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table .action-icons .delete-icon:hover {\n  color: #A71D2A;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th:nth-child(1),\n.adminlist-dashboard .adminlist-content .adminlist-table table td:nth-child(1) {\n  width: clamp(60px, 10vw, 80px);\n  min-width: 60px;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th:nth-child(2),\n.adminlist-dashboard .adminlist-content .adminlist-table table td:nth-child(2) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th:nth-child(3),\n.adminlist-dashboard .adminlist-content .adminlist-table table td:nth-child(3) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th:nth-child(4),\n.adminlist-dashboard .adminlist-content .adminlist-table table td:nth-child(4) {\n  width: clamp(100px, 15vw, 120px);\n  min-width: 100px;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th:nth-child(5),\n.adminlist-dashboard .adminlist-content .adminlist-table table td:nth-child(5) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.adminlist-dashboard .adminlist-content .adminlist-table table th:nth-child(6),\n.adminlist-dashboard .adminlist-content .adminlist-table table td:nth-child(6) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.adminlist-dashboard .adminlist-content .adminlist-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.adminlist-dashboard .adminlist-content .adminlist-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.adminlist-dashboard .adminlist-content .adminlist-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.adminlist-dashboard .adminlist-content .adminlist-pagination button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.adminlist-dashboard .adminlist-content .adminlist-pagination button.active {\n  background: #4A90E2;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.adminlist-dashboard .adminlist-content .adminlist-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.adminlist-dashboard .adminlist-content .adminlist-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .adminlist-dashboard .adminlist-content .adminlist-pagination {\n    gap: 6px;\n  }\n  .adminlist-dashboard .adminlist-content .adminlist-pagination button, .adminlist-dashboard .adminlist-content .adminlist-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #D81B60;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_adminmodal.scss":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_adminmodal.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".adminmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.adminmodal {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  width: 100%;\n  max-width: 500px;\n}\n\n.adminmodal-content {\n  margin-bottom: 20px;\n}\n\n.form-group {\n  margin-bottom: 15px;\n}\n\n.form-group label {\n  display: block;\n  margin-bottom: 5px;\n  font-weight: bold;\n}\n\n.form-group input {\n  width: 100%;\n  padding: 8px;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n}\n\n.error {\n  color: #dc3545;\n  font-size: 12px;\n  margin-top: 5px;\n  display: block;\n}\n\n.sub-skill-input {\n  display: flex;\n  align-items: center;\n  margin-bottom: 10px;\n}\n\n.sub-skill-input input {\n  flex-grow: 1;\n  margin-right: 10px;\n}\n\n.sub-skill-actions {\n  display: flex;\n  gap: 5px;\n}\n\n.add-sub-skill,\n.remove-sub-skill {\n  background: none;\n  border: none;\n  cursor: pointer;\n  padding: 5px;\n  color: #333;\n}\n\n.add-sub-skill:hover {\n  color: #28a745;\n}\n\n.remove-sub-skill:hover {\n  color: #dc3545;\n}\n\n.adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n\n.submit-button,\n.cancel-button {\n  padding: 10px 20px;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n}\n\n.submit-button {\n  background: #28a745;\n  color: #fff;\n}\n\n.cancel-button {\n  background: #dc3545;\n  color: #fff;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -150384,33 +150439,24 @@ var HomePage = function HomePage() {
     isProfileComplete = _useState6[0],
     setIsProfileComplete = _useState6[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // Check if user is logged in and is a worker
     var userData = localStorage.getItem('user');
     if (userData) {
       var parsedUser = JSON.parse(userData);
       setUser(parsedUser);
-
-      // Check if user is a worker (role_id = 1) and if profile is complete
       if (parsedUser.role_id === 1) {
-        var skills = localStorage.getItem('userSkills');
-        if (!skills || JSON.parse(skills).length < 5) {
-          setShowProfileModal(true); // Show modal if skills are not set or incomplete
-        } else {
+        var isComplete = localStorage.getItem("isProfileComplete_".concat(parsedUser.id));
+        if (isComplete === 'true') {
           setIsProfileComplete(true);
+        } else {
+          setShowProfileModal(true);
         }
       }
     }
   }, []);
   var handleProfileModalComplete = function handleProfileModalComplete() {
     setShowProfileModal(false);
-    // Mark profile as complete and save to localStorage
-    var skills = localStorage.getItem('userSkills');
-    if (skills && JSON.parse(skills).length >= 5) {
-      setIsProfileComplete(true);
-      localStorage.setItem('isProfileComplete', 'true');
-    }
-    // Reload or redirect to refresh the homepage
-    window.location.reload(); // Simulates returning to homepage
+    setIsProfileComplete(true);
+    window.location.reload();
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "homepage",
@@ -150425,9 +150471,11 @@ var HomePage = function HomePage() {
         className: "search-bar",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
           type: "text",
-          placeholder: "Search"
+          placeholder: "Search",
+          disabled: !isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
           className: "search-button",
+          disabled: !isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
             size: 24
           })
@@ -150515,13 +150563,14 @@ var HomePage = function HomePage() {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
           className: "see-more-btn",
+          disabled: !isProfileComplete && (user === null || user === void 0 ? void 0 : user.role_id) === 1,
           children: "SEE MORE SKILLS"
         })]
       })
     }), !isProfileComplete && user && user.role_id === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "profile-prompt",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
-        children: ["You must complete setting up your profile to access all features. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+        children: ["Finish your profile to start browsing jobs!", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
           onClick: function onClick() {
             return setShowProfileModal(true);
           },
@@ -150533,7 +150582,8 @@ var HomePage = function HomePage() {
       onClose: function onClose() {
         return setShowProfileModal(false);
       },
-      onComplete: handleProfileModalComplete
+      onComplete: handleProfileModalComplete,
+      user: user
     })]
   });
 };
@@ -152631,22 +152681,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconChevronDown.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconX.mjs");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/dropdown/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/menu/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconMinus.mjs");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconX.mjs");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/dropdown/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/menu/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -152662,131 +152714,317 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-var Option = antd__WEBPACK_IMPORTED_MODULE_5__["default"].Option;
-
-// Define sub-types for primary skills (example mapping)
-var skillSubTypes = {
-  'Electrician': ['Wiring', 'Highway Electrician', 'Residential Electrician', 'Commercial Electrician'],
-  'Web Developer': ['Front-End', 'Back-End', 'Full-Stack'],
-  'Graphic Designer': ['UI/UX', 'Print Design', 'Motion Graphics'],
-  'SEO': ['On-Page SEO', 'Off-Page SEO', 'Technical SEO'],
-  'Virtual Assistant': ['Administrative', 'Technical', 'Creative'],
-  'Wordpress Developer': ['Theme Development', 'Plugin Development', 'Maintenance'],
-  'Social Media Marketer': ['Content Creation', 'Ad Management', 'Analytics'],
-  'PHP Developer': ['Web Applications', 'API Development', 'E-commerce'],
-  'Real Estate Virtual Assistant': ['Listing Management', 'Client Support', 'Marketing'],
-  'Content Writer': ['Blog Writing', 'Copywriting', 'Technical Writing'],
-  'Amazon Expert': ['Product Listing', 'PPC Advertising', 'Inventory Management'],
-  'Sales Representative': ['B2B', 'B2C', 'Retail'],
-  'Marketing Specialist': ['Digital Marketing', 'Email Marketing', 'Branding'],
-  'Shopify Developer': ['Theme Customization', 'App Development', 'Store Setup'],
-  'Video Editor': ['Short-Form', 'Long-Form', 'Animation'],
-  'Data Entry': ['Data Processing', 'Transcription', 'Database Management'],
-  'Project Manager': ['IT Projects', 'Construction', 'Marketing Campaigns'],
-  'GoHighLevel': ['Automation', 'CRM Setup', 'Campaign Management'],
-  'Facebook Ads Manager': ['Campaign Setup', 'Optimization', 'Reporting'],
-  'Lead Generation': ['Cold Calling', 'Email Outreach', 'Social Media'],
-  'Email Marketer': ['Campaign Design', 'Automation', 'Analytics'],
-  'eBay Virtual Assistant': ['Listing Creation', 'Customer Service', 'Inventory'],
-  'Customer Service': ['Tech Support', 'Sales Support', 'Billing'],
-  'Google Ads Manager': ['Search Ads', 'Display Ads', 'Video Ads'],
-  'Magento Developer': ['Theme Development', 'Module Development', 'E-commerce'],
-  'Web Designer': ['UI Design', 'Responsive Design', 'Wireframing']
-};
+var Option = antd__WEBPACK_IMPORTED_MODULE_7__["default"].Option;
+var credentialOptions = [{
+  value: "Resume/CV",
+  label: "Resume / Curriculum Vitae (CV)"
+}, {
+  value: "Birth Certificate",
+  label: "Birth Certificate (PSA-issued)"
+}, {
+  value: "Barangay Clearance",
+  label: "Barangay Clearance"
+}, {
+  value: "Police Clearance",
+  label: "Police Clearance"
+}, {
+  value: "NBI Clearance",
+  label: "NBI Clearance"
+}, {
+  value: "Medical Certificate",
+  label: "Medical Certificate / Health Certificate"
+}, {
+  value: "SSS Number",
+  label: "SSS Number (Social Security System)"
+}, {
+  value: "PhilHealth Number",
+  label: "PhilHealth Number"
+}, {
+  value: "Pag-IBIG Number",
+  label: "Pag-IBIG Number (HDMF)"
+}, {
+  value: "TIN",
+  label: "TIN (Tax Identification Number)"
+}, {
+  value: "Valid Government ID",
+  label: "Valid Government ID (e.g., Passport, Driver's License, Voter's ID, UMID, National ID)"
+}];
 var SkillRatingModal = function SkillRatingModal(_ref) {
+  var _primarySkill$sub_ski, _selectedSkill$sub_sk2;
   var isOpen = _ref.isOpen,
     onClose = _ref.onClose,
-    onComplete = _ref.onComplete;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    onComplete = _ref.onComplete,
+    user = _ref.user;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(3),
     _useState2 = _slicedToArray(_useState, 2),
-    searchTermPrimary = _useState2[0],
-    setSearchTermPrimary = _useState2[1];
+    step = _useState2[0],
+    setStep = _useState2[1];
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState4 = _slicedToArray(_useState3, 2),
-    searchTermAdditional = _useState4[0],
-    setSearchTermAdditional = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    searchTermPrimary = _useState4[0],
+    setSearchTermPrimary = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState6 = _slicedToArray(_useState5, 2),
-    selectedSkill = _useState6[0],
-    setSelectedSkill = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    searchTermAdditional = _useState6[0],
+    setSearchTermAdditional = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState8 = _slicedToArray(_useState7, 2),
-    pendingSkills = _useState8[0],
-    setPendingSkills = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    selectedSkill = _useState8[0],
+    setSelectedSkill = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState0 = _slicedToArray(_useState9, 2),
-    showSkillModal = _useState0[0],
-    setShowSkillModal = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
-      var savedSkills = localStorage.getItem('userSkills');
-      return savedSkills ? JSON.parse(savedSkills) : [];
-    }),
+    pendingSkills = _useState0[0],
+    setPendingSkills = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState10 = _slicedToArray(_useState1, 2),
-    userSkills = _useState10[0],
-    setUserSkills = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    showSkillModal = _useState10[0],
+    setShowSkillModal = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      primary: null,
+      additional: []
+    }),
     _useState12 = _slicedToArray(_useState11, 2),
-    availableSkills = _useState12[0],
-    setAvailableSkills = _useState12[1];
+    userSkills = _useState12[0],
+    setUserSkills = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState14 = _slicedToArray(_useState13, 2),
-    filteredSkillsPrimary = _useState14[0],
-    setFilteredSkillsPrimary = _useState14[1];
+    availableSkills = _useState14[0],
+    setAvailableSkills = _useState14[1];
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState16 = _slicedToArray(_useState15, 2),
-    filteredSkillsAdditional = _useState16[0],
-    setFilteredSkillsAdditional = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
-      var savedPrimary = localStorage.getItem('primarySkill');
-      return savedPrimary ? JSON.parse(savedPrimary) : null;
-    }),
+    filteredSkillsPrimary = _useState16[0],
+    setFilteredSkillsPrimary = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState18 = _slicedToArray(_useState17, 2),
-    primarySkill = _useState18[0],
-    setPrimarySkill = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
-      var savedAdditional = localStorage.getItem('additionalSkills');
-      return savedAdditional ? JSON.parse(savedAdditional) : [];
-    }),
+    filteredSkillsAdditional = _useState18[0],
+    setFilteredSkillsAdditional = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState20 = _slicedToArray(_useState19, 2),
-    additionalSkills = _useState20[0],
-    setAdditionalSkills = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      experienceLevel: '',
-      description: '',
-      subType: ''
-    }),
+    primarySkill = _useState20[0],
+    setPrimarySkill = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState22 = _slicedToArray(_useState21, 2),
-    skillDetails = _useState22[0],
-    setSkillDetails = _useState22[1];
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
+    additionalSkills = _useState22[0],
+    setAdditionalSkills = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState24 = _slicedToArray(_useState23, 2),
+    selectedSubSkills = _useState24[0],
+    setSelectedSubSkills = _useState24[1];
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState26 = _slicedToArray(_useState25, 2),
+    availableSubSkills = _useState26[0],
+    setAvailableSubSkills = _useState26[1];
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState28 = _slicedToArray(_useState27, 2),
+    profileId = _useState28[0],
+    setProfileId = _useState28[1];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState30 = _slicedToArray(_useState29, 2),
+    credentials = _useState30[0],
+    setCredentials = _useState30[1];
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      credentials_name: "",
+      credentials_photo: null
+    }),
+    _useState32 = _slicedToArray(_useState31, 2),
+    newCredential = _useState32[0],
+    setNewCredential = _useState32[1];
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState34 = _slicedToArray(_useState33, 2),
+    errors = _useState34[0],
+    setErrors = _useState34[1];
+  var credentialFileRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetchSkills();
-  }, []);
+    if (user !== null && user !== void 0 && user.id) {
+      fetchProfile();
+      fetchSkills();
+      loadFromLocalStorage();
+    }
+  }, [user === null || user === void 0 ? void 0 : user.id]);
+  var loadFromLocalStorage = function loadFromLocalStorage() {
+    try {
+      var savedSkills = localStorage.getItem("userSkills_".concat(user.id));
+      if (savedSkills) {
+        var parsed = JSON.parse(savedSkills);
+        setUserSkills({
+          primary: parsed.primary || null,
+          additional: Array.isArray(parsed.additional) ? parsed.additional : []
+        });
+      }
+      var savedPrimary = localStorage.getItem("primarySkill_".concat(user.id));
+      if (savedPrimary) setPrimarySkill(JSON.parse(savedPrimary));
+      var savedAdditional = localStorage.getItem("additionalSkills_".concat(user.id));
+      if (savedAdditional) setAdditionalSkills(JSON.parse(savedAdditional) || []);
+      var savedProfile = localStorage.getItem("profile_".concat(user.id));
+      if (savedProfile) setProfileId(parseInt(savedProfile));
+    } catch (error) {
+      console.error('Error loading from localStorage:', error);
+    }
+  };
+  var saveToLocalStorage = function saveToLocalStorage() {
+    try {
+      localStorage.setItem("userSkills_".concat(user.id), JSON.stringify(userSkills));
+      localStorage.setItem("primarySkill_".concat(user.id), JSON.stringify(primarySkill));
+      localStorage.setItem("additionalSkills_".concat(user.id), JSON.stringify(additionalSkills));
+      if (profileId) localStorage.setItem("profile_".concat(user.id), profileId.toString());
+    } catch (error) {
+      console.error('Error saving to localStorage:', error);
+    }
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    saveToLocalStorage();
+  }, [userSkills, primarySkill, additionalSkills, profileId]);
+  var fetchProfile = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var authToken, response, errorData, profile, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            if (user !== null && user !== void 0 && user.id) {
+              _context.n = 1;
+              break;
+            }
+            console.warn('No user ID provided for fetching profile');
+            return _context.a(2);
+          case 1:
+            _context.p = 1;
+            authToken = localStorage.getItem('auth_token');
+            if (authToken) {
+              _context.n = 2;
+              break;
+            }
+            throw new Error('No authentication token found');
+          case 2:
+            _context.n = 3;
+            return fetch("/api/profiles?user_id=".concat(user.id), {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer ".concat(authToken)
+              }
+            });
+          case 3:
+            response = _context.v;
+            if (response.ok) {
+              _context.n = 5;
+              break;
+            }
+            _context.n = 4;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 4:
+            errorData = _context.v;
+            throw new Error(errorData.message || 'Failed to fetch profile');
+          case 5:
+            _context.n = 6;
+            return response.json();
+          case 6:
+            profile = _context.v;
+            if (profile && profile.id) {
+              setProfileId(profile.id);
+              console.log('Fetched profile_id:', profile.id);
+            } else {
+              console.error('No profile found for user:', user.id);
+              alert('No profile found. Please create a profile first.');
+            }
+            _context.n = 8;
+            break;
+          case 7:
+            _context.p = 7;
+            _t = _context.v;
+            console.error('Error fetching profile:', _t);
+            alert("Failed to load profile: ".concat(_t.message, ". Please try again."));
+          case 8:
+            return _context.a(2);
+        }
+      }, _callee, null, [[1, 7]]);
+    }));
+    return function fetchProfile() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var fetchSkills = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var authToken, response, errorData, data, skillsWithArrays, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            _context2.p = 0;
+            authToken = localStorage.getItem('auth_token');
+            if (authToken) {
+              _context2.n = 1;
+              break;
+            }
+            throw new Error('No authentication token found');
+          case 1:
+            _context2.n = 2;
+            return fetch('/api/skills', {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer ".concat(authToken)
+              }
+            });
+          case 2:
+            response = _context2.v;
+            if (response.ok) {
+              _context2.n = 4;
+              break;
+            }
+            _context2.n = 3;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 3:
+            errorData = _context2.v;
+            throw new Error(errorData.message || 'Failed to fetch skills');
+          case 4:
+            _context2.n = 5;
+            return response.json();
+          case 5:
+            data = _context2.v;
+            console.log('Fetched skills:', data);
+            skillsWithArrays = data.map(function (skill) {
+              return _objectSpread(_objectSpread({}, skill), {}, {
+                sub_skills: Array.isArray(skill.sub_skills) ? skill.sub_skills : []
+              });
+            });
+            setAvailableSkills(skillsWithArrays);
+            setFilteredSkillsPrimary(skillsWithArrays);
+            setFilteredSkillsAdditional(skillsWithArrays);
+            _context2.n = 7;
+            break;
+          case 6:
+            _context2.p = 6;
+            _t2 = _context2.v;
+            console.error('Error fetching skills:', _t2);
+            alert('Failed to load skills: ' + _t2.message);
+          case 7:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[0, 6]]);
+    }));
+    return function fetchSkills() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (searchTermPrimary.trim() === '') {
       setFilteredSkillsPrimary(availableSkills);
     } else {
       var searchLower = searchTermPrimary.toLowerCase().trim();
       var filtered = availableSkills.filter(function (skill) {
-        var skillName = skill.skill_name.toLowerCase();
-        return skillName.includes(searchLower) || skillName.split(' ').some(function (word) {
-          return word.startsWith(searchLower);
-        }) || searchLower.split(' ').every(function (term) {
-          return skillName.includes(term);
-        }) || skillName.split(' & ').some(function (part) {
-          return part.includes(searchLower);
-        }) || skillName.split(' / ').some(function (part) {
-          return part.includes(searchLower);
-        });
+        return skill.name.toLowerCase().includes(searchLower);
       });
       setFilteredSkillsPrimary(filtered);
     }
   }, [searchTermPrimary, availableSkills]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var skillsToFilter = availableSkills;
-    if (primarySkill) {
+    if (primarySkill !== null && primarySkill !== void 0 && primarySkill.skill_id) {
       skillsToFilter = availableSkills.filter(function (s) {
-        return s.id !== primarySkill.id;
+        return s.id !== primarySkill.skill_id;
       });
     }
     if (searchTermAdditional.trim() === '') {
@@ -152794,151 +153032,45 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     } else {
       var searchLower = searchTermAdditional.toLowerCase().trim();
       var filtered = skillsToFilter.filter(function (skill) {
-        var skillName = skill.skill_name.toLowerCase();
-        return skillName.includes(searchLower) || skillName.split(' ').some(function (word) {
-          return word.startsWith(searchLower);
-        }) || searchLower.split(' ').every(function (term) {
-          return skillName.includes(term);
-        }) || skillName.split(' & ').some(function (part) {
-          return part.includes(searchLower);
-        }) || skillName.split(' / ').some(function (part) {
-          return part.includes(searchLower);
-        });
+        return skill.name.toLowerCase().includes(searchLower);
       });
       setFilteredSkillsAdditional(filtered);
     }
   }, [searchTermAdditional, availableSkills, primarySkill]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    localStorage.setItem('userSkills', JSON.stringify(userSkills));
-    localStorage.setItem('primarySkill', JSON.stringify(primarySkill));
-    localStorage.setItem('additionalSkills', JSON.stringify(additionalSkills));
-  }, [userSkills, primarySkill, additionalSkills]);
-  var fetchSkills = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var comprehensiveSkills;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.n) {
-          case 0:
-            comprehensiveSkills = [{
-              id: 1,
-              skill_name: 'Virtual Assistant'
-            }, {
-              id: 2,
-              skill_name: 'Wordpress Developer'
-            }, {
-              id: 3,
-              skill_name: 'SEO'
-            }, {
-              id: 4,
-              skill_name: 'Graphic Designer'
-            }, {
-              id: 5,
-              skill_name: 'Social Media Marketer'
-            }, {
-              id: 6,
-              skill_name: 'PHP Developer'
-            }, {
-              id: 7,
-              skill_name: 'Real Estate Virtual Assistant'
-            }, {
-              id: 8,
-              skill_name: 'Content Writer'
-            }, {
-              id: 9,
-              skill_name: 'Amazon Expert'
-            }, {
-              id: 10,
-              skill_name: 'Sales Representative'
-            }, {
-              id: 11,
-              skill_name: 'Marketing Specialist'
-            }, {
-              id: 12,
-              skill_name: 'Shopify Developer'
-            }, {
-              id: 13,
-              skill_name: 'Video Editor'
-            }, {
-              id: 14,
-              skill_name: 'Data Entry'
-            }, {
-              id: 15,
-              skill_name: 'Web Developer'
-            }, {
-              id: 16,
-              skill_name: 'Project Manager'
-            }, {
-              id: 17,
-              skill_name: 'GoHighLevel'
-            }, {
-              id: 18,
-              skill_name: 'Facebook Ads Manager'
-            }, {
-              id: 19,
-              skill_name: 'Lead Generation'
-            }, {
-              id: 20,
-              skill_name: 'Email Marketer'
-            }, {
-              id: 21,
-              skill_name: 'eBay Virtual Assistant'
-            }, {
-              id: 22,
-              skill_name: 'Customer Service'
-            }, {
-              id: 23,
-              skill_name: 'Google Ads Manager'
-            }, {
-              id: 24,
-              skill_name: 'Magento Developer'
-            }, {
-              id: 25,
-              skill_name: 'Web Designer'
-            }, {
-              id: 26,
-              skill_name: 'Electrician'
-            }];
-            setAvailableSkills(comprehensiveSkills);
-            setFilteredSkillsPrimary(comprehensiveSkills);
-            setFilteredSkillsAdditional(comprehensiveSkills);
-          case 1:
-            return _context.a(2);
-        }
-      }, _callee);
-    }));
-    return function fetchSkills() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
   var handlePrimarySkillSelect = function handlePrimarySkillSelect(value) {
     if (primarySkill) {
       alert('Only one primary skill can be selected.');
       return;
     }
-    if (userSkills.length >= 15) {
+    var totalSkills = (userSkills.primary ? 1 : 0) + userSkills.additional.length;
+    if (totalSkills >= 15) {
       alert('You can only add up to 15 skills. Please remove a skill first.');
       return;
     }
     var skill = availableSkills.find(function (s) {
       return s.id === parseInt(value);
     });
-    if (skill && !userSkills.some(function (userSkill) {
-      return userSkill.id === skill.id;
-    })) {
-      setSelectedSkill(skill);
-      setSkillDetails({
-        experienceLevel: '',
-        description: '',
-        subType: ''
-      });
-      setShowSkillModal(true);
-    } else if (skill) {
-      alert('This skill has already been added. Please select a different skill.');
+    if (!skill) {
+      console.error('Selected skill not found:', value);
+      alert('Invalid skill selected. Please try again.');
+      return;
     }
+    if (userSkills.additional.some(function (userSkill) {
+      return userSkill.skill_id === skill.id;
+    })) {
+      alert('This skill has already been added.');
+      return;
+    }
+    console.log('Opening sub-skills modal for skill:', skill);
+    setSelectedSkill(skill);
+    setAvailableSubSkills(skill.sub_skills || []);
+    setSelectedSubSkills([]);
+    setShowSkillModal(true);
   };
   var handleAdditionalSkillsSelect = function handleAdditionalSkillsSelect(values) {
-    if (userSkills.length + values.length > 15) {
-      alert('You can only add up to 15 skills total. Please remove some skills first.');
+    var totalSkills = (userSkills.primary ? 1 : 0) + userSkills.additional.length;
+    if (totalSkills + values.length > 15) {
+      alert('You can only add up to 15 skills total.');
       return;
     }
     var newSkills = values.map(function (id) {
@@ -152946,18 +153078,16 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
         return s.id === parseInt(id);
       });
     }).filter(function (skill) {
-      return skill && !userSkills.some(function (userSkill) {
-        return userSkill.id === skill.id;
-      });
+      return skill && !userSkills.additional.some(function (userSkill) {
+        return userSkill.skill_id === skill.id;
+      }) && (!userSkills.primary || userSkills.primary.skill_id !== skill.id);
     });
     if (newSkills.length > 0) {
+      console.log('Opening sub-skills modal for additional skills:', newSkills);
       setPendingSkills(newSkills);
       setSelectedSkill(newSkills[0]);
-      setSkillDetails({
-        experienceLevel: '',
-        description: '',
-        subType: ''
-      });
+      setAvailableSubSkills(newSkills[0].sub_skills || []);
+      setSelectedSubSkills([]);
       setShowSkillModal(true);
     } else {
       alert('All selected skills are already added or invalid.');
@@ -152965,116 +153095,323 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
   };
   var handleSkillItemClick = function handleSkillItemClick(skill, action) {
     if (action === 'edit') {
-      setSelectedSkill({
-        id: skill.id,
-        skill_name: skill.name
+      var originalSkill = availableSkills.find(function (s) {
+        return s.id === skill.id || s.id === skill.skill_id;
       });
-      setSkillDetails({
-        experienceLevel: skill.experienceLevel,
-        description: skill.description,
-        subType: skill.subType || ''
-      });
+      if (!originalSkill) {
+        console.error('Skill not found for editing:', skill.id);
+        return;
+      }
+      console.log('Editing skill:', originalSkill);
+      setSelectedSkill(_objectSpread(_objectSpread({}, skill), {}, {
+        sub_skills: originalSkill.sub_skills || []
+      }));
+      setAvailableSubSkills(originalSkill.sub_skills || []);
+      setSelectedSubSkills(skill.sub_skills || []);
       setShowSkillModal(true);
     } else if (action === 'remove') {
       setUserSkills(function (prev) {
-        return prev.filter(function (s) {
-          return s.id !== skill.id;
+        var newAdditional = Array.isArray(prev.additional) ? prev.additional.filter(function (s) {
+          return s.skill_id !== skill.id && s.skill_id !== skill.skill_id;
+        }) : [];
+        if (prev.primary && (prev.primary.skill_id === skill.id || prev.primary.skill_id === skill.skill_id)) {
+          return {
+            primary: null,
+            additional: newAdditional
+          };
+        }
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          additional: newAdditional
         });
       });
-      if (skill === primarySkill) {
-        setPrimarySkill(null);
-      }
+      setPrimarySkill(function (prev) {
+        return prev && (prev.skill_id === skill.id || prev.skill_id === skill.skill_id) ? null : prev;
+      });
       setAdditionalSkills(function (prev) {
         return prev.filter(function (s) {
-          return s.id !== skill.id;
+          return s.skill_id !== skill.id && s.skill_id !== skill.skill_id;
         });
       });
       setPendingSkills(function (prev) {
         return prev.filter(function (s) {
-          return s.id !== (selectedSkill === null || selectedSkill === void 0 ? void 0 : selectedSkill.id);
+          return s.id !== skill.id && s.id !== skill.skill_id;
         });
       });
     }
   };
-  var handleSaveSkill = function handleSaveSkill() {
-    if (!selectedSkill) {
-      alert('Please select a skill');
+  var handleAddSubSkill = function handleAddSubSkill(subSkill) {
+    if (selectedSubSkills.includes(subSkill)) {
+      alert('This sub-skill is already selected.');
       return;
     }
-    if (!skillDetails.experienceLevel) {
-      alert('Please select an experience level for this skill');
-      return;
-    }
-    if (skillSubTypes[selectedSkill.skill_name] && !skillDetails.subType) {
-      alert('Please select a sub-type for this skill');
-      return;
-    }
-    var newSkill = {
-      id: selectedSkill.id,
-      name: selectedSkill.skill_name,
-      experienceLevel: skillDetails.experienceLevel,
-      description: skillDetails.description,
-      subType: skillDetails.subType
-    };
-    var skillExists = userSkills.some(function (userSkill) {
-      return userSkill.id === newSkill.id;
+    setSelectedSubSkills(function (prev) {
+      return [].concat(_toConsumableArray(prev), [subSkill]);
     });
-    var isAdditional = pendingSkills.some(function (p) {
-      return p.id === selectedSkill.id;
+    setAvailableSubSkills(function (prev) {
+      return prev.filter(function (s) {
+        return s !== subSkill;
+      });
     });
-    if (skillExists) {
-      setUserSkills(function (prev) {
-        return prev.map(function (userSkill) {
-          return userSkill.id === newSkill.id ? newSkill : userSkill;
-        });
+  };
+  var handleRemoveSubSkill = function handleRemoveSubSkill(subSkill) {
+    setSelectedSubSkills(function (prev) {
+      return prev.filter(function (s) {
+        return s !== subSkill;
       });
-      var existingSkill = userSkills.find(function (s) {
-        return s.id === newSkill.id;
-      });
-      if (existingSkill === primarySkill) {
-        setPrimarySkill(newSkill);
-      } else {
-        setAdditionalSkills(function (prev) {
-          return prev.map(function (addSkill) {
-            return addSkill.id === newSkill.id ? newSkill : addSkill;
+    });
+    setAvailableSubSkills(function (prev) {
+      return [].concat(_toConsumableArray(prev), [subSkill]).sort();
+    });
+  };
+  var handleNewCredentialChange = function handleNewCredentialChange(e, field) {
+    var _e$target, _e$target2;
+    var value = ((_e$target = e.target) === null || _e$target === void 0 ? void 0 : _e$target.type) === "file" ? e.target.files[0] : ((_e$target2 = e.target) === null || _e$target2 === void 0 ? void 0 : _e$target2.value) || e;
+    if (field === "credentials_photo" && value) {
+      if (!["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "image/jpeg", "image/png"].includes(value.type)) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            new_credential_photo: "Credential must be PDF, Word, JPG, or PNG"
           });
         });
-      }
-    } else {
-      if (userSkills.length >= 15) {
-        alert('You can only add up to 15 skills. Please remove a skill first.');
         return;
       }
-      setUserSkills(function (prev) {
-        return [].concat(_toConsumableArray(prev), [newSkill]);
-      });
-      if (!primarySkill && !isAdditional) {
-        setPrimarySkill(newSkill);
-      } else {
-        setAdditionalSkills(function (prev) {
-          return [].concat(_toConsumableArray(prev), [newSkill]);
+      if (value.size > 2048 * 1024) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            new_credential_photo: "Credential file must not exceed 2 MB"
+          });
         });
+        return;
       }
     }
-    setPendingSkills(function (prev) {
-      var nextSkills = prev.filter(function (skill) {
-        return skill.id !== selectedSkill.id;
+    setNewCredential(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, value));
+    });
+    setErrors(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        new_credential_name: "",
+        new_credential_photo: ""
       });
-      if (nextSkills.length > 0) {
-        setSelectedSkill(nextSkills[0]);
-        setSkillDetails({
-          experienceLevel: '',
-          description: '',
-          subType: ''
-        });
-        return nextSkills;
-      } else {
-        setShowSkillModal(false);
-        setSelectedSkill(null);
-        return [];
-      }
     });
   };
+  var addCredential = function addCredential() {
+    if (!newCredential.credentials_name) {
+      setErrors(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          new_credential_name: "Please select a credential type"
+        });
+      });
+      return;
+    }
+    if (!newCredential.credentials_photo) {
+      setErrors(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          new_credential_photo: "Please upload a credential file"
+        });
+      });
+      return;
+    }
+    setCredentials(function (prev) {
+      return [].concat(_toConsumableArray(prev), [_objectSpread({}, newCredential)]);
+    });
+    setNewCredential({
+      credentials_name: "",
+      credentials_photo: null
+    });
+    setErrors(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        new_credential_name: "",
+        new_credential_photo: ""
+      });
+    });
+    if (credentialFileRef.current) {
+      credentialFileRef.current.value = "";
+    }
+  };
+  var removeCredential = function removeCredential(index) {
+    setCredentials(function (prev) {
+      return prev.filter(function (_, i) {
+        return i !== index;
+      });
+    });
+    setErrors(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        credentials: ""
+      });
+    });
+  };
+  var handleSaveSkill = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+      var _selectedSkill$sub_sk;
+      var invalidSubSkills, newSkill, authToken, response, _Object$values$, errorData, errorMsg, data, _t3, _t4;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
+          case 0:
+            if (selectedSkill) {
+              _context3.n = 1;
+              break;
+            }
+            alert('Please select a skill');
+            return _context3.a(2);
+          case 1:
+            if (!(((_selectedSkill$sub_sk = selectedSkill.sub_skills) === null || _selectedSkill$sub_sk === void 0 ? void 0 : _selectedSkill$sub_sk.length) > 0 && selectedSubSkills.length === 0)) {
+              _context3.n = 2;
+              break;
+            }
+            alert('Please select at least one sub-skill for this skill.');
+            return _context3.a(2);
+          case 2:
+            if (profileId) {
+              _context3.n = 3;
+              break;
+            }
+            alert('Profile not loaded. Please wait and try again.');
+            return _context3.a(2);
+          case 3:
+            // Validate sub-skills
+            invalidSubSkills = selectedSubSkills.filter(function (subSkill) {
+              return !selectedSkill.sub_skills.includes(subSkill);
+            });
+            if (!(invalidSubSkills.length > 0)) {
+              _context3.n = 4;
+              break;
+            }
+            alert("Invalid sub-skills selected: ".concat(invalidSubSkills.join(', '), ". Please select valid sub-skills."));
+            return _context3.a(2);
+          case 4:
+            newSkill = {
+              skill_id: selectedSkill.id,
+              name: selectedSkill.name,
+              sub_skills: selectedSubSkills
+            };
+            authToken = localStorage.getItem('auth_token');
+            if (authToken) {
+              _context3.n = 5;
+              break;
+            }
+            alert('Authentication token missing. Please log in again.');
+            return _context3.a(2);
+          case 5:
+            _context3.p = 5;
+            console.log('Sending request to /api/add-skill:', {
+              profile_id: profileId,
+              skill_id: selectedSkill.id,
+              sub_skills: selectedSubSkills
+            });
+            _context3.n = 6;
+            return fetch('/api/add-skill', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer ".concat(authToken)
+              },
+              body: JSON.stringify({
+                profile_id: profileId,
+                skill_id: selectedSkill.id,
+                sub_skills: selectedSubSkills.length > 0 ? selectedSubSkills : []
+              })
+            });
+          case 6:
+            response = _context3.v;
+            if (response.ok) {
+              _context3.n = 11;
+              break;
+            }
+            errorData = {};
+            _context3.p = 7;
+            _context3.n = 8;
+            return response.json();
+          case 8:
+            errorData = _context3.v;
+            _context3.n = 10;
+            break;
+          case 9:
+            _context3.p = 9;
+            _t3 = _context3.v;
+            errorData = {
+              message: "HTTP ".concat(response.status, ": ").concat(response.statusText)
+            };
+          case 10:
+            console.error('Error response from /api/add-skill:', errorData);
+            errorMsg = errorData.message || errorData.error || (errorData.errors ? (_Object$values$ = Object.values(errorData.errors)[0]) === null || _Object$values$ === void 0 ? void 0 : _Object$values$[0] : 'Failed to save skill');
+            throw new Error(errorMsg);
+          case 11:
+            _context3.n = 12;
+            return response.json();
+          case 12:
+            data = _context3.v;
+            console.log('Skill saved successfully:', data);
+
+            // Update state only if skill isn't already present
+            setUserSkills(function (prev) {
+              var skillExists = prev.primary && prev.primary.skill_id === newSkill.skill_id || prev.additional.some(function (userSkill) {
+                return userSkill.skill_id === newSkill.skill_id;
+              });
+              if (skillExists) {
+                console.log('Skill already exists in userSkills, skipping state update');
+                return prev;
+              }
+              if (!prev.primary) {
+                return {
+                  primary: newSkill,
+                  additional: prev.additional
+                };
+              }
+              return _objectSpread(_objectSpread({}, prev), {}, {
+                additional: [].concat(_toConsumableArray(prev.additional), [newSkill])
+              });
+            });
+
+            // Update primarySkill and additionalSkills
+            if (!primarySkill) {
+              setPrimarySkill(newSkill);
+            } else {
+              setAdditionalSkills(function (prev) {
+                if (prev.some(function (s) {
+                  return s.skill_id === newSkill.skill_id;
+                })) {
+                  console.log('Skill already exists in additionalSkills, skipping update');
+                  return prev;
+                }
+                return [].concat(_toConsumableArray(prev), [newSkill]);
+              });
+            }
+
+            // Handle pending skills
+            setPendingSkills(function (prev) {
+              var nextSkills = prev.filter(function (skill) {
+                return skill.id !== selectedSkill.id;
+              });
+              if (nextSkills.length > 0) {
+                setTimeout(function () {
+                  setSelectedSkill(nextSkills[0]);
+                  setAvailableSubSkills(nextSkills[0].sub_skills || []);
+                  setSelectedSubSkills([]);
+                }, 100);
+                return nextSkills;
+              } else {
+                setShowSkillModal(false);
+                setSelectedSkill(null);
+                setAvailableSubSkills([]);
+                return [];
+              }
+            });
+            _context3.n = 14;
+            break;
+          case 13:
+            _context3.p = 13;
+            _t4 = _context3.v;
+            console.error('Error saving skill:', _t4);
+            alert("Failed to save skill: ".concat(_t4.message, ". Please try again."));
+          case 14:
+            return _context3.a(2);
+        }
+      }, _callee3, null, [[7, 9], [5, 13]]);
+    }));
+    return function handleSaveSkill() {
+      return _ref4.apply(this, arguments);
+    };
+  }();
   var handleModalClose = function handleModalClose() {
     setPendingSkills(function (prev) {
       var nextSkills = prev.filter(function (skill) {
@@ -153082,37 +153419,131 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
       });
       if (nextSkills.length > 0) {
         setSelectedSkill(nextSkills[0]);
-        setSkillDetails({
-          experienceLevel: '',
-          description: '',
-          subType: ''
-        });
+        setAvailableSubSkills(nextSkills[0].sub_skills || []);
+        setSelectedSubSkills([]);
         return nextSkills;
       } else {
         setShowSkillModal(false);
         setSelectedSkill(null);
+        setAvailableSubSkills([]);
         return [];
       }
     });
   };
-  var handleFinalFinish = function handleFinalFinish() {
-    if (!primarySkill || additionalSkills.length === 0) {
-      alert('Please select 1 primary skill and at least 1 additional skill.');
+  var handleNextStep = function handleNextStep() {
+    if (!userSkills.primary || userSkills.additional.length === 0) {
+      alert('Please select 1 primary skill and at least 1 additional skill before proceeding.');
       return;
     }
-    alert('Excellent! Your profile has been completed successfully. You can now start finding jobs!');
-    localStorage.setItem('isProfileComplete', 'true');
-    onComplete();
-    navigate('/homepage'); // Navigate to /homepage
+    setStep(4);
   };
+  var handlePreviousStep = function handlePreviousStep() {
+    setStep(3);
+  };
+  var handleFinalFinish = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+      var submitData, authToken, response, errorData, errorMsg, _t5;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
+          case 0:
+            if (profileId) {
+              _context4.n = 1;
+              break;
+            }
+            alert('Profile ID not found. Please create a profile first.');
+            return _context4.a(2);
+          case 1:
+            if (!(!userSkills.primary || userSkills.additional.length === 0)) {
+              _context4.n = 2;
+              break;
+            }
+            alert('Please select at least 1 primary and 1 additional skill.');
+            return _context4.a(2);
+          case 2:
+            submitData = new FormData();
+            submitData.append('profile_id', profileId);
+            submitData.append('work_type', 'part-time');
+            submitData.append('skills_id[primary][skill_id]', userSkills.primary.skill_id);
+            submitData.append('skills_id[primary][sub_skills]', JSON.stringify(userSkills.primary.sub_skills || []));
+            userSkills.additional.forEach(function (skill, index) {
+              submitData.append("skills_id[additional][".concat(index, "][skill_id]"), skill.skill_id);
+              submitData.append("skills_id[additional][".concat(index, "][sub_skills]"), JSON.stringify(skill.sub_skills || []));
+            });
+            credentials.forEach(function (cred, index) {
+              submitData.append("credentials[".concat(index, "][credentials_name]"), cred.credentials_name);
+              if (cred.credentials_photo instanceof File) {
+                submitData.append("credentials[".concat(index, "][credentials_photo]"), cred.credentials_photo);
+              }
+            });
+            authToken = localStorage.getItem('auth_token');
+            if (authToken) {
+              _context4.n = 3;
+              break;
+            }
+            alert('Authentication token missing. Please log in again.');
+            return _context4.a(2);
+          case 3:
+            _context4.p = 3;
+            console.log('Submitting complete profile data:', {
+              profile_id: profileId,
+              work_type: 'part-time',
+              skills_id: userSkills,
+              credentials_count: credentials.length
+            });
+            _context4.n = 4;
+            return fetch('/api/complete-profile', {
+              method: 'POST',
+              headers: {
+                'Authorization': "Bearer ".concat(authToken)
+              },
+              body: submitData
+            });
+          case 4:
+            response = _context4.v;
+            if (response.ok) {
+              _context4.n = 6;
+              break;
+            }
+            _context4.n = 5;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 5:
+            errorData = _context4.v;
+            errorMsg = errorData.message || (errorData.errors ? Object.values(errorData.errors)[0][0] : 'Failed to complete profile');
+            throw new Error(errorMsg);
+          case 6:
+            localStorage.setItem("isProfileComplete_".concat(user.id), 'true');
+            localStorage.removeItem("userSkills_".concat(user.id));
+            localStorage.removeItem("primarySkill_".concat(user.id));
+            localStorage.removeItem("additionalSkills_".concat(user.id));
+            localStorage.removeItem("profile_".concat(user.id));
+            onComplete();
+            navigate('/homepage');
+            _context4.n = 8;
+            break;
+          case 7:
+            _context4.p = 7;
+            _t5 = _context4.v;
+            console.error('Error completing profile:', _t5);
+            alert("Failed to complete profile: ".concat(_t5.message, ". Please try again."));
+          case 8:
+            return _context4.a(2);
+        }
+      }, _callee4, null, [[3, 7]]);
+    }));
+    return function handleFinalFinish() {
+      return _ref5.apply(this, arguments);
+    };
+  }();
   var skillMenu = function skillMenu(skill) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Item, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
         onClick: function onClick() {
           return handleSkillItemClick(skill, 'edit');
         },
         children: "Edit"
-      }, "edit"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Item, {
+      }, "edit"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
         onClick: function onClick() {
           return handleSkillItemClick(skill, 'remove');
         },
@@ -153121,264 +153552,350 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     });
   };
   if (!isOpen) return null;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
     className: "skill-rating-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "skill-rating-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "progress-side",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "logo",
           children: "Worqo"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
           children: "Let's Get You Started!"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "progress-steps",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "step completed",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "step-number",
               children: "\u2713"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
               children: "Register for an account"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "step completed",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "step-number",
               children: "\u2713"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
               children: "Create profile"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "step current",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "step ".concat(step === 3 ? 'current' : ''),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "step-number",
-              children: "2"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              children: "3"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
               children: "Your skills"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "step ".concat(step === 4 ? 'current' : ''),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "step-number",
+              children: "4"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+              children: "Your credentials"
             })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "skill-side",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "step-indicator",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
             className: "step-number",
-            children: "2"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+            children: step
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
             className: "step-title",
-            children: " Your skills"
+            children: step === 3 ? 'Your skills' : 'Your credentials'
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
-          children: "Select your skills"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-          children: "Choose 1 primary skill and 1-14 additional skills that represent your expertise. Add experience level, sub-type (if applicable), and description for each skill."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: "skills-container primary-skills-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-            children: "Primary Skill"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-            showSearch: true,
-            placeholder: "Select primary skill",
-            onSearch: setSearchTermPrimary,
-            onSelect: handlePrimarySkillSelect,
-            className: "custom-select ant-select ant-select-outlined custom-select css-dev-only-do-not-override-l9pxc0 ant-select-single ant-select-show-arrow ant-select-show-search",
-            dropdownClassName: "custom-select-dropdown",
-            style: {
-              width: '100%',
-              marginBottom: '10px'
-            },
-            optionFilterProp: "children",
-            filterOption: function filterOption(input, option) {
-              return option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
-            },
-            children: filteredSkillsPrimary.map(function (skill) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Option, {
-                value: skill.id,
-                children: skill.skill_name
-              }, skill.id);
-            })
-          }), primarySkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            overlay: skillMenu(primarySkill),
-            trigger: ['click'],
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "skill-item ant-dropdown-trigger",
-              role: "button",
-              tabIndex: 0,
-              onKeyPress: function onKeyPress(e) {
-                return e.key === 'Enter' && handleSkillItemClick(primarySkill, 'edit');
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
-                children: [primarySkill.name, " ", primarySkill.subType ? "(Sub-type: ".concat(primarySkill.subType, ")") : '', " (Level: ", primarySkill.experienceLevel, ")"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
-                size: 16,
-                className: "dropdown-arrow"
-              })]
-            })
-          }), !primarySkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-            className: "no-skill",
-            children: "No primary skill selected"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: "skills-container additional-skills-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-            children: "Additional Skills"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "select-container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              mode: "multiple",
+        }), step === 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h1", {
+            children: "Select your skills"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+            children: "Choose 1 primary skill and 1-14 additional skills. Select sub-skills where applicable."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "skills-container primary-skills-container",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Primary Skill"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
               showSearch: true,
-              placeholder: "Select additional skills",
-              onSearch: setSearchTermAdditional,
-              onChange: handleAdditionalSkillsSelect,
-              className: "custom-select ant-select ant-select-outlined custom-select css-dev-only-do-not-override-l9pxc0 ant-select-multiple ant-select-show-arrow ant-select-show-search",
-              dropdownClassName: "custom-select-dropdown",
+              placeholder: "Select primary skill",
+              onSearch: setSearchTermPrimary,
+              onSelect: handlePrimarySkillSelect,
+              className: "custom-select",
               style: {
                 width: '100%',
                 marginBottom: '10px'
               },
               optionFilterProp: "children",
-              filterOption: function filterOption(input, option) {
-                return option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0;
-              },
-              value: additionalSkills.map(function (skill) {
-                return skill.id;
-              }),
-              children: filteredSkillsAdditional.map(function (skill) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Option, {
+              children: filteredSkillsPrimary.map(function (skill) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Option, {
                   value: skill.id,
-                  children: skill.skill_name
+                  children: skill.name
                 }, skill.id);
               })
-            })
-          }), additionalSkills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "additional-skills-list",
-            children: additionalSkills.map(function (skill) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                overlay: skillMenu(skill),
-                trigger: ['click'],
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                  className: "skill-item ant-dropdown-trigger",
-                  role: "button",
-                  tabIndex: 0,
-                  onKeyPress: function onKeyPress(e) {
-                    return e.key === 'Enter' && handleSkillItemClick(skill, 'edit');
-                  },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
-                    children: [skill.name, " ", skill.subType ? "(Sub-type: ".concat(skill.subType, ")") : '', " (Level: ", skill.experienceLevel, ")"]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
-                    size: 16,
-                    className: "dropdown-arrow"
-                  })]
+            }), primarySkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              overlay: skillMenu(primarySkill),
+              trigger: ['click'],
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "skill-item ant-dropdown-trigger",
+                role: "button",
+                tabIndex: 0,
+                onKeyPress: function onKeyPress(e) {
+                  return e.key === 'Enter' && handleSkillItemClick(primarySkill, 'edit');
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                  children: [primarySkill.name, " ", ((_primarySkill$sub_ski = primarySkill.sub_skills) === null || _primarySkill$sub_ski === void 0 ? void 0 : _primarySkill$sub_ski.length) > 0 ? "(Sub-skills: ".concat(primarySkill.sub_skills.join(', '), ")") : '']
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  size: 16,
+                  className: "dropdown-arrow"
+                })]
+              })
+            }), !primarySkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+              className: "no-skill",
+              children: "No primary skill selected"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "skills-container additional-skills-container",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Additional Skills"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              mode: "multiple",
+              showSearch: true,
+              placeholder: "Select additional skills",
+              onSearch: setSearchTermAdditional,
+              onChange: handleAdditionalSkillsSelect,
+              className: "custom-select",
+              style: {
+                width: '100%',
+                marginBottom: '10px'
+              },
+              optionFilterProp: "children",
+              value: additionalSkills.map(function (skill) {
+                return skill.id || skill.skill_id;
+              }),
+              children: filteredSkillsAdditional.map(function (skill) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Option, {
+                  value: skill.id,
+                  children: skill.name
+                }, skill.id);
+              })
+            }), additionalSkills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "additional-skills-list",
+              children: additionalSkills.map(function (skill) {
+                var _skill$sub_skills;
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                  overlay: skillMenu(skill),
+                  trigger: ['click'],
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    className: "skill-item ant-dropdown-trigger",
+                    role: "button",
+                    tabIndex: 0,
+                    onKeyPress: function onKeyPress(e) {
+                      return e.key === 'Enter' && handleSkillItemClick(skill, 'edit');
+                    },
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                      children: [skill.name, " ", ((_skill$sub_skills = skill.sub_skills) === null || _skill$sub_skills === void 0 ? void 0 : _skill$sub_skills.length) > 0 ? "(Sub-skills: ".concat(skill.sub_skills.join(', '), ")") : '']
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                      size: 16,
+                      className: "dropdown-arrow"
+                    })]
+                  })
+                }, skill.id || skill.skill_id);
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+              className: "no-skill",
+              children: "No additional skills selected"
+            })]
+          })]
+        }), step === 4 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h1", {
+            children: "Add your credentials"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+            children: "Add any relevant credentials to support your skills (optional)."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            className: "credentials-container",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "credential-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                value: newCredential.credentials_name,
+                onChange: function onChange(value) {
+                  return handleNewCredentialChange({
+                    target: {
+                      value: value
+                    }
+                  }, "credentials_name");
+                },
+                placeholder: "Choose a credential",
+                style: {
+                  width: '100%',
+                  marginBottom: '10px'
+                },
+                className: "credential-dropdown",
+                children: credentialOptions.map(function (option) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Option, {
+                    value: option.value,
+                    children: option.label
+                  }, option.value);
                 })
-              }, skill.id);
+              }), newCredential.credentials_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "credential-upload",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  type: "file",
+                  accept: ".pdf,.doc,.docx,.jpg,.png",
+                  onChange: function onChange(e) {
+                    return handleNewCredentialChange(e, "credentials_photo");
+                  },
+                  ref: credentialFileRef
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                  type: "button",
+                  onClick: addCredential,
+                  children: "Add Credential"
+                })]
+              }), credentials.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                className: "credential-list",
+                children: credentials.map(function (cred, index) {
+                  var _cred$credentials_pho;
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    className: "credential-item",
+                    children: [cred.credentials_name, ": ", ((_cred$credentials_pho = cred.credentials_photo) === null || _cred$credentials_pho === void 0 ? void 0 : _cred$credentials_pho.name) || "No file selected", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                      type: "button",
+                      onClick: function onClick() {
+                        return removeCredential(index);
+                      },
+                      children: "Remove"
+                    })]
+                  }, index);
+                })
+              }), errors.new_credential_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                className: "error",
+                children: errors.new_credential_name
+              }), errors.new_credential_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                className: "error",
+                children: errors.new_credential_photo
+              })]
             })
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-            className: "no-skill",
-            children: "No additional skills selected"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "step-navigation",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-            className: "back-btn",
-            onClick: onClose,
-            children: "Back"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-            className: "finish-btn",
-            onClick: handleFinalFinish,
-            disabled: !primarySkill || additionalSkills.length === 0,
-            children: "Complete Profile"
-          })]
-        }), showSkillModal && selectedSkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          children: step === 3 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              className: "back-btn",
+              onClick: onClose,
+              children: "Back"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              className: "next-btn",
+              onClick: handleNextStep,
+              disabled: !userSkills.primary || userSkills.additional.length === 0,
+              children: "Next"
+            })]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              className: "back-btn",
+              onClick: handlePreviousStep,
+              children: "Back"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              className: "finish-btn",
+              onClick: handleFinalFinish,
+              disabled: !profileId,
+              children: "Complete Profile"
+            })]
+          })
+        }), showSkillModal && selectedSkill && step === 3 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "skill-details-modal",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "modal-content",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "modal-header",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-                children: selectedSkill.skill_name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+                children: selectedSkill.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 size: 20,
                 className: "close-icon",
                 onClick: handleModalClose
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "modal-body",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                  children: "EXPERIENCE LEVEL FOR THIS SKILL* (Required)"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
-                  value: skillDetails.experienceLevel,
-                  onChange: function onChange(e) {
-                    return setSkillDetails(function (prev) {
-                      return _objectSpread(_objectSpread({}, prev), {}, {
-                        experienceLevel: e.target.value
-                      });
-                    });
-                  },
-                  className: "experience-select",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "",
-                    children: "Select experience level"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "beginner",
-                    children: "Beginner (0-1 years)"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "intermediate",
-                    children: "Intermediate (1-3 years)"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "advanced",
-                    children: "Advanced (3-5 years)"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "expert",
-                    children: "Expert (5+ years)"
+              children: ((_selectedSkill$sub_sk2 = selectedSkill.sub_skills) === null || _selectedSkill$sub_sk2 === void 0 ? void 0 : _selectedSkill$sub_sk2.length) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "sub-skills-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  className: "sub-skills-label",
+                  children: ["Sub-Skills ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: "(Required)"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                  className: "sub-skills-instruction",
+                  children: "Add or remove sub-skills using the buttons below."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                  className: "sub-skills-container",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    className: "available-sub-skills",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+                      children: "Available Sub-Skills"
+                    }), availableSubSkills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("ul", {
+                      className: "sub-skills-list",
+                      children: availableSubSkills.map(function (subSkill) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("li", {
+                          className: "sub-skill-item",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                            className: "sub-skill-text",
+                            children: subSkill
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                            className: "add-sub-skill-btn",
+                            onClick: function onClick() {
+                              return handleAddSubSkill(subSkill);
+                            },
+                            "aria-label": "Add ".concat(subSkill, " to selected sub-skills"),
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                              size: 16
+                            })
+                          })]
+                        }, subSkill);
+                      })
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                      className: "no-sub-skills",
+                      children: "No available sub-skills"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    className: "selected-sub-skills",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+                      children: "Selected Sub-Skills"
+                    }), selectedSubSkills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("ul", {
+                      className: "sub-skills-list",
+                      children: selectedSubSkills.map(function (subSkill) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("li", {
+                          className: "sub-skill-item",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                            className: "sub-skill-text",
+                            children: subSkill
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                            className: "remove-sub-skill-btn",
+                            onClick: function onClick() {
+                              return handleRemoveSubSkill(subSkill);
+                            },
+                            "aria-label": "Remove ".concat(subSkill, " from selected sub-skills"),
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                              size: 16
+                            })
+                          })]
+                        }, subSkill);
+                      })
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                      className: "no-sub-skills",
+                      children: "No sub-skills selected"
+                    })]
                   })]
                 })]
-              }), selectedSkill && skillSubTypes[selectedSkill.skill_name] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                  children: "SUB-TYPE FOR THIS SKILL* (Required)"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
-                  value: skillDetails.subType,
-                  onChange: function onChange(e) {
-                    return setSkillDetails(function (prev) {
-                      return _objectSpread(_objectSpread({}, prev), {}, {
-                        subType: e.target.value
-                      });
-                    });
-                  },
-                  className: "experience-select",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "",
-                    children: "Select sub-type"
-                  }), skillSubTypes[selectedSkill.skill_name].map(function (subType) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                      value: subType,
-                      children: subType
-                    }, subType);
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                  children: "DESCRIBE YOUR EXPERIENCE (Optional)"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("textarea", {
-                  value: skillDetails.description,
-                  onChange: function onChange(e) {
-                    return setSkillDetails(function (prev) {
-                      return _objectSpread(_objectSpread({}, prev), {}, {
-                        description: e.target.value
-                      });
-                    });
-                  },
-                  placeholder: "Write a short description of your experience in this skill.",
-                  className: "description-textarea",
-                  rows: 4
-                })]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                className: "no-sub-skills",
+                children: "This skill has no sub-skills to select. Click Save to continue."
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "modal-footer",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
                 className: "save-btn",
                 onClick: handleSaveSkill,
                 children: "Save"
@@ -168367,11 +168884,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var _sass_components_adminmodal_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../sass/components/_adminmodal.scss */ "./resources/sass/components/_adminmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -168380,7 +168903,10 @@ function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" !=
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
+ // Adjust path if needed
+
 var SkillModal = function SkillModal(_ref) {
+  var _initialData$sub_skil;
   var onClose = _ref.onClose,
     onSubmit = _ref.onSubmit,
     isEdit = _ref.isEdit,
@@ -168389,13 +168915,42 @@ var SkillModal = function SkillModal(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     name = _useState2[0],
     setName = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initialData !== null && initialData !== void 0 && (_initialData$sub_skil = initialData.sub_skills) !== null && _initialData$sub_skil !== void 0 && _initialData$sub_skil.length ? initialData.sub_skills : [""]),
     _useState4 = _slicedToArray(_useState3, 2),
-    error = _useState4[0],
-    setError = _useState4[1];
+    subSkills = _useState4[0],
+    setSubSkills = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    error = _useState6[0],
+    setError = _useState6[1];
+
+  // Debug initial state
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log("SkillModal initialData:", initialData);
+    console.log("Initial subSkills:", subSkills);
+  }, [initialData]);
+  var handleSubSkillChange = function handleSubSkillChange(index, value) {
+    var newSubSkills = _toConsumableArray(subSkills);
+    newSubSkills[index] = value;
+    setSubSkills(newSubSkills);
+    console.log("Updated subSkills:", newSubSkills); // Debug state update
+  };
+  var addSubSkillField = function addSubSkillField() {
+    setSubSkills([].concat(_toConsumableArray(subSkills), [""]));
+    console.log("Added sub-skill field. New subSkills:", [].concat(_toConsumableArray(subSkills), [""]));
+  };
+  var removeSubSkillField = function removeSubSkillField(index) {
+    if (subSkills.length > 1) {
+      var newSubSkills = subSkills.filter(function (_, i) {
+        return i !== index;
+      });
+      setSubSkills(newSubSkills);
+      console.log("Removed sub-skill field. New subSkills:", newSubSkills);
+    }
+  };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var errorMessage, _t;
+      var validSubSkills, _error$response, errorMessage, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -168406,43 +168961,54 @@ var SkillModal = function SkillModal(_ref) {
             setError("Skill name is required");
             return _context.a(2);
           case 1:
-            _context.p = 1;
-            _context.n = 2;
-            return onSubmit({
-              name: name
+            validSubSkills = subSkills.map(function (skill) {
+              return skill.trim();
+            }).filter(function (skill) {
+              return skill;
             });
-          case 2:
-            setError("");
-            _context.n = 4;
-            break;
+            console.log("Submitting:", {
+              name: name,
+              sub_skills: validSubSkills
+            }); // Debug submission
+            _context.p = 2;
+            _context.n = 3;
+            return onSubmit({
+              name: name,
+              sub_skills: validSubSkills
+            });
           case 3:
-            _context.p = 3;
-            _t = _context.v;
-            errorMessage = _t || "An error occurred";
-            setError(errorMessage);
-            alert(errorMessage);
+            setError("");
+            onClose(); // Close modal on success
+            _context.n = 5;
+            break;
           case 4:
+            _context.p = 4;
+            _t = _context.v;
+            errorMessage = (_t === null || _t === void 0 || (_error$response = _t.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 || (_error$response = _error$response.errors) === null || _error$response === void 0 || (_error$response = _error$response.name) === null || _error$response === void 0 ? void 0 : _error$response[0]) || "An error occurred";
+            setError(errorMessage);
+            console.error("Submission error:", errorMessage);
+          case 5:
             return _context.a(2);
         }
-      }, _callee, null, [[1, 3]]);
+      }, _callee, null, [[2, 4]]);
     }));
     return function handleSubmit() {
       return _ref2.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "adminmodal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "adminmodal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
         children: isEdit ? "Edit Skill" : "Add New Skill"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "adminmodal-content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             children: "Skill Name"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             type: "text",
             value: name,
             onChange: function onChange(e) {
@@ -168450,18 +169016,54 @@ var SkillModal = function SkillModal(_ref) {
               setError("");
             },
             placeholder: "Enter skill name"
-          }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "error",
             children: error
           })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: "Sub-Skills (Optional)"
+          }), subSkills.map(function (subSkill, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "sub-skill-input",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                type: "text",
+                value: subSkill,
+                onChange: function onChange(e) {
+                  return handleSubSkillChange(index, e.target.value);
+                },
+                placeholder: "Sub-Skill ".concat(index + 1)
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "sub-skill-actions",
+                children: [subSkills.length > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                  className: "remove-sub-skill",
+                  onClick: function onClick() {
+                    return removeSubSkillField(index);
+                  },
+                  title: "Remove Sub-Skill",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaMinus, {
+                    size: 16
+                  })
+                }), index === subSkills.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                  className: "add-sub-skill",
+                  onClick: addSubSkillField,
+                  title: "Add Sub-Skill",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
+                    size: 16
+                  })
+                })]
+              })]
+            }, index);
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "adminmodal-buttons",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
           className: "submit-button",
           onClick: handleSubmit,
           children: isEdit ? "Update" : "Add"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
           className: "cancel-button",
           onClick: onClose,
           children: "Cancel"
@@ -168520,7 +169122,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
- // Import Ant Design message
+
 
 
 
@@ -168587,6 +169189,10 @@ var SkillsCategories = function SkillsCategories() {
     _useState20 = _slicedToArray(_useState19, 2),
     skillToEdit = _useState20[0],
     setSkillToEdit = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState22 = _slicedToArray(_useState21, 2),
+    expandedSkills = _useState22[0],
+    setExpandedSkills = _useState22[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var fetchData = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
@@ -168618,15 +169224,13 @@ var SkillsCategories = function SkillsCategories() {
               activeSkills = activeResponse.data.map(function (skill) {
                 return _objectSpread(_objectSpread({}, skill), {}, {
                   archived: false,
-                  created_at: skill.created_at || new Date().toISOString(),
-                  updated_at: skill.updated_at || new Date().toISOString()
+                  sub_skills: skill.sub_skills || []
                 });
               });
               archivedSkills = archivedResponse.data.map(function (skill) {
                 return _objectSpread(_objectSpread({}, skill), {}, {
                   archived: true,
-                  created_at: skill.created_at || new Date().toISOString(),
-                  updated_at: skill.updated_at || new Date().toISOString()
+                  sub_skills: skill.sub_skills || []
                 });
               });
               setSkills([].concat(_toConsumableArray(activeSkills), _toConsumableArray(archivedSkills)));
@@ -168653,10 +169257,20 @@ var SkillsCategories = function SkillsCategories() {
     }();
     fetchData();
   }, []);
+  var toggleExpandSkill = function toggleExpandSkill(skillId) {
+    setExpandedSkills(function (prev) {
+      return prev.includes(skillId) ? prev.filter(function (id) {
+        return id !== skillId;
+      }) : [].concat(_toConsumableArray(prev), [skillId]);
+    });
+  };
   var filteredSkills = skills.filter(function (skill) {
     var matchesSearch = (skill.name || "").toLowerCase().includes(searchTerm.toLowerCase());
     var matchesArchived = skill.archived === showArchived;
-    return matchesSearch && matchesArchived;
+    var hasMatchingSubSkill = skill.sub_skills.some(function (subSkill) {
+      return subSkill.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    return (matchesSearch || hasMatchingSubSkill) && matchesArchived;
   });
   var toggleSelectSkill = function toggleSelectSkill(skillId) {
     setSelectedSkills(function (prev) {
@@ -168842,7 +169456,8 @@ var SkillsCategories = function SkillsCategories() {
   var handleEditClick = function handleEditClick(skill) {
     setSkillToEdit({
       id: skill.id,
-      name: skill.name || ""
+      name: skill.name || "",
+      sub_skills: skill.sub_skills || []
     });
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -168862,7 +169477,8 @@ var SkillsCategories = function SkillsCategories() {
             token = localStorage.getItem("auth_token");
             _context5.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_10__["default"].post("http://127.0.0.1:8000/api/skills", {
-              name: newSkill.name
+              name: newSkill.name,
+              sub_skills: newSkill.sub_skills
             }, {
               headers: {
                 Authorization: "Bearer ".concat(token)
@@ -168875,6 +169491,7 @@ var SkillsCategories = function SkillsCategories() {
                 return [{
                   id: response.data.id,
                   name: response.data.name,
+                  sub_skills: response.data.sub_skills || [],
                   archived: false,
                   created_at: response.data.created_at || new Date().toISOString(),
                   updated_at: response.data.updated_at || new Date().toISOString()
@@ -168909,7 +169526,8 @@ var SkillsCategories = function SkillsCategories() {
             token = localStorage.getItem("auth_token");
             _context6.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_10__["default"].put("http://127.0.0.1:8000/api/skills/".concat(skillToEdit.id), {
-              name: updatedSkill.name
+              name: updatedSkill.name,
+              sub_skills: updatedSkill.sub_skills
             }, {
               headers: {
                 Authorization: "Bearer ".concat(token)
@@ -168922,6 +169540,7 @@ var SkillsCategories = function SkillsCategories() {
                 return prevSkills.map(function (skill) {
                   return skill.id === skillToEdit.id ? _objectSpread(_objectSpread({}, skill), {}, {
                     name: response.data.name,
+                    sub_skills: response.data.sub_skills || [],
                     updated_at: response.data.updated_at || new Date().toISOString()
                   }) : skill;
                 });
@@ -169039,7 +169658,7 @@ var SkillsCategories = function SkillsCategories() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
                 type: "text",
                 className: "search-input",
-                placeholder: "Search Skills",
+                placeholder: "Search Skills or Sub-Skills",
                 value: searchTerm,
                 onChange: function onChange(e) {
                   return setSearchTerm(e.target.value);
@@ -169118,55 +169737,84 @@ var SkillsCategories = function SkillsCategories() {
                   children: "Loading skills..."
                 })
               }) : currentSkills.length > 0 ? currentSkills.map(function (skill) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    "data-label": "Actions",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                      className: "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-                        onClick: function onClick() {
-                          return toggleSelectSkill(skill.id);
-                        },
-                        style: {
-                          cursor: "pointer"
-                        },
-                        children: selectedSkills.includes(skill.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheckSquare, {
-                          className: "checkbox-icon",
-                          size: 16
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaSquare, {
-                          className: "checkbox-icon",
-                          size: 16
-                        })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheckCircle, {
-                        size: 16,
-                        className: "restore-icon",
-                        onClick: function onClick() {
-                          return handleRestoreSkill(skill.id);
-                        }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTrash, {
-                        size: 16,
-                        className: "delete-icon",
-                        onClick: function onClick() {
-                          return handleArchiveClick(skill);
-                        }
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPencilAlt, {
-                        size: 16,
-                        className: "edit-icon",
-                        onClick: function onClick() {
-                          return handleEditClick(skill);
-                        }
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                      "data-label": "Actions",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                        className: "action-icons",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                          onClick: function onClick() {
+                            return toggleSelectSkill(skill.id);
+                          },
+                          style: {
+                            cursor: "pointer"
+                          },
+                          children: selectedSkills.includes(skill.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheckSquare, {
+                            className: "checkbox-icon",
+                            size: 16
+                          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaSquare, {
+                            className: "checkbox-icon",
+                            size: 16
+                          })
+                        }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheckCircle, {
+                          size: 16,
+                          className: "restore-icon",
+                          onClick: function onClick() {
+                            return handleRestoreSkill(skill.id);
+                          }
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTrash, {
+                          size: 16,
+                          className: "delete-icon",
+                          onClick: function onClick() {
+                            return handleArchiveClick(skill);
+                          }
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPencilAlt, {
+                          size: 16,
+                          className: "edit-icon",
+                          onClick: function onClick() {
+                            return handleEditClick(skill);
+                          }
+                        }), skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                          onClick: function onClick() {
+                            return toggleExpandSkill(skill.id);
+                          },
+                          style: {
+                            cursor: "pointer"
+                          },
+                          children: expandedSkills.includes(skill.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaChevronUp, {
+                            size: 16
+                          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaChevronDown, {
+                            size: 16
+                          })
+                        })]
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                      "data-label": "Skill Name",
+                      className: "skill-name-cell",
+                      children: skill.name || "N/A"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                      "data-label": "Created At",
+                      children: formatDate(skill.created_at)
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                      "data-label": "Updated At",
+                      children: formatDate(skill.updated_at)
+                    })]
+                  }), expandedSkills.includes(skill.id) && skill.sub_skills.map(function (subSkill, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
+                      className: "sub-skill-row",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                        "data-label": "Actions"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
+                        "data-label": "Skill Name",
+                        className: "skill-name-cell sub-skill",
+                        children: ["\u21B3 ", subSkill]
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                        "data-label": "Created At"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                        "data-label": "Updated At"
                       })]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    "data-label": "Skill Name",
-                    className: "skill-name-cell",
-                    children: skill.name || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    "data-label": "Created At",
-                    children: formatDate(skill.created_at)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    "data-label": "Updated At",
-                    children: formatDate(skill.updated_at)
+                    }, "".concat(skill.id, "-sub-").concat(index));
                   })]
                 }, skill.id);
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
@@ -174220,6 +174868,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_adminlist_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/_adminmodal.scss":
+/*!****************************************************!*\
+  !*** ./resources/sass/components/_adminmodal.scss ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_adminmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./_adminmodal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_adminmodal.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_adminmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_adminmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

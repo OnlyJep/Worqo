@@ -28,6 +28,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // PROFILE ROUTE
 Route::post('/profiles', [ProfileController::class, 'store']);
+Route::get('/profiles', [ProfileController::class, 'index']);
 
 // USERS ROLE FETCH
 Route::get('/userroles', [UserRoleController::class, 'fetchUsersByRole']);
@@ -75,7 +76,7 @@ Route::patch('/reviews/{id}/archive', [ReviewController::class, 'archive']);
 Route::patch('/reviews/{id}/restore', [ReviewController::class, 'restore']);
 Route::post('/reviews/bulk', [ReviewController::class, 'bulkAction']);
 
-// SKILLS ROUTES
+// SKILLS ROUTES (Your Existing Routes – Unchanged)
 Route::get('/skills', [SkillController::class, 'index']);
 Route::get('/skills/archived', [SkillController::class, 'archived']);
 Route::post('/skills', [SkillController::class, 'store']);
@@ -113,6 +114,10 @@ Route::put('/workers/{id}/skills', [WorkerController::class, 'updateSkills'])->n
 Route::patch('/workers/{id}/archive', [WorkerController::class, 'updateArchiveStatus'])->name('workers.archive');
 Route::post('/workers/bulk-archive', [WorkerController::class, 'bulkArchive'])->name('workers.bulkArchive');
 
+// FIXED: Only /add-skill (no /skills here – using SkillController)
+Route::post('/add-skill', [WorkerController::class, 'addSkill'])->name('skills.add');
+Route::post('/complete-profile', [WorkerController::class, 'completeProfile'])->name('profile.complete');
+
 // ADMIN ROUTES
 Route::get('/admins', [AdminListController::class, 'index']);
 Route::get('/admins/archived', [AdminListController::class, 'archived']);
@@ -140,5 +145,5 @@ Route::patch('/jobposts/{jobPost}/archive', [JobPostController::class, 'archive'
 Route::delete('/jobposts/{jobPost}', [JobPostController::class, 'destroy'])->name('jobposts.destroy');
 Route::post('/jobposts/bulk-archive', [JobPostController::class, 'bulkArchive'])->name('jobposts.bulkArchive');
 
-// DASHBOARD STATS ROUTE
+// DASHBOARD STATS ROUTE    
 Route::get('/dashboard-stats', [DashboardController::class, 'getDashboardStats'])->name('dashboard.stats');

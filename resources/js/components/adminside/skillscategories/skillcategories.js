@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
-import { message } from 'antd'; // Import Ant Design message
+import { message } from 'antd';
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import SkillModal from "./SkillModal";
@@ -33,6 +33,7 @@ const SkillsCategories = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [skillToEdit, setSkillToEdit] = useState(null);
+  const [expandedSkills, setExpandedSkills] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,14 +52,12 @@ const SkillsCategories = () => {
         const activeSkills = activeResponse.data.map((skill) => ({
           ...skill,
           archived: false,
-          created_at: skill.created_at || new Date().toISOString(),
-          updated_at: skill.updated_at || new Date().toISOString(),
+          sub_skills: skill.sub_skills || [],
         }));
         const archivedSkills = archivedResponse.data.map((skill) => ({
           ...skill,
           archived: true,
-          created_at: skill.created_at || new Date().toISOString(),
-          updated_at: skill.updated_at || new Date().toISOString(),
+          sub_skills: skill.sub_skills || [],
         }));
         setSkills([...activeSkills, ...archivedSkills]);
       } catch (error) {
@@ -72,10 +71,21 @@ const SkillsCategories = () => {
     fetchData();
   }, []);
 
+  const toggleExpandSkill = (skillId) => {
+    setExpandedSkills((prev) =>
+      prev.includes(skillId)
+        ? prev.filter((id) => id !== skillId)
+        : [...prev, skillId]
+    );
+  };
+
   const filteredSkills = skills.filter((skill) => {
     const matchesSearch = (skill.name || "").toLowerCase().includes(searchTerm.toLowerCase());
     const matchesArchived = skill.archived === showArchived;
-    return matchesSearch && matchesArchived;
+    const hasMatchingSubSkill = skill.sub_skills.some((subSkill) =>
+      subSkill.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    return (matchesSearch || hasMatchingSubSkill) && matchesArchived;
   });
 
   const toggleSelectSkill = (skillId) => {
@@ -190,7 +200,7 @@ const SkillsCategories = () => {
   };
 
   const handleEditClick = (skill) => {
-    setSkillToEdit({ id: skill.id, name: skill.name || "" });
+    setSkillToEdit({ id: skill.id, name: skill.name || "", sub_skills: skill.sub_skills || [] });
     setIsEditMode(true);
     setIsModalOpen(true);
   };
@@ -206,7 +216,7 @@ const SkillsCategories = () => {
       const token = localStorage.getItem("auth_token");
       const response = await axios.post(
         "http://127.0.0.1:8000/api/skills",
-        { name: newSkill.name },
+        { name: newSkill.name, sub_skills: newSkill.sub_skills },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.status === 201) {
@@ -214,6 +224,7 @@ const SkillsCategories = () => {
           {
             id: response.data.id,
             name: response.data.name,
+            sub_skills: response.data.sub_skills || [],
             archived: false,
             created_at: response.data.created_at || new Date().toISOString(),
             updated_at: response.data.updated_at || new Date().toISOString(),
@@ -234,7 +245,7 @@ const SkillsCategories = () => {
       const token = localStorage.getItem("auth_token");
       const response = await axios.put(
         `http://127.0.0.1:8000/api/skills/${skillToEdit.id}`,
-        { name: updatedSkill.name },
+        { name: updatedSkill.name, sub_skills: updatedSkill.sub_skills },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (response.status === 200) {
@@ -244,6 +255,7 @@ const SkillsCategories = () => {
               ? {
                   ...skill,
                   name: response.data.name,
+                  sub_skills: response.data.sub_skills || [],
                   updated_at: response.data.updated_at || new Date().toISOString(),
                 }
               : skill
@@ -342,7 +354,7 @@ const SkillsCategories = () => {
                 <input
                   type="text"
                   className="search-input"
-                  placeholder="Search Skills"
+                  placeholder="Search Skills or Sub-Skills"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -398,42 +410,64 @@ const SkillsCategories = () => {
                   </tr>
                 ) : currentSkills.length > 0 ? (
                   currentSkills.map((skill) => (
-                    <tr key={skill.id}>
-                      <td data-label="Actions">
-                        <div className="action-icons">
-                          <span onClick={() => toggleSelectSkill(skill.id)} style={{ cursor: "pointer" }}>
-                            {selectedSkills.includes(skill.id) ? (
-                              <FaCheckSquare className="checkbox-icon" size={16} />
+                    <React.Fragment key={skill.id}>
+                      <tr>
+                        <td data-label="Actions">
+                          <div className="action-icons">
+                            <span onClick={() => toggleSelectSkill(skill.id)} style={{ cursor: "pointer" }}>
+                              {selectedSkills.includes(skill.id) ? (
+                                <FaCheckSquare className="checkbox-icon" size={16} />
+                              ) : (
+                                <FaSquare className="checkbox-icon" size={16} />
+                              )}
+                            </span>
+                            {showArchived ? (
+                              <FaCheckCircle
+                                size={16}
+                                className="restore-icon"
+                                onClick={() => handleRestoreSkill(skill.id)}
+                              />
                             ) : (
-                              <FaSquare className="checkbox-icon" size={16} />
+                              <FaTrash
+                                size={16}
+                                className="delete-icon"
+                                onClick={() => handleArchiveClick(skill)}
+                              />
                             )}
-                          </span>
-                          {showArchived ? (
-                            <FaCheckCircle
+                            <FaPencilAlt
                               size={16}
-                              className="restore-icon"
-                              onClick={() => handleRestoreSkill(skill.id)}
+                              className="edit-icon"
+                              onClick={() => handleEditClick(skill)}
                             />
-                          ) : (
-                            <FaTrash
-                              size={16}
-                              className="delete-icon"
-                              onClick={() => handleArchiveClick(skill)}
-                            />
-                          )}
-                          <FaPencilAlt
-                            size={16}
-                            className="edit-icon"
-                            onClick={() => handleEditClick(skill)}
-                          />
-                        </div>
-                      </td>
-                      <td data-label="Skill Name" className="skill-name-cell">
-                        {skill.name || "N/A"}
-                      </td>
-                      <td data-label="Created At">{formatDate(skill.created_at)}</td>
-                      <td data-label="Updated At">{formatDate(skill.updated_at)}</td>
-                    </tr>
+                            {skill.sub_skills.length > 0 && (
+                              <span onClick={() => toggleExpandSkill(skill.id)} style={{ cursor: "pointer" }}>
+                                {expandedSkills.includes(skill.id) ? (
+                                  <FaChevronUp size={16} />
+                                ) : (
+                                  <FaChevronDown size={16} />
+                                )}
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                        <td data-label="Skill Name" className="skill-name-cell">
+                          {skill.name || "N/A"}
+                        </td>
+                        <td data-label="Created At">{formatDate(skill.created_at)}</td>
+                        <td data-label="Updated At">{formatDate(skill.updated_at)}</td>
+                      </tr>
+                      {expandedSkills.includes(skill.id) &&
+                        skill.sub_skills.map((subSkill, index) => (
+                          <tr key={`${skill.id}-sub-${index}`} className="sub-skill-row">
+                            <td data-label="Actions"></td>
+                            <td data-label="Skill Name" className="skill-name-cell sub-skill">
+                              ↳ {subSkill}
+                            </td>
+                            <td data-label="Created At"></td>
+                            <td data-label="Updated At"></td>
+                          </tr>
+                        ))}
+                    </React.Fragment>
                   ))
                 ) : (
                   <tr>

@@ -12,19 +12,17 @@ const HomePage = () => {
   const [isProfileComplete, setIsProfileComplete] = useState(false);
 
   useEffect(() => {
-    // Check if user is logged in and is a worker
     const userData = localStorage.getItem('user');
     if (userData) {
       const parsedUser = JSON.parse(userData);
       setUser(parsedUser);
 
-      // Check if user is a worker (role_id = 1) and if profile is complete
       if (parsedUser.role_id === 1) {
-        const skills = localStorage.getItem('userSkills');
-        if (!skills || JSON.parse(skills).length < 5) {
-          setShowProfileModal(true); // Show modal if skills are not set or incomplete
-        } else {
+        const isComplete = localStorage.getItem(`isProfileComplete_${parsedUser.id}`);
+        if (isComplete === 'true') {
           setIsProfileComplete(true);
+        } else {
+          setShowProfileModal(true);
         }
       }
     }
@@ -32,48 +30,37 @@ const HomePage = () => {
 
   const handleProfileModalComplete = () => {
     setShowProfileModal(false);
-    // Mark profile as complete and save to localStorage
-    const skills = localStorage.getItem('userSkills');
-    if (skills && JSON.parse(skills).length >= 5) {
-      setIsProfileComplete(true);
-      localStorage.setItem('isProfileComplete', 'true');
-    }
-    // Reload or redirect to refresh the homepage
-    window.location.reload(); // Simulates returning to homepage
+    setIsProfileComplete(true);
+    window.location.reload();
   };
 
   return (
     <div className="homepage">
       <Headerz />
       
-      {/* Hero Section */}
       <div className="content-wrapper">
         <h1>
           Find Jobs That Match Your Skills, Fast and Easy
         </h1>
-
         <p className="sub-headline">
           Connect with workers who get the job done—skilled, service-based, or administrative.
         </p>
-
-        {/* Search Bar */}
         <div className="search-bar">
           <input
             type="text"
             placeholder="Search"
+            disabled={!isProfileComplete && user?.role_id === 1}
           />
-          <button className="search-button">
+          <button className="search-button" disabled={!isProfileComplete && user?.role_id === 1}>
             <IconSearch size={24} />
           </button>
         </div>
       </div>
 
-      {/* Common Work Searches Section */}
       <div className="work-searches-section">
         <div className="work-searches-content">
           <h2>Common Work Searches</h2>
           <div className="underline"></div>
-          
           <div className="job-categories">
             <div className="category-column">
               <div className="job-category">Plumber</div>
@@ -88,7 +75,6 @@ const HomePage = () => {
               <div className="job-category">Gardener</div>
               <div className="job-category">Driver</div>
             </div>
-            
             <div className="category-column">
               <div className="job-category">Construction Worker</div>
               <div className="job-category">Laundry Worker</div>
@@ -102,26 +88,28 @@ const HomePage = () => {
               <div className="job-category">Janitor / Cleaner</div>
             </div>
           </div>
-
-          <button className="see-more-btn">SEE MORE SKILLS</button>
+          <button className="see-more-btn" disabled={!isProfileComplete && user?.role_id === 1}>
+            SEE MORE SKILLS
+          </button>
         </div>
       </div>
 
-      {/* Profile Completion Prompt */}
       {!isProfileComplete && user && user.role_id === 1 && (
         <div className="profile-prompt">
-          <p>You must complete setting up your profile to access all features. <button onClick={() => setShowProfileModal(true)}>Complete Now</button></p>
+          <p>
+            Finish your profile to start browsing jobs!{' '}
+            <button onClick={() => setShowProfileModal(true)}>Complete Now</button>
+          </p>
         </div>
       )}
 
-      {/* Footer Section */}
       <Footer />
       
-      {/* Profile Completion Modal for Workers */}
       <SkillRatingModal
         isOpen={showProfileModal}
         onClose={() => setShowProfileModal(false)}
         onComplete={handleProfileModalComplete}
+        user={user}
       />
     </div>
   );

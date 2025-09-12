@@ -15,8 +15,25 @@ class ProfileController extends Controller
             'gender_id' => 'required|exists:genders,id',
         ]);
     
-        Profile::create($request->all());
+        $profile = Profile::create($request->all());
     
-        return response()->json(['message' => 'Profile created successfully'], 201);
+        return response()->json(['message' => 'Profile created successfully', 'profile' => $profile], 201);
     }
-}    
+
+    public function index(Request $request)
+    {
+        $userId = $request->query('user_id');
+        
+        if (!$userId) {
+            return response()->json(['message' => 'user_id is required'], 400);
+        }
+
+        $profile = Profile::where('user_id', $userId)->first();
+
+        if (!$profile) {
+            return response()->json(['message' => 'Profile not found'], 404);
+        }
+
+        return response()->json($profile, 200);
+    }
+}
