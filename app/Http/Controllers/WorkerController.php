@@ -979,6 +979,4 @@ protected function formatWorker($worker)
             ] : null,
         ];
     }
-
-    // ... (other methods like index, archived, show, store, update, updateSkills, updateArchiveStatus, bulkArchive, completeProfile remain unchanged)
 }

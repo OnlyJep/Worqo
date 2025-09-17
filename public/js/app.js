@@ -171671,6 +171671,7 @@ var WorkerList = function WorkerList() {
     var controller = new AbortController();
     var fetchData = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var _t;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
@@ -171679,13 +171680,23 @@ var WorkerList = function WorkerList() {
               _context.n = 1;
               return Promise.all([fetchWorkers(pagination.currentPage, showArchived, controller.signal), fetchGenders(controller.signal), fetchSuffixes(controller.signal), fetchSkills(controller.signal)]);
             case 1:
-              _context.p = 1;
-              setLoading(false);
-              return _context.f(1);
+              _context.n = 3;
+              break;
             case 2:
+              _context.p = 2;
+              _t = _context.v;
+              if (_t.name !== "AbortError") {
+                antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch data.");
+                console.error("Fetch data error:", _t);
+              }
+            case 3:
+              _context.p = 3;
+              setLoading(false);
+              return _context.f(3);
+            case 4:
               return _context.a(2);
           }
-        }, _callee, null, [[0,, 1, 2]]);
+        }, _callee, null, [[0, 2, 3, 4]]);
       }));
       return function fetchData() {
         return _ref2.apply(this, arguments);
@@ -171701,12 +171712,16 @@ var WorkerList = function WorkerList() {
       var page,
         archived,
         signal,
+        _response$data$pagina,
+        _response$data$pagina2,
+        _response$data$pagina3,
         authToken,
         response,
+        workersData,
         _err$response,
         _err$response2,
         _args2 = arguments,
-        _t;
+        _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -171737,26 +171752,28 @@ var WorkerList = function WorkerList() {
             });
           case 3:
             response = _context2.v;
-            setWorkers(response.data.workers || []);
+            // Validate response data
+            workersData = Array.isArray(response.data.workers) ? response.data.workers : [];
+            setWorkers(workersData);
             setPagination({
-              currentPage: response.data.pagination.currentPage,
-              totalPages: response.data.pagination.totalPages,
-              totalItems: response.data.pagination.totalItems
+              currentPage: ((_response$data$pagina = response.data.pagination) === null || _response$data$pagina === void 0 ? void 0 : _response$data$pagina.currentPage) || 1,
+              totalPages: ((_response$data$pagina2 = response.data.pagination) === null || _response$data$pagina2 === void 0 ? void 0 : _response$data$pagina2.totalPages) || 1,
+              totalItems: ((_response$data$pagina3 = response.data.pagination) === null || _response$data$pagina3 === void 0 ? void 0 : _response$data$pagina3.totalItems) || 0
             });
             setError("");
             _context2.n = 6;
             break;
           case 4:
             _context2.p = 4;
-            _t = _context2.v;
-            if (!(_t.name === "AbortError")) {
+            _t2 = _context2.v;
+            if (!(_t2.name === "AbortError")) {
               _context2.n = 5;
               break;
             }
             return _context2.a(2);
           case 5:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response = _t.response) === null || _err$response === void 0 || (_err$response = _err$response.data) === null || _err$response === void 0 ? void 0 : _err$response.error) || "Failed to fetch workers.");
-            console.error("Fetch workers error:", ((_err$response2 = _t.response) === null || _err$response2 === void 0 ? void 0 : _err$response2.data) || _t.message);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response = _t2.response) === null || _err$response === void 0 || (_err$response = _err$response.data) === null || _err$response === void 0 ? void 0 : _err$response.error) || "Failed to fetch workers.");
+            console.error("Fetch workers error:", ((_err$response2 = _t2.response) === null || _err$response2 === void 0 ? void 0 : _err$response2.data) || _t2.message);
           case 6:
             return _context2.a(2);
         }
@@ -171768,7 +171785,7 @@ var WorkerList = function WorkerList() {
   }();
   var fetchGenders = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(signal) {
-      var authToken, response, _t2;
+      var authToken, response, _t3;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
@@ -171796,14 +171813,14 @@ var WorkerList = function WorkerList() {
             break;
           case 3:
             _context3.p = 3;
-            _t2 = _context3.v;
-            if (!(_t2.name === "AbortError")) {
+            _t3 = _context3.v;
+            if (!(_t3.name === "AbortError")) {
               _context3.n = 4;
               break;
             }
             return _context3.a(2);
           case 4:
-            console.error("Error fetching genders:", _t2);
+            console.error("Error fetching genders:", _t3);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch genders. Please try again.");
           case 5:
             return _context3.a(2);
@@ -171816,7 +171833,7 @@ var WorkerList = function WorkerList() {
   }();
   var fetchSuffixes = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(signal) {
-      var authToken, response, _t3;
+      var authToken, response, _t4;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
@@ -171844,14 +171861,14 @@ var WorkerList = function WorkerList() {
             break;
           case 3:
             _context4.p = 3;
-            _t3 = _context4.v;
-            if (!(_t3.name === "AbortError")) {
+            _t4 = _context4.v;
+            if (!(_t4.name === "AbortError")) {
               _context4.n = 4;
               break;
             }
             return _context4.a(2);
           case 4:
-            console.error("Error fetching suffixes:", _t3);
+            console.error("Error fetching suffixes:", _t4);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch suffixes. Please try again.");
           case 5:
             return _context4.a(2);
@@ -171864,7 +171881,7 @@ var WorkerList = function WorkerList() {
   }();
   var fetchSkills = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(signal) {
-      var authToken, response, _t4;
+      var authToken, response, _t5;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
@@ -171892,14 +171909,14 @@ var WorkerList = function WorkerList() {
             break;
           case 3:
             _context5.p = 3;
-            _t4 = _context5.v;
-            if (!(_t4.name === "AbortError")) {
+            _t5 = _context5.v;
+            if (!(_t5.name === "AbortError")) {
               _context5.n = 4;
               break;
             }
             return _context5.a(2);
           case 4:
-            console.error("Error fetching skills:", _t4);
+            console.error("Error fetching skills:", _t5);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch skills. Please try again.");
           case 5:
             return _context5.a(2);
@@ -171946,7 +171963,7 @@ var WorkerList = function WorkerList() {
   };
   var handleArchiveConfirm = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
-      var authToken, response, _err$response3, _err$response4, _t5;
+      var authToken, response, _err$response3, _err$response4, _t6;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
@@ -171992,15 +172009,15 @@ var WorkerList = function WorkerList() {
             break;
           case 6:
             _context6.p = 6;
-            _t5 = _context6.v;
-            if (!(_t5.name === "AbortError")) {
+            _t6 = _context6.v;
+            if (!(_t6.name === "AbortError")) {
               _context6.n = 7;
               break;
             }
             return _context6.a(2);
           case 7:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response3 = _t5.response) === null || _err$response3 === void 0 || (_err$response3 = _err$response3.data) === null || _err$response3 === void 0 ? void 0 : _err$response3.error) || "Failed to archive worker.");
-            console.error("Archive error:", ((_err$response4 = _t5.response) === null || _err$response4 === void 0 ? void 0 : _err$response4.data) || _t5.message);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response3 = _t6.response) === null || _err$response3 === void 0 || (_err$response3 = _err$response3.data) === null || _err$response3 === void 0 ? void 0 : _err$response3.error) || "Failed to archive worker.");
+            console.error("Archive error:", ((_err$response4 = _t6.response) === null || _err$response4 === void 0 ? void 0 : _err$response4.data) || _t6.message);
           case 8:
             _context6.p = 8;
             setLoading(false);
@@ -172016,7 +172033,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleRestoreWorker = /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(workerId) {
-      var worker, authToken, response, _err$response5, _err$response6, _t6;
+      var worker, authToken, response, _err$response5, _err$response6, _t7;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
           case 0:
@@ -172064,15 +172081,15 @@ var WorkerList = function WorkerList() {
             break;
           case 6:
             _context7.p = 6;
-            _t6 = _context7.v;
-            if (!(_t6.name === "AbortError")) {
+            _t7 = _context7.v;
+            if (!(_t7.name === "AbortError")) {
               _context7.n = 7;
               break;
             }
             return _context7.a(2);
           case 7:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response5 = _t6.response) === null || _err$response5 === void 0 || (_err$response5 = _err$response5.data) === null || _err$response5 === void 0 ? void 0 : _err$response5.error) || "Failed to restore worker.");
-            console.error("Restore error:", ((_err$response6 = _t6.response) === null || _err$response6 === void 0 ? void 0 : _err$response6.data) || _t6.message);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response5 = _t7.response) === null || _err$response5 === void 0 || (_err$response5 = _err$response5.data) === null || _err$response5 === void 0 ? void 0 : _err$response5.error) || "Failed to restore worker.");
+            console.error("Restore error:", ((_err$response6 = _t7.response) === null || _err$response6 === void 0 ? void 0 : _err$response6.data) || _t7.message);
           case 8:
             _context7.p = 8;
             setLoading(false);
@@ -172088,7 +172105,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleBulkAction = /*#__PURE__*/function () {
     var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(action) {
-      var authToken, validWorkerIds, response, _err$response7, _err$response8, _t7;
+      var authToken, validWorkerIds, response, _err$response7, _err$response8, _t8;
       return _regenerator().w(function (_context8) {
         while (1) switch (_context8.p = _context8.n) {
           case 0:
@@ -172148,15 +172165,15 @@ var WorkerList = function WorkerList() {
             break;
           case 7:
             _context8.p = 7;
-            _t7 = _context8.v;
-            if (!(_t7.name === "AbortError")) {
+            _t8 = _context8.v;
+            if (!(_t8.name === "AbortError")) {
               _context8.n = 8;
               break;
             }
             return _context8.a(2);
           case 8:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response7 = _t7.response) === null || _err$response7 === void 0 || (_err$response7 = _err$response7.data) === null || _err$response7 === void 0 ? void 0 : _err$response7.error) || "Failed to ".concat(action, " workers. Please try again."));
-            console.error("Bulk action error:", ((_err$response8 = _t7.response) === null || _err$response8 === void 0 ? void 0 : _err$response8.data) || _t7.message);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response7 = _t8.response) === null || _err$response7 === void 0 || (_err$response7 = _err$response7.data) === null || _err$response7 === void 0 ? void 0 : _err$response7.error) || "Failed to ".concat(action, " workers. Please try again."));
+            console.error("Bulk action error:", ((_err$response8 = _t8.response) === null || _err$response8 === void 0 ? void 0 : _err$response8.data) || _t8.message);
           case 9:
             _context8.p = 9;
             setLoading(false);
@@ -172201,7 +172218,7 @@ var WorkerList = function WorkerList() {
   };
   var handleEditClick = /*#__PURE__*/function () {
     var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(worker) {
-      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, authToken, response, _err$response9, _err$response0, _t8;
+      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, authToken, response, _err$response9, _err$response0, _t9;
       return _regenerator().w(function (_context9) {
         while (1) switch (_context9.p = _context9.n) {
           case 0:
@@ -172256,15 +172273,15 @@ var WorkerList = function WorkerList() {
             break;
           case 3:
             _context9.p = 3;
-            _t8 = _context9.v;
-            if (!(_t8.name === "AbortError")) {
+            _t9 = _context9.v;
+            if (!(_t9.name === "AbortError")) {
               _context9.n = 4;
               break;
             }
             return _context9.a(2);
           case 4:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response9 = _t8.response) === null || _err$response9 === void 0 || (_err$response9 = _err$response9.data) === null || _err$response9 === void 0 ? void 0 : _err$response9.error) || "Failed to fetch worker details.");
-            console.error("Fetch worker details error:", ((_err$response0 = _t8.response) === null || _err$response0 === void 0 ? void 0 : _err$response0.data) || _t8.message);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response9 = _t9.response) === null || _err$response9 === void 0 || (_err$response9 = _err$response9.data) === null || _err$response9 === void 0 ? void 0 : _err$response9.error) || "Failed to fetch worker details.");
+            console.error("Fetch worker details error:", ((_err$response0 = _t9.response) === null || _err$response0 === void 0 ? void 0 : _err$response0.data) || _t9.message);
           case 5:
             _context9.p = 5;
             setLoading(false);
@@ -172294,7 +172311,7 @@ var WorkerList = function WorkerList() {
   };
   var handleWorkerAdd = /*#__PURE__*/function () {
     var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(formData, signal) {
-      var authToken, response, _err$response1, _err$response10, _t9;
+      var authToken, response, _err$response1, _err$response10, _t0;
       return _regenerator().w(function (_context0) {
         while (1) switch (_context0.p = _context0.n) {
           case 0:
@@ -172334,17 +172351,17 @@ var WorkerList = function WorkerList() {
             break;
           case 5:
             _context0.p = 5;
-            _t9 = _context0.v;
-            if (!(_t9.name === "AbortError")) {
+            _t0 = _context0.v;
+            if (!(_t0.name === "AbortError")) {
               _context0.n = 6;
               break;
             }
             console.log("Add request was aborted");
             return _context0.a(2);
           case 6:
-            console.error("Error adding worker:", ((_err$response1 = _t9.response) === null || _err$response1 === void 0 ? void 0 : _err$response1.data) || _t9.message);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response10 = _t9.response) === null || _err$response10 === void 0 || (_err$response10 = _err$response10.data) === null || _err$response10 === void 0 ? void 0 : _err$response10.error) || "Failed to add worker.");
-            throw _t9;
+            console.error("Error adding worker:", ((_err$response1 = _t0.response) === null || _err$response1 === void 0 ? void 0 : _err$response1.data) || _t0.message);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response10 = _t0.response) === null || _err$response10 === void 0 || (_err$response10 = _err$response10.data) === null || _err$response10 === void 0 ? void 0 : _err$response10.error) || "Failed to add worker.");
+            throw _t0;
           case 7:
             _context0.p = 7;
             setLoading(false);
@@ -172360,7 +172377,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleWorkerUpdate = /*#__PURE__*/function () {
     var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1(formData, signal) {
-      var authToken, response, _err$response11, _err$response12, _t0;
+      var authToken, response, _err$response11, _err$response12, _t1;
       return _regenerator().w(function (_context1) {
         while (1) switch (_context1.p = _context1.n) {
           case 0:
@@ -172402,17 +172419,17 @@ var WorkerList = function WorkerList() {
             break;
           case 5:
             _context1.p = 5;
-            _t0 = _context1.v;
-            if (!(_t0.name === "AbortError")) {
+            _t1 = _context1.v;
+            if (!(_t1.name === "AbortError")) {
               _context1.n = 6;
               break;
             }
             console.log("Update request was aborted");
             return _context1.a(2);
           case 6:
-            console.error("Error updating worker:", ((_err$response11 = _t0.response) === null || _err$response11 === void 0 ? void 0 : _err$response11.data) || _t0.message);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response12 = _t0.response) === null || _err$response12 === void 0 || (_err$response12 = _err$response12.data) === null || _err$response12 === void 0 ? void 0 : _err$response12.error) || "Failed to update worker.");
-            throw _t0;
+            console.error("Error updating worker:", ((_err$response11 = _t1.response) === null || _err$response11 === void 0 ? void 0 : _err$response11.data) || _t1.message);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response12 = _t1.response) === null || _err$response12 === void 0 || (_err$response12 = _err$response12.data) === null || _err$response12 === void 0 ? void 0 : _err$response12.error) || "Failed to update worker.");
+            throw _t1;
           case 7:
             _context1.p = 7;
             setLoading(false);

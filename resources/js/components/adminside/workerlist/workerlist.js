@@ -79,6 +79,11 @@ const WorkerList = () => {
           fetchSuffixes(controller.signal),
           fetchSkills(controller.signal),
         ]);
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          message.error("Failed to fetch data.");
+          console.error("Fetch data error:", err);
+        }
       } finally {
         setLoading(false);
       }
@@ -99,11 +104,13 @@ const WorkerList = () => {
         signal,
         timeout: 10000,
       });
-      setWorkers(response.data.workers || []);
+      // Validate response data
+      const workersData = Array.isArray(response.data.workers) ? response.data.workers : [];
+      setWorkers(workersData);
       setPagination({
-        currentPage: response.data.pagination.currentPage,
-        totalPages: response.data.pagination.totalPages,
-        totalItems: response.data.pagination.totalItems,
+        currentPage: response.data.pagination?.currentPage || 1,
+        totalPages: response.data.pagination?.totalPages || 1,
+        totalItems: response.data.pagination?.totalItems || 0,
       });
       setError("");
     } catch (err) {
@@ -683,7 +690,7 @@ const WorkerList = () => {
                               }}
                             />
                           ) : (
-                            <img
+                            <img  
                               src={`http://127.0.0.1:8000/storage/images/pfp/default.png`}
                               alt="Default Profile"
                               className="profile-img"
