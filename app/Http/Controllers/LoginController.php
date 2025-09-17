@@ -18,6 +18,17 @@ class LoginController extends Controller
 
             if (Auth::attempt($credentials)) {
                 $user = Auth::user();
+                
+                // Check if user is archived
+                if ($user->archived == 1) {
+                    Log::info('Login attempt for archived user:', [
+                        'user_id' => $user->id,
+                        'email' => $user->email
+                    ]);
+                    Auth::logout();
+                    return response()->json(['message' => 'Account is archived and cannot log in'], 403);
+                }
+
                 Log::info('Authenticated User:', [
                     'user_id' => $user->id,
                     'email' => $user->email,

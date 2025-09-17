@@ -37,89 +37,237 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const [credentials, setCredentials] = useState([]);
   const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null });
   const [errors, setErrors] = useState({});
+  const [isProfileComplete, setIsProfileComplete] = useState(false);
+  const [skillsStepCompleted, setSkillsStepCompleted] = useState(false);
   const credentialFileRef = useRef(null);
   const navigate = useNavigate();
+  const isMounted = useRef(true);
+  const abortController = useRef(new AbortController());
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+      abortController.current.abort();
+    };
+  }, []);
 
   useEffect(() => {
     if (user?.id) {
+      console.log('SkillRatingModal: Initializing for user ID:', user.id);
+      checkProfileCompletion();
       fetchProfile();
       fetchSkills();
       loadFromLocalStorage();
+    } else {
+      console.warn('No user ID provided, skipping initialization');
     }
   }, [user?.id]);
 
+  const checkProfileCompletion = async () => {
+    if (!user?.id) {
+      console.warn('No user ID for profile completion check');
+      return;
+    }
+    console.log('Checking profile completion for user:', user.id);
+    try {
+      const isComplete = localStorage.getItem(`isProfileComplete_${user.id}`);
+      const skillsCompleted = localStorage.getItem(`skillsStepCompleted_${user.id}`);
+      console.log('LocalStorage - isProfileComplete:', isComplete, 'skillsStepCompleted:', skillsCompleted);
+
+      if (isComplete === 'true' || skillsCompleted === 'true') {
+        console.log('Profile or skills already completed, setting states to true');
+        setIsProfileComplete(true);
+        setSkillsStepCompleted(true);
+        localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+        if (isMounted.current) navigate('/homepage');
+        return;
+      }
+
+      const authToken = localStorage.getItem('auth_token');
+      if (!authToken) {
+        console.warn('No authentication token found');
+        return;
+      }
+
+      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`,
+        },
+        signal: abortController.current.signal,
+      });
+
+      if (!response.ok) {
+        console.error('Worker fetch failed:', response.status, response.statusText);
+        return;
+      }
+
+      const profileData = await response.json();
+      console.log('Profile data from /api/workers:', JSON.stringify(profileData, null, 2));
+
+      const skills = Array.isArray(profileData?.worker?.skills_id) ? profileData.worker.skills_id : [];
+      const hasCredentials = Array.isArray(profileData?.worker?.credentials_name) && profileData.worker.credentials_name.length > 0;
+      if (skills.length >= 2 && hasCredentials) {
+        console.log(`Found ${skills.length} skills and credentials, setting skillsStepCompleted to true`);
+        setIsProfileComplete(true);
+        setSkillsStepCompleted(true);
+        localStorage.setItem(`isProfileComplete_${user.id}`, 'true');
+        localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+        if (isMounted.current) navigate('/homepage');
+      } else {
+        console.log(`Skills found: ${skills.length}, Credentials: ${hasCredentials ? 'Yes' : 'No'}, keeping skillsStepCompleted as false`);
+        localStorage.setItem(`skillsStepCompleted_${user.id}`, 'false');
+      }
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        console.log('Profile completion check aborted');
+        return;
+      }
+      console.error('Error checking profile completion:', error.message);
+    }
+  };
+
   const loadFromLocalStorage = () => {
+    if (!user?.id) {
+      console.warn('No user ID for loading localStorage');
+      return;
+    }
+    console.log('Loading from localStorage for user:', user.id);
     try {
       const savedSkills = localStorage.getItem(`userSkills_${user.id}`);
       if (savedSkills) {
         const parsed = JSON.parse(savedSkills);
+        console.log('Loaded userSkills:', parsed);
         setUserSkills({
           primary: parsed.primary || null,
           additional: Array.isArray(parsed.additional) ? parsed.additional : [],
         });
+        if (parsed.primary && parsed.additional.length > 0) {
+          console.log('Primary and additional skills found in localStorage, setting skillsStepCompleted to true');
+          setSkillsStepCompleted(true);
+          localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+        }
       }
       const savedPrimary = localStorage.getItem(`primarySkill_${user.id}`);
-      if (savedPrimary) setPrimarySkill(JSON.parse(savedPrimary));
+      if (savedPrimary) {
+        console.log('Loaded primarySkill:', JSON.parse(savedPrimary));
+        setPrimarySkill(JSON.parse(savedPrimary));
+      }
       const savedAdditional = localStorage.getItem(`additionalSkills_${user.id}`);
-      if (savedAdditional) setAdditionalSkills(JSON.parse(savedAdditional) || []);
+      if (savedAdditional) {
+        console.log('Loaded additionalSkills:', JSON.parse(savedAdditional));
+        setAdditionalSkills(JSON.parse(savedAdditional) || []);
+      }
       const savedProfile = localStorage.getItem(`profile_${user.id}`);
-      if (savedProfile) setProfileId(parseInt(savedProfile));
+      if (savedProfile) {
+        console.log('Loaded profileId:', savedProfile);
+        setProfileId(parseInt(savedProfile));
+      }
+      const skillsCompleted = localStorage.getItem(`skillsStepCompleted_${user.id}`);
+      if (skillsCompleted === 'true') {
+        console.log('skillsStepCompleted found in localStorage as true');
+        setSkillsStepCompleted(true);
+      } else {
+        console.log('skillsStepCompleted in localStorage:', skillsCompleted);
+      }
     } catch (error) {
-      console.error('Error loading from localStorage:', error);
+      console.error('Error loading from localStorage:', error.message);
     }
   };
 
   const saveToLocalStorage = () => {
+    if (!user?.id) {
+      console.warn('Cannot save to localStorage: user or user.id is missing');
+      return;
+    }
+    console.log('Saving to localStorage for user:', user.id, 'skillsStepCompleted:', skillsStepCompleted);
     try {
       localStorage.setItem(`userSkills_${user.id}`, JSON.stringify(userSkills));
       localStorage.setItem(`primarySkill_${user.id}`, JSON.stringify(primarySkill));
       localStorage.setItem(`additionalSkills_${user.id}`, JSON.stringify(additionalSkills));
+      localStorage.setItem(`skillsStepCompleted_${user.id}`, skillsStepCompleted.toString());
       if (profileId) localStorage.setItem(`profile_${user.id}`, profileId.toString());
     } catch (error) {
-      console.error('Error saving to localStorage:', error);
+      console.error('Error saving to localStorage:', error.message);
     }
   };
 
   useEffect(() => {
-    saveToLocalStorage();
-  }, [userSkills, primarySkill, additionalSkills, profileId]);
+    if (isMounted.current) {
+      saveToLocalStorage();
+    }
+  }, [userSkills, primarySkill, additionalSkills, profileId, skillsStepCompleted]);
 
   const fetchProfile = async () => {
     if (!user?.id) {
       console.warn('No user ID provided for fetching profile');
       return;
     }
+    console.log('Fetching profile for user:', user.id);
     try {
       const authToken = localStorage.getItem('auth_token');
       if (!authToken) {
         throw new Error('No authentication token found');
       }
-      const response = await fetch(`/api/profiles?user_id=${user.id}`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${authToken}`,
         },
+        signal: abortController.current.signal,
       });
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || 'Failed to fetch profile');
+        console.error('Worker fetch failed:', response.status, response.statusText);
+        throw new Error('Failed to fetch worker profile');
       }
       const profile = await response.json();
-      if (profile && profile.id) {
+      console.log('Fetched profile from /api/workers:', JSON.stringify(profile, null, 2));
+      if (profile && profile.id && isMounted.current) {
         setProfileId(profile.id);
-        console.log('Fetched profile_id:', profile.id);
+        const skills = Array.isArray(profile.worker?.skills_id) ? profile.worker.skills_id : [];
+        const hasCredentials = Array.isArray(profile.worker?.credentials_name) && profile.worker.credentials_name.length > 0;
+        if (skills.length >= 2 && hasCredentials) {
+          console.log(`Found ${skills.length} skills and credentials, setting skillsStepCompleted to true`);
+          const primary = skills[0] || null;
+          const additional = skills.slice(1) || [];
+          setUserSkills({ primary, additional });
+          setPrimarySkill(primary);
+          setAdditionalSkills(additional);
+          setSkillsStepCompleted(true);
+          localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+          localStorage.setItem(`isProfileComplete_${user.id}`, 'true');
+        } else {
+          console.log(`Skills found: ${skills.length}, Credentials: ${hasCredentials ? 'Yes' : 'No'}, setting skillsStepCompleted to false`);
+          setSkillsStepCompleted(false);
+          localStorage.setItem(`skillsStepCompleted_${user.id}`, 'false');
+        }
+        if (profile.worker?.credentials_name) {
+          const creds = profile.worker.credentials_name.map((name, index) => ({
+            credentials_name: name,
+            credentials_photo: profile.worker.credentials_photo?.[index] || null,
+          }));
+          setCredentials(creds);
+          console.log('Loaded credentials:', creds);
+        }
       } else {
         console.error('No profile found for user:', user.id);
         alert('No profile found. Please create a profile first.');
       }
     } catch (error) {
-      console.error('Error fetching profile:', error);
+      if (error.name === 'AbortError') {
+        console.log('Profile fetch aborted');
+        return;
+      }
+      console.error('Error fetching profile:', error.message);
       alert(`Failed to load profile: ${error.message}. Please try again.`);
     }
   };
 
   const fetchSkills = async () => {
+    console.log('Fetching skills');
     try {
       const authToken = localStorage.getItem('auth_token');
       if (!authToken) {
@@ -130,10 +278,11 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${authToken}`,
         },
+        signal: abortController.current.signal,
       });
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || 'Failed to fetch skills');
+        console.error('Skills fetch failed:', response.status, response.statusText);
+        throw new Error('Failed to fetch skills');
       }
       const data = await response.json();
       console.log('Fetched skills:', data);
@@ -141,11 +290,17 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         ...skill,
         sub_skills: Array.isArray(skill.sub_skills) ? skill.sub_skills : [],
       }));
-      setAvailableSkills(skillsWithArrays);
-      setFilteredSkillsPrimary(skillsWithArrays);
-      setFilteredSkillsAdditional(skillsWithArrays);
+      if (isMounted.current) {
+        setAvailableSkills(skillsWithArrays);
+        setFilteredSkillsPrimary(skillsWithArrays);
+        setFilteredSkillsAdditional(skillsWithArrays);
+      }
     } catch (error) {
-      console.error('Error fetching skills:', error);
+      if (error.name === 'AbortError') {
+        console.log('Skills fetch aborted');
+        return;
+      }
+      console.error('Error fetching skills:', error.message);
       alert('Failed to load skills: ' + error.message);
     }
   };
@@ -179,6 +334,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   }, [searchTermAdditional, availableSkills, primarySkill]);
 
   const handlePrimarySkillSelect = (value) => {
+    console.log('Selecting primary skill:', value);
     if (primarySkill) {
       alert('Only one primary skill can be selected.');
       return;
@@ -195,7 +351,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       return;
     }
     if (userSkills.additional.some(userSkill => userSkill.skill_id === skill.id)) {
-      alert('This skill has already been added.');
+      alert('This skill has already been added as an additional skill.');
       return;
     }
     console.log('Opening sub-skills modal for skill:', skill);
@@ -206,14 +362,16 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   };
 
   const handleAdditionalSkillsSelect = (values) => {
+    console.log('Selecting additional skills:', values);
     const totalSkills = (userSkills.primary ? 1 : 0) + userSkills.additional.length;
-    if (totalSkills + values.length > 15) {
-      alert('You can only add up to 15 skills total.');
-      return;
-    }
     const newSkills = values
       .map(id => availableSkills.find(s => s.id === parseInt(id)))
       .filter(skill => skill && !userSkills.additional.some(userSkill => userSkill.skill_id === skill.id) && (!userSkills.primary || userSkills.primary.skill_id !== skill.id));
+    
+    if (totalSkills + newSkills.length > 15) {
+      alert(`You can only add up to 15 skills. You can add ${15 - totalSkills} more skill(s).`);
+      return;
+    }
     if (newSkills.length > 0) {
       console.log('Opening sub-skills modal for additional skills:', newSkills);
       setPendingSkills(newSkills);
@@ -227,6 +385,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   };
 
   const handleSkillItemClick = (skill, action) => {
+    console.log('Skill item action:', action, 'for skill:', skill);
     if (action === 'edit') {
       const originalSkill = availableSkills.find(s => s.id === skill.id || s.id === skill.skill_id);
       if (!originalSkill) {
@@ -249,10 +408,17 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       setPrimarySkill(prev => (prev && (prev.skill_id === skill.id || prev.skill_id === skill.skill_id)) ? null : prev);
       setAdditionalSkills(prev => prev.filter(s => s.skill_id !== skill.id && s.skill_id !== skill.skill_id));
       setPendingSkills(prev => prev.filter(s => s.id !== skill.id && s.id !== skill.skill_id));
+      const totalSkills = (userSkills.primary ? 1 : 0) + userSkills.additional.length - 1;
+      if (totalSkills < 2) {
+        console.log('Skills reduced to <2, setting skillsStepCompleted to false');
+        setSkillsStepCompleted(false);
+        localStorage.setItem(`skillsStepCompleted_${user.id}`, 'false');
+      }
     }
   };
 
   const handleAddSubSkill = (subSkill) => {
+    console.log('Adding sub-skill:', subSkill);
     if (selectedSubSkills.includes(subSkill)) {
       alert('This sub-skill is already selected.');
       return;
@@ -262,11 +428,13 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   };
 
   const handleRemoveSubSkill = (subSkill) => {
+    console.log('Removing sub-skill:', subSkill);
     setSelectedSubSkills(prev => prev.filter(s => s !== subSkill));
     setAvailableSubSkills(prev => [...prev, subSkill].sort());
   };
 
   const handleNewCredentialChange = (e, field) => {
+    console.log('Changing credential field:', field);
     const value = e.target?.type === "file" ? e.target.files[0] : e.target?.value || e;
     if (field === "credentials_photo" && value) {
       if (
@@ -297,6 +465,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   };
 
   const addCredential = () => {
+    console.log('Adding credential:', newCredential);
     if (!newCredential.credentials_name) {
       setErrors((prev) => ({ ...prev, new_credential_name: "Please select a credential type" }));
       return;
@@ -314,11 +483,13 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   };
 
   const removeCredential = (index) => {
+    console.log('Removing credential at index:', index);
     setCredentials((prev) => prev.filter((_, i) => i !== index));
     setErrors((prev) => ({ ...prev, credentials: "" }));
   };
 
   const handleSaveSkill = async () => {
+    console.log('Saving skill:', selectedSkill);
     if (!selectedSkill) {
       alert('Please select a skill');
       return;
@@ -332,16 +503,9 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       return;
     }
 
-    // Validate sub-skills
-    const invalidSubSkills = selectedSubSkills.filter(subSkill => !selectedSkill.sub_skills.includes(subSkill));
-    if (invalidSubSkills.length > 0) {
-      alert(`Invalid sub-skills selected: ${invalidSubSkills.join(', ')}. Please select valid sub-skills.`);
-      return;
-    }
-
     const newSkill = {
-      skill_id: selectedSkill.id,
-      name: selectedSkill.name,
+      skill_id: String(selectedSkill.id),
+      skill_name: selectedSkill.name,
       sub_skills: selectedSubSkills,
     };
 
@@ -355,6 +519,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       console.log('Sending request to /api/add-skill:', {
         profile_id: profileId,
         skill_id: selectedSkill.id,
+        skill_name: selectedSkill.name,
         sub_skills: selectedSubSkills,
       });
       const response = await fetch('/api/add-skill', {
@@ -366,8 +531,10 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         body: JSON.stringify({
           profile_id: profileId,
           skill_id: selectedSkill.id,
+          skill_name: selectedSkill.name,
           sub_skills: selectedSubSkills.length > 0 ? selectedSubSkills : [],
         }),
+        signal: abortController.current.signal,
       });
       if (!response.ok) {
         let errorData = {};
@@ -382,44 +549,100 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       }
 
       const data = await response.json();
-      console.log('Skill saved successfully:', data);
+      console.log('Skill response:', data);
 
-      // Update state only if skill isn't already present
-      setUserSkills(prev => {
-        const skillExists = (prev.primary && prev.primary.skill_id === newSkill.skill_id) ||
-                           prev.additional.some(userSkill => userSkill.skill_id === newSkill.skill_id);
-        if (skillExists) {
-          console.log('Skill already exists in userSkills, skipping state update');
-          return prev;
-        }
-        if (!prev.primary) {
-          return { primary: newSkill, additional: prev.additional };
-        }
-        return { ...prev, additional: [...prev.additional, newSkill] };
-      });
-
-      // Update primarySkill and additionalSkills
-      if (!primarySkill) {
-        setPrimarySkill(newSkill);
-      } else {
-        setAdditionalSkills(prev => {
-          if (prev.some(s => s.skill_id === newSkill.skill_id)) {
-            console.log('Skill already exists in additionalSkills, skipping update');
-            return prev;
+      if (data.message === 'Skill already added') {
+        if (!userSkills.primary?.skill_id === newSkill.skill_id &&
+            !userSkills.additional.some(s => s.skill_id === newSkill.skill_id)) {
+          if (isMounted.current) {
+            setUserSkills(prev => {
+              if (!prev.primary) {
+                return { primary: newSkill, additional: prev.additional };
+              }
+              return { ...prev, additional: [...prev.additional, newSkill] };
+            });
+            if (!primarySkill) {
+              setPrimarySkill(newSkill);
+            } else {
+              setAdditionalSkills(prev => {
+                if (!prev.some(s => s.skill_id === newSkill.skill_id)) {
+                  return [...prev, newSkill];
+                }
+                return prev;
+              });
+            }
           }
-          return [...prev, newSkill];
-        });
+        }
+      } else {
+        if (isMounted.current) {
+          setUserSkills(prev => {
+            if (prev.primary?.skill_id === newSkill.skill_id ||
+                prev.additional.some(s => s.skill_id === newSkill.skill_id)) {
+              return prev;
+            }
+            if (!prev.primary) {
+              return { primary: newSkill, additional: prev.additional };
+            }
+            return { ...prev, additional: [...prev.additional, newSkill] };
+          });
+          if (!primarySkill) {
+            setPrimarySkill(newSkill);
+          } else {
+            setAdditionalSkills(prev => {
+              if (!prev.some(s => s.skill_id === newSkill.skill_id)) {
+                return [...prev, newSkill];
+              }
+              return prev;
+            });
+          }
+        }
       }
 
-      // Handle pending skills
+      if (isMounted.current) {
+        setPendingSkills(prev => {
+          const nextSkills = prev.filter(skill => skill.id !== selectedSkill.id);
+          if (nextSkills.length > 0) {
+            setTimeout(() => {
+              if (isMounted.current) {
+                setSelectedSkill(nextSkills[0]);
+                setAvailableSubSkills(nextSkills[0].sub_skills || []);
+                setSelectedSubSkills([]);
+              }
+            }, 100);
+            return nextSkills;
+          } else {
+            setShowSkillModal(false);
+            setSelectedSkill(null);
+            setAvailableSubSkills([]);
+            return [];
+          }
+        });
+        const totalSkills = (userSkills.primary ? 1 : 0) + userSkills.additional.length + 1;
+        if (totalSkills >= 2) {
+          console.log('Total skills >= 2 after adding, setting skillsStepCompleted to true');
+          setSkillsStepCompleted(true);
+          localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+        }
+      }
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        console.log('Skill save aborted');
+        return;
+      }
+      console.error('Error saving skill:', error.message);
+      alert(`Failed to save skill: ${error.message}. Please try again.`);
+    }
+  };
+
+  const handleModalClose = () => {
+    console.log('Closing skill modal');
+    if (isMounted.current) {
       setPendingSkills(prev => {
-        const nextSkills = prev.filter(skill => skill.id !== selectedSkill.id);
+        const nextSkills = prev.filter(skill => skill.id !== selectedSkill?.id);
         if (nextSkills.length > 0) {
-          setTimeout(() => {
-            setSelectedSkill(nextSkills[0]);
-            setAvailableSubSkills(nextSkills[0].sub_skills || []);
-            setSelectedSubSkills([]);
-          }, 100);
+          setSelectedSkill(nextSkills[0]);
+          setAvailableSubSkills(nextSkills[0].sub_skills || []);
+          setSelectedSubSkills([]);
           return nextSkills;
         } else {
           setShowSkillModal(false);
@@ -428,42 +651,28 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
           return [];
         }
       });
-    } catch (error) {
-      console.error('Error saving skill:', error);
-      alert(`Failed to save skill: ${error.message}. Please try again.`);
     }
   };
 
-  const handleModalClose = () => {
-    setPendingSkills(prev => {
-      const nextSkills = prev.filter(skill => skill.id !== selectedSkill?.id);
-      if (nextSkills.length > 0) {
-        setSelectedSkill(nextSkills[0]);
-        setAvailableSubSkills(nextSkills[0].sub_skills || []);
-        setSelectedSubSkills([]);
-        return nextSkills;
-      } else {
-        setShowSkillModal(false);
-        setSelectedSkill(null);
-        setAvailableSubSkills([]);
-        return [];
-      }
-    });
-  };
-
   const handleNextStep = () => {
+    console.log('Next step clicked, userSkills:', userSkills);
     if (!userSkills.primary || userSkills.additional.length === 0) {
       alert('Please select 1 primary skill and at least 1 additional skill before proceeding.');
       return;
     }
+    setSkillsStepCompleted(true);
+    localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+    console.log('skillsStepCompleted set to true, moving to step 4');
     setStep(4);
   };
 
   const handlePreviousStep = () => {
+    console.log('Previous step clicked');
     setStep(3);
   };
 
   const handleFinalFinish = async () => {
+    console.log('Final finish clicked, profileId:', profileId, 'userSkills:', userSkills);
     if (!profileId) {
       alert('Profile ID not found. Please create a profile first.');
       return;
@@ -473,15 +682,26 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       return;
     }
 
+    const skillsId = [
+      { ...userSkills.primary, sub_skills: userSkills.primary.sub_skills || [] },
+      ...userSkills.additional.map(skill => ({
+        ...skill,
+        sub_skills: skill.sub_skills || [],
+      })),
+    ];
+
     const submitData = new FormData();
     submitData.append('profile_id', profileId);
     submitData.append('work_type', 'part-time');
-    submitData.append('skills_id[primary][skill_id]', userSkills.primary.skill_id);
-    submitData.append('skills_id[primary][sub_skills]', JSON.stringify(userSkills.primary.sub_skills || []));
-    userSkills.additional.forEach((skill, index) => {
-      submitData.append(`skills_id[additional][${index}][skill_id]`, skill.skill_id);
-      submitData.append(`skills_id[additional][${index}][sub_skills]`, JSON.stringify(skill.sub_skills || []));
+
+    skillsId.forEach((skill, index) => {
+      submitData.append(`skills_id[${index}][skill_id]`, skill.skill_id);
+      submitData.append(`skills_id[${index}][skill_name]`, skill.skill_name);
+      skill.sub_skills.forEach((subSkill, subIndex) => {
+        submitData.append(`skills_id[${index}][sub_skills][${subIndex}]`, subSkill);
+      });
     });
+
     credentials.forEach((cred, index) => {
       submitData.append(`credentials[${index}][credentials_name]`, cred.credentials_name);
       if (cred.credentials_photo instanceof File) {
@@ -499,7 +719,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       console.log('Submitting complete profile data:', {
         profile_id: profileId,
         work_type: 'part-time',
-        skills_id: userSkills,
+        skills_id: skillsId,
         credentials_count: credentials.length,
       });
       const response = await fetch('/api/complete-profile', {
@@ -508,6 +728,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
           'Authorization': `Bearer ${authToken}`,
         },
         body: submitData,
+        signal: abortController.current.signal,
       });
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
@@ -515,15 +736,23 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         throw new Error(errorMsg);
       }
 
-      localStorage.setItem(`isProfileComplete_${user.id}`, 'true');
-      localStorage.removeItem(`userSkills_${user.id}`);
-      localStorage.removeItem(`primarySkill_${user.id}`);
-      localStorage.removeItem(`additionalSkills_${user.id}`);
-      localStorage.removeItem(`profile_${user.id}`);
-      onComplete();
-      navigate('/homepage');
+      if (isMounted.current) {
+        console.log('Profile completed, clearing localStorage and navigating');
+        localStorage.setItem(`isProfileComplete_${user.id}`, 'true');
+        localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+        localStorage.removeItem(`userSkills_${user.id}`);
+        localStorage.removeItem(`primarySkill_${user.id}`);
+        localStorage.removeItem(`additionalSkills_${user.id}`);
+        localStorage.removeItem(`profile_${user.id}`);
+        onComplete();
+        navigate('/homepage');
+      }
     } catch (error) {
-      console.error('Error completing profile:', error);
+      if (error.name === 'AbortError') {
+        console.log('Profile completion aborted');
+        return;
+      }
+      console.error('Error completing profile:', error.message);
       alert(`Failed to complete profile: ${error.message}. Please try again.`);
     }
   };
@@ -539,7 +768,10 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     </Menu>
   );
 
-  if (!isOpen) return null;
+  if (!isOpen || !user?.id || isProfileComplete) {
+    console.log('SkillRatingModal not rendered: isOpen=', isOpen, 'user.id=', user?.id, 'isProfileComplete=', isProfileComplete);
+    return null;
+  }
 
   return (
     <div className="skill-rating-overlay">
@@ -550,8 +782,14 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
           <div className="progress-steps">
             <div className="step completed"><div className="step-number">✓</div><span>Register for an account</span></div>
             <div className="step completed"><div className="step-number">✓</div><span>Create profile</span></div>
-            <div className={`step ${step === 3 ? 'current' : ''}`}><div className="step-number">3</div><span>Your skills</span></div>
-            <div className={`step ${step === 4 ? 'current' : ''}`}><div className="step-number">4</div><span>Your credentials</span></div>
+            <div className={`step ${step === 3 ? 'current' : skillsStepCompleted ? 'completed' : ''}`}>
+              <div className="step-number">{skillsStepCompleted ? '✓' : '3'}</div>
+              <span>Your skills</span>
+            </div>
+            <div className={`step ${step === 4 ? 'current' : ''}`}>
+              <div className="step-number">4</div>
+              <span>Your credentials</span>
+            </div>
           </div>
         </div>
         <div className="skill-side">
@@ -582,14 +820,14 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                   ))}
                 </Select>
                 {primarySkill && (
-                  <Dropdown overlay={skillMenu(primarySkill)} trigger={['click']}>
+                  <Dropdown menu={skillMenu(primarySkill)} trigger={['click']}>
                     <div
                       className="skill-item ant-dropdown-trigger"
                       role="button"
                       tabIndex={0}
                       onKeyPress={(e) => e.key === 'Enter' && handleSkillItemClick(primarySkill, 'edit')}
                     >
-                      <span>{primarySkill.name} {primarySkill.sub_skills?.length > 0 ? `(Sub-skills: ${primarySkill.sub_skills.join(', ')})` : ''}</span>
+                      <span>{primarySkill.skill_name} {primarySkill.sub_skills?.length > 0 ? `(Sub-skills: ${primarySkill.sub_skills.join(', ')})` : ''}</span>
                       <IconChevronDown size={16} className="dropdown-arrow" />
                     </div>
                   </Dropdown>
@@ -619,14 +857,14 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                 {additionalSkills.length > 0 ? (
                   <div className="additional-skills-list">
                     {additionalSkills.map(skill => (
-                      <Dropdown key={skill.id || skill.skill_id} overlay={skillMenu(skill)} trigger={['click']}>
+                      <Dropdown key={skill.id || skill.skill_id} menu={skillMenu(skill)} trigger={['click']}>
                         <div
                           className="skill-item ant-dropdown-trigger"
                           role="button"
                           tabIndex={0}
                           onKeyPress={(e) => e.key === 'Enter' && handleSkillItemClick(skill, 'edit')}
                         >
-                          <span>{skill.name} {skill.sub_skills?.length > 0 ? `(Sub-skills: ${skill.sub_skills.join(', ')})` : ''}</span>
+                          <span>{skill.skill_name} {skill.sub_skills?.length > 0 ? `(Sub-skills: ${skill.sub_skills.join(', ')})` : ''}</span>
                           <IconChevronDown size={16} className="dropdown-arrow" />
                         </div>
                       </Dropdown>
@@ -669,7 +907,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                       <button type="button" onClick={addCredential}>Add Credential</button>
                     </div>
                   )}
-                  {credentials.length > 0 && (
+                  {credentials.length > 0 ? (
                     <div className="credential-list">
                       {credentials.map((cred, index) => (
                         <div key={index} className="credential-item">
@@ -678,6 +916,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                         </div>
                       ))}
                     </div>
+                  ) : (
+                    <p>No credentials added</p>
                   )}
                   {errors.new_credential_name && <span className="error">{errors.new_credential_name}</span>}
                   {errors.new_credential_photo && <span className="error">{errors.new_credential_photo}</span>}

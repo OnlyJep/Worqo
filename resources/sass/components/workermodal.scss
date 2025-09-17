@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,24 +12,38 @@
 }
 
 .worker-modal {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   max-height: 90vh;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Prevent overflow from child elements */
+  overflow: hidden;
 }
 
 .worker-modal h2 {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.worker-modal h3 {
+  font-size: 18px;
   font-weight: 600;
-  color: #2d3748;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.form-section {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 6px;
 }
 
 .worker-modal-form {
@@ -42,15 +56,14 @@
 .worker-modal-content {
   flex: 1;
   overflow-y: auto;
-  padding-right: 10px;
-  margin-bottom: 20px;
+  padding-right: 12px;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-bottom: 14px;
+  gap: 16px;
+  margin-bottom: 16px;
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
@@ -60,26 +73,31 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 
   label {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
-    color: #2d3748;
+    color: #1f2937;
+  }
+
+  .required {
+    color: #ef4444;
+    font-size: 14px;
   }
 
   input,
   select {
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #d1d5db;
     border-radius: 6px;
-    background: #f9fafb;
+    background: #ffffff;
     font-size: 14px;
 
     &:focus {
       outline: none;
       border-color: #3b82f6;
-      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
   }
 
@@ -88,40 +106,37 @@
     cursor: not-allowed;
   }
 
+  .credential-dropdown {
+    padding: 10px;
+    background: #ffffff;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231f2937' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
   .credential-section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
-    .credential-dropdown {
-      padding: 8px;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      background: #f9fafb;
-      font-size: 14px;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%232d3748' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 8px center;
-    }
+    gap: 12px;
 
     .credential-upload {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     input[type="file"] {
-      padding: 8px;
+      padding: 10px;
       border: 1px solid #d1d5db;
       border-radius: 6px;
-      background: #f9fafb;
+      background: #ffffff;
     }
 
     button {
       padding: 8px 16px;
       background: #3b82f6;
-      color: #fff;
+      color: #ffffff;
       border: none;
       border-radius: 6px;
       font-size: 14px;
@@ -135,20 +150,34 @@
     .credential-item {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 8px;
+      gap: 12px;
+      padding: 10px;
       background: #f9fafb;
       border-radius: 6px;
       font-size: 14px;
-      color: #2d3748;
+      color: #1f2937;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        object-fit: cover;
+      }
+
+      a {
+        color: #3b82f6;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
 
       button {
-        padding: 4px 10px;
+        padding: 6px 12px;
         background: #ef4444;
-        color: #fff;
-        border: none;
+        color: #ffffff;
         border-radius: 4px;
-        cursor: pointer;
 
         &:hover {
           background: #dc2626;
@@ -161,24 +190,24 @@
 .profile-img-preview {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 12px;
 
   img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 6px;
     object-fit: cover;
-    border: 1px solid #ccc;
+    border: 1px solid #d1d5db;
   }
 
   button {
-    padding: 4px 10px;
+    padding: 6px 12px;
     background: #ef4444;
-    color: #fff;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
 
     &:hover {
@@ -187,11 +216,208 @@
   }
 }
 
+.selected-skills {
+  margin-top: 16px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 12px;
+  }
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #f9fafb;
+  cursor: pointer;
+  margin-bottom: 8px;
+
+  span {
+    font-size: 14px;
+    color: #1f2937;
+  }
+
+  svg {
+    color: #6b7280;
+  }
+}
+
+.skill-details-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.skill-details-modal {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+  }
+
+  .close-icon {
+    cursor: pointer;
+    color: #6b7280;
+
+    &:hover {
+      color: #1f2937;
+    }
+  }
+}
+
+.modal-body {
+  .sub-skills-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .sub-skills-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1f2937;
+    }
+
+    .sub-skills-instruction {
+      font-size: 13px;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .sub-skills-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+
+      @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .available-sub-skills,
+    .selected-sub-skills {
+      h4 {
+        font-size: 14px;
+        font-weight: 500;
+        color: #1f2937;
+        margin-bottom: 10px;
+      }
+
+      .sub-skills-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        background: #ffffff;
+      }
+
+      .sub-skill-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        border-bottom: 1px solid #e5e7eb;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .sub-skill-text {
+          font-size: 14px;
+          color: #1f2937;
+        }
+
+        button {
+          padding: 4px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+
+          svg {
+            color: #3b82f6;
+          }
+
+          &:hover svg {
+            color: #2563eb;
+          }
+        }
+      }
+
+      .no-sub-skills {
+        font-size: 13px;
+        color: #6b7280;
+        padding: 10px;
+        text-align: center;
+      }
+    }
+  }
+
+  .no-sub-skills {
+    font-size: 14px;
+    color: #6b7280;
+    text-align: center;
+  }
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  .save-btn {
+    padding: 8px 16px;
+    background: #3b82f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background: #2563eb;
+    }
+  }
+}
+
 .worker-modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  padding-top: 14px;
+  padding-top: 16px;
   border-top: 1px solid #e5e7eb;
 
   .submit-button,
@@ -201,13 +427,13 @@
     border: none;
     font-size: 14px;
     cursor: pointer;
-    min-width: 100px;
+    min-width: 120px;
     transition: background-color 0.2s;
   }
 
   .submit-button {
     background: #3b82f6;
-    color: #fff;
+    color: #ffffff;
 
     &:hover {
       background: #2563eb;
@@ -216,7 +442,7 @@
 
   .cancel-button {
     background: #f3f4f6;
-    color: #374151;
+    color: #1f2937;
     border: 1px solid #d1d5db;
 
     &:hover {
@@ -227,13 +453,11 @@
   @media (max-width: 600px) {
     flex-direction: column;
     gap: 10px;
-    padding-top: 10px;
 
     .submit-button,
     .cancel-button {
       width: 100%;
-      padding: 10px;
-      min-width: 0;
+      padding: 12px;
     }
   }
 }
@@ -242,6 +466,7 @@
   color: #ef4444;
   font-size: 13px;
   margin-top: 6px;
+  display: block;
 }
 
 .worker-modal-content::-webkit-scrollbar {
@@ -254,44 +479,43 @@
 }
 
 .worker-modal-content::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #9ca3af;
   border-radius: 4px;
 
   &:hover {
-    background: #555;
+    background: #6b7280;
   }
 }
 
 @media (max-width: 768px) {
   .worker-modal {
     max-width: 90vw;
-    padding: 16px;
+    padding: 20px;
   }
 
   .worker-modal h2 {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 
 @media (max-width: 600px) {
   .worker-modal {
     max-width: 95vw;
-    max-height: 92vh;
-    padding: 12px;
+    padding: 16px;
   }
 
-  .worker-modal-content {
-    margin-bottom: 16px;
+  .form-section {
+    padding: 12px;
   }
 
   .form-group {
     label {
-      font-size: 12px;
+      font-size: 13px;
     }
 
     input,
     select {
-      padding: 6px;
+      padding: 8px;
       font-size: 13px;
     }
   }

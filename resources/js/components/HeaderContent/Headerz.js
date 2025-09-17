@@ -77,25 +77,37 @@ const Headerz = () => {
   const handleLogout = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('/api/logout', {
+      const token = localStorage.getItem('auth_token');
+      const response = await fetch('http://127.0.0.1:8000/api/logout', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       });
       if (response.ok) {
-        localStorage.removeItem('auth_token');
-        localStorage.removeItem('user');
+        localStorage.clear(); // Clear all local storage
         setIsLoggedIn(false);
         setUser(null);
         setIsDropdownOpen(false);
-        navigate('/login', { replace: true });
+        navigate('/', { replace: true }); // Navigate to homepage
       } else {
-        console.error('Logout failed');
+        console.error('Logout failed:', response.status, response.statusText);
+        // Proceed with logout even if API call fails
+        localStorage.clear();
+        setIsLoggedIn(false);
+        setUser(null);
+        setIsDropdownOpen(false);
+        navigate('/', { replace: true });
       }
     } catch (error) {
-      console.error('Logout error:', error);
+      console.error('Logout error:', error.message);
+      // Proceed with logout even if there's an error
+      localStorage.clear();
+      setIsLoggedIn(false);
+      setUser(null);
+      setIsDropdownOpen(false);
+      navigate('/', { replace: true });
     } finally {
       setIsLoading(false);
     }

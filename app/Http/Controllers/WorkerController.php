@@ -11,7 +11,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class WorkerController extends Controller
@@ -53,22 +52,20 @@ class WorkerController extends Controller
                         'postal_code' => '8600',
                         'country' => 'Philippines',
                     ]);
+                    $user->load('profile');
                 }
                 if (!$user->worker && $user->profile) {
-                    Worker::updateOrCreate(
-                        ['profile_id' => $user->profile->id],
-                        [
-                            'work_type' => 'part-time',
-                            'skills_id' => ['primary' => null, 'additional' => []],
-                            'credentials_name' => null,
-                            'credentials_photo' => null,
-                            'archived' => false,
-                        ]
-                    );
+                    Worker::create([
+                        'profile_id' => $user->profile->id,
+                        'work_type' => 'part-time',
+                        'skills_id' => [],
+                        'credentials_name' => [],
+                        'credentials_photo' => [],
+                        'archived' => false,
+                    ]);
+                    $user->load('worker');
                 }
             }
-
-            $workers = $query->paginate($limit, ['*'], 'page', $page);
 
             $response = [
                 'workers' => collect($workers->items())->map(function ($user) {
@@ -132,22 +129,20 @@ class WorkerController extends Controller
                         'postal_code' => '8600',
                         'country' => 'Philippines',
                     ]);
+                    $user->load('profile');
                 }
                 if (!$user->worker && $user->profile) {
-                    Worker::updateOrCreate(
-                        ['profile_id' => $user->profile->id],
-                        [
-                            'work_type' => 'part-time',
-                            'skills_id' => ['primary' => null, 'additional' => []],
-                            'credentials_name' => null,
-                            'credentials_photo' => null,
-                            'archived' => true,
-                        ]
-                    );
+                    Worker::create([
+                        'profile_id' => $user->profile->id,
+                        'work_type' => 'part-time',
+                        'skills_id' => [],
+                        'credentials_name' => [],
+                        'credentials_photo' => [],
+                        'archived' => true,
+                    ]);
+                    $user->load('worker');
                 }
             }
-
-            $workers = $query->paginate($limit, ['*'], 'page', $page);
 
             $response = [
                 'workers' => collect($workers->items())->map(function ($user) {
@@ -180,11 +175,6 @@ class WorkerController extends Controller
     public function show($id, Request $request): JsonResponse
     {
         try {
-            $user = Auth::guard('api')->user();
-            if (!$user || $user->id != $id) {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
-
             $user = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
                 ->findOrFail($id);
@@ -200,21 +190,18 @@ class WorkerController extends Controller
                     'postal_code' => '8600',
                     'country' => 'Philippines',
                 ]);
+                $user->load('profile');
             }
             if (!$user->worker && $user->profile) {
-                Worker::updateOrCreate(
-                    ['profile_id' => $user->profile->id],
-                    [
-                        'work_type' => 'part-time',
-                        'skills_id' => ['primary' => null, 'additional' => []],
-                        'credentials_name' => null,
-                        'credentials_photo' => null,
-                        'archived' => $user->archived,
-                    ]
-                );
-                $user = User::with(['profile', 'worker'])
-                    ->where('role_id', 1)
-                    ->findOrFail($id);
+                Worker::create([
+                    'profile_id' => $user->profile->id,
+                    'work_type' => 'part-time',
+                    'skills_id' => [],
+                    'credentials_name' => [],
+                    'credentials_photo' => [],
+                    'archived' => $user->archived,
+                ]);
+                $user->load('worker');
             }
 
             Log::info('Fetched worker with role_id = 1', ['id' => $id]);
@@ -231,35 +218,65 @@ class WorkerController extends Controller
     public function store(Request $request): JsonResponse
     {
         try {
-            $validator = Validator::make($request->all(), [
-                'first_name' => 'required|string|max:255',
-                'middlename' => 'nullable|string|max:255',
-                'last_name' => 'required|string|max:255',
-                'suffix_id' => 'nullable|integer|exists:suffixes,id',
-                'email' => 'required|email|max:255|unique:users,email',
-                'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-                'gender_id' => 'required|integer|exists:genders,id',
-                'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
-                'street' => 'nullable|string|max:255',
-                'work_type' => 'required|in:part-time,full-time,one-time-job',
-                'skills_id' => 'nullable|array',
-                'skills_id.primary' => 'nullable|array',
-                'skills_id.primary.skill_id' => 'required_with:skills_id.primary|integer|exists:skills,id',
-                'skills_id.primary.sub_skills' => 'nullable|array',
-                'skills_id.primary.sub_skills.*' => 'string',
-                'skills_id.additional' => 'nullable|array',
-                'skills_id.additional.*.skill_id' => 'required_with:skills_id.additional|integer|exists:skills,id',
-                'skills_id.additional.*.sub_skills' => 'nullable|array',
-                'skills_id.additional.*.sub_skills.*' => 'string',
-                'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-                'credentials' => 'nullable|array',
-                'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
-                'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
-            ]);
+            Log::info('Store worker request data', ['input' => $request->all()]);
+
+            $skillsId = $request->input('skills_id', []);
+            if (is_string($skillsId)) {
+                $decoded = json_decode($skillsId, true);
+                $skillsId = is_array($decoded) ? $decoded : [];
+            }
+            if (!is_array($skillsId)) {
+                Log::warning('skills_id is not an array', ['skills_id' => $request->input('skills_id')]);
+                return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
+            }
+
+            $validator = Validator::make(
+                array_merge($request->all(), ['skills_id' => $skillsId]),
+                [
+                    'first_name' => 'required|string|max:255',
+                    'middlename' => 'nullable|string|max:255',
+                    'last_name' => 'required|string|max:255',
+                    'suffix_id' => 'nullable|integer|exists:suffixes,id',
+                    'email' => 'required|email|max:255|unique:users,email',
+                    'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+                    'gender_id' => 'required|integer|exists:genders,id',
+                    'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
+                    'street' => 'nullable|string|max:255',
+                    'work_type' => 'required|in:part-time,full-time,one-time-job',
+                    'skills_id' => 'required|array|min:1',
+                    'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
+                    'skills_id.*.skill_name' => 'required|string|max:255',
+                    'skills_id.*.sub_skills' => 'nullable|array',
+                    'skills_id.*.sub_skills.*' => 'string|max:255',
+                    'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+                    'credentials' => 'nullable|array',
+                    'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
+                    'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                ]
+            );
 
             if ($validator->fails()) {
                 Log::warning('Validation failed for worker creation', ['errors' => $validator->errors()->toArray()]);
                 return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $skillIds = array_column($skillsId, 'skill_id');
+            if (count(array_unique($skillIds)) !== count($skillIds)) {
+                return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
+            }
+
+            foreach ($skillsId as $index => $skillData) {
+                $skill = Skill::find($skillData['skill_id']);
+                if ($skill && !empty($skillData['sub_skills'])) {
+                    $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                    foreach ($skillData['sub_skills'] as $subSkill) {
+                        if (!in_array($subSkill, $availableSubSkills)) {
+                            return response()->json([
+                                'errors' => ["skills_id.$index.sub_skills" => ["Invalid sub-skill: $subSkill"]],
+                            ], 400);
+                        }
+                    }
+                }
             }
 
             $user = User::create([
@@ -298,7 +315,12 @@ class WorkerController extends Controller
             $credentials_photo = [];
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $credential) {
-                    if (isset($credential['credentials_name']) && !empty($credential['credentials_name']) && isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
+                    if (
+                        isset($credential['credentials_name']) &&
+                        !empty($credential['credentials_name']) &&
+                        isset($credential['credentials_photo']) &&
+                        $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile
+                    ) {
                         $file = $credential['credentials_photo'];
                         $filename = uniqid() . '.' . $file->getClientOriginalExtension();
                         $path = $file->storeAs('credentialsphoto', $filename, 'public');
@@ -311,20 +333,17 @@ class WorkerController extends Controller
             $worker = Worker::create([
                 'profile_id' => $profile->id,
                 'work_type' => $request->work_type,
-                'skills_id' => $request->skills_id ?? ['primary' => null, 'additional' => []],
-                'credentials_name' => !empty($credentials_name) ? $credentials_name : null,
-                'credentials_photo' => !empty($credentials_photo) ? $credentials_photo : null,
+                'skills_id' => $skillsId,
+                'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
                 'archived' => false,
             ]);
-
-            // Generate Passport token for the new user
-            $token = $user->createToken('authToken')->accessToken;
 
             Log::info('Worker created', [
                 'worker_id' => $worker->id,
                 'profile_id' => $profile->id,
                 'work_type' => $request->work_type,
-                'skills_id' => $worker->skills_id,
+                'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
             ]);
@@ -332,7 +351,6 @@ class WorkerController extends Controller
             return response()->json([
                 'message' => 'Worker created successfully',
                 'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
-                'token' => $token, // Return Passport token
             ], 201);
         } catch (\Exception $e) {
             Log::error('Error creating worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
@@ -346,10 +364,7 @@ class WorkerController extends Controller
     public function update(Request $request, $id): JsonResponse
     {
         try {
-            $user = Auth::guard('api')->user();
-            if (!$user || $user->id != $id) {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
+            Log::info('Update worker request data', ['id' => $id, 'input' => $request->all()]);
 
             $user = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
@@ -366,53 +381,78 @@ class WorkerController extends Controller
                     'postal_code' => '8600',
                     'country' => 'Philippines',
                 ]);
+                $user->load('profile');
             }
 
             if (!$user->worker) {
-                Worker::updateOrCreate(
-                    ['profile_id' => $user->profile->id],
-                    [
-                        'work_type' => $request->work_type ?? 'part-time',
-                        'skills_id' => ['primary' => null, 'additional' => []],
-                        'credentials_name' => null,
-                        'credentials_photo' => null,
-                        'archived' => $user->archived,
-                    ]
-                );
-                $user = User::with(['profile', 'worker'])
-                    ->where('role_id', 1)
-                    ->findOrFail($id);
+                Worker::create([
+                    'profile_id' => $user->profile->id,
+                    'work_type' => $request->work_type ?? 'part-time',
+                    'skills_id' => [],
+                    'credentials_name' => [],
+                    'credentials_photo' => [],
+                    'archived' => $user->archived,
+                ]);
+                $user->load('worker');
             }
 
-            $validator = Validator::make($request->all(), [
-                'first_name' => 'required|string|max:255',
-                'middlename' => 'nullable|string|max:255',
-                'last_name' => 'required|string|max:255',
-                'suffix_id' => 'nullable|integer|exists:suffixes,id',
-                'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
-                'password' => 'nullable|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-                'gender_id' => 'required|integer|exists:genders,id',
-                'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
-                'street' => 'nullable|string|max:255',
-                'work_type' => 'required|in:part-time,full-time,one-time-job',
-                'skills_id' => 'nullable|array',
-                'skills_id.primary' => 'nullable|array',
-                'skills_id.primary.skill_id' => 'required_with:skills_id.primary|integer|exists:skills,id',
-                'skills_id.primary.sub_skills' => 'nullable|array',
-                'skills_id.primary.sub_skills.*' => 'string',
-                'skills_id.additional' => 'nullable|array',
-                'skills_id.additional.*.skill_id' => 'required_with:skills_id.additional|integer|exists:skills,id',
-                'skills_id.additional.*.sub_skills' => 'nullable|array',
-                'skills_id.additional.*.sub_skills.*' => 'string',
-                'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-                'credentials' => 'nullable|array',
-                'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
-                'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
-            ]);
+            $skillsId = $request->input('skills_id', []);
+            if (is_string($skillsId)) {
+                $decoded = json_decode($skillsId, true);
+                $skillsId = is_array($decoded) ? $decoded : [];
+            }
+            if (!is_array($skillsId)) {
+                Log::warning('skills_id is not an array', ['skills_id' => $request->input('skills_id')]);
+                return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
+            }
+
+            $validator = Validator::make(
+                array_merge($request->all(), ['skills_id' => $skillsId]),
+                [
+                    'first_name' => 'required|string|max:255',
+                    'middlename' => 'nullable|string|max:255',
+                    'last_name' => 'required|string|max:255',
+                    'suffix_id' => 'nullable|integer|exists:suffixes,id',
+                    'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
+                    'password' => 'nullable|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+                    'gender_id' => 'required|integer|exists:genders,id',
+                    'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
+                    'street' => 'nullable|string|max:255',
+                    'work_type' => 'required|in:part-time,full-time,one-time-job',
+                    'skills_id' => 'required|array|min:1',
+                    'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
+                    'skills_id.*.skill_name' => 'required|string|max:255',
+                    'skills_id.*.sub_skills' => 'nullable|array',
+                    'skills_id.*.sub_skills.*' => 'string|max:255',
+                    'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+                    'credentials' => 'nullable|array',
+                    'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
+                    'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                ]
+            );
 
             if ($validator->fails()) {
                 Log::warning('Validation failed for worker update', ['errors' => $validator->errors()->toArray()]);
                 return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $skillIds = array_column($skillsId, 'skill_id');
+            if (count(array_unique($skillIds)) !== count($skillIds)) {
+                return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
+            }
+
+            foreach ($skillsId as $index => $skillData) {
+                $skill = Skill::find($skillData['skill_id']);
+                if ($skill && !empty($skillData['sub_skills'])) {
+                    $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                    foreach ($skillData['sub_skills'] as $subSkill) {
+                        if (!in_array($subSkill, $availableSubSkills)) {
+                            return response()->json([
+                                'errors' => ["skills_id.$index.sub_skills" => ["Invalid sub-skill: $subSkill"]],
+                            ], 400);
+                        }
+                    }
+                }
             }
 
             $user->update([
@@ -443,25 +483,33 @@ class WorkerController extends Controller
                 $filename = uniqid() . '.' . $file->getClientOriginalExtension();
                 $path = $file->storeAs('profiles', $filename, 'public');
                 $profileData['profile_img'] = $path;
+            } elseif ($request->input('profile_img') === '' && $user->profile->profile_img) {
+                if (Storage::disk('public')->exists($user->profile->profile_img)) {
+                    Storage::disk('public')->delete($user->profile->profile_img);
+                }
+                $profileData['profile_img'] = null;
             }
 
             $user->profile->update($profileData);
 
             $credentials_name = [];
             $credentials_photo = [];
-            $existing_credentials_name = $user->worker->credentials_name ?? [];
-            $existing_credentials_photo = $user->worker->credentials_photo ?? [];
+            $existing_credentials_name = $this->parseArray($user->worker->credentials_name);
+            $existing_credentials_photo = $this->parseArray($user->worker->credentials_photo);
 
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $index => $credential) {
                     if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
                         $credentials_name[] = $credential['credentials_name'];
-                        if (isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
+                        if (
+                            isset($credential['credentials_photo']) &&
+                            $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile
+                        ) {
                             $file = $credential['credentials_photo'];
                             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
                             $path = $file->storeAs('credentialsphoto', $filename, 'public');
                             $credentials_photo[] = $path;
-                        } else if (isset($existing_credentials_photo[$index]) && !empty($existing_credentials_photo[$index])) {
+                        } elseif (isset($existing_credentials_photo[$index]) && !empty($existing_credentials_photo[$index])) {
                             $credentials_photo[] = $existing_credentials_photo[$index];
                         } else {
                             $credentials_photo[] = null;
@@ -478,16 +526,16 @@ class WorkerController extends Controller
 
             $user->worker->update([
                 'work_type' => $request->work_type,
-                'skills_id' => $request->skills_id ?? $user->worker->skills_id,
-                'credentials_name' => !empty($credentials_name) ? $credentials_name : null,
-                'credentials_photo' => !empty($credentials_photo) ? $credentials_photo : null,
+                'skills_id' => $skillsId,
+                'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
                 'archived' => $user->archived,
             ]);
 
             Log::info('Worker updated', [
                 'worker_id' => $user->worker->id,
                 'work_type' => $request->work_type,
-                'skills_id' => $request->skills_id,
+                'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
             ]);
@@ -503,16 +551,99 @@ class WorkerController extends Controller
     }
 
     /**
+     * Update worker's skills.
+     */
+    public function updateSkills(Request $request, $id): JsonResponse
+    {
+        try {
+            Log::info('Update skills request data', ['id' => $id, 'input' => $request->all()]);
+
+            $user = User::with(['profile', 'worker'])
+                ->where('role_id', 1)
+                ->findOrFail($id);
+
+            if (!$user->worker) {
+                return response()->json(['error' => 'Worker record not found'], 404);
+            }
+
+            $skillsId = $request->input('skills_id', []);
+            if (is_string($skillsId)) {
+                $decoded = json_decode($skillsId, true);
+                $skillsId = is_array($decoded) ? $decoded : [];
+            }
+            if (!is_array($skillsId)) {
+                Log::warning('skills_id is not an array', ['skills_id' => $request->input('skills_id')]);
+                return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
+            }
+
+            $validator = Validator::make(
+                ['skills_id' => $skillsId],
+                [
+                    'skills_id' => 'required|array|min:1',
+                    'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
+                    'skills_id.*.skill_name' => 'required|string|max:255',
+                    'skills_id.*.sub_skills' => 'nullable|array',
+                    'skills_id.*.sub_skills.*' => 'string|max:255',
+                ]
+            );
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for skills update', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $skillIds = array_column($skillsId, 'skill_id');
+            if (count(array_unique($skillIds)) !== count($skillIds)) {
+                return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
+            }
+
+            foreach ($skillsId as $index => $skillData) {
+                $skill = Skill::find($skillData['skill_id']);
+                if ($skill && !empty($skillData['sub_skills'])) {
+                    $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                    foreach ($skillData['sub_skills'] as $subSkill) {
+                        if (!in_array($subSkill, $availableSubSkills)) {
+                            return response()->json([
+                                'errors' => ["skills_id.$index.sub_skills" => ["Invalid sub-skill: $subSkill"]],
+                            ], 400);
+                        }
+                    }
+                }
+            }
+
+            if (count($skillsId) > 15) {
+                Log::warning('Skill limit exceeded', [
+                    'worker_id' => $user->worker->id,
+                    'total_skills' => count($skillsId),
+                ]);
+                return response()->json(['error' => 'Cannot have more than 15 skills'], 400);
+            }
+
+            $user->worker->update([
+                'skills_id' => $skillsId,
+            ]);
+
+            Log::info('Worker skills updated', [
+                'worker_id' => $user->worker->id,
+                'skills_id' => $skillsId,
+            ]);
+
+            return response()->json([
+                'message' => 'Worker skills updated successfully',
+                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating worker skills: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update worker skills: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
      * Update worker's archive status.
      */
     public function updateArchiveStatus(Request $request, $id): JsonResponse
     {
         try {
-            $user = Auth::guard('api')->user();
-            if (!$user || $user->id != $id) {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
-
             $validator = Validator::make($request->all(), [
                 'archived' => 'required|boolean',
             ]);
@@ -551,11 +682,6 @@ class WorkerController extends Controller
     public function bulkArchive(Request $request): JsonResponse
     {
         try {
-            $user = Auth::guard('api')->user();
-            if (!$user) {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
-
             $validator = Validator::make($request->all(), [
                 'worker_ids' => 'required|array',
                 'worker_ids.*' => 'integer|exists:users,id',
@@ -597,15 +723,17 @@ class WorkerController extends Controller
     /**
      * Add a skill to the worker's skills_id array.
      */
-public function addSkill(Request $request): JsonResponse
+    public function addSkill(Request $request): JsonResponse
     {
         try {
-            // Validate request data
+            Log::info('Add skill request data', ['input' => $request->all()]);
+
             $validator = Validator::make($request->all(), [
                 'profile_id' => 'required|integer|exists:profiles,id',
                 'skill_id' => 'required|integer|exists:skills,id',
+                'skill_name' => 'required|string|max:255',
                 'sub_skills' => 'nullable|array',
-                'sub_skills.*' => 'string',
+                'sub_skills.*' => 'string|max:255',
             ]);
 
             if ($validator->fails()) {
@@ -618,78 +746,34 @@ public function addSkill(Request $request): JsonResponse
 
             $profileId = $request->profile_id;
             $skillId = $request->skill_id;
-            $requestedSubSkills = $request->sub_skills ?? [];
-
-            // Fetch profile
-            $profile = Profile::findOrFail($profileId);
-
-            // Fetch skill and its sub_skills
             $skill = Skill::findOrFail($skillId);
-            $availableSubSkills = [];
+            $subSkills = $request->sub_skills ?? [];
 
-            // Safely decode sub_skills from skills table
-            if ($skill->sub_skills) {
-                try {
-                    $decodedSubSkills = json_decode($skill->sub_skills, true);
-                    if (json_last_error() !== JSON_ERROR_NONE || !is_array($decodedSubSkills)) {
-                        Log::error('Invalid JSON in skill sub_skills', [
-                            'skill_id' => $skill->id,
-                            'sub_skills' => $skill->sub_skills,
-                            'json_error' => json_last_error_msg(),
-                        ]);
-                        return response()->json(['error' => 'Invalid sub-skills data for skill'], 500);
-                    }
-                    $availableSubSkills = $decodedSubSkills;
-                } catch (\Exception $e) {
-                    Log::error('Error decoding sub_skills JSON', [
-                        'skill_id' => $skill->id,
-                        'sub_skills' => $skill->sub_skills,
-                        'error' => $e->getMessage(),
-                    ]);
-                    return response()->json(['error' => 'Failed to process sub-skills data'], 500);
-                }
-            }
-
-            // Validate requested sub_skills
-            if (!empty($requestedSubSkills)) {
-                foreach ($requestedSubSkills as $subSkill) {
+            if (!empty($subSkills)) {
+                $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                foreach ($subSkills as $subSkill) {
                     if (!in_array($subSkill, $availableSubSkills)) {
-                        Log::warning('Invalid sub-skill provided', [
-                            'skill_id' => $skillId,
-                            'sub_skill' => $subSkill,
-                            'available_sub_skills' => $availableSubSkills,
-                        ]);
-                        return response()->json(['error' => "Sub-skill '$subSkill' is not valid for skill ID $skillId"], 400);
+                        return response()->json([
+                            'errors' => ['sub_skills' => ["Invalid sub-skill: $subSkill"]],
+                        ], 400);
                     }
                 }
             }
 
-            // Fetch or create worker
             $worker = Worker::firstOrCreate(
                 ['profile_id' => $profileId],
                 [
                     'work_type' => 'part-time',
-                    'skills_id' => ['primary' => null, 'additional' => []],
-                    'credentials_name' => null,
-                    'credentials_photo' => null,
+                    'skills_id' => [],
+                    'credentials_name' => [],
+                    'credentials_photo' => [],
                     'archived' => false,
                 ]
             );
 
-            // Ensure skills_id is a valid array
-            $skillsId = is_array($worker->skills_id) ? $worker->skills_id : ['primary' => null, 'additional' => []];
-            if (!isset($skillsId['primary'])) {
-                $skillsId['primary'] = null;
-            }
-            if (!isset($skillsId['additional']) || !is_array($skillsId['additional'])) {
-                $skillsId['additional'] = [];
-            }
+            $skillsId = $this->parseArray($worker->skills_id);
 
-            // Check if skill already exists
-            $skillExists = ($skillsId['primary'] && isset($skillsId['primary']['skill_id']) && $skillsId['primary']['skill_id'] == $skillId) ||
-                           collect($skillsId['additional'])->contains('skill_id', $skillId);
-
-            if ($skillExists) {
+            if (in_array($skillId, array_column($skillsId, 'skill_id'))) {
                 Log::info('Skill already exists for worker', [
                     'worker_id' => $worker->id,
                     'profile_id' => $profileId,
@@ -698,214 +782,311 @@ public function addSkill(Request $request): JsonResponse
                 return response()->json(['message' => 'Skill already added'], 200);
             }
 
-            // Prepare new skill with validated sub_skills
-            $newSkill = [
-                'skill_id' => $skillId,
-                'sub_skills' => $requestedSubSkills,
+            $skillsId[] = [
+                'skill_id' => (string)$skillId,
+                'skill_name' => $request->skill_name,
+                'sub_skills' => $subSkills,
             ];
 
-            // Add skill to primary or additional
-            if (!$skillsId['primary']) {
-                $skillsId['primary'] = $newSkill;
-            } else {
-                $skillsId['additional'][] = $newSkill;
-            }
-
-            // Check skill limit
-            $totalSkills = ($skillsId['primary'] ? 1 : 0) + count($skillsId['additional']);
-            if ($totalSkills > 15) {
+            if (count($skillsId) > 15) {
                 Log::warning('Skill limit exceeded', [
                     'worker_id' => $worker->id,
                     'profile_id' => $profileId,
-                    'total_skills' => $totalSkills,
+                    'total_skills' => count($skillsId),
                 ]);
                 return response()->json(['error' => 'Cannot add more than 15 skills'], 400);
             }
 
-            // Validate skills_id JSON serialization
-            try {
-                $jsonSkillsId = json_encode($skillsId);
-                if (json_last_error() !== JSON_ERROR_NONE) {
-                    Log::error('Failed to serialize skills_id', [
-                        'worker_id' => $worker->id,
-                        'profile_id' => $profileId,
-                        'skills_id' => $skillsId,
-                        'json_error' => json_last_error_msg(),
-                    ]);
-                    return response()->json(['error' => 'Failed to serialize skills data'], 500);
-                }
-            } catch (\Exception $e) {
-                Log::error('Error serializing skills_id', [
-                    'worker_id' => $worker->id,
-                    'profile_id' => $profileId,
-                    'skills_id' => $skillsId,
-                    'error' => $e->getMessage(),
-                ]);
-                return response()->json(['error' => 'Failed to process skills data'], 500);
-            }
+            $worker->update([
+                'skills_id' => $skillsId,
+            ]);
 
-            // Save worker with updated skills_id
-            $worker->skills_id = $skillsId;
-            try {
-                if (!$worker->save()) {
-                    Log::error('Failed to save worker skills', [
-                        'worker_id' => $worker->id,
-                        'profile_id' => $profileId,
-                        'skills_id' => $skillsId,
-                    ]);
-                    return response()->json(['error' => 'Failed to save skill to database'], 500);
-                }
-            } catch (\Exception $e) {
-                Log::error('Database error saving worker skills', [
-                    'worker_id' => $worker->id,
-                    'profile_id' => $profileId,
-                    'skills_id' => $skillsId,
-                    'error' => $e->getMessage(),
-                ]);
-                return response()->json(['error' => 'Database error: Failed to save skill'], 500);
-            }
+            $user = User::whereHas('profile', function ($query) use ($profileId) {
+                $query->where('id', $profileId);
+            })->with(['profile', 'worker'])->first();
 
             Log::info('Skill added to worker', [
                 'worker_id' => $worker->id,
                 'profile_id' => $profileId,
                 'skill_id' => $skillId,
-                'sub_skills' => $requestedSubSkills,
-                'skills_id' => $skillsId,
+                'skill_name' => $request->skill_name,
+                'sub_skills' => $subSkills,
             ]);
 
             return response()->json([
                 'message' => 'Skill added successfully',
-                'worker' => $this->formatWorker($worker),
+                'worker' => $this->formatWorker($user),
             ], 200);
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            Log::error('Model not found in addSkill', [
-                'message' => $e->getMessage(),
-                'profile_id' => $request->profile_id,
-                'skill_id' => $request->skill_id,
-                'trace' => $e->getTraceAsString(),
-            ]);
-            return response()->json(['error' => 'Profile or skill not found'], 404);
         } catch (\Exception $e) {
-            Log::error('Unexpected error in addSkill', [
-                'message' => $e->getMessage(),
-                'request' => $request->all(),
-                'trace' => $e->getTraceAsString(),
-            ]);
-            return response()->json(['error' => 'Failed to save skill: ' . $e->getMessage()], 500);
+            Log::error('Error adding skill to worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to add skill: ' . $e->getMessage()], 500);
         }
     }
 
     /**
-     * Complete the worker's profile by updating skills_id and work_type.
+     * Parse a field to ensure it's an array, handling strings and JSON.
+     */
+    protected function parseArray($data): array
+    {
+        if (is_array($data)) {
+            return $data;
+        }
+        if (is_string($data)) {
+            $decoded = json_decode($data, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                return $decoded;
+            }
+            Log::warning('Invalid JSON string in parseArray', ['data' => $data]);
+            return [];
+        }
+        if ($data === null) {
+            return [];
+        }
+        Log::warning('Unexpected data type in parseArray', ['data' => $data, 'type' => gettype($data)]);
+        return [];
+    }
+
+    /**
+     * Parse sub_skills field to ensure it's an array.
+     */
+    protected function parseSubSkills($subSkills): array
+    {
+        if (is_array($subSkills)) {
+            return $subSkills;
+        }
+        if (is_string($subSkills)) {
+            $decoded = json_decode($subSkills, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                return $decoded;
+            }
+            Log::warning('Invalid JSON sub_skills', ['sub_skills' => $subSkills]);
+            return [];
+        }
+        if ($subSkills === null) {
+            return [];
+        }
+        Log::warning('Unexpected sub_skills data type', ['sub_skills' => $subSkills, 'type' => gettype($subSkills)]);
+        return [];
+    }
+
+    /**
+     * Format worker data for response.
+     */
+    protected function formatWorker($user)
+    {
+        if (!$user->worker) {
+            Log::warning('Worker record missing for user', ['user_id' => $user->id]);
+            return [
+                'id' => $user->id,
+                'email' => $user->email,
+                'archived' => $user->archived,
+                'profile' => $user->profile ? [
+                    'first_name' => $user->profile->first_name,
+                    'middlename' => $user->profile->middlename,
+                    'last_name' => $user->profile->last_name,
+                    'suffix_id' => $user->profile->suffix_id ? (string)$user->profile->suffix_id : null,
+                    'gender_id' => $user->profile->gender_id ? (string)$user->profile->gender_id : null,
+                    'contact_number' => $user->profile->contact_number,
+                    'street' => $user->profile->street,
+                    'city' => $user->profile->city,
+                    'province' => $user->profile->province,
+                    'postal_code' => $user->profile->postal_code,
+                    'country' => $user->profile->country,
+                    'profile_img' => $user->profile->profile_img ? $user->profile->profile_img : null,
+                ] : null,
+                'worker' => null,
+            ];
+        }
+
+        $skillsId = $this->parseArray($user->worker->skills_id);
+        $credentialsName = $this->parseArray($user->worker->credentials_name);
+        $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
+
+        // Ensure $skillsId is an array of arrays
+        if (!is_array($skillsId)) {
+            Log::warning('skills_id is not an array in formatWorker', [
+                'user_id' => $user->id,
+                'skills_id' => $skillsId,
+                'type' => gettype($skillsId)
+            ]);
+            $skillsId = [];
+        } else {
+            foreach ($skillsId as $index => &$skill) {
+                if (!is_array($skill)) {
+                    Log::warning('Invalid skill entry in skills_id', [
+                        'user_id' => $user->id,
+                        'index' => $index,
+                        'skill' => $skill,
+                        'type' => gettype($skill)
+                    ]);
+                    $skill = ['skill_id' => null, 'skill_name' => '', 'sub_skills' => []];
+                    continue;
+                }
+                $skillId = $skill['skill_id'] ?? null;
+                if (!$skillId || !is_numeric($skillId)) {
+                    Log::warning('Invalid or missing skill_id in skills_id', [
+                        'user_id' => $user->id,
+                        'index' => $index,
+                        'skill' => $skill
+                    ]);
+                    $skill['sub_skills'] = [];
+                    continue;
+                }
+                $dbSkill = Skill::find($skillId);
+                if ($dbSkill) {
+                    $availableSubSkills = $this->parseSubSkills($dbSkill->sub_skills);
+                    $skill['sub_skills'] = array_filter($skill['sub_skills'] ?? [], function ($subSkill) use ($availableSubSkills) {
+                        return in_array($subSkill, $availableSubSkills);
+                    });
+                } else {
+                    Log::warning('Skill not found', ['skill_id' => $skillId, 'user_id' => $user->id]);
+                    $skill['sub_skills'] = [];
+                }
+            }
+            unset($skill); // Unset reference to avoid accidental modification
+        }
+
+        return [
+            'id' => $user->id,
+            'email' => $user->email,
+            'archived' => $user->archived,
+            'profile' => $user->profile ? [
+                'first_name' => $user->profile->first_name,
+                'middlename' => $user->profile->middlename,
+                'last_name' => $user->profile->last_name,
+                'suffix_id' => $user->profile->suffix_id ? (string)$user->profile->suffix_id : null,
+                'gender_id' => $user->profile->gender_id ? (string)$user->profile->gender_id : null,
+                'contact_number' => $user->profile->contact_number,
+                'street' => $user->profile->street,
+                'city' => $user->profile->city,
+                'province' => $user->profile->province,
+                'postal_code' => $user->profile->postal_code,
+                'country' => $user->profile->country,
+                'profile_img' => $user->profile->profile_img ? $user->profile->profile_img : null,
+            ] : null,
+            'worker' => [
+                'work_type' => $user->worker->work_type,
+                'skills_id' => $skillsId,
+                'credentials_name' => $credentialsName,
+                'credentials_photo' => $credentialsPhoto,
+                'archived' => $user->worker->archived,
+            ],
+        ];
+    }
+
+    /**
+     * Complete a worker's profile.
      */
     public function completeProfile(Request $request): JsonResponse
     {
         try {
-            $user = Auth::guard('api')->user();
-            if (!$user) {
-                return response()->json(['error' => 'Unauthorized: Invalid or missing token'], 401);
-            }
+            Log::info('Complete profile request data', ['input' => $request->all()]);
 
             $validator = Validator::make($request->all(), [
                 'profile_id' => 'required|integer|exists:profiles,id',
                 'work_type' => 'required|in:part-time,full-time,one-time-job',
-                'skills_id' => 'required|array',
-                'skills_id.primary' => 'required|array',
-                'skills_id.primary.skill_id' => 'required|integer|exists:skills,id',
-                'skills_id.primary.sub_skills' => 'nullable|array',
-                'skills_id.primary.sub_skills.*' => 'string',
-                'skills_id.additional' => 'required|array|min:1',
-                'skills_id.additional.*.skill_id' => 'required|integer|exists:skills,id',
-                'skills_id.additional.*.sub_skills' => 'nullable|array',
-                'skills_id.additional.*.sub_skills.*' => 'string',
+                'skills_id' => 'required|array|min:1',
+                'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
+                'skills_id.*.skill_name' => 'required|string|max:255',
+                'skills_id.*.sub_skills' => 'nullable|array',
+                'skills_id.*.sub_skills.*' => 'string|max:255',
                 'credentials' => 'nullable|array',
                 'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
                 'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
             ]);
 
             if ($validator->fails()) {
-                Log::warning('Validation failed for completing profile', ['errors' => $validator->errors()->toArray()]);
+                Log::warning('Validation failed for complete profile', ['errors' => $validator->errors()->toArray()]);
                 return response()->json(['errors' => $validator->errors()->toArray()], 400);
             }
 
             $profileId = $request->profile_id;
-            $profile = Profile::findOrFail($profileId);
+            $user = User::whereHas('profile', function ($query) use ($profileId) {
+                $query->where('id', $profileId);
+            })->with(['profile', 'worker'])->firstOrFail();
 
-            if ($profile->user_id !== $user->id) {
-                return response()->json(['error' => 'Unauthorized: Profile does not belong to this user'], 403);
-            }
-
-            $worker = Worker::where('profile_id', $profileId)->first();
-            if (!$worker) {
-                $worker = Worker::create([
+            if (!$user->worker) {
+                Worker::create([
                     'profile_id' => $profileId,
                     'work_type' => $request->work_type,
-                    'skills_id' => ['primary' => null, 'additional' => []],
-                    'credentials_name' => null,
-                    'credentials_photo' => null,
+                    'skills_id' => [],
+                    'credentials_name' => [],
+                    'credentials_photo' => [],
                     'archived' => false,
                 ]);
+                $user->load('worker');
             }
 
-            $allSkillIds = [$request->skills_id['primary']['skill_id']];
-            foreach ($request->skills_id['additional'] as $additional) {
-                $allSkillIds[] = $additional['skill_id'];
+            $skillsId = $request->input('skills_id', []);
+            if (is_string($skillsId)) {
+                $decoded = json_decode($skillsId, true);
+                $skillsId = is_array($decoded) ? $decoded : [];
+            }
+            if (!is_array($skillsId)) {
+                Log::warning('skills_id is not an array', ['skills_id' => $request->input('skills_id')]);
+                return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
-            if (count(array_unique($allSkillIds)) !== count($allSkillIds)) {
-                return response()->json(['error' => 'Duplicate skill IDs are not allowed'], 400);
+            $skillIds = array_column($skillsId, 'skill_id');
+            if (count(array_unique($skillIds)) !== count($skillIds)) {
+                return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
             }
 
-            $skillRecord = Skill::findOrFail($request->skills_id['primary']['skill_id']);
-            $availableSubSkills = $skillRecord->sub_skills ? json_decode($skillRecord->sub_skills, true) : [];
-            foreach ($request->skills_id['primary']['sub_skills'] ?? [] as $subSkill) {
-                if (!in_array($subSkill, $availableSubSkills)) {
-                    return response()->json(['error' => "Sub-skill '$subSkill' is not valid for skill ID {$request->skills_id['primary']['skill_id']}"], 400);
-                }
-            }
-
-            foreach ($request->skills_id['additional'] as $skill) {
-                $skillRecord = Skill::findOrFail($skill['skill_id']);
-                $availableSubSkills = $skillRecord->sub_skills ? json_decode($skillRecord->sub_skills, true) : [];
-                foreach ($skill['sub_skills'] ?? [] as $subSkill) {
-                    if (!in_array($subSkill, $availableSubSkills)) {
-                        return response()->json(['error' => "Sub-skill '$subSkill' is not valid for skill ID {$skill['skill_id']}"], 400);
+            foreach ($skillsId as $index => $skillData) {
+                $skill = Skill::find($skillData['skill_id']);
+                if ($skill && !empty($skillData['sub_skills'])) {
+                    $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                    foreach ($skillData['sub_skills'] as $subSkill) {
+                        if (!in_array($subSkill, $availableSubSkills)) {
+                            return response()->json([
+                                'errors' => ["skills_id.$index.sub_skills" => ["Invalid sub-skill: $subSkill"]],
+                            ], 400);
+                        }
                     }
                 }
             }
 
-            if (count($request->skills_id['additional']) + 1 > 15) {
-                return response()->json(['error' => 'Cannot add more than 15 skills'], 400);
+            if (count($skillsId) > 15) {
+                Log::warning('Skill limit exceeded', [
+                    'worker_id' => $user->worker->id,
+                    'total_skills' => count($skillsId),
+                ]);
+                return response()->json(['error' => 'Cannot have more than 15 skills'], 400);
             }
 
             $credentials_name = [];
             $credentials_photo = [];
             if ($request->has('credentials') && is_array($request->credentials)) {
-                foreach ($request->credentials as $credential) {
-                    if (isset($credential['credentials_name']) && !empty($credential['credentials_name']) && isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
-                        $file = $credential['credentials_photo'];
-                        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-                        $path = $file->storeAs('credentialsphoto', $filename, 'public');
+                foreach ($request->credentials as $index => $credential) {
+                    if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
                         $credentials_name[] = $credential['credentials_name'];
-                        $credentials_photo[] = $path;
+                        if (
+                            isset($credential['credentials_photo']) &&
+                            $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile
+                        ) {
+                            $file = $credential['credentials_photo'];
+                            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                            $path = $file->storeAs('credentialsphoto', $filename, 'public');
+                            $credentials_photo[] = $path;
+                        } else {
+                            $credentials_photo[] = null;
+                        }
                     }
                 }
             }
 
-            $worker->update([
+            $user->worker->update([
                 'work_type' => $request->work_type,
-                'skills_id' => $request->skills_id,
-                'credentials_name' => !empty($credentials_name) ? $credentials_name : null,
-                'credentials_photo' => !empty($credentials_photo) ? $credentials_photo : null,
+                'skills_id' => $skillsId,
+                'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
             ]);
 
-            $profile->update(['is_complete' => true]);
-
             Log::info('Worker profile completed', [
-                'worker_id' => $worker->id,
+                'worker_id' => $user->worker->id,
                 'profile_id' => $profileId,
                 'work_type' => $request->work_type,
-                'skills_id' => $request->skills_id,
+                'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
             ]);
@@ -918,65 +1099,5 @@ public function addSkill(Request $request): JsonResponse
             Log::error('Error completing profile: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
             return response()->json(['error' => 'Failed to complete profile: ' . $e->getMessage()], 500);
         }
-    }
-
-    /**
-     * Fetch all available skills.
-     */
-    public function getSkills(Request $request): JsonResponse
-    {
-        try {
-            $skills = Skill::all()->map(function ($skill) {
-                return [
-                    'id' => $skill->id,
-                    'name' => $skill->skill_name, // Updated to skill_name
-                    'sub_skills' => $skill->sub_skills ? json_decode($skill->sub_skills, true) : [],
-                    'created_at' => $skill->created_at,
-                    'updated_at' => $skill->updated_at,
-                ];
-            });
-
-            Log::info('Fetched all skills', ['count' => $skills->count()]);
-            return response()->json($skills, 200);
-        } catch (\Exception $e) {
-            Log::error('Error fetching skills: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
-            return response()->json(['error' => 'Failed to fetch skills: ' . $e->getMessage()], 500);
-        }
-    }
-
-    /**
-     * Format worker data for response.
-     */
-protected function formatWorker($worker)
-    {
-        $profile = $worker->profile;
-        return [
-            'id' => $worker->id,
-            'profile_id' => $worker->profile_id,
-            'work_type' => $worker->work_type,
-            'skills_id' => $worker->skills_id ?? ['primary' => null, 'additional' => []],
-            'credentials_name' => $worker->credentials_name ?? null,
-            'credentials_photo' => $worker->credentials_photo ? collect($worker->credentials_photo)->map(function ($path) {
-                return $path ? asset('storage/' . $path) : null;
-            })->toArray() : null,
-            'archived' => $worker->archived,
-            'profile' => $profile ? [
-                'id' => $profile->id,
-                'user_id' => $profile->user_id,
-                'first_name' => $profile->first_name,
-                'middlename' => $profile->middlename,
-                'last_name' => $profile->last_name,
-                'suffix_id' => $profile->suffix_id,
-                'gender_id' => $profile->gender_id,
-                'contact_number' => $profile->contact_number,
-                'street' => $profile->street,
-                'city' => $profile->city,
-                'province' => $profile->province,
-                'postal_code' => $profile->postal_code,
-                'country' => $profile->country,
-                'profile_img' => $profile->profile_img ? asset('storage/' . $profile->profile_img) : null,
-                'is_complete' => $profile->is_complete ?? false,
-            ] : null,
-        ];
     }
 }

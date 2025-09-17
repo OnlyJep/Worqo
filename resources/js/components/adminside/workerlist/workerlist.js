@@ -4,7 +4,7 @@ import axios from "axios";
 import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaEye, FaTrash } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_workerlist.scss";
 import WorkerModal from "./workerlistmodal.js";
@@ -28,6 +28,7 @@ const Loader = () => (
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
   const date = new Date(dateString);
+  if (isNaN(date.getTime())) return "N/A";
   return new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "2-digit",
@@ -40,12 +41,13 @@ const formatDate = (dateString) => {
 
 const getFullName = (worker, suffixes = []) => {
   const { first_name, middlename, last_name, suffix_id } = worker?.profile || {};
+  if (!first_name && !last_name) return "N/A";
   let fullName = `${first_name || ""}${middlename ? " " + middlename : ""} ${last_name || ""}`;
   if (suffix_id && suffixes.length > 0) {
     const suffix = suffixes.find((s) => s.id === parseInt(suffix_id))?.suffix_name;
     if (suffix) fullName += ` ${suffix}`;
   }
-  return fullName.trim() || "N/A";
+  return fullName.trim() || "Unknown Worker";
 };
 
 const WorkerList = () => {
@@ -81,7 +83,7 @@ const WorkerList = () => {
         ]);
       } catch (err) {
         if (err.name !== "AbortError") {
-          message.error("Failed to fetch data.");
+          message.error("Failed to fetch data. Check console for details.");
           console.error("Fetch data error:", err);
         }
       } finally {
@@ -104,7 +106,6 @@ const WorkerList = () => {
         signal,
         timeout: 10000,
       });
-      // Validate response data
       const workersData = Array.isArray(response.data.workers) ? response.data.workers : [];
       setWorkers(workersData);
       setPagination({
@@ -115,7 +116,9 @@ const WorkerList = () => {
       setError("");
     } catch (err) {
       if (err.name === "AbortError") return;
-      message.error(err.response?.data?.error || "Failed to fetch workers.");
+      const errorMessage = err.response?.data?.error || "Failed to fetch workers.";
+      setError(errorMessage);
+      message.error(errorMessage);
       console.error("Fetch workers error:", err.response?.data || err.message);
     }
   };
@@ -131,10 +134,12 @@ const WorkerList = () => {
         signal,
         timeout: 5000,
       });
-      setGenders(Array.isArray(response.data) ? response.data : []);
+      const gendersData = Array.isArray(response.data) ? response.data : [];
+      setGenders(gendersData);
+      console.log("Fetched genders:", gendersData);
     } catch (err) {
       if (err.name === "AbortError") return;
-      console.error("Error fetching genders:", err);
+      console.error("Error fetching genders:", err.response?.data || err.message);
       message.error("Failed to fetch genders. Please try again.");
     }
   };
@@ -150,10 +155,12 @@ const WorkerList = () => {
         signal,
         timeout: 5000,
       });
-      setSuffixes(Array.isArray(response.data) ? response.data : []);
+      const suffixesData = Array.isArray(response.data) ? response.data : [];
+      setSuffixes(suffixesData);
+      console.log("Fetched suffixes:", suffixesData);
     } catch (err) {
       if (err.name === "AbortError") return;
-      console.error("Error fetching suffixes:", err);
+      console.error("Error fetching suffixes:", err.response?.data || err.message);
       message.error("Failed to fetch suffixes. Please try again.");
     }
   };
@@ -169,10 +176,12 @@ const WorkerList = () => {
         signal,
         timeout: 5000,
       });
-      setSkills(Array.isArray(response.data) ? response.data : []);
+      const skillsData = Array.isArray(response.data) ? response.data : [];
+      setSkills(skillsData);
+      console.log("Fetched skills:", skillsData);
     } catch (err) {
       if (err.name === "AbortError") return;
-      console.error("Error fetching skills:", err);
+      console.error("Error fetching skills:", err.response?.data || err.message);
       message.error("Failed to fetch skills. Please try again.");
     }
   };
@@ -233,7 +242,9 @@ const WorkerList = () => {
       }
     } catch (err) {
       if (err.name === "AbortError") return;
-      message.error(err.response?.data?.error || "Failed to archive worker.");
+      const errorMessage = err.response?.data?.error || "Failed to archive worker.";
+      setError(errorMessage);
+      message.error(errorMessage);
       console.error("Archive error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
@@ -266,7 +277,9 @@ const WorkerList = () => {
       }
     } catch (err) {
       if (err.name === "AbortError") return;
-      message.error(err.response?.data?.error || "Failed to restore worker.");
+      const errorMessage = err.response?.data?.error || "Failed to restore worker.";
+      setError(errorMessage);
+      message.error(errorMessage);
       console.error("Restore error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
@@ -307,7 +320,9 @@ const WorkerList = () => {
       }
     } catch (err) {
       if (err.name === "AbortError") return;
-      message.error(err.response?.data?.error || `Failed to ${action} workers. Please try again.`);
+      const errorMessage = err.response?.data?.error || `Failed to ${action} workers. Please try again.`;
+      setError(errorMessage);
+      message.error(errorMessage);
       console.error("Bulk action error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
@@ -332,6 +347,7 @@ const WorkerList = () => {
         postal_code: "8600",
         country: "Philippines",
         profile_img: null,
+        image_url: null,
       },
       worker: {
         work_type: "part-time",
@@ -371,7 +387,8 @@ const WorkerList = () => {
           province: response.data.profile?.province || "Agusan Del Norte",
           postal_code: response.data.profile?.postal_code || "8600",
           country: response.data.profile?.country || "Philippines",
-          profile_img: response.data.profile?.profile_img || null,
+          profile_img: null,
+          image_url: response.data.profile?.profile_img || null,
         },
         worker: {
           work_type: response.data.worker?.work_type || "part-time",
@@ -385,7 +402,9 @@ const WorkerList = () => {
       setError("");
     } catch (err) {
       if (err.name === "AbortError") return;
-      message.error(err.response?.data?.error || "Failed to fetch worker details.");
+      const errorMessage = err.response?.data?.error || "Failed to fetch worker details.";
+      setError(errorMessage);
+      message.error(errorMessage);
       console.error("Fetch worker details error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
@@ -409,7 +428,7 @@ const WorkerList = () => {
     setError("");
   };
 
-  const handleWorkerAdd = async (formData, signal) => {
+  const handleWorkerAdd = async (formData, workerId, signal) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
@@ -436,15 +455,17 @@ const WorkerList = () => {
         console.log("Add request was aborted");
         return;
       }
+      const errorMessage = err.response?.data?.error || "Failed to add worker.";
+      setError(errorMessage);
+      message.error(errorMessage);
       console.error("Error adding worker:", err.response?.data || err.message);
-      message.error(err.response?.data?.error || "Failed to add worker.");
       throw err;
     } finally {
       setLoading(false);
     }
   };
 
-  const handleWorkerUpdate = async (formData, signal) => {
+  const handleWorkerUpdate = async (formData, workerId, signal) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
@@ -452,7 +473,7 @@ const WorkerList = () => {
       }
       setLoading(true);
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/workers/${workerToEdit.id}?_method=PUT`,
+        `http://127.0.0.1:8000/api/workers/${workerId}?_method=PUT`,
         formData,
         {
           headers: {
@@ -477,8 +498,10 @@ const WorkerList = () => {
         console.log("Update request was aborted");
         return;
       }
+      const errorMessage = err.response?.data?.error || "Failed to update worker.";
+      setError(errorMessage);
+      message.error(errorMessage);
       console.error("Error updating worker:", err.response?.data || err.message);
-      message.error(err.response?.data?.error || "Failed to update worker.");
       throw err;
     } finally {
       setLoading(false);
@@ -490,8 +513,16 @@ const WorkerList = () => {
   const getSkillNames = (skillsId = []) => {
     if (!Array.isArray(skillsId) || skillsId.length === 0) return "None";
     return skillsId
-      .map((id) => skills.find((skill) => skill.id === parseInt(id))?.name || "Unknown")
-      .join(", ");
+      .map((skill) => {
+        if (!skill || typeof skill !== "object" || !skill.skill_id) return "Unknown";
+        const skillName = skill.skill_name || skills.find((s) => s.id === parseInt(skill.skill_id))?.name || "Unknown";
+        const subSkills = Array.isArray(skill.sub_skills) && skill.sub_skills.length > 0
+          ? ` (${skill.sub_skills.join(", ")})`
+          : "";
+        return `${skillName}${subSkills}`;
+      })
+      .filter((name) => name !== "Unknown")
+      .join(", ") || "None";
   };
 
   const workersPerPage = 5;
@@ -686,16 +717,12 @@ const WorkerList = () => {
                               className="profile-img"
                               style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}
                               onError={(e) => {
-                                e.target.src = `http://127.0.0.1:8000/storage/images/pfp/default.png`;
+                                e.target.style.display = "none";
+                                e.target.parentElement.innerHTML += `<span style="color: red;">N/A</span>`;
                               }}
                             />
                           ) : (
-                            <img  
-                              src={`http://127.0.0.1:8000/storage/images/pfp/default.png`}
-                              alt="Default Profile"
-                              className="profile-img"
-                              style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}
-                            />
+                            <span style={{ color: "#888" }}>N/A</span>
                           )}
                         </td>
                         <td className="fullname-cell">{getFullName(worker, suffixes)}</td>

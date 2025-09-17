@@ -1,125 +1,114 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Headerz from './Headerz';
-import Footer from '../FooterContent/footer';
-import './../../../sass/components/Service.scss';
-import searchIcon from '../../../sass/img/search.svg';
-import image9 from '../../../sass/img/image 9.svg';
-import image10 from '../../../sass/img/image 10.svg';
-import image11 from '../../../sass/img/image 11.svg';
-import image12 from '../../../sass/img/image 12.svg';
-import image17 from '../../../sass/img/image 17.svg';
-import image18 from '../../../sass/img/image 18.svg';
-import image19 from '../../../sass/img/image 19.svg';
-import image20 from '../../../sass/img/image 20.svg';
-import image5 from '../../../sass/img/image 5.svg';
-import image6 from '../../../sass/img/image 6.svg';
-import image7 from '../../../sass/img/image 7.svg';
-import image8 from '../../../sass/img/image 8.svg';
-import pinkCollar from '../../../sass/img/pink.svg';
-import whiteCollar from '../../../sass/img/white.svg';
-import blueCollar from '../../../sass/img/blue.svg';
 
-const Service = () => {
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Headerz from "./Headerz";
+import Footer from "../FooterContent/footer";
+import "./../../../sass/components/Service.scss";
+import searchIcon from "../../../sass/img/search.svg";
+import { message } from "antd";
+
+const BrowseLaborCategories = () => {
   const navigate = useNavigate();
-  const [selectedCollar, setSelectedCollar] = useState('all');
+  const [services, setServices] = useState([]);
+  const [collars, setCollars] = useState([]);
+  const [selectedCollar, setSelectedCollar] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
   const [visibleCount, setVisibleCount] = useState(8);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const services = [
-    {
-      name: 'Plumbing Services',
-      description: 'Comprehensive plumbing services for repairs, installations, and maintenance.',
-      image: image5,
-      collar: 'blue',
-    },
-    {
-      name: 'Air Conditioning & Ventilation Services',
-      description: 'Repairs, installations, and regular maintenance for AC and ventilation units.',
-      image: image6,
-      collar: 'white',
-    },
-    {
-      name: 'Handyman Services',
-      description: 'General home fixes, installations, and small renovation assistance.',
-      image: image7,
-      collar: 'blue',
-    },
-    {
-      name: 'Maid Services',
-      description: 'Professional home and office cleaning by trusted and trained staff.',
-      image: image8,
-      collar: 'pink',
-    },
-    {
-      name: 'Machine Operators Services',
-      description: 'Comprehensive services for repairs, installations, and maintenance.',
-      image: image9,
-      collar: 'blue',
-    },
-    {
-      name: 'Carpentry & Woodworks Services',
-      description: 'Comprehensive services for repairs, installations, and maintenance.',
-      image: image10,
-      collar: 'blue',
-    },
-    {
-      name: 'Gardening Services',
-      description: 'Comprehensive services for repairs, installations, and maintenance.',
-      image: image11,
-      collar: 'blue',
-    },
-    {
-      name: 'Caregiver Services',
-      description: 'Comprehensive services for repairs, installations, and maintenance.',
-      image: image12,
-      collar: 'pink',
-    },
-    {
-      name: 'Waiter / Waitress / Service Crew',
-      description: 'Comprehensive services for repairs, installations, and maintenance.',
-      image: image17,
-      collar: 'pink',
-    },
-    {
-      name: 'Content Creator / Writer',
-      description: 'Comprehensive services for repairs, installations, and maintenance.',
-      image: image18,
-      collar: 'white',
-    },
-    {
-      name: 'Makeup Artist Services',
-      description: 'Comprehensive services for repairs, installations, and maintenance.',
-      image: image19,
-      collar: 'pink',
-    },
-    {
-      name: 'IT Support / Helpdesk Services',
-      description: 'Comprehensive services for repairs, installations, and maintenance.',
-      image: image20,
-      collar: 'white',
-    },
-  ];
+  const fetchData = async (signal) => {
+    try {
+      setLoading(true);
+      setError(null);
+      const authToken = localStorage.getItem("auth_token");
+      const headers = authToken
+        ? { Authorization: `Bearer ${authToken}`, Accept: "application/json" }
+        : { Accept: "application/json" };
 
-  const filteredServices = selectedCollar === 'all'
-    ? services
-    : services.filter(service => service.collar === selectedCollar);
+      const [servicesResponse, collarsResponse] = await Promise.all([
+        axios.get("http://127.0.0.1:8000/api/services", {
+          params: {
+            search: searchTerm,
+            color_collar_id: selectedCollar,
+            page: pagination.currentPage,
+            limit: visibleCount,
+          },
+          headers,
+          signal,
+          timeout: 10000,
+        }),
+        axios.get("http://127.0.0.1:8000/api/collars", {
+          headers,
+          signal,
+          timeout: 5000,
+        }),
+      ]);
+      setServices(servicesResponse.data.services || []);
+      setPagination({
+        currentPage: servicesResponse.data.pagination.currentPage,
+        totalPages: servicesResponse.data.pagination.totalPages,
+      });
+      setCollars(collarsResponse.data.collars || []);
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error fetching data:", error.response?.data || error.message);
+      setError(
+        error.response?.status === 401
+          ? "Please log in to view labor categories."
+          : "Failed to fetch data. Please try again later."
+      );
+      setServices([]);
+      setCollars([]);
+      message.error(error.response?.status === 401 ? "Please log in." : "Failed to fetch data.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  const visibleServices = filteredServices.slice(0, visibleCount);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchData(controller.signal);
+    return () => controller.abort();
+  }, [searchTerm, selectedCollar, pagination.currentPage, visibleCount]);
 
-  const handleViewWorkersClick = (serviceName, collar) => {
-    if (collar === 'white') {
-      navigate('/browse-white');
+  const handleViewWorkersClick = (serviceName, colorCollarName) => {
+    // Temporary mapping for navigation (update based on actual collar names)
+    const collarMap = {
+      "serverlogo.png": "white", // Adjust based on actual collar names
+    };
+    const collar = collarMap[colorCollarName?.toLowerCase()] || "blue"; // Default to blue
+    if (collar === "white") {
+      navigate("/browse-white");
       return;
     }
     navigate(`/browse?service=${encodeURIComponent(serviceName)}`);
   };
 
   const handleShowMore = () => {
-    setVisibleCount(prev => prev + 4);
+    if (pagination.currentPage < pagination.totalPages) {
+      setPagination((prev) => ({ ...prev, currentPage: prev.currentPage + 1 }));
+    }
+    setVisibleCount((prev) => prev + 4);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setPagination({ ...pagination, currentPage: 1 });
+    setVisibleCount(8);
+  };
+
+  const handleCollarChange = (e) => {
+    setSelectedCollar(e.target.value);
+    setPagination({ ...pagination, currentPage: 1 });
+    setVisibleCount(8);
   };
 
   return (
     <div className="service-page">
+      {loading && <div className="loader">Loading...</div>}
       <Headerz />
       <main className="service-content">
         <div className="service-container">
@@ -134,6 +123,8 @@ const Service = () => {
                   type="text"
                   placeholder="Search"
                   className="search-input"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
                 />
                 <button className="search-button" aria-label="Search">
                   <img src={searchIcon} alt="Search" />
@@ -148,48 +139,56 @@ const Service = () => {
               <select
                 className="collar-select"
                 value={selectedCollar}
-                onChange={(e) => setSelectedCollar(e.target.value)}
+                onChange={handleCollarChange}
               >
-                <option value="all">All Collars</option>
-                <option value="blue">Blue Collar</option>
-                <option value="white">White Collar</option>
-                <option value="pink">Pink Collar</option>
+                <option value="">All Collars</option>
+                {collars.length > 0 ? (
+                  collars.map((collar) => (
+                    <option key={collar.id} value={collar.id}>
+                      {collar.name || "Unnamed Collar"}
+                    </option>
+                  ))
+                ) : (
+                  <option value="" disabled>
+                    No collars available
+                  </option>
+                )}
               </select>
             </div>
           </div>
 
           <div className="services-grid">
-            {visibleServices.map((service, index) => (
-              <div className="service-card" key={index}>
-                <div className="card-image">
-                  <img src={service.image} alt={service.name} />
+            {error ? (
+              <p className="error-message">{error}</p>
+            ) : services.length > 0 ? (
+              services.map((service, index) => (
+                <div className="service-card" key={index}>
+                  <div className="card-image">
+                    {service.service_image ? (
+                      <img
+                        src={`http://127.0.0.1:8000/storage/${service.service_image}`}
+                        alt={service.name || "Service"}
+                      />
+                    ) : (
+                      <img src={searchIcon} alt="Placeholder" />
+                    )}
+                  </div>
+                  <h3>{service.name || "N/A"}</h3>
+                  <p>{service.description || "N/A"}</p>
+                  <div className="service-badge">
+                    <span className="badge-text">{service.color_collar_name || "N/A"}</span>
+                  </div>
+                  <button
+                    className="service-cta-btn"
+                    onClick={() => handleViewWorkersClick(service.name, service.color_collar_name)}
+                  >
+                    View Available Workers &gt;&gt;
+                  </button>
                 </div>
-                <h3>{service.name}</h3>
-                <p>{service.description}</p>
-                <div className="service-badge">
-                  <img
-                    className="badge-icon"
-                    src={
-                      service.collar === 'blue'
-                        ? blueCollar
-                        : service.collar === 'white'
-                        ? whiteCollar
-                        : pinkCollar
-                    }
-                    alt={`${service.collar} collar`}
-                  />
-                  <span className="badge-text">
-                    {service.collar.toUpperCase()} COLLAR
-                  </span>
-                </div>
-                <button
-                  className="service-cta-btn"
-                  onClick={() => handleViewWorkersClick(service.name, service.collar)}
-                >
-                  View Available Workers &gt;&gt;
-                </button>
-              </div>
-            ))}
+              ))
+            ) : (
+              <p>No labor categories found</p>
+            )}
           </div>
 
           <div className="show-more-wrap">
@@ -197,9 +196,11 @@ const Service = () => {
               type="button"
               className="show-more-btn"
               onClick={handleShowMore}
-              disabled={visibleCount >= filteredServices.length}
+              disabled={visibleCount >= services.length && pagination.currentPage >= pagination.totalPages}
             >
-              {visibleCount >= filteredServices.length ? 'Nothing more' : 'Show More'}
+              {visibleCount >= services.length && pagination.currentPage >= pagination.totalPages
+                ? "Nothing more"
+                : "Show More"}
             </button>
           </div>
         </div>
@@ -209,4 +210,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default BrowseLaborCategories;

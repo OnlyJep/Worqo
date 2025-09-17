@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Added useNavigate
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { CaretDownOutlined } from '@ant-design/icons';
 import "./../../../sass/components/_register.scss";
@@ -23,9 +23,10 @@ const Register = () => {
   const [suffixes, setSuffixes] = useState([]);
   const [roles, setRoles] = useState([]);
   const [genders, setGenders] = useState([]);
+  const navigate = useNavigate(); // Added for navigation
 
   useEffect(() => {
-    // Clear any existing authentication token to ensure not logged in
+    // Clear auth token to ensure not logged in
     localStorage.removeItem('auth_token');
 
     const fetchData = async () => {
@@ -50,7 +51,7 @@ const Register = () => {
           throw new Error(`Failed to fetch roles: ${roleResponse.status}`);
         }
         const roleData = await roleResponse.json();
-        setRoles(roleData);
+        setRoles(roleData); // Updated to handle flat array
 
         // Fetch genders
         const genderResponse = await fetch('http://127.0.0.1:8000/api/genders', {
@@ -113,11 +114,10 @@ const Register = () => {
   };
 
   const validatePassword = (password) => {
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasNumber = /\d/.test(password);
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     setPasswordError(
-      !hasUppercase || !hasNumber
-        ? "Password must contain at least 1 uppercase letter and 1 number."
+      !passwordRegex.test(password)
+        ? "Password must contain at least 1 uppercase letter, 1 number, and 1 special character (@$!%*?&)."
         : ""
     );
   };
@@ -162,7 +162,11 @@ const Register = () => {
 
       const data = await response.json();
       if (!response.ok) {
-        showAlert(data.error || "Registration failed", "error");
+        // Handle validation errors or other errors
+        const errorMessage = data.errors
+          ? Object.values(data.errors).flat().join(", ")
+          : data.error || "Registration failed";
+        showAlert(errorMessage, "error");
       } else {
         showAlert("✅ Registration successful!", "success");
         setFormData({
@@ -175,6 +179,8 @@ const Register = () => {
           role: "",
           gender: "",
         });
+        // Navigate to login page after 2 seconds
+        setTimeout(() => navigate("/login"), 2000);
       }
     } catch (error) {
       console.error("Registration error:", error);

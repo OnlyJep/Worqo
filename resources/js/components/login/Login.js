@@ -84,7 +84,12 @@ const Login = () => {
           setIsLoading(false);
         }
       } else {
-        setError(data.message || 'Invalid email or password.');
+        // Handle specific error for archived user
+        if (data.message === 'Account is archived and cannot log in') {
+          setError('Your account is locked. Please contact support.');
+        } else {
+          setError(data.message || 'Invalid email or password.');
+        }
         setIsLoading(false);
       }
     } catch (error) {
@@ -93,7 +98,6 @@ const Login = () => {
       setIsLoading(false);
     }
   };
-
 
   const handleLogout = async () => {
     const token = localStorage.getItem('auth_token');

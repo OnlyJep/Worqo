@@ -69546,7 +69546,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".worker-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.worker-modal {\n  background: #fff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 800px;\n  max-height: 90vh;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden; /* Prevent overflow from child elements */\n}\n\n.worker-modal h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 22px;\n  font-weight: 600;\n  color: #2d3748;\n}\n\n.worker-modal-form {\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  min-height: 0;\n}\n\n.worker-modal-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 10px;\n  margin-bottom: 20px;\n}\n\n.form-row {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 14px;\n  margin-bottom: 14px;\n}\n@media (max-width: 600px) {\n  .form-row {\n    grid-template-columns: 1fr;\n  }\n}\n\n.form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #2d3748;\n}\n.form-group input,\n.form-group select {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #f9fafb;\n  font-size: 14px;\n}\n.form-group input:focus,\n.form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);\n}\n.form-group input:disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n}\n.form-group .credential-section {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.form-group .credential-section .credential-dropdown {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #f9fafb;\n  font-size: 14px;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%232d3748' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  background-position: right 8px center;\n}\n.form-group .credential-section .credential-upload {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.form-group .credential-section input[type=file] {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #f9fafb;\n}\n.form-group .credential-section button {\n  padding: 8px 16px;\n  background: #3b82f6;\n  color: #fff;\n  border: none;\n  border-radius: 6px;\n  font-size: 14px;\n  cursor: pointer;\n}\n.form-group .credential-section button:hover {\n  background: #2563eb;\n}\n.form-group .credential-section .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 8px;\n  background: #f9fafb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #2d3748;\n}\n.form-group .credential-section .credential-item button {\n  padding: 4px 10px;\n  background: #ef4444;\n  color: #fff;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n}\n.form-group .credential-section .credential-item button:hover {\n  background: #dc2626;\n}\n\n.profile-img-preview {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-top: 10px;\n}\n.profile-img-preview img {\n  width: 50px;\n  height: 50px;\n  border-radius: 6px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #ccc;\n}\n.profile-img-preview button {\n  padding: 4px 10px;\n  background: #ef4444;\n  color: #fff;\n  border: none;\n  border-radius: 4px;\n  font-size: 13px;\n  cursor: pointer;\n}\n.profile-img-preview button:hover {\n  background: #dc2626;\n}\n\n.worker-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  padding-top: 14px;\n  border-top: 1px solid #e5e7eb;\n}\n.worker-modal-actions .submit-button,\n.worker-modal-actions .cancel-button {\n  padding: 10px 20px;\n  border-radius: 6px;\n  border: none;\n  font-size: 14px;\n  cursor: pointer;\n  min-width: 100px;\n  transition: background-color 0.2s;\n}\n.worker-modal-actions .submit-button {\n  background: #3b82f6;\n  color: #fff;\n}\n.worker-modal-actions .submit-button:hover {\n  background: #2563eb;\n}\n.worker-modal-actions .cancel-button {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n}\n.worker-modal-actions .cancel-button:hover {\n  background: #e5e7eb;\n}\n@media (max-width: 600px) {\n  .worker-modal-actions {\n    flex-direction: column;\n    gap: 10px;\n    padding-top: 10px;\n  }\n  .worker-modal-actions .submit-button,\n  .worker-modal-actions .cancel-button {\n    width: 100%;\n    padding: 10px;\n    min-width: 0;\n  }\n}\n\n.error {\n  color: #ef4444;\n  font-size: 13px;\n  margin-top: 6px;\n}\n\n.worker-modal-content::-webkit-scrollbar {\n  width: 8px;\n}\n\n.worker-modal-content::-webkit-scrollbar-track {\n  background: #f1f1f1;\n  border-radius: 4px;\n}\n\n.worker-modal-content::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 4px;\n}\n.worker-modal-content::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n\n@media (max-width: 768px) {\n  .worker-modal {\n    max-width: 90vw;\n    padding: 16px;\n  }\n  .worker-modal h2 {\n    font-size: 20px;\n  }\n}\n@media (max-width: 600px) {\n  .worker-modal {\n    max-width: 95vw;\n    max-height: 92vh;\n    padding: 12px;\n  }\n  .worker-modal-content {\n    margin-bottom: 16px;\n  }\n  .form-group label {\n    font-size: 12px;\n  }\n  .form-group input,\n  .form-group select {\n    padding: 6px;\n    font-size: 13px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".worker-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.worker-modal {\n  background: #ffffff;\n  border-radius: 8px;\n  padding: 24px;\n  width: 100%;\n  max-width: 900px;\n  max-height: 90vh;\n  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n\n.worker-modal h2 {\n  text-align: center;\n  margin-bottom: 24px;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n\n.worker-modal h3 {\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 16px;\n}\n\n.form-section {\n  margin-bottom: 24px;\n  padding: 16px;\n  background: #f9fafb;\n  border-radius: 6px;\n}\n\n.worker-modal-form {\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  min-height: 0;\n}\n\n.worker-modal-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 12px;\n}\n\n.form-row {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 16px;\n  margin-bottom: 16px;\n}\n@media (max-width: 600px) {\n  .form-row {\n    grid-template-columns: 1fr;\n  }\n}\n\n.form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #1f2937;\n}\n.form-group .required {\n  color: #ef4444;\n  font-size: 14px;\n}\n.form-group input,\n.form-group select {\n  padding: 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #ffffff;\n  font-size: 14px;\n}\n.form-group input:focus,\n.form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.form-group input:disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n}\n.form-group .credential-dropdown {\n  padding: 10px;\n  background: #ffffff;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231f2937' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E\");\n  background-repeat: no-repeat;\n  background-position: right 10px center;\n}\n.form-group .credential-section {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.form-group .credential-section .credential-upload {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.form-group .credential-section input[type=file] {\n  padding: 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #ffffff;\n}\n.form-group .credential-section button {\n  padding: 8px 16px;\n  background: #3b82f6;\n  color: #ffffff;\n  border: none;\n  border-radius: 6px;\n  font-size: 14px;\n  cursor: pointer;\n}\n.form-group .credential-section button:hover {\n  background: #2563eb;\n}\n.form-group .credential-section .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 10px;\n  background: #f9fafb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n}\n.form-group .credential-section .credential-item img {\n  width: 40px;\n  height: 40px;\n  border-radius: 4px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.form-group .credential-section .credential-item a {\n  color: #3b82f6;\n  text-decoration: none;\n}\n.form-group .credential-section .credential-item a:hover {\n  text-decoration: underline;\n}\n.form-group .credential-section .credential-item button {\n  padding: 6px 12px;\n  background: #ef4444;\n  color: #ffffff;\n  border-radius: 4px;\n}\n.form-group .credential-section .credential-item button:hover {\n  background: #dc2626;\n}\n\n.profile-img-preview {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-top: 12px;\n}\n.profile-img-preview img {\n  width: 60px;\n  height: 60px;\n  border-radius: 6px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #d1d5db;\n}\n.profile-img-preview button {\n  padding: 6px 12px;\n  background: #ef4444;\n  color: #ffffff;\n  border: none;\n  border-radius: 4px;\n  font-size: 14px;\n  cursor: pointer;\n}\n.profile-img-preview button:hover {\n  background: #dc2626;\n}\n\n.selected-skills {\n  margin-top: 16px;\n}\n.selected-skills h4 {\n  font-size: 16px;\n  font-weight: 500;\n  color: #1f2937;\n  margin-bottom: 12px;\n}\n\n.skill-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #f9fafb;\n  cursor: pointer;\n  margin-bottom: 8px;\n}\n.skill-item span {\n  font-size: 14px;\n  color: #1f2937;\n}\n.skill-item svg {\n  color: #6b7280;\n}\n\n.skill-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1100;\n}\n\n.skill-details-modal {\n  background: #ffffff;\n  border-radius: 8px;\n  padding: 20px;\n  width: 100%;\n  max-width: 600px;\n  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);\n}\n\n.modal-content {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n.modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.modal-header h3 {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-header .close-icon {\n  cursor: pointer;\n  color: #6b7280;\n}\n.modal-header .close-icon:hover {\n  color: #1f2937;\n}\n\n.modal-body .sub-skills-section {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.modal-body .sub-skills-section .sub-skills-label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #1f2937;\n}\n.modal-body .sub-skills-section .sub-skills-instruction {\n  font-size: 13px;\n  color: #6b7280;\n  margin: 0;\n}\n.modal-body .sub-skills-section .sub-skills-container {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 16px;\n}\n@media (max-width: 500px) {\n  .modal-body .sub-skills-section .sub-skills-container {\n    grid-template-columns: 1fr;\n  }\n}\n.modal-body .sub-skills-section .available-sub-skills h4,\n.modal-body .sub-skills-section .selected-sub-skills h4 {\n  font-size: 14px;\n  font-weight: 500;\n  color: #1f2937;\n  margin-bottom: 10px;\n}\n.modal-body .sub-skills-section .available-sub-skills .sub-skills-list,\n.modal-body .sub-skills-section .selected-sub-skills .sub-skills-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  max-height: 200px;\n  overflow-y: auto;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #ffffff;\n}\n.modal-body .sub-skills-section .available-sub-skills .sub-skill-item,\n.modal-body .sub-skills-section .selected-sub-skills .sub-skill-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 12px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-body .sub-skills-section .available-sub-skills .sub-skill-item:last-child,\n.modal-body .sub-skills-section .selected-sub-skills .sub-skill-item:last-child {\n  border-bottom: none;\n}\n.modal-body .sub-skills-section .available-sub-skills .sub-skill-item .sub-skill-text,\n.modal-body .sub-skills-section .selected-sub-skills .sub-skill-item .sub-skill-text {\n  font-size: 14px;\n  color: #1f2937;\n}\n.modal-body .sub-skills-section .available-sub-skills .sub-skill-item button,\n.modal-body .sub-skills-section .selected-sub-skills .sub-skill-item button {\n  padding: 4px;\n  background: transparent;\n  border: none;\n  cursor: pointer;\n}\n.modal-body .sub-skills-section .available-sub-skills .sub-skill-item button svg,\n.modal-body .sub-skills-section .selected-sub-skills .sub-skill-item button svg {\n  color: #3b82f6;\n}\n.modal-body .sub-skills-section .available-sub-skills .sub-skill-item button:hover svg,\n.modal-body .sub-skills-section .selected-sub-skills .sub-skill-item button:hover svg {\n  color: #2563eb;\n}\n.modal-body .sub-skills-section .available-sub-skills .no-sub-skills,\n.modal-body .sub-skills-section .selected-sub-skills .no-sub-skills {\n  font-size: 13px;\n  color: #6b7280;\n  padding: 10px;\n  text-align: center;\n}\n.modal-body .no-sub-skills {\n  font-size: 14px;\n  color: #6b7280;\n  text-align: center;\n}\n\n.modal-footer {\n  display: flex;\n  justify-content: flex-end;\n}\n.modal-footer .save-btn {\n  padding: 8px 16px;\n  background: #3b82f6;\n  color: #ffffff;\n  border: none;\n  border-radius: 6px;\n  font-size: 14px;\n  cursor: pointer;\n}\n.modal-footer .save-btn:hover {\n  background: #2563eb;\n}\n\n.worker-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  padding-top: 16px;\n  border-top: 1px solid #e5e7eb;\n}\n.worker-modal-actions .submit-button,\n.worker-modal-actions .cancel-button {\n  padding: 10px 20px;\n  border-radius: 6px;\n  border: none;\n  font-size: 14px;\n  cursor: pointer;\n  min-width: 120px;\n  transition: background-color 0.2s;\n}\n.worker-modal-actions .submit-button {\n  background: #3b82f6;\n  color: #ffffff;\n}\n.worker-modal-actions .submit-button:hover {\n  background: #2563eb;\n}\n.worker-modal-actions .cancel-button {\n  background: #f3f4f6;\n  color: #1f2937;\n  border: 1px solid #d1d5db;\n}\n.worker-modal-actions .cancel-button:hover {\n  background: #e5e7eb;\n}\n@media (max-width: 600px) {\n  .worker-modal-actions {\n    flex-direction: column;\n    gap: 10px;\n  }\n  .worker-modal-actions .submit-button,\n  .worker-modal-actions .cancel-button {\n    width: 100%;\n    padding: 12px;\n  }\n}\n\n.error {\n  color: #ef4444;\n  font-size: 13px;\n  margin-top: 6px;\n  display: block;\n}\n\n.worker-modal-content::-webkit-scrollbar {\n  width: 8px;\n}\n\n.worker-modal-content::-webkit-scrollbar-track {\n  background: #f1f1f1;\n  border-radius: 4px;\n}\n\n.worker-modal-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 4px;\n}\n.worker-modal-content::-webkit-scrollbar-thumb:hover {\n  background: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .worker-modal {\n    max-width: 90vw;\n    padding: 20px;\n  }\n  .worker-modal h2 {\n    font-size: 22px;\n  }\n}\n@media (max-width: 600px) {\n  .worker-modal {\n    max-width: 95vw;\n    padding: 16px;\n  }\n  .form-section {\n    padding: 12px;\n  }\n  .form-group label {\n    font-size: 13px;\n  }\n  .form-group input,\n  .form-group select {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -149120,40 +149120,56 @@ var Headerz = function Headerz() {
   };
   var handleLogout = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var response, _t;
+      var token, response, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
             setIsLoading(true);
             _context.p = 1;
+            token = localStorage.getItem('auth_token');
             _context.n = 2;
-            return fetch('/api/logout', {
+            return fetch('http://127.0.0.1:8000/api/logout', {
               method: 'POST',
               headers: {
-                'Authorization': "Bearer ".concat(localStorage.getItem('auth_token')),
+                Authorization: "Bearer ".concat(token),
                 'Content-Type': 'application/json'
               }
             });
           case 2:
             response = _context.v;
             if (response.ok) {
-              localStorage.removeItem('auth_token');
-              localStorage.removeItem('user');
+              localStorage.clear(); // Clear all local storage
               setIsLoggedIn(false);
               setUser(null);
               setIsDropdownOpen(false);
-              navigate('/login', {
+              navigate('/', {
+                replace: true
+              }); // Navigate to homepage
+            } else {
+              console.error('Logout failed:', response.status, response.statusText);
+              // Proceed with logout even if API call fails
+              localStorage.clear();
+              setIsLoggedIn(false);
+              setUser(null);
+              setIsDropdownOpen(false);
+              navigate('/', {
                 replace: true
               });
-            } else {
-              console.error('Logout failed');
             }
             _context.n = 4;
             break;
           case 3:
             _context.p = 3;
             _t = _context.v;
-            console.error('Logout error:', _t);
+            console.error('Logout error:', _t.message);
+            // Proceed with logout even if there's an error
+            localStorage.clear();
+            setIsLoggedIn(false);
+            setUser(null);
+            setIsDropdownOpen(false);
+            navigate('/', {
+              replace: true
+            });
           case 4:
             _context.p = 4;
             setIsLoading(false);
@@ -149767,11 +149783,148 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Headerz__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
 /* harmony import */ var _FooterContent_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../FooterContent/footer */ "./resources/js/components/FooterContent/footer.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
 
 var Notif = function Notif() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    notifications = _useState2[0],
+    setNotifications = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedNotif = _useState4[0],
+    setSelectedNotif = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    isModalOpen = _useState6[0],
+    setIsModalOpen = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState8 = _slicedToArray(_useState7, 2),
+    selectedNotifications = _useState8[0],
+    setSelectedNotifications = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('all'),
+    _useState0 = _slicedToArray(_useState9, 2),
+    activeTab = _useState0[0],
+    setActiveTab = _useState0[1]; // Track active tab: 'all' or 'unread'
+
+  // Simulated current user ID (e.g., Jeff Ogabang, id: 1)
+  var currentUserId = 1;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var fetchUsers = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var response, data, users, currentUser, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              _context.p = 0;
+              _context.n = 1;
+              return fetch('http://127.0.0.1:8000/api/users');
+            case 1:
+              response = _context.v;
+              _context.n = 2;
+              return response.json();
+            case 2:
+              data = _context.v;
+              users = data.users; // Find the current user
+              currentUser = users.find(function (user) {
+                return user.id === currentUserId;
+              });
+              if (currentUser) {
+                // Create a personalized welcome notification for the current user
+                setNotifications([{
+                  id: currentUser.id,
+                  user: "".concat(currentUser.first_name, " ").concat(currentUser.last_name || '', " ").concat(currentUser.suffix_name || '').trim(),
+                  action: "Welcome to Worqo Job Portal!",
+                  platform: "Worqo Job Portal",
+                  time: "Just now",
+                  profile_img: currentUser.profile_img,
+                  isUnread: true,
+                  message: "Hi ".concat(currentUser.first_name, ", welcome to Worqo Job Portal! Start exploring job opportunities or manage your profile to get started.")
+                }]);
+              }
+              _context.n = 4;
+              break;
+            case 3:
+              _context.p = 3;
+              _t = _context.v;
+              console.error('Error fetching users:', _t);
+            case 4:
+              return _context.a(2);
+          }
+        }, _callee, null, [[0, 3]]);
+      }));
+      return function fetchUsers() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+    fetchUsers();
+  }, []);
+  var unreadCount = notifications.filter(function (notif) {
+    return notif.isUnread;
+  }).length;
+  var handleMarkAsRead = function handleMarkAsRead(notifId) {
+    setNotifications(notifications.map(function (notif) {
+      return notif.id === notifId ? _objectSpread(_objectSpread({}, notif), {}, {
+        isUnread: false
+      }) : notif;
+    }));
+    setIsModalOpen(false);
+  };
+  var handleMarkAsUnread = function handleMarkAsUnread(notifId) {
+    setNotifications(notifications.map(function (notif) {
+      return notif.id === notifId ? _objectSpread(_objectSpread({}, notif), {}, {
+        isUnread: true
+      }) : notif;
+    }));
+    setIsModalOpen(false);
+  };
+  var handleMarkAllAsRead = function handleMarkAllAsRead() {
+    setNotifications(notifications.map(function (notif) {
+      return _objectSpread(_objectSpread({}, notif), {}, {
+        isUnread: false
+      });
+    }));
+  };
+  var handleCheckboxChange = function handleCheckboxChange(notifId) {
+    setSelectedNotifications(function (prev) {
+      return prev.includes(notifId) ? prev.filter(function (id) {
+        return id !== notifId;
+      }) : [].concat(_toConsumableArray(prev), [notifId]);
+    });
+  };
+  var openModal = function openModal(notif) {
+    setSelectedNotif(notif);
+    setIsModalOpen(true);
+  };
+  var closeModal = function closeModal() {
+    setIsModalOpen(false);
+    setSelectedNotif(null);
+  };
+  var displayedNotifications = activeTab === 'unread' ? notifications.filter(function (notif) {
+    return notif.isUnread;
+  }) : notifications;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       style: {
@@ -149809,16 +149962,43 @@ var Notif = function Notif() {
               style: {
                 padding: '1rem',
                 cursor: 'pointer',
-                backgroundColor: '#e3f2fd',
-                borderRight: '3px solid #00C4CC'
+                backgroundColor: activeTab === 'all' ? '#e3f2fd' : 'transparent',
+                borderRight: activeTab === 'all' ? '3px solid #00C4CC' : 'none'
+              },
+              onClick: function onClick() {
+                return setActiveTab('all');
               },
               children: "All Notifications"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               style: {
                 padding: '1rem',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                backgroundColor: activeTab === 'unread' ? '#e3f2fd' : 'transparent',
+                borderRight: activeTab === 'unread' ? '3px solid #00C4CC' : 'none',
+                position: 'relative'
               },
-              children: "Unread Notifications"
+              onClick: function onClick() {
+                return setActiveTab('unread');
+              },
+              children: ["Unread Notifications", unreadCount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                style: {
+                  position: 'absolute',
+                  top: '50%',
+                  right: '1rem',
+                  transform: 'translateY(-50%)',
+                  backgroundColor: '#ff0000',
+                  color: 'white',
+                  borderRadius: '50%',
+                  width: '20px',
+                  height: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '0.8rem',
+                  fontWeight: 'bold'
+                },
+                children: unreadCount
+              })]
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -149826,32 +150006,236 @@ var Notif = function Notif() {
             flex: 1,
             padding: '0 2rem'
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             style: {
               backgroundColor: '#1A2A44',
               color: 'white',
               padding: '2rem',
-              marginBottom: '2rem',
-              borderRadius: '10px 10px 0 0'
+              marginBottom: '1rem',
+              borderRadius: '10px 10px 0 0',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
             },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
               style: {
                 margin: 0
               },
-              children: "All Notifications"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: activeTab === 'all' ? 'All Notifications' : 'Unread Notifications'
+            }), displayedNotifications.some(function (notif) {
+              return notif.isUnread;
+            }) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              onClick: handleMarkAllAsRead,
+              style: {
+                backgroundColor: '#00C4CC',
+                color: 'white',
+                border: 'none',
+                padding: '0.5rem 1rem',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                fontSize: '0.9rem'
+              },
+              children: "Mark All as Read"
+            })]
+          }), displayedNotifications.length > 0 ? displayedNotifications.map(function (notif) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              style: {
+                backgroundColor: notif.isUnread ? '#f0faff' : 'white',
+                padding: '1.5rem',
+                marginBottom: '1rem',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                border: notif.isUnread ? '1px solid #00C4CC' : '1px solid #e0e0e0'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                type: "checkbox",
+                checked: selectedNotifications.includes(notif.id),
+                onChange: function onChange() {
+                  return handleCheckboxChange(notif.id);
+                },
+                style: {
+                  marginRight: '1rem'
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: notif.profile_img,
+                alt: notif.user,
+                style: {
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  marginRight: '1rem'
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                style: {
+                  flex: 1,
+                  cursor: 'pointer'
+                },
+                onClick: function onClick() {
+                  return openModal(notif);
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+                  style: {
+                    margin: '0',
+                    fontWeight: notif.isUnread ? 'bold' : 'normal'
+                  },
+                  children: [notif.user, " ", notif.action]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                  style: {
+                    margin: '0.5rem 0 0',
+                    color: '#666',
+                    fontSize: '0.9rem'
+                  },
+                  children: notif.time
+                })]
+              })]
+            }, notif.id);
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             style: {
               textAlign: 'center',
               padding: '4rem 2rem',
               backgroundColor: 'white',
               borderRadius: '0 0 10px 10px'
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
-              children: "No Notifications Yet."
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-              children: "You're all caught up! No new notifications to show."
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h3", {
+              children: ["No ", activeTab === 'unread' ? 'Unread' : '', " Notifications Yet."]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+              children: ["You're all caught up! No ", activeTab === 'unread' ? 'unread' : 'new', " notifications to show."]
             })]
+          })]
+        })]
+      })
+    }), isModalOpen && selectedNotif && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      style: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1000
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        style: {
+          backgroundColor: 'white',
+          width: '500px',
+          borderRadius: '8px',
+          boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+          overflow: 'hidden'
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          style: {
+            backgroundColor: '#f5f5f5',
+            padding: '1rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            borderBottom: '1px solid #e0e0e0'
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+            style: {
+              margin: 0
+            },
+            children: "Notification"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            onClick: closeModal,
+            style: {
+              background: 'none',
+              border: 'none',
+              fontSize: '1.2rem',
+              cursor: 'pointer'
+            },
+            children: "\u2715"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          style: {
+            padding: '1.5rem'
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            style: {
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: '1rem'
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              src: selectedNotif.profile_img,
+              alt: selectedNotif.user,
+              style: {
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                marginRight: '1rem'
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                style: {
+                  margin: 0,
+                  fontWeight: 'bold'
+                },
+                children: selectedNotif.user
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                style: {
+                  margin: '0.5rem 0 0',
+                  color: '#666',
+                  fontSize: '0.9rem'
+                },
+                children: selectedNotif.time
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            style: {
+              margin: '1rem 0'
+            },
+            children: selectedNotif.message
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          style: {
+            padding: '1rem',
+            borderTop: '1px solid #e0e0e0',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            gap: '1rem'
+          },
+          children: [selectedNotif.isUnread ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            onClick: function onClick() {
+              return handleMarkAsRead(selectedNotif.id);
+            },
+            style: {
+              backgroundColor: '#00C4CC',
+              color: 'white',
+              border: 'none',
+              padding: '0.5rem 1rem',
+              borderRadius: '5px',
+              cursor: 'pointer'
+            },
+            children: "Mark as Read"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            onClick: function onClick() {
+              return handleMarkAsUnread(selectedNotif.id);
+            },
+            style: {
+              backgroundColor: '#f0f0f0',
+              color: '#333',
+              border: 'none',
+              padding: '0.5rem 1rem',
+              borderRadius: '5px',
+              cursor: 'pointer'
+            },
+            children: "Mark as Unread"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            onClick: closeModal,
+            style: {
+              backgroundColor: '#f0f0f0',
+              color: '#333',
+              border: 'none',
+              padding: '0.5rem 1rem',
+              borderRadius: '5px',
+              cursor: 'pointer'
+            },
+            children: "Close"
           })]
         })]
       })
@@ -149875,26 +150259,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var _Headerz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
-/* harmony import */ var _FooterContent_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../FooterContent/footer */ "./resources/js/components/FooterContent/footer.js");
-/* harmony import */ var _sass_components_Service_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../sass/components/Service.scss */ "./resources/sass/components/Service.scss");
-/* harmony import */ var _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/img/search.svg */ "./resources/sass/img/search.svg");
-/* harmony import */ var _sass_img_image_9_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../sass/img/image 9.svg */ "./resources/sass/img/image 9.svg");
-/* harmony import */ var _sass_img_image_10_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../sass/img/image 10.svg */ "./resources/sass/img/image 10.svg");
-/* harmony import */ var _sass_img_image_11_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../sass/img/image 11.svg */ "./resources/sass/img/image 11.svg");
-/* harmony import */ var _sass_img_image_12_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../sass/img/image 12.svg */ "./resources/sass/img/image 12.svg");
-/* harmony import */ var _sass_img_image_17_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../sass/img/image 17.svg */ "./resources/sass/img/image 17.svg");
-/* harmony import */ var _sass_img_image_18_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../sass/img/image 18.svg */ "./resources/sass/img/image 18.svg");
-/* harmony import */ var _sass_img_image_19_svg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../sass/img/image 19.svg */ "./resources/sass/img/image 19.svg");
-/* harmony import */ var _sass_img_image_20_svg__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../sass/img/image 20.svg */ "./resources/sass/img/image 20.svg");
-/* harmony import */ var _sass_img_image_5_svg__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../sass/img/image 5.svg */ "./resources/sass/img/image 5.svg");
-/* harmony import */ var _sass_img_image_6_svg__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../sass/img/image 6.svg */ "./resources/sass/img/image 6.svg");
-/* harmony import */ var _sass_img_image_7_svg__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../sass/img/image 7.svg */ "./resources/sass/img/image 7.svg");
-/* harmony import */ var _sass_img_image_8_svg__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../sass/img/image 8.svg */ "./resources/sass/img/image 8.svg");
-/* harmony import */ var _sass_img_pink_svg__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../sass/img/pink.svg */ "./resources/sass/img/pink.svg");
-/* harmony import */ var _sass_img_white_svg__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../../sass/img/white.svg */ "./resources/sass/img/white.svg");
-/* harmony import */ var _sass_img_blue_svg__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../../sass/img/blue.svg */ "./resources/sass/img/blue.svg");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _Headerz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
+/* harmony import */ var _FooterContent_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../FooterContent/footer */ "./resources/js/components/FooterContent/footer.js");
+/* harmony import */ var _sass_components_Service_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/Service.scss */ "./resources/sass/components/Service.scss");
+/* harmony import */ var _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../sass/img/search.svg */ "./resources/sass/img/search.svg");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -149910,215 +150291,276 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-var Service = function Service() {
+var BrowseLaborCategories = function BrowseLaborCategories() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('all'),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
-    selectedCollar = _useState2[0],
-    setSelectedCollar = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(8),
+    services = _useState2[0],
+    setServices = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    visibleCount = _useState4[0],
-    setVisibleCount = _useState4[1];
-  var services = [{
-    name: 'Plumbing Services',
-    description: 'Comprehensive plumbing services for repairs, installations, and maintenance.',
-    image: _sass_img_image_5_svg__WEBPACK_IMPORTED_MODULE_14__["default"],
-    collar: 'blue'
-  }, {
-    name: 'Air Conditioning & Ventilation Services',
-    description: 'Repairs, installations, and regular maintenance for AC and ventilation units.',
-    image: _sass_img_image_6_svg__WEBPACK_IMPORTED_MODULE_15__["default"],
-    collar: 'white'
-  }, {
-    name: 'Handyman Services',
-    description: 'General home fixes, installations, and small renovation assistance.',
-    image: _sass_img_image_7_svg__WEBPACK_IMPORTED_MODULE_16__["default"],
-    collar: 'blue'
-  }, {
-    name: 'Maid Services',
-    description: 'Professional home and office cleaning by trusted and trained staff.',
-    image: _sass_img_image_8_svg__WEBPACK_IMPORTED_MODULE_17__["default"],
-    collar: 'pink'
-  }, {
-    name: 'Machine Operators Services',
-    description: 'Comprehensive services for repairs, installations, and maintenance.',
-    image: _sass_img_image_9_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
-    collar: 'blue'
-  }, {
-    name: 'Carpentry & Woodworks Services',
-    description: 'Comprehensive services for repairs, installations, and maintenance.',
-    image: _sass_img_image_10_svg__WEBPACK_IMPORTED_MODULE_7__["default"],
-    collar: 'blue'
-  }, {
-    name: 'Gardening Services',
-    description: 'Comprehensive services for repairs, installations, and maintenance.',
-    image: _sass_img_image_11_svg__WEBPACK_IMPORTED_MODULE_8__["default"],
-    collar: 'blue'
-  }, {
-    name: 'Caregiver Services',
-    description: 'Comprehensive services for repairs, installations, and maintenance.',
-    image: _sass_img_image_12_svg__WEBPACK_IMPORTED_MODULE_9__["default"],
-    collar: 'pink'
-  }, {
-    name: 'Waiter / Waitress / Service Crew',
-    description: 'Comprehensive services for repairs, installations, and maintenance.',
-    image: _sass_img_image_17_svg__WEBPACK_IMPORTED_MODULE_10__["default"],
-    collar: 'pink'
-  }, {
-    name: 'Content Creator / Writer',
-    description: 'Comprehensive services for repairs, installations, and maintenance.',
-    image: _sass_img_image_18_svg__WEBPACK_IMPORTED_MODULE_11__["default"],
-    collar: 'white'
-  }, {
-    name: 'Makeup Artist Services',
-    description: 'Comprehensive services for repairs, installations, and maintenance.',
-    image: _sass_img_image_19_svg__WEBPACK_IMPORTED_MODULE_12__["default"],
-    collar: 'pink'
-  }, {
-    name: 'IT Support / Helpdesk Services',
-    description: 'Comprehensive services for repairs, installations, and maintenance.',
-    image: _sass_img_image_20_svg__WEBPACK_IMPORTED_MODULE_13__["default"],
-    collar: 'white'
-  }];
-  var filteredServices = selectedCollar === 'all' ? services : services.filter(function (service) {
-    return service.collar === selectedCollar;
-  });
-  var visibleServices = filteredServices.slice(0, visibleCount);
-  var handleViewWorkersClick = function handleViewWorkersClick(serviceName, collar) {
-    if (collar === 'white') {
-      navigate('/browse-white');
+    collars = _useState4[0],
+    setCollars = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    selectedCollar = _useState6[0],
+    setSelectedCollar = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState8 = _slicedToArray(_useState7, 2),
+    searchTerm = _useState8[0],
+    setSearchTerm = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      currentPage: 1,
+      totalPages: 1
+    }),
+    _useState0 = _slicedToArray(_useState9, 2),
+    pagination = _useState0[0],
+    setPagination = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(8),
+    _useState10 = _slicedToArray(_useState1, 2),
+    visibleCount = _useState10[0],
+    setVisibleCount = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState12 = _slicedToArray(_useState11, 2),
+    loading = _useState12[0],
+    setLoading = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState14 = _slicedToArray(_useState13, 2),
+    error = _useState14[0],
+    setError = _useState14[1];
+  var fetchData = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(signal) {
+      var authToken, headers, _yield$Promise$all, _yield$Promise$all2, servicesResponse, collarsResponse, _error$response, _error$response2, _error$response3, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            _context.p = 0;
+            setLoading(true);
+            setError(null);
+            authToken = localStorage.getItem("auth_token");
+            headers = authToken ? {
+              Authorization: "Bearer ".concat(authToken),
+              Accept: "application/json"
+            } : {
+              Accept: "application/json"
+            };
+            _context.n = 1;
+            return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/services", {
+              params: {
+                search: searchTerm,
+                color_collar_id: selectedCollar,
+                page: pagination.currentPage,
+                limit: visibleCount
+              },
+              headers: headers,
+              signal: signal,
+              timeout: 10000
+            }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/collars", {
+              headers: headers,
+              signal: signal,
+              timeout: 5000
+            })]);
+          case 1:
+            _yield$Promise$all = _context.v;
+            _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
+            servicesResponse = _yield$Promise$all2[0];
+            collarsResponse = _yield$Promise$all2[1];
+            setServices(servicesResponse.data.services || []);
+            setPagination({
+              currentPage: servicesResponse.data.pagination.currentPage,
+              totalPages: servicesResponse.data.pagination.totalPages
+            });
+            setCollars(collarsResponse.data.collars || []);
+            _context.n = 4;
+            break;
+          case 2:
+            _context.p = 2;
+            _t = _context.v;
+            if (!(_t.name === "AbortError")) {
+              _context.n = 3;
+              break;
+            }
+            return _context.a(2);
+          case 3:
+            console.error("Error fetching data:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
+            setError(((_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 401 ? "Please log in to view labor categories." : "Failed to fetch data. Please try again later.");
+            setServices([]);
+            setCollars([]);
+            antd__WEBPACK_IMPORTED_MODULE_7__["default"].error(((_error$response3 = _t.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 401 ? "Please log in." : "Failed to fetch data.");
+          case 4:
+            _context.p = 4;
+            setLoading(false);
+            return _context.f(4);
+          case 5:
+            return _context.a(2);
+        }
+      }, _callee, null, [[0, 2, 4, 5]]);
+    }));
+    return function fetchData(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var controller = new AbortController();
+    fetchData(controller.signal);
+    return function () {
+      return controller.abort();
+    };
+  }, [searchTerm, selectedCollar, pagination.currentPage, visibleCount]);
+  var handleViewWorkersClick = function handleViewWorkersClick(serviceName, colorCollarName) {
+    // Temporary mapping for navigation (update based on actual collar names)
+    var collarMap = {
+      "serverlogo.png": "white" // Adjust based on actual collar names
+    };
+    var collar = collarMap[colorCollarName === null || colorCollarName === void 0 ? void 0 : colorCollarName.toLowerCase()] || "blue"; // Default to blue
+    if (collar === "white") {
+      navigate("/browse-white");
       return;
     }
     navigate("/browse?service=".concat(encodeURIComponent(serviceName)));
   };
   var handleShowMore = function handleShowMore() {
+    if (pagination.currentPage < pagination.totalPages) {
+      setPagination(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          currentPage: prev.currentPage + 1
+        });
+      });
+    }
     setVisibleCount(function (prev) {
       return prev + 4;
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
+  var handleSearchChange = function handleSearchChange(e) {
+    setSearchTerm(e.target.value);
+    setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+      currentPage: 1
+    }));
+    setVisibleCount(8);
+  };
+  var handleCollarChange = function handleCollarChange(e) {
+    setSelectedCollar(e.target.value);
+    setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+      currentPage: 1
+    }));
+    setVisibleCount(8);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "service-page",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("main", {
+    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "loader",
+      children: "Loading..."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
       className: "service-content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "service-container",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("section", {
           className: "service-intro",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("h1", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
             className: "service-headline",
             children: "Hands-On Talent, Tailored to Your Needs"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "service-subtitle",
             children: "Connect with workers who get the job done\u2014skilled, service-based, or administrative."
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "hero-search",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "search-container",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("input", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                 type: "text",
                 placeholder: "Search",
-                className: "search-input"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("button", {
+                className: "search-input",
+                value: searchTerm,
+                onChange: handleSearchChange
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "search-button",
                 "aria-label": "Search",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
-                  src: _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
                   alt: "Search"
                 })
               })]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "section-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
             className: "section-title",
             children: "Browse Labor Categories"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "filter-control",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("select", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("select", {
               className: "collar-select",
               value: selectedCollar,
-              onChange: function onChange(e) {
-                return setSelectedCollar(e.target.value);
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("option", {
-                value: "all",
+              onChange: handleCollarChange,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+                value: "",
                 children: "All Collars"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("option", {
-                value: "blue",
-                children: "Blue Collar"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("option", {
-                value: "white",
-                children: "White Collar"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("option", {
-                value: "pink",
-                children: "Pink Collar"
+              }), collars.length > 0 ? collars.map(function (collar) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+                  value: collar.id,
+                  children: collar.name || "Unnamed Collar"
+                }, collar.id);
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+                value: "",
+                disabled: true,
+                children: "No collars available"
               })]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "services-grid",
-          children: visibleServices.map(function (service, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
+          children: error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+            className: "error-message",
+            children: error
+          }) : services.length > 0 ? services.map(function (service, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "service-card",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "card-image",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
-                  src: service.image,
-                  alt: service.name
+                children: service.service_image ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: "http://127.0.0.1:8000/storage/".concat(service.service_image),
+                  alt: service.name || "Service"
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
+                  alt: "Placeholder"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("h3", {
-                children: service.name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("p", {
-                children: service.description
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+                children: service.name || "N/A"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                children: service.description || "N/A"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "service-badge",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("img", {
-                  className: "badge-icon",
-                  src: service.collar === 'blue' ? _sass_img_blue_svg__WEBPACK_IMPORTED_MODULE_20__["default"] : service.collar === 'white' ? _sass_img_white_svg__WEBPACK_IMPORTED_MODULE_19__["default"] : _sass_img_pink_svg__WEBPACK_IMPORTED_MODULE_18__["default"],
-                  alt: "".concat(service.collar, " collar")
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)("span", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                   className: "badge-text",
-                  children: [service.collar.toUpperCase(), " COLLAR"]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("button", {
+                  children: service.color_collar_name || "N/A"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "service-cta-btn",
                 onClick: function onClick() {
-                  return handleViewWorkersClick(service.name, service.collar);
+                  return handleViewWorkersClick(service.name, service.color_collar_name);
                 },
                 children: "View Available Workers >>"
               })]
             }, index);
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+            children: "No labor categories found"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "show-more-wrap",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
             type: "button",
             className: "show-more-btn",
             onClick: handleShowMore,
-            disabled: visibleCount >= filteredServices.length,
-            children: visibleCount >= filteredServices.length ? 'Nothing more' : 'Show More'
+            disabled: visibleCount >= services.length && pagination.currentPage >= pagination.totalPages,
+            children: visibleCount >= services.length && pagination.currentPage >= pagination.totalPages ? "Nothing more" : "Show More"
           })
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_FooterContent_footer__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_FooterContent_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Service);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BrowseLaborCategories);
 
 /***/ }),
 
@@ -150411,6 +150853,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../SkillRatingModal/SkillRatingModal */ "./resources/js/components/SkillRatingModal/SkillRatingModal.js");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.mjs");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -150442,20 +150888,101 @@ var HomePage = function HomePage() {
     var userData = localStorage.getItem('user');
     if (userData) {
       var parsedUser = JSON.parse(userData);
+      console.log('HomePage: Loaded user from localStorage:', parsedUser);
       setUser(parsedUser);
       if (parsedUser.role_id === 1) {
-        var isComplete = localStorage.getItem("isProfileComplete_".concat(parsedUser.id));
-        if (isComplete === 'true') {
-          setIsProfileComplete(true);
-        } else {
-          setShowProfileModal(true);
-        }
+        var checkProfile = /*#__PURE__*/function () {
+          var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+            var isComplete, skillsCompleted, _profileData$worker, _profileData$worker2, authToken, response, profileData, skills, hasCredentials, _t;
+            return _regenerator().w(function (_context) {
+              while (1) switch (_context.p = _context.n) {
+                case 0:
+                  console.log('Checking profile for user:', parsedUser.id);
+                  isComplete = localStorage.getItem("isProfileComplete_".concat(parsedUser.id));
+                  skillsCompleted = localStorage.getItem("skillsStepCompleted_".concat(parsedUser.id));
+                  console.log('LocalStorage - isProfileComplete:', isComplete, 'skillsStepCompleted:', skillsCompleted);
+                  if (!(isComplete === 'true' || skillsCompleted === 'true')) {
+                    _context.n = 1;
+                    break;
+                  }
+                  console.log('Profile or skills completed in localStorage, setting isProfileComplete to true');
+                  setIsProfileComplete(true);
+                  setShowProfileModal(false);
+                  return _context.a(2);
+                case 1:
+                  _context.p = 1;
+                  authToken = localStorage.getItem('auth_token');
+                  if (authToken) {
+                    _context.n = 2;
+                    break;
+                  }
+                  console.warn('No authentication token found');
+                  setShowProfileModal(true);
+                  return _context.a(2);
+                case 2:
+                  _context.n = 3;
+                  return fetch("http://127.0.0.1:8000/api/workers/".concat(parsedUser.id), {
+                    method: 'GET',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      'Authorization': "Bearer ".concat(authToken)
+                    }
+                  });
+                case 3:
+                  response = _context.v;
+                  if (response.ok) {
+                    _context.n = 4;
+                    break;
+                  }
+                  console.error('Worker fetch failed:', response.status, response.statusText);
+                  setShowProfileModal(true);
+                  return _context.a(2);
+                case 4:
+                  _context.n = 5;
+                  return response.json();
+                case 5:
+                  profileData = _context.v;
+                  console.log('Fetched profile data from /api/workers:', JSON.stringify(profileData, null, 2));
+                  skills = Array.isArray(profileData === null || profileData === void 0 || (_profileData$worker = profileData.worker) === null || _profileData$worker === void 0 ? void 0 : _profileData$worker.skills_id) ? profileData.worker.skills_id : [];
+                  hasCredentials = Array.isArray(profileData === null || profileData === void 0 || (_profileData$worker2 = profileData.worker) === null || _profileData$worker2 === void 0 ? void 0 : _profileData$worker2.credentials_name) && profileData.worker.credentials_name.length > 0;
+                  if (skills.length >= 2 && hasCredentials) {
+                    console.log("Found ".concat(skills.length, " skills and credentials, overriding localStorage and setting isProfileComplete to true"));
+                    localStorage.setItem("skillsStepCompleted_".concat(parsedUser.id), 'true');
+                    localStorage.setItem("isProfileComplete_".concat(parsedUser.id), 'true');
+                    setIsProfileComplete(true);
+                    setShowProfileModal(false);
+                  } else {
+                    console.log("Skills found: ".concat(skills.length, ", Credentials: ").concat(hasCredentials ? 'Yes' : 'No', ", showing modal"));
+                    setShowProfileModal(true);
+                  }
+                  _context.n = 7;
+                  break;
+                case 6:
+                  _context.p = 6;
+                  _t = _context.v;
+                  console.error('Error fetching profile:', _t.message);
+                  setShowProfileModal(true);
+                case 7:
+                  return _context.a(2);
+              }
+            }, _callee, null, [[1, 6]]);
+          }));
+          return function checkProfile() {
+            return _ref.apply(this, arguments);
+          };
+        }();
+        checkProfile();
       }
+    } else {
+      console.log('No user data found in localStorage');
     }
   }, []);
   var handleProfileModalComplete = function handleProfileModalComplete() {
+    console.log('Profile modal completed, updating states');
     setShowProfileModal(false);
     setIsProfileComplete(true);
+    localStorage.setItem("isProfileComplete_".concat(user.id), 'true');
+    localStorage.setItem("skillsStepCompleted_".concat(user.id), 'true');
     window.location.reload();
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
@@ -152833,51 +153360,39 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     _useState34 = _slicedToArray(_useState33, 2),
     errors = _useState34[0],
     setErrors = _useState34[1];
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState36 = _slicedToArray(_useState35, 2),
+    isProfileComplete = _useState36[0],
+    setIsProfileComplete = _useState36[1];
+  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState38 = _slicedToArray(_useState37, 2),
+    skillsStepCompleted = _useState38[0],
+    setSkillsStepCompleted = _useState38[1];
   var credentialFileRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useNavigate)();
+  var isMounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
+  var abortController = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(new AbortController());
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    isMounted.current = true;
+    return function () {
+      isMounted.current = false;
+      abortController.current.abort();
+    };
+  }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (user !== null && user !== void 0 && user.id) {
+      console.log('SkillRatingModal: Initializing for user ID:', user.id);
+      checkProfileCompletion();
       fetchProfile();
       fetchSkills();
       loadFromLocalStorage();
+    } else {
+      console.warn('No user ID provided, skipping initialization');
     }
   }, [user === null || user === void 0 ? void 0 : user.id]);
-  var loadFromLocalStorage = function loadFromLocalStorage() {
-    try {
-      var savedSkills = localStorage.getItem("userSkills_".concat(user.id));
-      if (savedSkills) {
-        var parsed = JSON.parse(savedSkills);
-        setUserSkills({
-          primary: parsed.primary || null,
-          additional: Array.isArray(parsed.additional) ? parsed.additional : []
-        });
-      }
-      var savedPrimary = localStorage.getItem("primarySkill_".concat(user.id));
-      if (savedPrimary) setPrimarySkill(JSON.parse(savedPrimary));
-      var savedAdditional = localStorage.getItem("additionalSkills_".concat(user.id));
-      if (savedAdditional) setAdditionalSkills(JSON.parse(savedAdditional) || []);
-      var savedProfile = localStorage.getItem("profile_".concat(user.id));
-      if (savedProfile) setProfileId(parseInt(savedProfile));
-    } catch (error) {
-      console.error('Error loading from localStorage:', error);
-    }
-  };
-  var saveToLocalStorage = function saveToLocalStorage() {
-    try {
-      localStorage.setItem("userSkills_".concat(user.id), JSON.stringify(userSkills));
-      localStorage.setItem("primarySkill_".concat(user.id), JSON.stringify(primarySkill));
-      localStorage.setItem("additionalSkills_".concat(user.id), JSON.stringify(additionalSkills));
-      if (profileId) localStorage.setItem("profile_".concat(user.id), profileId.toString());
-    } catch (error) {
-      console.error('Error saving to localStorage:', error);
-    }
-  };
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    saveToLocalStorage();
-  }, [userSkills, primarySkill, additionalSkills, profileId]);
-  var fetchProfile = /*#__PURE__*/function () {
+  var checkProfileCompletion = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var authToken, response, errorData, profile, _t;
+      var _profileData$worker, _profileData$worker2, isComplete, skillsCompleted, authToken, response, profileData, skills, hasCredentials, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -152885,128 +153400,332 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               _context.n = 1;
               break;
             }
-            console.warn('No user ID provided for fetching profile');
+            console.warn('No user ID for profile completion check');
             return _context.a(2);
           case 1:
-            _context.p = 1;
-            authToken = localStorage.getItem('auth_token');
-            if (authToken) {
-              _context.n = 2;
+            console.log('Checking profile completion for user:', user.id);
+            _context.p = 2;
+            isComplete = localStorage.getItem("isProfileComplete_".concat(user.id));
+            skillsCompleted = localStorage.getItem("skillsStepCompleted_".concat(user.id));
+            console.log('LocalStorage - isProfileComplete:', isComplete, 'skillsStepCompleted:', skillsCompleted);
+            if (!(isComplete === 'true' || skillsCompleted === 'true')) {
+              _context.n = 3;
               break;
             }
-            throw new Error('No authentication token found');
-          case 2:
-            _context.n = 3;
-            return fetch("/api/profiles?user_id=".concat(user.id), {
+            console.log('Profile or skills already completed, setting states to true');
+            setIsProfileComplete(true);
+            setSkillsStepCompleted(true);
+            localStorage.setItem("skillsStepCompleted_".concat(user.id), 'true');
+            if (isMounted.current) navigate('/homepage');
+            return _context.a(2);
+          case 3:
+            authToken = localStorage.getItem('auth_token');
+            if (authToken) {
+              _context.n = 4;
+              break;
+            }
+            console.warn('No authentication token found');
+            return _context.a(2);
+          case 4:
+            _context.n = 5;
+            return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id), {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
                 'Authorization': "Bearer ".concat(authToken)
-              }
+              },
+              signal: abortController.current.signal
             });
-          case 3:
+          case 5:
             response = _context.v;
             if (response.ok) {
-              _context.n = 5;
+              _context.n = 6;
               break;
             }
-            _context.n = 4;
-            return response.json()["catch"](function () {
-              return {};
+            console.error('Worker fetch failed:', response.status, response.statusText);
+            return _context.a(2);
+          case 6:
+            _context.n = 7;
+            return response.json();
+          case 7:
+            profileData = _context.v;
+            console.log('Profile data from /api/workers:', JSON.stringify(profileData, null, 2));
+            skills = Array.isArray(profileData === null || profileData === void 0 || (_profileData$worker = profileData.worker) === null || _profileData$worker === void 0 ? void 0 : _profileData$worker.skills_id) ? profileData.worker.skills_id : [];
+            hasCredentials = Array.isArray(profileData === null || profileData === void 0 || (_profileData$worker2 = profileData.worker) === null || _profileData$worker2 === void 0 ? void 0 : _profileData$worker2.credentials_name) && profileData.worker.credentials_name.length > 0;
+            if (skills.length >= 2 && hasCredentials) {
+              console.log("Found ".concat(skills.length, " skills and credentials, setting skillsStepCompleted to true"));
+              setIsProfileComplete(true);
+              setSkillsStepCompleted(true);
+              localStorage.setItem("isProfileComplete_".concat(user.id), 'true');
+              localStorage.setItem("skillsStepCompleted_".concat(user.id), 'true');
+              if (isMounted.current) navigate('/homepage');
+            } else {
+              console.log("Skills found: ".concat(skills.length, ", Credentials: ").concat(hasCredentials ? 'Yes' : 'No', ", keeping skillsStepCompleted as false"));
+              localStorage.setItem("skillsStepCompleted_".concat(user.id), 'false');
+            }
+            _context.n = 10;
+            break;
+          case 8:
+            _context.p = 8;
+            _t = _context.v;
+            if (!(_t.name === 'AbortError')) {
+              _context.n = 9;
+              break;
+            }
+            console.log('Profile completion check aborted');
+            return _context.a(2);
+          case 9:
+            console.error('Error checking profile completion:', _t.message);
+          case 10:
+            return _context.a(2);
+        }
+      }, _callee, null, [[2, 8]]);
+    }));
+    return function checkProfileCompletion() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var loadFromLocalStorage = function loadFromLocalStorage() {
+    if (!(user !== null && user !== void 0 && user.id)) {
+      console.warn('No user ID for loading localStorage');
+      return;
+    }
+    console.log('Loading from localStorage for user:', user.id);
+    try {
+      var savedSkills = localStorage.getItem("userSkills_".concat(user.id));
+      if (savedSkills) {
+        var parsed = JSON.parse(savedSkills);
+        console.log('Loaded userSkills:', parsed);
+        setUserSkills({
+          primary: parsed.primary || null,
+          additional: Array.isArray(parsed.additional) ? parsed.additional : []
+        });
+        if (parsed.primary && parsed.additional.length > 0) {
+          console.log('Primary and additional skills found in localStorage, setting skillsStepCompleted to true');
+          setSkillsStepCompleted(true);
+          localStorage.setItem("skillsStepCompleted_".concat(user.id), 'true');
+        }
+      }
+      var savedPrimary = localStorage.getItem("primarySkill_".concat(user.id));
+      if (savedPrimary) {
+        console.log('Loaded primarySkill:', JSON.parse(savedPrimary));
+        setPrimarySkill(JSON.parse(savedPrimary));
+      }
+      var savedAdditional = localStorage.getItem("additionalSkills_".concat(user.id));
+      if (savedAdditional) {
+        console.log('Loaded additionalSkills:', JSON.parse(savedAdditional));
+        setAdditionalSkills(JSON.parse(savedAdditional) || []);
+      }
+      var savedProfile = localStorage.getItem("profile_".concat(user.id));
+      if (savedProfile) {
+        console.log('Loaded profileId:', savedProfile);
+        setProfileId(parseInt(savedProfile));
+      }
+      var skillsCompleted = localStorage.getItem("skillsStepCompleted_".concat(user.id));
+      if (skillsCompleted === 'true') {
+        console.log('skillsStepCompleted found in localStorage as true');
+        setSkillsStepCompleted(true);
+      } else {
+        console.log('skillsStepCompleted in localStorage:', skillsCompleted);
+      }
+    } catch (error) {
+      console.error('Error loading from localStorage:', error.message);
+    }
+  };
+  var saveToLocalStorage = function saveToLocalStorage() {
+    if (!(user !== null && user !== void 0 && user.id)) {
+      console.warn('Cannot save to localStorage: user or user.id is missing');
+      return;
+    }
+    console.log('Saving to localStorage for user:', user.id, 'skillsStepCompleted:', skillsStepCompleted);
+    try {
+      localStorage.setItem("userSkills_".concat(user.id), JSON.stringify(userSkills));
+      localStorage.setItem("primarySkill_".concat(user.id), JSON.stringify(primarySkill));
+      localStorage.setItem("additionalSkills_".concat(user.id), JSON.stringify(additionalSkills));
+      localStorage.setItem("skillsStepCompleted_".concat(user.id), skillsStepCompleted.toString());
+      if (profileId) localStorage.setItem("profile_".concat(user.id), profileId.toString());
+    } catch (error) {
+      console.error('Error saving to localStorage:', error.message);
+    }
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (isMounted.current) {
+      saveToLocalStorage();
+    }
+  }, [userSkills, primarySkill, additionalSkills, profileId, skillsStepCompleted]);
+  var fetchProfile = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var authToken, response, profile, _profile$worker, _profile$worker2, _profile$worker3, skills, hasCredentials, primary, additional, creds, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            if (user !== null && user !== void 0 && user.id) {
+              _context2.n = 1;
+              break;
+            }
+            console.warn('No user ID provided for fetching profile');
+            return _context2.a(2);
+          case 1:
+            console.log('Fetching profile for user:', user.id);
+            _context2.p = 2;
+            authToken = localStorage.getItem('auth_token');
+            if (authToken) {
+              _context2.n = 3;
+              break;
+            }
+            throw new Error('No authentication token found');
+          case 3:
+            _context2.n = 4;
+            return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id), {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer ".concat(authToken)
+              },
+              signal: abortController.current.signal
             });
           case 4:
-            errorData = _context.v;
-            throw new Error(errorData.message || 'Failed to fetch profile');
+            response = _context2.v;
+            if (response.ok) {
+              _context2.n = 5;
+              break;
+            }
+            console.error('Worker fetch failed:', response.status, response.statusText);
+            throw new Error('Failed to fetch worker profile');
           case 5:
-            _context.n = 6;
+            _context2.n = 6;
             return response.json();
           case 6:
-            profile = _context.v;
-            if (profile && profile.id) {
+            profile = _context2.v;
+            console.log('Fetched profile from /api/workers:', JSON.stringify(profile, null, 2));
+            if (profile && profile.id && isMounted.current) {
               setProfileId(profile.id);
-              console.log('Fetched profile_id:', profile.id);
+              skills = Array.isArray((_profile$worker = profile.worker) === null || _profile$worker === void 0 ? void 0 : _profile$worker.skills_id) ? profile.worker.skills_id : [];
+              hasCredentials = Array.isArray((_profile$worker2 = profile.worker) === null || _profile$worker2 === void 0 ? void 0 : _profile$worker2.credentials_name) && profile.worker.credentials_name.length > 0;
+              if (skills.length >= 2 && hasCredentials) {
+                console.log("Found ".concat(skills.length, " skills and credentials, setting skillsStepCompleted to true"));
+                primary = skills[0] || null;
+                additional = skills.slice(1) || [];
+                setUserSkills({
+                  primary: primary,
+                  additional: additional
+                });
+                setPrimarySkill(primary);
+                setAdditionalSkills(additional);
+                setSkillsStepCompleted(true);
+                localStorage.setItem("skillsStepCompleted_".concat(user.id), 'true');
+                localStorage.setItem("isProfileComplete_".concat(user.id), 'true');
+              } else {
+                console.log("Skills found: ".concat(skills.length, ", Credentials: ").concat(hasCredentials ? 'Yes' : 'No', ", setting skillsStepCompleted to false"));
+                setSkillsStepCompleted(false);
+                localStorage.setItem("skillsStepCompleted_".concat(user.id), 'false');
+              }
+              if ((_profile$worker3 = profile.worker) !== null && _profile$worker3 !== void 0 && _profile$worker3.credentials_name) {
+                creds = profile.worker.credentials_name.map(function (name, index) {
+                  var _profile$worker$crede;
+                  return {
+                    credentials_name: name,
+                    credentials_photo: ((_profile$worker$crede = profile.worker.credentials_photo) === null || _profile$worker$crede === void 0 ? void 0 : _profile$worker$crede[index]) || null
+                  };
+                });
+                setCredentials(creds);
+                console.log('Loaded credentials:', creds);
+              }
             } else {
               console.error('No profile found for user:', user.id);
               alert('No profile found. Please create a profile first.');
             }
-            _context.n = 8;
+            _context2.n = 9;
             break;
           case 7:
-            _context.p = 7;
-            _t = _context.v;
-            console.error('Error fetching profile:', _t);
-            alert("Failed to load profile: ".concat(_t.message, ". Please try again."));
+            _context2.p = 7;
+            _t2 = _context2.v;
+            if (!(_t2.name === 'AbortError')) {
+              _context2.n = 8;
+              break;
+            }
+            console.log('Profile fetch aborted');
+            return _context2.a(2);
           case 8:
-            return _context.a(2);
+            console.error('Error fetching profile:', _t2.message);
+            alert("Failed to load profile: ".concat(_t2.message, ". Please try again."));
+          case 9:
+            return _context2.a(2);
         }
-      }, _callee, null, [[1, 7]]);
+      }, _callee2, null, [[2, 7]]);
     }));
     return function fetchProfile() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
   var fetchSkills = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var authToken, response, errorData, data, skillsWithArrays, _t2;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+      var authToken, response, data, skillsWithArrays, _t3;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
           case 0:
-            _context2.p = 0;
+            console.log('Fetching skills');
+            _context3.p = 1;
             authToken = localStorage.getItem('auth_token');
             if (authToken) {
-              _context2.n = 1;
+              _context3.n = 2;
               break;
             }
             throw new Error('No authentication token found');
-          case 1:
-            _context2.n = 2;
+          case 2:
+            _context3.n = 3;
             return fetch('/api/skills', {
               headers: {
                 'Content-Type': 'application/json',
                 'Authorization': "Bearer ".concat(authToken)
-              }
-            });
-          case 2:
-            response = _context2.v;
-            if (response.ok) {
-              _context2.n = 4;
-              break;
-            }
-            _context2.n = 3;
-            return response.json()["catch"](function () {
-              return {};
+              },
+              signal: abortController.current.signal
             });
           case 3:
-            errorData = _context2.v;
-            throw new Error(errorData.message || 'Failed to fetch skills');
+            response = _context3.v;
+            if (response.ok) {
+              _context3.n = 4;
+              break;
+            }
+            console.error('Skills fetch failed:', response.status, response.statusText);
+            throw new Error('Failed to fetch skills');
           case 4:
-            _context2.n = 5;
+            _context3.n = 5;
             return response.json();
           case 5:
-            data = _context2.v;
+            data = _context3.v;
             console.log('Fetched skills:', data);
             skillsWithArrays = data.map(function (skill) {
               return _objectSpread(_objectSpread({}, skill), {}, {
                 sub_skills: Array.isArray(skill.sub_skills) ? skill.sub_skills : []
               });
             });
-            setAvailableSkills(skillsWithArrays);
-            setFilteredSkillsPrimary(skillsWithArrays);
-            setFilteredSkillsAdditional(skillsWithArrays);
-            _context2.n = 7;
+            if (isMounted.current) {
+              setAvailableSkills(skillsWithArrays);
+              setFilteredSkillsPrimary(skillsWithArrays);
+              setFilteredSkillsAdditional(skillsWithArrays);
+            }
+            _context3.n = 8;
             break;
           case 6:
-            _context2.p = 6;
-            _t2 = _context2.v;
-            console.error('Error fetching skills:', _t2);
-            alert('Failed to load skills: ' + _t2.message);
+            _context3.p = 6;
+            _t3 = _context3.v;
+            if (!(_t3.name === 'AbortError')) {
+              _context3.n = 7;
+              break;
+            }
+            console.log('Skills fetch aborted');
+            return _context3.a(2);
           case 7:
-            return _context2.a(2);
+            console.error('Error fetching skills:', _t3.message);
+            alert('Failed to load skills: ' + _t3.message);
+          case 8:
+            return _context3.a(2);
         }
-      }, _callee2, null, [[0, 6]]);
+      }, _callee3, null, [[1, 6]]);
     }));
     return function fetchSkills() {
-      return _ref3.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -153038,6 +153757,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     }
   }, [searchTermAdditional, availableSkills, primarySkill]);
   var handlePrimarySkillSelect = function handlePrimarySkillSelect(value) {
+    console.log('Selecting primary skill:', value);
     if (primarySkill) {
       alert('Only one primary skill can be selected.');
       return;
@@ -153058,7 +153778,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     if (userSkills.additional.some(function (userSkill) {
       return userSkill.skill_id === skill.id;
     })) {
-      alert('This skill has already been added.');
+      alert('This skill has already been added as an additional skill.');
       return;
     }
     console.log('Opening sub-skills modal for skill:', skill);
@@ -153068,11 +153788,8 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     setShowSkillModal(true);
   };
   var handleAdditionalSkillsSelect = function handleAdditionalSkillsSelect(values) {
+    console.log('Selecting additional skills:', values);
     var totalSkills = (userSkills.primary ? 1 : 0) + userSkills.additional.length;
-    if (totalSkills + values.length > 15) {
-      alert('You can only add up to 15 skills total.');
-      return;
-    }
     var newSkills = values.map(function (id) {
       return availableSkills.find(function (s) {
         return s.id === parseInt(id);
@@ -153082,6 +153799,10 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
         return userSkill.skill_id === skill.id;
       }) && (!userSkills.primary || userSkills.primary.skill_id !== skill.id);
     });
+    if (totalSkills + newSkills.length > 15) {
+      alert("You can only add up to 15 skills. You can add ".concat(15 - totalSkills, " more skill(s)."));
+      return;
+    }
     if (newSkills.length > 0) {
       console.log('Opening sub-skills modal for additional skills:', newSkills);
       setPendingSkills(newSkills);
@@ -153094,6 +153815,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     }
   };
   var handleSkillItemClick = function handleSkillItemClick(skill, action) {
+    console.log('Skill item action:', action, 'for skill:', skill);
     if (action === 'edit') {
       var originalSkill = availableSkills.find(function (s) {
         return s.id === skill.id || s.id === skill.skill_id;
@@ -153137,9 +153859,16 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
           return s.id !== skill.id && s.id !== skill.skill_id;
         });
       });
+      var totalSkills = (userSkills.primary ? 1 : 0) + userSkills.additional.length - 1;
+      if (totalSkills < 2) {
+        console.log('Skills reduced to <2, setting skillsStepCompleted to false');
+        setSkillsStepCompleted(false);
+        localStorage.setItem("skillsStepCompleted_".concat(user.id), 'false');
+      }
     }
   };
   var handleAddSubSkill = function handleAddSubSkill(subSkill) {
+    console.log('Adding sub-skill:', subSkill);
     if (selectedSubSkills.includes(subSkill)) {
       alert('This sub-skill is already selected.');
       return;
@@ -153154,6 +153883,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     });
   };
   var handleRemoveSubSkill = function handleRemoveSubSkill(subSkill) {
+    console.log('Removing sub-skill:', subSkill);
     setSelectedSubSkills(function (prev) {
       return prev.filter(function (s) {
         return s !== subSkill;
@@ -153165,6 +153895,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
   };
   var handleNewCredentialChange = function handleNewCredentialChange(e, field) {
     var _e$target, _e$target2;
+    console.log('Changing credential field:', field);
     var value = ((_e$target = e.target) === null || _e$target === void 0 ? void 0 : _e$target.type) === "file" ? e.target.files[0] : ((_e$target2 = e.target) === null || _e$target2 === void 0 ? void 0 : _e$target2.value) || e;
     if (field === "credentials_photo" && value) {
       if (!["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "image/jpeg", "image/png"].includes(value.type)) {
@@ -153195,6 +153926,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     });
   };
   var addCredential = function addCredential() {
+    console.log('Adding credential:', newCredential);
     if (!newCredential.credentials_name) {
       setErrors(function (prev) {
         return _objectSpread(_objectSpread({}, prev), {}, {
@@ -153229,6 +153961,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     }
   };
   var removeCredential = function removeCredential(index) {
+    console.log('Removing credential at index:', index);
     setCredentials(function (prev) {
       return prev.filter(function (_, i) {
         return i !== index;
@@ -153241,64 +153974,55 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
     });
   };
   var handleSaveSkill = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
       var _selectedSkill$sub_sk;
-      var invalidSubSkills, newSkill, authToken, response, _Object$values$, errorData, errorMsg, data, _t3, _t4;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
+      var newSkill, authToken, response, _Object$values$, errorData, errorMsg, data, _userSkills$primary, totalSkills, _t4, _t5;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
           case 0:
+            console.log('Saving skill:', selectedSkill);
             if (selectedSkill) {
-              _context3.n = 1;
+              _context4.n = 1;
               break;
             }
             alert('Please select a skill');
-            return _context3.a(2);
+            return _context4.a(2);
           case 1:
             if (!(((_selectedSkill$sub_sk = selectedSkill.sub_skills) === null || _selectedSkill$sub_sk === void 0 ? void 0 : _selectedSkill$sub_sk.length) > 0 && selectedSubSkills.length === 0)) {
-              _context3.n = 2;
+              _context4.n = 2;
               break;
             }
             alert('Please select at least one sub-skill for this skill.');
-            return _context3.a(2);
+            return _context4.a(2);
           case 2:
             if (profileId) {
-              _context3.n = 3;
+              _context4.n = 3;
               break;
             }
             alert('Profile not loaded. Please wait and try again.');
-            return _context3.a(2);
+            return _context4.a(2);
           case 3:
-            // Validate sub-skills
-            invalidSubSkills = selectedSubSkills.filter(function (subSkill) {
-              return !selectedSkill.sub_skills.includes(subSkill);
-            });
-            if (!(invalidSubSkills.length > 0)) {
-              _context3.n = 4;
-              break;
-            }
-            alert("Invalid sub-skills selected: ".concat(invalidSubSkills.join(', '), ". Please select valid sub-skills."));
-            return _context3.a(2);
-          case 4:
             newSkill = {
-              skill_id: selectedSkill.id,
-              name: selectedSkill.name,
+              skill_id: String(selectedSkill.id),
+              skill_name: selectedSkill.name,
               sub_skills: selectedSubSkills
             };
             authToken = localStorage.getItem('auth_token');
             if (authToken) {
-              _context3.n = 5;
+              _context4.n = 4;
               break;
             }
             alert('Authentication token missing. Please log in again.');
-            return _context3.a(2);
-          case 5:
-            _context3.p = 5;
+            return _context4.a(2);
+          case 4:
+            _context4.p = 4;
             console.log('Sending request to /api/add-skill:', {
               profile_id: profileId,
               skill_id: selectedSkill.id,
+              skill_name: selectedSkill.name,
               sub_skills: selectedSubSkills
             });
-            _context3.n = 6;
+            _context4.n = 5;
             return fetch('/api/add-skill', {
               method: 'POST',
               headers: {
@@ -153308,166 +154032,228 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               body: JSON.stringify({
                 profile_id: profileId,
                 skill_id: selectedSkill.id,
+                skill_name: selectedSkill.name,
                 sub_skills: selectedSubSkills.length > 0 ? selectedSubSkills : []
-              })
+              }),
+              signal: abortController.current.signal
             });
-          case 6:
-            response = _context3.v;
+          case 5:
+            response = _context4.v;
             if (response.ok) {
-              _context3.n = 11;
+              _context4.n = 10;
               break;
             }
             errorData = {};
-            _context3.p = 7;
-            _context3.n = 8;
+            _context4.p = 6;
+            _context4.n = 7;
             return response.json();
-          case 8:
-            errorData = _context3.v;
-            _context3.n = 10;
+          case 7:
+            errorData = _context4.v;
+            _context4.n = 9;
             break;
-          case 9:
-            _context3.p = 9;
-            _t3 = _context3.v;
+          case 8:
+            _context4.p = 8;
+            _t4 = _context4.v;
             errorData = {
               message: "HTTP ".concat(response.status, ": ").concat(response.statusText)
             };
-          case 10:
+          case 9:
             console.error('Error response from /api/add-skill:', errorData);
             errorMsg = errorData.message || errorData.error || (errorData.errors ? (_Object$values$ = Object.values(errorData.errors)[0]) === null || _Object$values$ === void 0 ? void 0 : _Object$values$[0] : 'Failed to save skill');
             throw new Error(errorMsg);
-          case 11:
-            _context3.n = 12;
+          case 10:
+            _context4.n = 11;
             return response.json();
-          case 12:
-            data = _context3.v;
-            console.log('Skill saved successfully:', data);
-
-            // Update state only if skill isn't already present
-            setUserSkills(function (prev) {
-              var skillExists = prev.primary && prev.primary.skill_id === newSkill.skill_id || prev.additional.some(function (userSkill) {
-                return userSkill.skill_id === newSkill.skill_id;
-              });
-              if (skillExists) {
-                console.log('Skill already exists in userSkills, skipping state update');
-                return prev;
-              }
-              if (!prev.primary) {
-                return {
-                  primary: newSkill,
-                  additional: prev.additional
-                };
-              }
-              return _objectSpread(_objectSpread({}, prev), {}, {
-                additional: [].concat(_toConsumableArray(prev.additional), [newSkill])
-              });
-            });
-
-            // Update primarySkill and additionalSkills
-            if (!primarySkill) {
-              setPrimarySkill(newSkill);
-            } else {
-              setAdditionalSkills(function (prev) {
-                if (prev.some(function (s) {
-                  return s.skill_id === newSkill.skill_id;
-                })) {
-                  console.log('Skill already exists in additionalSkills, skipping update');
-                  return prev;
+          case 11:
+            data = _context4.v;
+            console.log('Skill response:', data);
+            if (data.message === 'Skill already added') {
+              if (!((_userSkills$primary = userSkills.primary) !== null && _userSkills$primary !== void 0 && _userSkills$primary.skill_id) === newSkill.skill_id && !userSkills.additional.some(function (s) {
+                return s.skill_id === newSkill.skill_id;
+              })) {
+                if (isMounted.current) {
+                  setUserSkills(function (prev) {
+                    if (!prev.primary) {
+                      return {
+                        primary: newSkill,
+                        additional: prev.additional
+                      };
+                    }
+                    return _objectSpread(_objectSpread({}, prev), {}, {
+                      additional: [].concat(_toConsumableArray(prev.additional), [newSkill])
+                    });
+                  });
+                  if (!primarySkill) {
+                    setPrimarySkill(newSkill);
+                  } else {
+                    setAdditionalSkills(function (prev) {
+                      if (!prev.some(function (s) {
+                        return s.skill_id === newSkill.skill_id;
+                      })) {
+                        return [].concat(_toConsumableArray(prev), [newSkill]);
+                      }
+                      return prev;
+                    });
+                  }
                 }
-                return [].concat(_toConsumableArray(prev), [newSkill]);
-              });
-            }
-
-            // Handle pending skills
-            setPendingSkills(function (prev) {
-              var nextSkills = prev.filter(function (skill) {
-                return skill.id !== selectedSkill.id;
-              });
-              if (nextSkills.length > 0) {
-                setTimeout(function () {
-                  setSelectedSkill(nextSkills[0]);
-                  setAvailableSubSkills(nextSkills[0].sub_skills || []);
-                  setSelectedSubSkills([]);
-                }, 100);
-                return nextSkills;
-              } else {
-                setShowSkillModal(false);
-                setSelectedSkill(null);
-                setAvailableSubSkills([]);
-                return [];
               }
-            });
-            _context3.n = 14;
+            } else {
+              if (isMounted.current) {
+                setUserSkills(function (prev) {
+                  var _prev$primary;
+                  if (((_prev$primary = prev.primary) === null || _prev$primary === void 0 ? void 0 : _prev$primary.skill_id) === newSkill.skill_id || prev.additional.some(function (s) {
+                    return s.skill_id === newSkill.skill_id;
+                  })) {
+                    return prev;
+                  }
+                  if (!prev.primary) {
+                    return {
+                      primary: newSkill,
+                      additional: prev.additional
+                    };
+                  }
+                  return _objectSpread(_objectSpread({}, prev), {}, {
+                    additional: [].concat(_toConsumableArray(prev.additional), [newSkill])
+                  });
+                });
+                if (!primarySkill) {
+                  setPrimarySkill(newSkill);
+                } else {
+                  setAdditionalSkills(function (prev) {
+                    if (!prev.some(function (s) {
+                      return s.skill_id === newSkill.skill_id;
+                    })) {
+                      return [].concat(_toConsumableArray(prev), [newSkill]);
+                    }
+                    return prev;
+                  });
+                }
+              }
+            }
+            if (isMounted.current) {
+              setPendingSkills(function (prev) {
+                var nextSkills = prev.filter(function (skill) {
+                  return skill.id !== selectedSkill.id;
+                });
+                if (nextSkills.length > 0) {
+                  setTimeout(function () {
+                    if (isMounted.current) {
+                      setSelectedSkill(nextSkills[0]);
+                      setAvailableSubSkills(nextSkills[0].sub_skills || []);
+                      setSelectedSubSkills([]);
+                    }
+                  }, 100);
+                  return nextSkills;
+                } else {
+                  setShowSkillModal(false);
+                  setSelectedSkill(null);
+                  setAvailableSubSkills([]);
+                  return [];
+                }
+              });
+              totalSkills = (userSkills.primary ? 1 : 0) + userSkills.additional.length + 1;
+              if (totalSkills >= 2) {
+                console.log('Total skills >= 2 after adding, setting skillsStepCompleted to true');
+                setSkillsStepCompleted(true);
+                localStorage.setItem("skillsStepCompleted_".concat(user.id), 'true');
+              }
+            }
+            _context4.n = 14;
             break;
+          case 12:
+            _context4.p = 12;
+            _t5 = _context4.v;
+            if (!(_t5.name === 'AbortError')) {
+              _context4.n = 13;
+              break;
+            }
+            console.log('Skill save aborted');
+            return _context4.a(2);
           case 13:
-            _context3.p = 13;
-            _t4 = _context3.v;
-            console.error('Error saving skill:', _t4);
-            alert("Failed to save skill: ".concat(_t4.message, ". Please try again."));
+            console.error('Error saving skill:', _t5.message);
+            alert("Failed to save skill: ".concat(_t5.message, ". Please try again."));
           case 14:
-            return _context3.a(2);
+            return _context4.a(2);
         }
-      }, _callee3, null, [[7, 9], [5, 13]]);
+      }, _callee4, null, [[6, 8], [4, 12]]);
     }));
     return function handleSaveSkill() {
-      return _ref4.apply(this, arguments);
+      return _ref5.apply(this, arguments);
     };
   }();
   var handleModalClose = function handleModalClose() {
-    setPendingSkills(function (prev) {
-      var nextSkills = prev.filter(function (skill) {
-        return skill.id !== (selectedSkill === null || selectedSkill === void 0 ? void 0 : selectedSkill.id);
+    console.log('Closing skill modal');
+    if (isMounted.current) {
+      setPendingSkills(function (prev) {
+        var nextSkills = prev.filter(function (skill) {
+          return skill.id !== (selectedSkill === null || selectedSkill === void 0 ? void 0 : selectedSkill.id);
+        });
+        if (nextSkills.length > 0) {
+          setSelectedSkill(nextSkills[0]);
+          setAvailableSubSkills(nextSkills[0].sub_skills || []);
+          setSelectedSubSkills([]);
+          return nextSkills;
+        } else {
+          setShowSkillModal(false);
+          setSelectedSkill(null);
+          setAvailableSubSkills([]);
+          return [];
+        }
       });
-      if (nextSkills.length > 0) {
-        setSelectedSkill(nextSkills[0]);
-        setAvailableSubSkills(nextSkills[0].sub_skills || []);
-        setSelectedSubSkills([]);
-        return nextSkills;
-      } else {
-        setShowSkillModal(false);
-        setSelectedSkill(null);
-        setAvailableSubSkills([]);
-        return [];
-      }
-    });
+    }
   };
   var handleNextStep = function handleNextStep() {
+    console.log('Next step clicked, userSkills:', userSkills);
     if (!userSkills.primary || userSkills.additional.length === 0) {
       alert('Please select 1 primary skill and at least 1 additional skill before proceeding.');
       return;
     }
+    setSkillsStepCompleted(true);
+    localStorage.setItem("skillsStepCompleted_".concat(user.id), 'true');
+    console.log('skillsStepCompleted set to true, moving to step 4');
     setStep(4);
   };
   var handlePreviousStep = function handlePreviousStep() {
+    console.log('Previous step clicked');
     setStep(3);
   };
   var handleFinalFinish = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var submitData, authToken, response, errorData, errorMsg, _t5;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
+      var skillsId, submitData, authToken, response, errorData, errorMsg, _t6;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
           case 0:
+            console.log('Final finish clicked, profileId:', profileId, 'userSkills:', userSkills);
             if (profileId) {
-              _context4.n = 1;
+              _context5.n = 1;
               break;
             }
             alert('Profile ID not found. Please create a profile first.');
-            return _context4.a(2);
+            return _context5.a(2);
           case 1:
             if (!(!userSkills.primary || userSkills.additional.length === 0)) {
-              _context4.n = 2;
+              _context5.n = 2;
               break;
             }
             alert('Please select at least 1 primary and 1 additional skill.');
-            return _context4.a(2);
+            return _context5.a(2);
           case 2:
+            skillsId = [_objectSpread(_objectSpread({}, userSkills.primary), {}, {
+              sub_skills: userSkills.primary.sub_skills || []
+            })].concat(_toConsumableArray(userSkills.additional.map(function (skill) {
+              return _objectSpread(_objectSpread({}, skill), {}, {
+                sub_skills: skill.sub_skills || []
+              });
+            })));
             submitData = new FormData();
             submitData.append('profile_id', profileId);
             submitData.append('work_type', 'part-time');
-            submitData.append('skills_id[primary][skill_id]', userSkills.primary.skill_id);
-            submitData.append('skills_id[primary][sub_skills]', JSON.stringify(userSkills.primary.sub_skills || []));
-            userSkills.additional.forEach(function (skill, index) {
-              submitData.append("skills_id[additional][".concat(index, "][skill_id]"), skill.skill_id);
-              submitData.append("skills_id[additional][".concat(index, "][sub_skills]"), JSON.stringify(skill.sub_skills || []));
+            skillsId.forEach(function (skill, index) {
+              submitData.append("skills_id[".concat(index, "][skill_id]"), skill.skill_id);
+              submitData.append("skills_id[".concat(index, "][skill_name]"), skill.skill_name);
+              skill.sub_skills.forEach(function (subSkill, subIndex) {
+                submitData.append("skills_id[".concat(index, "][sub_skills][").concat(subIndex, "]"), subSkill);
+              });
             });
             credentials.forEach(function (cred, index) {
               submitData.append("credentials[".concat(index, "][credentials_name]"), cred.credentials_name);
@@ -153477,63 +154263,75 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             });
             authToken = localStorage.getItem('auth_token');
             if (authToken) {
-              _context4.n = 3;
+              _context5.n = 3;
               break;
             }
             alert('Authentication token missing. Please log in again.');
-            return _context4.a(2);
+            return _context5.a(2);
           case 3:
-            _context4.p = 3;
+            _context5.p = 3;
             console.log('Submitting complete profile data:', {
               profile_id: profileId,
               work_type: 'part-time',
-              skills_id: userSkills,
+              skills_id: skillsId,
               credentials_count: credentials.length
             });
-            _context4.n = 4;
+            _context5.n = 4;
             return fetch('/api/complete-profile', {
               method: 'POST',
               headers: {
                 'Authorization': "Bearer ".concat(authToken)
               },
-              body: submitData
+              body: submitData,
+              signal: abortController.current.signal
             });
           case 4:
-            response = _context4.v;
+            response = _context5.v;
             if (response.ok) {
-              _context4.n = 6;
+              _context5.n = 6;
               break;
             }
-            _context4.n = 5;
+            _context5.n = 5;
             return response.json()["catch"](function () {
               return {};
             });
           case 5:
-            errorData = _context4.v;
+            errorData = _context5.v;
             errorMsg = errorData.message || (errorData.errors ? Object.values(errorData.errors)[0][0] : 'Failed to complete profile');
             throw new Error(errorMsg);
           case 6:
-            localStorage.setItem("isProfileComplete_".concat(user.id), 'true');
-            localStorage.removeItem("userSkills_".concat(user.id));
-            localStorage.removeItem("primarySkill_".concat(user.id));
-            localStorage.removeItem("additionalSkills_".concat(user.id));
-            localStorage.removeItem("profile_".concat(user.id));
-            onComplete();
-            navigate('/homepage');
-            _context4.n = 8;
+            if (isMounted.current) {
+              console.log('Profile completed, clearing localStorage and navigating');
+              localStorage.setItem("isProfileComplete_".concat(user.id), 'true');
+              localStorage.setItem("skillsStepCompleted_".concat(user.id), 'true');
+              localStorage.removeItem("userSkills_".concat(user.id));
+              localStorage.removeItem("primarySkill_".concat(user.id));
+              localStorage.removeItem("additionalSkills_".concat(user.id));
+              localStorage.removeItem("profile_".concat(user.id));
+              onComplete();
+              navigate('/homepage');
+            }
+            _context5.n = 9;
             break;
           case 7:
-            _context4.p = 7;
-            _t5 = _context4.v;
-            console.error('Error completing profile:', _t5);
-            alert("Failed to complete profile: ".concat(_t5.message, ". Please try again."));
+            _context5.p = 7;
+            _t6 = _context5.v;
+            if (!(_t6.name === 'AbortError')) {
+              _context5.n = 8;
+              break;
+            }
+            console.log('Profile completion aborted');
+            return _context5.a(2);
           case 8:
-            return _context4.a(2);
+            console.error('Error completing profile:', _t6.message);
+            alert("Failed to complete profile: ".concat(_t6.message, ". Please try again."));
+          case 9:
+            return _context5.a(2);
         }
-      }, _callee4, null, [[3, 7]]);
+      }, _callee5, null, [[3, 7]]);
     }));
     return function handleFinalFinish() {
-      return _ref5.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     };
   }();
   var skillMenu = function skillMenu(skill) {
@@ -153551,7 +154349,10 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
       }, "remove")]
     });
   };
-  if (!isOpen) return null;
+  if (!isOpen || !(user !== null && user !== void 0 && user.id) || isProfileComplete) {
+    console.log('SkillRatingModal not rendered: isOpen=', isOpen, 'user.id=', user === null || user === void 0 ? void 0 : user.id, 'isProfileComplete=', isProfileComplete);
+    return null;
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
     className: "skill-rating-overlay",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -153582,10 +154383,10 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               children: "Create profile"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-            className: "step ".concat(step === 3 ? 'current' : ''),
+            className: "step ".concat(step === 3 ? 'current' : skillsStepCompleted ? 'completed' : ''),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "step-number",
-              children: "3"
+              children: skillsStepCompleted ? '✓' : '3'
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
               children: "Your skills"
             })]
@@ -153637,7 +154438,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                 }, skill.id);
               })
             }), primarySkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              overlay: skillMenu(primarySkill),
+              menu: skillMenu(primarySkill),
               trigger: ['click'],
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "skill-item ant-dropdown-trigger",
@@ -153647,7 +154448,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                   return e.key === 'Enter' && handleSkillItemClick(primarySkill, 'edit');
                 },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
-                  children: [primarySkill.name, " ", ((_primarySkill$sub_ski = primarySkill.sub_skills) === null || _primarySkill$sub_ski === void 0 ? void 0 : _primarySkill$sub_ski.length) > 0 ? "(Sub-skills: ".concat(primarySkill.sub_skills.join(', '), ")") : '']
+                  children: [primarySkill.skill_name, " ", ((_primarySkill$sub_ski = primarySkill.sub_skills) === null || _primarySkill$sub_ski === void 0 ? void 0 : _primarySkill$sub_ski.length) > 0 ? "(Sub-skills: ".concat(primarySkill.sub_skills.join(', '), ")") : '']
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
                   size: 16,
                   className: "dropdown-arrow"
@@ -153687,7 +154488,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               children: additionalSkills.map(function (skill) {
                 var _skill$sub_skills;
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                  overlay: skillMenu(skill),
+                  menu: skillMenu(skill),
                   trigger: ['click'],
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "skill-item ant-dropdown-trigger",
@@ -153697,7 +154498,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                       return e.key === 'Enter' && handleSkillItemClick(skill, 'edit');
                     },
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
-                      children: [skill.name, " ", ((_skill$sub_skills = skill.sub_skills) === null || _skill$sub_skills === void 0 ? void 0 : _skill$sub_skills.length) > 0 ? "(Sub-skills: ".concat(skill.sub_skills.join(', '), ")") : '']
+                      children: [skill.skill_name, " ", ((_skill$sub_skills = skill.sub_skills) === null || _skill$sub_skills === void 0 ? void 0 : _skill$sub_skills.length) > 0 ? "(Sub-skills: ".concat(skill.sub_skills.join(', '), ")") : '']
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_1__["default"], {
                       size: 16,
                       className: "dropdown-arrow"
@@ -153754,7 +154555,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                   onClick: addCredential,
                   children: "Add Credential"
                 })]
-              }), credentials.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              }), credentials.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                 className: "credential-list",
                 children: credentials.map(function (cred, index) {
                   var _cred$credentials_pho;
@@ -153769,6 +154570,8 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                     })]
                   }, index);
                 })
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                children: "No credentials added"
               }), errors.new_credential_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "error",
                 children: errors.new_credential_name
@@ -157147,7 +157950,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _sass_components_topnavbar_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../../sass/components/_topnavbar.scss */ "./resources/sass/components/_topnavbar.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -157163,19 +157967,24 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-var TopNavbar = function TopNavbar() {
+
+var Admintopnavbar = function Admintopnavbar() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     isDropdownOpen = _useState2[0],
     setIsDropdownOpen = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState4 = _slicedToArray(_useState3, 2),
-    user = _useState4[0],
-    setUser = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    isLoading = _useState4[0],
+    setIsLoading = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState6 = _slicedToArray(_useState5, 2),
-    imageError = _useState6[0],
-    setImageError = _useState6[1];
+    user = _useState6[0],
+    setUser = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    imageError = _useState8[0],
+    setImageError = _useState8[1];
   var dropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
 
@@ -157198,17 +158007,18 @@ var TopNavbar = function TopNavbar() {
       return document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  var toggleDropdown = function toggleDropdown(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log("Dropdown toggled, isDropdownOpen:", !isDropdownOpen); // Debug log
+  var toggleDropdown = function toggleDropdown() {
     setIsDropdownOpen(function (prev) {
       return !prev;
     });
   };
   var handleProfileSettings = function handleProfileSettings() {
     setIsDropdownOpen(false);
-    navigate("/profile");
+    setIsLoading(true);
+    setTimeout(function () {
+      navigate("/profile");
+      setIsLoading(false);
+    }, 800);
   };
   var handleLogout = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
@@ -157216,9 +158026,10 @@ var TopNavbar = function TopNavbar() {
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
-            _context.p = 0;
+            setIsLoading(true);
+            _context.p = 1;
             token = localStorage.getItem("auth_token");
-            _context.n = 1;
+            _context.n = 2;
             return fetch("http://127.0.0.1:8000/api/logout", {
               method: "POST",
               headers: {
@@ -157226,28 +158037,46 @@ var TopNavbar = function TopNavbar() {
                 "Content-Type": "application/json"
               }
             });
-          case 1:
+          case 2:
             response = _context.v;
             if (response.ok) {
-              localStorage.removeItem("user");
+              localStorage.clear(); // Clear all local storage
               setUser(null);
               setIsDropdownOpen(false);
-              navigate("/login", {
+              navigate("/", {
+                replace: true
+              }); // Navigate to homepage
+            } else {
+              console.error("Logout failed: ", response.status, response.statusText);
+              // Proceed with logout even if API call fails
+              localStorage.clear();
+              setUser(null);
+              setIsDropdownOpen(false);
+              navigate("/", {
                 replace: true
               });
-            } else {
-              console.error("Logout failed");
             }
-            _context.n = 3;
+            _context.n = 4;
             break;
-          case 2:
-            _context.p = 2;
-            _t = _context.v;
-            console.error("Logout error:", _t);
           case 3:
+            _context.p = 3;
+            _t = _context.v;
+            console.error("Logout error:", _t.message);
+            // Proceed with logout even if there's an error
+            localStorage.clear();
+            setUser(null);
+            setIsDropdownOpen(false);
+            navigate("/", {
+              replace: true
+            });
+          case 4:
+            _context.p = 4;
+            setIsLoading(false);
+            return _context.f(4);
+          case 5:
             return _context.a(2);
         }
-      }, _callee, null, [[0, 2]]);
+      }, _callee, null, [[1, 3, 4, 5]]);
     }));
     return function handleLogout() {
       return _ref.apply(this, arguments);
@@ -157256,45 +158085,48 @@ var TopNavbar = function TopNavbar() {
   var handleImageError = function handleImageError() {
     setImageError(true);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("header", {
     className: "top-navbar",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "profile",
       ref: dropdownRef,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
         src: imageError || !(user !== null && user !== void 0 && user.profile_img) ? "/default-profile.png" : user.profile_img,
         alt: "Profile",
         className: "profile-icon",
         onError: handleImageError
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaCaretDown, {
-        className: "dropdown-icon",
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "dropdown-toggle ".concat(isDropdownOpen ? "open" : ""),
         onClick: toggleDropdown,
-        role: "button",
-        "aria-expanded": isDropdownOpen,
-        "aria-label": "Toggle profile menu",
-        style: {
-          cursor: "pointer"
-        }
-      }), isDropdownOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "dropdown-menu",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-            onClick: handleProfileSettings,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaUserCog, {
-              className: "menu-icon"
-            }), " Profile Settings"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-            onClick: handleLogout,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaSignOutAlt, {
-              className: "menu-icon"
-            }), " Logout"]
-          })]
-        })
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaCaretDown, {
+          className: "dropdown-icon",
+          role: "button",
+          "aria-expanded": isDropdownOpen,
+          "aria-label": "Toggle profile menu",
+          style: {
+            cursor: "pointer"
+          }
+        }), isDropdownOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "dropdown-menu",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+              onClick: handleProfileSettings,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaUserCog, {
+                className: "menu-icon"
+              }), " Profile Settings"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+              onClick: handleLogout,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaSignOutAlt, {
+                className: "menu-icon"
+              }), " Logout"]
+            })]
+          })
+        })]
       })]
-    })
+    })]
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TopNavbar);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Admintopnavbar);
 
 /***/ }),
 
@@ -171567,6 +172399,7 @@ var Loader = function Loader() {
 var formatDate = function formatDate(dateString) {
   if (!dateString) return "N/A";
   var date = new Date(dateString);
+  if (isNaN(date.getTime())) return "N/A";
   return new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "2-digit",
@@ -171583,6 +172416,7 @@ var getFullName = function getFullName(worker) {
     middlename = _ref.middlename,
     last_name = _ref.last_name,
     suffix_id = _ref.suffix_id;
+  if (!first_name && !last_name) return "N/A";
   var fullName = "".concat(first_name || "").concat(middlename ? " " + middlename : "", " ").concat(last_name || "");
   if (suffix_id && suffixes.length > 0) {
     var _suffixes$find;
@@ -171591,7 +172425,7 @@ var getFullName = function getFullName(worker) {
     })) === null || _suffixes$find === void 0 ? void 0 : _suffixes$find.suffix_name;
     if (suffix) fullName += " ".concat(suffix);
   }
-  return fullName.trim() || "N/A";
+  return fullName.trim() || "Unknown Worker";
 };
 var WorkerList = function WorkerList() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -171686,7 +172520,7 @@ var WorkerList = function WorkerList() {
               _context.p = 2;
               _t = _context.v;
               if (_t.name !== "AbortError") {
-                antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch data.");
+                antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch data. Check console for details.");
                 console.error("Fetch data error:", _t);
               }
             case 3:
@@ -171720,6 +172554,7 @@ var WorkerList = function WorkerList() {
         workersData,
         _err$response,
         _err$response2,
+        errorMessage,
         _args2 = arguments,
         _t2;
       return _regenerator().w(function (_context2) {
@@ -171752,7 +172587,6 @@ var WorkerList = function WorkerList() {
             });
           case 3:
             response = _context2.v;
-            // Validate response data
             workersData = Array.isArray(response.data.workers) ? response.data.workers : [];
             setWorkers(workersData);
             setPagination({
@@ -171772,7 +172606,9 @@ var WorkerList = function WorkerList() {
             }
             return _context2.a(2);
           case 5:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response = _t2.response) === null || _err$response === void 0 || (_err$response = _err$response.data) === null || _err$response === void 0 ? void 0 : _err$response.error) || "Failed to fetch workers.");
+            errorMessage = ((_err$response = _t2.response) === null || _err$response === void 0 || (_err$response = _err$response.data) === null || _err$response === void 0 ? void 0 : _err$response.error) || "Failed to fetch workers.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
             console.error("Fetch workers error:", ((_err$response2 = _t2.response) === null || _err$response2 === void 0 ? void 0 : _err$response2.data) || _t2.message);
           case 6:
             return _context2.a(2);
@@ -171785,7 +172621,7 @@ var WorkerList = function WorkerList() {
   }();
   var fetchGenders = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(signal) {
-      var authToken, response, _t3;
+      var authToken, response, gendersData, _err$response3, _t3;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
@@ -171808,7 +172644,9 @@ var WorkerList = function WorkerList() {
             });
           case 2:
             response = _context3.v;
-            setGenders(Array.isArray(response.data) ? response.data : []);
+            gendersData = Array.isArray(response.data) ? response.data : [];
+            setGenders(gendersData);
+            console.log("Fetched genders:", gendersData);
             _context3.n = 5;
             break;
           case 3:
@@ -171820,7 +172658,7 @@ var WorkerList = function WorkerList() {
             }
             return _context3.a(2);
           case 4:
-            console.error("Error fetching genders:", _t3);
+            console.error("Error fetching genders:", ((_err$response3 = _t3.response) === null || _err$response3 === void 0 ? void 0 : _err$response3.data) || _t3.message);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch genders. Please try again.");
           case 5:
             return _context3.a(2);
@@ -171833,7 +172671,7 @@ var WorkerList = function WorkerList() {
   }();
   var fetchSuffixes = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(signal) {
-      var authToken, response, _t4;
+      var authToken, response, suffixesData, _err$response4, _t4;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
@@ -171856,7 +172694,9 @@ var WorkerList = function WorkerList() {
             });
           case 2:
             response = _context4.v;
-            setSuffixes(Array.isArray(response.data) ? response.data : []);
+            suffixesData = Array.isArray(response.data) ? response.data : [];
+            setSuffixes(suffixesData);
+            console.log("Fetched suffixes:", suffixesData);
             _context4.n = 5;
             break;
           case 3:
@@ -171868,7 +172708,7 @@ var WorkerList = function WorkerList() {
             }
             return _context4.a(2);
           case 4:
-            console.error("Error fetching suffixes:", _t4);
+            console.error("Error fetching suffixes:", ((_err$response4 = _t4.response) === null || _err$response4 === void 0 ? void 0 : _err$response4.data) || _t4.message);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch suffixes. Please try again.");
           case 5:
             return _context4.a(2);
@@ -171881,7 +172721,7 @@ var WorkerList = function WorkerList() {
   }();
   var fetchSkills = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(signal) {
-      var authToken, response, _t5;
+      var authToken, response, skillsData, _err$response5, _t5;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
@@ -171904,7 +172744,9 @@ var WorkerList = function WorkerList() {
             });
           case 2:
             response = _context5.v;
-            setSkills(Array.isArray(response.data) ? response.data : []);
+            skillsData = Array.isArray(response.data) ? response.data : [];
+            setSkills(skillsData);
+            console.log("Fetched skills:", skillsData);
             _context5.n = 5;
             break;
           case 3:
@@ -171916,7 +172758,7 @@ var WorkerList = function WorkerList() {
             }
             return _context5.a(2);
           case 4:
-            console.error("Error fetching skills:", _t5);
+            console.error("Error fetching skills:", ((_err$response5 = _t5.response) === null || _err$response5 === void 0 ? void 0 : _err$response5.data) || _t5.message);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch skills. Please try again.");
           case 5:
             return _context5.a(2);
@@ -171963,7 +172805,7 @@ var WorkerList = function WorkerList() {
   };
   var handleArchiveConfirm = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
-      var authToken, response, _err$response3, _err$response4, _t6;
+      var authToken, response, _err$response6, _err$response7, errorMessage, _t6;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
@@ -172016,8 +172858,10 @@ var WorkerList = function WorkerList() {
             }
             return _context6.a(2);
           case 7:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response3 = _t6.response) === null || _err$response3 === void 0 || (_err$response3 = _err$response3.data) === null || _err$response3 === void 0 ? void 0 : _err$response3.error) || "Failed to archive worker.");
-            console.error("Archive error:", ((_err$response4 = _t6.response) === null || _err$response4 === void 0 ? void 0 : _err$response4.data) || _t6.message);
+            errorMessage = ((_err$response6 = _t6.response) === null || _err$response6 === void 0 || (_err$response6 = _err$response6.data) === null || _err$response6 === void 0 ? void 0 : _err$response6.error) || "Failed to archive worker.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Archive error:", ((_err$response7 = _t6.response) === null || _err$response7 === void 0 ? void 0 : _err$response7.data) || _t6.message);
           case 8:
             _context6.p = 8;
             setLoading(false);
@@ -172033,7 +172877,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleRestoreWorker = /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(workerId) {
-      var worker, authToken, response, _err$response5, _err$response6, _t7;
+      var worker, authToken, response, _err$response8, _err$response9, errorMessage, _t7;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
           case 0:
@@ -172088,8 +172932,10 @@ var WorkerList = function WorkerList() {
             }
             return _context7.a(2);
           case 7:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response5 = _t7.response) === null || _err$response5 === void 0 || (_err$response5 = _err$response5.data) === null || _err$response5 === void 0 ? void 0 : _err$response5.error) || "Failed to restore worker.");
-            console.error("Restore error:", ((_err$response6 = _t7.response) === null || _err$response6 === void 0 ? void 0 : _err$response6.data) || _t7.message);
+            errorMessage = ((_err$response8 = _t7.response) === null || _err$response8 === void 0 || (_err$response8 = _err$response8.data) === null || _err$response8 === void 0 ? void 0 : _err$response8.error) || "Failed to restore worker.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Restore error:", ((_err$response9 = _t7.response) === null || _err$response9 === void 0 ? void 0 : _err$response9.data) || _t7.message);
           case 8:
             _context7.p = 8;
             setLoading(false);
@@ -172105,7 +172951,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleBulkAction = /*#__PURE__*/function () {
     var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(action) {
-      var authToken, validWorkerIds, response, _err$response7, _err$response8, _t8;
+      var authToken, validWorkerIds, response, _err$response0, _err$response1, errorMessage, _t8;
       return _regenerator().w(function (_context8) {
         while (1) switch (_context8.p = _context8.n) {
           case 0:
@@ -172172,8 +173018,10 @@ var WorkerList = function WorkerList() {
             }
             return _context8.a(2);
           case 8:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response7 = _t8.response) === null || _err$response7 === void 0 || (_err$response7 = _err$response7.data) === null || _err$response7 === void 0 ? void 0 : _err$response7.error) || "Failed to ".concat(action, " workers. Please try again."));
-            console.error("Bulk action error:", ((_err$response8 = _t8.response) === null || _err$response8 === void 0 ? void 0 : _err$response8.data) || _t8.message);
+            errorMessage = ((_err$response0 = _t8.response) === null || _err$response0 === void 0 || (_err$response0 = _err$response0.data) === null || _err$response0 === void 0 ? void 0 : _err$response0.error) || "Failed to ".concat(action, " workers. Please try again.");
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Bulk action error:", ((_err$response1 = _t8.response) === null || _err$response1 === void 0 ? void 0 : _err$response1.data) || _t8.message);
           case 9:
             _context8.p = 9;
             setLoading(false);
@@ -172204,7 +173052,8 @@ var WorkerList = function WorkerList() {
         province: "Agusan Del Norte",
         postal_code: "8600",
         country: "Philippines",
-        profile_img: null
+        profile_img: null,
+        image_url: null
       },
       worker: {
         work_type: "part-time",
@@ -172218,7 +173067,7 @@ var WorkerList = function WorkerList() {
   };
   var handleEditClick = /*#__PURE__*/function () {
     var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(worker) {
-      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, authToken, response, _err$response9, _err$response0, _t9;
+      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, authToken, response, _err$response10, _err$response11, errorMessage, _t9;
       return _regenerator().w(function (_context9) {
         while (1) switch (_context9.p = _context9.n) {
           case 0:
@@ -172257,7 +173106,8 @@ var WorkerList = function WorkerList() {
                 province: ((_response$data$profil9 = response.data.profile) === null || _response$data$profil9 === void 0 ? void 0 : _response$data$profil9.province) || "Agusan Del Norte",
                 postal_code: ((_response$data$profil0 = response.data.profile) === null || _response$data$profil0 === void 0 ? void 0 : _response$data$profil0.postal_code) || "8600",
                 country: ((_response$data$profil1 = response.data.profile) === null || _response$data$profil1 === void 0 ? void 0 : _response$data$profil1.country) || "Philippines",
-                profile_img: ((_response$data$profil10 = response.data.profile) === null || _response$data$profil10 === void 0 ? void 0 : _response$data$profil10.profile_img) || null
+                profile_img: null,
+                image_url: ((_response$data$profil10 = response.data.profile) === null || _response$data$profil10 === void 0 ? void 0 : _response$data$profil10.profile_img) || null
               },
               worker: {
                 work_type: ((_response$data$worker = response.data.worker) === null || _response$data$worker === void 0 ? void 0 : _response$data$worker.work_type) || "part-time",
@@ -172280,8 +173130,10 @@ var WorkerList = function WorkerList() {
             }
             return _context9.a(2);
           case 4:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response9 = _t9.response) === null || _err$response9 === void 0 || (_err$response9 = _err$response9.data) === null || _err$response9 === void 0 ? void 0 : _err$response9.error) || "Failed to fetch worker details.");
-            console.error("Fetch worker details error:", ((_err$response0 = _t9.response) === null || _err$response0 === void 0 ? void 0 : _err$response0.data) || _t9.message);
+            errorMessage = ((_err$response10 = _t9.response) === null || _err$response10 === void 0 || (_err$response10 = _err$response10.data) === null || _err$response10 === void 0 ? void 0 : _err$response10.error) || "Failed to fetch worker details.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Fetch worker details error:", ((_err$response11 = _t9.response) === null || _err$response11 === void 0 ? void 0 : _err$response11.data) || _t9.message);
           case 5:
             _context9.p = 5;
             setLoading(false);
@@ -172310,8 +173162,8 @@ var WorkerList = function WorkerList() {
     setError("");
   };
   var handleWorkerAdd = /*#__PURE__*/function () {
-    var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(formData, signal) {
-      var authToken, response, _err$response1, _err$response10, _t0;
+    var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(formData, workerId, signal) {
+      var authToken, response, _err$response12, _err$response13, errorMessage, _t0;
       return _regenerator().w(function (_context0) {
         while (1) switch (_context0.p = _context0.n) {
           case 0:
@@ -172359,8 +173211,10 @@ var WorkerList = function WorkerList() {
             console.log("Add request was aborted");
             return _context0.a(2);
           case 6:
-            console.error("Error adding worker:", ((_err$response1 = _t0.response) === null || _err$response1 === void 0 ? void 0 : _err$response1.data) || _t0.message);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response10 = _t0.response) === null || _err$response10 === void 0 || (_err$response10 = _err$response10.data) === null || _err$response10 === void 0 ? void 0 : _err$response10.error) || "Failed to add worker.");
+            errorMessage = ((_err$response12 = _t0.response) === null || _err$response12 === void 0 || (_err$response12 = _err$response12.data) === null || _err$response12 === void 0 ? void 0 : _err$response12.error) || "Failed to add worker.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Error adding worker:", ((_err$response13 = _t0.response) === null || _err$response13 === void 0 ? void 0 : _err$response13.data) || _t0.message);
             throw _t0;
           case 7:
             _context0.p = 7;
@@ -172371,13 +173225,13 @@ var WorkerList = function WorkerList() {
         }
       }, _callee0, null, [[0, 5, 7, 8]]);
     }));
-    return function handleWorkerAdd(_x7, _x8) {
+    return function handleWorkerAdd(_x7, _x8, _x9) {
       return _ref1.apply(this, arguments);
     };
   }();
   var handleWorkerUpdate = /*#__PURE__*/function () {
-    var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1(formData, signal) {
-      var authToken, response, _err$response11, _err$response12, _t1;
+    var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1(formData, workerId, signal) {
+      var authToken, response, _err$response14, _err$response15, errorMessage, _t1;
       return _regenerator().w(function (_context1) {
         while (1) switch (_context1.p = _context1.n) {
           case 0:
@@ -172391,7 +173245,7 @@ var WorkerList = function WorkerList() {
           case 1:
             setLoading(true);
             _context1.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/workers/".concat(workerToEdit.id, "?_method=PUT"), formData, {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/workers/".concat(workerId, "?_method=PUT"), formData, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 "Content-Type": "multipart/form-data",
@@ -172427,8 +173281,10 @@ var WorkerList = function WorkerList() {
             console.log("Update request was aborted");
             return _context1.a(2);
           case 6:
-            console.error("Error updating worker:", ((_err$response11 = _t1.response) === null || _err$response11 === void 0 ? void 0 : _err$response11.data) || _t1.message);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_err$response12 = _t1.response) === null || _err$response12 === void 0 || (_err$response12 = _err$response12.data) === null || _err$response12 === void 0 ? void 0 : _err$response12.error) || "Failed to update worker.");
+            errorMessage = ((_err$response14 = _t1.response) === null || _err$response14 === void 0 || (_err$response14 = _err$response14.data) === null || _err$response14 === void 0 ? void 0 : _err$response14.error) || "Failed to update worker.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Error updating worker:", ((_err$response15 = _t1.response) === null || _err$response15 === void 0 ? void 0 : _err$response15.data) || _t1.message);
             throw _t1;
           case 7:
             _context1.p = 7;
@@ -172439,7 +173295,7 @@ var WorkerList = function WorkerList() {
         }
       }, _callee1, null, [[0, 5, 7, 8]]);
     }));
-    return function handleWorkerUpdate(_x9, _x0) {
+    return function handleWorkerUpdate(_x0, _x1, _x10) {
       return _ref10.apply(this, arguments);
     };
   }();
@@ -172449,12 +173305,17 @@ var WorkerList = function WorkerList() {
   var getSkillNames = function getSkillNames() {
     var skillsId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     if (!Array.isArray(skillsId) || skillsId.length === 0) return "None";
-    return skillsId.map(function (id) {
+    return skillsId.map(function (skill) {
       var _skills$find;
-      return ((_skills$find = skills.find(function (skill) {
-        return skill.id === parseInt(id);
+      if (!skill || _typeof(skill) !== "object" || !skill.skill_id) return "Unknown";
+      var skillName = skill.skill_name || ((_skills$find = skills.find(function (s) {
+        return s.id === parseInt(skill.skill_id);
       })) === null || _skills$find === void 0 ? void 0 : _skills$find.name) || "Unknown";
-    }).join(", ");
+      var subSkills = Array.isArray(skill.sub_skills) && skill.sub_skills.length > 0 ? " (".concat(skill.sub_skills.join(", "), ")") : "";
+      return "".concat(skillName).concat(subSkills);
+    }).filter(function (name) {
+      return name !== "Unknown";
+    }).join(", ") || "None";
   };
   var workersPerPage = 5;
   var filteredWorkers = workers.filter(function (worker) {
@@ -172712,18 +173573,14 @@ var WorkerList = function WorkerList() {
                         objectFit: "cover"
                       },
                       onError: function onError(e) {
-                        e.target.src = "http://127.0.0.1:8000/storage/images/pfp/default.png";
+                        e.target.style.display = "none";
+                        e.target.parentElement.innerHTML += "<span style=\"color: red;\">N/A</span>";
                       }
-                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-                      src: "http://127.0.0.1:8000/storage/images/pfp/default.png",
-                      alt: "Default Profile",
-                      className: "profile-img",
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                       style: {
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "50%",
-                        objectFit: "cover"
-                      }
+                        color: "#888"
+                      },
+                      children: "N/A"
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     className: "fullname-cell",
@@ -172873,23 +173730,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
-/* harmony import */ var _sass_components_workermodal_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../sass/components/workermodal.scss */ "./resources/sass/components/workermodal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/dropdown/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconChevronDown.mjs");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconMinus.mjs");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconX.mjs");
+/* harmony import */ var _sass_components_workermodal_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../../sass/components/workermodal.scss */ "./resources/sass/components/workermodal.scss");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -172901,7 +173764,8 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-var Option = antd__WEBPACK_IMPORTED_MODULE_1__["default"].Option;
+
+var Option = antd__WEBPACK_IMPORTED_MODULE_2__["default"].Option;
 var credentialOptions = [{
   value: "Resume/CV",
   label: "Resume / Curriculum Vitae (CV)"
@@ -172937,6 +173801,7 @@ var credentialOptions = [{
   label: "Valid Government ID (e.g., Passport, Driver’s License, Voter’s ID, UMID, National ID)"
 }];
 var WorkerModal = function WorkerModal(_ref) {
+  var _formData$skills_id$3, _formData$skills_id$4, _formData$skills_id$5;
   var onClose = _ref.onClose,
     onSubmit = _ref.onSubmit,
     isEdit = _ref.isEdit,
@@ -172982,68 +173847,362 @@ var WorkerModal = function WorkerModal(_ref) {
     _useState8 = _slicedToArray(_useState7, 2),
     newCredential = _useState8[0],
     setNewCredential = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState0 = _slicedToArray(_useState9, 2),
+    selectedSkill = _useState0[0],
+    setSelectedSkill = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState10 = _slicedToArray(_useState1, 2),
+    showSkillModal = _useState10[0],
+    setShowSkillModal = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState12 = _slicedToArray(_useState11, 2),
+    selectedSubSkills = _useState12[0],
+    setSelectedSubSkills = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState14 = _slicedToArray(_useState13, 2),
+    availableSubSkills = _useState14[0],
+    setAvailableSubSkills = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState16 = _slicedToArray(_useState15, 2),
+    searchTermPrimary = _useState16[0],
+    setSearchTermPrimary = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState18 = _slicedToArray(_useState17, 2),
+    searchTermAdditional = _useState18[0],
+    setSearchTermAdditional = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState20 = _slicedToArray(_useState19, 2),
+    filteredSkillsPrimary = _useState20[0],
+    setFilteredSkillsPrimary = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState22 = _slicedToArray(_useState21, 2),
+    filteredSkillsAdditional = _useState22[0],
+    setFilteredSkillsAdditional = _useState22[1];
   var profileImgRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var credentialFileRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(new AbortController());
   var isMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
+
+  // Fetch skills from the API
+  var fetchSkills = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var response, fetchedSkills, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            if (isMountedRef.current) {
+              _context.n = 1;
+              break;
+            }
+            return _context.a(2);
+          case 1:
+            _context.p = 1;
+            _context.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_8__["default"].get("/api/skills", {
+              signal: abortControllerRef.current.signal
+            });
+          case 2:
+            response = _context.v;
+            fetchedSkills = response.data.map(function (skill) {
+              return _objectSpread(_objectSpread({}, skill), {}, {
+                sub_skills: Array.isArray(skill.sub_skills) ? skill.sub_skills : []
+              });
+            });
+            if (isMountedRef.current) {
+              setFilteredSkillsPrimary(fetchedSkills);
+              setFilteredSkillsAdditional(fetchedSkills);
+            }
+            _context.n = 4;
+            break;
+          case 3:
+            _context.p = 3;
+            _t = _context.v;
+            if (_t.name !== "AbortError" && isMountedRef.current) {
+              console.error("Error fetching skills:", _t);
+              setApiError("Failed to load skills. Please try again.");
+            }
+          case 4:
+            return _context.a(2);
+        }
+      }, _callee, null, [[1, 3]]);
+    }));
+    return function fetchSkills() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    abortControllerRef.current = new AbortController();
     isMountedRef.current = true;
+    abortControllerRef.current = new AbortController();
+    fetchSkills();
     if (isEdit && initialData) {
-      var _initialData$profile, _initialData$profile2, _initialData$profile3, _initialData$profile4, _initialData$profile5, _initialData$profile6, _initialData$profile7, _initialData$profile8, _initialData$profile9, _initialData$profile0, _initialData$profile1, _initialData$profile10, _initialData$worker, _initialData$worker2, _initialData$worker3, _initialData$worker4;
-      setFormData({
-        first_name: ((_initialData$profile = initialData.profile) === null || _initialData$profile === void 0 ? void 0 : _initialData$profile.first_name) || "",
-        middlename: ((_initialData$profile2 = initialData.profile) === null || _initialData$profile2 === void 0 ? void 0 : _initialData$profile2.middlename) || "",
-        last_name: ((_initialData$profile3 = initialData.profile) === null || _initialData$profile3 === void 0 ? void 0 : _initialData$profile3.last_name) || "",
-        suffix_id: (_initialData$profile4 = initialData.profile) !== null && _initialData$profile4 !== void 0 && _initialData$profile4.suffix_id ? String(initialData.profile.suffix_id) : "",
-        email: initialData.email || "",
-        password: "",
-        gender_id: (_initialData$profile5 = initialData.profile) !== null && _initialData$profile5 !== void 0 && _initialData$profile5.gender_id ? String(initialData.profile.gender_id) : "",
-        contact_number: ((_initialData$profile6 = initialData.profile) === null || _initialData$profile6 === void 0 ? void 0 : _initialData$profile6.contact_number) || "",
-        street: ((_initialData$profile7 = initialData.profile) === null || _initialData$profile7 === void 0 ? void 0 : _initialData$profile7.street) || "",
-        city: ((_initialData$profile8 = initialData.profile) === null || _initialData$profile8 === void 0 ? void 0 : _initialData$profile8.city) || "Butuan City",
-        province: ((_initialData$profile9 = initialData.profile) === null || _initialData$profile9 === void 0 ? void 0 : _initialData$profile9.province) || "Agusan Del Norte",
-        postal_code: ((_initialData$profile0 = initialData.profile) === null || _initialData$profile0 === void 0 ? void 0 : _initialData$profile0.postal_code) || "8600",
-        country: ((_initialData$profile1 = initialData.profile) === null || _initialData$profile1 === void 0 ? void 0 : _initialData$profile1.country) || "Philippines",
-        profile_img: ((_initialData$profile10 = initialData.profile) === null || _initialData$profile10 === void 0 ? void 0 : _initialData$profile10.profile_img) || null,
-        work_type: ((_initialData$worker = initialData.worker) === null || _initialData$worker === void 0 ? void 0 : _initialData$worker.work_type) || "",
-        skills_id: ((_initialData$worker2 = initialData.worker) === null || _initialData$worker2 === void 0 ? void 0 : _initialData$worker2.skills_id) || [],
-        credentials: Array.isArray((_initialData$worker3 = initialData.worker) === null || _initialData$worker3 === void 0 ? void 0 : _initialData$worker3.credentials_name) && Array.isArray((_initialData$worker4 = initialData.worker) === null || _initialData$worker4 === void 0 ? void 0 : _initialData$worker4.credentials_photo) ? initialData.worker.credentials_name.map(function (name, index) {
-          return {
-            credentials_name: name || "",
-            credentials_photo: initialData.worker.credentials_photo[index] || null
-          };
-        }) : [],
-        role_id: "1"
-      });
+      var _initialData$worker;
+      var initialSkills = Array.isArray((_initialData$worker = initialData.worker) === null || _initialData$worker === void 0 ? void 0 : _initialData$worker.skills_id) ? initialData.worker.skills_id : [];
       if (isMountedRef.current) {
+        var _initialData$profile, _initialData$profile2, _initialData$profile3, _initialData$profile4, _initialData$profile5, _initialData$profile6, _initialData$profile7, _initialData$profile8, _initialData$profile9, _initialData$profile0, _initialData$profile1, _initialData$profile10, _initialData$worker2, _initialData$worker3, _initialData$worker4;
+        setFormData({
+          first_name: ((_initialData$profile = initialData.profile) === null || _initialData$profile === void 0 ? void 0 : _initialData$profile.first_name) || "",
+          middlename: ((_initialData$profile2 = initialData.profile) === null || _initialData$profile2 === void 0 ? void 0 : _initialData$profile2.middlename) || "",
+          last_name: ((_initialData$profile3 = initialData.profile) === null || _initialData$profile3 === void 0 ? void 0 : _initialData$profile3.last_name) || "",
+          suffix_id: (_initialData$profile4 = initialData.profile) !== null && _initialData$profile4 !== void 0 && _initialData$profile4.suffix_id ? String(initialData.profile.suffix_id) : "",
+          email: initialData.email || "",
+          password: "",
+          gender_id: (_initialData$profile5 = initialData.profile) !== null && _initialData$profile5 !== void 0 && _initialData$profile5.gender_id ? String(initialData.profile.gender_id) : "",
+          contact_number: ((_initialData$profile6 = initialData.profile) === null || _initialData$profile6 === void 0 ? void 0 : _initialData$profile6.contact_number) || "",
+          street: ((_initialData$profile7 = initialData.profile) === null || _initialData$profile7 === void 0 ? void 0 : _initialData$profile7.street) || "",
+          city: ((_initialData$profile8 = initialData.profile) === null || _initialData$profile8 === void 0 ? void 0 : _initialData$profile8.city) || "Butuan City",
+          province: ((_initialData$profile9 = initialData.profile) === null || _initialData$profile9 === void 0 ? void 0 : _initialData$profile9.province) || "Agusan Del Norte",
+          postal_code: ((_initialData$profile0 = initialData.profile) === null || _initialData$profile0 === void 0 ? void 0 : _initialData$profile0.postal_code) || "8600",
+          country: ((_initialData$profile1 = initialData.profile) === null || _initialData$profile1 === void 0 ? void 0 : _initialData$profile1.country) || "Philippines",
+          profile_img: ((_initialData$profile10 = initialData.profile) === null || _initialData$profile10 === void 0 ? void 0 : _initialData$profile10.profile_img) || null,
+          work_type: ((_initialData$worker2 = initialData.worker) === null || _initialData$worker2 === void 0 ? void 0 : _initialData$worker2.work_type) || "",
+          skills_id: initialSkills,
+          credentials: Array.isArray((_initialData$worker3 = initialData.worker) === null || _initialData$worker3 === void 0 ? void 0 : _initialData$worker3.credentials_name) && Array.isArray((_initialData$worker4 = initialData.worker) === null || _initialData$worker4 === void 0 ? void 0 : _initialData$worker4.credentials_photo) ? initialData.worker.credentials_name.map(function (name, index) {
+            return {
+              credentials_name: name || "",
+              credentials_photo: initialData.worker.credentials_photo[index] || null
+            };
+          }) : [],
+          role_id: "1"
+        });
         setApiError("");
         setErrors({});
       }
     }
     return function () {
       isMountedRef.current = false;
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort();
-      }
+      abortControllerRef.current.abort();
     };
   }, [isEdit, initialData]);
-  var handleInputChange = function handleInputChange(e, field) {
-    var _e$target, _e$target2;
-    var value = ((_e$target = e.target) === null || _e$target === void 0 ? void 0 : _e$target.type) === "file" ? e.target.files[0] : ((_e$target2 = e.target) === null || _e$target2 === void 0 ? void 0 : _e$target2.value) || e;
-    if (field === "contact_number" && value && !/^\+?[\d\s-]*$/.test(value)) {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!isMountedRef.current) return;
+    if (searchTermPrimary.trim() === "") {
+      setFilteredSkillsPrimary(skills || []);
+    } else {
+      var searchLower = searchTermPrimary.toLowerCase().trim();
+      var filtered = (skills || []).filter(function (skill) {
+        return skill.name.toLowerCase().includes(searchLower);
+      });
+      setFilteredSkillsPrimary(filtered);
+    }
+  }, [searchTermPrimary, skills]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var _formData$skills_id$;
+    if (!isMountedRef.current) return;
+    var skillsToFilter = skills || [];
+    if ((_formData$skills_id$ = formData.skills_id[0]) !== null && _formData$skills_id$ !== void 0 && _formData$skills_id$.skill_id) {
+      skillsToFilter = skillsToFilter.filter(function (s) {
+        return String(s.id) !== formData.skills_id[0].skill_id;
+      });
+    }
+    if (searchTermAdditional.trim() === "") {
+      setFilteredSkillsAdditional(skillsToFilter);
+    } else {
+      var searchLower = searchTermAdditional.toLowerCase().trim();
+      var filtered = skillsToFilter.filter(function (skill) {
+        return skill.name.toLowerCase().includes(searchLower);
+      });
+      setFilteredSkillsAdditional(filtered);
+    }
+  }, [searchTermAdditional, skills, formData.skills_id]);
+  var handlePrimarySkillSelect = function handlePrimarySkillSelect(value) {
+    if (!isMountedRef.current) return;
+    var skill = skills.find(function (s) {
+      return String(s.id) === value;
+    });
+    if (!skill) {
+      if (isMountedRef.current) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            skills_id: "Invalid skill selected. Please try again."
+          });
+        });
+      }
       return;
     }
-    if (field === "first_name" || field === "last_name") {
+    if (formData.skills_id.some(function (existing) {
+      return existing.skill_id === value;
+    })) {
       if (isMountedRef.current) {
-        setFormData(function (prev) {
-          return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, value));
-        });
         setErrors(function (prev) {
-          return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, ""));
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            skills_id: "This skill has already been added."
+          });
         });
-        setApiError("");
       }
+      return;
+    }
+    if (isMountedRef.current) {
+      setSelectedSkill(skill);
+      setAvailableSubSkills(skill.sub_skills || []);
+      setSelectedSubSkills([]);
+      setShowSkillModal(true);
+      setErrors(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          skills_id: "",
+          sub_skills: ""
+        });
+      });
+    }
+  };
+  var handleAdditionalSkillsSelect = function handleAdditionalSkillsSelect(values) {
+    if (!isMountedRef.current) return;
+    var newSkillIds = values.filter(function (id) {
+      return !formData.skills_id.some(function (skill) {
+        return skill.skill_id === id;
+      });
+    });
+    if (newSkillIds.length === 0) {
+      if (isMountedRef.current) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            skills_id: "All selected skills are already added or invalid."
+          });
+        });
+      }
+      return;
+    }
+    var newSkills = newSkillIds.map(function (id) {
+      return skills.find(function (s) {
+        return String(s.id) === id;
+      });
+    }).filter(Boolean);
+    if (newSkills.length > 0) {
+      if (isMountedRef.current) {
+        setSelectedSkill(newSkills[0]);
+        setAvailableSubSkills(newSkills[0].sub_skills || []);
+        setSelectedSubSkills([]);
+        setShowSkillModal(true);
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            skills_id: ""
+          });
+        });
+      }
+    } else {
+      if (isMountedRef.current) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            skills_id: "Invalid additional skills selected."
+          });
+        });
+      }
+    }
+  };
+  var handleAddSubSkill = function handleAddSubSkill(subSkill) {
+    if (!isMountedRef.current) return;
+    if (selectedSubSkills.includes(subSkill)) {
+      if (isMountedRef.current) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            sub_skills: "This sub-skill is already selected."
+          });
+        });
+      }
+      return;
+    }
+    if (isMountedRef.current) {
+      setSelectedSubSkills(function (prev) {
+        return [].concat(_toConsumableArray(prev), [subSkill]);
+      });
+      setAvailableSubSkills(function (prev) {
+        return prev.filter(function (s) {
+          return s !== subSkill;
+        });
+      });
+      setErrors(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          sub_skills: ""
+        });
+      });
+    }
+  };
+  var handleRemoveSubSkill = function handleRemoveSubSkill(subSkill) {
+    if (!isMountedRef.current) return;
+    if (isMountedRef.current) {
+      setSelectedSubSkills(function (prev) {
+        return prev.filter(function (s) {
+          return s !== subSkill;
+        });
+      });
+      setAvailableSubSkills(function (prev) {
+        return [].concat(_toConsumableArray(prev), [subSkill]).sort();
+      });
+    }
+  };
+  var handleSaveSkill = function handleSaveSkill() {
+    if (!isMountedRef.current || !selectedSkill) return;
+    if (selectedSkill.sub_skills.length > 0 && selectedSubSkills.length === 0) {
+      if (isMountedRef.current) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            sub_skills: "Please select at least one sub-skill."
+          });
+        });
+      }
+      return;
+    }
+    var newSkill = {
+      skill_id: String(selectedSkill.id),
+      skill_name: selectedSkill.name,
+      sub_skills: selectedSubSkills
+    };
+    if (isMountedRef.current) {
+      setFormData(function (prev) {
+        var _prev$skills_id$;
+        var isPrimary = ((_prev$skills_id$ = prev.skills_id[0]) === null || _prev$skills_id$ === void 0 ? void 0 : _prev$skills_id$.skill_id) === newSkill.skill_id;
+        var skillIndex = prev.skills_id.findIndex(function (s) {
+          return s.skill_id === newSkill.skill_id;
+        });
+        if (isPrimary) {
+          // Update primary skill at index 0
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            skills_id: [newSkill].concat(_toConsumableArray(prev.skills_id.slice(1)))
+          });
+        } else if (skillIndex !== -1) {
+          // Update additional skill in place
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            skills_id: [].concat(_toConsumableArray(prev.skills_id.slice(0, skillIndex)), [newSkill], _toConsumableArray(prev.skills_id.slice(skillIndex + 1)))
+          });
+        } else {
+          // Add new skill (primary if no primary exists, otherwise additional)
+          var isPrimaryEmpty = !prev.skills_id[0] || prev.skills_id[0].skill_id === "";
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            skills_id: isPrimaryEmpty ? [newSkill].concat(_toConsumableArray(prev.skills_id.slice(1))) : [].concat(_toConsumableArray(prev.skills_id), [newSkill])
+          });
+        }
+      });
+      setShowSkillModal(false);
+      setSelectedSkill(null);
+      setAvailableSubSkills([]);
+      setSelectedSubSkills([]);
+      setErrors(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          skills_id: "",
+          sub_skills: ""
+        });
+      });
+      setApiError("");
+    }
+  };
+  var handleModalClose = function handleModalClose() {
+    if (!isMountedRef.current) return;
+    if (isMountedRef.current) {
+      setShowSkillModal(false);
+      setSelectedSkill(null);
+      setAvailableSubSkills([]);
+      setSelectedSubSkills([]);
+    }
+  };
+  var handleInputChange = function handleInputChange(e, field) {
+    if (!isMountedRef.current) return;
+    var value;
+    if (e && e.target) {
+      value = e.target.type === "file" ? e.target.files[0] : e.target.value;
+    } else {
+      value = e || "";
+    }
+    if (field === "contact_number" && value && !/^\+?[\d\s-]*$/.test(value)) {
       return;
     }
     if (field === "profile_img" && value) {
@@ -173051,7 +174210,7 @@ var WorkerModal = function WorkerModal(_ref) {
         if (isMountedRef.current) {
           setErrors(function (prev) {
             return _objectSpread(_objectSpread({}, prev), {}, {
-              profile_img: "Image must not exceed 2 MB"
+              profile_img: "Image must not exceed 2 MB."
             });
           });
         }
@@ -173061,28 +174220,12 @@ var WorkerModal = function WorkerModal(_ref) {
         if (isMountedRef.current) {
           setErrors(function (prev) {
             return _objectSpread(_objectSpread({}, prev), {}, {
-              profile_img: "Image must be JPEG, PNG, or JPG"
+              profile_img: "Image must be JPEG, PNG, or JPG."
             });
           });
         }
         return;
       }
-    }
-    if (field === "skills_id") {
-      if (isMountedRef.current) {
-        setFormData(function (prev) {
-          return _objectSpread(_objectSpread({}, prev), {}, {
-            skills_id: value
-          });
-        });
-        setErrors(function (prev) {
-          return _objectSpread(_objectSpread({}, prev), {}, {
-            skills_id: ""
-          });
-        });
-        setApiError("");
-      }
-      return;
     }
     if (isMountedRef.current) {
       setFormData(function (prev) {
@@ -173095,13 +174238,14 @@ var WorkerModal = function WorkerModal(_ref) {
     }
   };
   var handleNewCredentialChange = function handleNewCredentialChange(e, field) {
+    if (!isMountedRef.current) return;
     var value = e.target.type === "file" ? e.target.files[0] : e.target.value;
     if (field === "credentials_photo" && value) {
       if (!["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "image/jpeg", "image/png"].includes(value.type)) {
         if (isMountedRef.current) {
           setErrors(function (prev) {
             return _objectSpread(_objectSpread({}, prev), {}, {
-              new_credential_photo: "Credential must be PDF, Word, JPG, or PNG"
+              new_credential_photo: "Credential must be PDF, Word, JPG, or PNG."
             });
           });
         }
@@ -173111,7 +174255,7 @@ var WorkerModal = function WorkerModal(_ref) {
         if (isMountedRef.current) {
           setErrors(function (prev) {
             return _objectSpread(_objectSpread({}, prev), {}, {
-              new_credential_photo: "Credential file must not exceed 2 MB"
+              new_credential_photo: "Credential file must not exceed 2 MB."
             });
           });
         }
@@ -173131,11 +174275,12 @@ var WorkerModal = function WorkerModal(_ref) {
     }
   };
   var addCredential = function addCredential() {
+    if (!isMountedRef.current) return;
     if (!newCredential.credentials_name) {
       if (isMountedRef.current) {
         setErrors(function (prev) {
           return _objectSpread(_objectSpread({}, prev), {}, {
-            new_credential_name: "Please select a credential type"
+            new_credential_name: "Please select a credential type."
           });
         });
       }
@@ -173145,7 +174290,7 @@ var WorkerModal = function WorkerModal(_ref) {
       if (isMountedRef.current) {
         setErrors(function (prev) {
           return _objectSpread(_objectSpread({}, prev), {}, {
-            new_credential_photo: "Please upload a credential file"
+            new_credential_photo: "Please upload a credential file."
           });
         });
       }
@@ -173173,6 +174318,7 @@ var WorkerModal = function WorkerModal(_ref) {
     }
   };
   var removeCredential = function removeCredential(index) {
+    if (!isMountedRef.current) return;
     if (isMountedRef.current) {
       setFormData(function (prev) {
         return _objectSpread(_objectSpread({}, prev), {}, {
@@ -173189,6 +174335,7 @@ var WorkerModal = function WorkerModal(_ref) {
     }
   };
   var removeProfileImg = function removeProfileImg() {
+    if (!isMountedRef.current) return;
     if (isMountedRef.current) {
       setFormData(function (prev) {
         return _objectSpread(_objectSpread({}, prev), {}, {
@@ -173206,26 +174353,28 @@ var WorkerModal = function WorkerModal(_ref) {
     }
   };
   var validateForm = function validateForm() {
+    var _formData$skills_id$2;
+    if (!isMountedRef.current) return false;
     var newErrors = {};
-    if (!formData.first_name) newErrors.first_name = "First name is required";
-    if (!formData.last_name) newErrors.last_name = "Last name is required";
+    if (!formData.first_name) newErrors.first_name = "First name is required.";
+    if (!formData.last_name) newErrors.last_name = "Last name is required.";
     if (!formData.email) {
-      newErrors.email = "Email is required";
+      newErrors.email = "Email is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+      newErrors.email = "Invalid email format.";
     }
     if (!isEdit && !formData.password) {
-      newErrors.password = "Password is required";
+      newErrors.password = "Password is required.";
     } else if (formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
-      newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit";
+      newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit.";
     }
-    if (!formData.gender_id) newErrors.gender_id = "Gender is required";
-    if (!formData.work_type) newErrors.work_type = "Work type is required";
+    if (!formData.gender_id) newErrors.gender_id = "Gender is required.";
+    if (!formData.work_type) newErrors.work_type = "Work type is required.";
     if (formData.contact_number && !/^\+?[\d\s-]{7,20}$/.test(formData.contact_number)) {
-      newErrors.contact_number = "Contact number must be 7-20 digits, spaces, or hyphens";
+      newErrors.contact_number = "Contact number must be 7-20 digits, spaces, or hyphens.";
     }
-    if (!formData.skills_id || formData.skills_id.length === 0) {
-      newErrors.skills_id = "At least one skill is required";
+    if (!formData.skills_id || formData.skills_id.length === 0 || !((_formData$skills_id$2 = formData.skills_id[0]) !== null && _formData$skills_id$2 !== void 0 && _formData$skills_id$2.skill_id)) {
+      newErrors.skills_id = "At least one primary skill is required.";
     }
     if (isMountedRef.current) {
       setErrors(newErrors);
@@ -173233,17 +174382,17 @@ var WorkerModal = function WorkerModal(_ref) {
     return Object.keys(newErrors).length === 0;
   };
   var handleSubmit = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(e) {
-      var submitData, _error$response, _error$response2, _error$response3, _t;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.p = _context.n) {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
+      var submitData, _error$response, _error$response2, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
           case 0:
             e.preventDefault();
-            if (validateForm()) {
-              _context.n = 1;
+            if (!(!isMountedRef.current || !validateForm())) {
+              _context2.n = 1;
               break;
             }
-            return _context.a(2);
+            return _context2.a(2);
           case 1:
             submitData = new FormData();
             submitData.append("first_name", formData.first_name || "");
@@ -173252,9 +174401,10 @@ var WorkerModal = function WorkerModal(_ref) {
             submitData.append("gender_id", formData.gender_id || "");
             submitData.append("work_type", formData.work_type || "");
             submitData.append("role_id", formData.role_id);
-            (formData.skills_id || []).forEach(function (skillId) {
-              submitData.append("skills_id[]", skillId);
-            });
+            submitData.append("skills_id", JSON.stringify(formData.skills_id || []));
+            if (isEdit) {
+              submitData.append("_method", "PUT");
+            }
             if (formData.middlename) submitData.append("middlename", formData.middlename);
             if (formData.suffix_id) submitData.append("suffix_id", formData.suffix_id);
             if (formData.contact_number) submitData.append("contact_number", formData.contact_number);
@@ -173268,6 +174418,8 @@ var WorkerModal = function WorkerModal(_ref) {
             }
             if (formData.profile_img && formData.profile_img instanceof File) {
               submitData.append("profile_img", formData.profile_img);
+            } else if (!formData.profile_img && isEdit) {
+              submitData.append("profile_img", "");
             }
             if (formData.credentials.length > 0) {
               formData.credentials.forEach(function (cred, index) {
@@ -173277,42 +174429,41 @@ var WorkerModal = function WorkerModal(_ref) {
                 }
               });
             }
-            _context.p = 2;
-            _context.n = 3;
-            return onSubmit(submitData, abortControllerRef.current.signal);
+            _context2.p = 2;
+            _context2.n = 3;
+            return onSubmit(submitData, isEdit ? initialData.id : null, abortControllerRef.current.signal);
           case 3:
             if (isMountedRef.current) {
               setApiError("");
               setErrors({});
             }
-            _context.n = 6;
+            _context2.n = 6;
             break;
           case 4:
-            _context.p = 4;
-            _t = _context.v;
-            if (!(_t.name === "AbortError")) {
-              _context.n = 5;
+            _context2.p = 4;
+            _t2 = _context2.v;
+            if (!(_t2.name === "AbortError")) {
+              _context2.n = 5;
               break;
             }
             console.log("Request was aborted");
-            return _context.a(2);
+            return _context2.a(2);
           case 5:
             if (isMountedRef.current) {
-              console.log("Validation errors:", (_error$response = _t.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 ? void 0 : _error$response.errors);
-              if ((_error$response2 = _t.response) !== null && _error$response2 !== void 0 && (_error$response2 = _error$response2.data) !== null && _error$response2 !== void 0 && _error$response2.errors) {
-                setErrors(_t.response.data.errors);
+              if ((_error$response = _t2.response) !== null && _error$response !== void 0 && (_error$response = _error$response.data) !== null && _error$response !== void 0 && _error$response.errors) {
+                setErrors(_t2.response.data.errors);
                 setApiError("Please correct the errors in the form.");
               } else {
-                setApiError(((_error$response3 = _t.response) === null || _error$response3 === void 0 || (_error$response3 = _error$response3.data) === null || _error$response3 === void 0 ? void 0 : _error$response3.error) || "An error occurred. Please try again.");
+                setApiError(((_error$response2 = _t2.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.error) || "An error occurred. Please try again.");
               }
             }
           case 6:
-            return _context.a(2);
+            return _context2.a(2);
         }
-      }, _callee, null, [[2, 4]]);
+      }, _callee2, null, [[2, 4]]);
     }));
     return function handleSubmit(_x) {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
   var isGendersLoaded = Array.isArray(genders);
@@ -173321,441 +174472,696 @@ var WorkerModal = function WorkerModal(_ref) {
   var isImageFile = function isImageFile(path) {
     return /\.(jpg|jpeg|png)$/i.test(path);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  var skillMenu = function skillMenu(skill) {
+    return {
+      items: [{
+        key: "edit",
+        label: "Edit",
+        onClick: function onClick() {
+          if (!isMountedRef.current) return;
+          var foundSkill = skills.find(function (s) {
+            return String(s.id) === String(skill.skill_id);
+          });
+          if (foundSkill) {
+            setSelectedSkill(foundSkill);
+            var currentSubSkills = Array.isArray(skill.sub_skills) ? skill.sub_skills : [];
+            setAvailableSubSkills((foundSkill.sub_skills || []).filter(function (subSkill) {
+              return !currentSubSkills.includes(subSkill);
+            }));
+            setSelectedSubSkills(currentSubSkills);
+            setShowSkillModal(true);
+          }
+        }
+      }, {
+        key: "remove",
+        label: "Remove",
+        onClick: function onClick() {
+          if (!isMountedRef.current) return;
+          setFormData(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              skills_id: prev.skills_id.filter(function (s) {
+                return s.skill_id !== skill.skill_id;
+              })
+            });
+          });
+        }
+      }]
+    };
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
     className: "worker-modal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "worker-modal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-        children: isEdit ? "Edit Worker" : "Add New Worker"
-      }), apiError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+        children: isEdit ? "Edit Worker Profile" : "Create Worker Profile"
+      }), apiError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "error",
         children: apiError
-      }), !isGendersLoaded || !isSuffixesLoaded || !isSkillsLoaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), !isGendersLoaded || !isSuffixesLoaded || !isSkillsLoaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "error",
-        children: "Error: Gender, suffix, or skills data not loaded. Please try again later."
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        children: "Error: Required data (gender, suffix, or skills) not loaded. Please try again later."
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
         className: "worker-modal-form",
         onSubmit: handleSubmit,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "worker-modal-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "first_name",
-                children: "First Name"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "first_name",
-                type: "text",
-                value: formData.first_name,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "first_name");
-                },
-                required: true
-              }), errors.first_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.first_name
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "middlename",
-                children: "Middle Name (optional)"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "middlename",
-                type: "text",
-                value: formData.middlename,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "middlename");
-                }
-              }), errors.middlename && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.middlename
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "last_name",
-                children: "Last Name"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "last_name",
-                type: "text",
-                value: formData.last_name,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "last_name");
-                },
-                required: true
-              }), errors.last_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.last_name
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "suffix_id",
-                children: "Suffix (optional)"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
-                id: "suffix_id",
-                value: formData.suffix_id,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "suffix_id");
-                },
-                className: "credential-dropdown",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: "",
-                  children: "None"
-                }), suffixes.map(function (suffix) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                    value: String(suffix.id),
-                    children: suffix.suffix_name || suffix.name
-                  }, suffix.id);
-                })]
-              }), errors.suffix_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.suffix_id
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "email",
-                children: "Email"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "email",
-                type: "email",
-                value: formData.email,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "email");
-                },
-                required: true
-              }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.email
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "password",
-                children: isEdit ? "New Password (optional)" : "Password"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "password",
-                type: "password",
-                value: formData.password,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "password");
-                },
-                required: !isEdit
-              }), errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.password
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "gender_id",
-                children: "Gender"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
-                id: "gender_id",
-                value: formData.gender_id,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "gender_id");
-                },
-                className: "credential-dropdown",
-                required: true,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: "",
-                  children: "Select Gender"
-                }), genders.map(function (gender) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                    value: String(gender.id),
-                    children: gender.name || gender.gender_name
-                  }, gender.id);
-                })]
-              }), errors.gender_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.gender_id
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "work_type",
-                children: "Work Type"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
-                id: "work_type",
-                value: formData.work_type,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "work_type");
-                },
-                className: "credential-dropdown",
-                required: true,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: "",
-                  children: "Select Work Type"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: "part-time",
-                  children: "Part Time"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: "full-time",
-                  children: "Full Time"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: "one-time",
-                  children: "One Time"
-                })]
-              }), errors.work_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.work_type
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "skills_id",
-                children: "Skills"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_1__["default"], {
-                id: "skills_id",
-                mode: "multiple",
-                value: formData.skills_id,
-                onChange: function onChange(value) {
-                  return handleInputChange(value, "skills_id");
-                },
-                placeholder: "Select skills",
-                allowClear: true,
-                className: "credential-dropdown",
-                required: true,
-                children: skills.map(function (skill) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Option, {
-                    value: String(skill.id),
-                    children: skill.name
-                  }, skill.id);
-                })
-              }), errors.skills_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.skills_id
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "contact_number",
-                children: "Contact Number"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "contact_number",
-                type: "tel",
-                value: formData.contact_number,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "contact_number");
-                },
-                placeholder: "+123-456-7890"
-              }), errors.contact_number && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.contact_number
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "street",
-                children: "Street"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "street",
-                type: "text",
-                value: formData.street,
-                onChange: function onChange(e) {
-                  return handleInputChange(e, "street");
-                }
-              }), errors.street && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.street
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "city",
-                children: "City"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "city",
-                type: "text",
-                value: formData.city,
-                disabled: true
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "province",
-                children: "Province"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "province",
-                type: "text",
-                value: formData.province,
-                disabled: true
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "postal_code",
-                children: "Postal Code"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "postal_code",
-                type: "text",
-                value: formData.postal_code,
-                disabled: true
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "country",
-                children: "Country"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                id: "country",
-                type: "text",
-                value: formData.country,
-                disabled: true
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "role_id",
-                children: "Role"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", {
-                id: "role_id",
-                value: formData.role_id,
-                disabled: true,
-                className: "credential-dropdown",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: "1",
-                  children: "Worker"
-                })
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-              htmlFor: "profile_img",
-              children: "Profile Picture (optional)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-              id: "profile_img",
-              type: "file",
-              accept: "image/jpeg,image/png,image/jpg",
-              onChange: function onChange(e) {
-                return handleInputChange(e, "profile_img");
-              },
-              ref: profileImgRef
-            }), formData.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "profile-img-preview",
-              children: [typeof formData.profile_img === "string" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "http://127.0.0.1:8000/storage/".concat(formData.profile_img),
-                alt: "Profile Preview"
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: URL.createObjectURL(formData.profile_img),
-                alt: "Profile Preview"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                type: "button",
-                onClick: removeProfileImg,
-                children: "Remove"
-              })]
-            }), errors.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-              className: "error",
-              children: errors.profile_img
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-              children: "Credentials (optional)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "credential-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
-                value: newCredential.credentials_name,
-                onChange: function onChange(e) {
-                  return handleNewCredentialChange(e, "credentials_name");
-                },
-                className: "credential-dropdown",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: "",
-                  children: "Choose a credential"
-                }), credentialOptions.map(function (option) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                    value: option.value,
-                    children: option.label
-                  }, option.value);
-                })]
-              }), newCredential.credentials_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "credential-upload",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                  type: "file",
-                  accept: ".pdf,.doc,.docx,.jpg,.png",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "form-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Personal Information"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  htmlFor: "first_name",
+                  children: ["First Name ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: "*"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "first_name",
+                  type: "text",
+                  value: formData.first_name,
                   onChange: function onChange(e) {
-                    return handleNewCredentialChange(e, "credentials_photo");
+                    return handleInputChange(e, "first_name");
                   },
-                  ref: credentialFileRef
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                  type: "button",
-                  onClick: addCredential,
-                  children: "Add Credential"
+                  required: true
+                }), errors.first_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.first_name
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                children: formData.credentials.map(function (cred, index) {
-                  var _cred$credentials_pho;
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                    className: "credential-item",
-                    children: [cred.credentials_name, ":", " ", typeof cred.credentials_photo === "string" ? isImageFile(cred.credentials_photo) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                      src: "http://127.0.0.1:8000/storage/".concat(cred.credentials_photo),
-                      alt: cred.credentials_name
-                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-                      href: "http://127.0.0.1:8000/storage/".concat(cred.credentials_photo),
-                      download: true,
-                      children: cred.credentials_photo.split("/").pop()
-                    }) : ((_cred$credentials_pho = cred.credentials_photo) === null || _cred$credentials_pho === void 0 ? void 0 : _cred$credentials_pho.name) || "No file selected", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                      type: "button",
-                      onClick: function onClick() {
-                        return removeCredential(index);
-                      },
-                      children: "Remove"
-                    })]
-                  }, index);
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "middlename",
+                  children: "Middle Name"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "middlename",
+                  type: "text",
+                  value: formData.middlename,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e, "middlename");
+                  }
+                }), errors.middlename && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.middlename
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  htmlFor: "last_name",
+                  children: ["Last Name ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: "*"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "last_name",
+                  type: "text",
+                  value: formData.last_name,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e, "last_name");
+                  },
+                  required: true
+                }), errors.last_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.last_name
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "suffix_id",
+                  children: "Suffix"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
+                  id: "suffix_id",
+                  value: formData.suffix_id || "",
+                  onChange: function onChange(e) {
+                    return handleInputChange(e.target.value, "suffix_id");
+                  },
+                  className: "credential-dropdown",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "",
+                    children: "None"
+                  }), suffixes.map(function (suffix) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                      value: String(suffix.id),
+                      children: suffix.suffix_name || suffix.name
+                    }, suffix.id);
+                  })]
+                }), errors.suffix_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.suffix_id
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  htmlFor: "email",
+                  children: ["Email ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: "*"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "email",
+                  type: "email",
+                  value: formData.email,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e, "email");
+                  },
+                  required: true
+                }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.email
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  htmlFor: "password",
+                  children: [isEdit ? "New Password" : "Password", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: isEdit ? "" : "*"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "password",
+                  type: "password",
+                  value: formData.password,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e, "password");
+                  },
+                  required: !isEdit
+                }), errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.password
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  htmlFor: "gender_id",
+                  children: ["Gender ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: "*"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
+                  id: "gender_id",
+                  value: formData.gender_id || "",
+                  onChange: function onChange(e) {
+                    return handleInputChange(e.target.value, "gender_id");
+                  },
+                  className: "credential-dropdown",
+                  required: true,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "",
+                    children: "Select Gender"
+                  }), genders.map(function (gender) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                      value: String(gender.id),
+                      children: gender.name || gender.gender_name
+                    }, gender.id);
+                  })]
+                }), errors.gender_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.gender_id
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "contact_number",
+                  children: "Contact Number"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "contact_number",
+                  type: "tel",
+                  value: formData.contact_number,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e, "contact_number");
+                  },
+                  placeholder: "+123-456-7890"
+                }), errors.contact_number && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.contact_number
+                })]
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "form-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Address"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "street",
+                  children: "Street"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "street",
+                  type: "text",
+                  value: formData.street,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e, "street");
+                  }
+                }), errors.street && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.street
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "city",
+                  children: "City"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "city",
+                  type: "text",
+                  value: formData.city,
+                  disabled: true
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "province",
+                  children: "Province"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "province",
+                  type: "text",
+                  value: formData.province,
+                  disabled: true
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "postal_code",
+                  children: "Postal Code"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "postal_code",
+                  type: "text",
+                  value: formData.postal_code,
+                  disabled: true
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "form-row",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "country",
+                  children: "Country"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                  id: "country",
+                  type: "text",
+                  value: formData.country,
+                  disabled: true
+                })]
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "form-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Work Details"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  htmlFor: "work_type",
+                  children: ["Work Type ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: "*"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
+                  id: "work_type",
+                  value: formData.work_type,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e, "work_type");
+                  },
+                  className: "credential-dropdown",
+                  required: true,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "",
+                    children: "Select Work Type"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "part-time",
+                    children: "Part Time"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "full-time",
+                    children: "Full Time"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "one-time-job",
+                    children: "One Time Job"
+                  })]
+                }), errors.work_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.work_type
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "role_id",
+                  children: "Role"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("select", {
+                  id: "role_id",
+                  value: formData.role_id,
+                  disabled: true,
+                  className: "credential-dropdown",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "1",
+                    children: "Worker"
+                  })
+                })]
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "form-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Skills"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "form-row",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  htmlFor: "primary_skill",
+                  children: ["Primary Skill ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: "*"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  showSearch: true,
+                  placeholder: "Search and select primary skill",
+                  onSearch: setSearchTermPrimary,
+                  onChange: handlePrimarySkillSelect,
+                  className: "credential-dropdown",
+                  optionFilterProp: "children",
+                  required: true,
+                  value: ((_formData$skills_id$3 = formData.skills_id[0]) === null || _formData$skills_id$3 === void 0 ? void 0 : _formData$skills_id$3.skill_id) || undefined,
+                  children: filteredSkillsPrimary.map(function (skill) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Option, {
+                      value: String(skill.id),
+                      children: skill.name
+                    }, skill.id);
+                  })
+                }), errors.skills_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.skills_id
+                })]
+              })
+            }), ((_formData$skills_id$4 = formData.skills_id[0]) === null || _formData$skills_id$4 === void 0 ? void 0 : _formData$skills_id$4.skill_id) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "selected-skills",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+                children: "Selected Primary Skill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                menu: skillMenu(formData.skills_id[0]),
+                trigger: ["click"],
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                  className: "skill-item ant-dropdown-trigger",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                    children: [formData.skills_id[0].skill_name, " ", ((_formData$skills_id$5 = formData.skills_id[0].sub_skills) === null || _formData$skills_id$5 === void 0 ? void 0 : _formData$skills_id$5.length) > 0 ? "(Sub-skills: ".concat(formData.skills_id[0].sub_skills.join(", "), ")") : ""]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                    size: 16
+                  })]
                 })
-              }), errors.credentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "form-row",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "additional_skills",
+                  children: "Additional Skills"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  mode: "multiple",
+                  showSearch: true,
+                  placeholder: "Search and select additional skills",
+                  onSearch: setSearchTermAdditional,
+                  onChange: handleAdditionalSkillsSelect,
+                  className: "credential-dropdown",
+                  optionFilterProp: "children",
+                  value: formData.skills_id.slice(1).map(function (skill) {
+                    return skill.skill_id;
+                  }),
+                  children: filteredSkillsAdditional.map(function (skill) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Option, {
+                      value: String(skill.id),
+                      children: skill.name
+                    }, skill.id);
+                  })
+                })]
+              })
+            }), formData.skills_id.slice(1).length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "selected-skills",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+                children: "Selected Additional Skills"
+              }), formData.skills_id.slice(1).map(function (skill) {
+                var _skill$sub_skills;
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                  menu: skillMenu(skill),
+                  trigger: ["click"],
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    className: "skill-item ant-dropdown-trigger",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                      children: [skill.skill_name, " ", ((_skill$sub_skills = skill.sub_skills) === null || _skill$sub_skills === void 0 ? void 0 : _skill$sub_skills.length) > 0 ? "(Sub-skills: ".concat(skill.sub_skills.join(", "), ")") : ""]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                      size: 16
+                    })]
+                  })
+                }, skill.skill_id);
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "form-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Profile Picture"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                htmlFor: "profile_img",
+                children: "Profile Picture"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                id: "profile_img",
+                type: "file",
+                accept: "image/jpeg,image/png,image/jpg",
+                onChange: function onChange(e) {
+                  return handleInputChange(e, "profile_img");
+                },
+                ref: profileImgRef
+              }), formData.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "profile-img-preview",
+                children: [typeof formData.profile_img === "string" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                  src: "http://127.0.0.1:8000/storage/".concat(formData.profile_img),
+                  alt: "Profile Preview"
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                  src: URL.createObjectURL(formData.profile_img),
+                  alt: "Profile Preview"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                  type: "button",
+                  onClick: removeProfileImg,
+                  children: "Remove"
+                })]
+              }), errors.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "error",
-                children: errors.credentials
-              }), errors.new_credential_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.new_credential_name
-              }), errors.new_credential_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "error",
-                children: errors.new_credential_photo
+                children: errors.profile_img
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "form-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Credentials"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                children: "Add Credential"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "credential-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
+                  value: newCredential.credentials_name,
+                  onChange: function onChange(e) {
+                    return handleNewCredentialChange(e, "credentials_name");
+                  },
+                  className: "credential-dropdown",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "",
+                    children: "Choose a credential"
+                  }), credentialOptions.map(function (option) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                      value: option.value,
+                      children: option.label
+                    }, option.value);
+                  })]
+                }), newCredential.credentials_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                  className: "credential-upload",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+                    type: "file",
+                    accept: ".pdf,.doc,.docx,.jpg,.png",
+                    onChange: function onChange(e) {
+                      return handleNewCredentialChange(e, "credentials_photo");
+                    },
+                    ref: credentialFileRef
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                    type: "button",
+                    onClick: addCredential,
+                    children: "Add Credential"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  className: "credential-list",
+                  children: formData.credentials.map(function (cred, index) {
+                    var _cred$credentials_pho;
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                      className: "credential-item",
+                      children: [cred.credentials_name, ":", " ", typeof cred.credentials_photo === "string" ? isImageFile(cred.credentials_photo) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                        src: "http://127.0.0.1:8000/storage/".concat(cred.credentials_photo),
+                        alt: cred.credentials_name
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+                        href: "http://127.0.0.1:8000/storage/".concat(cred.credentials_photo),
+                        download: true,
+                        children: cred.credentials_photo.split("/").pop()
+                      }) : ((_cred$credentials_pho = cred.credentials_photo) === null || _cred$credentials_pho === void 0 ? void 0 : _cred$credentials_pho.name) || "No file selected", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                        type: "button",
+                        onClick: function onClick() {
+                          return removeCredential(index);
+                        },
+                        children: "Remove"
+                      })]
+                    }, "credential-".concat(index));
+                  })
+                }), errors.credentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.credentials
+                }), errors.new_credential_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.new_credential_name
+                }), errors.new_credential_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.new_credential_photo
+                })]
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "worker-modal-actions",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
             className: "cancel-button",
             type: "button",
             onClick: onClose,
             children: "Cancel"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
             className: "submit-button",
             type: "submit",
             children: isEdit ? "Update" : "Create"
           })]
         })]
+      }), showSkillModal && selectedSkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "skill-details-modal-overlay",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          className: "skill-details-modal",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "modal-content",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              className: "modal-header",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+                children: selectedSkill.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                size: 20,
+                className: "close-icon",
+                onClick: handleModalClose
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "modal-body",
+              children: selectedSkill.sub_skills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "sub-skills-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("label", {
+                  className: "sub-skills-label",
+                  children: ["Sub-Skills ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                    className: "required",
+                    children: "(Required)"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                  className: "sub-skills-instruction",
+                  children: "Select sub-skills by moving them between the lists below."
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                  className: "sub-skills-container",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    className: "available-sub-skills",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+                      children: "Available Sub-Skills"
+                    }), availableSubSkills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("ul", {
+                      className: "sub-skills-list",
+                      children: availableSubSkills.map(function (subSkill) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("li", {
+                          className: "sub-skill-item",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                            className: "sub-skill-text",
+                            children: subSkill
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                            className: "add-sub-skill-btn",
+                            onClick: function onClick() {
+                              return handleAddSubSkill(subSkill);
+                            },
+                            "aria-label": "Add ".concat(subSkill, " to selected sub-skills"),
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                              size: 16
+                            })
+                          })]
+                        }, subSkill);
+                      })
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                      className: "no-sub-skills",
+                      children: "No available sub-skills"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    className: "selected-sub-skills",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+                      children: "Selected Sub-Skills"
+                    }), selectedSubSkills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("ul", {
+                      className: "sub-skills-list",
+                      children: selectedSubSkills.map(function (subSkill) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("li", {
+                          className: "sub-skill-item",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                            className: "sub-skill-text",
+                            children: subSkill
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                            className: "remove-sub-skill-btn",
+                            onClick: function onClick() {
+                              return handleRemoveSubSkill(subSkill);
+                            },
+                            "aria-label": "Remove ".concat(subSkill, " from selected sub-skills"),
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                              size: 16
+                            })
+                          })]
+                        }, subSkill);
+                      })
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                      className: "no-sub-skills",
+                      children: "No sub-skills selected"
+                    })]
+                  })]
+                }), errors.sub_skills && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  className: "error",
+                  children: errors.sub_skills
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                className: "no-sub-skills",
+                children: "This skill has no sub-skills. Click Save to continue."
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "modal-footer",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                className: "save-btn",
+                onClick: handleSaveSkill,
+                children: "Save"
+              })
+            })]
+          })
+        })
       })]
     })
   });
@@ -173912,7 +175318,12 @@ var Login = function Login() {
                 setIsLoading(false);
               }
             } else {
-              setError(data.message || 'Invalid email or password.');
+              // Handle specific error for archived user
+              if (data.message === 'Account is archived and cannot log in') {
+                setError('Your account is locked. Please contact support.');
+              } else {
+                setError(data.message || 'Invalid email or password.');
+              }
               setIsLoading(false);
             }
             _context.n = 6;
@@ -174100,12 +175511,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/CaretDownOutlined.js");
-/* harmony import */ var _sass_components_register_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../sass/components/_register.scss */ "./resources/sass/components/_register.scss");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/CaretDownOutlined.js");
+/* harmony import */ var _sass_components_register_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/_register.scss */ "./resources/sass/components/_register.scss");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -174127,7 +175539,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
-
+ // Added useNavigate
 
 
 
@@ -174178,8 +175590,10 @@ var Register = function Register() {
     _useState14 = _slicedToArray(_useState13, 2),
     genders = _useState14[0],
     setGenders = _useState14[1];
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)(); // Added for navigation
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // Clear any existing authentication token to ensure not logged in
+    // Clear auth token to ensure not logged in
     localStorage.removeItem('auth_token');
     var fetchData = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
@@ -174231,7 +175645,7 @@ var Register = function Register() {
               return roleResponse.json();
             case 6:
               roleData = _context.v;
-              setRoles(roleData);
+              setRoles(roleData); // Updated to handle flat array
 
               // Fetch genders
               _context.n = 7;
@@ -174349,13 +175763,12 @@ var Register = function Register() {
     }
   };
   var validatePassword = function validatePassword(password) {
-    var hasUppercase = /[A-Z]/.test(password);
-    var hasNumber = /\d/.test(password);
-    setPasswordError(!hasUppercase || !hasNumber ? "Password must contain at least 1 uppercase letter and 1 number." : "");
+    var passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    setPasswordError(!passwordRegex.test(password) ? "Password must contain at least 1 uppercase letter, 1 number, and 1 special character (@$!%*?&)." : "");
   };
   var handleRegister = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
-      var response, data, _t2;
+      var response, data, errorMessage, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -174401,7 +175814,9 @@ var Register = function Register() {
           case 5:
             data = _context2.v;
             if (!response.ok) {
-              showAlert(data.error || "Registration failed", "error");
+              // Handle validation errors or other errors
+              errorMessage = data.errors ? Object.values(data.errors).flat().join(", ") : data.error || "Registration failed";
+              showAlert(errorMessage, "error");
             } else {
               showAlert("✅ Registration successful!", "success");
               setFormData({
@@ -174414,6 +175829,10 @@ var Register = function Register() {
                 role: "",
                 gender: ""
               });
+              // Navigate to login page after 2 seconds
+              setTimeout(function () {
+                return navigate("/login");
+              }, 2000);
             }
             _context2.n = 7;
             break;
@@ -174435,42 +175854,42 @@ var Register = function Register() {
       return _ref2.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "register-wrapper",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "register-card",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "register-image-section"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "register-content",
-          children: [alert.message && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          children: [alert.message && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "custom-alert ".concat(alert.type),
-            children: [alert.message, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            children: [alert.message, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
               className: "alert-close-btn",
               onClick: closeAlert,
               children: "\xD7"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "register-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
               className: "register-title",
               children: "Create Your Account"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
               className: "register-subtitle",
               children: "Join us to get started"
             })]
-          }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
             className: "register-error",
             children: passwordError
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
             onSubmit: handleRegister,
             className: "register-form-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "register-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "register-input-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   name: "firstName",
                   placeholder: "First Name",
@@ -174478,9 +175897,9 @@ var Register = function Register() {
                   onChange: handleChange,
                   required: true
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "register-input-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   name: "middleName",
                   placeholder: "Middle Name (optional)",
@@ -174488,11 +175907,11 @@ var Register = function Register() {
                   onChange: handleChange
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "register-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "register-input-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   name: "lastName",
                   placeholder: "Last Name",
@@ -174500,26 +175919,26 @@ var Register = function Register() {
                   onChange: handleChange,
                   required: true
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "register-input-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
                   name: "suffix",
                   value: formData.suffix,
                   onChange: handleChange,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                     value: "",
                     children: "Suffix (optional)"
                   }), suffixes.map(function (suffix) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                       value: suffix.suffix_name,
                       children: suffix.suffix_name
                     }, suffix.id);
                   })]
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "register-input-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                 type: "email",
                 name: "email",
                 placeholder: "Email",
@@ -174527,69 +175946,69 @@ var Register = function Register() {
                 onChange: handleChange,
                 required: true
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "register-password-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                 type: showPassword ? "text" : "password",
                 name: "password",
                 placeholder: "Password",
                 value: formData.password,
                 onChange: handleChange,
                 required: true
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                 className: "password-toggle",
                 onClick: function onClick() {
                   return setShowPassword(!showPassword);
                 },
-                children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaEye, {})
+                children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEye, {})
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "register-select-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
                 name: "role",
                 value: formData.role,
                 onChange: handleChange,
                 required: true,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                   value: "",
                   disabled: true,
                   children: "Select Role"
                 }), roles.map(function (role) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                     value: role.id,
                     children: role.role_name
                   }, role.id);
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 className: "select-icon"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "register-select-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("select", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("select", {
                 name: "gender",
                 value: formData.gender,
                 onChange: handleChange,
                 required: true,
                 children: genders.map(function (option) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                     value: option.value,
                     disabled: option.disabled,
                     children: option.label
                   }, option.value);
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 className: "select-icon"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
               type: "submit",
               className: "register-submit-btn",
               disabled: isLoading,
               children: isLoading ? "Registering..." : "Register"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "register-login",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-              children: ["Already have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+              children: ["Already have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 to: "/login",
                 className: "register-login-link",
                 children: "Login"
@@ -176118,21 +177537,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/img/blue.svg":
-/*!*************************************!*\
-  !*** ./resources/sass/img/blue.svg ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/blue.svg?ca03ef2eca625b1d0b3c9d15bce8df19");
-
-/***/ }),
-
 /***/ "./resources/sass/img/coverphoto.svg":
 /*!*******************************************!*\
   !*** ./resources/sass/img/coverphoto.svg ***!
@@ -176193,186 +177597,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/img/image 10.svg":
-/*!*****************************************!*\
-  !*** ./resources/sass/img/image 10.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 10.svg?8c261909b6eb0e96ec0fa2a5b64e1b5e");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 11.svg":
-/*!*****************************************!*\
-  !*** ./resources/sass/img/image 11.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 11.svg?464176b8f677fc74607a0fb0edba1a3e");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 12.svg":
-/*!*****************************************!*\
-  !*** ./resources/sass/img/image 12.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 12.svg?90afa62bce4440f1503f254a5e396b4f");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 17.svg":
-/*!*****************************************!*\
-  !*** ./resources/sass/img/image 17.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 17.svg?e0ae07788338a9214823d6aa15cbea51");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 18.svg":
-/*!*****************************************!*\
-  !*** ./resources/sass/img/image 18.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 18.svg?4508bf4ef1523d7612659d5c51407dbe");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 19.svg":
-/*!*****************************************!*\
-  !*** ./resources/sass/img/image 19.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 19.svg?1e1fbef01ca23608fef424d0c539ad00");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 20.svg":
-/*!*****************************************!*\
-  !*** ./resources/sass/img/image 20.svg ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 20.svg?d792fd6ed0a00b610fd1b68b5c06512a");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 5.svg":
-/*!****************************************!*\
-  !*** ./resources/sass/img/image 5.svg ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 5.svg?5796e274dec95fb47694eaeb48f52c65");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 6.svg":
-/*!****************************************!*\
-  !*** ./resources/sass/img/image 6.svg ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 6.svg?46b481f25908c82d39e1d401447736ce");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 7.svg":
-/*!****************************************!*\
-  !*** ./resources/sass/img/image 7.svg ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 7.svg?e65cab711311b61bfcc6e41b8508b5f8");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 8.svg":
-/*!****************************************!*\
-  !*** ./resources/sass/img/image 8.svg ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 8.svg?7341a89a335bb766f84af29443d181dd");
-
-/***/ }),
-
-/***/ "./resources/sass/img/image 9.svg":
-/*!****************************************!*\
-  !*** ./resources/sass/img/image 9.svg ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/image 9.svg?22c5baf7676546660efbdb7451115fa9");
-
-/***/ }),
-
 /***/ "./resources/sass/img/pfp.svg":
 /*!************************************!*\
   !*** ./resources/sass/img/pfp.svg ***!
@@ -176388,21 +177612,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/img/pink.svg":
-/*!*************************************!*\
-  !*** ./resources/sass/img/pink.svg ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/pink.svg?2810e5df5153217968054b99648abb62");
-
-/***/ }),
-
 /***/ "./resources/sass/img/search.svg":
 /*!***************************************!*\
   !*** ./resources/sass/img/search.svg ***!
@@ -176415,21 +177624,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/search.svg?63d4efb9b288a57088b112d2fa76a290");
-
-/***/ }),
-
-/***/ "./resources/sass/img/white.svg":
-/*!**************************************!*\
-  !*** ./resources/sass/img/white.svg ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/white.svg?8481b7f0888ebb51a6c2b07a87076e35");
 
 /***/ }),
 
