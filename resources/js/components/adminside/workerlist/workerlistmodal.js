@@ -40,6 +40,8 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     skills_id: [],
     credentials: [],
     role_id: "1",
+    experience: "",
+    is_reviewed: "",
   });
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState("");
@@ -112,6 +114,8 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
               }))
             : [],
           role_id: "1",
+          experience: initialData.worker?.experience || "",
+          is_reviewed: (initialData.worker?.is_reviewed === null || initialData.worker?.is_reviewed === 'TO BE REVIEWED' || initialData.worker?.is_reviewed === '0') ? '' : (initialData.worker?.is_reviewed || ''),
         });
         setApiError("");
         setErrors({});
@@ -442,6 +446,9 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     submitData.append("work_type", formData.work_type || "");
     submitData.append("role_id", formData.role_id);
     submitData.append("skills_id", JSON.stringify(formData.skills_id || []));
+    // Always send experience and is_reviewed so server can null them when blank
+    submitData.append("experience", formData.experience || "");
+    submitData.append("is_reviewed", formData.is_reviewed || "");
     if (isEdit) {
       submitData.append("_method", "PUT");
     }
@@ -712,6 +719,35 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                     <label htmlFor="role_id">Role</label>
                     <select id="role_id" value={formData.role_id} disabled className="credential-dropdown">
                       <option value="1">Worker</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="experience">Experience</label>
+                    <select
+                      id="experience"
+                      value={formData.experience}
+                      onChange={(e) => handleInputChange(e.target.value, "experience")}
+                      className="credential-dropdown"
+                    >
+                      <option value="">Select Experience</option>
+                      <option value="0 to 11 months">0 to 11 months</option>
+                      <option value="2 to 5 years">2 to 5 years</option>
+                      <option value="5 to 10 years">5 to 10 years</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="is_reviewed">Status</label>
+                    <select
+                      id="is_reviewed"
+                      value={formData.is_reviewed}
+                      onChange={(e) => handleInputChange(e.target.value, "is_reviewed")}
+                      className="credential-dropdown"
+                    >
+                      <option value="">TO BE REVIEWED</option>
+                      <option value="ACCEPTED">ACCEPTED</option>
+                      <option value="DECLINED">DECLINED</option>
                     </select>
                   </div>
                 </div>

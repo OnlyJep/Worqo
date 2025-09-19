@@ -12,7 +12,7 @@ const Headerz = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [imageError, setImageError] = useState(false); // Track image loading errors
+  const [imageError, setImageError] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
@@ -86,14 +86,13 @@ const Headerz = () => {
         },
       });
       if (response.ok) {
-        localStorage.clear(); // Clear all local storage
+        localStorage.clear();
         setIsLoggedIn(false);
         setUser(null);
         setIsDropdownOpen(false);
-        navigate('/', { replace: true }); // Navigate to homepage
+        navigate('/', { replace: true });
       } else {
         console.error('Logout failed:', response.status, response.statusText);
-        // Proceed with logout even if API call fails
         localStorage.clear();
         setIsLoggedIn(false);
         setUser(null);
@@ -102,7 +101,6 @@ const Headerz = () => {
       }
     } catch (error) {
       console.error('Logout error:', error.message);
-      // Proceed with logout even if there's an error
       localStorage.clear();
       setIsLoggedIn(false);
       setUser(null);
@@ -141,18 +139,22 @@ const Headerz = () => {
 
         {/* Right Side: Icons and Login/Profile */}
         <div className="header-actions">
-          <div className="notification-wrapper" onClick={goToNotifications}>
-            <IconBell size={24} className="header-icon" style={{ cursor: 'pointer' }} />
-            {unreadCount > 0 && (
-              <span className="notification-badge">{unreadCount}</span>
-            )}
-          </div>
-          <IconMessageCircle
-            size={24}
-            className="header-icon message-icon"
-            style={{ cursor: 'pointer' }}
-            onClick={() => navigate('/message')}
-          />
+          {isLoggedIn && (
+            <>
+              <div className="notification-wrapper" onClick={goToNotifications}>
+                <IconBell size={24} className="header-icon" style={{ cursor: 'pointer' }} />
+                {unreadCount > 0 && (
+                  <span className="notification-badge">{unreadCount}</span>
+                )}
+              </div>
+              <IconMessageCircle
+                size={24}
+                className="header-icon message-icon"
+                style={{ cursor: 'pointer' }}
+                onClick={() => navigate('/message')}
+              />
+            </>
+          )}
           {isLoggedIn ? (
             <div className="profile" ref={dropdownRef}>
               <img

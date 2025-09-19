@@ -68419,7 +68419,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".headerz {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  background-color: #1A2A44;\n  z-index: 1000;\n  padding: 0.5rem 0;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.headerz .headerz-container {\n  display: flex;\n  align-items: center;\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 0 1rem;\n  position: relative;\n}\n.headerz .headerz-container .mobile-menu {\n  display: none;\n}\n.headerz .headerz-container .mobile-menu .menu-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n}\n.headerz .headerz-container .mobile-menu .menu-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .logo {\n  display: block;\n  width: 400px; /* Larger logo size for prominence */\n  height: 35px; /* Adjusted height for proportion */\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: contain;\n  cursor: pointer;\n}\n.headerz .headerz-container .nav-links {\n  display: flex;\n  gap: 1.5rem;\n  position: absolute;\n  left: 50%;\n  transform: translateX(-50%);\n  flex-grow: 1;\n  justify-content: center;\n}\n.headerz .headerz-container .nav-links span {\n  color: #FFFFFF;\n  text-decoration: none;\n  font-size: 0.9rem;\n  font-weight: 400;\n  cursor: pointer;\n}\n.headerz .headerz-container .nav-links span:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions {\n  margin-left: auto;\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  flex-shrink: 0;\n}\n.headerz .headerz-container .header-actions .notification-wrapper {\n  position: relative;\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .header-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .header-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .notification-badge {\n  position: absolute;\n  top: -8px;\n  right: -8px;\n  background-color: #dc3545;\n  color: white;\n  border-radius: 50%;\n  width: 18px;\n  height: 18px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.7rem;\n  font-weight: 600;\n  border: 2px solid #1A2A44;\n  animation: pulse 2s infinite;\n}\n.headerz .headerz-container .header-actions .header-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .header-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .login-btn {\n  padding: 0.4rem 0.8rem;\n  background-color: transparent;\n  color: #FFFFFF;\n  border: 2px solid #FFFFFF;\n  border-radius: 5px;\n  font-size: 0.8rem;\n  font-weight: 400;\n  cursor: pointer;\n  transition: background-color 0.3s, color 0.3s;\n}\n.headerz .headerz-container .header-actions .login-btn:hover {\n  background-color: #FFFFFF;\n  color: #1A2A44;\n}\n.headerz .headerz-container .header-actions .profile {\n  position: relative;\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n.headerz .headerz-container .header-actions .profile .profile-icon {\n  width: 32px;\n  height: 32px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #FFFFFF;\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle {\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-icon {\n  color: #FFFFFF;\n  font-size: 1.2rem;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle.open .dropdown-menu {\n  display: block;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #FFFFFF;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  border-radius: 5px;\n  min-width: 150px;\n  z-index: 1000;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul {\n  list-style: none;\n  margin: 0;\n  padding: 0.5rem 0;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  padding: 0.5rem 1rem;\n  color: #1A2A44;\n  font-size: 0.9rem;\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li:hover {\n  background-color: #f1f1f1;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li .menu-icon {\n  font-size: 0.9rem;\n  color: #1A2A44;\n}\n@media (max-width: 768px) {\n  .headerz .headerz-container {\n    justify-content: space-between;\n    align-items: center;\n    padding: 0 1rem;\n  }\n  .headerz .headerz-container .mobile-menu {\n    display: flex;\n    position: absolute;\n    left: 1rem;\n  }\n  .headerz .headerz-container .logo {\n    flex-grow: 1;\n    position: absolute;\n    left: 50%;\n    transform: translateX(-50%);\n    width: 200px; /* Large logo for mobile */\n    height: 50px;\n  }\n  .headerz .headerz-container .nav-links {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: #1A2A44;\n    z-index: 999;\n    padding: 3.5rem 1rem 1rem;\n    transform: translateX(-100%);\n    opacity: 0;\n    visibility: hidden;\n    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;\n    flex-direction: column;\n    align-items: flex-start;\n  }\n  .headerz .headerz-container .nav-links span {\n    font-size: 1rem;\n    padding: 0.75rem 0;\n    width: 100%;\n    opacity: 0;\n    transform: translateX(-20px);\n    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(1) {\n    transition-delay: 0.1s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(2) {\n    transition-delay: 0.2s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(3) {\n    transition-delay: 0.3s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(4) {\n    transition-delay: 0.4s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(5) {\n    transition-delay: 0.5s;\n  }\n  .headerz .headerz-container .nav-links.open {\n    transform: translateX(0);\n    opacity: 1;\n    visibility: visible;\n  }\n  .headerz .headerz-container .nav-links.open span {\n    opacity: 1;\n    transform: translateX(0);\n  }\n  .headerz .headerz-container .header-actions {\n    position: absolute;\n    right: 1rem;\n    gap: 1rem;\n  }\n  .headerz .headerz-container .header-actions .notification-wrapper .notification-badge {\n    width: 16px;\n    height: 16px;\n    font-size: 0.6rem;\n    top: -6px;\n    right: -6px;\n  }\n  .headerz .headerz-container .header-actions .login-btn {\n    display: none;\n  }\n  .headerz .headerz-container .header-actions .profile .profile-icon {\n    width: 28px;\n    height: 28px;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu {\n    right: -10px;\n    min-width: 120px;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu ul li .menu-icon {\n    font-size: 0.8rem;\n  }\n}\n\n@keyframes pulse {\n  0% {\n    transform: scale(1);\n  }\n  50% {\n    transform: scale(1.1);\n  }\n  100% {\n    transform: scale(1);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".headerz {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  background-color: #1A2A44; /* Dark navy for professional look */\n  z-index: 1000;\n  padding: 0.75rem 0; /* Consistent padding */\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */\n}\n.headerz .headerz-container {\n  display: flex;\n  align-items: center;\n  max-width: 1400px; /* Wide but controlled width */\n  margin: 0 auto;\n  padding: 0 2rem; /* Generous padding for clean edges */\n  justify-content: space-between; /* Ensure elements spread out */\n}\n.headerz .headerz-container .mobile-menu {\n  display: none;\n}\n.headerz .headerz-container .mobile-menu .menu-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .mobile-menu .menu-icon:hover {\n  color: #00C4CC; /* Consistent hover color */\n}\n.headerz .headerz-container .logo {\n  display: block;\n  width: 180px; /* Reduced for cleaner look */\n  height: 40px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat left center;\n  background-size: contain;\n  cursor: pointer;\n  flex-shrink: 0; /* Prevent logo from shrinking */\n}\n.headerz .headerz-container .nav-links {\n  display: flex;\n  gap: 2.5rem; /* Wider gap for clean spacing */\n  flex-grow: 1;\n  justify-content: center;\n  align-items: center;\n}\n.headerz .headerz-container .nav-links span {\n  color: #FFFFFF;\n  text-decoration: none;\n  font-size: 1rem;\n  font-weight: 500; /* Slightly bolder for professionalism */\n  font-family: \"Inter\", sans-serif; /* Clean, modern font */\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .nav-links span:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 1.5rem; /* Consistent spacing */\n  flex-shrink: 0;\n}\n.headerz .headerz-container .header-actions .notification-wrapper {\n  position: relative;\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .header-icon {\n  color: #FFFFFF;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .header-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .notification-badge {\n  position: absolute;\n  top: -6px;\n  right: -6px;\n  background-color: #dc3545;\n  color: white;\n  border-radius: 50%;\n  width: 16px;\n  height: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.65rem;\n  font-weight: 600;\n  border: 1px solid #1A2A44;\n  animation: pulse 2s infinite;\n}\n.headerz .headerz-container .header-actions .header-icon {\n  color: #FFFFFF;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .header-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .login-btn {\n  padding: 0.5rem 1.2rem; /* Larger, cleaner button */\n  background-color: #27426d; /* Primary color for prominence */\n  color: #FFFFFF;\n  border: none; /* Removed border for cleaner look */\n  border-radius: 6px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: background-color 0.2s ease, transform 0.1s ease;\n}\n.headerz .headerz-container .header-actions .login-btn:hover {\n  background-color: #00A3AA; /* Darker shade for hover */\n  transform: translateY(-1px); /* Subtle lift effect */\n}\n.headerz .headerz-container .header-actions .login-btn:active {\n  transform: translateY(0); /* Reset on click */\n}\n.headerz .headerz-container .header-actions .profile {\n  position: relative;\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n.headerz .headerz-container .header-actions .profile .profile-icon {\n  width: 32px;\n  height: 32px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #FFFFFF;\n  cursor: pointer;\n  transition: border-color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle {\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-icon {\n  color: #FFFFFF;\n  font-size: 1.2rem;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle.open .dropdown-menu {\n  display: block;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #FFFFFF;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  border-radius: 6px;\n  min-width: 160px;\n  z-index: 1000;\n  margin-top: 0.5rem; /* Space from profile icon */\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul {\n  list-style: none;\n  margin: 0;\n  padding: 0.5rem 0;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li {\n  display: flex;\n  align-items: center;\n  gap: 0.75rem;\n  padding: 0.75rem 1.25rem;\n  color: #1A2A44;\n  font-size: 0.9rem;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li:hover {\n  background-color: #F5F7FA; /* Light gray for hover */\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li .menu-icon {\n  font-size: 0.9rem;\n  color: #1A2A44;\n}\n@media (max-width: 768px) {\n  .headerz .headerz-container {\n    padding: 0 1.5rem;\n  }\n  .headerz .headerz-container .mobile-menu {\n    display: flex;\n    align-items: center;\n    z-index: 1001; /* Above nav-links */\n  }\n  .headerz .headerz-container .logo {\n    width: 150px; /* Smaller for mobile */\n    height: 35px;\n    position: static; /* Reset position */\n    margin: 0; /* Clean alignment */\n  }\n  .headerz .headerz-container .nav-links {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: #1A2A44;\n    z-index: 999;\n    padding: 4rem 1.5rem 1rem;\n    transform: translateX(-100%);\n    opacity: 0;\n    visibility: hidden;\n    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;\n    flex-direction: column;\n    align-items: flex-start;\n  }\n  .headerz .headerz-container .nav-links span {\n    font-size: 1.1rem;\n    padding: 1rem 0;\n    width: 100%;\n    opacity: 0;\n    transform: translateX(-20px);\n    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(1) {\n    transition-delay: 0.1s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(2) {\n    transition-delay: 0.2s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(3) {\n    transition-delay: 0.3s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(4) {\n    transition-delay: 0.4s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(5) {\n    transition-delay: 0.5s;\n  }\n  .headerz .headerz-container .nav-links.open {\n    transform: translateX(0);\n    opacity: 1;\n    visibility: visible;\n  }\n  .headerz .headerz-container .nav-links.open span {\n    opacity: 1;\n    transform: translateX(0);\n  }\n  .headerz .headerz-container .header-actions {\n    gap: 1.2rem;\n  }\n  .headerz .headerz-container .header-actions .notification-wrapper .notification-badge {\n    width: 14px;\n    height: 14px;\n    font-size: 0.6rem;\n    top: -5px;\n    right: -5px;\n  }\n  .headerz .headerz-container .header-actions .login-btn {\n    padding: 0.4rem 1rem;\n    font-size: 0.85rem;\n  }\n  .headerz .headerz-container .header-actions .profile .profile-icon {\n    width: 28px;\n    height: 28px;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu {\n    right: 0;\n    min-width: 140px;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu ul li {\n    padding: 0.75rem 1rem;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu ul li .menu-icon {\n    font-size: 0.85rem;\n  }\n}\n@media (max-width: 480px) {\n  .headerz .headerz-container {\n    padding: 0 1rem;\n  }\n  .headerz .headerz-container .logo {\n    width: 120px;\n    height: 30px;\n  }\n  .headerz .headerz-container .header-actions {\n    gap: 1rem;\n  }\n  .headerz .headerz-container .header-actions .login-btn {\n    padding: 0.3rem 0.8rem;\n    font-size: 0.8rem;\n  }\n}\n@keyframes pulse {\n  0% {\n    transform: scale(1);\n  }\n  50% {\n    transform: scale(1.1);\n  }\n  100% {\n    transform: scale(1);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -68638,7 +68638,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".employermodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.employermodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.employermodal h2 {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.employermodal .employermodal-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.employermodal .employermodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.employermodal .employermodal-content .form-group label {\n  font-weight: 500;\n  color: #2d3748;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.employermodal .employermodal-content .form-group input,\n.employermodal .employermodal-content .form-group .color-picker {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.employermodal .employermodal-content .form-group input:focus,\n.employermodal .employermodal-content .form-group .color-picker:focus {\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);\n  outline: none;\n}\n.employermodal .employermodal-content .form-group input.error,\n.employermodal .employermodal-content .form-group .color-picker.error {\n  border-color: #ef4444;\n  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);\n}\n.employermodal .employermodal-content .form-group .color-wrapper {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.employermodal .employermodal-content .form-group .color-wrapper .color-picker {\n  height: 40px;\n  padding: 4px;\n  cursor: pointer;\n}\n.employermodal .employermodal-content .form-group .color-wrapper .collar-icon-preview {\n  font-size: 20px;\n  border: 2px solid;\n  border-radius: 6px;\n  padding: 4px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n.employermodal .employermodal-content .form-group .error {\n  color: #ef4444;\n  font-size: 12px;\n  margin-top: 2px;\n  font-family: \"Inter\", sans-serif;\n}\n.employermodal .employermodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.employermodal .employermodal-buttons .submit-button {\n  background: #3b82f6;\n  color: #ffffff;\n  border: none;\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.employermodal .employermodal-buttons .submit-button:hover {\n  background: #2563eb;\n}\n.employermodal .employermodal-buttons .cancel-button {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.employermodal .employermodal-buttons .cancel-button:hover {\n  background: #e5e7eb;\n}\n.employermodal .employermodal-content::-webkit-scrollbar {\n  width: 6px;\n}\n.employermodal .employermodal-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.employermodal .employermodal-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n@media (max-width: 600px) {\n  .employermodal .employermodal {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .employermodal h2 {\n    font-size: 20px;\n  }\n  .employermodal .employermodal-content {\n    gap: 10px;\n  }\n  .employermodal .form-group {\n    gap: 4px;\n  }\n  .employermodal .form-group label {\n    font-size: 12px;\n  }\n  .employermodal .form-group input,\n  .employermodal .form-group .color-picker {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .employermodal .form-group .color-wrapper .collar-icon-preview {\n    font-size: 18px;\n    width: 28px;\n    height: 28px;\n  }\n  .employermodal .employermodal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .employermodal .employermodal-buttons .submit-button,\n  .employermodal .employermodal-buttons .cancel-button {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".employermodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.employermodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.employermodal h2 {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.employermodal .employermodal-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.employermodal .employermodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.employermodal .employermodal-content .form-group label {\n  font-weight: 500;\n  color: #2d3748;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.employermodal .employermodal-content .form-group input,\n.employermodal .employermodal-content .form-group input[type=file] {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.employermodal .employermodal-content .form-group input:focus,\n.employermodal .employermodal-content .form-group input[type=file]:focus {\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);\n  outline: none;\n}\n.employermodal .employermodal-content .form-group input.error,\n.employermodal .employermodal-content .form-group input[type=file].error {\n  border-color: #ef4444;\n  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);\n}\n.employermodal .employermodal-content .form-group input[type=file],\n.employermodal .employermodal-content .form-group input[type=file][type=file] {\n  padding: 4px;\n  background: white;\n  cursor: pointer;\n}\n.employermodal .employermodal-content .form-group input[type=file]::file-selector-button,\n.employermodal .employermodal-content .form-group input[type=file][type=file]::file-selector-button {\n  margin-right: 8px;\n  padding: 6px 12px;\n  background: #3b82f6;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.employermodal .employermodal-content .form-group input[type=file]::file-selector-button:hover,\n.employermodal .employermodal-content .form-group input[type=file][type=file]::file-selector-button:hover {\n  background: #2563eb;\n}\n.employermodal .employermodal-content .form-group .image-upload-wrapper .image-preview {\n  margin-top: 10px;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  gap: 8px;\n}\n.employermodal .employermodal-content .form-group .image-upload-wrapper .image-preview .preview-image {\n  width: 80px;\n  height: 80px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 8px;\n  border: 1px solid #d1d5db;\n  display: block;\n}\n.employermodal .employermodal-content .form-group .image-upload-wrapper .image-preview .remove-image-btn {\n  padding: 4px 12px;\n  background: #ef4444;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 12px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.employermodal .employermodal-content .form-group .image-upload-wrapper .image-preview .remove-image-btn:hover:not(:disabled) {\n  background: #dc2626;\n}\n.employermodal .employermodal-content .form-group .image-upload-wrapper .image-preview .remove-image-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n}\n.employermodal .employermodal-content .form-group .image-upload-wrapper .image-hint {\n  margin-top: 8px;\n  font-size: 12px;\n  color: #6b7280;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.employermodal .employermodal-content .form-group .error {\n  color: #ef4444;\n  font-size: 12px;\n  margin-top: 2px;\n  font-family: \"Inter\", sans-serif;\n}\n.employermodal .employermodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.employermodal .employermodal-buttons .submit-button,\n.employermodal .employermodal-buttons .cancel-button {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n}\n.employermodal .employermodal-buttons .submit-button:disabled,\n.employermodal .employermodal-buttons .cancel-button:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.employermodal .employermodal-buttons .submit-button {\n  background: #3b82f6;\n  color: #ffffff;\n  border: none;\n}\n.employermodal .employermodal-buttons .submit-button:hover:not(:disabled) {\n  background: #2563eb;\n}\n.employermodal .employermodal-buttons .cancel-button {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n}\n.employermodal .employermodal-buttons .cancel-button:hover:not(:disabled) {\n  background: #e5e7eb;\n}\n.employermodal .employermodal-content::-webkit-scrollbar {\n  width: 6px;\n}\n.employermodal .employermodal-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.employermodal .employermodal-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n@media (max-width: 600px) {\n  .employermodal .employermodal {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .employermodal h2 {\n    font-size: 20px;\n  }\n  .employermodal .employermodal-content {\n    gap: 10px;\n  }\n  .employermodal .form-group {\n    gap: 4px;\n  }\n  .employermodal .form-group label {\n    font-size: 12px;\n  }\n  .employermodal .form-group input,\n  .employermodal .form-group input[type=file] {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .employermodal .form-group input[type=file]::file-selector-button,\n  .employermodal .form-group input[type=file][type=file]::file-selector-button {\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .employermodal .form-group .image-upload-wrapper .image-preview .preview-image {\n    width: 60px;\n    height: 60px;\n  }\n  .employermodal .form-group .image-upload-wrapper .image-preview .remove-image-btn {\n    font-size: 11px;\n    padding: 3px 8px;\n  }\n  .employermodal .form-group .image-upload-wrapper .image-hint {\n    font-size: 11px;\n  }\n  .employermodal .employermodal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .employermodal .employermodal-buttons .submit-button,\n  .employermodal .employermodal-buttons .cancel-button {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -69026,7 +69026,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.workerlist-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.workerlist-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.workerlist-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .workerlist-dashboard.sidebar-expanded, .workerlist-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.workerlist-dashboard .workerlist-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.workerlist-dashboard .workerlist-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container {\n  position: relative;\n  width: 100%;\n  max-width: clamp(180px, 40vw, 200px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container .search-icon {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: clamp(14px, 3vw, 16px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container .search-input {\n  width: 100%;\n  padding: 8px 12px 8px 35px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container .search-input:focus {\n  border-color: #4A90E2;\n  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);\n}\n@media (max-width: 768px) {\n  .workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container .search-input {\n    max-width: 100%;\n  }\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #4A90E2;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  border-color: #4A90E2;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .archive-all-button {\n  background: #D81B60;\n  color: #FFFFFF;\n  border-color: #D81B60;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .archive-all-button:hover {\n  background: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  border-color: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .workerlist-dashboard .workerlist-content .workerlist-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .left-actions {\n    flex: 1;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard .workerlist-content .workerlist-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .left-actions,\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n    width: 100%;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.workerlist-dashboard .workerlist-content .workerlist-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table {\n  width: 100%;\n  min-width: 600px;\n  border-collapse: collapse;\n  table-layout: auto;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #4A90E2;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #357ABD;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table td.username-cell, .workerlist-dashboard .workerlist-content .workerlist-table table td[data-label=Email], .workerlist-dashboard .workerlist-content .workerlist-table table td[data-label=Credentials] {\n  text-align: left;\n  white-space: normal;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table tr:last-child {\n  border-bottom: none;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .username-cell {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: clamp(8px, 2vw, 10px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .username-cell .profile-picture {\n  width: clamp(32px, 8vw, 40px);\n  height: clamp(32px, 8vw, 40px);\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .checkbox-icon,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .delete-icon,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .edit-icon,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .restore-icon {\n  color: #4A90E2;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .checkbox-icon:hover,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .delete-icon:hover,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .edit-icon:hover,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .restore-icon:hover {\n  color: #357ABD;\n  transform: scale(1.2);\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .delete-icon {\n  color: #D81B60;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .delete-icon:hover {\n  color: #A71D2A;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 4px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .credential-item .credential-link {\n  background: none;\n  border: none;\n  color: #4A90E2;\n  cursor: pointer;\n  font-size: clamp(12px, 3vw, 14px);\n  text-decoration: underline;\n  transition: color 0.2s ease;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .credential-item .credential-link:hover {\n  color: #357ABD;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(1),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(1) {\n  width: clamp(60px, 10vw, 80px);\n  min-width: 60px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(2),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(2) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(3),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(3) {\n  width: clamp(100px, 15vw, 120px);\n  min-width: 100px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(4),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(4) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(5),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(5) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(6),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(6) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(7),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(7) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination button.active {\n  background: #4A90E2;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard .workerlist-content .workerlist-pagination {\n    gap: 6px;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-pagination button, .workerlist-dashboard .workerlist-content .workerlist-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #D81B60;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}\n\n.preview-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.preview-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(400px, 80vw, 600px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: clamp(12px, 3vw, 16px);\n}\n.preview-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0;\n}\n.preview-modal .preview-image {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 5px;\n  border: 1px solid #EEEEEE;\n}\n.preview-modal .preview-file {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.preview-modal .preview-file p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0;\n}\n.preview-modal .preview-file .download-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #4A90E2;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  text-decoration: none;\n  font-size: clamp(12px, 3vw, 14px);\n  transition: background 0.3s ease, transform 0.2s ease;\n}\n.preview-modal .preview-file .download-button:hover {\n  background: rgb(34.3857142857, 117.3857142857, 214.6142857143);\n  transform: translateY(-2px);\n}\n.preview-modal .preview-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.preview-modal .preview-modal-buttons .close-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.preview-modal .preview-modal-buttons .close-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .preview-modal .preview-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .preview-modal .preview-modal-buttons .close-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.workerlist-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.workerlist-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.workerlist-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .workerlist-dashboard.sidebar-expanded, .workerlist-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.workerlist-dashboard .workerlist-content {\n  width: 100%;\n  background: #FFFFFF;\n  /* Status badges */\n  /* Experience badges */\n}\n.workerlist-dashboard .workerlist-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container {\n  position: relative;\n  width: 100%;\n  max-width: clamp(180px, 40vw, 200px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container .search-icon {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: clamp(14px, 3vw, 16px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container .search-input {\n  width: 100%;\n  padding: 8px 12px 8px 35px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container .search-input:focus {\n  border-color: #4A90E2;\n  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);\n}\n@media (max-width: 768px) {\n  .workerlist-dashboard .workerlist-content .workerlist-header .left-actions .search-container .search-input {\n    max-width: 100%;\n  }\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #4A90E2;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  border-color: #4A90E2;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .archive-all-button {\n  background: #D81B60;\n  color: #FFFFFF;\n  border-color: #D81B60;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.workerlist-dashboard .workerlist-content .workerlist-header .right-actions .archive-all-button:hover {\n  background: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  border-color: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .workerlist-dashboard .workerlist-content .workerlist-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .left-actions {\n    flex: 1;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard .workerlist-content .workerlist-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .left-actions,\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n    width: 100%;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.workerlist-dashboard .workerlist-content .workerlist-tabs {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  margin-bottom: clamp(12px, 3vw, 16px);\n  flex-wrap: wrap;\n}\n.workerlist-dashboard .workerlist-content .workerlist-tabs button {\n  height: 36px;\n  padding: 0 clamp(12px, 3vw, 16px);\n  border-radius: 18px;\n  border: 1px solid #DDDDDD;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.workerlist-dashboard .workerlist-content .workerlist-tabs button.active {\n  background: #4A90E2;\n  color: #FFFFFF;\n  border-color: #4A90E2;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);\n}\n.workerlist-dashboard .workerlist-content .workerlist-tabs button:hover {\n  background: #F5F9FF;\n  border-color: #4A90E2;\n  color: #4A90E2;\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard .workerlist-content .workerlist-tabs {\n    gap: 8px;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-tabs button {\n    height: 34px;\n    padding: 0 12px;\n    font-size: 12px;\n  }\n}\n.workerlist-dashboard .workerlist-content .workerlist-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table {\n  width: 100%;\n  min-width: 800px;\n  border-collapse: collapse;\n  table-layout: auto;\n  /* New Experience column */\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #4A90E2;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #357ABD;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: normal;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table td.fullname-cell, .workerlist-dashboard .workerlist-content .workerlist-table table td.email-cell, .workerlist-dashboard .workerlist-content .workerlist-table table td.skills-cell, .workerlist-dashboard .workerlist-content .workerlist-table table td.credentials-cell {\n  text-align: left;\n  white-space: normal;\n  word-wrap: break-word;\n  max-width: 200px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table tr:last-child {\n  border-bottom: none;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .checkbox-icon,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .delete-icon,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .edit-icon,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .restore-icon,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .accept-icon,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .decline-icon {\n  color: #4A90E2;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .checkbox-icon:hover,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .delete-icon:hover,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .edit-icon:hover,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .restore-icon:hover,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .accept-icon:hover,\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .decline-icon:hover {\n  color: #357ABD;\n  transform: scale(1.2);\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .delete-icon {\n  color: #D81B60;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .delete-icon:hover {\n  color: #A71D2A;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .accept-icon {\n  color: #28A745;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .accept-icon:hover {\n  color: #218838;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .decline-icon {\n  color: #DC3545;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .action-icons .decline-icon:hover {\n  color: #C82333;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 4px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .credential-item .credential-link {\n  background: none;\n  border: none;\n  color: #4A90E2;\n  cursor: pointer;\n  font-size: clamp(12px, 3vw, 14px);\n  text-decoration: underline;\n  transition: color 0.2s ease;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table .credential-item .credential-link:hover {\n  color: #357ABD;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(1),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(1) {\n  width: clamp(100px, 12vw, 120px);\n  min-width: 100px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(2),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(2) {\n  width: clamp(60px, 8vw, 80px);\n  min-width: 60px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(3),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(3) {\n  width: clamp(120px, 15vw, 140px);\n  min-width: 120px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(4),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(4) {\n  width: clamp(80px, 10vw, 100px);\n  min-width: 80px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(5),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(5) {\n  width: clamp(150px, 20vw, 180px);\n  min-width: 150px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(6),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(6) {\n  width: clamp(150px, 20vw, 180px);\n  min-width: 150px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(7),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(7) {\n  width: clamp(120px, 15vw, 140px);\n  min-width: 120px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(8),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(8) {\n  width: clamp(90px, 10vw, 110px);\n  min-width: 90px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(9),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(9) {\n  width: clamp(120px, 14vw, 140px);\n  min-width: 120px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(10),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(10) {\n  width: clamp(100px, 12vw, 120px);\n  min-width: 100px;\n}\n.workerlist-dashboard .workerlist-content .workerlist-table table th:nth-child(11),\n.workerlist-dashboard .workerlist-content .workerlist-table table td:nth-child(11) {\n  width: clamp(110px, 12vw, 130px);\n  min-width: 110px;\n}\n.workerlist-dashboard .workerlist-content .status-badge {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  padding: 4px 10px;\n  border-radius: 999px;\n  font-size: 12px;\n  font-weight: 600;\n  letter-spacing: 0.3px;\n  line-height: 1;\n  white-space: nowrap;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.workerlist-dashboard .workerlist-content .status-badge.accepted {\n  background: rgba(40, 167, 69, 0.12);\n  color: #1f7a3a;\n  border: 1px solid rgba(40, 167, 69, 0.25);\n}\n.workerlist-dashboard .workerlist-content .status-badge.declined {\n  background: rgba(220, 53, 69, 0.12);\n  color: #8c1f29;\n  border: 1px solid rgba(220, 53, 69, 0.25);\n}\n.workerlist-dashboard .workerlist-content .status-badge.pending {\n  background: rgba(74, 144, 226, 0.12);\n  color: #2b5f9e;\n  border: 1px solid rgba(74, 144, 226, 0.25);\n}\n.workerlist-dashboard .workerlist-content .exp-badge {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  padding: 4px 10px;\n  border-radius: 999px;\n  font-size: 12px;\n  font-weight: 600;\n  letter-spacing: 0.3px;\n  line-height: 1;\n  white-space: nowrap;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  border: 1px solid transparent;\n}\n.workerlist-dashboard .workerlist-content .exp-badge.exp-bronze {\n  background: rgba(205, 127, 50, 0.12);\n  color: #8b5a2b;\n  border-color: rgba(205, 127, 50, 0.25);\n}\n.workerlist-dashboard .workerlist-content .exp-badge.exp-silver {\n  background: rgba(192, 192, 192, 0.18);\n  color: #5e5e5e;\n  border-color: rgba(192, 192, 192, 0.35);\n}\n.workerlist-dashboard .workerlist-content .exp-badge.exp-gold {\n  background: rgba(255, 215, 0, 0.16);\n  color: #8a6d00;\n  border-color: rgba(255, 215, 0, 0.35);\n}\n.workerlist-dashboard .workerlist-content .exp-badge.exp-none {\n  background: rgba(153, 153, 153, 0.12);\n  color: #555555;\n  border-color: rgba(153, 153, 153, 0.25);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination button.active {\n  background: #4A90E2;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.workerlist-dashboard .workerlist-content .workerlist-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .workerlist-dashboard .workerlist-content .workerlist-pagination {\n    gap: 6px;\n  }\n  .workerlist-dashboard .workerlist-content .workerlist-pagination button, .workerlist-dashboard .workerlist-content .workerlist-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #D81B60;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button.accept {\n  background: #28A745;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button.accept:hover {\n  background: rgb(30.1449275362, 125.8550724638, 52);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button.decline {\n  background: #DC3545;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button.decline:hover {\n  background: rgb(189.2151898734, 32.7848101266, 47.7721518987);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}\n\n.preview-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.preview-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(400px, 80vw, 600px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: clamp(12px, 3vw, 16px);\n}\n.preview-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0;\n}\n.preview-modal .preview-image {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 5px;\n  border: 1px solid #EEEEEE;\n}\n.preview-modal .preview-file {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.preview-modal .preview-file p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0;\n}\n.preview-modal .preview-file .download-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #4A90E2;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  text-decoration: none;\n  font-size: clamp(12px, 3vw, 14px);\n  transition: background 0.3s ease, transform 0.2s ease;\n}\n.preview-modal .preview-file .download-button:hover {\n  background: rgb(34.3857142857, 117.3857142857, 214.6142857143);\n  transform: translateY(-2px);\n}\n.preview-modal .preview-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.preview-modal .preview-modal-buttons .close-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.preview-modal .preview-modal-buttons .close-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .preview-modal .preview-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .preview-modal .preview-modal-buttons .close-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -149047,7 +149047,7 @@ var Headerz = function Headerz() {
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState12 = _slicedToArray(_useState11, 2),
     imageError = _useState12[0],
-    setImageError = _useState12[1]; // Track image loading errors
+    setImageError = _useState12[1];
   var dropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
 
@@ -149138,16 +149138,15 @@ var Headerz = function Headerz() {
           case 2:
             response = _context.v;
             if (response.ok) {
-              localStorage.clear(); // Clear all local storage
+              localStorage.clear();
               setIsLoggedIn(false);
               setUser(null);
               setIsDropdownOpen(false);
               navigate('/', {
                 replace: true
-              }); // Navigate to homepage
+              });
             } else {
               console.error('Logout failed:', response.status, response.statusText);
-              // Proceed with logout even if API call fails
               localStorage.clear();
               setIsLoggedIn(false);
               setUser(null);
@@ -149162,7 +149161,6 @@ var Headerz = function Headerz() {
             _context.p = 3;
             _t = _context.v;
             console.error('Logout error:', _t.message);
-            // Proceed with logout even if there's an error
             localStorage.clear();
             setIsLoggedIn(false);
             setUser(null);
@@ -149225,28 +149223,30 @@ var Headerz = function Headerz() {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "header-actions",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-          className: "notification-wrapper",
-          onClick: goToNotifications,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        children: [isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            className: "notification-wrapper",
+            onClick: goToNotifications,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              size: 24,
+              className: "header-icon",
+              style: {
+                cursor: 'pointer'
+              }
+            }), unreadCount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+              className: "notification-badge",
+              children: unreadCount
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
             size: 24,
-            className: "header-icon",
+            className: "header-icon message-icon",
             style: {
               cursor: 'pointer'
+            },
+            onClick: function onClick() {
+              return navigate('/message');
             }
-          }), unreadCount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-            className: "notification-badge",
-            children: unreadCount
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          size: 24,
-          className: "header-icon message-icon",
-          style: {
-            cursor: 'pointer'
-          },
-          onClick: function onClick() {
-            return navigate('/message');
-          }
         }), isLoggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "profile",
           ref: dropdownRef,
@@ -150514,6 +150514,10 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
             className: "error-message",
             children: error
           }) : services.length > 0 ? services.map(function (service, index) {
+            // Find the corresponding collar to get collar_img
+            var collar = collars.find(function (c) {
+              return c.id === service.color_collar_id;
+            });
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "service-card",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -150529,12 +150533,16 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
                 children: service.name || "N/A"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                 children: service.description || "N/A"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "service-badge",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                children: [collar && collar.collar_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: "http://127.0.0.1:8000/storage/".concat(collar.collar_img),
+                  alt: service.color_collar_name || "Collar",
+                  className: "badge-icon"
+                }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                   className: "badge-text",
                   children: service.color_collar_name || "N/A"
-                })
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "service-cta-btn",
                 onClick: function onClick() {
@@ -158879,8 +158887,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _sass_components_colorcodecollarsmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../sass/components/_colorcodecollarsmodal.scss */ "./resources/sass/components/_colorcodecollarsmodal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var _sass_components_colorcodecollarsmodal_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../sass/components/_colorcodecollarsmodal.scss */ "./resources/sass/components/_colorcodecollarsmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -158890,140 +158909,217 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-var CollarIcon = function CollarIcon(_ref) {
-  var color = _ref.color,
-    borderColor = _ref.borderColor;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
-    width: "24",
-    height: "24",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: borderColor,
-    strokeWidth: "2",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("rect", {
-      x: "4",
-      y: "6",
-      width: "16",
-      height: "12",
-      rx: "2",
-      fill: color
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("circle", {
-      cx: "12",
-      cy: "12",
-      r: "2",
-      fill: color
-    })]
-  });
-};
-var ColorCodeCollarsModal = function ColorCodeCollarsModal(_ref2) {
-  var onClose = _ref2.onClose,
-    onSubmit = _ref2.onSubmit,
-    _ref2$isEdit = _ref2.isEdit,
-    isEdit = _ref2$isEdit === void 0 ? false : _ref2$isEdit,
-    _ref2$initialData = _ref2.initialData,
-    initialData = _ref2$initialData === void 0 ? {} : _ref2$initialData;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initialData.name || ""),
-    _useState2 = _slicedToArray(_useState, 2),
-    name = _useState2[0],
-    setName = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initialData.color || "#4A90E2"),
-    _useState4 = _slicedToArray(_useState3, 2),
-    color = _useState4[0],
-    setColor = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      name: ""
+
+var CollarsModal = function CollarsModal(_ref) {
+  var onClose = _ref.onClose,
+    onSubmit = _ref.onSubmit,
+    _ref$isEdit = _ref.isEdit,
+    isEdit = _ref$isEdit === void 0 ? false : _ref$isEdit,
+    _ref$initialData = _ref.initialData,
+    initialData = _ref$initialData === void 0 ? {} : _ref$initialData;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      name: initialData.name || "",
+      collar_img: null,
+      image_url: initialData.image_url || null
     }),
+    _useState2 = _slicedToArray(_useState, 2),
+    formData = _useState2[0],
+    setFormData = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState4 = _slicedToArray(_useState3, 2),
+    errors = _useState4[0],
+    setErrors = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
-    errors = _useState6[0],
-    setErrors = _useState6[1];
+    apiError = _useState6[0],
+    setApiError = _useState6[1];
+  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isEdit && initialData) {
-      setName(initialData.name || "");
-      setColor(initialData.color || "#4A90E2");
+      setFormData({
+        name: initialData.name || "",
+        collar_img: null,
+        image_url: initialData.image_url || null
+      });
+      setErrors({});
+      setApiError("");
     }
-  }, [isEdit, initialData]);
-  var validateForm = function validateForm() {
-    var valid = true;
-    var newErrors = {
-      name: ""
+    return function () {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
     };
-    if (!name.trim()) {
-      newErrors.name = "Collar name is required";
-      valid = false;
-    }
-    setErrors(newErrors);
-    return valid;
-  };
-  var handleSubmit = function handleSubmit() {
-    if (!validateForm()) return;
-    onSubmit({
-      name: name,
-      color: color
+  }, [isEdit, initialData]);
+  var handleInputChange = function handleInputChange(e, field) {
+    var value = e.target.type === "file" ? e.target.files[0] : e.target.value;
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, value));
     });
+    setErrors(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, ""));
+    });
+    setApiError("");
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "employermodal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "employermodal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+  var handleRemoveImage = function handleRemoveImage() {
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        collar_img: null,
+        image_url: null
+      });
+    });
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+  var validateForm = function validateForm() {
+    var newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Collar name is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(e) {
+      var submitData, _error$response, _error$response2, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            e.preventDefault();
+            if (validateForm()) {
+              _context.n = 1;
+              break;
+            }
+            return _context.a(2);
+          case 1:
+            submitData = {
+              name: formData.name.trim(),
+              collar_img: formData.collar_img
+            };
+            abortControllerRef.current = new AbortController();
+            _context.p = 2;
+            _context.n = 3;
+            return onSubmit(submitData, abortControllerRef.current.signal);
+          case 3:
+            setApiError("");
+            setErrors({});
+            _context.n = 6;
+            break;
+          case 4:
+            _context.p = 4;
+            _t = _context.v;
+            if (!(_t.name === "AbortError")) {
+              _context.n = 5;
+              break;
+            }
+            console.log("Request was aborted");
+            return _context.a(2);
+          case 5:
+            if ((_error$response = _t.response) !== null && _error$response !== void 0 && (_error$response = _error$response.data) !== null && _error$response !== void 0 && _error$response.errors) {
+              setErrors(_t.response.data.errors);
+              setApiError("Please correct the errors in the form: " + JSON.stringify(_t.response.data.errors));
+            } else {
+              setApiError(((_error$response2 = _t.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.error) || "An error occurred. Please try again.");
+            }
+          case 6:
+            return _context.a(2);
+        }
+      }, _callee, null, [[2, 4]]);
+    }));
+    return function handleSubmit(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    className: "adminmodal-overlay",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "adminmodal",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
         children: isEdit ? "Edit Collar" : "Add New Collar"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "employermodal-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), apiError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "error api-error",
+        children: apiError
+      }), Object.keys(errors).length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "error validation-errors",
+        children: Object.entries(errors).map(function (_ref3) {
+          var _ref4 = _slicedToArray(_ref3, 2),
+            field = _ref4[0],
+            message = _ref4[1];
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: message
+          }, field);
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        className: "adminmodal-content",
+        onSubmit: handleSubmit,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-            htmlFor: "name",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             children: "Collar Name"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             type: "text",
-            id: "name",
-            value: name,
+            value: formData.name,
             onChange: function onChange(e) {
-              return setName(e.target.value);
+              return handleInputChange(e, "name");
             },
             placeholder: "Enter collar name",
-            className: errors.name ? "error" : ""
-          }), errors.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            required: true
+          }), errors.name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "error",
             children: errors.name
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-            htmlFor: "color",
-            children: "Collar Color"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "color-wrapper",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "color",
-              id: "color",
-              value: color,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: "Collar Image (optional)"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "image-upload-wrapper",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "file",
+              accept: "image/*",
               onChange: function onChange(e) {
-                return setColor(e.target.value);
+                return handleInputChange(e, "collar_img");
               },
-              className: "color-picker"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CollarIcon, {
-              color: color,
-              borderColor: color
+              ref: fileInputRef,
+              className: "image-upload"
+            }), (formData.collar_img || formData.image_url) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "image-preview",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: formData.collar_img ? URL.createObjectURL(formData.collar_img) : formData.image_url || "https://via.placeholder.com/40",
+                alt: "Collar Preview",
+                style: {
+                  width: "100px",
+                  height: "100px",
+                  objectFit: "contain"
+                }
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                className: "remove-image-button",
+                type: "button",
+                onClick: handleRemoveImage,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {
+                  size: 16
+                })
+              })]
             })]
+          }), errors.collar_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "error",
+            children: errors.collar_img
           })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "employermodal-buttons",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "submit-button",
-          onClick: handleSubmit,
-          children: isEdit ? "Update" : "Save"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "cancel-button",
-          onClick: onClose,
-          children: "Cancel"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "adminmodal-buttons",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "submit-button",
+            type: "submit",
+            children: isEdit ? "Update" : "Add"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "cancel-button",
+            type: "button",
+            onClick: onClose,
+            children: "Cancel"
+          })]
         })]
       })]
     })
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ColorCodeCollarsModal);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CollarsModal);
 
 /***/ }),
 
@@ -159051,6 +159147,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ColorCodeCollarsModal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ColorCodeCollarsModal */ "./resources/js/components/adminside/colorcodecollars/ColorCodeCollarsModal.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -159080,7 +159177,6 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-
 var formatDate = function formatDate(dateString) {
   if (!dateString) return "N/A";
   var date = new Date(dateString);
@@ -159093,7 +159189,7 @@ var formatDate = function formatDate(dateString) {
     hour12: true
   }).format(date);
 };
-var ColorCodeCollars = function ColorCodeCollars() {
+var Collars = function Collars() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
     collars = _useState2[0],
@@ -159118,61 +159214,55 @@ var ColorCodeCollars = function ColorCodeCollars() {
     _useState10 = _slicedToArray(_useState1, 2),
     collarToArchive = _useState10[0],
     setCollarToArchive = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState12 = _slicedToArray(_useState11, 2),
-    isConfirmDeleteModalOpen = _useState12[0],
-    setIsConfirmDeleteModalOpen = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState14 = _slicedToArray(_useState13, 2),
-    collarToDelete = _useState14[0],
-    setCollarToDelete = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       currentPage: 1,
       totalPages: 1,
       totalItems: 0
     }),
+    _useState12 = _slicedToArray(_useState11, 2),
+    pagination = _useState12[0],
+    setPagination = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    isModalOpen = _useState14[0],
+    setIsModalOpen = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState16 = _slicedToArray(_useState15, 2),
-    pagination = _useState16[0],
-    setPagination = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    isEditMode = _useState16[0],
+    setIsEditMode = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState18 = _slicedToArray(_useState17, 2),
-    isModalOpen = _useState18[0],
-    setIsModalOpen = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    collarToEdit = _useState18[0],
+    setCollarToEdit = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState20 = _slicedToArray(_useState19, 2),
-    isEditMode = _useState20[0],
-    setIsEditMode = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState22 = _slicedToArray(_useState21, 2),
-    collarToEdit = _useState22[0],
-    setCollarToEdit = _useState22[1];
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState24 = _slicedToArray(_useState23, 2),
-    error = _useState24[0],
-    setError = _useState24[1];
+    error = _useState20[0],
+    setError = _useState20[1];
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-  var API_BASE_URL = "http://127.0.0.1:8000/api";
-
-  // Fetch collars from API
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var controller = new AbortController();
+    fetchCollars(controller.signal);
+    return function () {
+      return controller.abort();
+    };
+  }, [searchTerm, showArchived, pagination.currentPage]);
   var fetchCollars = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(signal) {
-      var response, _error$response, _error$response2, _error$response3, _t;
+      var response, _error$response, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
             _context.p = 0;
             _context.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("".concat(API_BASE_URL, "/collars"), {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/collars", {
               params: {
                 search: searchTerm,
                 archived: showArchived,
                 page: pagination.currentPage,
-                per_page: 5
+                limit: 5
               },
-              headers: {
-                Authorization: "Bearer ".concat(localStorage.getItem("auth_token"))
-              },
-              signal: signal
+              signal: signal,
+              timeout: 10000
             });
           case 1:
             response = _context.v;
@@ -159182,7 +159272,7 @@ var ColorCodeCollars = function ColorCodeCollars() {
               totalPages: response.data.pagination.totalPages,
               totalItems: response.data.pagination.totalItems
             });
-            setError(null);
+            setError("");
             _context.n = 4;
             break;
           case 2:
@@ -159192,17 +159282,10 @@ var ColorCodeCollars = function ColorCodeCollars() {
               _context.n = 3;
               break;
             }
-            console.log("Fetch collars aborted");
             return _context.a(2);
           case 3:
-            if (((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.status) === 401) {
-              localStorage.removeItem("auth_token");
-              navigate("/login");
-              setError("Unauthorized: Please log in again.");
-            } else {
-              setError(((_error$response2 = _t.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.error) || "Failed to fetch collars. Please try again.");
-              console.error("Error fetching collars:", ((_error$response3 = _t.response) === null || _error$response3 === void 0 || (_error$response3 = _error$response3.data) === null || _error$response3 === void 0 ? void 0 : _error$response3.error) || _t.message);
-            }
+            console.error("Error fetching collars:", ((_error$response = _t.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 ? void 0 : _error$response.error) || _t.message);
+            setError("Failed to fetch collars. Please try again.");
           case 4:
             return _context.a(2);
         }
@@ -159212,15 +159295,6 @@ var ColorCodeCollars = function ColorCodeCollars() {
       return _ref.apply(this, arguments);
     };
   }();
-
-  // Fetch collars when searchTerm, showArchived, or currentPage changes
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var controller = new AbortController();
-    fetchCollars(controller.signal);
-    return function () {
-      controller.abort();
-    };
-  }, [searchTerm, showArchived, pagination.currentPage]);
   var toggleSelectCollar = function toggleSelectCollar(collarId) {
     setSelectedCollars(function (prev) {
       return prev.includes(collarId) ? prev.filter(function (id) {
@@ -159245,7 +159319,6 @@ var ColorCodeCollars = function ColorCodeCollars() {
       currentPage: 1
     }));
     setSelectedCollars([]);
-    setError(null);
   };
   var handleArchiveClick = function handleArchiveClick(collar) {
     setCollarToArchive(collar);
@@ -159253,7 +159326,7 @@ var ColorCodeCollars = function ColorCodeCollars() {
   };
   var handleArchiveConfirm = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var _error$response4, _error$response5, _error$response6, _t2;
+      var _error$response2, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -159265,34 +159338,32 @@ var ColorCodeCollars = function ColorCodeCollars() {
           case 1:
             _context2.p = 1;
             _context2.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("".concat(API_BASE_URL, "/collars/").concat(collarToArchive.id, "/archive"), {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("/api/collars/".concat(collarToArchive.id, "/archive"), {
               archived: true
             }, {
-              headers: {
-                Authorization: "Bearer ".concat(localStorage.getItem("auth_token"))
-              }
+              timeout: 5000
             });
           case 2:
             setIsConfirmModalOpen(false);
             setCollarToArchive(null);
-            setError(null);
             _context2.n = 3;
             return fetchCollars(new AbortController().signal);
           case 3:
-            _context2.n = 5;
+            setError("");
+            _context2.n = 6;
             break;
           case 4:
             _context2.p = 4;
             _t2 = _context2.v;
-            if (((_error$response4 = _t2.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.status) === 401) {
-              localStorage.removeItem("auth_token");
-              navigate("/login");
-              setError("Unauthorized: Please log in again.");
-            } else {
-              setError(((_error$response5 = _t2.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.error) || "Failed to archive collar. Please try again.");
-              console.error("Error archiving collar:", ((_error$response6 = _t2.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.error) || _t2.message);
+            if (!(_t2.name === "AbortError")) {
+              _context2.n = 5;
+              break;
             }
+            return _context2.a(2);
           case 5:
+            console.error("Error archiving collar:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.error) || _t2.message);
+            setError("Failed to archive collar. Please try again.");
+          case 6:
             return _context2.a(2);
         }
       }, _callee2, null, [[1, 4]]);
@@ -159301,267 +159372,243 @@ var ColorCodeCollars = function ColorCodeCollars() {
       return _ref2.apply(this, arguments);
     };
   }();
-  var handleDeleteClick = function handleDeleteClick(collar) {
-    setCollarToDelete(collar);
-    setIsConfirmDeleteModalOpen(true);
-  };
-  var handleDeleteConfirm = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-      var _error$response7, _error$response8, _error$response9, _t3;
+  var handleRestoreCollar = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(collarId) {
+      var _error$response3, _t3;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
-            if (collarToDelete) {
-              _context3.n = 1;
+            _context3.p = 0;
+            _context3.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("/api/collars/".concat(collarId, "/archive"), {
+              archived: false
+            }, {
+              timeout: 5000
+            });
+          case 1:
+            _context3.n = 2;
+            return fetchCollars(new AbortController().signal);
+          case 2:
+            setError("");
+            _context3.n = 5;
+            break;
+          case 3:
+            _context3.p = 3;
+            _t3 = _context3.v;
+            if (!(_t3.name === "AbortError")) {
+              _context3.n = 4;
               break;
             }
             return _context3.a(2);
-          case 1:
-            _context3.p = 1;
-            _context3.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"]("".concat(API_BASE_URL, "/collars/").concat(collarToDelete.id), {
-              headers: {
-                Authorization: "Bearer ".concat(localStorage.getItem("auth_token"))
-              }
-            });
-          case 2:
-            setIsConfirmDeleteModalOpen(false);
-            setCollarToDelete(null);
-            setError(null);
-            _context3.n = 3;
-            return fetchCollars(new AbortController().signal);
-          case 3:
-            _context3.n = 5;
-            break;
           case 4:
-            _context3.p = 4;
-            _t3 = _context3.v;
-            if (((_error$response7 = _t3.response) === null || _error$response7 === void 0 ? void 0 : _error$response7.status) === 401) {
-              localStorage.removeItem("auth_token");
-              navigate("/login");
-              setError("Unauthorized: Please log in again.");
-            } else {
-              setError(((_error$response8 = _t3.response) === null || _error$response8 === void 0 || (_error$response8 = _error$response8.data) === null || _error$response8 === void 0 ? void 0 : _error$response8.error) || "Failed to delete collar. Please try again.");
-              console.error("Error deleting collar:", ((_error$response9 = _t3.response) === null || _error$response9 === void 0 || (_error$response9 = _error$response9.data) === null || _error$response9 === void 0 ? void 0 : _error$response9.error) || _t3.message);
-            }
+            console.error("Error restoring collar:", ((_error$response3 = _t3.response) === null || _error$response3 === void 0 || (_error$response3 = _error$response3.data) === null || _error$response3 === void 0 ? void 0 : _error$response3.error) || _t3.message);
+            setError("Failed to restore collar. Please try again.");
           case 5:
             return _context3.a(2);
         }
-      }, _callee3, null, [[1, 4]]);
+      }, _callee3, null, [[0, 3]]);
     }));
-    return function handleDeleteConfirm() {
+    return function handleRestoreCollar(_x2) {
       return _ref3.apply(this, arguments);
     };
   }();
-  var handleRestoreCollar = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(collarId) {
-      var _error$response0, _error$response1, _error$response10, _t4;
+  var handleBulkAction = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(action) {
+      var _error$response4, _t4;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
-            _context4.p = 0;
-            _context4.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("".concat(API_BASE_URL, "/collars/").concat(collarId, "/restore"), {
-              archived: false
-            }, {
-              headers: {
-                Authorization: "Bearer ".concat(localStorage.getItem("auth_token"))
-              }
-            });
-          case 1:
-            setError(null);
-            _context4.n = 2;
-            return fetchCollars(new AbortController().signal);
-          case 2:
-            _context4.n = 4;
-            break;
-          case 3:
-            _context4.p = 3;
-            _t4 = _context4.v;
-            if (((_error$response0 = _t4.response) === null || _error$response0 === void 0 ? void 0 : _error$response0.status) === 401) {
-              localStorage.removeItem("auth_token");
-              navigate("/login");
-              setError("Unauthorized: Please log in again.");
-            } else {
-              setError(((_error$response1 = _t4.response) === null || _error$response1 === void 0 || (_error$response1 = _error$response1.data) === null || _error$response1 === void 0 ? void 0 : _error$response1.error) || "Failed to restore collar. Please try again.");
-              console.error("Error restoring collar:", ((_error$response10 = _t4.response) === null || _error$response10 === void 0 || (_error$response10 = _error$response10.data) === null || _error$response10 === void 0 ? void 0 : _error$response10.error) || _t4.message);
-            }
-          case 4:
-            return _context4.a(2);
-        }
-      }, _callee4, null, [[0, 3]]);
-    }));
-    return function handleRestoreCollar(_x2) {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-  var handleBulkAction = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(action) {
-      var _error$response11, _error$response12, _error$response13, _t5;
-      return _regenerator().w(function (_context5) {
-        while (1) switch (_context5.p = _context5.n) {
-          case 0:
             if (!(selectedCollars.length === 0)) {
-              _context5.n = 1;
+              _context4.n = 1;
               break;
             }
-            return _context5.a(2);
+            return _context4.a(2);
           case 1:
-            _context5.p = 1;
-            _context5.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("".concat(API_BASE_URL, "/collars/").concat(action === "archive" ? "bulk-archive" : "bulk-restore"), {
-              collar_ids: selectedCollars
+            _context4.p = 1;
+            _context4.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/collars/bulk-archive", {
+              collar_ids: selectedCollars,
+              action: action
             }, {
-              headers: {
-                Authorization: "Bearer ".concat(localStorage.getItem("auth_token"))
-              }
+              timeout: 10000
             });
           case 2:
             setSelectedCollars([]);
-            setError(null);
-            _context5.n = 3;
+            _context4.n = 3;
             return fetchCollars(new AbortController().signal);
           case 3:
-            _context5.n = 5;
+            setError("");
+            _context4.n = 6;
             break;
           case 4:
-            _context5.p = 4;
-            _t5 = _context5.v;
-            if (((_error$response11 = _t5.response) === null || _error$response11 === void 0 ? void 0 : _error$response11.status) === 401) {
-              localStorage.removeItem("auth_token");
-              navigate("/login");
-              setError("Unauthorized: Please log in again.");
-            } else {
-              setError(((_error$response12 = _t5.response) === null || _error$response12 === void 0 || (_error$response12 = _error$response12.data) === null || _error$response12 === void 0 ? void 0 : _error$response12.error) || "Failed to perform bulk ".concat(action, ". Please try again."));
-              console.error("Error performing bulk ".concat(action, ":"), ((_error$response13 = _t5.response) === null || _error$response13 === void 0 || (_error$response13 = _error$response13.data) === null || _error$response13 === void 0 ? void 0 : _error$response13.error) || _t5.message);
+            _context4.p = 4;
+            _t4 = _context4.v;
+            if (!(_t4.name === "AbortError")) {
+              _context4.n = 5;
+              break;
             }
+            return _context4.a(2);
           case 5:
-            return _context5.a(2);
+            console.error("Error performing bulk ".concat(action, ":"), ((_error$response4 = _t4.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.error) || _t4.message);
+            setError("Failed to perform bulk ".concat(action, ". Please try again."));
+          case 6:
+            return _context4.a(2);
         }
-      }, _callee5, null, [[1, 4]]);
+      }, _callee4, null, [[1, 4]]);
     }));
     return function handleBulkAction(_x3) {
-      return _ref5.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
   var handleAddNewClick = function handleAddNewClick() {
     setIsEditMode(false);
-    setCollarToEdit({});
+    setCollarToEdit({
+      name: "",
+      collar_img: null
+    });
     setIsModalOpen(true);
-    setError(null);
+    setError("");
   };
   var handleEditClick = function handleEditClick(collar) {
     setCollarToEdit({
       id: collar.id,
       name: collar.name || "",
-      color: collar.color || "#4A90E2"
+      collar_img: null,
+      image_url: collar.collar_img ? "/storage/".concat(collar.collar_img) : null
     });
     setIsEditMode(true);
     setIsModalOpen(true);
-    setError(null);
+    setError("");
   };
   var handleModalClose = function handleModalClose() {
     setIsModalOpen(false);
     setIsEditMode(false);
     setCollarToEdit(null);
-    setError(null);
+    setError("");
   };
   var handleCollarAdd = /*#__PURE__*/function () {
-    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(newCollar) {
-      var _error$response14, _error$response15, _error$response16, _t6;
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(formData, signal) {
+      var submitData, _iterator, _step, _step$value, key, value, response, _error$response5, _t5;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
+          case 0:
+            _context5.p = 0;
+            submitData = new FormData();
+            submitData.append("name", formData.name || "");
+            if (formData.collar_img instanceof File) {
+              submitData.append("collar_img", formData.collar_img);
+            }
+            _iterator = _createForOfIteratorHelper(submitData.entries());
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                _step$value = _slicedToArray(_step.value, 2), key = _step$value[0], value = _step$value[1];
+                console.log("".concat(key, ": ").concat(value));
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+            _context5.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/collars", submitData, {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              },
+              timeout: 10000,
+              signal: signal
+            });
+          case 1:
+            response = _context5.v;
+            setIsModalOpen(false);
+            _context5.n = 2;
+            return fetchCollars(new AbortController().signal);
+          case 2:
+            setError("");
+            return _context5.a(2, response.data);
+          case 3:
+            _context5.p = 3;
+            _t5 = _context5.v;
+            if (!(_t5.name === "AbortError")) {
+              _context5.n = 4;
+              break;
+            }
+            console.log("Add request was aborted");
+            return _context5.a(2);
+          case 4:
+            console.error("Error adding collar:", ((_error$response5 = _t5.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.error) || _t5.message);
+            throw _t5;
+          case 5:
+            return _context5.a(2);
+        }
+      }, _callee5, null, [[0, 3]]);
+    }));
+    return function handleCollarAdd(_x4, _x5) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+  var handleCollarUpdate = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(formData, signal) {
+      var submitData, _iterator2, _step2, _step2$value, key, value, response, _error$response6, _t6;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
             _context6.p = 0;
-            _context6.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("".concat(API_BASE_URL, "/collars"), {
-              name: newCollar.name,
-              color: newCollar.color
-            }, {
-              headers: {
-                Authorization: "Bearer ".concat(localStorage.getItem("auth_token"))
+            submitData = new FormData();
+            submitData.append("name", formData.name || "");
+            if (formData.collar_img instanceof File) {
+              submitData.append("collar_img", formData.collar_img);
+            }
+            submitData.append("_method", "PUT");
+            _iterator2 = _createForOfIteratorHelper(submitData.entries());
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                _step2$value = _slicedToArray(_step2.value, 2), key = _step2$value[0], value = _step2$value[1];
+                console.log("".concat(key, ": ").concat(value));
               }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+            _context6.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/collars/".concat(collarToEdit.id), submitData, {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              },
+              timeout: 10000,
+              signal: signal
             });
           case 1:
+            response = _context6.v;
             setIsModalOpen(false);
-            setError(null);
+            setIsEditMode(false);
+            setCollarToEdit(null);
             _context6.n = 2;
             return fetchCollars(new AbortController().signal);
           case 2:
-            _context6.n = 4;
-            break;
+            setError("");
+            return _context6.a(2, response.data);
           case 3:
             _context6.p = 3;
             _t6 = _context6.v;
-            if (((_error$response14 = _t6.response) === null || _error$response14 === void 0 ? void 0 : _error$response14.status) === 401) {
-              localStorage.removeItem("auth_token");
-              navigate("/login");
-              setError("Unauthorized: Please log in again.");
-            } else {
-              setError(((_error$response15 = _t6.response) === null || _error$response15 === void 0 || (_error$response15 = _error$response15.data) === null || _error$response15 === void 0 ? void 0 : _error$response15.error) || "Failed to add collar. Please try again.");
-              console.error("Error adding collar:", ((_error$response16 = _t6.response) === null || _error$response16 === void 0 || (_error$response16 = _error$response16.data) === null || _error$response16 === void 0 ? void 0 : _error$response16.error) || _t6.message);
+            if (!(_t6.name === "AbortError")) {
+              _context6.n = 4;
+              break;
             }
+            console.log("Update request was aborted");
+            return _context6.a(2);
           case 4:
+            console.error("Error updating collar:", ((_error$response6 = _t6.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.error) || _t6.message);
+            throw _t6;
+          case 5:
             return _context6.a(2);
         }
       }, _callee6, null, [[0, 3]]);
     }));
-    return function handleCollarAdd(_x4) {
+    return function handleCollarUpdate(_x6, _x7) {
       return _ref6.apply(this, arguments);
     };
   }();
-  var handleCollarUpdate = /*#__PURE__*/function () {
-    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(updatedCollar) {
-      var _error$response17, _error$response18, _error$response19, _t7;
-      return _regenerator().w(function (_context7) {
-        while (1) switch (_context7.p = _context7.n) {
-          case 0:
-            _context7.p = 0;
-            _context7.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].put("".concat(API_BASE_URL, "/collars/").concat(collarToEdit.id), {
-              name: updatedCollar.name,
-              color: updatedCollar.color
-            }, {
-              headers: {
-                Authorization: "Bearer ".concat(localStorage.getItem("auth_token"))
-              }
-            });
-          case 1:
-            setIsModalOpen(false);
-            setIsEditMode(false);
-            setCollarToEdit(null);
-            setError(null);
-            _context7.n = 2;
-            return fetchCollars(new AbortController().signal);
-          case 2:
-            _context7.n = 4;
-            break;
-          case 3:
-            _context7.p = 3;
-            _t7 = _context7.v;
-            if (((_error$response17 = _t7.response) === null || _error$response17 === void 0 ? void 0 : _error$response17.status) === 401) {
-              localStorage.removeItem("auth_token");
-              navigate("/login");
-              setError("Unauthorized: Please log in again.");
-            } else {
-              setError(((_error$response18 = _t7.response) === null || _error$response18 === void 0 || (_error$response18 = _error$response18.data) === null || _error$response18 === void 0 ? void 0 : _error$response18.error) || "Failed to update collar. Please try again.");
-              console.error("Error updating collar:", ((_error$response19 = _t7.response) === null || _error$response19 === void 0 || (_error$response19 = _error$response19.data) === null || _error$response19 === void 0 ? void 0 : _error$response19.error) || _t7.message);
-            }
-          case 4:
-            return _context7.a(2);
-        }
-      }, _callee7, null, [[0, 3]]);
-    }));
-    return function handleCollarUpdate(_x5) {
-      return _ref7.apply(this, arguments);
-    };
-  }();
-  var handlePageChange = function handlePageChange(page) {
-    setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
-      currentPage: page
-    }));
-    setError(null);
-  };
   var renderPagination = function renderPagination() {
     var pageNumbers = [];
     var maxPagesToShow = 5;
@@ -159573,7 +159620,9 @@ var ColorCodeCollars = function ColorCodeCollars() {
         pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           className: pagination.currentPage === i ? "active" : "",
           onClick: function onClick() {
-            return handlePageChange(i);
+            return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+              currentPage: i
+            }));
           },
           children: i
         }, i));
@@ -159585,7 +159634,9 @@ var ColorCodeCollars = function ColorCodeCollars() {
       if (startPage > 1) {
         pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           onClick: function onClick() {
-            return handlePageChange(1);
+            return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+              currentPage: 1
+            }));
           },
           children: "1"
         }, 1));
@@ -159600,7 +159651,9 @@ var ColorCodeCollars = function ColorCodeCollars() {
         pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           className: pagination.currentPage === _i ? "active" : "",
           onClick: function onClick() {
-            return handlePageChange(_i);
+            return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+              currentPage: _i
+            }));
           },
           children: _i
         }, _i));
@@ -159617,7 +159670,9 @@ var ColorCodeCollars = function ColorCodeCollars() {
         }
         pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           onClick: function onClick() {
-            return handlePageChange(totalPages);
+            return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+              currentPage: totalPages
+            }));
           },
           children: totalPages
         }, totalPages));
@@ -159628,19 +159683,15 @@ var ColorCodeCollars = function ColorCodeCollars() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
     className: "app",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      activeItem: "Color Code Collars"
+      activeItem: "Collars"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "colorcodecollars-dashboard",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "colorcodecollars-content",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
-          children: showArchived ? "Archived Collars" : "Color Code Collars"
+          children: showArchived ? "Archived Collars" : "Collars"
         }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "error-message",
-          style: {
-            color: "red",
-            marginBottom: "10px"
-          },
+          className: "error",
           children: error
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "colorcodecollars-header",
@@ -159720,7 +159771,7 @@ var ColorCodeCollars = function ColorCodeCollars() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Collar Name"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                  children: "Collar Color"
+                  children: "Collar Image"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Created At"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
@@ -159754,20 +159805,18 @@ var ColorCodeCollars = function ColorCodeCollars() {
                         onClick: function onClick() {
                           return handleRestoreCollar(collar.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
-                          size: 16,
-                          className: "delete-icon",
-                          onClick: function onClick() {
-                            return handleDeleteClick(collar);
-                          }
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
-                          size: 16,
-                          className: "edit-icon",
-                          onClick: function onClick() {
-                            return handleEditClick(collar);
-                          }
-                        })]
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                        size: 16,
+                        className: "delete-icon",
+                        onClick: function onClick() {
+                          return handleArchiveClick(collar);
+                        }
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
+                        size: 16,
+                        className: "edit-icon",
+                        onClick: function onClick() {
+                          return handleEditClick(collar);
+                        }
                       })]
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -159775,16 +159824,15 @@ var ColorCodeCollars = function ColorCodeCollars() {
                     className: "collar-name-cell",
                     children: collar.name || "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    "data-label": "Collar Color",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
-                      className: "collar-type",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTag, {
-                        className: "collar-icon",
-                        style: {
-                          color: collar.color,
-                          borderColor: collar.color
-                        }
-                      }), collar.color]
+                    "data-label": "Collar Image",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                      src: collar.collar_img ? "/storage/".concat(collar.collar_img) : "https://via.placeholder.com/40",
+                      alt: collar.name,
+                      style: {
+                        width: "40px",
+                        height: "40px",
+                        objectFit: "contain"
+                      }
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Created At",
@@ -159808,13 +159856,17 @@ var ColorCodeCollars = function ColorCodeCollars() {
             children: ["Page ", pagination.currentPage, " of ", pagination.totalPages]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             onClick: function onClick() {
-              return handlePageChange(pagination.currentPage - 1);
+              return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+                currentPage: pagination.currentPage - 1
+              }));
             },
             disabled: pagination.currentPage <= 1,
             children: "<"
           }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             onClick: function onClick() {
-              return handlePageChange(pagination.currentPage + 1);
+              return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+                currentPage: pagination.currentPage + 1
+              }));
             },
             disabled: pagination.currentPage >= pagination.totalPages,
             children: ">"
@@ -159844,38 +159896,18 @@ var ColorCodeCollars = function ColorCodeCollars() {
           })]
         })]
       })
-    }), isConfirmDeleteModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-      className: "confirm-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-        className: "confirm-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
-          children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
-          children: ["Do you want to permanently delete \"", collarToDelete === null || collarToDelete === void 0 ? void 0 : collarToDelete.name, "\"?"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "confirm-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-            className: "confirm-button",
-            onClick: handleDeleteConfirm,
-            children: "Yes, Delete"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-            className: "cancel-button",
-            onClick: function onClick() {
-              return setIsConfirmDeleteModalOpen(false);
-            },
-            children: "Cancel"
-          })]
-        })]
-      })
     }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ColorCodeCollarsModal__WEBPACK_IMPORTED_MODULE_10__["default"], {
       onClose: handleModalClose,
       onSubmit: isEditMode ? handleCollarUpdate : handleCollarAdd,
       isEdit: isEditMode,
-      initialData: collarToEdit || {}
+      initialData: collarToEdit || {
+        name: "",
+        collar_img: null
+      }
     })]
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ColorCodeCollars);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Collars);
 
 /***/ }),
 
@@ -172444,62 +172476,74 @@ var WorkerList = function WorkerList() {
     _useState8 = _slicedToArray(_useState7, 2),
     selectedWorkers = _useState8[0],
     setSelectedWorkers = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("all"),
     _useState0 = _slicedToArray(_useState9, 2),
-    isConfirmModalOpen = _useState0[0],
-    setIsConfirmModalOpen = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    activeTab = _useState0[0],
+    setActiveTab = _useState0[1]; // all | to_review | accepted | declined
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState10 = _slicedToArray(_useState1, 2),
-    workerToArchive = _useState10[0],
-    setWorkerToArchive = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    isConfirmModalOpen = _useState10[0],
+    setIsConfirmModalOpen = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState12 = _slicedToArray(_useState11, 2),
+    workerToArchive = _useState12[0],
+    setWorkerToArchive = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState14 = _slicedToArray(_useState13, 2),
+    workerToReview = _useState14[0],
+    setWorkerToReview = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState16 = _slicedToArray(_useState15, 2),
+    reviewAction = _useState16[0],
+    setReviewAction = _useState16[1]; // 'accept' or 'decline'
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       currentPage: 1,
       totalPages: 1,
       totalItems: 0
     }),
-    _useState12 = _slicedToArray(_useState11, 2),
-    pagination = _useState12[0],
-    setPagination = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState14 = _slicedToArray(_useState13, 2),
-    isModalOpen = _useState14[0],
-    setIsModalOpen = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState16 = _slicedToArray(_useState15, 2),
-    isEditMode = _useState16[0],
-    setIsEditMode = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState18 = _slicedToArray(_useState17, 2),
-    workerToEdit = _useState18[0],
-    setWorkerToEdit = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    pagination = _useState18[0],
+    setPagination = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState20 = _slicedToArray(_useState19, 2),
-    genders = _useState20[0],
-    setGenders = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    isModalOpen = _useState20[0],
+    setIsModalOpen = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState22 = _slicedToArray(_useState21, 2),
-    suffixes = _useState22[0],
-    setSuffixes = _useState22[1];
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    isEditMode = _useState22[0],
+    setIsEditMode = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState24 = _slicedToArray(_useState23, 2),
-    skills = _useState24[0],
-    setSkills = _useState24[1];
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    workerToEdit = _useState24[0],
+    setWorkerToEdit = _useState24[1];
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState26 = _slicedToArray(_useState25, 2),
-    error = _useState26[0],
-    setError = _useState26[1];
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    genders = _useState26[0],
+    setGenders = _useState26[1];
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState28 = _slicedToArray(_useState27, 2),
-    isPreviewModalOpen = _useState28[0],
-    setIsPreviewModalOpen = _useState28[1];
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    suffixes = _useState28[0],
+    setSuffixes = _useState28[1];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState30 = _slicedToArray(_useState29, 2),
-    previewCredential = _useState30[0],
-    setPreviewCredential = _useState30[1];
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    skills = _useState30[0],
+    setSkills = _useState30[1];
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState32 = _slicedToArray(_useState31, 2),
-    loading = _useState32[0],
-    setLoading = _useState32[1];
+    error = _useState32[0],
+    setError = _useState32[1];
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState34 = _slicedToArray(_useState33, 2),
+    isPreviewModalOpen = _useState34[0],
+    setIsPreviewModalOpen = _useState34[1];
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState36 = _slicedToArray(_useState35, 2),
+    previewCredential = _useState36[0],
+    setPreviewCredential = _useState36[1];
+  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState38 = _slicedToArray(_useState37, 2),
+    loading = _useState38[0],
+    setLoading = _useState38[1];
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var controller = new AbortController();
@@ -172580,7 +172624,8 @@ var WorkerList = function WorkerList() {
               params: {
                 page: page,
                 limit: 5,
-                search: searchTerm
+                search: searchTerm,
+                status: activeTab
               },
               signal: signal,
               timeout: 10000
@@ -172777,7 +172822,7 @@ var WorkerList = function WorkerList() {
     });
   };
   var toggleSelectAll = function toggleSelectAll() {
-    var currentWorkers = workers;
+    var currentWorkers = filteredWorkers;
     if (selectedWorkers.length === currentWorkers.length) {
       setSelectedWorkers([]);
     } else {
@@ -172802,6 +172847,18 @@ var WorkerList = function WorkerList() {
     }
     setWorkerToArchive(worker);
     setIsConfirmModalOpen(true);
+    setReviewAction(null);
+  };
+  var handleReviewClick = function handleReviewClick(worker, action) {
+    var _worker$worker, _worker$worker2;
+    if (((_worker$worker = worker.worker) === null || _worker$worker === void 0 ? void 0 : _worker$worker.is_reviewed) === 'ACCEPTED' || ((_worker$worker2 = worker.worker) === null || _worker$worker2 === void 0 ? void 0 : _worker$worker2.is_reviewed) === 'DECLINED') {
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Worker is already ".concat(worker.worker.is_reviewed.toLowerCase(), "."));
+      return;
+    }
+    setWorkerToReview(worker);
+    setReviewAction(action);
+    setIsConfirmModalOpen(true);
+    setWorkerToArchive(null);
   };
   var handleArchiveConfirm = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
@@ -172875,20 +172932,16 @@ var WorkerList = function WorkerList() {
       return _ref7.apply(this, arguments);
     };
   }();
-  var handleRestoreWorker = /*#__PURE__*/function () {
-    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(workerId) {
-      var worker, authToken, response, _err$response8, _err$response9, errorMessage, _t7;
+  var handleReviewConfirm = /*#__PURE__*/function () {
+    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7() {
+      var authToken, status, response, _err$response8, _err$response9, errorMessage, _t7;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
           case 0:
-            worker = workers.find(function (w) {
-              return w.id === workerId;
-            });
-            if (worker !== null && worker !== void 0 && worker.archived) {
+            if (!(!workerToReview || !reviewAction)) {
               _context7.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Worker is already restored.");
             return _context7.a(2);
           case 1:
             _context7.p = 1;
@@ -172900,9 +172953,10 @@ var WorkerList = function WorkerList() {
             throw new Error("No auth token found. Please log in.");
           case 2:
             setLoading(true);
+            status = reviewAction === 'accept' ? 'ACCEPTED' : 'DECLINED';
             _context7.n = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("http://127.0.0.1:8000/api/workers/".concat(workerId, "/archive"), {
-              archived: false
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("http://127.0.0.1:8000/api/workers/".concat(workerToReview.id, "/review"), {
+              is_reviewed: status
             }, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -172919,7 +172973,10 @@ var WorkerList = function WorkerList() {
             _context7.n = 4;
             return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
           case 4:
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Worker \"".concat(getFullName(worker, suffixes), "\" restored successfully!"));
+            setIsConfirmModalOpen(false);
+            setWorkerToReview(null);
+            setReviewAction(null);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Worker \"".concat(getFullName(workerToReview, suffixes), "\" ").concat(reviewAction, "d successfully!"));
           case 5:
             _context7.n = 8;
             break;
@@ -172932,10 +172989,10 @@ var WorkerList = function WorkerList() {
             }
             return _context7.a(2);
           case 7:
-            errorMessage = ((_err$response8 = _t7.response) === null || _err$response8 === void 0 || (_err$response8 = _err$response8.data) === null || _err$response8 === void 0 ? void 0 : _err$response8.error) || "Failed to restore worker.";
+            errorMessage = ((_err$response8 = _t7.response) === null || _err$response8 === void 0 || (_err$response8 = _err$response8.data) === null || _err$response8 === void 0 ? void 0 : _err$response8.error) || "Failed to ".concat(reviewAction, " worker.");
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Restore error:", ((_err$response9 = _t7.response) === null || _err$response9 === void 0 ? void 0 : _err$response9.data) || _t7.message);
+            console.error("Review error:", ((_err$response9 = _t7.response) === null || _err$response9 === void 0 ? void 0 : _err$response9.data) || _t7.message);
           case 8:
             _context7.p = 8;
             setLoading(false);
@@ -172945,27 +173002,101 @@ var WorkerList = function WorkerList() {
         }
       }, _callee7, null, [[1, 6, 8, 9]]);
     }));
-    return function handleRestoreWorker(_x4) {
+    return function handleReviewConfirm() {
       return _ref8.apply(this, arguments);
     };
   }();
-  var handleBulkAction = /*#__PURE__*/function () {
-    var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(action) {
-      var authToken, validWorkerIds, response, _err$response0, _err$response1, errorMessage, _t8;
+  var handleRestoreWorker = /*#__PURE__*/function () {
+    var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(workerId) {
+      var worker, authToken, response, _err$response0, _err$response1, errorMessage, _t8;
       return _regenerator().w(function (_context8) {
         while (1) switch (_context8.p = _context8.n) {
           case 0:
-            if (!(selectedWorkers.length === 0)) {
+            worker = workers.find(function (w) {
+              return w.id === workerId;
+            });
+            if (worker !== null && worker !== void 0 && worker.archived) {
               _context8.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Please select at least one worker.");
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Worker is already restored.");
             return _context8.a(2);
           case 1:
             _context8.p = 1;
             authToken = localStorage.getItem("auth_token");
             if (authToken) {
               _context8.n = 2;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 2:
+            setLoading(true);
+            _context8.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("http://127.0.0.1:8000/api/workers/".concat(workerId, "/archive"), {
+              archived: false
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              },
+              timeout: 5000
+            });
+          case 3:
+            response = _context8.v;
+            if (!(response.status === 200)) {
+              _context8.n = 5;
+              break;
+            }
+            _context8.n = 4;
+            return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+          case 4:
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Worker \"".concat(getFullName(worker, suffixes), "\" restored successfully!"));
+          case 5:
+            _context8.n = 8;
+            break;
+          case 6:
+            _context8.p = 6;
+            _t8 = _context8.v;
+            if (!(_t8.name === "AbortError")) {
+              _context8.n = 7;
+              break;
+            }
+            return _context8.a(2);
+          case 7:
+            errorMessage = ((_err$response0 = _t8.response) === null || _err$response0 === void 0 || (_err$response0 = _err$response0.data) === null || _err$response0 === void 0 ? void 0 : _err$response0.error) || "Failed to restore worker.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Restore error:", ((_err$response1 = _t8.response) === null || _err$response1 === void 0 ? void 0 : _err$response1.data) || _t8.message);
+          case 8:
+            _context8.p = 8;
+            setLoading(false);
+            return _context8.f(8);
+          case 9:
+            return _context8.a(2);
+        }
+      }, _callee8, null, [[1, 6, 8, 9]]);
+    }));
+    return function handleRestoreWorker(_x4) {
+      return _ref9.apply(this, arguments);
+    };
+  }();
+  var handleBulkAction = /*#__PURE__*/function () {
+    var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(action) {
+      var authToken, validWorkerIds, response, _err$response10, _err$response11, errorMessage, _t9;
+      return _regenerator().w(function (_context9) {
+        while (1) switch (_context9.p = _context9.n) {
+          case 0:
+            if (!(selectedWorkers.length === 0)) {
+              _context9.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Please select at least one worker.");
+            return _context9.a(2);
+          case 1:
+            _context9.p = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context9.n = 2;
               break;
             }
             throw new Error("No auth token found. Please log in.");
@@ -172977,14 +173108,14 @@ var WorkerList = function WorkerList() {
               return action === "archive" ? !(worker !== null && worker !== void 0 && worker.archived) : worker === null || worker === void 0 ? void 0 : worker.archived;
             });
             if (!(validWorkerIds.length === 0)) {
-              _context8.n = 3;
+              _context9.n = 3;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("All selected workers are already ".concat(action === "archive" ? "archived" : "restored", "."));
-            return _context8.a(2);
+            return _context9.a(2);
           case 3:
             setLoading(true);
-            _context8.n = 4;
+            _context9.n = 4;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/workers/bulk-archive", {
               worker_ids: validWorkerIds,
               archived: action === "archive"
@@ -172996,43 +173127,365 @@ var WorkerList = function WorkerList() {
               timeout: 10000
             });
           case 4:
-            response = _context8.v;
+            response = _context9.v;
             if (!(response.status === 200)) {
-              _context8.n = 6;
+              _context9.n = 6;
               break;
             }
-            _context8.n = 5;
+            _context9.n = 5;
             return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
           case 5:
             setSelectedWorkers([]);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("".concat(validWorkerIds.length, " workers ").concat(action === "archive" ? "archived" : "restored", " successfully!"));
           case 6:
-            _context8.n = 9;
+            _context9.n = 9;
             break;
           case 7:
-            _context8.p = 7;
-            _t8 = _context8.v;
-            if (!(_t8.name === "AbortError")) {
-              _context8.n = 8;
+            _context9.p = 7;
+            _t9 = _context9.v;
+            if (!(_t9.name === "AbortError")) {
+              _context9.n = 8;
               break;
             }
-            return _context8.a(2);
+            return _context9.a(2);
           case 8:
-            errorMessage = ((_err$response0 = _t8.response) === null || _err$response0 === void 0 || (_err$response0 = _err$response0.data) === null || _err$response0 === void 0 ? void 0 : _err$response0.error) || "Failed to ".concat(action, " workers. Please try again.");
+            errorMessage = ((_err$response10 = _t9.response) === null || _err$response10 === void 0 || (_err$response10 = _err$response10.data) === null || _err$response10 === void 0 ? void 0 : _err$response10.error) || "Failed to ".concat(action, " workers. Please try again.");
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Bulk action error:", ((_err$response1 = _t8.response) === null || _err$response1 === void 0 ? void 0 : _err$response1.data) || _t8.message);
+            console.error("Bulk action error:", ((_err$response11 = _t9.response) === null || _err$response11 === void 0 ? void 0 : _err$response11.data) || _t9.message);
           case 9:
-            _context8.p = 9;
+            _context9.p = 9;
             setLoading(false);
-            return _context8.f(9);
+            return _context9.f(9);
           case 10:
-            return _context8.a(2);
+            return _context9.a(2);
         }
-      }, _callee8, null, [[1, 7, 9, 10]]);
+      }, _callee9, null, [[1, 7, 9, 10]]);
     }));
     return function handleBulkAction(_x5) {
-      return _ref9.apply(this, arguments);
+      return _ref0.apply(this, arguments);
+    };
+  }();
+  var handleBulkReview = /*#__PURE__*/function () {
+    var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(action) {
+      var authToken, pendingIds, status, response, _err$response12, _err$response13, errorMessage, _t0;
+      return _regenerator().w(function (_context0) {
+        while (1) switch (_context0.p = _context0.n) {
+          case 0:
+            if (!(selectedWorkers.length === 0)) {
+              _context0.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Please select at least one worker.");
+            return _context0.a(2);
+          case 1:
+            _context0.p = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context0.n = 2;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 2:
+            pendingIds = selectedWorkers.filter(function (id) {
+              var _worker$worker3;
+              var worker = workers.find(function (w) {
+                return w.id === id;
+              });
+              return (worker === null || worker === void 0 || (_worker$worker3 = worker.worker) === null || _worker$worker3 === void 0 ? void 0 : _worker$worker3.is_reviewed) === 'TO BE REVIEWED';
+            });
+            if (!(pendingIds.length === 0)) {
+              _context0.n = 3;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Selected workers are not pending review.");
+            return _context0.a(2);
+          case 3:
+            setLoading(true);
+            status = action === 'accept' ? 'ACCEPTED' : 'DECLINED';
+            _context0.n = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/workers/bulk-review", {
+              worker_ids: pendingIds,
+              is_reviewed: status
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              },
+              timeout: 10000
+            });
+          case 4:
+            response = _context0.v;
+            if (!(response.status === 200)) {
+              _context0.n = 6;
+              break;
+            }
+            _context0.n = 5;
+            return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+          case 5:
+            setSelectedWorkers([]);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("".concat(pendingIds.length, " workers ").concat(action === 'accept' ? 'accepted' : 'declined', " successfully!"));
+          case 6:
+            _context0.n = 9;
+            break;
+          case 7:
+            _context0.p = 7;
+            _t0 = _context0.v;
+            if (!(_t0.name === "AbortError")) {
+              _context0.n = 8;
+              break;
+            }
+            return _context0.a(2);
+          case 8:
+            errorMessage = ((_err$response12 = _t0.response) === null || _err$response12 === void 0 || (_err$response12 = _err$response12.data) === null || _err$response12 === void 0 ? void 0 : _err$response12.error) || "Failed to ".concat(action, " selected workers.");
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Bulk review error:", ((_err$response13 = _t0.response) === null || _err$response13 === void 0 ? void 0 : _err$response13.data) || _t0.message);
+          case 9:
+            _context0.p = 9;
+            setLoading(false);
+            return _context0.f(9);
+          case 10:
+            return _context0.a(2);
+        }
+      }, _callee0, null, [[1, 7, 9, 10]]);
+    }));
+    return function handleBulkReview(_x6) {
+      return _ref1.apply(this, arguments);
+    };
+  }();
+  var handleBulkDeleteDeclined = /*#__PURE__*/function () {
+    var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1() {
+      var authToken, declinedIds, response, _err$response14, _err$response15, errorMessage, _t1;
+      return _regenerator().w(function (_context1) {
+        while (1) switch (_context1.p = _context1.n) {
+          case 0:
+            if (!(selectedWorkers.length === 0)) {
+              _context1.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Please select at least one worker.");
+            return _context1.a(2);
+          case 1:
+            _context1.p = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context1.n = 2;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 2:
+            declinedIds = selectedWorkers.filter(function (id) {
+              var _worker$worker4;
+              var worker = workers.find(function (w) {
+                return w.id === id;
+              });
+              return (worker === null || worker === void 0 || (_worker$worker4 = worker.worker) === null || _worker$worker4 === void 0 ? void 0 : _worker$worker4.is_reviewed) === 'DECLINED';
+            });
+            if (!(declinedIds.length === 0)) {
+              _context1.n = 3;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Selected workers are not declined.");
+            return _context1.a(2);
+          case 3:
+            setLoading(true);
+            _context1.n = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/workers/bulk-delete-declined", {
+              worker_ids: declinedIds
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              },
+              timeout: 15000
+            });
+          case 4:
+            response = _context1.v;
+            if (!(response.status === 200)) {
+              _context1.n = 6;
+              break;
+            }
+            _context1.n = 5;
+            return fetchWorkers(1, showArchived, new AbortController().signal);
+          case 5:
+            setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+              currentPage: 1
+            }));
+            setSelectedWorkers([]);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("".concat(declinedIds.length, " declined workers deleted successfully!"));
+          case 6:
+            _context1.n = 9;
+            break;
+          case 7:
+            _context1.p = 7;
+            _t1 = _context1.v;
+            if (!(_t1.name === "AbortError")) {
+              _context1.n = 8;
+              break;
+            }
+            return _context1.a(2);
+          case 8:
+            errorMessage = ((_err$response14 = _t1.response) === null || _err$response14 === void 0 || (_err$response14 = _err$response14.data) === null || _err$response14 === void 0 ? void 0 : _err$response14.error) || "Failed to delete selected declined workers.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+            console.error("Bulk delete declined error:", ((_err$response15 = _t1.response) === null || _err$response15 === void 0 ? void 0 : _err$response15.data) || _t1.message);
+          case 9:
+            _context1.p = 9;
+            setLoading(false);
+            return _context1.f(9);
+          case 10:
+            return _context1.a(2);
+        }
+      }, _callee1, null, [[1, 7, 9, 10]]);
+    }));
+    return function handleBulkDeleteDeclined() {
+      return _ref10.apply(this, arguments);
+    };
+  }();
+  var handleDeleteArchivedWorker = /*#__PURE__*/function () {
+    var _ref11 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee10(workerId) {
+      var authToken, response, _err$response16, errorMessage, _t10;
+      return _regenerator().w(function (_context10) {
+        while (1) switch (_context10.p = _context10.n) {
+          case 0:
+            _context10.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context10.n = 1;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 1:
+            setLoading(true);
+            _context10.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"]("http://127.0.0.1:8000/api/workers/".concat(workerId), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              },
+              timeout: 8000
+            });
+          case 2:
+            response = _context10.v;
+            if (!(response.status === 200)) {
+              _context10.n = 4;
+              break;
+            }
+            _context10.n = 3;
+            return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+          case 3:
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Archived worker deleted.");
+          case 4:
+            _context10.n = 7;
+            break;
+          case 5:
+            _context10.p = 5;
+            _t10 = _context10.v;
+            if (!(_t10.name === "AbortError")) {
+              _context10.n = 6;
+              break;
+            }
+            return _context10.a(2);
+          case 6:
+            errorMessage = ((_err$response16 = _t10.response) === null || _err$response16 === void 0 || (_err$response16 = _err$response16.data) === null || _err$response16 === void 0 ? void 0 : _err$response16.error) || "Failed to delete worker.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+          case 7:
+            _context10.p = 7;
+            setLoading(false);
+            return _context10.f(7);
+          case 8:
+            return _context10.a(2);
+        }
+      }, _callee10, null, [[0, 5, 7, 8]]);
+    }));
+    return function handleDeleteArchivedWorker(_x7) {
+      return _ref11.apply(this, arguments);
+    };
+  }();
+  var handleBulkDeleteArchived = /*#__PURE__*/function () {
+    var _ref12 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee11() {
+      var authToken, archivedIds, response, _err$response17, errorMessage, _t11;
+      return _regenerator().w(function (_context11) {
+        while (1) switch (_context11.p = _context11.n) {
+          case 0:
+            if (!(selectedWorkers.length === 0)) {
+              _context11.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Please select at least one worker.");
+            return _context11.a(2);
+          case 1:
+            _context11.p = 1;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context11.n = 2;
+              break;
+            }
+            throw new Error("No auth token found. Please log in.");
+          case 2:
+            archivedIds = selectedWorkers.filter(function (id) {
+              var w = workers.find(function (x) {
+                return x.id === id;
+              });
+              return (w === null || w === void 0 ? void 0 : w.archived) === 1 || (w === null || w === void 0 ? void 0 : w.archived) === true;
+            });
+            if (!(archivedIds.length === 0)) {
+              _context11.n = 3;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Selected workers are not archived.");
+            return _context11.a(2);
+          case 3:
+            setLoading(true);
+            _context11.n = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/workers/bulk-delete-archived", {
+              worker_ids: archivedIds
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              },
+              timeout: 15000
+            });
+          case 4:
+            response = _context11.v;
+            if (!(response.status === 200)) {
+              _context11.n = 6;
+              break;
+            }
+            _context11.n = 5;
+            return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+          case 5:
+            setSelectedWorkers([]);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("".concat(archivedIds.length, " archived workers deleted successfully!"));
+          case 6:
+            _context11.n = 9;
+            break;
+          case 7:
+            _context11.p = 7;
+            _t11 = _context11.v;
+            if (!(_t11.name === "AbortError")) {
+              _context11.n = 8;
+              break;
+            }
+            return _context11.a(2);
+          case 8:
+            errorMessage = ((_err$response17 = _t11.response) === null || _err$response17 === void 0 || (_err$response17 = _err$response17.data) === null || _err$response17 === void 0 ? void 0 : _err$response17.error) || "Failed to delete archived workers.";
+            setError(errorMessage);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+          case 9:
+            _context11.p = 9;
+            setLoading(false);
+            return _context11.f(9);
+          case 10:
+            return _context11.a(2);
+        }
+      }, _callee11, null, [[1, 7, 9, 10]]);
+    }));
+    return function handleBulkDeleteArchived() {
+      return _ref12.apply(this, arguments);
     };
   }();
   var handleAddNewClick = function handleAddNewClick() {
@@ -173059,28 +173512,29 @@ var WorkerList = function WorkerList() {
         work_type: "part-time",
         skills_id: [],
         credentials_name: [],
-        credentials_photo: []
+        credentials_photo: [],
+        is_reviewed: "TO BE REVIEWED"
       }
     });
     setIsModalOpen(true);
     setError("");
   };
   var handleEditClick = /*#__PURE__*/function () {
-    var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(worker) {
-      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, authToken, response, _err$response10, _err$response11, errorMessage, _t9;
-      return _regenerator().w(function (_context9) {
-        while (1) switch (_context9.p = _context9.n) {
+    var _ref13 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12(worker) {
+      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, _response$data$worker5, authToken, response, _err$response18, _err$response19, errorMessage, _t12;
+      return _regenerator().w(function (_context12) {
+        while (1) switch (_context12.p = _context12.n) {
           case 0:
-            _context9.p = 0;
+            _context12.p = 0;
             authToken = localStorage.getItem("auth_token");
             if (authToken) {
-              _context9.n = 1;
+              _context12.n = 1;
               break;
             }
             throw new Error("No auth token found. Please log in.");
           case 1:
             setLoading(true);
-            _context9.n = 2;
+            _context12.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/".concat(worker.id), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -173089,7 +173543,7 @@ var WorkerList = function WorkerList() {
               timeout: 5000
             });
           case 2:
-            response = _context9.v;
+            response = _context12.v;
             setWorkerToEdit({
               id: response.data.id,
               email: response.data.email || "",
@@ -173113,38 +173567,39 @@ var WorkerList = function WorkerList() {
                 work_type: ((_response$data$worker = response.data.worker) === null || _response$data$worker === void 0 ? void 0 : _response$data$worker.work_type) || "part-time",
                 skills_id: ((_response$data$worker2 = response.data.worker) === null || _response$data$worker2 === void 0 ? void 0 : _response$data$worker2.skills_id) || [],
                 credentials_name: ((_response$data$worker3 = response.data.worker) === null || _response$data$worker3 === void 0 ? void 0 : _response$data$worker3.credentials_name) || [],
-                credentials_photo: ((_response$data$worker4 = response.data.worker) === null || _response$data$worker4 === void 0 ? void 0 : _response$data$worker4.credentials_photo) || []
+                credentials_photo: ((_response$data$worker4 = response.data.worker) === null || _response$data$worker4 === void 0 ? void 0 : _response$data$worker4.credentials_photo) || [],
+                is_reviewed: ((_response$data$worker5 = response.data.worker) === null || _response$data$worker5 === void 0 ? void 0 : _response$data$worker5.is_reviewed) || "0"
               }
             });
             setIsEditMode(true);
             setIsModalOpen(true);
             setError("");
-            _context9.n = 5;
+            _context12.n = 5;
             break;
           case 3:
-            _context9.p = 3;
-            _t9 = _context9.v;
-            if (!(_t9.name === "AbortError")) {
-              _context9.n = 4;
+            _context12.p = 3;
+            _t12 = _context12.v;
+            if (!(_t12.name === "AbortError")) {
+              _context12.n = 4;
               break;
             }
-            return _context9.a(2);
+            return _context12.a(2);
           case 4:
-            errorMessage = ((_err$response10 = _t9.response) === null || _err$response10 === void 0 || (_err$response10 = _err$response10.data) === null || _err$response10 === void 0 ? void 0 : _err$response10.error) || "Failed to fetch worker details.";
+            errorMessage = ((_err$response18 = _t12.response) === null || _err$response18 === void 0 || (_err$response18 = _err$response18.data) === null || _err$response18 === void 0 ? void 0 : _err$response18.error) || "Failed to fetch worker details.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Fetch worker details error:", ((_err$response11 = _t9.response) === null || _err$response11 === void 0 ? void 0 : _err$response11.data) || _t9.message);
+            console.error("Fetch worker details error:", ((_err$response19 = _t12.response) === null || _err$response19 === void 0 ? void 0 : _err$response19.data) || _t12.message);
           case 5:
-            _context9.p = 5;
+            _context12.p = 5;
             setLoading(false);
-            return _context9.f(5);
+            return _context12.f(5);
           case 6:
-            return _context9.a(2);
+            return _context12.a(2);
         }
-      }, _callee9, null, [[0, 3, 5, 6]]);
+      }, _callee12, null, [[0, 3, 5, 6]]);
     }));
-    return function handleEditClick(_x6) {
-      return _ref0.apply(this, arguments);
+    return function handleEditClick(_x8) {
+      return _ref13.apply(this, arguments);
     };
   }();
   var handlePreviewClick = function handlePreviewClick(credential) {
@@ -173162,21 +173617,21 @@ var WorkerList = function WorkerList() {
     setError("");
   };
   var handleWorkerAdd = /*#__PURE__*/function () {
-    var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(formData, workerId, signal) {
-      var authToken, response, _err$response12, _err$response13, errorMessage, _t0;
-      return _regenerator().w(function (_context0) {
-        while (1) switch (_context0.p = _context0.n) {
+    var _ref14 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee13(formData, workerId, signal) {
+      var authToken, response, _err$response20, _err$response21, errorMessage, _t13;
+      return _regenerator().w(function (_context13) {
+        while (1) switch (_context13.p = _context13.n) {
           case 0:
-            _context0.p = 0;
+            _context13.p = 0;
             authToken = localStorage.getItem("auth_token");
             if (authToken) {
-              _context0.n = 1;
+              _context13.n = 1;
               break;
             }
             throw new Error("No auth token found. Please log in.");
           case 1:
             setLoading(true);
-            _context0.n = 2;
+            _context13.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/workers", formData, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -173187,64 +173642,64 @@ var WorkerList = function WorkerList() {
               signal: signal
             });
           case 2:
-            response = _context0.v;
+            response = _context13.v;
             if (!(response.status === 201)) {
-              _context0.n = 4;
+              _context13.n = 4;
               break;
             }
-            _context0.n = 3;
+            _context13.n = 3;
             return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
           case 3:
             setIsModalOpen(false);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Worker added successfully!");
-            return _context0.a(2, response.data);
+            return _context13.a(2, response.data);
           case 4:
-            _context0.n = 7;
+            _context13.n = 7;
             break;
           case 5:
-            _context0.p = 5;
-            _t0 = _context0.v;
-            if (!(_t0.name === "AbortError")) {
-              _context0.n = 6;
+            _context13.p = 5;
+            _t13 = _context13.v;
+            if (!(_t13.name === "AbortError")) {
+              _context13.n = 6;
               break;
             }
             console.log("Add request was aborted");
-            return _context0.a(2);
+            return _context13.a(2);
           case 6:
-            errorMessage = ((_err$response12 = _t0.response) === null || _err$response12 === void 0 || (_err$response12 = _err$response12.data) === null || _err$response12 === void 0 ? void 0 : _err$response12.error) || "Failed to add worker.";
+            errorMessage = ((_err$response20 = _t13.response) === null || _err$response20 === void 0 || (_err$response20 = _err$response20.data) === null || _err$response20 === void 0 ? void 0 : _err$response20.error) || "Failed to add worker.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Error adding worker:", ((_err$response13 = _t0.response) === null || _err$response13 === void 0 ? void 0 : _err$response13.data) || _t0.message);
-            throw _t0;
+            console.error("Error adding worker:", ((_err$response21 = _t13.response) === null || _err$response21 === void 0 ? void 0 : _err$response21.data) || _t13.message);
+            throw _t13;
           case 7:
-            _context0.p = 7;
+            _context13.p = 7;
             setLoading(false);
-            return _context0.f(7);
+            return _context13.f(7);
           case 8:
-            return _context0.a(2);
+            return _context13.a(2);
         }
-      }, _callee0, null, [[0, 5, 7, 8]]);
+      }, _callee13, null, [[0, 5, 7, 8]]);
     }));
-    return function handleWorkerAdd(_x7, _x8, _x9) {
-      return _ref1.apply(this, arguments);
+    return function handleWorkerAdd(_x9, _x0, _x1) {
+      return _ref14.apply(this, arguments);
     };
   }();
   var handleWorkerUpdate = /*#__PURE__*/function () {
-    var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1(formData, workerId, signal) {
-      var authToken, response, _err$response14, _err$response15, errorMessage, _t1;
-      return _regenerator().w(function (_context1) {
-        while (1) switch (_context1.p = _context1.n) {
+    var _ref15 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee14(formData, workerId, signal) {
+      var authToken, response, _err$response22, _err$response23, errorMessage, _t14;
+      return _regenerator().w(function (_context14) {
+        while (1) switch (_context14.p = _context14.n) {
           case 0:
-            _context1.p = 0;
+            _context14.p = 0;
             authToken = localStorage.getItem("auth_token");
             if (authToken) {
-              _context1.n = 1;
+              _context14.n = 1;
               break;
             }
             throw new Error("No auth token found. Please log in.");
           case 1:
             setLoading(true);
-            _context1.n = 2;
+            _context14.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/workers/".concat(workerId, "?_method=PUT"), formData, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -173255,48 +173710,48 @@ var WorkerList = function WorkerList() {
               signal: signal
             });
           case 2:
-            response = _context1.v;
+            response = _context14.v;
             if (!(response.status === 200)) {
-              _context1.n = 4;
+              _context14.n = 4;
               break;
             }
-            _context1.n = 3;
+            _context14.n = 3;
             return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
           case 3:
             setIsModalOpen(false);
             setIsEditMode(false);
             setWorkerToEdit(null);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Worker updated successfully!");
-            return _context1.a(2, response.data);
+            return _context14.a(2, response.data);
           case 4:
-            _context1.n = 7;
+            _context14.n = 7;
             break;
           case 5:
-            _context1.p = 5;
-            _t1 = _context1.v;
-            if (!(_t1.name === "AbortError")) {
-              _context1.n = 6;
+            _context14.p = 5;
+            _t14 = _context14.v;
+            if (!(_t14.name === "AbortError")) {
+              _context14.n = 6;
               break;
             }
             console.log("Update request was aborted");
-            return _context1.a(2);
+            return _context14.a(2);
           case 6:
-            errorMessage = ((_err$response14 = _t1.response) === null || _err$response14 === void 0 || (_err$response14 = _err$response14.data) === null || _err$response14 === void 0 ? void 0 : _err$response14.error) || "Failed to update worker.";
+            errorMessage = ((_err$response22 = _t14.response) === null || _err$response22 === void 0 || (_err$response22 = _err$response22.data) === null || _err$response22 === void 0 ? void 0 : _err$response22.error) || "Failed to update worker.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Error updating worker:", ((_err$response15 = _t1.response) === null || _err$response15 === void 0 ? void 0 : _err$response15.data) || _t1.message);
-            throw _t1;
+            console.error("Error updating worker:", ((_err$response23 = _t14.response) === null || _err$response23 === void 0 ? void 0 : _err$response23.data) || _t14.message);
+            throw _t14;
           case 7:
-            _context1.p = 7;
+            _context14.p = 7;
             setLoading(false);
-            return _context1.f(7);
+            return _context14.f(7);
           case 8:
-            return _context1.a(2);
+            return _context14.a(2);
         }
-      }, _callee1, null, [[0, 5, 7, 8]]);
+      }, _callee14, null, [[0, 5, 7, 8]]);
     }));
-    return function handleWorkerUpdate(_x0, _x1, _x10) {
-      return _ref10.apply(this, arguments);
+    return function handleWorkerUpdate(_x10, _x11, _x12) {
+      return _ref15.apply(this, arguments);
     };
   }();
   var isImageFile = function isImageFile(path) {
@@ -173317,6 +173772,21 @@ var WorkerList = function WorkerList() {
       return name !== "Unknown";
     }).join(", ") || "None";
   };
+  var getReviewStatus = function getReviewStatus(isReviewed) {
+    if (isReviewed === 'ACCEPTED' || isReviewed === 'DECLINED') return isReviewed;
+    if (isReviewed === null || isReviewed === undefined || isReviewed === '' || isReviewed === '0') return 'TO BE REVIEWED';
+    return 'TO BE REVIEWED';
+  };
+  var renderStatusBadge = function renderStatusBadge(isReviewed) {
+    var status = getReviewStatus(isReviewed);
+    var cls = status === 'ACCEPTED' ? 'accepted' : status === 'DECLINED' ? 'declined' : 'pending';
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+      className: "status-badge ".concat(cls),
+      children: status
+    });
+  };
+
+  // Server-side pagination + filtering; client still allows search post-filter
   var workersPerPage = 5;
   var filteredWorkers = workers.filter(function (worker) {
     var _worker$email;
@@ -173324,8 +173794,9 @@ var WorkerList = function WorkerList() {
     var matchesSearch = fullName.includes(searchTerm.toLowerCase()) || ((_worker$email = worker.email) === null || _worker$email === void 0 ? void 0 : _worker$email.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesSearch;
   });
-  var totalPages = Math.max(1, Math.ceil(pagination.totalItems / workersPerPage));
+  var totalPages = pagination.totalPages || Math.max(1, Math.ceil(filteredWorkers.length / workersPerPage));
   var currentWorkers = filteredWorkers;
+  var isAllSelected = selectedWorkers.length > 0 && selectedWorkers.length === currentWorkers.length;
   var renderPagination = function renderPagination() {
     var pageNumbers = [];
     var maxPagesToShow = 5;
@@ -173406,6 +173877,49 @@ var WorkerList = function WorkerList() {
         className: "workerlist-content",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
           children: showArchived ? "Archived Workers" : "Worker List"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "workerlist-tabs",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+            className: activeTab === 'all' ? 'active' : '',
+            onClick: function onClick() {
+              setActiveTab('all');
+              setSelectedWorkers([]);
+              setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+                currentPage: 1
+              }));
+            },
+            children: "All"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+            className: activeTab === 'to_review' ? 'active' : '',
+            onClick: function onClick() {
+              setActiveTab('to_review');
+              setSelectedWorkers([]);
+              setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+                currentPage: 1
+              }));
+            },
+            children: "To Be Reviewed"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+            className: activeTab === 'accepted' ? 'active' : '',
+            onClick: function onClick() {
+              setActiveTab('accepted');
+              setSelectedWorkers([]);
+              setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+                currentPage: 1
+              }));
+            },
+            children: "Accepted"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+            className: activeTab === 'declined' ? 'active' : '',
+            onClick: function onClick() {
+              setActiveTab('declined');
+              setSelectedWorkers([]);
+              setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
+                currentPage: 1
+              }));
+            },
+            children: "Declined"
+          })]
         }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
           className: "error-message",
           style: {
@@ -173434,17 +173948,85 @@ var WorkerList = function WorkerList() {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "right-actions",
-            children: [selectedWorkers.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+            children: [selectedWorkers.length > 0 && showArchived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+                className: "header-button archive-all-button",
+                onClick: function onClick() {
+                  return handleBulkAction("restore");
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                  size: 20,
+                  className: "button-icon"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                  className: "button-text",
+                  children: isAllSelected ? "Restore All" : "Restore Selected"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+                className: "header-button",
+                onClick: handleBulkDeleteArchived,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                  className: "button-icon"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                  className: "button-text",
+                  children: isAllSelected ? "Delete All" : "Delete Selected"
+                })]
+              })]
+            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'to_review' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+                className: "header-button",
+                onClick: function onClick() {
+                  return handleBulkReview('accept');
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheck, {
+                  className: "button-icon"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                  className: "button-text",
+                  children: isAllSelected ? "Accept All" : "Accept Selected"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+                className: "header-button",
+                onClick: function onClick() {
+                  return handleBulkReview('decline');
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTimes, {
+                  className: "button-icon"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                  className: "button-text",
+                  children: isAllSelected ? "Decline All" : "Decline Selected"
+                })]
+              })]
+            }), selectedWorkers.length > 0 && !showArchived && (activeTab === 'accepted' || activeTab === 'declined') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
               className: "header-button archive-all-button",
               onClick: function onClick() {
-                return handleBulkAction(showArchived ? "restore" : "archive");
+                return handleBulkAction("archive");
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 size: 20,
                 className: "button-icon"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "button-text",
-                children: showArchived ? "Restore All" : "Archive All"
+                children: isAllSelected ? "Archive All" : "Archive Selected"
+              })]
+            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'all' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+              className: "header-button archive-all-button",
+              onClick: function onClick() {
+                return handleBulkAction("archive");
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                size: 20,
+                className: "button-icon"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                className: "button-text",
+                children: isAllSelected ? "Archive All" : "Archive Selected"
+              })]
+            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'declined' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+              className: "header-button",
+              onClick: handleBulkDeleteDeclined,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                className: "button-icon"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                className: "button-text",
+                children: isAllSelected ? "Delete All" : "Delete Selected"
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
               className: "header-button",
@@ -173499,7 +174081,11 @@ var WorkerList = function WorkerList() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Credentials"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  children: "Experience"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Email"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  children: "Status"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Created At"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
@@ -173509,13 +174095,13 @@ var WorkerList = function WorkerList() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tbody", {
               children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tr", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                  colSpan: "9",
+                  colSpan: "10",
                   className: "loading-row",
                   children: "Loading workers..."
                 })
               }) : currentWorkers.length > 0 ? currentWorkers.map(function (worker) {
-                var _worker$worker, _worker$worker2, _worker$profile, _worker$worker3, _worker$worker4;
-                var credentials = Array.isArray((_worker$worker = worker.worker) === null || _worker$worker === void 0 ? void 0 : _worker$worker.credentials_name) && Array.isArray((_worker$worker2 = worker.worker) === null || _worker$worker2 === void 0 ? void 0 : _worker$worker2.credentials_photo) ? worker.worker.credentials_name.map(function (name, index) {
+                var _worker$worker5, _worker$worker6, _worker$worker7, _worker$profile, _worker$worker8, _worker$worker9, _worker$worker0, _worker$worker1;
+                var credentials = Array.isArray((_worker$worker5 = worker.worker) === null || _worker$worker5 === void 0 ? void 0 : _worker$worker5.credentials_name) && Array.isArray((_worker$worker6 = worker.worker) === null || _worker$worker6 === void 0 ? void 0 : _worker$worker6.credentials_photo) ? worker.worker.credentials_name.map(function (name, index) {
                   return {
                     credentials_name: name,
                     credentials_photo: worker.worker.credentials_photo[index]
@@ -173541,18 +174127,62 @@ var WorkerList = function WorkerList() {
                           className: "checkbox-icon",
                           size: 16
                         })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckCircle, {
-                        size: 16,
-                        className: "restore-icon",
-                        onClick: function onClick() {
-                          return handleRestoreWorker(worker.id);
-                        }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
-                        size: 16,
-                        className: "delete-icon",
-                        onClick: function onClick() {
-                          return handleArchiveClick(worker);
-                        }
+                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckCircle, {
+                          size: 16,
+                          className: "restore-icon",
+                          onClick: function onClick() {
+                            return handleRestoreWorker(worker.id);
+                          }
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                          size: 16,
+                          className: "delete-icon",
+                          onClick: /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15() {
+                            return _regenerator().w(function (_context15) {
+                              while (1) switch (_context15.n) {
+                                case 0:
+                                  _context15.n = 1;
+                                  return handleDeleteArchivedWorker(worker.id);
+                                case 1:
+                                  return _context15.a(2);
+                              }
+                            }, _callee15);
+                          }))
+                        })]
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                        children: [activeTab === 'to_review' && getReviewStatus((_worker$worker7 = worker.worker) === null || _worker$worker7 === void 0 ? void 0 : _worker$worker7.is_reviewed) === 'TO BE REVIEWED' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheck, {
+                            size: 16,
+                            className: "accept-icon",
+                            onClick: function onClick() {
+                              return handleReviewClick(worker, 'accept');
+                            }
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTimes, {
+                            size: 16,
+                            className: "decline-icon",
+                            onClick: function onClick() {
+                              return handleReviewClick(worker, 'decline');
+                            }
+                          })]
+                        }) : null, activeTab === 'all' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
+                          size: 16,
+                          className: "delete-icon",
+                          onClick: function onClick() {
+                            return handleArchiveClick(worker);
+                          }
+                        }), activeTab === 'accepted' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
+                          size: 16,
+                          className: "delete-icon",
+                          onClick: function onClick() {
+                            return handleArchiveClick(worker);
+                          }
+                        }), activeTab === 'declined' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
+                          size: 16,
+                          className: "delete-icon",
+                          onClick: function onClick() {
+                            return handleArchiveClick(worker);
+                          }
+                        })]
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaEdit, {
                         size: 16,
                         className: "edit-icon",
@@ -173586,12 +174216,14 @@ var WorkerList = function WorkerList() {
                     className: "fullname-cell",
                     children: getFullName(worker, suffixes)
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                    children: (_worker$worker3 = worker.worker) !== null && _worker$worker3 !== void 0 && _worker$worker3.work_type ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, function (c) {
+                    children: (_worker$worker8 = worker.worker) !== null && _worker$worker8 !== void 0 && _worker$worker8.work_type ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, function (c) {
                       return c.toUpperCase();
                     }) : "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                    children: getSkillNames((_worker$worker4 = worker.worker) === null || _worker$worker4 === void 0 ? void 0 : _worker$worker4.skills_id)
+                    className: "skills-cell",
+                    children: getSkillNames((_worker$worker9 = worker.worker) === null || _worker$worker9 === void 0 ? void 0 : _worker$worker9.skills_id)
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    className: "credentials-cell",
                     children: credentials.length > 0 ? credentials.map(function (cred, index) {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                         className: "credential-item",
@@ -173605,7 +174237,18 @@ var WorkerList = function WorkerList() {
                       }, index);
                     }) : "None"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    children: (_worker$worker0 = worker.worker) !== null && _worker$worker0 !== void 0 && _worker$worker0.experience ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                      className: "exp-badge ".concat(worker.worker.experience === '0 to 11 months' ? 'exp-bronze' : worker.worker.experience === '2 to 5 years' ? 'exp-silver' : worker.worker.experience === '5 to 10 years' ? 'exp-gold' : 'exp-none'),
+                      children: worker.worker.experience
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                      className: "exp-badge exp-none",
+                      children: "No Experience"
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    className: "email-cell",
                     children: worker.email || "N/A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    children: renderStatusBadge((_worker$worker1 = worker.worker) === null || _worker$worker1 === void 0 ? void 0 : _worker$worker1.is_reviewed)
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: formatDate(worker.created_at)
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
@@ -173614,7 +174257,7 @@ var WorkerList = function WorkerList() {
                 }, worker.id);
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tr", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("td", {
-                  colSpan: "9",
+                  colSpan: "10",
                   children: ["No ", showArchived ? "archived" : "active", " workers found"]
                 })
               })
@@ -173649,8 +174292,8 @@ var WorkerList = function WorkerList() {
         className: "confirm-modal",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
           children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("p", {
-          children: ["Do you want to archive \"", getFullName(workerToArchive, suffixes), "\"?"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+          children: workerToArchive ? "Do you want to archive \"".concat(getFullName(workerToArchive, suffixes), "\"?") : "Do you want to ".concat(reviewAction, " \"").concat(getFullName(workerToReview, suffixes), "\"?")
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "confirm-modal-buttons",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
@@ -173661,8 +174304,8 @@ var WorkerList = function WorkerList() {
             children: "Cancel"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
             className: "confirm-button",
-            onClick: handleArchiveConfirm,
-            children: "Archive"
+            onClick: workerToArchive ? handleArchiveConfirm : handleReviewConfirm,
+            children: workerToArchive ? "Archive" : reviewAction === 'accept' ? "Accept" : "Decline"
           })]
         })]
       })
@@ -173827,7 +174470,9 @@ var WorkerModal = function WorkerModal(_ref) {
       work_type: "",
       skills_id: [],
       credentials: [],
-      role_id: "1"
+      role_id: "1",
+      experience: "",
+      is_reviewed: ""
     }),
     _useState2 = _slicedToArray(_useState, 2),
     formData = _useState2[0],
@@ -173939,7 +174584,7 @@ var WorkerModal = function WorkerModal(_ref) {
       var _initialData$worker;
       var initialSkills = Array.isArray((_initialData$worker = initialData.worker) === null || _initialData$worker === void 0 ? void 0 : _initialData$worker.skills_id) ? initialData.worker.skills_id : [];
       if (isMountedRef.current) {
-        var _initialData$profile, _initialData$profile2, _initialData$profile3, _initialData$profile4, _initialData$profile5, _initialData$profile6, _initialData$profile7, _initialData$profile8, _initialData$profile9, _initialData$profile0, _initialData$profile1, _initialData$profile10, _initialData$worker2, _initialData$worker3, _initialData$worker4;
+        var _initialData$profile, _initialData$profile2, _initialData$profile3, _initialData$profile4, _initialData$profile5, _initialData$profile6, _initialData$profile7, _initialData$profile8, _initialData$profile9, _initialData$profile0, _initialData$profile1, _initialData$profile10, _initialData$worker2, _initialData$worker3, _initialData$worker4, _initialData$worker5, _initialData$worker6, _initialData$worker7, _initialData$worker8, _initialData$worker9;
         setFormData({
           first_name: ((_initialData$profile = initialData.profile) === null || _initialData$profile === void 0 ? void 0 : _initialData$profile.first_name) || "",
           middlename: ((_initialData$profile2 = initialData.profile) === null || _initialData$profile2 === void 0 ? void 0 : _initialData$profile2.middlename) || "",
@@ -173963,7 +174608,9 @@ var WorkerModal = function WorkerModal(_ref) {
               credentials_photo: initialData.worker.credentials_photo[index] || null
             };
           }) : [],
-          role_id: "1"
+          role_id: "1",
+          experience: ((_initialData$worker5 = initialData.worker) === null || _initialData$worker5 === void 0 ? void 0 : _initialData$worker5.experience) || "",
+          is_reviewed: ((_initialData$worker6 = initialData.worker) === null || _initialData$worker6 === void 0 ? void 0 : _initialData$worker6.is_reviewed) === null || ((_initialData$worker7 = initialData.worker) === null || _initialData$worker7 === void 0 ? void 0 : _initialData$worker7.is_reviewed) === 'TO BE REVIEWED' || ((_initialData$worker8 = initialData.worker) === null || _initialData$worker8 === void 0 ? void 0 : _initialData$worker8.is_reviewed) === '0' ? '' : ((_initialData$worker9 = initialData.worker) === null || _initialData$worker9 === void 0 ? void 0 : _initialData$worker9.is_reviewed) || ''
         });
         setApiError("");
         setErrors({});
@@ -174402,6 +175049,9 @@ var WorkerModal = function WorkerModal(_ref) {
             submitData.append("work_type", formData.work_type || "");
             submitData.append("role_id", formData.role_id);
             submitData.append("skills_id", JSON.stringify(formData.skills_id || []));
+            // Always send experience and is_reviewed so server can null them when blank
+            submitData.append("experience", formData.experience || "");
+            submitData.append("is_reviewed", formData.is_reviewed || "");
             if (isEdit) {
               submitData.append("_method", "PUT");
             }
@@ -174837,7 +175487,59 @@ var WorkerModal = function WorkerModal(_ref) {
                     children: "Worker"
                   })
                 })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "experience",
+                  children: "Experience"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
+                  id: "experience",
+                  value: formData.experience,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e.target.value, "experience");
+                  },
+                  className: "credential-dropdown",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "",
+                    children: "Select Experience"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "0 to 11 months",
+                    children: "0 to 11 months"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "2 to 5 years",
+                    children: "2 to 5 years"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "5 to 10 years",
+                    children: "5 to 10 years"
+                  })]
+                })]
               })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "form-row",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+                  htmlFor: "is_reviewed",
+                  children: "Status"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
+                  id: "is_reviewed",
+                  value: formData.is_reviewed,
+                  onChange: function onChange(e) {
+                    return handleInputChange(e.target.value, "is_reviewed");
+                  },
+                  className: "credential-dropdown",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "",
+                    children: "TO BE REVIEWED"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "ACCEPTED",
+                    children: "ACCEPTED"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                    value: "DECLINED",
+                    children: "DECLINED"
+                  })]
+                })]
+              })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "form-section",

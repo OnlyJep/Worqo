@@ -4,7 +4,7 @@ import axios from "axios";
 import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye, FaCheck, FaTimes, FaArchive } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_workerlist.scss";
 import WorkerModal from "./workerlistmodal.js";
@@ -55,8 +55,11 @@ const WorkerList = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedWorkers, setSelectedWorkers] = useState([]);
+  const [activeTab, setActiveTab] = useState("all"); // all | to_review | accepted | declined
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [workerToArchive, setWorkerToArchive] = useState(null);
+  const [workerToReview, setWorkerToReview] = useState(null);
+  const [reviewAction, setReviewAction] = useState(null); // 'accept' or 'decline'
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1, totalItems: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -102,7 +105,7 @@ const WorkerList = () => {
       }
       const response = await axios.get(`http://127.0.0.1:8000/api/workers${archived ? '/archived' : ''}`, {
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-        params: { page, limit: 5, search: searchTerm },
+        params: { page, limit: 5, search: searchTerm, status: activeTab },
         signal,
         timeout: 10000,
       });
@@ -195,7 +198,7 @@ const WorkerList = () => {
   };
 
   const toggleSelectAll = () => {
-    const currentWorkers = workers;
+    const currentWorkers = filteredWorkers;
     if (selectedWorkers.length === currentWorkers.length) {
       setSelectedWorkers([]);
     } else {
@@ -216,6 +219,18 @@ const WorkerList = () => {
     }
     setWorkerToArchive(worker);
     setIsConfirmModalOpen(true);
+    setReviewAction(null);
+  };
+
+  const handleReviewClick = (worker, action) => {
+    if (worker.worker?.is_reviewed === 'ACCEPTED' || worker.worker?.is_reviewed === 'DECLINED') {
+      message.error(`Worker is already ${worker.worker.is_reviewed.toLowerCase()}.`);
+      return;
+    }
+    setWorkerToReview(worker);
+    setReviewAction(action);
+    setIsConfirmModalOpen(true);
+    setWorkerToArchive(null);
   };
 
   const handleArchiveConfirm = async () => {
@@ -246,6 +261,41 @@ const WorkerList = () => {
       setError(errorMessage);
       message.error(errorMessage);
       console.error("Archive error:", err.response?.data || err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleReviewConfirm = async () => {
+    if (!workerToReview || !reviewAction) return;
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      setLoading(true);
+      const status = reviewAction === 'accept' ? 'ACCEPTED' : 'DECLINED';
+      const response = await axios.patch(
+        `http://127.0.0.1:8000/api/workers/${workerToReview.id}/review`,
+        { is_reviewed: status },
+        {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 5000,
+        }
+      );
+      if (response.status === 200) {
+        await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+        setIsConfirmModalOpen(false);
+        setWorkerToReview(null);
+        setReviewAction(null);
+        message.success(`Worker "${getFullName(workerToReview, suffixes)}" ${reviewAction}d successfully!`);
+      }
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      const errorMessage = err.response?.data?.error || `Failed to ${reviewAction} worker.`;
+      setError(errorMessage);
+      message.error(errorMessage);
+      console.error("Review error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
     }
@@ -329,6 +379,161 @@ const WorkerList = () => {
     }
   };
 
+  const handleBulkReview = async (action) => {
+    if (selectedWorkers.length === 0) {
+      message.error("Please select at least one worker.");
+      return;
+    }
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      const pendingIds = selectedWorkers.filter((id) => {
+        const worker = workers.find((w) => w.id === id);
+        return worker?.worker?.is_reviewed === 'TO BE REVIEWED';
+      });
+      if (pendingIds.length === 0) {
+        message.error("Selected workers are not pending review.");
+        return;
+      }
+      setLoading(true);
+      const status = action === 'accept' ? 'ACCEPTED' : 'DECLINED';
+      const response = await axios.post(
+        `http://127.0.0.1:8000/api/workers/bulk-review`,
+        { worker_ids: pendingIds, is_reviewed: status },
+        {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 10000,
+        }
+      );
+      if (response.status === 200) {
+        await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+        setSelectedWorkers([]);
+        message.success(`${pendingIds.length} workers ${action === 'accept' ? 'accepted' : 'declined'} successfully!`);
+      }
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      const errorMessage = err.response?.data?.error || `Failed to ${action} selected workers.`;
+      setError(errorMessage);
+      message.error(errorMessage);
+      console.error("Bulk review error:", err.response?.data || err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleBulkDeleteDeclined = async () => {
+    if (selectedWorkers.length === 0) {
+      message.error("Please select at least one worker.");
+      return;
+    }
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      const declinedIds = selectedWorkers.filter((id) => {
+        const worker = workers.find((w) => w.id === id);
+        return worker?.worker?.is_reviewed === 'DECLINED';
+      });
+      if (declinedIds.length === 0) {
+        message.error("Selected workers are not declined.");
+        return;
+      }
+      setLoading(true);
+      const response = await axios.post(
+        `http://127.0.0.1:8000/api/workers/bulk-delete-declined`,
+        { worker_ids: declinedIds },
+        {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 15000,
+        }
+      );
+      if (response.status === 200) {
+        await fetchWorkers(1, showArchived, new AbortController().signal);
+        setPagination({ ...pagination, currentPage: 1 });
+        setSelectedWorkers([]);
+        message.success(`${declinedIds.length} declined workers deleted successfully!`);
+      }
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      const errorMessage = err.response?.data?.error || `Failed to delete selected declined workers.`;
+      setError(errorMessage);
+      message.error(errorMessage);
+      console.error("Bulk delete declined error:", err.response?.data || err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDeleteArchivedWorker = async (workerId) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      setLoading(true);
+      const response = await axios.delete(`http://127.0.0.1:8000/api/workers/${workerId}`, {
+        headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+        timeout: 8000,
+      });
+      if (response.status === 200) {
+        await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+        message.success("Archived worker deleted.");
+      }
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      const errorMessage = err.response?.data?.error || "Failed to delete worker.";
+      setError(errorMessage);
+      message.error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleBulkDeleteArchived = async () => {
+    if (selectedWorkers.length === 0) {
+      message.error("Please select at least one worker.");
+      return;
+    }
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        throw new Error("No auth token found. Please log in.");
+      }
+      const archivedIds = selectedWorkers.filter((id) => {
+        const w = workers.find((x) => x.id === id);
+        return w?.archived === 1 || w?.archived === true;
+      });
+      if (archivedIds.length === 0) {
+        message.error("Selected workers are not archived.");
+        return;
+      }
+      setLoading(true);
+      const response = await axios.post(
+        `http://127.0.0.1:8000/api/workers/bulk-delete-archived`,
+        { worker_ids: archivedIds },
+        {
+          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+          timeout: 15000,
+        }
+      );
+      if (response.status === 200) {
+        await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+        setSelectedWorkers([]);
+        message.success(`${archivedIds.length} archived workers deleted successfully!`);
+      }
+    } catch (err) {
+      if (err.name === "AbortError") return;
+      const errorMessage = err.response?.data?.error || `Failed to delete archived workers.`;
+      setError(errorMessage);
+      message.error(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleAddNewClick = () => {
     setIsEditMode(false);
     setWorkerToEdit({
@@ -354,6 +559,7 @@ const WorkerList = () => {
         skills_id: [],
         credentials_name: [],
         credentials_photo: [],
+        is_reviewed: "TO BE REVIEWED",
       },
     });
     setIsModalOpen(true);
@@ -395,6 +601,7 @@ const WorkerList = () => {
           skills_id: response.data.worker?.skills_id || [],
           credentials_name: response.data.worker?.credentials_name || [],
           credentials_photo: response.data.worker?.credentials_photo || [],
+          is_reviewed: response.data.worker?.is_reviewed || "0",
         },
       });
       setIsEditMode(true);
@@ -525,14 +732,30 @@ const WorkerList = () => {
       .join(", ") || "None";
   };
 
+  const getReviewStatus = (isReviewed) => {
+    if (isReviewed === 'ACCEPTED' || isReviewed === 'DECLINED') return isReviewed;
+    if (isReviewed === null || isReviewed === undefined || isReviewed === '' || isReviewed === '0') return 'TO BE REVIEWED';
+    return 'TO BE REVIEWED';
+  };
+
+  const renderStatusBadge = (isReviewed) => {
+    const status = getReviewStatus(isReviewed);
+    const cls = status === 'ACCEPTED' ? 'accepted' : status === 'DECLINED' ? 'declined' : 'pending';
+    return (
+      <span className={`status-badge ${cls}`}>{status}</span>
+    );
+  };
+
+  // Server-side pagination + filtering; client still allows search post-filter
   const workersPerPage = 5;
   const filteredWorkers = workers.filter((worker) => {
     const fullName = getFullName(worker, suffixes).toLowerCase();
     const matchesSearch = fullName.includes(searchTerm.toLowerCase()) || worker.email?.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesSearch;
   });
-  const totalPages = Math.max(1, Math.ceil(pagination.totalItems / workersPerPage));
+  const totalPages = pagination.totalPages || Math.max(1, Math.ceil(filteredWorkers.length / workersPerPage));
   const currentWorkers = filteredWorkers;
+  const isAllSelected = selectedWorkers.length > 0 && selectedWorkers.length === currentWorkers.length;
 
   const renderPagination = () => {
     const pageNumbers = [];
@@ -599,6 +822,12 @@ const WorkerList = () => {
       <div className="workerlist-dashboard">
         <div className="workerlist-content">
           <h2>{showArchived ? "Archived Workers" : "Worker List"}</h2>
+          <div className="workerlist-tabs">
+            <button className={activeTab === 'all' ? 'active' : ''} onClick={() => { setActiveTab('all'); setSelectedWorkers([]); setPagination({ ...pagination, currentPage: 1 }); }}>All</button>
+            <button className={activeTab === 'to_review' ? 'active' : ''} onClick={() => { setActiveTab('to_review'); setSelectedWorkers([]); setPagination({ ...pagination, currentPage: 1 }); }}>To Be Reviewed</button>
+            <button className={activeTab === 'accepted' ? 'active' : ''} onClick={() => { setActiveTab('accepted'); setSelectedWorkers([]); setPagination({ ...pagination, currentPage: 1 }); }}>Accepted</button>
+            <button className={activeTab === 'declined' ? 'active' : ''} onClick={() => { setActiveTab('declined'); setSelectedWorkers([]); setPagination({ ...pagination, currentPage: 1 }); }}>Declined</button>
+          </div>
           {error && <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>{error}</div>}
           <div className="workerlist-header">
             <div className="left-actions">
@@ -614,13 +843,46 @@ const WorkerList = () => {
               </div>
             </div>
             <div className="right-actions">
-              {selectedWorkers.length > 0 && (
-                <button
-                  className="header-button archive-all-button"
-                  onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
-                >
+              {selectedWorkers.length > 0 && showArchived && (
+                <>
+                  <button className="header-button archive-all-button" onClick={() => handleBulkAction("restore")}>
+                    <IconArchive size={20} className="button-icon" />
+                    <span className="button-text">{isAllSelected ? "Restore All" : "Restore Selected"}</span>
+                  </button>
+                  <button className="header-button" onClick={handleBulkDeleteArchived}>
+                    <FaTrash className="button-icon" />
+                    <span className="button-text">{isAllSelected ? "Delete All" : "Delete Selected"}</span>
+                  </button>
+                </>
+              )}
+              {selectedWorkers.length > 0 && !showArchived && activeTab === 'to_review' && (
+                <>
+                  <button className="header-button" onClick={() => handleBulkReview('accept')}>
+                    <FaCheck className="button-icon" />
+                    <span className="button-text">{isAllSelected ? "Accept All" : "Accept Selected"}</span>
+                  </button>
+                  <button className="header-button" onClick={() => handleBulkReview('decline')}>
+                    <FaTimes className="button-icon" />
+                    <span className="button-text">{isAllSelected ? "Decline All" : "Decline Selected"}</span>
+                  </button>
+                </>
+              )}
+              {selectedWorkers.length > 0 && !showArchived && (activeTab === 'accepted' || activeTab === 'declined') && (
+                <button className="header-button archive-all-button" onClick={() => handleBulkAction("archive")}>
                   <IconArchive size={20} className="button-icon" />
-                  <span className="button-text">{showArchived ? "Restore All" : "Archive All"}</span>
+                  <span className="button-text">{isAllSelected ? "Archive All" : "Archive Selected"}</span>
+                </button>
+              )}
+              {selectedWorkers.length > 0 && !showArchived && activeTab === 'all' && (
+                <button className="header-button archive-all-button" onClick={() => handleBulkAction("archive")}>
+                  <IconArchive size={20} className="button-icon" />
+                  <span className="button-text">{isAllSelected ? "Archive All" : "Archive Selected"}</span>
+                </button>
+              )}
+              {selectedWorkers.length > 0 && !showArchived && activeTab === 'declined' && (
+                <button className="header-button" onClick={handleBulkDeleteDeclined}>
+                  <FaTrash className="button-icon" />
+                  <span className="button-text">{isAllSelected ? "Delete All" : "Delete Selected"}</span>
                 </button>
               )}
               <button className="header-button" onClick={handleAddNewClick}>
@@ -654,7 +916,9 @@ const WorkerList = () => {
                   <th>Work Type</th>
                   <th>Skills</th>
                   <th>Credentials</th>
+                  <th>Experience</th>
                   <th>Email</th>
+                  <th>Status</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -662,7 +926,7 @@ const WorkerList = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="9" className="loading-row">Loading workers...</td>
+                    <td colSpan="10" className="loading-row">Loading workers...</td>
                   </tr>
                 ) : currentWorkers.length > 0 ? (
                   currentWorkers.map((worker) => {
@@ -690,17 +954,58 @@ const WorkerList = () => {
                               )}
                             </span>
                             {showArchived ? (
-                              <FaCheckCircle
-                                size={16}
-                                className="restore-icon"
-                                onClick={() => handleRestoreWorker(worker.id)}
-                              />
+                              <>
+                                <FaCheckCircle
+                                  size={16}
+                                  className="restore-icon"
+                                  onClick={() => handleRestoreWorker(worker.id)}
+                                />
+                                <FaTrash
+                                  size={16}
+                                  className="delete-icon"
+                                  onClick={async () => {
+                                    await handleDeleteArchivedWorker(worker.id);
+                                  }}
+                                />
+                              </>
                             ) : (
-                              <FaTrash
-                                size={16}
-                                className="delete-icon"
-                                onClick={() => handleArchiveClick(worker)}
-                              />
+                              <>
+                                {activeTab === 'to_review' && getReviewStatus(worker.worker?.is_reviewed) === 'TO BE REVIEWED' ? (
+                                  <>
+                                    <FaCheck
+                                      size={16}
+                                      className="accept-icon"
+                                      onClick={() => handleReviewClick(worker, 'accept')}
+                                    />
+                                    <FaTimes
+                                      size={16}
+                                      className="decline-icon"
+                                      onClick={() => handleReviewClick(worker, 'decline')}
+                                    />
+                                  </>
+                                ) : null}
+                                {activeTab === 'all' && !worker.archived && (
+                                  <FaArchive
+                                    size={16}
+                                    className="delete-icon"
+                                    onClick={() => handleArchiveClick(worker)}
+                                  />
+                                )}
+                                {activeTab === 'accepted' && !worker.archived && (
+                                  <FaArchive
+                                    size={16}
+                                    className="delete-icon"
+                                    onClick={() => handleArchiveClick(worker)}
+                                  />
+                                )}
+                                {activeTab === 'declined' && !worker.archived && (
+                                  <FaArchive
+                                    size={16}
+                                    className="delete-icon"
+                                    onClick={() => handleArchiveClick(worker)}
+                                  />
+                                )}
+                              </>
                             )}
                             <FaEdit
                               size={16}
@@ -731,8 +1036,8 @@ const WorkerList = () => {
                             ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, (c) => c.toUpperCase())
                             : "N/A"}
                         </td>
-                        <td>{getSkillNames(worker.worker?.skills_id)}</td>
-                        <td>
+                        <td className="skills-cell">{getSkillNames(worker.worker?.skills_id)}</td>
+                        <td className="credentials-cell">
                           {credentials.length > 0
                             ? credentials.map((cred, index) => (
                                 <div key={index} className="credential-item">
@@ -749,7 +1054,21 @@ const WorkerList = () => {
                               ))
                             : "None"}
                         </td>
-                        <td>{worker.email || "N/A"}</td>
+                        <td>
+                          {worker.worker?.experience ? (
+                            <span className={`exp-badge ${
+                              worker.worker.experience === '0 to 11 months' ? 'exp-bronze' :
+                              worker.worker.experience === '2 to 5 years' ? 'exp-silver' :
+                              worker.worker.experience === '5 to 10 years' ? 'exp-gold' : 'exp-none'
+                            }`}>
+                              {worker.worker.experience}
+                            </span>
+                          ) : (
+                            <span className="exp-badge exp-none">No Experience</span>
+                          )}
+                        </td>
+                        <td className="email-cell">{worker.email || "N/A"}</td>
+                        <td>{renderStatusBadge(worker.worker?.is_reviewed)}</td>
                         <td>{formatDate(worker.created_at)}</td>
                         <td>{formatDate(worker.updated_at)}</td>
                       </tr>
@@ -757,7 +1076,7 @@ const WorkerList = () => {
                   })
                 ) : (
                   <tr>
-                    <td colSpan="9">No {showArchived ? "archived" : "active"} workers found</td>
+                    <td colSpan="10">No {showArchived ? "archived" : "active"} workers found</td>
                   </tr>
                 )}
               </tbody>
@@ -785,13 +1104,20 @@ const WorkerList = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{getFullName(workerToArchive, suffixes)}"?</p>
+            <p>
+              {workerToArchive
+                ? `Do you want to archive "${getFullName(workerToArchive, suffixes)}"?`
+                : `Do you want to ${reviewAction} "${getFullName(workerToReview, suffixes)}"?`}
+            </p>
             <div className="confirm-modal-buttons">
               <button className="cancel-button" onClick={() => setIsConfirmModalOpen(false)}>
                 Cancel
               </button>
-              <button className="confirm-button" onClick={handleArchiveConfirm}>
-                Archive
+              <button
+                className="confirm-button"
+                onClick={workerToArchive ? handleArchiveConfirm : handleReviewConfirm}
+              >
+                {workerToArchive ? "Archive" : reviewAction === 'accept' ? "Accept" : "Decline"}
               </button>
             </div>
           </div>

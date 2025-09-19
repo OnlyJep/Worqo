@@ -54,7 +54,7 @@
       }
 
       input,
-      .color-picker {
+      input[type="file"] {
         padding: 8px;
         border: 1px solid #d1d5db;
         border-radius: 8px;
@@ -75,30 +75,77 @@
           border-color: #ef4444;
           box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
         }
+
+        &[type="file"] {
+          padding: 4px;
+          background: white;
+          cursor: pointer;
+
+          &::file-selector-button {
+            margin-right: 8px;
+            padding: 6px 12px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s ease;
+
+            &:hover {
+              background: #2563eb;
+            }
+          }
+        }
       }
 
-      .color-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+      .image-upload-wrapper {
+        .image-preview {
+          margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
 
-        .color-picker {
-          height: 40px;
-          padding: 4px;
-          cursor: pointer;
+          .preview-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            display: block;
+          }
+
+          .remove-image-btn {
+            padding: 4px 12px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            transition: background 0.2s ease;
+
+            &:hover:not(:disabled) {
+              background: #dc2626;
+            }
+
+            &:disabled {
+              background: #9ca3af;
+              cursor: not-allowed;
+            }
+          }
         }
 
-        .collar-icon-preview {
-          font-size: 20px;
-          border: 2px solid;
-          border-radius: 6px;
-          padding: 4px;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.2s ease;
+        .image-hint {
+          margin-top: 8px;
+          font-size: 12px;
+          color: #6b7280;
+          font-style: italic;
+          font-family: 'Inter', sans-serif;
         }
       }
 
@@ -119,19 +166,28 @@
     padding-top: 12px;
     border-top: 1px solid #e5e7eb;
 
-    .submit-button {
-      background: #3b82f6;
-      color: #ffffff;
-      border: none;
+    .submit-button,
+    .cancel-button {
       padding: 8px 20px;
       border-radius: 8px;
       cursor: pointer;
       font-size: 14px;
       font-weight: 500;
       font-family: 'Inter', sans-serif;
-      transition: background 0.2s ease;
+      transition: all 0.2s ease;
 
-      &:hover {
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+
+    .submit-button {
+      background: #3b82f6;
+      color: #ffffff;
+      border: none;
+
+      &:hover:not(:disabled) {
         background: #2563eb;
       }
     }
@@ -140,15 +196,8 @@
       background: #f3f4f6;
       color: #374151;
       border: 1px solid #d1d5db;
-      padding: 8px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s ease;
 
-      &:hover {
+      &:hover:not(:disabled) {
         background: #e5e7eb;
       }
     }
@@ -191,16 +240,33 @@
       }
 
       input,
-      .color-picker {
+      input[type="file"] {
         font-size: 13px;
         padding: 6px;
+
+        &[type="file"] {
+          &::file-selector-button {
+            padding: 4px 8px;
+            font-size: 12px;
+          }
+        }
       }
 
-      .color-wrapper {
-        .collar-icon-preview {
-          font-size: 18px;
-          width: 28px;
-          height: 28px;
+      .image-upload-wrapper {
+        .image-preview {
+          .preview-image {
+            width: 60px;
+            height: 60px;
+          }
+
+          .remove-image-btn {
+            font-size: 11px;
+            padding: 3px 8px;
+          }
+        }
+
+        .image-hint {
+          font-size: 11px;
         }
       }
     }

@@ -22,12 +22,29 @@ class WorkerController extends Controller
     {
         try {
             $search = $request->query('search', '');
-            $page = $request->query('page', 1);
-            $limit = $request->query('limit', 10);
+            $page = max(1, (int)$request->query('page', 1));
+            // Enforce 5 items per page consistently
+            $limit = 5;
 
             $query = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
                 ->where('archived', false);
+
+            // Optional status filter: to_review | accepted | declined | all
+            $status = $request->query('status', 'all');
+            if ($status === 'to_review') {
+                $query->whereHas('worker', function ($q) {
+                    $q->whereNull('is_reviewed');
+                });
+            } elseif ($status === 'accepted') {
+                $query->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'ACCEPTED');
+                });
+            } elseif ($status === 'declined') {
+                $query->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'DECLINED');
+                });
+            }
 
             if (!empty($search)) {
                 $query->whereHas('profile', function ($q) use ($search) {
@@ -99,12 +116,29 @@ class WorkerController extends Controller
     {
         try {
             $search = $request->query('search', '');
-            $page = $request->query('page', 1);
-            $limit = $request->query('limit', 10);
+            $page = max(1, (int)$request->query('page', 1));
+            // Enforce 5 items per page consistently
+            $limit = 5;
 
             $query = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
                 ->where('archived', true);
+
+            // Optional status filter for archived list as well
+            $status = $request->query('status', 'all');
+            if ($status === 'to_review') {
+                $query->whereHas('worker', function ($q) {
+                    $q->whereNull('is_reviewed');
+                });
+            } elseif ($status === 'accepted') {
+                $query->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'ACCEPTED');
+                });
+            } elseif ($status === 'declined') {
+                $query->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'DECLINED');
+                });
+            }
 
             if (!empty($search)) {
                 $query->whereHas('profile', function ($q) use ($search) {
@@ -252,6 +286,8 @@ class WorkerController extends Controller
                     'credentials' => 'nullable|array',
                     'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
                     'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                    'experience' => 'nullable|in:0 to 11 months,2 to 5 years,5 to 10 years',
+                    'is_reviewed' => 'nullable|in:ACCEPTED,DECLINED',
                 ]
             );
 
@@ -337,6 +373,8 @@ class WorkerController extends Controller
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
                 'archived' => false,
+                'is_reviewed' => $request->has('is_reviewed') && $request->input('is_reviewed') !== '' ? $request->input('is_reviewed') : null,
+                'experience' => $request->has('experience') && $request->input('experience') !== '' ? $request->input('experience') : null,
             ]);
 
             Log::info('Worker created', [
@@ -392,6 +430,7 @@ class WorkerController extends Controller
                     'credentials_name' => [],
                     'credentials_photo' => [],
                     'archived' => $user->archived,
+                    'is_reviewed' => null,
                 ]);
                 $user->load('worker');
             }
@@ -428,6 +467,8 @@ class WorkerController extends Controller
                     'credentials' => 'nullable|array',
                     'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
                     'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                    'experience' => 'nullable|in:0 to 11 months,2 to 5 years,5 to 10 years',
+                    'is_reviewed' => 'nullable|in:ACCEPTED,DECLINED',
                 ]
             );
 
@@ -530,6 +571,8 @@ class WorkerController extends Controller
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
                 'archived' => $user->archived,
+                'experience' => $request->has('experience') ? ($request->input('experience') === '' ? null : $request->input('experience')) : $user->worker->experience,
+                'is_reviewed' => $request->has('is_reviewed') ? ($request->input('is_reviewed') === '' ? null : $request->input('is_reviewed')) : $user->worker->is_reviewed,
             ]);
 
             Log::info('Worker updated', [
@@ -768,6 +811,7 @@ class WorkerController extends Controller
                     'credentials_name' => [],
                     'credentials_photo' => [],
                     'archived' => false,
+                    'is_reviewed' => '0',
                 ]
             );
 
@@ -820,6 +864,253 @@ class WorkerController extends Controller
         } catch (\Exception $e) {
             Log::error('Error adding skill to worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
             return response()->json(['error' => 'Failed to add skill: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Update worker's review status.
+     */
+    public function review(Request $request, $id): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'is_reviewed' => 'required|in:ACCEPTED,DECLINED',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for review status update', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $user = User::with(['worker'])
+                ->where('role_id', 1)
+                ->findOrFail($id);
+
+            if (!$user->worker) {
+                return response()->json(['error' => 'Worker record not found'], 404);
+            }
+
+            $newStatus = $request->input('is_reviewed');
+            if ($user->worker->is_reviewed === $newStatus) {
+                return response()->json(['error' => 'Worker is already ' . strtolower($newStatus)], 400);
+            }
+
+            $user->worker->update(['is_reviewed' => $newStatus]);
+
+            Log::info('Worker review status updated', ['id' => $id, 'is_reviewed' => $newStatus]);
+            return response()->json([
+                'message' => 'Worker review status updated successfully',
+                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating worker review status: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update worker review status: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Bulk update workers' review status.
+     */
+    public function bulkReview(Request $request): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'worker_ids' => 'required|array|min:1',
+                'worker_ids.*' => 'integer|exists:users,id',
+                'is_reviewed' => 'required|in:ACCEPTED,DECLINED',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for bulk review', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $ids = $request->input('worker_ids', []);
+            $status = $request->input('is_reviewed');
+
+            $users = User::whereIn('id', $ids)
+                ->where('role_id', 1)
+                ->with('worker')
+                ->get();
+
+            if ($users->isEmpty()) {
+                return response()->json(['error' => 'No valid workers found for review update'], 400);
+            }
+
+            $updated = 0;
+            foreach ($users as $user) {
+                if (!$user->worker) {
+                    continue;
+                }
+                if ($user->worker->is_reviewed !== $status) {
+                    $user->worker->update(['is_reviewed' => $status]);
+                    $updated++;
+                }
+            }
+
+            Log::info('Workers bulk review updated', ['ids' => $ids, 'status' => $status, 'updated' => $updated]);
+            return response()->json(['message' => 'Workers review status updated', 'updated' => $updated], 200);
+        } catch (\Exception $e) {
+            Log::error('Error bulk updating worker review status: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update workers review status: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Bulk delete declined workers (and their related data/files).
+     */
+    public function bulkDeleteDeclined(Request $request): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'worker_ids' => 'required|array|min:1',
+                'worker_ids.*' => 'integer|exists:users,id',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for bulk delete declined', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $ids = $request->input('worker_ids', []);
+
+            $users = User::whereIn('id', $ids)
+                ->where('role_id', 1)
+                ->with(['profile', 'worker'])
+                ->get();
+
+            $deletedCount = 0;
+            foreach ($users as $user) {
+                if (!$user->worker || $user->worker->is_reviewed !== 'DECLINED') {
+                    continue;
+                }
+
+                // Delete profile image file if exists
+                if ($user->profile && $user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
+                    Storage::disk('public')->delete($user->profile->profile_img);
+                }
+
+                // Delete credentials files if exist
+                if ($user->worker) {
+                    $credentialPhotos = $this->parseArray($user->worker->credentials_photo);
+                    foreach ($credentialPhotos as $photoPath) {
+                        if ($photoPath && Storage::disk('public')->exists($photoPath)) {
+                            Storage::disk('public')->delete($photoPath);
+                        }
+                    }
+                }
+
+                // Delete related records then the user
+                if ($user->worker) {
+                    $user->worker->delete();
+                }
+                if ($user->profile) {
+                    $user->profile->delete();
+                }
+                $user->delete();
+                $deletedCount++;
+            }
+
+            if ($deletedCount === 0) {
+                return response()->json(['error' => 'No declined workers found to delete'], 400);
+            }
+
+            Log::info('Declined workers bulk deleted', ['ids' => $ids, 'deleted' => $deletedCount]);
+            return response()->json(['message' => 'Declined workers deleted', 'deleted' => $deletedCount], 200);
+        } catch (\Exception $e) {
+            Log::error('Error bulk deleting declined workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to delete declined workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Delete a worker (user) only if archived.
+     */
+    public function destroy($id): JsonResponse
+    {
+        try {
+            $user = User::with(['profile', 'worker'])->where('role_id', 1)->findOrFail($id);
+
+            if (!$user->archived) {
+                return response()->json(['error' => 'Cannot delete an active worker. Archive first.'], 400);
+            }
+
+            // Delete files
+            if ($user->profile && $user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
+                Storage::disk('public')->delete($user->profile->profile_img);
+            }
+            if ($user->worker) {
+                $credentialPhotos = $this->parseArray($user->worker->credentials_photo);
+                foreach ($credentialPhotos as $photoPath) {
+                    if ($photoPath && Storage::disk('public')->exists($photoPath)) {
+                        Storage::disk('public')->delete($photoPath);
+                    }
+                }
+            }
+
+            if ($user->worker) {
+                $user->worker->delete();
+            }
+            if ($user->profile) {
+                $user->profile->delete();
+            }
+            $user->delete();
+
+            Log::info('Archived worker deleted', ['user_id' => $id]);
+            return response()->json(['message' => 'Worker deleted'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error deleting worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to delete worker: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Bulk delete archived workers.
+     */
+    public function bulkDeleteArchived(Request $request): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'worker_ids' => 'required|array|min:1',
+                'worker_ids.*' => 'integer|exists:users,id',
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $ids = $request->input('worker_ids', []);
+            $users = User::whereIn('id', $ids)->where('role_id', 1)->where('archived', true)->with(['profile', 'worker'])->get();
+
+            if ($users->isEmpty()) {
+                return response()->json(['error' => 'No archived workers found to delete'], 400);
+            }
+
+            $deleted = 0;
+            foreach ($users as $user) {
+                if ($user->profile && $user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
+                    Storage::disk('public')->delete($user->profile->profile_img);
+                }
+                if ($user->worker) {
+                    $credentialPhotos = $this->parseArray($user->worker->credentials_photo);
+                    foreach ($credentialPhotos as $photoPath) {
+                        if ($photoPath && Storage::disk('public')->exists($photoPath)) {
+                            Storage::disk('public')->delete($photoPath);
+                        }
+                    }
+                    $user->worker->delete();
+                }
+                if ($user->profile) {
+                    $user->profile->delete();
+                }
+                $user->delete();
+                $deleted++;
+            }
+
+            return response()->json(['message' => 'Archived workers deleted', 'deleted' => $deleted], 200);
+        } catch (\Exception $e) {
+            Log::error('Error bulk deleting archived workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to delete archived workers: ' . $e->getMessage()], 500);
         }
     }
 
@@ -902,6 +1193,14 @@ class WorkerController extends Controller
         $credentialsName = $this->parseArray($user->worker->credentials_name);
         $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
 
+        // Normalize review status and extract experience (read directly from DB to avoid stale relations)
+        $rawReview = Worker::where('profile_id', optional($user->profile)->id)->value('is_reviewed');
+        $rawReviewNormalized = is_null($rawReview) ? null : strtoupper(trim((string)$rawReview));
+        $normalizedReview = ($rawReviewNormalized === 'ACCEPTED' || $rawReviewNormalized === 'DECLINED')
+            ? $rawReviewNormalized
+            : null;
+        $experience = Worker::where('profile_id', optional($user->profile)->id)->value('experience');
+
         // Ensure $skillsId is an array of arrays
         if (!is_array($skillsId)) {
             Log::warning('skills_id is not an array in formatWorker', [
@@ -970,6 +1269,8 @@ class WorkerController extends Controller
                 'credentials_name' => $credentialsName,
                 'credentials_photo' => $credentialsPhoto,
                 'archived' => $user->worker->archived,
+                'is_reviewed' => $normalizedReview,
+                'experience' => $user->worker->experience,
             ],
         ];
     }
@@ -1013,6 +1314,7 @@ class WorkerController extends Controller
                     'credentials_name' => [],
                     'credentials_photo' => [],
                     'archived' => false,
+                    'is_reviewed' => null,
                 ]);
                 $user->load('worker');
             }

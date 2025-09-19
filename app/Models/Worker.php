@@ -13,6 +13,8 @@ class Worker extends Model
         'credentials_name',
         'credentials_photo',
         'archived',
+        'is_reviewed',
+        'experience',
     ];
 
     protected $casts = [
@@ -20,6 +22,7 @@ class Worker extends Model
         'credentials_name' => 'array',
         'credentials_photo' => 'array',
         'archived' => 'boolean',
+        'is_reviewed' => 'string',
     ];
 
     public function profile()

@@ -8,7 +8,7 @@ class Collar extends Model
 {
     protected $fillable = [
         'name',
-        'color',
+        'collar_img',
         'archived',
     ];
 

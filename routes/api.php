@@ -9,7 +9,7 @@ use App\Http\Controllers\GenderController;
 use App\Http\Controllers\SuffixController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\RankController;
-use App\Http\Controllers\CollarsController;
+use App\Http\Controllers\CollarController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserRoleController;
@@ -58,15 +58,11 @@ Route::patch('/ranks/{id}/archive', [RankController::class, 'archive'])->name('r
 Route::post('/ranks/bulk-archive', [RankController::class, 'bulkArchive'])->name('ranks.bulkArchive');
 
 // COLLARS ROUTES
-Route::get('/collars', [CollarsController::class, 'index'])->name('collars.index');
-Route::get('/collars/{id}', [CollarsController::class, 'show'])->name('collars.show');
-Route::post('/collars', [CollarsController::class, 'store'])->name('collars.store');
-Route::put('/collars/{id}', [CollarsController::class, 'update'])->name('collars.update');
-Route::delete('/collars/{id}', [CollarsController::class, 'destroy'])->name('collars.destroy');
-Route::patch('/collars/{id}/archive', [CollarsController::class, 'archive'])->name('collars.archive');
-Route::patch('/collars/{id}/restore', [CollarsController::class, 'restore'])->name('collars.restore');
-Route::post('/collars/bulk-archive', [CollarsController::class, 'bulkArchive'])->name('collars.bulkArchive');
-Route::post('/collars/bulk-restore', [CollarsController::class, 'bulkRestore'])->name('collars.bulkRestore');
+Route::get('/collars', [CollarController::class, 'index'])->name('collars.index');
+Route::post('/collars', [CollarController::class, 'store'])->name('collars.store');
+Route::put('/collars/{id}', [CollarController::class, 'update'])->name('collars.update');
+Route::patch('/collars/{id}/archive', [CollarController::class, 'archive'])->name('collars.archive');
+Route::post('/collars/bulk-archive', [CollarController::class, 'bulkArchive'])->name('collars.bulkArchive');
 
 // REVIEW ROUTES
 Route::get('/reviews', [ReviewController::class, 'index']);
@@ -76,7 +72,7 @@ Route::patch('/reviews/{id}/archive', [ReviewController::class, 'archive']);
 Route::patch('/reviews/{id}/restore', [ReviewController::class, 'restore']);
 Route::post('/reviews/bulk', [ReviewController::class, 'bulkAction']);
 
-// SKILLS ROUTES (Your Existing Routes – Unchanged)
+// SKILLS ROUTES
 Route::get('/skills', [SkillController::class, 'index']);
 Route::get('/skills/archived', [SkillController::class, 'archived']);
 Route::post('/skills', [SkillController::class, 'store']);
@@ -112,7 +108,12 @@ Route::post('/workers', [WorkerController::class, 'store'])->name('workers.store
 Route::put('/workers/{id}', [WorkerController::class, 'update'])->name('workers.update');
 Route::put('/workers/{id}/skills', [WorkerController::class, 'updateSkills'])->name('workers.updateSkills');
 Route::patch('/workers/{id}/archive', [WorkerController::class, 'updateArchiveStatus'])->name('workers.archive');
+Route::patch('/workers/{id}/review', [WorkerController::class, 'review'])->name('workers.review');
 Route::post('/workers/bulk-archive', [WorkerController::class, 'bulkArchive'])->name('workers.bulkArchive');
+Route::post('/workers/bulk-review', [WorkerController::class, 'bulkReview'])->name('workers.bulkReview');
+Route::post('/workers/bulk-delete-declined', [WorkerController::class, 'bulkDeleteDeclined'])->name('workers.bulkDeleteDeclined');
+Route::delete('/workers/{id}', [WorkerController::class, 'destroy'])->name('workers.destroy');
+Route::post('/workers/bulk-delete-archived', [WorkerController::class, 'bulkDeleteArchived'])->name('workers.bulkDeleteArchived');
 
 // FIXED: Only /add-skill (no /skills here – using SkillController)
 Route::post('/add-skill', [WorkerController::class, 'addSkill'])->name('skills.add');

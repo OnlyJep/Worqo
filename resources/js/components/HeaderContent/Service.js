@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -161,31 +160,42 @@ const BrowseLaborCategories = () => {
             {error ? (
               <p className="error-message">{error}</p>
             ) : services.length > 0 ? (
-              services.map((service, index) => (
-                <div className="service-card" key={index}>
-                  <div className="card-image">
-                    {service.service_image ? (
-                      <img
-                        src={`http://127.0.0.1:8000/storage/${service.service_image}`}
-                        alt={service.name || "Service"}
-                      />
-                    ) : (
-                      <img src={searchIcon} alt="Placeholder" />
-                    )}
+              services.map((service, index) => {
+                // Find the corresponding collar to get collar_img
+                const collar = collars.find((c) => c.id === service.color_collar_id);
+                return (
+                  <div className="service-card" key={index}>
+                    <div className="card-image">
+                      {service.service_image ? (
+                        <img
+                          src={`http://127.0.0.1:8000/storage/${service.service_image}`}
+                          alt={service.name || "Service"}
+                        />
+                      ) : (
+                        <img src={searchIcon} alt="Placeholder" />
+                      )}
+                    </div>
+                    <h3>{service.name || "N/A"}</h3>
+                    <p>{service.description || "N/A"}</p>
+                    <div className="service-badge">
+                      {collar && collar.collar_img ? (
+                        <img
+                          src={`http://127.0.0.1:8000/storage/${collar.collar_img}`}
+                          alt={service.color_collar_name || "Collar"}
+                          className="badge-icon"
+                        />
+                      ) : null}
+                      <span className="badge-text">{service.color_collar_name || "N/A"}</span>
+                    </div>
+                    <button
+                      className="service-cta-btn"
+                      onClick={() => handleViewWorkersClick(service.name, service.color_collar_name)}
+                    >
+                      View Available Workers &gt;&gt;
+                    </button>
                   </div>
-                  <h3>{service.name || "N/A"}</h3>
-                  <p>{service.description || "N/A"}</p>
-                  <div className="service-badge">
-                    <span className="badge-text">{service.color_collar_name || "N/A"}</span>
-                  </div>
-                  <button
-                    className="service-cta-btn"
-                    onClick={() => handleViewWorkersClick(service.name, service.color_collar_name)}
-                  >
-                    View Available Workers &gt;&gt;
-                  </button>
-                </div>
-              ))
+                );
+              })
             ) : (
               <p>No labor categories found</p>
             )}
