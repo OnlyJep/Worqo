@@ -38,7 +38,7 @@ const Admintopnavbar = () => {
     setIsDropdownOpen(false);
     setIsLoading(true);
     setTimeout(() => {
-      navigate("/profile");
+      navigate("/admin/profile");
       setIsLoading(false);
     }, 800);
   };

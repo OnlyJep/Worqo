@@ -76,7 +76,7 @@ class RegisterController extends Controller
                 'middlename' => $request->middle_name,
                 'last_name' => $request->last_name,
                 'gender_id' => $gender->id,
-                'suffix_id' => $suffix?->id,
+                'suffix_id' => $suffix ? $suffix->id : null,
             ]);
 
             DB::commit();

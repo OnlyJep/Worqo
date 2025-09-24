@@ -1,0 +1,444 @@
+.my-bookings-container {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .bookings-header {
+    margin-bottom: 20px;
+
+    .bookings-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+  }
+
+  .bookings-navigation {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 30px;
+    overflow-x: auto;
+
+    .booking-tab-container {
+      display: flex;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .booking-tab {
+      background: none;
+      border: none;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      min-width: fit-content;
+      pointer-events: auto;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: 100%;
+
+      &:hover {
+        color: #374151;
+        background-color: #f8fafc;
+      }
+
+      &:active {
+        transform: translateY(1px);
+        background-color: #e5e7eb;
+      }
+
+      &.active {
+        color: #1d4ed8;
+        border-bottom-color: #1d4ed8;
+        background-color: #eff6ff;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .bookings-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    margin-top: -15px; // Default spacing for All Bookings
+    
+    // Move booking cards upward for other navigation tabs
+    &:not(.all-bookings) {
+      margin-top: -85px; // Moved upward for Pending, Declined, Approved, Cancelled, Completed
+    }
+
+    .bookings-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+     .booking-card {
+       background: #f8fafc;
+       border-radius: 12px;
+       padding: 24px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+       position: relative; // Added for absolute positioning of salary
+
+       .booking-worker-info {
+         display: flex;
+         align-items: center;
+         gap: 16px;
+         flex: 1;
+         margin-top: -16px; // Moved worker info upward 2x
+
+        .worker-profile {
+          .worker-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+
+        .worker-details {
+          .worker-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0 0 4px 0;
+          }
+
+          .worker-profession {
+            font-size: 14px;
+            color: #6b7280;
+            margin: 0 0 12px 0;
+          }
+
+          .worker-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 8px;
+
+             .verified-badge {
+               display: flex;
+               align-items: center;
+               gap: 4px;
+               font-size: 12px;
+               font-weight: 600;
+
+               .verified-icon {
+                 color: #4DA34D;
+                 font-size: 14px;
+               }
+             }
+
+             .blue-collar-badge {
+               display: flex;
+               align-items: center;
+               gap: 4px;
+               font-size: 12px;
+               font-weight: 600;
+               color: #024570;
+
+               .blue-collar-icon {
+                 width: 14px;
+                 height: 14px;
+               }
+             }
+
+             .white-collar-badge {
+               display: flex;
+               align-items: center;
+               gap: 4px;
+               font-size: 12px;
+               font-weight: 600;
+               color: #6b7280;
+
+               .white-collar-icon {
+                 width: 14px;
+                 height: 14px;
+               }
+             }
+
+             .pink-collar-badge {
+               display: flex;
+               align-items: center;
+               gap: 4px;
+               font-size: 12px;
+               font-weight: 600;
+               color: #ec4899;
+
+               .pink-collar-icon {
+                 width: 14px;
+                 height: 14px;
+               }
+             }
+          }
+
+          .booking-status {
+            font-size: 14px;
+            color: #374151;
+
+            .status-text {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+       .booking-salary {
+         font-size: 16px;
+         font-weight: 600;
+         color: #1f2937;
+         position: absolute;
+         top: 20px;
+         right: 20px;
+         height: 60px;
+         width: auto;
+         white-space: nowrap;
+         z-index: 1;
+       }
+
+       .booking-actions {
+         display: flex;
+         gap: 12px;
+         margin-top: 100px; // Moved buttons downward 3x
+         margin-left: -150px; // Moved buttons left 3x
+
+         .view-transaction-btn {
+           background: #001E40;
+           color: white;
+           border: none;
+           width: 110px;
+           height: 33px;
+           border-radius: 6px;
+           font-size: 12px;
+           font-weight: 600;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           &:hover {
+             background: #002a5c;
+           }
+         }
+
+         .cancel-booking-btn {
+           background: white;
+           color: #374151;
+           border: 1px solid #d1d5db;
+           width: 100px;
+           height: 33px;
+           border-radius: 6px;
+           font-size: 12px;
+           font-weight: 600;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           &:hover {
+             background: #f9fafb;
+             border-color: #9ca3af;
+           }
+         }
+
+         .rate-booking-btn {
+           background: #001E40;
+           color: white;
+           border: none;
+           width: 100px;
+           height: 33px;
+           border-radius: 6px;
+           font-size: 12px;
+           font-weight: 600;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           &:hover {
+             background: #15803d;
+           }
+         }
+
+         .give-feedback-btn {
+           background: #001E40;
+           color: white;
+           border: none;
+           width: 100px;
+           height: 33px;
+           border-radius: 6px;
+           font-size: 12px;
+           font-weight: 600;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           &:hover {
+             background: #002a5c;
+           }
+         }
+
+        .status-only {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px 16px;
+
+          .declined-text {
+            color: #dc2626;
+            font-size: 14px;
+            font-weight: 600;
+          }
+
+          .cancelled-text {
+            color: #888888;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+
+      .empty-icon {
+        margin-bottom: 20px;
+        
+        img {
+          width: 120px;
+          height: 120px;
+          object-fit: contain;
+        }
+      }
+
+      .empty-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .my-bookings-container {
+    padding: 20px;
+
+    .bookings-header {
+      .bookings-title {
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+
+    .bookings-navigation {
+      gap: 0;
+      margin-bottom: 20px;
+
+      .booking-tab-container {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .booking-tab {
+        padding: 10px 16px;
+        font-size: 13px;
+        min-width: 100px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .bookings-content {
+      min-height: 300px;
+      margin-top: -15px; // Consistent spacing for all navigation tabs on mobile
+
+      .booking-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+
+        .booking-worker-info {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+
+          .worker-details {
+            .worker-badges {
+              justify-content: center;
+            }
+          }
+        }
+
+        .booking-salary {
+          text-align: center;
+          margin-right: 0;
+          margin-bottom: 12px;
+        }
+
+         .booking-actions {
+           justify-content: center;
+           flex-wrap: wrap;
+           margin-top: 24px; // Consistent button spacing on mobile
+           
+           .view-transaction-btn,
+           .cancel-booking-btn,
+           .rate-booking-btn,
+           .give-feedback-btn {
+             width: 110px;
+             height: 33px;
+             font-size: 12px;
+           }
+         }
+      }
+
+      .empty-state {
+        padding: 20px 10px;
+
+        .empty-icon {
+          margin-bottom: 15px;
+          
+          img {
+            width: 80px;
+            height: 80px;
+          }
+        }
+
+        .empty-title {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,465 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-view-employees {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 800px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0 24px;
+    margin-bottom: 24px;
+
+    .modal-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #6b7280;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+
+      &:hover {
+        background-color: #f3f4f6;
+        color: #374151;
+      }
+    }
+  }
+
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px 20px 24px;
+    gap: 20px;
+
+    .collar-filter {
+      // Collar dropdown styling (copied from Type of Employment dropdown)
+      .collar-dropdown-toggle {
+        width: 150px !important;
+        height: 42px !important;
+        text-align: left !important;
+        background-color: #f9fafb !important;
+        border: 2px solid #e5e7eb !important;
+        border-radius: 6px !important;
+        font-size: 14px !important;
+        color: #1f2937 !important;
+        padding: 12px 16px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        transition: all 0.3s ease !important;
+        font-weight: 500 !important;
+        position: relative !important;
+
+        &:focus {
+          outline: none !important;
+          border-color: #3b82f6 !important;
+          background-color: white !important;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+        }
+
+        &:hover:not(:disabled) {
+          border-color: #d1d5db !important;
+          background-color: white !important;
+        }
+
+        &:disabled {
+          background-color: #f9fafb !important;
+          color: #6b7280 !important;
+          cursor: not-allowed !important;
+          opacity: 0.6 !important;
+        }
+
+        &::after {
+          content: "" !important;
+          display: inline-block !important;
+          margin-left: 0.255em !important;
+          vertical-align: 0.255em !important;
+          border-top: 0.3em solid !important;
+          border-right: 0.3em solid transparent !important;
+          border-bottom: 0 !important;
+          border-left: 0.3em solid transparent !important;
+          color: #6b7280 !important;
+          transition: transform 0.3s ease !important;
+        }
+
+        &[aria-expanded="true"]::after {
+          transform: rotate(180deg) !important;
+        }
+      }
+
+      .collar-dropdown-menu {
+        width: 150px !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 6px !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        margin-top: 8px !important;
+        padding: 8px 0 !important;
+        background: white !important;
+        overflow: hidden !important;
+
+        .dropdown-item {
+          padding: 14px 20px !important;
+          font-size: 14px !important;
+          color: #374151 !important;
+          transition: all 0.2s ease !important;
+          cursor: pointer !important;
+          border: none !important;
+          background: none !important;
+          width: 100% !important;
+          text-align: left !important;
+          font-weight: 500 !important;
+          position: relative !important;
+
+          &:hover {
+            background-color: #f8fafc !important;
+            color: #1f2937 !important;
+            transform: translateX(4px) !important;
+          }
+
+          &.active {
+            background-color: #eff6ff !important;
+            color: #1d4ed8 !important;
+            font-weight: 600 !important;
+
+            &::before {
+              content: "✓" !important;
+              position: absolute !important;
+              right: 16px !important;
+              top: 50% !important;
+              transform: translateY(-50%) !important;
+              color: #1d4ed8 !important;
+              font-weight: bold !important;
+            }
+          }
+
+          &:first-child {
+            border-top-left-radius: 6px !important;
+            border-top-right-radius: 6px !important;
+          }
+
+          &:last-child {
+            border-bottom-left-radius: 6px !important;
+            border-bottom-right-radius: 6px !important;
+          }
+        }
+      }
+    }
+
+    .search-section {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      max-width: 300px;
+      height: 41px;
+
+      .search-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px 0 0 8px;
+        font-size: 14px;
+        color: #374151;
+        background-color: white;
+
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+        }
+      }
+
+      .search-btn {
+        background-color: #001E40;
+        color: white;
+        border: none;
+        border-radius: 0 8px 8px 0;
+        padding: 12px 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: #002a5c;
+        }
+
+        svg {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .employees-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 24px;
+    margin-bottom: 20px;
+
+    .employee-card {
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background-color: #f9fafb;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .employee-avatar {
+        margin-right: 16px;
+        flex-shrink: 0;
+
+        .avatar-img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid #e5e7eb;
+        }
+      }
+
+      .employee-details {
+        flex: 1;
+
+        .employee-name-section {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 8px;
+
+          .employee-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0;
+          }
+
+          .status-icons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            .collar-icon,
+            .status-icon {
+              width: 20px;
+              height: 20px;
+              object-fit: contain;
+            }
+
+            .verified-icon {
+              color: #4DA34D;
+              font-size: 20px;
+            }
+          }
+        }
+
+        .employee-role {
+          font-size: 16px;
+          font-weight: 600;
+          color: #374151;
+          margin: 0 0 4px 0;
+        }
+
+        .employee-salary {
+          font-size: 14px;
+          color: #6b7280;
+          margin: 0 0 4px 0;
+        }
+
+        .employee-employment-type {
+          font-size: 12px;
+          color: #9ca3af;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: 20px 24px 24px 24px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #e5e7eb;
+
+    .back-btn {
+      background-color: white;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #f9fafb;
+        border-color: #9ca3af;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 800px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-view-employees {
+    width: 95vw;
+    max-height: 90vh;
+
+    .modal-header {
+      padding: 20px 20px 0 20px;
+      margin-bottom: 20px;
+
+      .modal-title {
+        font-size: 20px;
+      }
+    }
+
+    .filter-section {
+      padding: 0 20px 16px 20px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+
+      .collar-filter {
+        .collar-dropdown {
+          width: 100%;
+        }
+      }
+
+      .search-section {
+        max-width: none;
+      }
+    }
+
+    .employees-list {
+      padding: 0 20px;
+      margin-bottom: 16px;
+
+      .employee-card {
+        padding: 12px;
+
+        .employee-avatar {
+          margin-right: 12px;
+
+          .avatar-img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+
+        .employee-details {
+          .employee-name-section {
+            .employee-name {
+              font-size: 16px;
+            }
+          }
+
+          .employee-role {
+            font-size: 14px;
+          }
+
+          .employee-salary {
+            font-size: 13px;
+          }
+
+          .employee-employment-type {
+            font-size: 11px;
+          }
+        }
+      }
+    }
+
+    .modal-footer {
+      padding: 16px 20px 20px 20px;
+
+      .back-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+// Animation for modal appearance
+.modal-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-view-employees {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

@@ -1,0 +1,551 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-post-job {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 800px;
+  height: 650px;
+  overflow-y: auto;
+  position: relative;
+  
+  // CHANGED: Hide scrollbar while maintaining scroll functionality
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  
+  &::-webkit-scrollbar {
+    display: none; /* WebKit browsers */
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0 24px;
+    margin-bottom: 24px;
+    width: 810px;
+
+    .modal-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #6b7280;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+
+      &:hover {
+        background-color: #f3f4f6;
+        color: #374151;
+      }
+
+      span {
+        line-height: 1;
+      }
+    }
+  }
+
+  .modal-form {
+    padding: 0 24px 24px 24px;
+    overflow: visible;
+
+    .form-columns {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 0;
+      overflow: visible;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 20px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0px; // CHANGED: Increased from 20px to 30px (1.5x) to move form groups upward
+
+      label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 12px; // CHANGED: Increased from 8px to 12px to add small gap between label and input/textarea
+      }
+
+      // CHANGED: Adjust downward 1x for specific labels (Salary, Email, Desired Hours, Contact Person, Type of Work, Skills Requirement)
+      label[for="salary"],
+      label[for="email"],
+      label[for="desiredHours"],
+      label[for="contactPerson"],
+      label[for="typeOfWork"],
+      label[for="skillsRequirement"] {
+        margin-top: 12px; // Added margin-top to move these labels downward 1x
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        height: 42px;
+        padding: 12px 16px;
+        border: 2px solid #e5e7eb;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #1f2937;
+        background-color: #f9fafb;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+          background-color: white;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+        }
+
+        &:disabled {
+          background-color: #f9fafb;
+          color: #6b7280;
+          cursor: not-allowed;
+        }
+      }
+
+      // Specific input sizes
+      .small-input {
+        width: 355px;
+        max-width: 100%;
+      }
+
+      // Type of Employment dropdown styling (copied from gender dropdown)
+      .typeOfEmployment-dropdown-toggle {
+        width: 355px !important;
+        height: 42px !important;
+        text-align: left !important;
+        background-color: #f9fafb !important;
+        border: 2px solid #e5e7eb !important;
+        border-radius: 6px !important;
+        font-size: 14px !important;
+        color: #1f2937 !important;
+        padding: 12px 16px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        transition: all 0.3s ease !important;
+        font-weight: 500 !important;
+        position: relative !important;
+
+        &:focus {
+          outline: none !important;
+          border-color: #3b82f6 !important;
+          background-color: white !important;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+        }
+
+        &:hover:not(:disabled) {
+          border-color: #d1d5db !important;
+          background-color: white !important;
+        }
+
+        &:disabled {
+          background-color: #f9fafb !important;
+          color: #6b7280 !important;
+          cursor: not-allowed !important;
+          opacity: 0.6 !important;
+        }
+
+        &::after {
+          content: "" !important;
+          display: inline-block !important;
+          margin-left: 0.255em !important;
+          vertical-align: 0.255em !important;
+          border-top: 0.3em solid !important;
+          border-right: 0.3em solid transparent !important;
+          border-bottom: 0 !important;
+          border-left: 0.3em solid transparent !important;
+          color: #6b7280 !important;
+          transition: transform 0.3s ease !important;
+        }
+
+        &[aria-expanded="true"]::after {
+          transform: rotate(180deg) !important;
+        }
+      }
+
+      .typeOfEmployment-dropdown-menu {
+        width: 355px !important;
+        border: 1px solid #e5e7eb !important;
+        border-radius: 6px !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        margin-top: 8px !important;
+        padding: 8px 0 !important;
+        background: white !important;
+        overflow: hidden !important;
+
+        .dropdown-item {
+          padding: 14px 20px !important;
+          font-size: 14px !important;
+          color: #374151 !important;
+          transition: all 0.2s ease !important;
+          cursor: pointer !important;
+          border: none !important;
+          background: none !important;
+          width: 100% !important;
+          text-align: left !important;
+          font-weight: 500 !important;
+          position: relative !important;
+
+          &:hover {
+            background-color: #f8fafc !important;
+            color: #1f2937 !important;
+            transform: translateX(4px) !important;
+          }
+
+          &.active {
+            background-color: #eff6ff !important;
+            color: #1d4ed8 !important;
+            font-weight: 600 !important;
+
+            &::before {
+              content: "✓" !important;
+              position: absolute !important;
+              right: 16px !important;
+              top: 50% !important;
+              transform: translateY(-50%) !important;
+              color: #1d4ed8 !important;
+              font-weight: bold !important;
+            }
+          }
+
+          &:first-child {
+            border-top-left-radius: 6px !important;
+            border-top-right-radius: 6px !important;
+          }
+
+          &:last-child {
+            border-bottom-left-radius: 6px !important;
+            border-bottom-right-radius: 6px !important;
+          }
+        }
+      }
+
+      // CHANGED: Added specific styling for Desired Hours and Contact Person to move them 1x to the left
+      input[name="desiredHours"],
+      input[name="contactPerson"] {
+        margin-right: 20px;
+      }
+
+      // CHANGED: Added full-width input styling for Skills Requirement
+      .full-width-input {
+        width: 755px;
+        max-width: 100%;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+        font-family: inherit;
+        width: 750px;
+        height: 100px;
+      }
+
+      // Job description, Type of work, and Skills requirement - full width
+      .form-group:has(textarea),
+      .form-group:has(.dropdown-container) {
+        .dropdown-container,
+        textarea {
+          width: 900px;
+          max-width: 100%;
+        }
+      }
+
+      .dropdown-container {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+
+        // Type of work and Skills requirement - full width
+        &.full-width {
+          width: 755px;
+          max-width: 100%;
+        }
+
+        // Small dropdown for Type of Employment
+        &.small-dropdown {
+          width: 355px;
+          margin-right: 50px; // CHANGED: Added margin-right to move Type of Employment 1x to the left
+
+          .dropdown-toggle {
+            width: 100%;
+          }
+        }
+
+        .dropdown-toggle {
+          width: 750px;
+          height: 42px;
+          padding: 12px 16px;
+          border: 2px solid #e5e7eb;
+          border-radius: 6px;
+          background-color: #f9fafb;
+          color: #1f2937;
+          font-size: 14px;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          transition: all 0.3s ease;
+          text-align: left;
+
+          &:hover {
+            border-color: #d1d5db;
+            background-color: white;
+          }
+
+          &:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+          }
+
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: white;
+          border: 1px solid #e5e7eb;
+          border-radius: 6px;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          z-index: 1000;
+          max-height: 200px;
+          overflow-y: auto;
+          margin-top: 4px;
+
+          .dropdown-item {
+            width: 100%;
+            padding: 12px 16px;
+            border: none;
+            background: none;
+            color: #374151;
+            font-size: 14px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #f3f4f6;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            &:hover {
+              background-color: #f8fafc;
+              color: #1f2937;
+            }
+
+            &:focus {
+              outline: none;
+              background-color: #eff6ff;
+              color: #1d4ed8;
+            }
+
+            &.selected {
+              background-color: #eff6ff;
+              color: #1d4ed8;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 10px; // CHANGED: Increased from 40px to 80px (2x) to move buttons upward
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cancel-btn,
+      .post-job-btn {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid;
+        min-width: 100px;
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+
+      .cancel-btn {
+        background-color: white;
+        color: #374151;
+        border-color: #d1d5db;
+
+        &:hover:not(:disabled) {
+          background-color: #f9fafb;
+          border-color: #9ca3af;
+        }
+      }
+
+      .post-job-btn {
+        background-color: #001E40;
+        color: white;
+        border-color: #001E40;
+
+        &:hover:not(:disabled) {
+          background-color: #002a5c;
+          border-color: #002a5c;
+        }
+
+        &:active:not(:disabled) {
+          background-color: #001a33;
+          border-color: #001a33;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 800px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-post-job {
+    width: 95vw;
+    height: 95vh;
+    max-width: 800px;
+    max-height: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-post-job {
+    width: 95vw;
+    height: 95vh;
+    max-width: 800px;
+    max-height: 800px;
+
+    .modal-header {
+      padding: 20px 20px 0 20px;
+      margin-bottom: 20px;
+
+      .modal-title {
+        font-size: 20px;
+      }
+    }
+
+    .modal-form {
+      padding: 0 20px 20px 20px;
+
+      .form-columns {
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+
+        label {
+          font-size: 13px;
+        }
+
+        input,
+        textarea {
+          padding: 10px 14px;
+          font-size: 13px;
+        }
+      }
+
+      .modal-actions {
+        padding-top: 20px;
+        gap: 10px;
+
+        .cancel-btn,
+        .post-job-btn {
+          padding: 10px 20px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+// Animation for modal appearance
+.modal-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-post-job {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

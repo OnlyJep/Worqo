@@ -69,7 +69,7 @@ const Headerz = () => {
     setIsDropdownOpen(false);
     setIsLoading(true);
     setTimeout(() => {
-      navigate('/profile');
+      navigate('/profile-settings');
       setIsLoading(false);
     }, 800);
   };

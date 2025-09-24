@@ -1,0 +1,40 @@
+.profile-settings-container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  padding: 20px;
+  margin-top: 150px; // Increased margin to ensure content starts well below header
+
+  .profile-settings-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .profile-settings-content {
+    flex: 1;
+    min-width: 0; // Prevents flex item from growing beyond container
+    margin-top: 0; // Remove extra margin since container already has margin-top
+    width: calc(100% - 270px); // Ensure content takes remaining space (250px sidebar + 20px gap)
+    max-width: none; // Allow content to use available space
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .profile-settings-container {
+    padding: 10px;
+    margin-top: 120px; // Reduced margin for mobile
+
+    .profile-settings-layout {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .profile-settings-content {
+      width: 100%; // Full width on mobile
+      margin-top: 0; // Remove extra margin
+    }
+  }
+}

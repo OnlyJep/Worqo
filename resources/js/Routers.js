@@ -34,6 +34,9 @@ import Message from "./components/HeaderContent/Message";
 import Notif from "./components/HeaderContent/Notif";
 import Services from "./components/adminside/services/Services";
 import Company from "./components/adminside/company/Company.js";
+import ProfileSettings from "./components/profilesettings/profilesettings";
+import AdminProfileSetting from "./components/AdminSetting/AdminProfileSetting.js";
+
 
 
 const useAuth = () => {
@@ -121,6 +124,7 @@ export default function Routers() {
         <Route path="/orders_modal" element={<Orders_modal />} />
         <Route path="/pay" element={<Pay />} />
         <Route path="/profile/:workerId" element={<Profile />} />
+        <Route path="/profile-settings/*" element={<ProfileSettings />} />
         <Route
           path="/admin"
           element={
@@ -257,6 +261,14 @@ export default function Routers() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/admin/profile"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <AdminProfileSetting />
+            </ProtectedRoute>
+          }
+          />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>

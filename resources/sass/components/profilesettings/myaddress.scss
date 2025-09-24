@@ -1,0 +1,207 @@
+.my-address-container {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+
+  .address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .address-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .add-address-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #001E40;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #002a5c;
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        background-color: #001a33;
+        transform: translateY(0);
+      }
+
+      .btn-icon {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .address-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-1px);
+    }
+
+    &.default-address {
+      border-color: #001E40;
+      background-color: #f8fafc;
+      box-shadow: 0 4px 12px rgba(0, 30, 64, 0.1);
+    }
+
+    .address-content {
+      margin-bottom: 20px;
+
+      .address-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 12px;
+
+        .zip-code {
+          font-size: 14px;
+          font-weight: 500;
+          color: #6b7280;
+        }
+      }
+
+      .address-details {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .address-line {
+          font-size: 14px;
+          color: #374151;
+          line-height: 1.5;
+        }
+
+        .address-phone {
+          font-size: 14px;
+          color: #374151;
+          margin-top: 8px;
+          font-weight: 500;
+        }
+
+        .default-badge {
+          display: inline-block;
+          color: #001E40;
+          font-size: 12px;
+          font-weight: 600;
+          padding: 4px 8px;
+          border-radius: 4px;
+          margin-top: 8px;
+        }
+      }
+    }
+
+    .address-actions {
+      display: flex;
+      gap: 12px;
+
+      .edit-btn,
+      .archive-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid;
+
+        .action-icon {
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+      .edit-btn {
+        background-color: white;
+        color: #001E40;
+        border-color: #3b82f6;
+
+        &:hover {
+          background-color: #eff6ff;
+          border-color: #2563eb;
+        }
+      }
+
+      .archive-btn {
+        background-color: white;
+        color: #E5383B;
+        border-color: #E5383B;
+
+        &:hover {
+          background-color: #fef2f2;
+          border-color: #dc2626;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .my-address-container {
+    padding: 20px;
+
+    .address-header {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+
+      .address-title {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .add-address-btn {
+        justify-content: center;
+      }
+    }
+
+    .address-card {
+      padding: 20px;
+
+      .address-actions {
+        flex-direction: column;
+        gap: 8px;
+
+        .edit-btn,
+        .archive-btn {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
