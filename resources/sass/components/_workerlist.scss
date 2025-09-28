@@ -481,27 +481,54 @@ body {
       align-items: center;
       justify-content: center;
       padding: 4px 10px;
-      border-radius: 999px;
+      border-radius: 6px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 400;
       letter-spacing: 0.3px;
       line-height: 1;
       white-space: nowrap;
       user-select: none;
+      border: 1px solid #d9d9d9;
+      transition: all 0.2s ease;
+      margin: 2px;
+      
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
       &.accepted {
-        background: rgba(40, 167, 69, 0.12);
-        color: #1f7a3a;
-        border: 1px solid rgba(40, 167, 69, 0.25);
+        background: #f6ffed;
+        color: #52c41a;
+        border-color: #b7eb8f;
+        
+        &:hover {
+          background: #d9f7be;
+          border-color: #95de64;
+          color: #389e0d;
+        }
       }
       &.declined {
-        background: rgba(220, 53, 69, 0.12);
-        color: #8c1f29;
-        border: 1px solid rgba(220, 53, 69, 0.25);
+        background: #fff2f0;
+        color: #ff4d4f;
+        border-color: #ffccc7;
+        
+        &:hover {
+          background: #ffece6;
+          border-color: #ffa39e;
+          color: #d9363e;
+        }
       }
       &.pending {
-        background: rgba(74, 144, 226, 0.12);
-        color: #2b5f9e;
-        border: 1px solid rgba(74, 144, 226, 0.25);
+        background: #e6f7ff;
+        color: #1890ff;
+        border-color: #91d5ff;
+        
+        &:hover {
+          background: #bae7ff;
+          border-color: #69c0ff;
+          color: #096dd9;
+        }
       }
     }
 
@@ -511,33 +538,65 @@ body {
       align-items: center;
       justify-content: center;
       padding: 4px 10px;
-      border-radius: 999px;
+      border-radius: 6px;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 400;
       letter-spacing: 0.3px;
       line-height: 1;
       white-space: nowrap;
       user-select: none;
-      border: 1px solid transparent;
+      border: 1px solid #d9d9d9;
+      transition: all 0.2s ease;
+      margin: 2px;
+      
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
       &.exp-bronze {
-        background: rgba(205, 127, 50, 0.12);
-        color: #8b5a2b;
-        border-color: rgba(205, 127, 50, 0.25);
+        background: #fff7e6;
+        color: #d48806;
+        border-color: #ffd591;
+        
+        &:hover {
+          background: #fff1b8;
+          border-color: #ffa940;
+          color: #ad6800;
+        }
       }
       &.exp-silver {
-        background: rgba(192, 192, 192, 0.18);
-        color: #5e5e5e;
-        border-color: rgba(192, 192, 192, 0.35);
+        background: #f0f2f5;
+        color: #595959;
+        border-color: #d9d9d9;
+        
+        &:hover {
+          background: #e6f7ff;
+          border-color: #40a9ff;
+          color: #1890ff;
+        }
       }
       &.exp-gold {
-        background: rgba(255, 215, 0, 0.16);
-        color: #8a6d00;
-        border-color: rgba(255, 215, 0, 0.35);
+        background: #fff7e6;
+        color: #d48806;
+        border-color: #ffd591;
+        
+        &:hover {
+          background: #fff1b8;
+          border-color: #ffa940;
+          color: #ad6800;
+        }
       }
       &.exp-none {
-        background: rgba(153, 153, 153, 0.12);
-        color: #555555;
-        border-color: rgba(153, 153, 153, 0.25);
+        background: #f0f2f5;
+        color: #8c8c8c;
+        border-color: #d9d9d9;
+        
+        &:hover {
+          background: #e6f7ff;
+          border-color: #40a9ff;
+          color: #1890ff;
+        }
       }
     }
 

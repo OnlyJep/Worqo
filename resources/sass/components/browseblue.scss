@@ -15,20 +15,26 @@
     margin-top: 40px;
 
     .header-section {
-      display: flex;
-      justify-content: space-between; // Pushes sort-by to the right
-      align-items: center;
       margin-bottom: 2rem; // Increased margin to separate from profiles
-      padding-right: 40px; // Ensures sort-by is in the far right corner
 
       .category-title {
-        margin-right: 0;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .search-and-sort-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
       }
 
       .search-bar {
         display: flex;
         align-items: center;
         gap: 8px; // Increased gap for spacing
+        flex: 1;
+        justify-content: center;
 
         .search-input {
           width: 300px;
@@ -254,20 +260,6 @@
       background: #e6e9ef;
     }
 
-    .status-text {
-      font-size: 14px;
-      color: green;
-      opacity: 0.85;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-
-      &:before {
-        content: "●";
-        color: #1ec64b;
-        font-size: 12px;
-      }
-    }
 
     .name {
       margin: 0;
@@ -397,5 +389,250 @@
       font-size: 16px;
       letter-spacing: 2px;
     }
+  }
+}
+
+// Badge styles for browse page
+.name-with-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  .name {
+    margin: 0;
+  }
+}
+
+.badges-container {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.verified-badge {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: #e8f5e8;
+  color: #2e7d32;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid #4caf50;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #c8e6c9;
+    transform: translateY(-1px);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  .verified-text {
+    font-size: 0.65rem;
+    font-weight: 600;
+  }
+}
+
+.collar-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: #495057;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid #dee2e6;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #e9ecef, #dee2e6);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .collar-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .collar-text {
+    font-size: 0.65rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
+
+.collar-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 2px solid #dee2e6;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-color: #adb5bd;
+  }
+
+  .collar-icon-only {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .collar-icon-placeholder {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+
+  // Specific collar styling based on collar ID
+  &.collar-1 .collar-icon-placeholder {
+    // Blue Collars - but they have images, so this won't be used
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+  }
+
+  &.collar-2 .collar-icon-placeholder {
+    // Pink Collars
+    background: linear-gradient(135deg, #e91e63, #c2185b);
+    color: white;
+  }
+
+  &.collar-3 .collar-icon-placeholder {
+    // White Collars
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+    color: #424242;
+    border: 1px solid #bdbdbd;
+  }
+
+  &.collar-4 .collar-icon-placeholder {
+    // Orange Collar - they have images, so this won't be used
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+    color: white;
+  }
+
+  &.collar-5 .collar-icon-placeholder {
+    // Testing collar - they have images, so this won't be used
+    background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+    color: white;
+  }
+}
+
+.rank-badge {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #8b4513;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid #ffb300;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+
+  &:hover {
+    background: linear-gradient(135deg, #ffed4e, #ffd700);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);
+  }
+
+  .rank-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+}
+
+// Rank-specific badge colors for browse page
+.rank-badge {
+  &[title*="Bronze"] {
+    background: linear-gradient(135deg, #cd7f32, #daa520);
+    color: #fff;
+    border-color: #b8860b;
+    box-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);
+  }
+
+  &[title*="Silver"] {
+    background: linear-gradient(135deg, #c0c0c0, #e5e5e5);
+    color: #333;
+    border-color: #999;
+    box-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);
+  }
+
+  &[title*="Gold"] {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #8b4513;
+    border-color: #ffb300;
+    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+  }
+
+  &[title*="Diamond"] {
+    background: linear-gradient(135deg, #b9f2ff, #e6f7ff);
+    color: #0066cc;
+    border-color: #4fc3f7;
+    box-shadow: 0 2px 4px rgba(185, 242, 255, 0.3);
+  }
+}
+
+// Skill-specific rank badge styles for browse page
+.skill-chip-with-rank {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 12px;
+  margin-bottom: 6px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #495057;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, #e9ecef, #dee2e6);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .skill-rank-icon-small {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid #fff;
   }
 }

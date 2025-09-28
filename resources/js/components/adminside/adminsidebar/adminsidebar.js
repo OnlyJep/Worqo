@@ -45,7 +45,7 @@ const AdminSidebar = ({ children }) => {
             </li>
             <li className={isActive('/admin/jobs-post')} onClick={() => navigate('/admin/jobs-post')}>
               <FileAddOutlined className="icon" />
-              {isSidebarExpanded && <span>Jobs Post</span>}
+              {isSidebarExpanded && <span>Jobs</span>}
             </li>
             <li className={isActive('/admin/company')} onClick={() => navigate('/admin/company')}>
               <BankOutlined className="icon" />

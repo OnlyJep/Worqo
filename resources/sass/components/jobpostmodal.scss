@@ -118,6 +118,113 @@
           background: #2b6cb0;
         }
       }
+
+      // New skills styles
+      .skill-select {
+        width: 100%;
+      }
+
+      .selected-skills {
+        margin-top: 16px;
+
+        h4 {
+          margin: 0 0 12px;
+          color: #2d3748;
+          font-size: 14px;
+          font-weight: 600;
+          text-align: center;
+        }
+
+        .skill-item-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+          margin-bottom: 12px;
+          padding: 12px;
+          background: #f5f5f5; /* Grayish background */
+          border-radius: 8px;
+          border: 1px solid #d9d9d9;
+
+          .skill-item {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+
+            button.skill-item.ant-dropdown-trigger {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 8px;
+              padding: 10px 16px;
+              background: #f0f2f5; /* Light grayish background for skills */
+              border: 1px solid #d9d9d9;
+              border-radius: 8px;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              width: 100%;
+              min-height: 48px;
+              font-family: inherit;
+
+              &:hover {
+                background: #e6f7ff;
+                border-color: #40a9ff;
+                box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+                transform: translateY(-1px);
+              }
+
+              &:focus {
+                outline: none;
+                border-color: #40a9ff;
+                box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+              }
+
+              div {
+                flex: 1;
+                text-align: left;
+              }
+
+              span {
+                font-size: 14px;
+                color: #262626;
+                font-weight: 500;
+              }
+
+              svg {
+                color: #8c8c8c;
+                transition: color 0.2s ease;
+                flex-shrink: 0;
+              }
+
+              &:hover svg {
+                color: #40a9ff;
+              }
+            }
+          }
+
+          .rank-select {
+            min-width: 120px;
+            display: flex;
+            justify-content: center;
+
+            select {
+              width: 100%;
+              padding: 8px 12px;
+              border: 1px solid #d9d9d9;
+              border-radius: 6px;
+              font-size: 14px;
+              background: #ffffff;
+              text-align: center;
+
+              &:focus {
+                outline: none;
+                border-color: #40a9ff;
+                box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
+              }
+            }
+          }
+        }
+      }
     }
   }
 

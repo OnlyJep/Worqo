@@ -235,7 +235,7 @@ body {
 
       table {
         width: 100%;
-        min-width: 800px;
+        min-width: 1000px;
         border-collapse: collapse;
         table-layout: auto;
 
@@ -256,6 +256,7 @@ body {
             align-items: center;
             justify-content: center;
             gap: 10px;
+            width: 100%;
 
             .checkbox-icon {
               color: #FFFFFF;
@@ -286,38 +287,93 @@ body {
           &.skills-cell,
           &.description-cell,
           &.requirements-cell {
-            text-align: left;
+            text-align: center;
             white-space: normal;
           }
 
           &.skills-cell {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             gap: clamp(6px, 1.5vw, 8px);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
 
             .skill-badge {
               display: inline-flex;
               align-items: center;
-              background: #CD7F32; /* Bronze color */
-              border: 1px solid #A66D2A; /* Darker bronze border */
-              border-radius: 4px;
-              padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 10px);
-              color: #FFFFFF;
-              font-size: clamp(11px, 2.5vw, 13px);
-              font-weight: 500;
-              box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-              transition: transform 0.2s ease;
-
+              justify-content: center;
+              padding: 4px 10px;
+              border-radius: 6px;
+              font-size: 12px;
+              font-weight: 400;
+              letter-spacing: 0.3px;
+              line-height: 1.2;
+              white-space: normal;
+              word-wrap: break-word;
+              overflow-wrap: break-word;
+              max-width: 100%;
+              user-select: none;
+              border: 1px solid #d9d9d9;
+              transition: all 0.2s ease;
+              margin: 2px;
+              
               &:hover {
-                transform: scale(1.05);
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
               }
 
-              .skill-name {
-                margin-right: 6px;
+              // Different styles for different rank levels
+              &[data-rank="Gold"] {
+                background: #fff7e6;
+                color: #d48806;
+                border-color: #ffd591;
+                
+                &:hover {
+                  background: #fff1b8;
+                  border-color: #ffa940;
+                  color: #ad6800;
+                }
               }
 
-              .skill-rank {
-                font-weight: 600;
+              &[data-rank="Bronze"] {
+                background: #f6ffed;
+                color: #52c41a;
+                border-color: #b7eb8f;
+                
+                &:hover {
+                  background: #d9f7be;
+                  border-color: #95de64;
+                  color: #389e0d;
+                }
+              }
+
+              &[data-rank="Silver"] {
+                background: #f0f2f5;
+                color: #595959;
+                border-color: #d9d9d9;
+                
+                &:hover {
+                  background: #e6f7ff;
+                  border-color: #40a9ff;
+                  color: #1890ff;
+                }
+              }
+
+              // Default styling for skills without rank or unrecognized ranks
+              &:not([data-rank]),
+              &[data-rank="Default"],
+              &[data-rank=""] {
+                background: #f0f2f5;
+                color: #8c8c8c;
+                border-color: #d9d9d9;
+                
+                &:hover {
+                  background: #e6f7ff;
+                  border-color: #40a9ff;
+                  color: #1890ff;
+                }
               }
             }
           }
@@ -336,6 +392,7 @@ body {
           gap: clamp(8px, 2vw, 10px);
           align-items: center;
           justify-content: center;
+          width: 100%;
 
           .checkbox-icon,
           .delete-icon,
@@ -381,8 +438,8 @@ body {
 
         th:nth-child(4),
         td:nth-child(4) {
-          width: clamp(150px, 20vw, 180px);
-          min-width: 150px;
+          width: clamp(250px, 30vw, 300px);
+          min-width: 250px;
         }
 
         th:nth-child(5),
@@ -424,14 +481,16 @@ body {
           }
 
           .skills-cell .skill-badge {
-            font-size: clamp(10px, 2.2vw, 12px);
-            padding: clamp(3px, 0.8vw, 5px) clamp(6px, 1.5vw, 8px);
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin: 1px;
           }
         }
 
         @media (max-width: 480px) {
           table {
-            min-width: 800px;
+            min-width: 1000px;
             display: table;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
@@ -443,8 +502,10 @@ body {
           }
 
           .skills-cell .skill-badge {
-            font-size: clamp(9px, 2vw, 11px);
-            padding: clamp(2px, 0.6vw, 4px) clamp(5px, 1.2vw, 7px);
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin: 1px;
           }
         }
       }

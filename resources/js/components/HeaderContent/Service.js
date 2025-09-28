@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Headerz from "./Headerz";
 import Footer from "../FooterContent/footer";
+import Loader from "../LoaderContent/loader";
 import "./../../../sass/components/Service.scss";
 import searchIcon from "../../../sass/img/search.svg";
 import { message } from "antd";
@@ -73,17 +74,69 @@ const BrowseLaborCategories = () => {
     return () => controller.abort();
   }, [searchTerm, selectedCollar, pagination.currentPage, visibleCount]);
 
-  const handleViewWorkersClick = (serviceName, colorCollarName) => {
-    // Temporary mapping for navigation (update based on actual collar names)
-    const collarMap = {
-      "serverlogo.png": "white", // Adjust based on actual collar names
-    };
-    const collar = collarMap[colorCollarName?.toLowerCase()] || "blue"; // Default to blue
-    if (collar === "white") {
-      navigate("/browse-white");
-      return;
+  const handleViewWorkersClick = async (serviceName, colorCollarName, serviceSkills) => {
+    try {
+      // Get skill names from the service
+      const skillNames = serviceSkills ? serviceSkills.map(skill => skill.name) : [];
+      
+      if (skillNames.length === 0) {
+        message.warning("No skills found for this service.");
+        return;
+      }
+
+      // Get current user ID to exclude from results
+      const currentUserId = JSON.parse(localStorage.getItem("user") || '{}')?.id;
+
+        // Fetch workers with the specific skills and ACCEPTED status
+      const authToken = localStorage.getItem("auth_token");
+      const headers = authToken
+        ? { Authorization: `Bearer ${authToken}`, Accept: "application/json" }
+        : { Accept: "application/json" };
+
+      console.log('Searching for workers with skills:', skillNames);
+      
+      const response = await axios.get("http://127.0.0.1:8000/api/workers/by-skills", {
+        params: {
+          skill_names: skillNames.join(','),
+          page: 1,
+          limit: 20,
+          exclude_user_id: currentUserId // Exclude current user
+        },
+        headers,
+        timeout: 10000,
+      });
+
+      console.log('API Response:', response.data);
+      const workers = response.data.workers || [];
+      
+      if (workers.length === 0) {
+        console.log('No workers found with skills:', skillNames);
+        message.info(`No workers found with skills: ${skillNames.join(', ')}`);
+        return;
+      }
+
+      console.log('Navigating to browse with workers:', workers.length);
+      console.log('Navigation state:', {
+        filteredWorkers: workers,
+        serviceName: serviceName,
+        skillNames: skillNames,
+        totalWorkers: response.data.pagination.totalItems
+      });
+
+      // Navigate to browse page with filtered workers data
+      navigate('/browse', {
+        state: {
+          filteredWorkers: workers,
+          serviceName: serviceName,
+          skillNames: skillNames,
+          totalWorkers: response.data.pagination.totalItems
+        }
+      });
+
+    } catch (error) {
+      console.error("Error fetching workers by skills:", error.response?.data || error.message);
+      message.error("Failed to fetch workers. Please try again later.");
     }
-    navigate(`/browse?service=${encodeURIComponent(serviceName)}`);
   };
 
   const handleShowMore = () => {
@@ -107,7 +160,7 @@ const BrowseLaborCategories = () => {
 
   return (
     <div className="service-page">
-      {loading && <div className="loader">Loading...</div>}
+      {loading && <Loader />}
       <Headerz />
       <main className="service-content">
         <div className="service-container">
@@ -189,7 +242,7 @@ const BrowseLaborCategories = () => {
                     </div>
                     <button
                       className="service-cta-btn"
-                      onClick={() => handleViewWorkersClick(service.name, service.color_collar_name)}
+                      onClick={() => handleViewWorkersClick(service.name, service.color_collar_name, service.skills)}
                     >
                       View Available Workers &gt;&gt;
                     </button>

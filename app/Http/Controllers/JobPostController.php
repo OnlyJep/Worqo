@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\JobPost;
 use App\Models\Skill;
 use App\Models\Rank;
-use App\Models\Company;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -17,27 +16,38 @@ class JobPostController extends Controller
     {
         $searchTerm = $request->query('search', '');
         $showArchived = $request->query('archived', false) === 'true';
+        $showArchivedParam = $request->query('show_archived', false) === 'true';
+        $profileId = $request->query('profile_id');
         $page = $request->query('page', 1);
         $perPage = 5;
 
         $query = JobPost::query()
             ->when($searchTerm, function ($query, $searchTerm) {
                 return $query->where(function ($q) use ($searchTerm) {
-                    $q->where('company_id', 'like', "%{$searchTerm}%")
-                      ->orWhere('description', 'like', "%{$searchTerm}%")
+                    $q->where('description', 'like', "%{$searchTerm}%")
                       ->orWhereJsonContains('skills', $searchTerm);
                 });
             })
-            ->where('archived', $showArchived);
+            ->when($profileId, function ($query, $profileId) {
+                return $query->where('profile_id', $profileId);
+            });
 
-        JobPost::where('application_deadline', '<', Carbon::now())
+        // If show_archived=true is passed, show both archived and non-archived jobs
+        // Otherwise, filter by archived status
+        if ($showArchivedParam) {
+            // Show all jobs (both archived and non-archived) for profile owners
+            // Don't apply any archived filter
+        } else {
+            // For public job listings (like FindJob), only show non-archived jobs
+            $query->where('archived', $showArchived);
+        }
+
+        // Auto-archive expired job posts (using Philippine Standard Time GMT+8)
+        JobPost::where('application_deadline', '<', Carbon::now('Asia/Manila'))
             ->where('archived', false)
             ->update(['archived' => true]);
 
         $jobPosts = $query->with([
-            'company' => function ($query) {
-                $query->select('id', 'company_name', 'profile_id', 'street', 'contact_number', 'city', 'province', 'postal_code', 'country', 'archived');
-            },
             'profile' => function ($query) {
                 $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
@@ -47,27 +57,28 @@ class JobPostController extends Controller
         $skills = Skill::all()->pluck('name', 'id')->toArray();
         $ranks = Rank::all()->pluck('name', 'id')->toArray();
 
-        $jobPosts->getCollection()->transform(function ($post) use ($skills, $ranks) {
-            $post->skills_formatted = array_map(function ($skill, $rank) {
-                return "{$skill} - {$rank}";
-            }, $post->skills ?? [], $post->ranks ?? []);
-            if ($post->company && $post->company->profile_id) {
-                try {
-                    $profileIds = json_decode($post->company->profile_id, true);
-                    if (is_array($profileIds)) {
-                        $selectedProfileId = in_array("3", $profileIds) ? "3" : $profileIds[0];
-                        $post->company->employer = Profile::select('id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
-                            ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id')
-                            ->where('profiles.id', $selectedProfileId)
-                            ->first();
-                        $post->company->employer_id = $selectedProfileId;
-                    }
-                } catch (\Exception $e) {
-                    \Log::error("Error parsing profile_id for company {$post->company->id}: {$e->getMessage()}");
-                }
-            }
-            return $post;
-        });
+         $jobPosts->getCollection()->transform(function ($post) use ($skills) {
+             // Parse skills from JSON format
+             $skillsData = is_string($post->skills) ? json_decode($post->skills, true) : $post->skills;
+             $skillExperiences = is_string($post->skill_experiences) ? json_decode($post->skill_experiences, true) : $post->skill_experiences;
+             
+             // Format skills with experience levels for display
+             $formattedSkills = [];
+             if (is_array($skillsData)) {
+                 foreach ($skillsData as $skill) {
+                     if (is_array($skill) && isset($skill['name']) && isset($skill['experience'])) {
+                         $formattedSkills[] = $skill['name'] . ' (' . $skill['experience'] . ')';
+                     }
+                 }
+             }
+             $post->skills_formatted = $formattedSkills;
+             
+             // Add skills data back to the post for frontend
+             $post->skills = $skillsData;
+             $post->skill_experiences = $skillExperiences;
+             
+             return $post;
+         });
 
         return response()->json([
             'job_posts' => $jobPosts,
@@ -84,34 +95,14 @@ class JobPostController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'company_id' => 'required|exists:companies,id',
-            'profile_id' => [
-                'required',
-                'exists:profiles,id',
-                function ($attribute, $value, $fail) use ($request) {
-                    $company = Company::find($request->company_id);
-                    if ($company && $company->profile_id) {
-                        try {
-                            $profileIds = json_decode($company->profile_id, true);
-                            if (!is_array($profileIds) || !in_array((string)$value, $profileIds)) {
-                                $fail('The profile_id must match one of the company\'s profile IDs.');
-                            }
-                        } catch (\Exception $e) {
-                            $fail('Invalid company profile_id format.');
-                        }
-                    }
-                },
-            ],
+            'profile_id' => 'required|exists:profiles,id',
+            'job_title' => 'required|string|max:255',
             'skills' => 'required|array',
-            'ranks' => 'required|array',
+            'skill_experiences' => 'required|array',
             'description' => 'required|string',
-            'salary' => 'nullable|numeric|min:1',
-            'job_type' => 'required|in:full-time,part-time,contract,temporary',
-            'street' => 'nullable|string',
-            'city' => 'required|string',
-            'province' => 'required|string',
-            'postal_code' => 'required|string',
-            'country' => 'required|string',
+            'salary' => 'required|numeric|min:1',
+            'salary_type' => 'required|in:per_hour,per_month',
+            'job_type' => 'required|in:full-time,part-time,contract,freelance',
             'application_start' => 'required|date',
             'application_deadline' => 'required|date|after:application_start',
         ]);
@@ -122,51 +113,46 @@ class JobPostController extends Controller
 
         $validated = $validator->validated();
 
-        $jobPost = JobPost::create([
-            'company_id' => $validated['company_id'],
-            'profile_id' => $validated['profile_id'],
-            'skills' => $validated['skills'],
-            'ranks' => $validated['ranks'],
-            'description' => $validated['description'],
-            'salary' => $validated['salary'],
-            'job_type' => $validated['job_type'],
-            'street' => $validated['street'],
-            'city' => $validated['city'],
-            'province' => $validated['province'],
-            'postal_code' => $validated['postal_code'],
-            'country' => $validated['country'],
-            'application_start' => Carbon::parse($validated['application_start']),
-            'application_deadline' => Carbon::parse($validated['application_deadline']),
-            'archived' => Carbon::parse($validated['application_deadline'])->isPast(),
-        ]);
+
+         $jobPost = JobPost::create([
+             'profile_id' => $validated['profile_id'],
+             'job_title' => $validated['job_title'],
+             'skills' => json_encode($validated['skills']),
+             'skill_experiences' => json_encode($validated['skill_experiences']),
+             'description' => $validated['description'],
+             'salary' => $validated['salary'],
+             'salary_type' => $validated['salary_type'],
+             'job_type' => $validated['job_type'],
+             'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
+             'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
+             'archived' => false, // Don't auto-archive on creation
+         ]);
 
         $jobPost->load([
-            'company' => function ($query) {
-                $query->select('id', 'company_name', 'profile_id', 'street', 'contact_number', 'city', 'province', 'postal_code', 'country', 'archived');
-            },
             'profile' => function ($query) {
                 $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }
         ]);
-        if ($jobPost->company && $jobPost->company->profile_id) {
-            try {
-                $profileIds = json_decode($jobPost->company->profile_id, true);
-                if (is_array($profileIds)) {
-                    $selectedProfileId = in_array("3", $profileIds) ? "3" : $profileIds[0];
-                    $jobPost->company->employer = Profile::select('id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
-                        ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id')
-                        ->where('profiles.id', $selectedProfileId)
-                        ->first();
-                    $jobPost->company->employer_id = $selectedProfileId;
+        
+        // Parse skills from JSON format
+        $skillsData = is_string($jobPost->skills) ? json_decode($jobPost->skills, true) : $jobPost->skills;
+        $skillExperiences = is_string($jobPost->skill_experiences) ? json_decode($jobPost->skill_experiences, true) : $jobPost->skill_experiences;
+        
+        // Format skills with experience levels for display
+        $formattedSkills = [];
+        if (is_array($skillsData)) {
+            foreach ($skillsData as $skill) {
+                if (is_array($skill) && isset($skill['name']) && isset($skill['experience'])) {
+                    $formattedSkills[] = $skill['name'] . ' (' . $skill['experience'] . ')';
                 }
-            } catch (\Exception $e) {
-                \Log::error("Error parsing profile_id for company {$jobPost->company->id}: {$e->getMessage()}");
             }
         }
-        $jobPost->skills_formatted = array_map(function ($skill, $rank) {
-            return "{$skill} - {$rank}";
-        }, $jobPost->skills ?? [], $jobPost->ranks ?? []);
+        $jobPost->skills_formatted = $formattedSkills;
+        
+        // Add skills data back to the post for frontend
+        $jobPost->skills = $skillsData;
+        $jobPost->skill_experiences = $skillExperiences;
 
         return response()->json($jobPost, 201);
     }
@@ -174,32 +160,30 @@ class JobPostController extends Controller
     public function show(JobPost $jobPost)
     {
         $jobPost->load([
-            'company' => function ($query) {
-                $query->select('id', 'company_name', 'profile_id', 'street', 'contact_number', 'city', 'province', 'postal_code', 'country', 'archived');
-            },
             'profile' => function ($query) {
                 $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }
         ]);
-        if ($jobPost->company && $jobPost->company->profile_id) {
-            try {
-                $profileIds = json_decode($jobPost->company->profile_id, true);
-                if (is_array($profileIds)) {
-                    $selectedProfileId = in_array("3", $profileIds) ? "3" : $profileIds[0];
-                    $jobPost->company->employer = Profile::select('id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
-                        ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id')
-                        ->where('profiles.id', $selectedProfileId)
-                        ->first();
-                    $jobPost->company->employer_id = $selectedProfileId;
+        
+        // Parse skills from JSON format
+        $skillsData = is_string($jobPost->skills) ? json_decode($jobPost->skills, true) : $jobPost->skills;
+        $skillExperiences = is_string($jobPost->skill_experiences) ? json_decode($jobPost->skill_experiences, true) : $jobPost->skill_experiences;
+        
+        // Format skills with experience levels for display
+        $formattedSkills = [];
+        if (is_array($skillsData)) {
+            foreach ($skillsData as $skill) {
+                if (is_array($skill) && isset($skill['name']) && isset($skill['experience'])) {
+                    $formattedSkills[] = $skill['name'] . ' (' . $skill['experience'] . ')';
                 }
-            } catch (\Exception $e) {
-                \Log::error("Error parsing profile_id for company {$jobPost->company->id}: {$e->getMessage()}");
             }
         }
-        $jobPost->skills_formatted = array_map(function ($skill, $rank) {
-            return "{$skill} - {$rank}";
-        }, $jobPost->skills ?? [], $jobPost->ranks ?? []);
+        $jobPost->skills_formatted = $formattedSkills;
+        
+        // Add skills data back to the post for frontend
+        $jobPost->skills = $skillsData;
+        $jobPost->skill_experiences = $skillExperiences;
 
         return response()->json($jobPost);
     }
@@ -207,34 +191,14 @@ class JobPostController extends Controller
     public function update(Request $request, JobPost $jobPost)
     {
         $validator = Validator::make($request->all(), [
-            'company_id' => 'required|exists:companies,id',
-            'profile_id' => [
-                'required',
-                'exists:profiles,id',
-                function ($attribute, $value, $fail) use ($request) {
-                    $company = Company::find($request->company_id);
-                    if ($company && $company->profile_id) {
-                        try {
-                            $profileIds = json_decode($company->profile_id, true);
-                            if (!is_array($profileIds) || !in_array((string)$value, $profileIds)) {
-                                $fail('The profile_id must match one of the company\'s profile IDs.');
-                            }
-                        } catch (\Exception $e) {
-                            $fail('Invalid company profile_id format.');
-                        }
-                    }
-                },
-            ],
+            'profile_id' => 'required|exists:profiles,id',
+            'job_title' => 'required|string|max:255',
             'skills' => 'required|array',
-            'ranks' => 'required|array',
+            'skill_experiences' => 'required|array',
             'description' => 'required|string',
-            'salary' => 'nullable|numeric|min:1',
-            'job_type' => 'required|in:full-time,part-time,contract,temporary',
-            'street' => 'nullable|string',
-            'city' => 'required|string',
-            'province' => 'required|string',
-            'postal_code' => 'required|string',
-            'country' => 'required|string',
+            'salary' => 'required|numeric|min:1',
+            'salary_type' => 'required|in:per_hour,per_month',
+            'job_type' => 'required|in:full-time,part-time,contract,freelance',
             'application_start' => 'required|date',
             'application_deadline' => 'required|date|after:application_start',
             'archived' => 'boolean',
@@ -246,51 +210,46 @@ class JobPostController extends Controller
 
         $validated = $validator->validated();
 
+
         $jobPost->update([
-            'company_id' => $validated['company_id'],
             'profile_id' => $validated['profile_id'],
-            'skills' => $validated['skills'],
-            'ranks' => $validated['ranks'],
+            'job_title' => $validated['job_title'],
+            'skills' => json_encode($validated['skills']),
+            'skill_experiences' => json_encode($validated['skill_experiences']),
             'description' => $validated['description'],
             'salary' => $validated['salary'],
+            'salary_type' => $validated['salary_type'],
             'job_type' => $validated['job_type'],
-            'street' => $validated['street'],
-            'city' => $validated['city'],
-            'province' => $validated['province'],
-            'postal_code' => $validated['postal_code'],
-            'country' => $validated['country'],
-            'application_start' => Carbon::parse($validated['application_start']),
-            'application_deadline' => Carbon::parse($validated['application_deadline']),
-            'archived' => $validated['archived'] ?? Carbon::parse($validated['application_deadline'])->isPast(),
+            'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
+            'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
+            'archived' => $validated['archived'] ?? Carbon::parse($validated['application_deadline'], 'Asia/Manila')->isPast(),
         ]);
 
         $jobPost->load([
-            'company' => function ($query) {
-                $query->select('id', 'company_name', 'profile_id', 'street', 'contact_number', 'city', 'province', 'postal_code', 'country', 'archived');
-            },
             'profile' => function ($query) {
                 $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }
         ]);
-        if ($jobPost->company && $jobPost->company->profile_id) {
-            try {
-                $profileIds = json_decode($jobPost->company->profile_id, true);
-                if (is_array($profileIds)) {
-                    $selectedProfileId = in_array("3", $profileIds) ? "3" : $profileIds[0];
-                    $jobPost->company->employer = Profile::select('id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
-                        ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id')
-                        ->where('profiles.id', $selectedProfileId)
-                        ->first();
-                    $jobPost->company->employer_id = $selectedProfileId;
+        
+        // Parse skills from JSON format
+        $skillsData = is_string($jobPost->skills) ? json_decode($jobPost->skills, true) : $jobPost->skills;
+        $skillExperiences = is_string($jobPost->skill_experiences) ? json_decode($jobPost->skill_experiences, true) : $jobPost->skill_experiences;
+        
+        // Format skills with experience levels for display
+        $formattedSkills = [];
+        if (is_array($skillsData)) {
+            foreach ($skillsData as $skill) {
+                if (is_array($skill) && isset($skill['name']) && isset($skill['experience'])) {
+                    $formattedSkills[] = $skill['name'] . ' (' . $skill['experience'] . ')';
                 }
-            } catch (\Exception $e) {
-                \Log::error("Error parsing profile_id for company {$jobPost->company->id}: {$e->getMessage()}");
             }
         }
-        $jobPost->skills_formatted = array_map(function ($skill, $rank) {
-            return "{$skill} - {$rank}";
-        }, $jobPost->skills ?? [], $jobPost->ranks ?? []);
+        $jobPost->skills_formatted = $formattedSkills;
+        
+        // Add skills data back to the post for frontend
+        $jobPost->skills = $skillsData;
+        $jobPost->skill_experiences = $skillExperiences;
 
         return response()->json($jobPost);
     }
@@ -306,29 +265,12 @@ class JobPostController extends Controller
         ]);
 
         $jobPost->load([
-            'company' => function ($query) {
-                $query->select('id', 'company_name', 'profile_id', 'street', 'contact_number', 'city', 'province', 'postal_code', 'country', 'archived');
-            },
             'profile' => function ($query) {
                 $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }
         ]);
-        if ($jobPost->company && $jobPost->company->profile_id) {
-            try {
-                $profileIds = json_decode($jobPost->company->profile_id, true);
-                if (is_array($profileIds)) {
-                    $selectedProfileId = in_array("3", $profileIds) ? "3" : $profileIds[0];
-                    $jobPost->company->employer = Profile::select('id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
-                        ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id')
-                        ->where('profiles.id', $selectedProfileId)
-                        ->first();
-                    $jobPost->company->employer_id = $selectedProfileId;
-                }
-            } catch (\Exception $e) {
-                \Log::error("Error parsing profile_id for company {$jobPost->company->id}: {$e->getMessage()}");
-            }
-        }
+        
         return response()->json($jobPost);
     }
 
@@ -352,4 +294,20 @@ class JobPostController extends Controller
 
         return response()->json(['message' => 'Bulk action completed']);
     }
+
+        /**
+     * Check if a job post is expired and should be archived
+     */
+    public function checkExpiredJobs()
+    {
+        $expiredCount = JobPost::where('application_deadline', '<', Carbon::now('Asia/Manila'))
+            ->where('archived', false)
+            ->update(['archived' => true]);
+
+        return response()->json([
+            'message' => "Archived {$expiredCount} expired job posts",
+            'archived_count' => $expiredCount
+        ]);
+    }
+
 }

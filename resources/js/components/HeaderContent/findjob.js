@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './../../../sass/components/findjob.scss';
+import axios from 'axios';
+	import './../../../sass/components/findjob.scss';
 import Headerz from "../HeaderContent/Headerz";
 import Banner from "../AdsContent/banner";
 import Footer from "../FooterContent/footer";
@@ -11,49 +12,13 @@ const FindJob = () => {
 	const [selectedSortOption, setSelectedSortOption] = useState("Sort by");
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedEmploymentType, setSelectedEmploymentType] = useState("");
+	const [jobs, setJobs] = useState([]);
 	const [filteredJobs, setFilteredJobs] = useState([]);
+	const [loading, setLoading] = useState(true);
 	const navigate = useNavigate();
 
 	const sortOptions = ["Featured", "Newest", "Price: High-Low", "Price: Low-High"];
 
-	const jobs = [
-		{
-			id: 1,
-			title: "Invoice Annotation Specialist",
-			location: "Dumangilas",
-			postedAt: "July 07, 2025",
-			salary: "₱ 30,000.00/month",
-			employmentType: "Full-time",
-			description:
-				"We are looking for a skilled and detail-oriented Invoice Annotation Specialist to join our team. The successful candidate will be responsible for reviewing and annotating invoice documents with high accuracy, ensuring all relevant fields are correctly labeled. This role requires strong attention to detail and familiarity with specific annotation guidelines.",
-			skills: ["Accounts Payable", "Data Entry", "Attention to Detail"],
-			requirements: { minRank: "Gold 3" },
-		},
-		{
-			id: 2,
-			title: "Mechanical Engineer",
-			location: "Solano",
-			postedAt: "July 07, 2025",
-			salary: "₱ 30,000.00/month",
-			employmentType: "Part-time",
-			description:
-				"We are seeking a motivated Mechanical Engineer to join our team. The successful candidate will be responsible for designing, analyzing, and overseeing mechanical systems, tools, and machinery to ensure efficiency, safety, and reliability.",
-			skills: ["Mechanical Design & Drafting", "Engineering Analysis"],
-			requirements: { minRank: "Platinum 1" },
-		},
-		{
-			id: 3,
-			title: "Mechanical Engineer",
-			location: "Malabo",
-			postedAt: "July 07, 2025",
-			salary: "₱ 30,000.00/month",
-			employmentType: "One-time job",
-			description:
-				"We are looking for a skilled and detail-oriented Mechanical Engineer to join our team for project and general tasks. Responsibilities include designing, analyzing, and overseeing mechanical systems to ensure efficiency, safety, and reliability.",
-			skills: ["Mechanical Design & Drafting", "Engineering Analysis"],
-			requirements: { minRank: "Gold 2" },
-		},
-	];
 
 	const handleSortOptionClick = (option) => {
 		setSelectedSortOption(option);
@@ -61,21 +26,103 @@ const FindJob = () => {
 	};
 
 	const handleViewJob = (jobId) => {
-		const job = jobs.find(j => j.id === jobId);
-		navigate(`/job/${jobId}`, { state: { job } });
+		if (Array.isArray(jobs)) {
+			const job = jobs.find(j => j.id === jobId);
+			navigate(`/job/${jobId}`, { state: { job } });
+		}
 	};
 
 	const handleRefineSearch = () => {
-		const filtered = jobs.filter(job => 
-			job.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-			(selectedEmploymentType === "" || job.employmentType === selectedEmploymentType)
-		);
-		setFilteredJobs(filtered);
+		if (Array.isArray(jobs)) {
+			let filtered = jobs;
+			
+			// Apply search term filter if provided
+			if (searchTerm.trim() !== "") {
+				filtered = filtered.filter(job => 
+					job.job_title.toLowerCase().includes(searchTerm.toLowerCase())
+				);
+			}
+			
+			// Apply employment type filter if selected
+			if (selectedEmploymentType !== "") {
+				filtered = filtered.filter(job => job.job_type === selectedEmploymentType);
+			}
+			
+			setFilteredJobs(filtered);
+		}
+	};
+
+	const handleClearFilters = () => {
+		setSearchTerm("");
+		setSelectedEmploymentType("");
+		if (Array.isArray(jobs)) {
+			setFilteredJobs(jobs);
+		}
 	};
 
 	useEffect(() => {
-		setFilteredJobs(jobs.filter(job => job.title.toLowerCase().includes(searchTerm.toLowerCase())));
-	}, [searchTerm]);
+		let isMounted = true;
+		
+		const loadJobs = async () => {
+			try {
+				setLoading(true);
+				
+				// Get current user ID to exclude their own job posts
+				const userData = JSON.parse(localStorage.getItem("user") || '{}');
+				const currentUserId = userData.user?.id || userData.id;
+				
+				const response = await axios.get('/api/jobposts?archived=false');
+				console.log('API Response:', response.data); // Debug log
+				
+				// Handle the nested structure: response.data.job_posts.data
+				const jobsData = response.data.job_posts?.data || response.data.data || response.data;
+				console.log('Jobs Data:', jobsData); // Debug log
+				
+				const jobsArray = Array.isArray(jobsData) ? jobsData : [];
+				console.log('Jobs Array:', jobsArray); // Debug log
+				
+				// Filter out current user's job posts
+				const filteredJobsArray = currentUserId 
+					? jobsArray.filter(job => job.profile_id !== currentUserId)
+					: jobsArray;
+				
+				console.log('Filtered Jobs (excluding own):', filteredJobsArray.length, 'out of', jobsArray.length);
+				
+				if (isMounted) {
+					setJobs(filteredJobsArray);
+					setFilteredJobs(filteredJobsArray);
+				}
+			} catch (error) {
+				console.error('Error fetching jobs:', error);
+				if (isMounted) {
+					setJobs([]);
+					setFilteredJobs([]);
+				}
+			} finally {
+				if (isMounted) {
+					setLoading(false);
+				}
+			}
+		};
+
+		loadJobs();
+
+		return () => {
+			isMounted = false;
+		};
+	}, []);
+
+	useEffect(() => {
+		if (Array.isArray(jobs)) {
+			if (searchTerm.trim() === "") {
+				// If no search term, show all jobs
+				setFilteredJobs(jobs);
+			} else {
+				// Only filter when user has actually typed something
+				setFilteredJobs(jobs.filter(job => job.job_title.toLowerCase().includes(searchTerm.toLowerCase())));
+			}
+		}
+	}, [searchTerm, jobs]);
 
 	return (
 		<div className="browse">
@@ -139,32 +186,61 @@ const FindJob = () => {
 						<button className="refine-btn" type="button" onClick={handleRefineSearch}>
 							REFINE SEARCH RESULTS
 						</button>
+						<button className="clear-btn" type="button" onClick={handleClearFilters}>
+							CLEAR FILTERS
+						</button>
 					</aside>
 
 					<section className="results-list">
-						{filteredJobs.map((job) => (
-							<article key={job.id} className="result-card job-card">
-								<div className="top-strip" />
-								<div className="job-content">
-									<div className="job-header">
-										<h3 className="job-title">{job.title}</h3>
-										<button className="job-view-btn" type="button" onClick={() => handleViewJob(job.id)}>VIEW JOB</button>
+						{loading ? (
+							<div className="loading-state">
+								<div className="spinner"></div>
+								<p>Loading jobs...</p>
+							</div>
+						) : filteredJobs.length === 0 ? (
+							<div className="empty-state">
+								<p>No jobs found matching your criteria.</p>
+							</div>
+						) : (
+							filteredJobs.map((job) => (
+								<article key={job.id} className="result-card job-card">
+									<div className="top-strip" />
+									<div className="job-content">
+										<div className="job-header">
+											<h3 className="job-title">{job.job_title}</h3>
+											<button className="job-view-btn" type="button" onClick={() => handleViewJob(job.id)}>VIEW JOB</button>
+										</div>
+										<div className="job-meta">
+											<div className="meta-line">
+												{job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name} – Posted on {new Date(job.created_at).toLocaleDateString()}
+											</div>
+											<div className="meta-line salary">₱{job.salary}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</div>
+										</div>
+										<div className="job-section-title">Job Overview/Description</div>
+										<p className="job-desc">{job.description}</p>
+										<div className="job-section-title">Skills Required</div>
+										<div className="job-skills">
+											{job.skills && job.skills.map((skill, index) => (
+												<span key={index} className="job-chip">
+													{skill.name} ({skill.experience || 'No experience specified'})
+												</span>
+											))}
+										</div>
+										<div className="job-section-title">Application Period</div>
+										<div className="job-timeline">
+											<div className="timeline-item">
+												<span className="timeline-label">Start:</span>
+												<span className="timeline-value">{new Date(job.application_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span>
+											</div>
+											<div className="timeline-item">
+												<span className="timeline-label">Deadline:</span>
+												<span className="timeline-value">{new Date(job.application_deadline).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span>
+											</div>
+										</div>
 									</div>
-									<div className="job-meta">
-										<div className="meta-line">{job.location} – Posted on {job.postedAt}</div>
-										<div className="meta-line salary">{job.salary}</div>
-									</div>
-									<div className="job-section-title">Job Overview/Description</div>
-									<p className="job-desc">{job.description}</p>
-									<div className="job-section-title">Skills Required</div>
-									<div className="job-skills">
-										{job.skills.map((s) => (
-											<span key={s} className="job-chip">{s}</span>
-										))}
-									</div>
-								</div>
 								</article>
-							))}
+							))
+						)}
 					</section>
 				</div>
 			</div>

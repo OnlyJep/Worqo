@@ -9,6 +9,7 @@ import "./../../../../sass/components/_userlist.scss";
 import UserModal from "./Userlistmodal";
 import Loader from "./../../LoaderContent/loader";
 import { message } from "antd"; // Import Ant Design message
+import { dispatchProfileImageUpdate } from "../../../utils/profileImageUtils";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -42,6 +43,7 @@ const UsersList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [userToEdit, setUserToEdit] = useState(null);
+  const [imageRefreshKey, setImageRefreshKey] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,6 +51,22 @@ const UsersList = () => {
     fetchData(controller.signal);
     return () => controller.abort();
   }, [searchTerm, showArchived, pagination.currentPage]);
+
+  // Listen for profile image updates from other components
+  useEffect(() => {
+    const handleProfileImageUpdate = (event) => {
+      const updatedUser = event.detail;
+      console.log("Users.js received profile image update event:", updatedUser);
+      // Refresh the data to show updated profile images
+      setImageRefreshKey(prev => prev + 1);
+      fetchData(new AbortController().signal);
+    };
+
+    document.addEventListener("profileImageUpdated", handleProfileImageUpdate);
+    return () => {
+      document.removeEventListener("profileImageUpdated", handleProfileImageUpdate);
+    };
+  }, []);
 
   const fetchData = async (signal) => {
     try {
@@ -238,7 +256,7 @@ const UsersList = () => {
       postal_code: user.postal_code || "",
       country: user.country || "",
       profile_img: null,
-      image_url: user.profile_img ? `http://127.0.0.1:8000/storage/${user.profile_img}` : null,
+      image_url: user.profile_img ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : null,
     });
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -337,6 +355,26 @@ const UsersList = () => {
       setIsEditMode(false);
       setUserToEdit(null);
       message.success("User updated successfully");
+      
+      // Check if the updated user is the current logged-in user
+      const currentUser = JSON.parse(localStorage.getItem("user") || "{}");
+      console.log("Current user ID:", currentUser.id, "Updated user ID:", userToEdit.id);
+      console.log("Response data:", response.data);
+      
+      if (currentUser.id === userToEdit.id && response.data) {
+        // Update the current user's data in localStorage and dispatch event
+        const updatedUser = {
+          ...currentUser,
+          ...response.data,
+          profile_img: response.data.profile_img || response.data.image_url
+        };
+        console.log("Updating current user data:", updatedUser);
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+        dispatchProfileImageUpdate(updatedUser);
+        setImageRefreshKey(prev => prev + 1); // Force image refresh in table
+        console.log("Profile image update event dispatched");
+      }
+      
       await fetchData(new AbortController().signal);
       return response.data;
     } catch (error) {
@@ -509,7 +547,7 @@ const UsersList = () => {
                       <td>
                         {user.profile_img ? (
                           <img
-                            src={`http://127.0.0.1:8000/storage/${user.profile_img}`}
+                            src={`http://127.0.0.1:8000/storage/${user.profile_img}?v=${imageRefreshKey}`}
                             alt="Profile"
                             className="profile-img"
                             style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}

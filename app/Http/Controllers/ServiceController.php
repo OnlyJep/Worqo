@@ -17,6 +17,7 @@ public function index(Request $request)
         $perPage = $request->query('limit', 5);
         $page = $request->query('page', 1);
         $search = $request->query('search');
+        $colorCollarId = $request->query('color_collar_id');
         $archived = filter_var($request->query('archived', false), FILTER_VALIDATE_BOOLEAN);
 
         $query = Service::with('collar');
@@ -27,6 +28,11 @@ public function index(Request $request)
                 $q->where('name', 'like', "%{$search}%")
                   ->orWhere('description', 'like', "%{$search}%");
             });
+        }
+
+        // Apply color collar filter
+        if (!empty($colorCollarId)) {
+            $query->where('collars_id', $colorCollarId);
         }
 
         // Apply archived filter

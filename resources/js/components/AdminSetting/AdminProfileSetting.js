@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash, FaPencilAlt, FaCalendarAlt } from "react-icons/fa";
+import { message } from "antd";
 import Admintopnavbar from "../adminside/admintopnavbar/admintopnavbar";
 import Adminsidebar from "../adminside/adminsidebar/adminsidebar";
+import { dispatchProfileImageUpdate, getProfileImageUrl } from "../../utils/profileImageUtils";
 
 const AdminProfileSetting = () => {
   const [user, setUser] = useState(null);
@@ -9,6 +11,10 @@ const AdminProfileSetting = () => {
   const [error, setError] = useState(null);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [isEditingPassword, setIsEditingPassword] = useState(false);
+  const [profileImageFile, setProfileImageFile] = useState(null);
+  const [profileImagePreview, setProfileImagePreview] = useState(null);
+  const [genders, setGenders] = useState([]);
+  const [suffixes, setSuffixes] = useState([]);
   
   // Profile form states
   const [profileData, setProfileData] = useState({
@@ -17,8 +23,7 @@ const AdminProfileSetting = () => {
     lastName: "",
     suffix: "",
     email: "",
-    gender: "",
-    dateOfBirth: ""
+    gender: ""
   });
 
   // Password form states
@@ -34,24 +39,108 @@ const AdminProfileSetting = () => {
     new: false,
     confirm: false
   });
+  
+  // Profile dropdown states
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
 
   // Load user data on component mount
   useEffect(() => {
+    loadUserData();
+    
+    // Fetch genders and suffixes
+    fetchGenders();
+    fetchSuffixes();
+  }, []);
+
+  // Handle clicking outside dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showProfileDropdown && !event.target.closest('.avatar-container')) {
+        setShowProfileDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showProfileDropdown]);
+
+  const loadUserData = async () => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       const userData = JSON.parse(storedUser);
+      
+      // If gender_name is null, fetch fresh user data from API
+      if (userData.gender_id && !userData.gender_name) {
+        try {
+          const token = localStorage.getItem("auth_token");
+          if (token) {
+            const response = await fetch(`http://127.0.0.1:8000/api/users/${userData.id}`, {
+              method: "GET",
+              headers: {
+                'Authorization': `Bearer ${token}`,
+              }
+            });
+            
+            if (response.ok) {
+              const freshUserData = await response.json();
+              setUser(freshUserData);
+              localStorage.setItem("user", JSON.stringify(freshUserData));
+              setProfileData({
+                firstName: freshUserData.first_name || "",
+                middleName: freshUserData.middlename || "",
+                lastName: freshUserData.last_name || "",
+                suffix: freshUserData.suffix_id || "",
+                email: freshUserData.email || "",
+                gender: freshUserData.gender_id || ""
+              });
+              return;
+            }
+          }
+        } catch (error) {
+          console.error("Error fetching fresh user data:", error);
+        }
+      }
+      
+      // Use stored data if it's complete or if API fetch failed
       setUser(userData);
       setProfileData({
         firstName: userData.first_name || "",
-        middleName: userData.middle_name || "",
+        middleName: userData.middlename || "",
         lastName: userData.last_name || "",
-        suffix: userData.suffix || "",
+        suffix: userData.suffix_id || "",
         email: userData.email || "",
-        gender: userData.gender || "",
-        dateOfBirth: userData.date_of_birth || ""
+        gender: userData.gender_id || ""
       });
     }
-  }, []);
+  };
+
+
+  const fetchGenders = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/genders');
+      if (response.ok) {
+        const data = await response.json();
+        setGenders(data);
+      }
+    } catch (error) {
+      console.error('Error fetching genders:', error);
+    }
+  };
+
+  const fetchSuffixes = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/suffixes');
+      if (response.ok) {
+        const data = await response.json();
+        setSuffixes(data);
+      }
+    } catch (error) {
+      console.error('Error fetching suffixes:', error);
+    }
+  };
 
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
@@ -82,16 +171,20 @@ const AdminProfileSetting = () => {
 
   const handleCancelProfileEdit = () => {
     setIsEditingProfile(false);
+    setProfileImageFile(null);
+    setProfileImagePreview(null);
+    
     // Reset profile data to original values
     if (user) {
       setProfileData({
         firstName: user.first_name || "",
-        middleName: user.middle_name || "",
+        middleName: user.middlename || "",
         lastName: user.last_name || "",
-        suffix: user.suffix || "",
+        suffix: user.suffix_id || "",
         email: user.email || "",
-        gender: user.gender || "",
-        dateOfBirth: user.date_of_birth || ""
+        gender: user.gender_id || "",
+        removeImage: false,
+        setDefaultImage: false
       });
     }
   };
@@ -110,19 +203,93 @@ const AdminProfileSetting = () => {
     });
   };
 
+  const handleProfileImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Validate file size (2MB limit)
+      if (file.size > 2 * 1024 * 1024) {
+        message.error("Image must not exceed 2MB");
+        return;
+      }
+      
+      // Validate file type
+      if (!["image/jpeg", "image/png", "image/jpg"].includes(file.type)) {
+        message.error("Image must be JPEG, PNG, or JPG");
+        return;
+      }
+      
+      setProfileImageFile(file);
+      setProfileImagePreview(URL.createObjectURL(file));
+    }
+  };
+
+  const removeProfileImage = () => {
+    setProfileImageFile(null);
+    setProfileImagePreview(null);
+    
+    // If there's an existing profile image, mark it for removal
+    if (user?.profile_img) {
+      setProfileData(prev => ({
+        ...prev,
+        removeImage: true
+      }));
+    }
+  };
+
+  // Toggle profile dropdown
+  const toggleProfileDropdown = () => {
+    setShowProfileDropdown(!showProfileDropdown);
+  };
+
+  // Close dropdown when clicking outside
+  const closeProfileDropdown = () => {
+    setShowProfileDropdown(false);
+  };
+
+  // Handle view profile image
+  const handleViewProfile = () => {
+    setShowImageModal(true);
+    setShowProfileDropdown(false);
+  };
+
+  // Handle change profile image
+  const handleChangeProfile = () => {
+    document.getElementById('profile-image-input').click();
+    setShowProfileDropdown(false);
+  };
+
+  // Handle delete profile image
+  const handleDeleteProfile = () => {
+    setProfileImageFile(null);
+    setProfileImagePreview(null);
+    
+    // Set profile data to use default image
+    setProfileData(prev => ({
+      ...prev,
+      setDefaultImage: true
+    }));
+    
+    setShowProfileDropdown(false);
+  };
+
+  // Close image modal
+  const closeImageModal = () => {
+    setShowImageModal(false);
+  };
+
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
     
     // Validate required fields
     if (!profileData.firstName.trim() || !profileData.lastName.trim() || !profileData.email.trim()) {
-      alert("Please fill in all required fields (First Name, Last Name, Email)");
+      message.error("Please fill in all required fields (First Name, Last Name, Email)");
       return;
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(profileData.email)) {
-      alert("Please enter a valid email address");
+      message.error("Please enter a valid email address");
       return;
     }
 
@@ -131,43 +298,122 @@ const AdminProfileSetting = () => {
     try {
       const token = localStorage.getItem("auth_token");
       if (!token) {
-        alert("You must be logged in to update your profile");
+        message.error("You must be logged in to update your profile");
         return;
       }
 
-      const response = await fetch(`http://127.0.0.1:8000/api/users/${user.id}`, {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(profileData)
+      // Prepare the request data
+      const requestData = {
+        first_name: profileData.firstName,
+        middlename: profileData.middleName,
+        last_name: profileData.lastName,
+        email: profileData.email,
+      };
+      
+      // Handle gender_id - only add if it has a value
+      if (profileData.gender) {
+        requestData.gender_id = profileData.gender;
+      }
+      
+      // Handle suffix_id - only add if it has a value
+      if (profileData.suffix) {
+        requestData.suffix_id = profileData.suffix;
+      }
+
+      // If there's a profile image operation, use FormData, otherwise use JSON
+      let body, contentType;
+      if (profileImageFile || profileData.removeImage || profileData.setDefaultImage) {
+        // Use FormData for file upload, removal, or setting default
+        const formData = new FormData();
+        formData.append('first_name', profileData.firstName);
+        formData.append('middlename', profileData.middleName);
+        formData.append('last_name', profileData.lastName);
+        formData.append('email', profileData.email);
+        
+        if (profileData.gender) {
+          formData.append('gender_id', profileData.gender);
+        }
+        
+        if (profileData.suffix) {
+          formData.append('suffix_id', profileData.suffix);
+        }
+        
+        if (profileImageFile) {
+          formData.append('profile_img', profileImageFile);
+        } else if (profileData.removeImage) {
+          formData.append('profile_img', ''); // Empty string to remove image
+        } else if (profileData.setDefaultImage) {
+          formData.append('profile_img', 'default'); // Set to default image
+        }
+        
+        body = formData;
+        contentType = null; // Let browser set Content-Type for FormData
+      } else {
+        // Use JSON for regular updates
+        body = JSON.stringify(requestData);
+        contentType = 'application/json';
+      }
+
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+      
+      if (contentType) {
+        headers['Content-Type'] = contentType;
+      }
+
+      // For FormData with files, use POST with method spoofing to avoid Laravel issues with PUT multipart
+      let method = "PUT";
+      let url = `http://127.0.0.1:8000/api/users/${user.id}`;
+      
+      if (profileImageFile || profileData.removeImage || profileData.setDefaultImage) {
+        // Use method spoofing for FormData uploads
+        body.append('_method', 'PUT');
+        method = "POST";
+      }
+
+      const response = await fetch(url, {
+        method: method,
+        headers: headers,
+        body: body
       });
 
       if (response.ok) {
         try {
-          const updatedUser = await response.json();
+          const responseData = await response.json();
+          const updatedUser = responseData.user; // Extract user data from response
           setUser(updatedUser);
           localStorage.setItem("user", JSON.stringify(updatedUser));
+          
+          // Dispatch profile image update event
+          dispatchProfileImageUpdate(updatedUser);
+          
           setIsEditingProfile(false);
-          alert("Profile updated successfully!");
+          setProfileImageFile(null);
+          setProfileImagePreview(null);
+          setProfileData(prev => ({
+            ...prev,
+            removeImage: false,
+            setDefaultImage: false
+          }));
+          message.success("Profile updated successfully!");
         } catch (jsonError) {
           console.error("JSON parsing error:", jsonError);
-          alert("Profile updated but there was an issue with the response format.");
+          message.warning("Profile updated but there was an issue with the response format.");
           setIsEditingProfile(false);
         }
       } else {
         try {
           const errorData = await response.json();
-          alert(`Failed to update profile: ${errorData.message || 'Please try again.'}`);
+          message.error(`Failed to update profile: ${errorData.message || 'Please try again.'}`);
         } catch (jsonError) {
           console.error("Error parsing error response:", jsonError);
-          alert(`Failed to update profile: Server returned ${response.status} ${response.statusText}`);
+          message.error(`Failed to update profile: Server returned ${response.status} ${response.statusText}`);
         }
       }
     } catch (error) {
       console.error("Profile update error:", error);
-      alert("An error occurred while updating your profile. Please check your connection.");
+      message.error("An error occurred while updating your profile. Please check your connection.");
     } finally {
       setIsLoading(false);
     }
@@ -178,36 +424,73 @@ const AdminProfileSetting = () => {
     
     // Validate required fields
     if (!passwordData.currentPassword.trim() || !passwordData.newPassword.trim() || !passwordData.confirmPassword.trim()) {
-      alert("Please fill in all password fields");
+      message.error("Please fill in all password fields");
       return;
     }
 
     // Validate password match
     if (passwordData.newPassword !== passwordData.confirmPassword) {
-      alert("New passwords do not match!");
+      message.error("New passwords do not match!");
       return;
     }
 
     // Validate password strength
     if (passwordData.newPassword.length < 6) {
-      alert("New password must be at least 6 characters long");
+      message.error("New password must be at least 6 characters long");
       return;
     }
 
     // Check if new password is different from current
     if (passwordData.currentPassword === passwordData.newPassword) {
-      alert("New password must be different from current password");
+      message.error("New password must be different from current password");
       return;
     }
 
-    // For now, show a message that password change is not implemented
-    alert("Password change functionality is not yet implemented in the backend. Please contact the administrator.");
-    setPasswordData({
-      currentPassword: "",
-      newPassword: "",
-      confirmPassword: ""
-    });
-    setIsEditingPassword(false);
+    setIsLoading(true);
+    
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) {
+        message.error("You must be logged in to change your password");
+        return;
+      }
+
+      const response = await fetch('http://127.0.0.1:8000/api/change-password', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          current_password: passwordData.currentPassword,
+          new_password: passwordData.newPassword,
+          confirm_password: passwordData.confirmPassword
+        })
+      });
+
+      if (response.ok) {
+        message.success("Password changed successfully!");
+        setPasswordData({
+          currentPassword: "",
+          newPassword: "",
+          confirmPassword: ""
+        });
+        setIsEditingPassword(false);
+      } else {
+        try {
+          const errorData = await response.json();
+          message.error(`Failed to change password: ${errorData.error || 'Please try again.'}`);
+        } catch (jsonError) {
+          console.error("Error parsing error response:", jsonError);
+          message.error(`Failed to change password: Server returned ${response.status} ${response.statusText}`);
+        }
+      }
+    } catch (error) {
+      console.error("Password change error:", error);
+      message.error("An error occurred while changing your password. Please check your connection.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -225,12 +508,62 @@ const AdminProfileSetting = () => {
         <div className="profile-card">
           <div className="profile-header">
             <div className="avatar-container">
-              <div className="avatar-placeholder">
+              <div className={`avatar-placeholder ${!profileImagePreview && (!user?.profile_img || user?.profile_img === 'img/defaultpfp.jpg') ? 'no-image' : ''}`}>
                 <img 
-                  src={user?.profile_img || "/images/pfp.svg"} 
+                  src={profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : "img/defaultpfp.jpg")} 
                   alt="Profile" 
+                  onError={(e) => {
+                    e.target.src = "img/defaultpfp.jpg";
+                    e.target.parentElement.classList.add('no-image');
+                  }}
                 />
               </div>
+              
+              {/* Hidden file input */}
+              <input
+                type="file"
+                accept="image/jpeg,image/png,image/jpg"
+                onChange={handleProfileImageChange}
+                style={{ display: 'none' }}
+                id="profile-image-input"
+              />
+              
+              {/* Camera icon - only show when editing */}
+              {isEditingProfile && (
+                <div className="camera-icon" onClick={toggleProfileDropdown}>
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 15.2c-2.35 0-4.27-1.92-4.27-4.27s1.92-4.27 4.27-4.27 4.27 1.92 4.27 4.27-1.92 4.27-4.27 4.27zM16 3.33c-1.11 0-2.08.56-2.65 1.42L12.71 5.5H8c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-11c0-.55-.45-1-1-1h-4.71l-.64-.75c-.57-.86-1.54-1.42-2.65-1.42z"/>
+                  </svg>
+                </div>
+              )}
+              
+              {/* Dropdown menu */}
+              {isEditingProfile && (
+                <div className={`profile-dropdown ${showProfileDropdown ? 'show' : ''}`}>
+                  <button type="button" className="dropdown-item" onClick={handleViewProfile}>
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                    </svg>
+                    View Profile
+                  </button>
+                  
+                  <button type="button" className="dropdown-item" onClick={handleChangeProfile}>
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 15.2c-2.35 0-4.27-1.92-4.27-4.27s1.92-4.27 4.27-4.27 4.27 1.92 4.27 4.27-1.92 4.27-4.27 4.27zM16 3.33c-1.11 0-2.08.56-2.65 1.42L12.71 5.5H8c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-11c0-.55-.45-1-1-1h-4.71l-.64-.75c-.57-.86-1.54-1.42-2.65-1.42z"/>
+                    </svg>
+                    Change Profile
+                  </button>
+                  
+                  {(profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg')) && (
+                    <button type="button" className="dropdown-item delete-item" onClick={handleDeleteProfile}>
+                      <svg viewBox="0 0 24 24">
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                      </svg>
+                      Delete Profile
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
           
@@ -282,16 +615,21 @@ const AdminProfileSetting = () => {
               
               <div className="form-group">
                 <label htmlFor="suffix">Suffix</label>
-                <input
-                  type="text"
+                <select
                   id="suffix"
                   name="suffix"
                   value={profileData.suffix}
                   onChange={handleProfileChange}
-                  placeholder="Jr., Sr., etc."
                   disabled={!isEditingProfile}
                   className={isEditingProfile ? "editing" : ""}
-                />
+                >
+                  <option value="">Select Suffix</option>
+                  {suffixes.map((suffix) => (
+                    <option key={suffix.id} value={suffix.id}>
+                      {suffix.suffix_name}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
@@ -321,30 +659,15 @@ const AdminProfileSetting = () => {
                   className={isEditingProfile ? "editing" : ""}
                 >
                   <option value="">Select Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
+                  {genders.map((gender) => (
+                    <option key={gender.id} value={gender.id}>
+                      {gender.gender_name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
 
-            <div className="form-row">
-              <div className="form-group date-field">
-                <label htmlFor="dateOfBirth">Date of Birth</label>
-                <div className="date-input-container">
-                  <input
-                    type="date"
-                    id="dateOfBirth"
-                    name="dateOfBirth"
-                    value={profileData.dateOfBirth}
-                    onChange={handleProfileChange}
-                    disabled={!isEditingProfile}
-                    className={isEditingProfile ? "editing" : ""}
-                  />
-                  <FaCalendarAlt className="calendar-icon" />
-                </div>
-              </div>
-            </div>
 
             <div className="form-actions">
               {!isEditingProfile ? (
@@ -476,6 +799,31 @@ const AdminProfileSetting = () => {
           </form>
         </div>
       </div>
+      
+      {/* Image Modal */}
+      {showImageModal && (
+        <div className="image-modal-overlay" onClick={closeImageModal}>
+          <div className="image-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="image-modal-header">
+              <h3>Profile Picture</h3>
+              <button className="close-btn" onClick={closeImageModal}>
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+              </button>
+            </div>
+            <div className="image-modal-content">
+              <img 
+                src={profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : "img/defaultpfp.jpg")} 
+                alt="Profile" 
+                onError={(e) => {
+                  e.target.src = "img/defaultpfp.jpg";
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
     </Adminsidebar>
   );

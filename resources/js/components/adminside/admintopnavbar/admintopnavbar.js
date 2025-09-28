@@ -9,6 +9,7 @@ const Admintopnavbar = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
   const [imageError, setImageError] = useState(false);
+  const [imageRefreshKey, setImageRefreshKey] = useState(0);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
@@ -17,7 +18,12 @@ const Admintopnavbar = () => {
     const token = localStorage.getItem("auth_token");
     const storedUser = localStorage.getItem("user");
     if (token && storedUser) {
-      setUser(JSON.parse(storedUser));
+      const userData = JSON.parse(storedUser);
+      console.log("Loading user data on mount:", userData);
+      console.log("Profile image path:", userData.profile_img);
+      setUser(userData);
+      // Initialize refresh key to ensure image loads properly
+      setImageRefreshKey(1);
     }
 
     // Handle click outside for dropdown
@@ -26,8 +32,89 @@ const Admintopnavbar = () => {
         setIsDropdownOpen(false);
       }
     };
+
+    // Listen for profile image updates from other components
+    const handleProfileImageUpdate = (event) => {
+      const updatedUser = event.detail;
+      console.log("Profile image update event received:", updatedUser);
+      if (updatedUser && updatedUser.id === user?.id) {
+        console.log("Updating user data in Admintopnavbar");
+        setUser(updatedUser);
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+        setImageError(false); // Reset image error state
+        setImageRefreshKey(prev => prev + 1); // Force image refresh
+      }
+    };
+
+    // Listen for localStorage changes (backup method)
+    const handleStorageChange = (e) => {
+      if (e.key === "user" && e.newValue) {
+        try {
+          const updatedUser = JSON.parse(e.newValue);
+          if (updatedUser.id === user?.id) {
+            setUser(updatedUser);
+            setImageError(false);
+            setImageRefreshKey(prev => prev + 1); // Force image refresh
+          }
+        } catch (error) {
+          console.error("Error parsing updated user data:", error);
+        }
+      }
+    };
+
+    // Add focus event listener to refresh user data when window regains focus
+    const handleWindowFocus = () => {
+      refreshUserData();
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("profileImageUpdated", handleProfileImageUpdate);
+    window.addEventListener("storage", handleStorageChange);
+    window.addEventListener("focus", handleWindowFocus);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("profileImageUpdated", handleProfileImageUpdate);
+      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("focus", handleWindowFocus);
+    };
+  }, [user?.id]);
+
+  // Add periodic refresh to check for profile image updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser && user) {
+        const userData = JSON.parse(storedUser);
+        if (userData.profile_img !== user.profile_img) {
+          console.log("Profile image changed, updating...");
+          setUser(userData);
+          setImageError(false);
+          setImageRefreshKey(prev => prev + 1); // Force image refresh
+        }
+      }
+    }, 2000); // Check every 2 seconds
+
+    return () => clearInterval(interval);
+  }, [user?.profile_img]);
+
+  // Force refresh profile image when user data changes
+  useEffect(() => {
+    if (user?.profile_img) {
+      console.log("User data changed, forcing profile image refresh");
+      setImageRefreshKey(prev => prev + 1);
+      setImageError(false); // Reset error state when user data changes
+    }
+  }, [user?.profile_img]);
+
+  // Force refresh on component mount
+  useEffect(() => {
+    if (user?.profile_img) {
+      console.log("Component mounted, forcing initial profile image refresh");
+      setTimeout(() => {
+        setImageRefreshKey(prev => prev + 1);
+      }, 100); // Small delay to ensure component is fully mounted
+    }
   }, []);
 
   const toggleDropdown = () => {
@@ -80,7 +167,36 @@ const Admintopnavbar = () => {
   };
 
   const handleImageError = () => {
+    console.log("Image failed to load, setting error state");
     setImageError(true);
+  };
+
+  const handleImageLoad = () => {
+    console.log("Image loaded successfully");
+    setImageError(false);
+  };
+
+  // Function to refresh user data from localStorage
+  const refreshUserData = () => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      const userData = JSON.parse(storedUser);
+      console.log("Refreshing user data:", userData);
+      setUser(userData);
+      setImageError(false);
+      setImageRefreshKey(prev => prev + 1); // Force image refresh
+    }
+  };
+
+  // Function to get image URL with cache busting
+  const getImageUrl = (profileImg) => {
+    if (!profileImg) {
+      console.log("No profile image found, using default");
+      return "/default-profile.png";
+    }
+    const imageUrl = `http://127.0.0.1:8000/storage/${profileImg}?v=${imageRefreshKey}`;
+    console.log("Generated image URL:", imageUrl);
+    return imageUrl;
   };
 
   return (
@@ -88,10 +204,14 @@ const Admintopnavbar = () => {
       {isLoading && <Loader />}
       <div className="profile" ref={dropdownRef}>
         <img
-          src={imageError || !user?.profile_img ? "/default-profile.png" : user.profile_img}
+          src={imageError ? "/default-profile.png" : getImageUrl(user?.profile_img)}
           alt="Profile"
           className="profile-icon"
           onError={handleImageError}
+          onLoad={handleImageLoad}
+          onClick={refreshUserData}
+          style={{ cursor: 'pointer' }}
+          title="Click to refresh profile image"
         />
         <div
           className={`dropdown-toggle ${isDropdownOpen ? "open" : ""}`}

@@ -79,12 +79,7 @@
     align-items: center;
     justify-content: center;
     min-height: 300px;
-    margin-top: -15px; // Default spacing for All Bookings
-    
-    // Move booking cards upward for other navigation tabs
-    &:not(.all-bookings) {
-      margin-top: -85px; // Moved upward for Pending, Declined, Approved, Cancelled, Completed
-    }
+    margin-top: -15px; // Consistent spacing for all tabs
 
     .bookings-list {
       width: 100%;
@@ -93,22 +88,21 @@
       gap: 20px;
     }
 
-     .booking-card {
-       background: #f8fafc;
-       border-radius: 12px;
-       padding: 24px;
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-       position: relative; // Added for absolute positioning of salary
-
-       .booking-worker-info {
+       .booking-card {
+         background: #f8fafc;
+         border-radius: 12px;
+         padding: 24px;
          display: flex;
+         justify-content: space-between;
          align-items: center;
-         gap: 16px;
-         flex: 1;
-         margin-top: -16px; // Moved worker info upward 2x
+         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+         position: relative; // Added for absolute positioning of salary
+
+         .booking-worker-info {
+           display: flex;
+           align-items: center;
+           gap: 16px;
+           flex: 1;
 
         .worker-profile {
           .worker-avatar {
@@ -221,8 +215,7 @@
        .booking-actions {
          display: flex;
          gap: 12px;
-         margin-top: 100px; // Moved buttons downward 3x
-         margin-left: -150px; // Moved buttons left 3x
+         margin-top: 20px;
 
          .view-transaction-btn {
            background: #001E40;
@@ -302,6 +295,66 @@
 
            &:hover {
              background: #002a5c;
+           }
+         }
+
+         .accept-btn {
+           background: #4CAF50;
+           color: white;
+           border: none;
+           width: 100px;
+           height: 33px;
+           border-radius: 6px;
+           font-size: 12px;
+           font-weight: 600;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           &:hover {
+             background: #45a049;
+           }
+         }
+
+         .decline-btn {
+           background: #f44336;
+           color: white;
+           border: none;
+           width: 100px;
+           height: 33px;
+           border-radius: 6px;
+           font-size: 12px;
+           font-weight: 600;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           &:hover {
+             background: #da190b;
+           }
+         }
+
+         .complete-btn {
+           background: #2196F3;
+           color: white;
+           border: none;
+           width: 140px;
+           height: 33px;
+           border-radius: 6px;
+           font-size: 12px;
+           font-weight: 600;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           &:hover {
+             background: #1976D2;
            }
          }
 
@@ -415,7 +468,10 @@
            .view-transaction-btn,
            .cancel-booking-btn,
            .rate-booking-btn,
-           .give-feedback-btn {
+           .give-feedback-btn,
+           .accept-btn,
+           .decline-btn,
+           .complete-btn {
              width: 110px;
              height: 33px;
              font-size: 12px;

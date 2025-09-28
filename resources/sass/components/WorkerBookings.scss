@@ -1,0 +1,354 @@
+.worker-bookings {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .bookings-header {
+    margin-bottom: 30px;
+    text-align: center;
+
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      font-size: 16px;
+    }
+  }
+
+  .loading-container {
+    text-align: center;
+    padding: 40px;
+    
+    p {
+      color: #666;
+      font-size: 18px;
+    }
+  }
+
+  .no-bookings {
+    text-align: center;
+    padding: 60px 20px;
+    
+    p {
+      color: #666;
+      font-size: 18px;
+    }
+  }
+
+  .bookings-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+
+  .booking-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .booking-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f0f0f0;
+
+      .booking-info {
+        h3 {
+          color: #333;
+          margin: 0 0 5px 0;
+          font-size: 18px;
+        }
+
+        .booking-email {
+          color: #666;
+          margin: 0 0 3px 0;
+          font-size: 14px;
+        }
+
+        .booking-contact {
+          color: #666;
+          margin: 0;
+          font-size: 14px;
+        }
+      }
+
+      .booking-status {
+        .status-badge {
+          color: white;
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .booking-details {
+      margin-bottom: 15px;
+
+      .detail-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        padding: 5px 0;
+
+        .label {
+          font-weight: 600;
+          color: #555;
+          min-width: 100px;
+        }
+
+        .value {
+          color: #333;
+          text-align: right;
+          flex: 1;
+        }
+      }
+    }
+
+    .worker-notes {
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+
+      .label {
+        font-weight: 600;
+        color: #555;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .value {
+        color: #333;
+        font-style: italic;
+      }
+    }
+
+    .booking-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+
+      button {
+        flex: 1;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &.accept-btn {
+          background: #4CAF50;
+          color: white;
+
+          &:hover {
+            background: #45a049;
+          }
+        }
+
+        &.decline-btn {
+          background: #f44336;
+          color: white;
+
+          &:hover {
+            background: #da190b;
+          }
+        }
+
+        &.complete-btn {
+          background: #2196F3;
+          color: white;
+
+          &:hover {
+            background: #1976D2;
+          }
+        }
+      }
+    }
+
+    .employer-review {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 15px;
+
+      .rating {
+        margin-bottom: 10px;
+
+        .label {
+          font-weight: 600;
+          color: #555;
+          margin-right: 10px;
+        }
+
+        .stars {
+          display: inline-block;
+
+          .star {
+            color: #ddd;
+            font-size: 18px;
+            margin-right: 2px;
+
+            &.filled {
+              color: #ffc107;
+            }
+          }
+        }
+      }
+
+      .review {
+        .label {
+          font-weight: 600;
+          color: #555;
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        p {
+          color: #333;
+          margin: 0;
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  // Modal styles
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    h3 {
+      margin: 0 0 20px 0;
+      color: #333;
+      text-align: center;
+    }
+
+    .modal-content {
+      margin-bottom: 20px;
+
+      .form-group {
+        margin-bottom: 15px;
+
+        label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 600;
+          color: #555;
+        }
+
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          font-family: inherit;
+          resize: vertical;
+          min-height: 80px;
+
+          &:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+          }
+        }
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &.cancel-btn {
+          background: #f5f5f5;
+          color: #666;
+
+          &:hover {
+            background: #e0e0e0;
+          }
+        }
+
+        &.decline-btn {
+          background: #f44336;
+          color: white;
+
+          &:hover {
+            background: #da190b;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .worker-bookings {
+    padding: 15px;
+
+    .bookings-list {
+      grid-template-columns: 1fr;
+    }
+
+    .booking-card {
+      .booking-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .booking-actions {
+        flex-direction: column;
+      }
+    }
+
+    .modal {
+      margin: 20px;
+      width: calc(100% - 40px);
+    }
+  }
+}
+

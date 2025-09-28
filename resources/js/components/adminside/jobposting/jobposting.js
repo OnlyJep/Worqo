@@ -436,11 +436,20 @@ const JobPostTable = () => {
                         <td className="owner-cell">{getProfileName(post.profile)}</td>
                         <td className="skills-cell">
                           {Array.isArray(post.skills_formatted) && post.skills_formatted.length > 0 ? (
-                            post.skills_formatted.map((skill, index) => (
-                              <span key={index} className="skill-badge">
-                                {skill || "N/A"}
-                              </span>
-                            ))
+                            post.skills_formatted.map((skill, index) => {
+                              // Extract rank from skill string (e.g., "Virtual Assistant - Gold")
+                              const rank = skill.includes(' - ') ? skill.split(' - ')[1] : 'Default';
+                              return (
+                                <span 
+                                  key={index} 
+                                  className="skill-badge"
+                                  data-rank={rank}
+                                  title={skill}
+                                >
+                                  {skill || "N/A"}
+                                </span>
+                              );
+                            })
                           ) : (
                             "N/A"
                           )}

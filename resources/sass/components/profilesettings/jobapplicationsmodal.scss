@@ -1,0 +1,480 @@
+.job-applications-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+
+  .job-applications-modal {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    width: 95%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      background: #f8fafc;
+
+      h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1f2937;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: #6b7280;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #e5e7eb;
+          color: #374151;
+        }
+      }
+    }
+
+    .modal-content {
+      flex: 3;
+      overflow-y: auto;
+      padding: 20px;
+
+      .filter-section {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #e5e7eb;
+
+        h4 {
+          margin: 0 0 12px 0;
+          font-size: 16px;
+          font-weight: 600;
+          color: #374151;
+        }
+
+        .filter-buttons {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+
+          button {
+            padding: 8px 16px;
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #6b7280;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+              background: #f3f4f6;
+              border-color: #9ca3af;
+            }
+
+            &.active {
+              background: #3b82f6;
+              color: white;
+              border-color: #3b82f6;
+            }
+          }
+        }
+      }
+
+      .loading-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 100px;
+        color: #6b7280;
+
+        .spinner {
+          width: 40px;
+          height: 40px;
+          border: 4px solid #e5e7eb;
+          border-top: 4px solid #3b82f6;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      }
+
+      .empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 30px;
+        text-align: center;
+        color: #6b7280;
+
+        .empty-icon {
+          font-size: 48px;
+          margin-bottom: 16px;
+          color: #d1d5db;
+        }
+
+        h3 {
+          margin: 0 0 8px 0;
+          font-size: 18px;
+          font-weight: 600;
+          color: #374151;
+        }
+
+        p {
+          margin: 0;
+          font-size: 15px;
+        }
+      }
+
+      .applications-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .application-card {
+          background: #f8fafc;
+          border: 1px solid #e5e7eb;
+          border-radius: 8px;
+          padding: 20px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #d1d5db;
+          }
+
+          .application-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+
+            .worker-info {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+
+              .worker-avatar {
+                width: 40px;
+                height: 40px;
+                background: #3b82f6;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+              }
+
+              .worker-details {
+                .worker-name {
+                  margin: 0 0 4px 0;
+                  font-size: 16px;
+                  font-weight: 600;
+                  color: #1f2937;
+                }
+
+                .worker-collar {
+                  font-size: 12px;
+                  font-weight: 500;
+                  color: #7f8c8d;
+                  margin: 0 0 4px 0;
+                  padding: 2px 8px;
+                  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+                  border-radius: 12px;
+                  display: inline-block;
+                  border: 1px solid #dee2e6;
+                }
+
+                .application-date {
+                  margin: 0;
+                  font-size: 12px;
+                  color: #6b7280;
+                  display: flex;
+                  align-items: center;
+                  gap: 4px;
+                }
+              }
+            }
+
+            .application-status {
+              .status-badge {
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+
+                &.status-pending {
+                  background: #fef3c7;
+                  color: #d97706;
+                }
+
+                &.status-accepted {
+                  background: #d1fae5;
+                  color: #059669;
+                }
+
+                &.status-declined {
+                  background: #fee2e2;
+                  color: #dc2626;
+                }
+
+                &.status-interview {
+                  background: #dbeafe;
+                  color: #2563eb;
+                }
+
+                &.status-fired {
+                  background: #fef3c7;
+                  color: #d97706;
+                }
+              }
+            }
+          }
+
+          .cover-letter {
+            margin-bottom: 16px;
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
+
+            h5 {
+              margin: 0 0 8px 0;
+              font-size: 14px;
+              font-weight: 600;
+              color: #374151;
+            }
+
+            p {
+              margin: 0;
+              font-size: 14px;
+              color: #6b7280;
+              line-height: 1.5;
+            }
+          }
+
+          .resume-section {
+            margin-bottom: 16px;
+
+            h5 {
+              margin: 0 0 8px 0;
+              font-size: 14px;
+              font-weight: 600;
+              color: #374151;
+            }
+
+            .download-resume-btn {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              padding: 8px 16px;
+              background: #3b82f6;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              font-size: 14px;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all 0.2s ease;
+
+              &:hover {
+                background: #2563eb;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+              }
+            }
+          }
+
+          .worker-skills {
+            margin-bottom: 16px;
+
+            h5 {
+              margin: 0 0 8px 0;
+              font-size: 14px;
+              font-weight: 600;
+              color: #374151;
+            }
+
+            .skills-list {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 6px;
+
+              .skill-tag {
+                background: #e3f2fd;
+                color: #1976d2;
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-size: 12px;
+                font-weight: 500;
+              }
+            }
+          }
+
+          .application-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+
+            .accept-btn,
+            .decline-btn,
+            .interview-btn,
+            .fire-btn {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              padding: 8px 16px;
+              border: none;
+              border-radius: 6px;
+              font-size: 14px;
+              font-weight: 600;
+              cursor: pointer;
+              transition: all 0.2s ease;
+
+              &:hover {
+                transform: translateY(-1px);
+              }
+            }
+
+            .accept-btn {
+              background: #10b981;
+              color: white;
+
+              &:hover {
+                background: #059669;
+                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+              }
+            }
+
+            .decline-btn {
+              background: #ef4444;
+              color: white;
+
+              &:hover {
+                background: #dc2626;
+                box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+              }
+            }
+
+            .interview-btn {
+              background: #3b82f6;
+              color: white;
+
+              &:hover {
+                background: #2563eb;
+                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+              }
+            }
+
+            .fire-btn {
+              background: #f59e0b;
+              color: white;
+
+              &:hover {
+                background: #d97706;
+                box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .job-applications-modal-overlay {
+    padding: 15px;
+
+    .job-applications-modal {
+      max-width: 98%;
+      width: 98%;
+      max-height: 85vh;
+
+      .modal-header {
+        padding: 12px 16px;
+
+        h2 {
+          font-size: 16px;
+        }
+      }
+
+      .modal-content {
+        padding: 12px;
+
+        .empty-state {
+          padding: 30px 20px;
+
+          .empty-icon {
+            font-size: 40px;
+          }
+
+          h3 {
+            font-size: 16px;
+          }
+
+          p {
+            font-size: 14px;
+          }
+        }
+
+        .applications-list {
+          .application-card {
+            padding: 12px;
+
+            .application-header {
+              flex-direction: column;
+              gap: 8px;
+              align-items: flex-start;
+
+              .application-status {
+                align-self: flex-end;
+              }
+            }
+
+            .application-actions {
+              flex-direction: column;
+
+              .accept-btn,
+              .decline-btn {
+                width: 100%;
+                justify-content: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

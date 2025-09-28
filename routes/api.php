@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
@@ -19,7 +20,10 @@ use App\Http\Controllers\AdminListController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobPostController;
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\BookingController;
 
 // AUTHENTICATION ROUTES
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -36,11 +40,17 @@ Route::get('/userroles', [UserRoleController::class, 'fetchUsersByRole']);
 // USERS ROUTES
 Route::get('/users', [AdminUserController::class, 'index']);
 Route::get('/users/archived', [AdminUserController::class, 'archived']);
-Route::get('/users/{id}', [AdminUserController::class, 'show']);
 Route::post('/users', [AdminUserController::class, 'store']);
-Route::put('/users/{id}', [AdminUserController::class, 'update']);
-Route::patch('/users/{id}/archive', [AdminUserController::class, 'archive']);
 Route::post('/users/bulk-archive', [AdminUserController::class, 'bulkArchive']);
+
+// USER ROLE SWITCHING - Must be before /users/{id} route to avoid conflict
+Route::post('/users/switch-role', [AdminUserController::class, 'switchUserRole'])->name('users.switchRole');
+
+Route::get('/users/{id}', [AdminUserController::class, 'show']);
+Route::put('/users/{id}', [AdminUserController::class, 'update']);
+Route::post('/users/{id}', [AdminUserController::class, 'update']); // For method spoofing with FormData
+Route::patch('/users/{id}/archive', [AdminUserController::class, 'archive']);
+
 
 // ROLES ROUTES
 Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
@@ -102,6 +112,7 @@ Route::patch('/employers/{id}/restore', [EmployerController::class, 'restore']);
 
 // WORKER ROUTES
 Route::get('/workers', [WorkerController::class, 'index'])->name('workers.index');
+Route::get('/workers/by-skills', [WorkerController::class, 'getWorkersBySkills'])->name('workers.bySkills');
 Route::get('/workers/archived', [WorkerController::class, 'archived'])->name('workers.archived');
 Route::get('/workers/{id}', [WorkerController::class, 'show'])->name('workers.show');
 Route::post('/workers', [WorkerController::class, 'store'])->name('workers.store');
@@ -117,6 +128,7 @@ Route::post('/workers/bulk-delete-archived', [WorkerController::class, 'bulkDele
 
 // FIXED: Only /add-skill (no /skills here – using SkillController)
 Route::post('/add-skill', [WorkerController::class, 'addSkill'])->name('skills.add');
+Route::delete('/remove-skill', [WorkerController::class, 'removeSkill'])->name('skills.remove');
 Route::post('/complete-profile', [WorkerController::class, 'completeProfile'])->name('profile.complete');
 
 // ADMIN ROUTES
@@ -145,6 +157,29 @@ Route::put('/jobposts/{jobPost}', [JobPostController::class, 'update'])->name('j
 Route::patch('/jobposts/{jobPost}/archive', [JobPostController::class, 'archive'])->name('jobposts.archive');
 Route::delete('/jobposts/{jobPost}', [JobPostController::class, 'destroy'])->name('jobposts.destroy');
 Route::post('/jobposts/bulk-archive', [JobPostController::class, 'bulkArchive'])->name('jobposts.bulkArchive');
+Route::post('/jobposts/check-expired', [JobPostController::class, 'checkExpiredJobs'])->name('jobposts.checkExpired');
+
+// JOB APPLICATION ROUTES
+Route::get('/job-applications/job/{jobPostId}', [JobApplicationController::class, 'getJobApplications'])->name('job-applications.job');
+Route::post('/job-applications/apply', [JobApplicationController::class, 'applyForJob'])->name('job-applications.apply');
+Route::patch('/job-applications/{applicationId}/status', [JobApplicationController::class, 'updateApplicationStatus'])->name('job-applications.status');
+Route::get('/job-applications/worker/{workerId}', [JobApplicationController::class, 'getWorkerApplications'])->name('job-applications.worker');
 
 // DASHBOARD STATS ROUTE    
 Route::get('/dashboard-stats', [DashboardController::class, 'getDashboardStats'])->name('dashboard.stats');
+
+// BOOKING ROUTES
+Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+Route::get('/bookings/worker', [BookingController::class, 'getWorkerBookings'])->name('bookings.worker');
+Route::get('/bookings/employer', [BookingController::class, 'getEmployerBookings'])->name('bookings.employer');
+Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
+Route::put('/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
+Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->name('bookings.addReview');
+Route::patch('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
+
+
+// PASSWORD ROUTES
+Route::middleware('auth:api')->group(function () {
+    Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('password.change');
+    Route::post('/users/{id}/change-password', [PasswordController::class, 'changeUserPassword'])->name('password.change.user');
+});

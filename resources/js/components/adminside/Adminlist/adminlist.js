@@ -9,6 +9,7 @@ import "./../../../../sass/components/_adminlist.scss";
 import AdminModal from "./AdminListModal";
 import Loader from "./../../LoaderContent/loader";
 import { message } from "antd";
+import { dispatchProfileImageUpdate } from "../../../utils/profileImageUtils";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -309,6 +310,20 @@ const AdminList = () => {
       setIsEditMode(false);
       setAdminToEdit(null);
       message.success("Admin updated successfully");
+      
+      // Check if the updated admin is the current logged-in user
+      const currentUser = JSON.parse(localStorage.getItem("user") || "{}");
+      if (currentUser.id === adminToEdit.id && response.data) {
+        // Update the current user's data in localStorage and dispatch event
+        const updatedUser = {
+          ...currentUser,
+          ...response.data,
+          profile_img: response.data.profile_img || response.data.image_url
+        };
+        localStorage.setItem("user", JSON.stringify(updatedUser));
+        dispatchProfileImageUpdate(updatedUser);
+      }
+      
       await fetchData(new AbortController().signal);
       return response.data;
     } catch (error) {

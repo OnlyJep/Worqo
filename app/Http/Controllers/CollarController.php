@@ -31,8 +31,12 @@ class CollarController extends Controller
                 $query->where('name', 'like', '%' . $search . '%');
             }
 
+            // Apply archived filter - default to non-archived only
             if (!is_null($archived)) {
                 $query->where('archived', $archived === 'true');
+            } else {
+                // Default behavior: only show non-archived collars
+                $query->where('archived', false);
             }
 
             $collars = $query->paginate($limit, ['id', 'name', 'collar_img', 'created_at', 'updated_at', 'archived'], 'page', $page);

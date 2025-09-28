@@ -17,7 +17,14 @@ const credentialOptions = [
   { value: "PhilHealth Number", label: "PhilHealth Number" },
   { value: "Pag-IBIG Number", label: "Pag-IBIG Number (HDMF)" },
   { value: "TIN", label: "TIN (Tax Identification Number)" },
-  { value: "Valid Government ID", label: "Valid Government ID (e.g., Passport, Driver’s License, Voter’s ID, UMID, National ID)" },
+    { value: "Valid Government ID", label: "Valid Government ID (e.g., Passport, Driver's License, Voter's ID, UMID, National ID)" },
+];
+
+const experienceOptions = [
+  { value: "0-11-months", label: "0 to 11 months" },
+  { value: "1-2-years", label: "1 to 2 years" },
+  { value: "2-5-years", label: "2 to 5 years" },
+  { value: "5-10-years", label: "5 to 10 years" },
 ];
 
 const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes, skills }) => {
@@ -37,11 +44,14 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     country: "Philippines",
     profile_img: null,
     work_type: "",
-    skills_id: [],
-    credentials: [],
-    role_id: "1",
-    experience: "",
-    is_reviewed: "",
+    hours_per_day: 4,
+    monthly_salary: "",
+    preferred_working_hours: [],
+    bio: "",
+      skills_id: [],
+      credentials: [],
+      role_id: "1",
+      is_reviewed: "",
   });
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState("");
@@ -88,9 +98,51 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     fetchSkills();
 
     if (isEdit && initialData) {
-      let initialSkills = Array.isArray(initialData.worker?.skills_id) ? initialData.worker.skills_id : [];
+      // Handle skills_id structure - it can be an object with primary_skills and additional_skills
+      let initialSkills = [];
+      if (initialData.worker?.skills_id) {
+        if (initialData.worker.skills_id.primary_skills || initialData.worker.skills_id.additional_skills) {
+          // New structured format
+          const primarySkills = initialData.worker.skills_id.primary_skills || [];
+          const additionalSkills = initialData.worker.skills_id.additional_skills || [];
+          initialSkills = [...primarySkills, ...additionalSkills];
+        } else if (Array.isArray(initialData.worker.skills_id)) {
+          // Old array format
+          initialSkills = initialData.worker.skills_id;
+        }
+      }
+
+      // Ensure preferred_working_hours is always an array
+      let preferredWorkingHours = initialData.worker?.preferred_working_hours || [];
+      
+      // Handle different data formats
+      if (typeof preferredWorkingHours === 'string') {
+        try {
+          preferredWorkingHours = JSON.parse(preferredWorkingHours);
+        } catch (e) {
+          // If JSON parsing fails, try to handle as comma-separated string
+          if (preferredWorkingHours.includes(',')) {
+            preferredWorkingHours = preferredWorkingHours.split(',').map(day => day.trim().toLowerCase());
+          } else if (preferredWorkingHours.trim()) {
+            preferredWorkingHours = [preferredWorkingHours.trim().toLowerCase()];
+          } else {
+            preferredWorkingHours = [];
+          }
+        }
+      }
+      
+      // Ensure it's always an array and normalize the values
+      if (!Array.isArray(preferredWorkingHours)) {
+        preferredWorkingHours = [];
+      }
+      
+      // Normalize day names to lowercase
+      preferredWorkingHours = preferredWorkingHours
+        .map(day => day.toLowerCase().trim())
+        .filter(day => ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].includes(day));
+      
       if (isMountedRef.current) {
-        setFormData({
+        const newFormData = {
           first_name: initialData.profile?.first_name || "",
           middlename: initialData.profile?.middlename || "",
           last_name: initialData.profile?.last_name || "",
@@ -106,6 +158,10 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
           country: initialData.profile?.country || "Philippines",
           profile_img: initialData.profile?.profile_img || null,
           work_type: initialData.worker?.work_type || "",
+          hours_per_day: initialData.worker?.hours_per_day || 4,
+          monthly_salary: initialData.worker?.monthly_salary || "",
+          preferred_working_hours: preferredWorkingHours,
+          bio: initialData.worker?.bio || "",
           skills_id: initialSkills,
           credentials: Array.isArray(initialData.worker?.credentials_name) && Array.isArray(initialData.worker?.credentials_photo)
             ? initialData.worker.credentials_name.map((name, index) => ({
@@ -114,9 +170,11 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
               }))
             : [],
           role_id: "1",
-          experience: initialData.worker?.experience || "",
           is_reviewed: (initialData.worker?.is_reviewed === null || initialData.worker?.is_reviewed === 'TO BE REVIEWED' || initialData.worker?.is_reviewed === '0') ? '' : (initialData.worker?.is_reviewed || ''),
-        });
+        };
+        
+        
+        setFormData(newFormData);
         setApiError("");
         setErrors({});
       }
@@ -170,7 +228,11 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       return;
     }
     if (isMountedRef.current) {
-      setSelectedSkill(skill);
+      setSelectedSkill({
+        ...skill,
+        experience: '0-11-months',
+        hourly_rate: ''
+      });
       setAvailableSubSkills(skill.sub_skills || []);
       setSelectedSubSkills([]);
       setShowSkillModal(true);
@@ -190,7 +252,11 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     const newSkills = newSkillIds.map((id) => skills.find((s) => String(s.id) === id)).filter(Boolean);
     if (newSkills.length > 0) {
       if (isMountedRef.current) {
-        setSelectedSkill(newSkills[0]);
+        setSelectedSkill({
+          ...newSkills[0],
+          experience: '0-11-months',
+          hourly_rate: ''
+        });
         setAvailableSubSkills(newSkills[0].sub_skills || []);
         setSelectedSubSkills([]);
         setShowSkillModal(true);
@@ -238,6 +304,8 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       skill_id: String(selectedSkill.id),
       skill_name: selectedSkill.name,
       sub_skills: selectedSubSkills,
+      experience: selectedSkill.experience || '0-11-months',
+      hourly_rate: selectedSkill.hourly_rate || '',
     };
     if (isMountedRef.current) {
       setFormData((prev) => {
@@ -313,7 +381,22 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       }
     }
     if (isMountedRef.current) {
-      setFormData((prev) => ({ ...prev, [field]: value }));
+      setFormData((prev) => {
+        const newData = { ...prev, [field]: value };
+        
+        // Auto-set hours per day based on work type
+        if (field === "work_type") {
+          if (value === "full-time") {
+            newData.hours_per_day = 8;
+          } else if (value === "part-time") {
+            newData.hours_per_day = 4;
+          } else if (value === "one-time-job") {
+            newData.hours_per_day = 1;
+          }
+        }
+        
+        return newData;
+      });
       setErrors((prev) => ({ ...prev, [field]: "" }));
       setApiError("");
     }
@@ -444,10 +527,12 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     submitData.append("email", formData.email || "");
     submitData.append("gender_id", formData.gender_id || "");
     submitData.append("work_type", formData.work_type || "");
+    submitData.append("hours_per_day", formData.hours_per_day || "");
+    submitData.append("monthly_salary", formData.monthly_salary || "");
+    submitData.append("preferred_working_hours", JSON.stringify(formData.preferred_working_hours || []));
+    submitData.append("bio", formData.bio || "");
     submitData.append("role_id", formData.role_id);
     submitData.append("skills_id", JSON.stringify(formData.skills_id || []));
-    // Always send experience and is_reviewed so server can null them when blank
-    submitData.append("experience", formData.experience || "");
     submitData.append("is_reviewed", formData.is_reviewed || "");
     if (isEdit) {
       submitData.append("_method", "PUT");
@@ -516,7 +601,11 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
           if (!isMountedRef.current) return;
           const foundSkill = skills.find((s) => String(s.id) === String(skill.skill_id));
           if (foundSkill) {
-            setSelectedSkill(foundSkill);
+            setSelectedSkill({
+              ...foundSkill,
+              experience: skill.experience || '0-11-months',
+              hourly_rate: skill.hourly_rate || ''
+            });
             const currentSubSkills = Array.isArray(skill.sub_skills) ? skill.sub_skills : [];
             setAvailableSubSkills(
               (foundSkill.sub_skills || []).filter((subSkill) => !currentSubSkills.includes(subSkill))
@@ -721,20 +810,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                       <option value="1">Worker</option>
                     </select>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="experience">Experience</label>
-                    <select
-                      id="experience"
-                      value={formData.experience}
-                      onChange={(e) => handleInputChange(e.target.value, "experience")}
-                      className="credential-dropdown"
-                    >
-                      <option value="">Select Experience</option>
-                      <option value="0 to 11 months">0 to 11 months</option>
-                      <option value="2 to 5 years">2 to 5 years</option>
-                      <option value="5 to 10 years">5 to 10 years</option>
-                    </select>
-                  </div>
                 </div>
                 <div className="form-row">
                   <div className="form-group">
@@ -749,6 +824,80 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                       <option value="ACCEPTED">ACCEPTED</option>
                       <option value="DECLINED">DECLINED</option>
                     </select>
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="hours_per_day">Hours Per Day</label>
+                    <input
+                      id="hours_per_day"
+                      type="number"
+                      value={formData.hours_per_day}
+                      onChange={(e) => handleInputChange(e, "hours_per_day")}
+                      min="1"
+                      max="24"
+                      disabled={formData.work_type === 'full-time'}
+                    />
+                    {formData.work_type === 'full-time' && (
+                      <span className="help-text">Full-time automatically set to 8 hours per day</span>
+                    )}
+                    {errors.hours_per_day && <span className="error">{errors.hours_per_day}</span>}
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="monthly_salary">Expected Monthly Salary (PHP)</label>
+                    <input
+                      id="monthly_salary"
+                      type="number"
+                      value={formData.monthly_salary}
+                      onChange={(e) => handleInputChange(e, "monthly_salary")}
+                      min="0"
+                      step="100"
+                      placeholder="e.g., 15000"
+                    />
+                    <span className="help-text">Set your expected monthly salary (optional)</span>
+                    {errors.monthly_salary && <span className="error">{errors.monthly_salary}</span>}
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Preferred Working Hours</label>
+                    <div className="working-hours-container">
+                      {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map(day => {
+                        const isChecked = formData.preferred_working_hours && formData.preferred_working_hours.includes(day);
+                        return (
+                          <label key={day} className="day-checkbox">
+                            <input
+                              type="checkbox"
+                              checked={isChecked}
+                              onChange={(e) => {
+                                const currentHours = formData.preferred_working_hours || [];
+                                const newHours = e.target.checked
+                                  ? [...currentHours, day]
+                                  : currentHours.filter(h => h !== day);
+                                handleInputChange(newHours, "preferred_working_hours");
+                              }}
+                            />
+                            <span>{day.charAt(0).toUpperCase() + day.slice(1)}</span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                    {errors.preferred_working_hours && <span className="error">{errors.preferred_working_hours}</span>}
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="bio">Bio</label>
+                    <textarea
+                      id="bio"
+                      value={formData.bio}
+                      onChange={(e) => handleInputChange(e, "bio")}
+                      placeholder="Tell us about yourself..."
+                      rows="3"
+                      maxLength="1000"
+                    />
+                    <span className="help-text">Optional: Describe your background and experience</span>
+                    {errors.bio && <span className="error">{errors.bio}</span>}
                   </div>
                 </div>
               </div>
@@ -780,14 +929,31 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                   <div className="selected-skills">
                     <h4>Selected Primary Skill</h4>
                     <Dropdown menu={skillMenu(formData.skills_id[0])} trigger={["click"]}>
-                      <div className="skill-item ant-dropdown-trigger">
-                        <span>
-                          {formData.skills_id[0].skill_name}{" "}
-                          {formData.skills_id[0].sub_skills?.length > 0
-                            ? `(Sub-skills: ${formData.skills_id[0].sub_skills.join(", ")})`
-                            : ""}
-                        </span>
-                        <IconChevronDown size={16} />
+                      <div
+                        className="skill-item ant-dropdown-trigger"
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={(e) => e.key === 'Enter' && console.log('Primary skill clicked')}
+                      >
+                        <div className="skill-info">
+                          <span className="skill-name">{formData.skills_id[0].skill_name}</span>
+                          {formData.skills_id[0].sub_skills?.length > 0 && (
+                            <span className="skill-sub-skills">
+                              Sub-skills: {formData.skills_id[0].sub_skills.join(", ")}
+                            </span>
+                          )}
+                          {formData.skills_id[0].experience && (
+                            <span className="skill-experience">
+                              Experience: {experienceOptions.find(e => e.value === formData.skills_id[0].experience)?.label}
+                            </span>
+                          )}
+                          {formData.skills_id[0].hourly_rate && (
+                            <span className="skill-rate">
+                              Rate: ₱{formData.skills_id[0].hourly_rate}/hr
+                            </span>
+                          )}
+                        </div>
+                        <IconChevronDown size={16} className="dropdown-arrow" />
                       </div>
                     </Dropdown>
                   </div>
@@ -818,12 +984,31 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                     <h4>Selected Additional Skills</h4>
                     {formData.skills_id.slice(1).map((skill) => (
                       <Dropdown key={skill.skill_id} menu={skillMenu(skill)} trigger={["click"]}>
-                        <div className="skill-item ant-dropdown-trigger">
-                          <span>
-                            {skill.skill_name}{" "}
-                            {skill.sub_skills?.length > 0 ? `(Sub-skills: ${skill.sub_skills.join(", ")})` : ""}
-                          </span>
-                          <IconChevronDown size={16} />
+                        <div
+                          className="skill-item ant-dropdown-trigger"
+                          role="button"
+                          tabIndex={0}
+                          onKeyPress={(e) => e.key === 'Enter' && console.log('Additional skill clicked')}
+                        >
+                          <div className="skill-info">
+                            <span className="skill-name">{skill.skill_name}</span>
+                            {skill.sub_skills?.length > 0 && (
+                              <span className="skill-sub-skills">
+                                Sub-skills: {skill.sub_skills.join(", ")}
+                              </span>
+                            )}
+                            {skill.experience && (
+                              <span className="skill-experience">
+                                Experience: {experienceOptions.find(e => e.value === skill.experience)?.label}
+                              </span>
+                            )}
+                            {skill.hourly_rate && (
+                              <span className="skill-rate">
+                                Rate: ₱{skill.hourly_rate}/hr
+                              </span>
+                            )}
+                          </div>
+                          <IconChevronDown size={16} className="dropdown-arrow" />
                         </div>
                       </Dropdown>
                     ))}
@@ -931,6 +1116,38 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                   <IconX size={20} className="close-icon" onClick={handleModalClose} />
                 </div>
                 <div className="modal-body">
+                  <div className="skill-details-section">
+                    <div className="experience-container">
+                      <label className="experience-label">Experience Level <span className="required">(Required)</span></label>
+                      <Select
+                        value={selectedSkill.experience || '0-11-months'}
+                        onChange={(value) => setSelectedSkill(prev => ({ ...prev, experience: value }))}
+                        style={{ width: '100%', marginBottom: '15px' }}
+                        className="experience-select"
+                      >
+                        {experienceOptions.map(option => (
+                          <Option key={option.value} value={option.value}>
+                            {option.label}
+                          </Option>
+                        ))}
+                      </Select>
+                    </div>
+
+                    <div className="skill-hourly-rate-container">
+                      <label className="skill-rate-label">Hourly Rate for this Skill (PHP)</label>
+                      <input
+                        type="number"
+                        value={selectedSkill.hourly_rate || ''}
+                        onChange={(e) => setSelectedSkill(prev => ({ ...prev, hourly_rate: e.target.value }))}
+                        placeholder="e.g., 500"
+                        min="0"
+                        step="10"
+                        className="skill-hourly-rate-input"
+                      />
+                      <p className="skill-rate-note">Set a specific rate for this skill (optional)</p>
+                    </div>
+                  </div>
+
                   {selectedSkill.sub_skills.length > 0 ? (
                     <div className="sub-skills-section">
                       <label className="sub-skills-label">
@@ -988,6 +1205,9 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                   )}
                 </div>
                 <div className="modal-footer">
+                  <button className="cancel-btn" onClick={handleModalClose}>
+                    Cancel
+                  </button>
                   <button className="save-btn" onClick={handleSaveSkill}>
                     Save
                   </button>

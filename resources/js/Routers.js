@@ -66,6 +66,23 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   return children;
 };
 
+// Role-based route protection component
+const RoleBasedRoute = ({ children, restrictedRoles = [] }) => {
+  const location = useLocation();
+  const { isAuthenticated, userRole } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace state={{ from: location }} />;
+  }
+
+  // If user's role is in the restricted roles, redirect to homepage
+  if (restrictedRoles.includes(userRole)) {
+    return <Navigate to="/homepage" replace />;
+  }
+
+  return children;
+};
+
 const PublicRoute = ({ children }) => {
   const { isAuthenticated, userRole } = useAuth();
   const location = useLocation();
@@ -111,20 +128,66 @@ export default function Routers() {
           }
         />
         <Route path="/homepage" element={<Homepage />} />
-        <Route path="/services" element={<Service />} />
+        <Route 
+          path="/services" 
+          element={
+            <RoleBasedRoute restrictedRoles={[1]}>
+              <Service />
+            </RoleBasedRoute>
+          } 
+        />
         <Route path="/headerz" element={<Headerz />} />
-        <Route path="/find-jobs" element={<FindJob />} />
+        <Route 
+          path="/find-jobs" 
+          element={
+            <RoleBasedRoute restrictedRoles={[2]}>
+              <FindJob />
+            </RoleBasedRoute>
+          } 
+        />
         <Route path="/job/:jobId" element={<JobProfile />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/message" element={<Message />} />
         <Route path="/notifications" element={<Notif />} />
-        <Route path="/browse" element={<Browse />} />
-        <Route path="/browse-white" element={<BrowseWhite />} />
+        <Route 
+          path="/browse" 
+          element={
+            <RoleBasedRoute restrictedRoles={[1]}>
+              <Browse />
+            </RoleBasedRoute>
+          } 
+        />
+        <Route 
+          path="/browse-white" 
+          element={
+            <RoleBasedRoute restrictedRoles={[1]}>
+              <BrowseWhite />
+            </RoleBasedRoute>
+          } 
+        />
         <Route path="/complete" element={<Complete />} />
         <Route path="/orders_modal" element={<Orders_modal />} />
         <Route path="/pay" element={<Pay />} />
-        <Route path="/profile/:workerId" element={<Profile />} />
+        <Route 
+          path="/profile/:workerId" 
+          element={
+            <RoleBasedRoute restrictedRoles={[1]}>
+              <Profile />
+            </RoleBasedRoute>
+          } 
+        />
         <Route path="/profile-settings/*" element={<ProfileSettings />} />
+        <Route 
+          path="/post-jobs" 
+          element={
+            <RoleBasedRoute restrictedRoles={[1]}>
+              <div style={{ padding: '2rem', textAlign: 'center' }}>
+                <h2>Post Jobs</h2>
+                <p>This feature is coming soon!</p>
+              </div>
+            </RoleBasedRoute>
+          } 
+        />
         <Route
           path="/admin"
           element={

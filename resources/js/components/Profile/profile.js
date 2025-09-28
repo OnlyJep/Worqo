@@ -1,57 +1,329 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import './../../../sass/components/profile.scss';
 import Headerz from "../HeaderContent/Headerz";
-import { IconBrandTwitter, IconBrandLinkedin, IconBrandInstagram } from '@tabler/icons-react'; // Removed IconX since it's no longer used
 import profilePhoto from '../../../../resources/sass/img/pfp.svg';
 import coverPhoto from '../../../../resources/sass/img/coverphoto.svg';
 import BookModal from './BookModal';
+import Loader from "../LoaderContent/loader";
+import { message } from 'antd';
 
 const Profile = ({ initialServiceType }) => {
+  const { workerId } = useParams();
   const [activeTab, setActiveTab] = useState('OVERVIEW');
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [bookingDetails, setBookingDetails] = useState(null);
+  const [worker, setWorker] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  // Mock worker data
-  const worker = {
-    id: 1,
-    name: "Lebron James",
-    role: "Master Plumber",
-    status: "ACTIVE NOW",
-    hourlyRate: 200.17,
-    description: "Experienced plumber with over 10 years in the field, specializing in residential and commercial plumbing solutions.",
-    education: "Associates Degree in Plumbing Technology",
-    skills: ["Pipe Installation", "Leak Repair", "System Maintenance"],
-    experience: "10+ years",
-    location: "Los Angeles, CA",
-    memberSince: "September 27, 2021",
-    rating: 4.8,
-    reviews: [
-      { id: 1, reviewer: "John S.", rating: 5, comment: "Lebron did an excellent job fixing our pipe leak. Very professional!", date: "August 15, 2025" },
-      { id: 2, reviewer: "Sarah M.", rating: 4, comment: "Good work, but scheduling was a bit tricky.", date: "July 20, 2025" },
-    ],
-    credentials: [
-      "Licensed Master Plumber, California",
-      "Certified in Backflow Prevention",
-      "OSHA Safety Certification",
-    ],
+  // Helper function to get rank based on experience
+  const getRankByExperience = (experience) => {
+    switch (experience) {
+      case '0-11-months':
+        return { name: 'Bronze', image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg' };
+      case '1-2-years':
+        return { name: 'Silver', image: 'img/rank/pp1cpyZuiQcpUy44geQdA6GtN5DzvJBZu1Jra53H.png' };
+      case '2-5-years':
+        return { name: 'Gold', image: 'img/rank/aTxm30AVX6eA2bX8ICZLRskw66eg9pBgibzhutXO.jpg' };
+      case '5-10-years':
+        return { name: 'Diamond', image: 'img/rank/BT3ZPIEvlO4KYEsUpPhD6jVQyskw0tPknV43CoY1.jpg' };
+      default:
+        return { name: 'Bronze', image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg' };
+    }
   };
+
+  // Subscription plans
+  const subscriptionPlans = {
+    monthly: {
+      name: "Monthly Plan",
+      price: 299,
+      period: "month",
+      features: ["View contact information", "Access to worker profiles", "Priority support"]
+    },
+    yearly: {
+      name: "Yearly Plan", 
+      price: 2999,
+      period: "year",
+      features: ["View contact information", "Access to worker profiles", "Priority support", "Save 17%"]
+    }
+  };
+
+  const handleContactClick = () => {
+    setIsSubscriptionModalOpen(true);
+  };
+
+  const handlePlanSelect = (planType) => {
+    setSelectedPlan(planType);
+  };
+
+  const handlePayment = (paymentMethod) => {
+    // Handle payment logic here
+    console.log(`Processing ${paymentMethod} payment for ${selectedPlan} plan`);
+    message.success(`Payment processed successfully! You now have access to contact information.`);
+    setIsSubscriptionModalOpen(false);
+    setSelectedPlan(null);
+  };
+
+  // Check if user is logged in
+  const isLoggedIn = () => {
+    const authToken = localStorage.getItem("auth_token");
+    return !!authToken;
+  };
+
+  // Handle Hire Now button click
+  const handleHireNowClick = () => {
+    if (!isLoggedIn()) {
+      setIsLoginModalOpen(true);
+    } else {
+      setIsBookingModalOpen(true);
+    }
+  };
+
+  // Fetch worker data from API
+  useEffect(() => {
+    const fetchWorkerData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const authToken = localStorage.getItem("auth_token");
+        
+        // Check if user is logged in and get their role
+        const userData = JSON.parse(localStorage.getItem("user") || '{}');
+        const currentUser = userData.user || userData;
+        
+        const headers = authToken
+          ? { Authorization: `Bearer ${authToken}`, Accept: "application/json" }
+          : { Accept: "application/json" };
+
+        let workerData;
+        try {
+          const response = await axios.get(`http://127.0.0.1:8000/api/workers/${workerId}`, {
+            headers,
+            timeout: 10000,
+          });
+          workerData = response.data;
+        } catch (apiError) {
+          // If the API call fails, it means the user is not a worker
+          if (apiError.response?.status === 404) {
+            setError("This user is not a worker. Only worker profiles can be viewed here.");
+            setLoading(false);
+            return;
+          }
+          throw apiError; // Re-throw if it's not a 404 error
+        }
+
+        console.log("Raw worker data from API:", workerData);
+        console.log("Profile data:", workerData.profile);
+        console.log("Worker data:", workerData.worker);
+        console.log("Bio:", workerData.worker?.bio);
+        console.log("Skills:", workerData.worker?.skills_id);
+        console.log("Primary skills:", workerData.worker?.skills_id?.primary_skills);
+        console.log("Additional skills:", workerData.worker?.skills_id?.additional_skills);
+        console.log("Verified status:", workerData.worker?.verified);
+        console.log("Hourly rate from primary skill:", workerData.worker?.skills_id?.primary_skills?.[0]?.hourly_rate);
+        
+        // Check if the target user is a worker (has worker data)
+        if (!workerData.worker) {
+          setError("This user is not a worker. Only worker profiles can be viewed here.");
+          setLoading(false);
+          return;
+        }
+        
+        // Allow viewing of any worker profile, including own profile
+        // This allows employers to view their own worker profiles
+        
+        // Format the worker data
+        const firstName = workerData.profile?.first_name || '';
+        const middleName = workerData.profile?.middlename || '';
+        const lastName = workerData.profile?.last_name || '';
+        const suffix = workerData.profile?.suffix_id || '';
+        
+        // Combine name parts
+        const nameParts = [firstName, middleName, lastName, suffix].filter(part => part && part.trim());
+        const fullName = nameParts.join(' ').trim() || 'Unknown Worker';
+        
+        // Combine address parts
+        const addressParts = [
+          workerData.profile?.street,
+          workerData.profile?.city,
+          workerData.profile?.province,
+          workerData.profile?.postal_code,
+          workerData.profile?.country
+        ].filter(part => part && part.trim());
+        const fullAddress = addressParts.join(', ');
+        
+        const formattedWorker = {
+          id: workerData.id,
+          name: fullName,
+          email: workerData.email,
+          status: "ACTIVE NOW", // Since we only show ACCEPTED workers
+          hourlyRate: workerData.worker?.skills_id?.primary_skills?.[0]?.hourly_rate 
+            ? parseFloat(workerData.worker.skills_id.primary_skills[0].hourly_rate) 
+            : 150.00,
+          description: workerData.worker?.bio || "No bio available",
+          work_type: workerData.worker?.work_type || 'part-time',
+          hours_per_day: workerData.worker?.hours_per_day || 4,
+          monthly_salary: workerData.worker?.monthly_salary || null,
+          location: fullAddress || 'Address not specified',
+          profile_img: workerData.profile?.profile_img,
+          contact_number: workerData.profile?.contact_number,
+          street: workerData.profile?.street,
+          postal_code: workerData.profile?.postal_code,
+          country: workerData.profile?.country,
+          // Keep original skills structure for detailed display
+          primary_skills: workerData.worker?.skills_id?.primary_skills || [],
+          additional_skills: workerData.worker?.skills_id?.additional_skills || [],
+          // Format skills with sub-skills for display
+          skills: [
+            ...(workerData.worker?.skills_id?.primary_skills || []),
+            ...(workerData.worker?.skills_id?.additional_skills || [])
+          ].map(skill => {
+            const skillName = skill.skill_name || 'Unknown Skill';
+            const subSkills = skill.sub_skills || [];
+            if (subSkills.length > 0) {
+              return `${skillName} - ${subSkills.join(', ')}`;
+            }
+            return skillName;
+          }),
+          // Format credentials
+          credentials: workerData.worker?.credentials_name || [],
+          credentials_photo: workerData.worker?.credentials_photo || [],
+          created_at: workerData.created_at,
+          // Add verified and rank information
+          verified: workerData.worker?.verified === true || workerData.worker?.verified === 1,
+          rank: workerData.worker?.rank || null,
+        };
+
+        console.log("Formatted worker data:", formattedWorker);
+        setWorker(formattedWorker);
+      } catch (error) {
+        console.error("Error fetching worker data:", error.response?.data || error.message);
+        setError("Failed to load worker profile. Please try again later.");
+        message.error("Failed to load worker profile.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (workerId) {
+      fetchWorkerData();
+    }
+  }, [workerId]);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
-  const handleBookingSubmit = (details) => {
-    setBookingDetails(details);
-    setIsBookingModalOpen(false);
-    setIsConfirmationModalOpen(true);
+  const handleBookingSubmit = async (details) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        message.error("Please log in to book this worker");
+        setIsLoginModalOpen(true);
+        return;
+      }
+
+      // Check if user is trying to book themselves
+      const currentUserId = JSON.parse(localStorage.getItem("user"))?.id;
+      if (currentUserId && currentUserId === worker.id) {
+        message.error("You cannot book yourself");
+        return;
+      }
+
+      // Validate worker data
+      if (!worker || !worker.id) {
+        message.error("Worker information is missing. Please refresh the page and try again.");
+        return;
+      }
+
+      // Convert datetime-local format to proper date format for backend
+      const formatDateTime = (dateTimeString) => {
+        if (!dateTimeString) return null;
+        // Convert "YYYY-MM-DDTHH:MM" to "YYYY-MM-DD HH:MM:SS"
+        const date = new Date(dateTimeString);
+        return date.toISOString().slice(0, 19).replace('T', ' ');
+      };
+
+      const bookingData = {
+        worker_id: worker.id,
+        service_type: details.service_type,
+        work_type: details.work_type,
+        description: details.description,
+        book_in: formatDateTime(details.book_in),
+        book_end: formatDateTime(details.book_end),
+        hourly_rate: parseFloat(worker.hourlyRate) || 0
+      };
+
+      console.log('Sending booking data:', bookingData);
+
+      const response = await axios.post('http://127.0.0.1:8000/api/bookings', bookingData, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (response.data.success) {
+        message.success("Booking request sent successfully!");
+        setBookingDetails(details);
+        setIsBookingModalOpen(false);
+        setIsConfirmationModalOpen(true);
+      } else {
+        message.error(response.data.message || "Failed to send booking request");
+      }
+    } catch (error) {
+      console.error("Booking error:", error.response?.data || error.message);
+      
+      if (error.response?.status === 422) {
+        // Handle validation errors
+        const errors = error.response.data?.errors;
+        if (errors) {
+          const errorMessages = Object.values(errors).flat();
+          message.error(`Validation failed: ${errorMessages.join(', ')}`);
+        } else {
+          message.error(error.response.data?.message || "Validation failed");
+        }
+      } else {
+        const errorMessage = error.response?.data?.message || "Failed to send booking request";
+        message.error(errorMessage);
+      }
+    }
   };
 
   const handleConfirmBooking = () => {
     setIsConfirmationModalOpen(false);
     setIsSuccessModalOpen(true);
   };
+
+  if (loading) {
+    return (
+      <div className="profile-page">
+        <Headerz />
+        <div className="loading-container">
+          <Loader />
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !worker) {
+    return (
+      <div className="profile-page">
+        <Headerz />
+        <div className="error-container">
+          <p className="error-message">{error || "Worker not found"}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="profile-page">
@@ -61,56 +333,55 @@ const Profile = ({ initialServiceType }) => {
           <img src={coverPhoto} alt="Cover" />
         </div>
         <div className="profile-photo-wrapper">
-          <img src={profilePhoto} alt="Profile" className="profile-photo" />
+          <img 
+            src={worker.profile_img 
+              ? `http://127.0.0.1:8000/storage/${worker.profile_img}` 
+              : profilePhoto
+            } 
+            alt="Profile" 
+            className="profile-photo" 
+          />
         </div>
       </div>
 
       <div className="profile-container">
         <div className="profile-left">
           <div className="profile-info">
+            <div className="name-container">
             <h2>{worker.name}</h2>
+               <div className="badges-container">
+                 {(worker.verified === true || worker.verified === 1) && (
+                   <div className="verified-badge" title="Verified Worker">
+                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                       <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="#4CAF50"/>
+                     </svg>
+                   </div>
+                 )}
+               </div>
+            </div>
             <div className="status-container">
               <span className="status-dot"></span>
               <p className="status">{worker.status === "ACTIVE NOW" ? "Available now" : worker.status}</p>
             </div>
             <p className="location">{worker.location}</p>
-            <button className="edit-profile" onClick={() => setIsBookingModalOpen(true)}>
-              BOOK NOW
+            <button className="edit-profile" onClick={handleHireNowClick}>
+              HIRE NOW
             </button>
           </div>
           <div className="stats">
             <div className="stat-item">
-              <span className="stat-label">Experience</span>
-              <span className="stat-number">10+ years</span>
+              <span className="stat-label">Work Type</span>
+              <span className="stat-number">{worker.work_type || 'Part-time'}</span>
             </div>
             <div className="stat-item">
               <span className="stat-label">Hourly Rate</span>
-              <span className="stat-number">$200.17/hr</span>
+              <span className="stat-number">₱{worker.hourlyRate}/hr</span>
             </div>
             <div className="stat-item">
-              <span className="stat-label">Rating</span>
-              <span className="stat-number">4.8 ★</span>
-            </div>
-          </div>
-          <div className="social-links">
-            <h4>ON THE WEB</h4>
-            <div className="social-links-container">
-              <div className="social-icon">
-                <IconBrandTwitter size={20} className="social-media-icon" />
-                <span>Twitter</span>
-              </div>
-              <div className="social-icon">
-                <IconBrandLinkedin size={20} className="social-media-icon" />
-                <span>LinkedIn</span>
-              </div>
-              <div className="social-icon">
-                <IconBrandInstagram size={20} className="social-media-icon" />
-                <span>Instagram</span>
+              <span className="stat-label">Hours/Day</span>
+              <span className="stat-number">{worker.hours_per_day || 4} hrs</span>
               </div>
             </div>
-          </div>
-          <p className="member-since">MEMBER SINCE: {worker.memberSince}</p>
-          <p className="report">Report Profile</p>
         </div>
 
         <div className="profile-right">
@@ -129,40 +400,113 @@ const Profile = ({ initialServiceType }) => {
             {activeTab === 'OVERVIEW' && (
               <div className="overview">
                 <h4>About</h4>
-                <p>{worker.description}</p>
+                <p>{worker.description || "No bio available"}</p>
                 <h4>Skills</h4>
-                <div className="skills-row">
-                  {worker.skills.map((skill, index) => (
-                    <span key={index} className="chip">{skill}</span>
-                  ))}
+                <div className="skills-section">
+                  {worker.primary_skills.length > 0 && (
+                    <div className="skills-category">
+                      <h5>Primary Skills</h5>
+                      {worker.primary_skills.map((skill, index) => {
+                        const skillRank = getRankByExperience(skill.experience);
+                        return (
+                          <div key={index} className="skill-item">
+                            <div className="skill-header">
+                              <div className="skill-name-with-rank">
+                                <img 
+                                  src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
+                                  alt={`${skillRank.name} Rank`}
+                                  className="skill-rank-icon"
+                                />
+                                <span className="skill-name">
+                                  {skill.skill_name}
+                                  {skill.sub_skills && skill.sub_skills.length > 0 && (
+                                    <span className="sub-skills"> - {skill.sub_skills.join(', ')}</span>
+                                  )}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="skill-details">
+                              <span className="experience">Experience: {skill.experience}</span>
+                              <span className="hourly-rate">₱{skill.hourly_rate}/hour</span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  
+                  {worker.additional_skills.length > 0 && (
+                    <div className="skills-category">
+                      <h5>Additional Skills</h5>
+                      {worker.additional_skills.map((skill, index) => {
+                        const skillRank = getRankByExperience(skill.experience);
+                        return (
+                          <div key={index} className="skill-item">
+                            <div className="skill-header">
+                              <div className="skill-name-with-rank">
+                                <img 
+                                  src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
+                                  alt={`${skillRank.name} Rank`}
+                                  className="skill-rank-icon"
+                                />
+                                <span className="skill-name">
+                                  {skill.skill_name}
+                                  {skill.sub_skills && skill.sub_skills.length > 0 && (
+                                    <span className="sub-skills"> - {skill.sub_skills.join(', ')}</span>
+                                  )}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="skill-details">
+                              <span className="experience">Experience: {skill.experience}</span>
+                              <span className="hourly-rate">₱{skill.hourly_rate}/hour</span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                  
+                  {worker.primary_skills.length === 0 && worker.additional_skills.length === 0 && (
+                    <p>No skills available</p>
+                  )}
                 </div>
-                <h4>Education</h4>
-                <p>{worker.education}</p>
               </div>
             )}
             {activeTab === 'CREDENTIALS' && (
               <div className="credentials">
                 <h4>Credentials</h4>
+                {worker.credentials.length > 0 ? (
                 <ul>
                   {worker.credentials.map((credential, index) => (
                     <li key={index}>{credential}</li>
                   ))}
                 </ul>
+                ) : (
+                  <p>No credentials available</p>
+                )}
+                {worker.credentials_photo.length > 0 && (
+                  <div className="credentials-photos">
+                    <h5>Credential Documents</h5>
+                    {worker.credentials_photo.map((photo, index) => (
+                      <div key={index} className="credential-photo">
+                        <a 
+                          href={`http://127.0.0.1:8000/storage/${photo}`} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          {worker.credentials[index] || `Document ${index + 1}`}
+                        </a>
+                  </div>
+                ))}
+                  </div>
+                )}
               </div>
             )}
             {activeTab === 'REVIEWS' && (
               <div className="reviews">
-                <h4>Reviews ({worker.reviews.length})</h4>
-                {worker.reviews.map((review) => (
-                  <div key={review.id} className="review-item">
-                    <div className="review-header">
-                      <span className="reviewer">{review.reviewer}</span>
-                      <span className="rating">{'★'.repeat(review.rating)}</span>
-                    </div>
-                    <p className="review-comment">{review.comment}</p>
-                    <p className="review-date">{review.date}</p>
-                  </div>
-                ))}
+                <h4>Reviews</h4>
+                <p>No reviews available yet.</p>
               </div>
             )}
           </div>
@@ -187,55 +531,30 @@ const Profile = ({ initialServiceType }) => {
                 <input type="text" value={worker.name} readOnly disabled />
               </div>
               <div className="form-group">
-                <label>Email</label>
-                <input type="text" value={bookingDetails.email} readOnly disabled />
-              </div>
-              <div className="form-group name-row">
-                <div className="name-field">
-                  <label>First Name</label>
-                  <input type="text" value={bookingDetails.firstName} readOnly disabled />
-                </div>
-                <div className="name-field">
-                  <label>Middle Name</label>
-                  <input type="text" value={bookingDetails.middleName} readOnly disabled />
-                </div>
-              </div>
-              <div className="form-group name-row">
-                <div className="name-field">
-                  <label>Last Name</label>
-                  <input type="text" value={bookingDetails.lastName} readOnly disabled />
-                </div>
-                <div className="name-field">
-                  <label>Suffix</label>
-                  <input type="text" value={bookingDetails.suffix} readOnly disabled />
-                </div>
-              </div>
-              <div className="form-group">
                 <label>Service Type</label>
-                <input type="text" value={bookingDetails.serviceType} readOnly disabled />
+                <input type="text" value={bookingDetails.service_type} readOnly disabled />
               </div>
               <div className="form-group">
-                <label>Location</label>
-                <input type="text" value="Butuan City" readOnly disabled />
+                <label>Work Type</label>
+                <input type="text" value={bookingDetails.work_type} readOnly disabled />
               </div>
               <div className="form-group">
                 <label>Book In</label>
-                <input type="text" value={bookingDetails.bookIn} readOnly disabled />
+                <input type="text" value={bookingDetails.book_in} readOnly disabled />
               </div>
               <div className="form-group">
                 <label>Book End</label>
-                <input type="text" value={bookingDetails.bookEnd} readOnly disabled />
+                <input type="text" value={bookingDetails.book_end} readOnly disabled />
               </div>
               <div className="form-group">
                 <label>Description</label>
                 <textarea value={bookingDetails.description} readOnly disabled />
               </div>
               <div className="form-group">
-                <label>Estimated Salary</label>
+                <label>Estimated Cost</label>
                 <div>
-                  Daily: ${bookingDetails ? calculateSalary(bookingDetails).daily : '0.00'}<br />
-                  Monthly: ${bookingDetails ? calculateSalary(bookingDetails).monthly : '0.00'}<br />
-                  Yearly: ${bookingDetails ? calculateSalary(bookingDetails).yearly : '0.00'}
+                  Hours: {bookingDetails ? calculateSalary(bookingDetails).hours : '0'}<br />
+                  Total: ₱{bookingDetails ? calculateSalary(bookingDetails).total : '0.00'}
                 </div>
               </div>
             </div>
@@ -269,22 +588,168 @@ const Profile = ({ initialServiceType }) => {
           </div>
         </div>
       )}
+
+      {/* Subscription Modal */}
+      {isSubscriptionModalOpen && (
+        <div className="adminmodal-overlay">
+          <div className="adminmodal subscription-modal">
+            <h2>Upgrade to Premium</h2>
+            <p className="modal-subtitle">Unlock contact information and premium features</p>
+            
+            <div className="subscription-plans">
+              <div 
+                className={`plan-card ${selectedPlan === 'monthly' ? 'selected' : ''}`}
+                onClick={() => handlePlanSelect('monthly')}
+              >
+                <h3>{subscriptionPlans.monthly.name}</h3>
+                <div className="price">
+                  <span className="currency">₱</span>
+                  <span className="amount">{subscriptionPlans.monthly.price}</span>
+                  <span className="period">/{subscriptionPlans.monthly.period}</span>
+                </div>
+                <ul className="features">
+                  {subscriptionPlans.monthly.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div 
+                className={`plan-card ${selectedPlan === 'yearly' ? 'selected' : ''}`}
+                onClick={() => handlePlanSelect('yearly')}
+              >
+                <h3>{subscriptionPlans.yearly.name}</h3>
+                <div className="price">
+                  <span className="currency">₱</span>
+                  <span className="amount">{subscriptionPlans.yearly.price}</span>
+                  <span className="period">/{subscriptionPlans.yearly.period}</span>
+                </div>
+                <ul className="features">
+                  {subscriptionPlans.yearly.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+                <div className="savings-badge">Save 17%</div>
+              </div>
+            </div>
+
+            {selectedPlan && (
+              <div className="payment-methods">
+                <h4>Choose Payment Method</h4>
+                <div className="payment-options">
+                  <button 
+                    className="payment-btn gcash"
+                    onClick={() => handlePayment('GCash')}
+                  >
+                    <span className="payment-icon">💳</span>
+                    GCash
+                  </button>
+                  <button 
+                    className="payment-btn debit"
+                    onClick={() => handlePayment('Debit Card')}
+                  >
+                    <span className="payment-icon">💳</span>
+                    Debit Card
+                  </button>
+                  <button 
+                    className="payment-btn credit"
+                    onClick={() => handlePayment('Credit Card')}
+                  >
+                    <span className="payment-icon">💳</span>
+                    Credit Card
+                  </button>
+                  <button 
+                    className="payment-btn paypal"
+                    onClick={() => handlePayment('PayPal')}
+                  >
+                    <span className="payment-icon">💳</span>
+                    PayPal
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <div className="adminmodal-buttons">
+              <button 
+                className="cancel-button" 
+                onClick={() => {
+                  setIsSubscriptionModalOpen(false);
+                  setSelectedPlan(null);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Login Modal */}
+      {isLoginModalOpen && (
+        <div className="adminmodal-overlay">
+          <div className="adminmodal login-modal">
+            <h2>Sign In Required</h2>
+            <p className="modal-subtitle">You need to be logged in to book this worker</p>
+            
+            <div className="login-options">
+              <div className="login-option">
+                <h3>Already have an account?</h3>
+                <p>Sign in to your existing account to book this worker</p>
+                <button 
+                  className="login-btn signin-btn"
+                  onClick={() => {
+                    setIsLoginModalOpen(false);
+                    // Navigate to login page or open login modal
+                    window.location.href = '/login';
+                  }}
+                >
+                  Sign In
+                </button>
+              </div>
+              
+              <div className="login-divider">
+                <span>OR</span>
+              </div>
+              
+              <div className="login-option">
+                <h3>New to Worqo?</h3>
+                <p>Create a new account to start booking workers</p>
+                <button 
+                  className="login-btn signup-btn"
+                  onClick={() => {
+                    setIsLoginModalOpen(false);
+                    // Navigate to signup page or open signup modal
+                    window.location.href = '/register';
+                  }}
+                >
+                  Sign Up
+                </button>
+              </div>
+            </div>
+
+            <div className="adminmodal-buttons">
+              <button 
+                className="cancel-button" 
+                onClick={() => setIsLoginModalOpen(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 
   function calculateSalary(details) {
-    if (!details.bookIn || !details.bookEnd) return { daily: 0, monthly: 0, yearly: 0 };
-    const start = new Date(details.bookIn);
-    const end = new Date(details.bookEnd);
+    if (!details.book_in || !details.book_end) return { total: 0, hours: 0 };
+    const start = new Date(details.book_in);
+    const end = new Date(details.book_end);
     const diffTime = Math.abs(end - start);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const diffMonths = Math.floor(diffDays / 30);
-    const diffYears = Math.floor(diffDays / 365);
+    const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
     const hourlyRate = worker.hourlyRate;
-    const daily = hourlyRate * 8 * diffDays;
-    const monthly = hourlyRate * 8 * 30 * diffMonths;
-    const yearly = hourlyRate * 8 * 365 * diffYears;
-    return { daily: daily.toFixed(2), monthly: monthly.toFixed(2), yearly: yearly.toFixed(2) };
+    const total = hourlyRate * diffHours;
+    return { total: total.toFixed(2), hours: diffHours };
   }
 };
 

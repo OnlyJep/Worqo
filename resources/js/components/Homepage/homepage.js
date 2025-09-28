@@ -18,6 +18,7 @@ const HomePage = () => {
       console.log('HomePage: Loaded user from localStorage:', parsedUser);
       setUser(parsedUser);
 
+      // Only show profile modal for workers (role_id === 1), not for employers (role_id === 2)
       if (parsedUser.role_id === 1) {
         const checkProfile = async () => {
           console.log('Checking profile for user:', parsedUser.id);
@@ -72,6 +73,11 @@ const HomePage = () => {
           }
         };
         checkProfile();
+      } else if (parsedUser.role_id === 2) {
+        // For employers, set profile as complete and don't show modal
+        console.log('User is an employer (role_id 2), setting isProfileComplete to true');
+        setIsProfileComplete(true);
+        setShowProfileModal(false);
       }
     } else {
       console.log('No user data found in localStorage');
@@ -162,7 +168,7 @@ const HomePage = () => {
         isOpen={showProfileModal}
         onClose={() => setShowProfileModal(false)}
         onComplete={handleProfileModalComplete}
-        user={user}
+        user={user?.role_id === 1 ? user : null}
       />
     </div>
   );

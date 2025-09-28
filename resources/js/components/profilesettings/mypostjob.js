@@ -1,27 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaUserFriends, FaRegEdit, FaPlus } from 'react-icons/fa';
+import { message } from 'antd';
+import axios from 'axios';
 import ModalPostJob from './modalpostjob';
-import ModalViewEmployees from './modalviewemployees';
+import JobApplicationsModal from './JobApplicationsModal';
 import '../../../sass/components/profilesettings/mypostjob.scss';
 
 const MyPostJob = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isViewEmployeesModalOpen, setIsViewEmployeesModalOpen] = useState(false);
+  const [isApplicationsModalOpen, setIsApplicationsModalOpen] = useState(false);
+  const [selectedJobForApplications, setSelectedJobForApplications] = useState(null);
   const [editingJob, setEditingJob] = useState(null);
-  const [jobs, setJobs] = useState([
-    {
-      id: 1,
-      title: 'Mechanical Engineer',
-      postedDate: 'July 07, 2025',
-      salary: '₱ 30,000.00/month',
-      description: 'We are looking for a skilled and detail-oriented Mechanical Engineer to join our team for [project name or general tasks]. The successful candidate will be responsible for designing, analyzing, and overseeing mechanical systems, tools, and machinery to ensure efficiency, safety, and reliability.',
-      skillsRequirement: 'Mechanical Design & Drafting, Engineering Analysis',
-      typeOfEmployment: 'Full-time',
-      desiredHours: '40',
-      email: 'hr@company.com',
-      contactPerson: 'John Smith'
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [userProfile, setUserProfile] = useState(null);
+
+  useEffect(() => {
+    // Get user profile from localStorage
+    const userData = JSON.parse(localStorage.getItem("user") || '{}');
+    setUserProfile(userData);
+    fetchJobs();
+  }, []);
+
+  const fetchJobs = async () => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        message.error("Please log in to view job posts");
+        return;
+      }
+
+      // First check for expired jobs
+      try {
+        await axios.post('http://127.0.0.1:8000/api/jobposts/check-expired', {}, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json"
+          }
+        });
+      } catch (expiredError) {
+        console.log("No expired jobs to archive");
+      }
+
+      const userData = JSON.parse(localStorage.getItem("user") || '{}');
+      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts?profile_id=${userData.id}&show_archived=true`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json"
+        }
+      });
+
+      if (response.data.job_posts) {
+        setJobs(response.data.job_posts.data || []);
+      } else {
+        message.error("Failed to fetch job posts");
+      }
+    } catch (error) {
+      console.error("Error fetching job posts:", error.response?.data || error.message);
+      message.error("Failed to fetch job posts");
+    } finally {
+      setLoading(false);
     }
-  ]);
+  };
 
   const handleAddJob = () => {
     setEditingJob(null);
@@ -41,56 +81,73 @@ const MyPostJob = () => {
     setEditingJob(null);
   };
 
-  const handleSubmitJob = (jobData) => {
-    if (editingJob) {
-      // Update existing job
-      setJobs(jobs.map(job => 
-        job.id === editingJob.id 
-          ? { 
-              ...job, 
-              title: jobData.jobTitle,
-              description: jobData.jobDescription,
-              salary: jobData.salary,
-              skillsRequirement: jobData.skillsRequirement,
-              typeOfEmployment: jobData.typeOfEmployment,
-              desiredHours: jobData.desiredHours,
-              email: jobData.email,
-              contactPerson: jobData.contactPerson,
-              id: editingJob.id 
-            }
-          : job
-      ));
-    } else {
-      // Add new job
-      const newJob = {
-        id: jobs.length + 1,
-        title: jobData.jobTitle,
+  const handleSubmitJob = async (jobData) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      const userData = JSON.parse(localStorage.getItem("user") || '{}');
+      
+      const jobPayload = {
+        profile_id: userData.id,
+        job_title: jobData.jobTitle,
+        skills: jobData.skills,
+        skill_experiences: jobData.skillExperiences,
         description: jobData.jobDescription,
-        salary: jobData.salary,
-        skillsRequirement: jobData.skillsRequirement,
-        typeOfEmployment: jobData.typeOfEmployment,
-        desiredHours: jobData.desiredHours,
-        email: jobData.email,
-        contactPerson: jobData.contactPerson,
-        postedDate: new Date().toLocaleDateString('en-US', { 
-          year: 'numeric', 
-          month: 'long', 
-          day: '2-digit' 
-        })
+        salary: parseFloat(jobData.salary),
+        salary_type: jobData.salaryType,
+        job_type: jobData.typeOfEmployment,
+        application_start: jobData.applicationStart,
+        application_deadline: jobData.applicationDeadline
       };
-      setJobs([...jobs, newJob]);
+
+      let response;
+      if (editingJob) {
+        // Update existing job
+        response = await axios.put(`http://127.0.0.1:8000/api/jobposts/${editingJob.id}`, jobPayload, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        });
+        message.success("Job post updated successfully");
+      } else {
+        // Create new job
+        response = await axios.post('http://127.0.0.1:8000/api/jobposts', jobPayload, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        });
+        message.success("Job post created successfully");
+      }
+
+      if (response.data) {
+        fetchJobs(); // Refresh the jobs list
+        setIsModalOpen(false);
+        setEditingJob(null);
+      }
+    } catch (error) {
+      console.error("Error submitting job:", error.response?.data || error.message);
+      message.error("Failed to submit job post");
     }
-    setIsModalOpen(false);
-    setEditingJob(null);
   };
 
-  const handleViewApplicants = (jobId) => {
-    setIsViewEmployeesModalOpen(true);
+  const handleViewApplicants = (job) => {
+    setSelectedJobForApplications(job);
+    setIsApplicationsModalOpen(true);
   };
 
-  const handleCloseViewEmployeesModal = () => {
-    setIsViewEmployeesModalOpen(false);
-  };
+
+  if (loading) {
+    return (
+      <div className="my-post-job-container">
+        <div className="loading-container">
+          <p>Loading job posts...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="my-post-job-container">
@@ -103,48 +160,77 @@ const MyPostJob = () => {
       </div>
 
       <div className="jobs-list">
-        {jobs.map((job) => (
-          <div key={job.id} className="job-card">
-            <div className="job-card-header">
-              <div className="job-actions">
-                <button 
-                  className="view-applicants-btn"
-                  onClick={() => handleViewApplicants(job.id)}
-                  title="View Applicants"
-                >
-                  <FaUserFriends className="action-icon" />
-                </button>
-                <button 
-                  className="edit-job-btn"
-                  onClick={() => handleEditJob(job.id)}
-                  title="Edit Job"
-                >
-                  <FaRegEdit className="action-icon" />
-                </button>
+        {jobs.length > 0 ? (
+          jobs.map((job) => (
+            <div key={job.id} className={`job-card ${job.archived ? 'expired' : ''}`}>
+              <div className="job-card-header">
+                <div className="job-actions">
+                  <button 
+                    className="view-applicants-btn"
+                    onClick={() => handleViewApplicants(job)}
+                    title="View Applicants"
+                  >
+                    <FaUserFriends className="action-icon" />
+                  </button>
+                  <button 
+                    className="edit-job-btn"
+                    onClick={() => handleEditJob(job.id)}
+                    title="Edit Job"
+                  >
+                    <FaRegEdit className="action-icon" />
+                  </button>
+                  {job.archived && <div className="expired-badge">EXPIRED</div>}
+                </div>
+              </div>
+
+              <div className="job-content">
+                <h3 className="job-title">{job.job_title || `Job Post #${job.id}`}</h3>
+                
+                <div className="job-metadata">
+                  <span className="posted-date">Posted on {new Date(job.created_at).toLocaleDateString()}</span>
+                  <span className="job-salary">₱{job.salary.toLocaleString()}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</span>
+                </div>
+
+                <div className="job-description">
+                  <h4 className="description-title">Job Overview/Description</h4>
+                  <p className="description-text">{job.description}</p>
+                </div>
+
+                <div className="job-skills">
+                  <h4 className="skills-title">Skills Required</h4>
+                  {job.skills && job.skills.length > 0 ? (
+                    job.skills.map((skill, index) => (
+                      <span key={index} className="skill-tag">
+                        {skill.name} ({skill.experience})
+                      </span>
+                    ))
+                  ) : (
+                    <span className="skill-tag">No specific skills required</span>
+                  )}
+                </div>
+
+                <div className="job-timeline">
+                  <div className="timeline-item">
+                    <span className="timeline-label">Application Start:</span>
+                    <span className="timeline-value">{new Date(job.application_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span>
+                  </div>
+                  <div className="timeline-item">
+                    <span className="timeline-label">Application Deadline:</span>
+                    <span className="timeline-value">{new Date(job.application_deadline).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div className="job-content">
-              <h3 className="job-title">{job.title}</h3>
-              
-              <div className="job-metadata">
-                <span className="posted-date">Posted on {job.postedDate}</span>
-                <span className="job-salary">{job.salary}</span>
-              </div>
-
-              <div className="job-description">
-                <h4 className="description-title">Job Overview/Description</h4>
-                <p className="description-text">{job.description}</p>
-              </div>
-
-              <div className="job-skills">
-                <span className="skill-tag">
-                  {job.skillsRequirement}
-                </span>
-              </div>
+          ))
+        ) : (
+          <div className="empty-state">
+            <div className="empty-icon">
+              <img src="/images/mybooking.svg" alt="No Job Posts" />
             </div>
+            <h3 className="empty-title">No Job Posts Yet</h3>
+            <p className="empty-description">Create your first job post to start hiring workers.</p>
           </div>
-        ))}
+        )}
       </div>
 
       {isModalOpen && (
@@ -155,9 +241,14 @@ const MyPostJob = () => {
         />
       )}
 
-      {isViewEmployeesModalOpen && (
-        <ModalViewEmployees
-          onClose={handleCloseViewEmployeesModal}
+      {isApplicationsModalOpen && selectedJobForApplications && (
+        <JobApplicationsModal
+          jobPostId={selectedJobForApplications.id}
+          jobTitle={selectedJobForApplications.job_title}
+          onClose={() => {
+            setIsApplicationsModalOpen(false);
+            setSelectedJobForApplications(null);
+          }}
         />
       )}
     </div>

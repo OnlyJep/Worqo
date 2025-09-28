@@ -221,4 +221,67 @@
       background-color: #28a745;
     }
   }
+
+  // Profile info styles
+  .profile-info {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    h3 {
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .profile-details {
+      p {
+        margin: 4px 0;
+        font-size: 14px;
+        color: #6b7280;
+
+        strong {
+          color: #374151;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  // Loading and error states
+  .loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #6b7280;
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid #e5e7eb;
+      border-top: 3px solid #3b82f6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 12px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  }
+
+  .error-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #dc2626;
+    text-align: center;
+  }
 }

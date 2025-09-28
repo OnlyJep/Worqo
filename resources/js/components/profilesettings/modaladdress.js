@@ -1,59 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../../sass/components/profilesettings/modaladdress.scss';
 
-const ModalAddress = ({ onClose, onAddAddress, editingAddress }) => {
+const ModalAddress = ({ onClose, onAddAddress, editingAddress, userProfile }) => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    zipCode: '',
-    phoneNumber: '',
-    city: '',
-    province: '',
     street: '',
-    fullAddress: '',
-    isDefault: false
+    contact_number: '',
+    postal_code: '8600' // Fixed value
   });
 
   // Update form data when editingAddress changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (editingAddress) {
       setFormData({
-        firstName: editingAddress.firstName || '',
-        lastName: editingAddress.lastName || '',
-        zipCode: editingAddress.zipCode || '',
-        phoneNumber: editingAddress.phoneNumber || '',
-        city: editingAddress.city || '',
-        province: editingAddress.province || '',
         street: editingAddress.street || '',
-        fullAddress: editingAddress.fullAddress || '',
-        isDefault: editingAddress.isDefault || false
+        contact_number: editingAddress.contact_number || '',
+        postal_code: '8600' // Fixed value
       });
     } else {
       setFormData({
-        firstName: '',
-        lastName: '',
-        zipCode: '',
-        phoneNumber: '',
-        city: '',
-        province: '',
-        street: '',
-        fullAddress: '',
-        isDefault: false
+        street: userProfile?.street || '',
+        contact_number: userProfile?.contact_number || '',
+        postal_code: '8600' // Fixed value
       });
     }
-  }, [editingAddress]);
+  }, [editingAddress, userProfile]);
 
   const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: value === '' ? null : value // Convert empty string to null for suffix_id
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.firstName && formData.lastName && formData.phoneNumber && formData.city) {
+    if (formData.street && formData.contact_number) {
       onAddAddress(formData);
     }
   };
@@ -71,111 +53,88 @@ const ModalAddress = ({ onClose, onAddAddress, editingAddress }) => {
         </div>
 
         <form onSubmit={handleSubmit} className="address-modal-form">
+          {/* Full Name */}
           <div className="address-form-row">
             <div className="address-form-group">
-              <label htmlFor="firstName">First Name</label>
+              <label>Full Name</label>
               <input
                 type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleInputChange}
-                required
-              />
-            </div>
-            <div className="address-form-group">
-              <label htmlFor="lastName">Last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleInputChange}
-                required
+                value={`${userProfile?.first_name || ''} ${userProfile?.middlename || ''} ${userProfile?.last_name || ''} ${userProfile?.suffix?.suffix_name || ''}`.trim()}
+                readOnly
+                className="readonly-input"
               />
             </div>
           </div>
 
+          {/* Contact Number */}
           <div className="address-form-row">
             <div className="address-form-group">
-              <label htmlFor="zipCode">Zip Code</label>
-              <input
-                type="text"
-                id="zipCode"
-                name="zipCode"
-                value={formData.zipCode}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="address-form-group">
-              <label htmlFor="phoneNumber">Phone Number</label>
+              <label htmlFor="contact_number">Contact Number</label>
               <input
                 type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={formData.phoneNumber}
+                id="contact_number"
+                name="contact_number"
+                value={formData.contact_number}
                 onChange={handleInputChange}
+                placeholder="Enter contact number"
                 required
               />
             </div>
           </div>
 
-          <div className="address-form-group">
-            <label htmlFor="city">City</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              value={formData.city}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <div className="address-form-group">
-            <label htmlFor="province">Province</label>
-            <input
-              type="text"
-              id="province"
-              name="province"
-              value={formData.province}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="address-form-group">
-            <label htmlFor="street">Street</label>
-            <input
-              type="text"
-              id="street"
-              name="street"
-              value={formData.street}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="address-form-group">
-            <label htmlFor="fullAddress">Full Address</label>
-            <input
-              type="text"
-              id="fullAddress"
-              name="fullAddress"
-              value={formData.fullAddress}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="address-form-group address-checkbox-group">
-            <label className="address-checkbox-label">
+          {/* Street */}
+          <div className="address-form-row">
+            <div className="address-form-group">
+              <label htmlFor="street">Street</label>
               <input
-                type="checkbox"
-                name="isDefault"
-                checked={formData.isDefault}
+                type="text"
+                id="street"
+                name="street"
+                value={formData.street}
                 onChange={handleInputChange}
+                placeholder="Enter street address"
+                required
               />
-              <span className="address-checkmark"></span>
-              Set as default address
-            </label>
+            </div>
+          </div>
+
+          {/* Province */}
+          <div className="address-form-row">
+            <div className="address-form-group">
+              <label>Province</label>
+              <input
+                type="text"
+                value="Agusan Del Norte"
+                readOnly
+                className="readonly-input"
+              />
+            </div>
+          </div>
+
+          {/* City */}
+          <div className="address-form-row">
+            <div className="address-form-group">
+              <label>City</label>
+              <input
+                type="text"
+                value="Butuan City"
+                readOnly
+                className="readonly-input"
+              />
+            </div>
+          </div>
+
+          {/* Postal Code */}
+          <div className="address-form-row">
+            <div className="address-form-group">
+              <label>Postal Code</label>
+              <input
+                type="text"
+                value="8600"
+                readOnly
+                className="readonly-input"
+              />
+            </div>
           </div>
 
           <div className="address-modal-buttons">

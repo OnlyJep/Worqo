@@ -53,6 +53,7 @@
     }
   }
 
+
   .address-modal-form {
     padding: 0 24px 12px 24px;
 
@@ -102,13 +103,25 @@
         }
       }
 
-      // Specific styling for city, province, street, and full address
-      input[name="city"],
-      input[name="province"],
-      input[name="street"],
-      input[name="fullAddress"] {
-        width: 690px;
+      // All inputs should be full width
+      input {
+        width: 690px !important;
         height: 42px;
+      }
+
+      // Readonly input styling
+      .readonly-input {
+        background-color: #f3f4f6 !important;
+        border: 1px solid #d1d5db !important;
+        color: #6b7280 !important;
+        cursor: not-allowed;
+        
+        &:focus {
+          outline: none !important;
+          border-color: #d1d5db !important;
+          background-color: #f3f4f6 !important;
+          box-shadow: none !important;
+        }
       }
 
       textarea {

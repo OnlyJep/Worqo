@@ -90,12 +90,14 @@ const WorkerList = () => {
           console.error("Fetch data error:", err);
         }
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       }
     };
     fetchData();
     return () => controller.abort();
-  }, [pagination.currentPage, showArchived, searchTerm]);
+  }, [pagination.currentPage, showArchived, searchTerm, activeTab]);
 
   const fetchWorkers = async (page = 1, archived = false, signal) => {
     try {
@@ -103,13 +105,16 @@ const WorkerList = () => {
       if (!authToken) {
         throw new Error("Please log in to view workers.");
       }
+      
       const response = await axios.get(`http://127.0.0.1:8000/api/workers${archived ? '/archived' : ''}`, {
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
         params: { page, limit: 5, search: searchTerm, status: activeTab },
         signal,
         timeout: 10000,
       });
+      
       const workersData = Array.isArray(response.data.workers) ? response.data.workers : [];
+      
       setWorkers(workersData);
       setPagination({
         currentPage: response.data.pagination?.currentPage || 1,
@@ -206,10 +211,24 @@ const WorkerList = () => {
     }
   };
 
+  const handleTabChange = (newTab) => {
+    setActiveTab(newTab);
+    setSelectedWorkers([]);
+    setPagination({ currentPage: 1, totalPages: 1, totalItems: 0 });
+    setError("");
+  };
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setPagination({ ...pagination, currentPage: newPage });
+    }
+  };
+
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
-    setPagination({ ...pagination, currentPage: 1 });
+    setPagination({ currentPage: 1, totalPages: 1, totalItems: 0 });
     setSelectedWorkers([]);
+    setError("");
   };
 
   const handleArchiveClick = (worker) => {
@@ -223,8 +242,9 @@ const WorkerList = () => {
   };
 
   const handleReviewClick = (worker, action) => {
-    if (worker.worker?.is_reviewed === 'ACCEPTED' || worker.worker?.is_reviewed === 'DECLINED') {
-      message.error(`Worker is already ${worker.worker.is_reviewed.toLowerCase()}.`);
+    const status = getReviewStatus(worker.worker?.is_reviewed);
+    if (status === 'ACCEPTED' || status === 'DECLINED') {
+      message.error(`Worker is already ${status.toLowerCase()}.`);
       return;
     }
     setWorkerToReview(worker);
@@ -391,7 +411,8 @@ const WorkerList = () => {
       }
       const pendingIds = selectedWorkers.filter((id) => {
         const worker = workers.find((w) => w.id === id);
-        return worker?.worker?.is_reviewed === 'TO BE REVIEWED';
+        const status = getReviewStatus(worker?.worker?.is_reviewed);
+        return status === 'TO BE REVIEWED';
       });
       if (pendingIds.length === 0) {
         message.error("Selected workers are not pending review.");
@@ -435,7 +456,8 @@ const WorkerList = () => {
       }
       const declinedIds = selectedWorkers.filter((id) => {
         const worker = workers.find((w) => w.id === id);
-        return worker?.worker?.is_reviewed === 'DECLINED';
+        const status = getReviewStatus(worker?.worker?.is_reviewed);
+        return status === 'DECLINED';
       });
       if (declinedIds.length === 0) {
         message.error("Selected workers are not declined.");
@@ -718,6 +740,27 @@ const WorkerList = () => {
   const isImageFile = (path) => /\.(jpg|jpeg|png)$/i.test(path);
 
   const getSkillNames = (skillsId = []) => {
+    // Handle structured skills format with primary_skills and additional_skills
+    if (typeof skillsId === 'object' && skillsId.primary_skills && skillsId.additional_skills) {
+      const primarySkills = Array.isArray(skillsId.primary_skills) ? skillsId.primary_skills : [];
+      const additionalSkills = Array.isArray(skillsId.additional_skills) ? skillsId.additional_skills : [];
+      const allSkills = [...primarySkills, ...additionalSkills];
+      
+      if (allSkills.length === 0) return "None";
+      
+      const skillNames = allSkills.map((skill) => {
+        if (!skill || typeof skill !== "object" || !skill.skill_id) return "Unknown";
+        const skillName = skill.skill_name || skills.find((s) => s.id === parseInt(skill.skill_id))?.name || "Unknown";
+        const subSkills = Array.isArray(skill.sub_skills) && skill.sub_skills.length > 0
+          ? ` (${skill.sub_skills.join(", ")})`
+          : "";
+        return `${skillName}${subSkills}`;
+      }).filter((name) => name !== "Unknown");
+      
+      return skillNames.length > 0 ? skillNames.join(", ") : "None";
+    }
+    
+    // Handle legacy flat array format
     if (!Array.isArray(skillsId) || skillsId.length === 0) return "None";
     return skillsId
       .map((skill) => {
@@ -732,9 +775,46 @@ const WorkerList = () => {
       .join(", ") || "None";
   };
 
+  const getDetailedSkillNames = (skillsId = []) => {
+    // Handle structured skills format with primary_skills and additional_skills
+    if (typeof skillsId === 'object' && skillsId.primary_skills && skillsId.additional_skills) {
+      const primarySkills = Array.isArray(skillsId.primary_skills) ? skillsId.primary_skills : [];
+      const additionalSkills = Array.isArray(skillsId.additional_skills) ? skillsId.additional_skills : [];
+      
+      const formatSkills = (skills, label) => {
+        if (!skills || skills.length === 0) return "";
+        const skillNames = skills.map((skill) => {
+          if (!skill || typeof skill !== "object" || !skill.skill_id) return "Unknown";
+          const skillName = skill.skill_name || skills.find((s) => s.id === parseInt(skill.skill_id))?.name || "Unknown";
+          const subSkills = Array.isArray(skill.sub_skills) && skill.sub_skills.length > 0
+            ? ` (${skill.sub_skills.join(", ")})`
+            : "";
+          
+          // Add experience and hourly rate info
+          const experience = skill.experience ? ` [${skill.experience}]` : "";
+          const hourlyRate = skill.hourly_rate ? ` ₱${skill.hourly_rate}/hr` : "";
+          
+          return `${skillName}${subSkills}${experience}${hourlyRate}`;
+        }).filter((name) => name !== "Unknown");
+        
+        return skillNames.length > 0 ? `${label}: ${skillNames.join(", ")}` : "";
+      };
+      
+      const primaryText = formatSkills(primarySkills, "Primary");
+      const additionalText = formatSkills(additionalSkills, "Additional");
+      
+      const parts = [primaryText, additionalText].filter(text => text !== "");
+      return parts.length > 0 ? parts.join(" | ") : "None";
+    }
+    
+    // Fallback to regular skill names for legacy format
+    return getSkillNames(skillsId);
+  };
+
   const getReviewStatus = (isReviewed) => {
-    if (isReviewed === 'ACCEPTED' || isReviewed === 'DECLINED') return isReviewed;
-    if (isReviewed === null || isReviewed === undefined || isReviewed === '' || isReviewed === '0') return 'TO BE REVIEWED';
+    if (isReviewed === 'ACCEPTED') return 'ACCEPTED';
+    if (isReviewed === 'DECLINED') return 'DECLINED';
+    if (isReviewed === null || isReviewed === undefined || isReviewed === '' || isReviewed === '0' || isReviewed === 'TO BE REVIEWED') return 'TO BE REVIEWED';
     return 'TO BE REVIEWED';
   };
 
@@ -746,14 +826,14 @@ const WorkerList = () => {
     );
   };
 
-  // Server-side pagination + filtering; client still allows search post-filter
-  const workersPerPage = 5;
+  // Server-side pagination and filtering - minimal client-side processing
   const filteredWorkers = workers.filter((worker) => {
     const fullName = getFullName(worker, suffixes).toLowerCase();
-    const matchesSearch = fullName.includes(searchTerm.toLowerCase()) || worker.email?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = searchTerm === '' || fullName.includes(searchTerm.toLowerCase()) || worker.email?.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesSearch;
   });
-  const totalPages = pagination.totalPages || Math.max(1, Math.ceil(filteredWorkers.length / workersPerPage));
+  
+  const totalPages = pagination.totalPages || 1;
   const currentWorkers = filteredWorkers;
   const isAllSelected = selectedWorkers.length > 0 && selectedWorkers.length === currentWorkers.length;
 
@@ -769,7 +849,7 @@ const WorkerList = () => {
           <button
             key={i}
             className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => setPagination({ ...pagination, currentPage: i })}
+            onClick={() => handlePageChange(i)}
           >
             {i}
           </button>
@@ -778,7 +858,7 @@ const WorkerList = () => {
     } else {
       if (startPage > 1) {
         pageNumbers.push(
-          <button key={1} onClick={() => setPagination({ ...pagination, currentPage: 1 })}>
+          <button key={1} onClick={() => handlePageChange(1)}>
             1
           </button>
         );
@@ -792,7 +872,7 @@ const WorkerList = () => {
           <button
             key={i}
             className={pagination.currentPage === i ? "active" : ""}
-            onClick={() => setPagination({ ...pagination, currentPage: i })}
+            onClick={() => handlePageChange(i)}
           >
             {i}
           </button>
@@ -804,7 +884,7 @@ const WorkerList = () => {
           pageNumbers.push(<span key="end-ellipsis" className="ellipsis">...</span>);
         }
         pageNumbers.push(
-          <button key={totalPages} onClick={() => setPagination({ ...pagination, currentPage: totalPages })}>
+          <button key={totalPages} onClick={() => handlePageChange(totalPages)}>
             {totalPages}
           </button>
         );
@@ -823,10 +903,10 @@ const WorkerList = () => {
         <div className="workerlist-content">
           <h2>{showArchived ? "Archived Workers" : "Worker List"}</h2>
           <div className="workerlist-tabs">
-            <button className={activeTab === 'all' ? 'active' : ''} onClick={() => { setActiveTab('all'); setSelectedWorkers([]); setPagination({ ...pagination, currentPage: 1 }); }}>All</button>
-            <button className={activeTab === 'to_review' ? 'active' : ''} onClick={() => { setActiveTab('to_review'); setSelectedWorkers([]); setPagination({ ...pagination, currentPage: 1 }); }}>To Be Reviewed</button>
-            <button className={activeTab === 'accepted' ? 'active' : ''} onClick={() => { setActiveTab('accepted'); setSelectedWorkers([]); setPagination({ ...pagination, currentPage: 1 }); }}>Accepted</button>
-            <button className={activeTab === 'declined' ? 'active' : ''} onClick={() => { setActiveTab('declined'); setSelectedWorkers([]); setPagination({ ...pagination, currentPage: 1 }); }}>Declined</button>
+            <button className={activeTab === 'all' ? 'active' : ''} onClick={() => handleTabChange('all')}>All</button>
+            <button className={activeTab === 'to_review' ? 'active' : ''} onClick={() => handleTabChange('to_review')}>To Be Reviewed</button>
+            <button className={activeTab === 'accepted' ? 'active' : ''} onClick={() => handleTabChange('accepted')}>Accepted</button>
+            <button className={activeTab === 'declined' ? 'active' : ''} onClick={() => handleTabChange('declined')}>Declined</button>
           </div>
           {error && <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>{error}</div>}
           <div className="workerlist-header">
@@ -838,7 +918,10 @@ const WorkerList = () => {
                   className="search-input"
                   placeholder="Search Workers"
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    setPagination({ currentPage: 1, totalPages: 1, totalItems: 0 });
+                  }}
                 />
               </div>
             </div>
@@ -867,22 +950,28 @@ const WorkerList = () => {
                   </button>
                 </>
               )}
-              {selectedWorkers.length > 0 && !showArchived && (activeTab === 'accepted' || activeTab === 'declined') && (
-                <button className="header-button archive-all-button" onClick={() => handleBulkAction("archive")}>
-                  <IconArchive size={20} className="button-icon" />
-                  <span className="button-text">{isAllSelected ? "Archive All" : "Archive Selected"}</span>
-                </button>
-              )}
-              {selectedWorkers.length > 0 && !showArchived && activeTab === 'all' && (
+              {selectedWorkers.length > 0 && !showArchived && activeTab === 'accepted' && (
                 <button className="header-button archive-all-button" onClick={() => handleBulkAction("archive")}>
                   <IconArchive size={20} className="button-icon" />
                   <span className="button-text">{isAllSelected ? "Archive All" : "Archive Selected"}</span>
                 </button>
               )}
               {selectedWorkers.length > 0 && !showArchived && activeTab === 'declined' && (
-                <button className="header-button" onClick={handleBulkDeleteDeclined}>
-                  <FaTrash className="button-icon" />
-                  <span className="button-text">{isAllSelected ? "Delete All" : "Delete Selected"}</span>
+                <>
+                  <button className="header-button archive-all-button" onClick={() => handleBulkAction("archive")}>
+                    <IconArchive size={20} className="button-icon" />
+                    <span className="button-text">{isAllSelected ? "Archive All" : "Archive Selected"}</span>
+                  </button>
+                  <button className="header-button" onClick={handleBulkDeleteDeclined}>
+                    <FaTrash className="button-icon" />
+                    <span className="button-text">{isAllSelected ? "Delete All" : "Delete Selected"}</span>
+                  </button>
+                </>
+              )}
+              {selectedWorkers.length > 0 && !showArchived && activeTab === 'all' && (
+                <button className="header-button archive-all-button" onClick={() => handleBulkAction("archive")}>
+                  <IconArchive size={20} className="button-icon" />
+                  <span className="button-text">{isAllSelected ? "Archive All" : "Archive Selected"}</span>
                 </button>
               )}
               <button className="header-button" onClick={handleAddNewClick}>
@@ -914,9 +1003,11 @@ const WorkerList = () => {
                   <th>Profile Image</th>
                   <th>Full Name</th>
                   <th>Work Type</th>
+                  <th>Hours/Day</th>
+                  <th>Monthly Salary</th>
                   <th>Skills</th>
                   <th>Credentials</th>
-                  <th>Experience</th>
+                  <th>Bio</th>
                   <th>Email</th>
                   <th>Status</th>
                   <th>Created At</th>
@@ -926,7 +1017,7 @@ const WorkerList = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="10" className="loading-row">Loading workers...</td>
+                    <td colSpan="13" className="loading-row">Loading workers...</td>
                   </tr>
                 ) : currentWorkers.length > 0 ? (
                   currentWorkers.map((worker) => {
@@ -970,16 +1061,18 @@ const WorkerList = () => {
                               </>
                             ) : (
                               <>
-                                {activeTab === 'to_review' && getReviewStatus(worker.worker?.is_reviewed) === 'TO BE REVIEWED' ? (
+                                {getReviewStatus(worker.worker?.is_reviewed) === 'TO BE REVIEWED' ? (
                                   <>
                                     <FaCheck
                                       size={16}
                                       className="accept-icon"
+                                      title="Accept Worker"
                                       onClick={() => handleReviewClick(worker, 'accept')}
                                     />
                                     <FaTimes
                                       size={16}
                                       className="decline-icon"
+                                      title="Decline Worker"
                                       onClick={() => handleReviewClick(worker, 'decline')}
                                     />
                                   </>
@@ -1036,7 +1129,13 @@ const WorkerList = () => {
                             ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, (c) => c.toUpperCase())
                             : "N/A"}
                         </td>
-                        <td className="skills-cell">{getSkillNames(worker.worker?.skills_id)}</td>
+                        <td>
+                          {worker.worker?.hours_per_day ? `${worker.worker.hours_per_day} hrs` : "N/A"}
+                        </td>
+                        <td>
+                          {worker.worker?.monthly_salary ? `₱${Number(worker.worker.monthly_salary).toLocaleString()}` : "N/A"}
+                        </td>
+                        <td className="skills-cell">{getDetailedSkillNames(worker.worker?.skills_id)}</td>
                         <td className="credentials-cell">
                           {credentials.length > 0
                             ? credentials.map((cred, index) => (
@@ -1054,17 +1153,15 @@ const WorkerList = () => {
                               ))
                             : "None"}
                         </td>
-                        <td>
-                          {worker.worker?.experience ? (
-                            <span className={`exp-badge ${
-                              worker.worker.experience === '0 to 11 months' ? 'exp-bronze' :
-                              worker.worker.experience === '2 to 5 years' ? 'exp-silver' :
-                              worker.worker.experience === '5 to 10 years' ? 'exp-gold' : 'exp-none'
-                            }`}>
-                              {worker.worker.experience}
+                        <td className="bio-cell">
+                          {worker.worker?.bio ? (
+                            <span title={worker.worker.bio}>
+                              {worker.worker.bio.length > 50 
+                                ? `${worker.worker.bio.substring(0, 50)}...` 
+                                : worker.worker.bio}
                             </span>
                           ) : (
-                            <span className="exp-badge exp-none">No Experience</span>
+                            <span style={{ color: "#888" }}>N/A</span>
                           )}
                         </td>
                         <td className="email-cell">{worker.email || "N/A"}</td>
@@ -1076,7 +1173,7 @@ const WorkerList = () => {
                   })
                 ) : (
                   <tr>
-                    <td colSpan="10">No {showArchived ? "archived" : "active"} workers found</td>
+                    <td colSpan="13">No {showArchived ? "archived" : "active"} workers found</td>
                   </tr>
                 )}
               </tbody>
@@ -1085,14 +1182,14 @@ const WorkerList = () => {
           <div className="workerlist-pagination">
             <span>Page {pagination.currentPage} of {totalPages}</span>
             <button
-              onClick={() => setPagination({ ...pagination, currentPage: pagination.currentPage - 1 })}
+              onClick={() => handlePageChange(pagination.currentPage - 1)}
               disabled={pagination.currentPage <= 1}
             >
               {"<"}
             </button>
             {renderPagination()}
             <button
-              onClick={() => setPagination({ ...pagination, currentPage: pagination.currentPage + 1 })}
+              onClick={() => handlePageChange(pagination.currentPage + 1)}
               disabled={pagination.currentPage >= totalPages}
             >
               {">"}

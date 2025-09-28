@@ -385,7 +385,7 @@ class AdminListController extends Controller
             'role_id' => $user->role_id,
             'role_name' => $user->role ? $user->role->role_name : null,
             'gender_id' => $profile ? $profile->gender_id : null,
-            'gender_name' => $profile && $profile->gender ? $profile->gender->name : null,
+            'gender_name' => $profile && $profile->gender ? $profile->gender->gender_name : null,
             'suffix_id' => $profile ? $profile->suffix_id : null,
             'suffix_name' => $profile && $profile->suffix ? $profile->suffix->suffix_name : null,
             'first_name' => $profile ? $profile->first_name : null,

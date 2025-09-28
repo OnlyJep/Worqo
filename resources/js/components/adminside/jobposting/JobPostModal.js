@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { message } from "antd";
+import { message, Select, Dropdown, Menu } from "antd";
+const { Option } = Select;
+import { IconX, IconChevronDown, IconPlus, IconMinus } from "@tabler/icons-react";
 import "./../../../../sass/components/jobpostmodal.scss";
 
 const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => {
   const [formData, setFormData] = useState({
     company_id: "",
     profile_id: "",
-    skills: [],
-    ranks: [],
+    skills_required: [],
     description: "",
     salary: "",
     job_type: "full-time",
@@ -26,6 +27,14 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
   const [companies, setCompanies] = useState([]);
   const [companyEmployers, setCompanyEmployers] = useState({});
   const [selectedCompany, setSelectedCompany] = useState(null);
+  const [selectedSkill, setSelectedSkill] = useState(null);
+  const [showSkillModal, setShowSkillModal] = useState(false);
+  const [selectedSubSkills, setSelectedSubSkills] = useState([]);
+  const [availableSubSkills, setAvailableSubSkills] = useState([]);
+  const [searchTermSkills, setSearchTermSkills] = useState("");
+  const [filteredSkills, setFilteredSkills] = useState([]);
+  const [editingSkillId, setEditingSkillId] = useState(null);
+  const isMountedRef = useRef(true);
 
   useEffect(() => {
     // Fetch skills, ranks, and companies
@@ -36,8 +45,16 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           axios.get("http://127.0.0.1:8000/api/ranks"),
           axios.get("http://127.0.0.1:8000/api/companies"),
         ]);
-        setAvailableSkills(skillsResponse.data.map((skill) => skill.name));
-        setAvailableRanks(ranksResponse.data.ranks.map((rank) => rank.name));
+        const skillsData = skillsResponse.data.map((skill) => ({
+          ...skill,
+          sub_skills: Array.isArray(skill.sub_skills) ? skill.sub_skills : [],
+        }));
+        setAvailableSkills(skillsData);
+        setFilteredSkills(skillsData);
+        
+        // Update ranks to use full rank objects instead of just names
+        const ranksData = ranksResponse.data.ranks || ranksResponse.data;
+        setAvailableRanks(ranksData);
         const companiesData = companiesResponse.data.companies || [];
         setCompanies(companiesData);
         // Map company_id to employer object
@@ -60,14 +77,51 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
   }, []);
 
   useEffect(() => {
+    if (!isMountedRef.current) return;
+    if (searchTermSkills.trim() === "") {
+      setFilteredSkills(availableSkills || []);
+    } else {
+      const searchLower = searchTermSkills.toLowerCase().trim();
+      const filtered = (availableSkills || []).filter((skill) => skill.name.toLowerCase().includes(searchLower));
+      setFilteredSkills(filtered);
+    }
+  }, [searchTermSkills, availableSkills]);
+
+  useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
     if (isEdit && initialData && companies.length > 0) {
       const company = companies.find((c) => c.id === initialData.company_id);
       setSelectedCompany(company || null);
       setFormData({
         company_id: initialData.company_id || "",
         profile_id: company?.employer_id ? String(company.employer_id) : initialData.profile_id || "",
-        skills: initialData.skills || [],
-        ranks: initialData.ranks || [],
+        skills_required: initialData.skills ? (() => {
+          const skillsArray = [];
+          // Parse the alternating format: skill_name, [sub_skills], skill_name, [sub_skills], ...
+          for (let i = 0; i < initialData.skills.length; i += 2) {
+            const skillName = initialData.skills[i];
+            const subSkills = initialData.skills[i + 1] || [];
+            
+            if (skillName) {
+              const actualSkill = availableSkills.find(s => s.name === skillName);
+              const rankIndex = Math.floor(i / 2);
+              const rank = availableRanks.find(rank => rank.name === initialData.ranks[rankIndex]) || availableRanks[0];
+              
+              skillsArray.push({
+                skill_id: actualSkill ? String(actualSkill.id) : String(rankIndex + 1),
+                skill_name: skillName,
+                sub_skills: Array.isArray(subSkills) ? subSkills : [],
+                rank: rank
+              });
+            }
+          }
+          return skillsArray;
+        })() : [],
         description: initialData.description || "",
         salary: initialData.salary || "",
         job_type: initialData.job_type || "full-time",
@@ -112,33 +166,122 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     setErrors((prev) => ({ ...prev, [field]: "" }));
   };
 
-  const handleSkillChange = (index, field, value) => {
-    setFormData((prev) => {
-      const newSkills = [...prev.skills];
-      const newRanks = [...prev.ranks];
-      if (field === "name") {
-        newSkills[index] = value;
-      } else {
-        newRanks[index] = value;
+  const handleSkillSelect = (value) => {
+    if (!isMountedRef.current) return;
+    const skill = availableSkills.find((s) => String(s.id) === value);
+    if (!skill) {
+      if (isMountedRef.current) {
+        setErrors((prev) => ({ ...prev, skills_required: "Invalid skill selected. Please try again." }));
       }
-      return { ...prev, skills: newSkills, ranks: newRanks };
-    });
-    setErrors((prev) => ({ ...prev, skills: "", ranks: "" }));
+      return;
+    }
+    if (formData.skills_required.some((existing) => existing.skill_id === value)) {
+      if (isMountedRef.current) {
+        setErrors((prev) => ({ ...prev, skills_required: "This skill has already been added." }));
+      }
+      return;
+    }
+    if (isMountedRef.current) {
+      setSelectedSkill(skill);
+      setAvailableSubSkills(skill.sub_skills || []);
+      setSelectedSubSkills([]);
+      setShowSkillModal(true);
+      setErrors((prev) => ({ ...prev, skills_required: "", sub_skills: "" }));
+    }
   };
 
-  const addSkill = () => {
+  const handleAddSubSkill = (subSkill) => {
+    if (!isMountedRef.current) return;
+    if (selectedSubSkills.includes(subSkill)) {
+      if (isMountedRef.current) {
+        setErrors((prev) => ({ ...prev, sub_skills: "This sub-skill is already selected." }));
+      }
+      return;
+    }
+    if (isMountedRef.current) {
+      setSelectedSubSkills((prev) => [...prev, subSkill]);
+      setAvailableSubSkills((prev) => prev.filter((s) => s !== subSkill));
+      setErrors((prev) => ({ ...prev, sub_skills: "" }));
+    }
+  };
+
+  const handleRemoveSubSkill = (subSkill) => {
+    if (!isMountedRef.current) return;
+    if (isMountedRef.current) {
+      setSelectedSubSkills((prev) => prev.filter((s) => s !== subSkill));
+      setAvailableSubSkills((prev) => [...prev, subSkill].sort());
+    }
+  };
+
+  const handleSaveSkill = () => {
+    if (!isMountedRef.current || !selectedSkill) return;
+    if (selectedSkill.sub_skills.length > 0 && selectedSubSkills.length === 0) {
+      if (isMountedRef.current) {
+        setErrors((prev) => ({ ...prev, sub_skills: "Please select at least one sub-skill." }));
+      }
+      return;
+    }
+    
+    const updatedSkill = {
+      skill_id: String(selectedSkill.id),
+      skill_name: selectedSkill.name,
+      sub_skills: selectedSubSkills,
+      rank: availableRanks[0] || { id: 1, name: "Gold" }, // Default to first rank or Gold
+    };
+
+    if (isMountedRef.current) {
+      if (editingSkillId) {
+        // Update existing skill
+        setFormData((prev) => ({
+          ...prev,
+          skills_required: prev.skills_required.map(skill => 
+            skill.skill_id === editingSkillId ? updatedSkill : skill
+          ),
+        }));
+      } else {
+        // Add new skill
+        setFormData((prev) => ({
+          ...prev,
+          skills_required: [...prev.skills_required, updatedSkill],
+        }));
+      }
+      
+      setShowSkillModal(false);
+      setSelectedSkill(null);
+      setAvailableSubSkills([]);
+      setSelectedSubSkills([]);
+      setEditingSkillId(null);
+      setErrors((prev) => ({ ...prev, skills_required: "", sub_skills: "" }));
+    }
+  };
+
+  const handleModalClose = () => {
+    if (!isMountedRef.current) return;
+    if (isMountedRef.current) {
+      setShowSkillModal(false);
+      setSelectedSkill(null);
+      setAvailableSubSkills([]);
+      setSelectedSubSkills([]);
+      setEditingSkillId(null);
+    }
+  };
+
+  const handleRankChange = (skillId, newRankId) => {
+    if (!isMountedRef.current) return;
+    const selectedRank = availableRanks.find(rank => String(rank.id) === String(newRankId));
     setFormData((prev) => ({
       ...prev,
-      skills: [...prev.skills, ""],
-      ranks: [...prev.ranks, "CX"],
+      skills_required: prev.skills_required.map((skill) =>
+        skill.skill_id === skillId ? { ...skill, rank: selectedRank } : skill
+      ),
     }));
   };
 
-  const removeSkill = (index) => {
+  const removeSkill = (skillId) => {
+    if (!isMountedRef.current) return;
     setFormData((prev) => ({
       ...prev,
-      skills: prev.skills.filter((_, i) => i !== index),
-      ranks: prev.ranks.filter((_, i) => i !== index),
+      skills_required: prev.skills_required.filter((skill) => skill.skill_id !== skillId),
     }));
   };
 
@@ -190,11 +333,8 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     if (formData.salary && (isNaN(formData.salary) || Number(formData.salary) < 1)) {
       newErrors.salary = "Salary must be a number greater than or equal to 1";
     }
-    if (formData.skills.length === 0 || !formData.skills.some((skill) => skill.trim())) {
-      newErrors.skills = "At least one valid skill is required";
-    }
-    if (formData.ranks.length !== formData.skills.length) {
-      newErrors.ranks = "Each skill must have a corresponding rank";
+    if (formData.skills_required.length === 0) {
+      newErrors.skills_required = "At least one skill is required";
     }
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) {
@@ -208,8 +348,24 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     if (validateForm()) {
       try {
         // Convert dates to full ISO 8601 format for backend
+        // Format skills array to include sub-skills
+        const formattedSkills = [];
+        const formattedRanks = [];
+        
+        formData.skills_required.forEach(skill => {
+          formattedSkills.push(skill.skill_name);
+          if (skill.sub_skills && skill.sub_skills.length > 0) {
+            formattedSkills.push(skill.sub_skills);
+          } else {
+            formattedSkills.push([]); // Empty array if no sub-skills
+          }
+          formattedRanks.push(skill.rank?.name || skill.rank);
+        });
+
         const submitData = {
           ...formData,
+          skills: formattedSkills,
+          ranks: formattedRanks,
           application_start: formData.application_start ? `${formData.application_start}:00` : "",
           application_deadline: formData.application_deadline ? `${formData.application_deadline}:00` : "",
         };
@@ -238,6 +394,49 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     console.log("Profile name generated:", name, "from profile:", profile);
     return name;
   };
+
+  const skillMenu = (skill) => (
+    <Menu
+      items={[
+        {
+          key: "edit",
+          label: (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0' }}>
+              <span>✏️</span>
+              <span>Edit Skill</span>
+            </span>
+          ),
+          onClick: () => {
+            if (!isMountedRef.current) return;
+            const foundSkill = availableSkills.find((s) => String(s.id) === String(skill.skill_id));
+            if (foundSkill) {
+              setEditingSkillId(skill.skill_id); // Set the skill being edited
+              setSelectedSkill(foundSkill);
+              const currentSubSkills = Array.isArray(skill.sub_skills) ? skill.sub_skills : [];
+              setAvailableSubSkills(
+                (foundSkill.sub_skills || []).filter((subSkill) => !currentSubSkills.includes(subSkill))
+              );
+              setSelectedSubSkills(currentSubSkills);
+              setShowSkillModal(true);
+            }
+          },
+        },
+        {
+          key: "remove",
+          label: (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', color: '#ff4d4f' }}>
+              <span>🗑️</span>
+              <span>Remove Skill</span>
+            </span>
+          ),
+          onClick: () => {
+            if (!isMountedRef.current) return;
+            removeSkill(skill.skill_id);
+          },
+        },
+      ]}
+    />
+  );
 
   return (
     <div className="jobpostmodal-overlay">
@@ -291,43 +490,66 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           </div>
           <div className="form-group">
             <label>Skills Required</label>
-            {formData.skills.map((skill, index) => (
-              <div key={index} className="skill-row">
-                <select
-                  value={skill}
-                  onChange={(e) => handleSkillChange(index, "name", e.target.value)}
-                >
-                  <option value="" disabled>
-                    Select Skill
-                  </option>
-                  {availableSkills.map((skillOption) => (
-                    <option key={skillOption} value={skillOption}>
-                      {skillOption}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  value={formData.ranks[index] || "CX"}
-                  onChange={(e) => handleSkillChange(index, "rank", e.target.value)}
-                >
-                  {availableRanks.map((rank) => (
-                    <option key={rank} value={rank}>
-                      {rank}
-                    </option>
-                  ))}
-                </select>
-                {formData.skills.length > 1 && (
-                  <button className="remove-skill" onClick={() => removeSkill(index)}>
-                    Remove
-                  </button>
-                )}
+            <Select
+              showSearch
+              placeholder="Search and select skill"
+              onSearch={setSearchTermSkills}
+              onChange={handleSkillSelect}
+              className="skill-select"
+              optionFilterProp="children"
+              style={{ width: '100%', marginBottom: '16px' }}
+            >
+              {filteredSkills.map((skill) => (
+                <Option key={skill.id} value={String(skill.id)}>
+                  {skill.name}
+                </Option>
+              ))}
+            </Select>
+            {errors.skills_required && <span className="error">{errors.skills_required}</span>}
+            
+            {formData.skills_required.length > 0 && (
+              <div className="selected-skills">
+                <h4>Selected Skills</h4>
+                {formData.skills_required.map((skill) => (
+                  <div key={skill.skill_id} className="skill-item-container">
+                    <div className="skill-item">
+                      <Dropdown overlay={skillMenu(skill)} trigger={["click"]}>
+                        <button className="skill-item ant-dropdown-trigger" type="button">
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                            <span style={{ fontWeight: '500' }}>{skill.skill_name}</span>
+                            {skill.sub_skills?.length > 0 && (
+                              <span style={{ 
+                                fontSize: '12px', 
+                                color: '#8c8c8c', 
+                                fontStyle: 'italic'
+                              }}>
+                                Sub-skills: {skill.sub_skills.join(", ")}
+                              </span>
+                            )}
+                          </div>
+                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                            <IconChevronDown size={16} />
+                            <span style={{ fontSize: '10px', color: '#8c8c8c' }}>Actions</span>
+                          </div>
+                        </button>
+                      </Dropdown>
+                    </div>
+                    <div className="rank-select">
+                      <select
+                        value={skill.rank?.id || skill.rank}
+                        onChange={(e) => handleRankChange(skill.skill_id, e.target.value)}
+                      >
+                        {availableRanks.map((rank) => (
+                          <option key={rank.id} value={rank.id}>
+                            {rank.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-            <button className="add-skill" onClick={addSkill}>
-              Add Another Skill
-            </button>
-            {errors.skills && <span className="error">{errors.skills}</span>}
-            {errors.ranks && <span className="error">{errors.ranks}</span>}
+            )}
           </div>
           <div className="form-group">
             <label htmlFor="description">Job Description</label>
@@ -456,6 +678,81 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           </button>
         </div>
       </div>
+
+      {showSkillModal && selectedSkill && (
+        <div className="skill-details-modal-overlay">
+          <div className="skill-details-modal">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h3>{selectedSkill.name}</h3>
+                <IconX size={20} className="close-icon" onClick={handleModalClose} />
+              </div>
+              <div className="modal-body">
+                {selectedSkill.sub_skills.length > 0 ? (
+                  <div className="sub-skills-section">
+                    <label className="sub-skills-label">
+                      Sub-Skills <span className="required">(Required)</span>
+                    </label>
+                    <p className="sub-skills-instruction">Select sub-skills by moving them between the lists below.</p>
+                    <div className="sub-skills-container">
+                      <div className="available-sub-skills">
+                        <h4>Available Sub-Skills</h4>
+                        {availableSubSkills.length > 0 ? (
+                          <ul className="sub-skills-list">
+                            {availableSubSkills.map((subSkill) => (
+                              <li key={subSkill} className="sub-skill-item">
+                                <span className="sub-skill-text">{subSkill}</span>
+                                <button
+                                  className="add-sub-skill-btn"
+                                  onClick={() => handleAddSubSkill(subSkill)}
+                                  aria-label={`Add ${subSkill} to selected sub-skills`}
+                                >
+                                  <IconPlus size={16} />
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="no-sub-skills">No available sub-skills</p>
+                        )}
+                      </div>
+                      <div className="selected-sub-skills">
+                        <h4>Selected Sub-Skills</h4>
+                        {selectedSubSkills.length > 0 ? (
+                          <ul className="sub-skills-list">
+                            {selectedSubSkills.map((subSkill) => (
+                              <li key={subSkill} className="sub-skill-item">
+                                <span className="sub-skill-text">{subSkill}</span>
+                                <button
+                                  className="remove-sub-skill-btn"
+                                  onClick={() => handleRemoveSubSkill(subSkill)}
+                                  aria-label={`Remove ${subSkill} from selected sub-skills`}
+                                >
+                                  <IconMinus size={16} />
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="no-sub-skills">No sub-skills selected</p>
+                        )}
+                      </div>
+                    </div>
+                    {errors.sub_skills && <span className="error">{errors.sub_skills}</span>}
+                  </div>
+                ) : (
+                  <p className="no-sub-skills">This skill has no sub-skills. Click Save to continue.</p>
+                )}
+              </div>
+              <div className="modal-footer">
+                <button className="save-btn" onClick={handleSaveSkill}>
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

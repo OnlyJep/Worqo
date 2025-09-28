@@ -17,6 +17,8 @@
       margin-bottom: 30px;
   
       .avatar-container {
+        position: relative;
+        
         .avatar-placeholder {
           width: 120px;
           height: 120px;
@@ -27,20 +29,151 @@
           justify-content: center;
           border: 3px solid #e5e7eb;
           transition: all 0.3s ease;
-  
+          overflow: hidden;
+          position: relative;
+          padding: 0;
+          margin: 0;
+
           &.clickable {
             cursor: pointer;
-  
+
             &:hover {
               border-color: #001E40;
               background-color: #f8fafc;
             }
           }
-  
+
           img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            display: block;
+            border: none;
+            outline: none;
+          }
+
+          // Default avatar icon when no image
+          &.no-image {
+            img {
+              width: 60px;
+              height: 60px;
+              object-fit: contain;
+              object-position: center;
+            }
+          }
+        }
+
+        // Camera icon overlay
+        .camera-icon {
+          position: absolute;
+          bottom: 8px;
+          right: 8px;
+          width: 32px;
+          height: 32px;
+          background: #001E40;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: 2px solid white;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+          &:hover {
+            background: #002a5c;
+            transform: scale(1.1);
+          }
+
+          svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+          }
+        }
+
+        // Dropdown menu
+        .profile-dropdown {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 8px;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+          border: 1px solid #e5e7eb;
+          overflow: hidden;
+          z-index: 1000;
+          min-width: 180px;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(-50%) translateY(-10px);
+          transition: all 0.3s ease;
+
+          &.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+
+          // Triangle arrow
+          &::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-bottom: none;
+            border-right: none;
+            transform: translateX(-50%) rotate(45deg);
+          }
+
+          .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: #374151;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+
+            &:hover {
+              background: #f8fafc;
+              color: #001E40;
+            }
+
+            &:not(:last-child) {
+              border-bottom: 1px solid #f3f4f6;
+            }
+
+            svg {
+              width: 16px;
+              height: 16px;
+              fill: currentColor;
+            }
+
+            &.delete-item {
+              color: #dc2626;
+
+              &:hover {
+                background: #fef2f2;
+                color: #b91c1c;
+              }
+            }
           }
         }
       }
@@ -380,10 +513,83 @@
           margin-bottom: 20px;
         }
       }
+  }
+}
+
+// Image Modal
+.image-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.image-modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 500px;
+  max-height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+  .image-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 6px;
+      color: #6b7280;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f3f4f6;
+        color: #374151;
+      }
+
+      svg {
+        display: block;
+      }
     }
   }
-  
-  // Responsive design
+
+  .image-modal-content {
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      max-height: 400px;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+  }
+}
+
+// Responsive design
   @media (max-width: 768px) {
     .my-profile-container {
       gap: 20px;
@@ -395,12 +601,19 @@
   
       .profile-header {
         margin-bottom: 20px;
-  
+
         .avatar-container {
           .avatar-placeholder {
             width: 80px;
             height: 80px;
             font-size: 32px;
+
+            &.no-image {
+              img {
+                width: 40px;
+                height: 40px;
+              }
+            }
           }
         }
       }

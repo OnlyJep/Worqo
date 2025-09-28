@@ -9,24 +9,38 @@ class Worker extends Model
     protected $fillable = [
         'profile_id',
         'work_type',
+        'hours_per_day',
+        'monthly_salary',
+        'preferred_working_hours',
+        'bio',
         'skills_id',
         'credentials_name',
         'credentials_photo',
         'archived',
         'is_reviewed',
-        'experience',
+        'verified',
+        'rank_id',
     ];
 
     protected $casts = [
+        'hours_per_day' => 'integer',
+        'monthly_salary' => 'decimal:2',
+        'preferred_working_hours' => 'array',
         'skills_id' => 'array',
         'credentials_name' => 'array',
         'credentials_photo' => 'array',
         'archived' => 'boolean',
         'is_reviewed' => 'string',
+        'verified' => 'boolean',
     ];
 
     public function profile()
     {
         return $this->belongsTo(Profile::class);
+    }
+
+    public function rank()
+    {
+        return $this->belongsTo(Rank::class);
     }
 }

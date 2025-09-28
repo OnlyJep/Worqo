@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
@@ -198,12 +199,6 @@ class AdminUserController extends Controller
     public function update(Request $request, $id): JsonResponse
     {
         try {
-            Log::info('User update request received:', [
-                'user_id' => $id,
-                'data' => $request->all(),
-                'files' => $request->hasFile('profile_img') ? 'File present: ' . $request->file('profile_img')->getClientOriginalName() : 'No file detected',
-            ]);
-
             $user = User::findOrFail($id);
             $profile = Profile::where('user_id', $id)->firstOrFail();
 
@@ -213,9 +208,9 @@ class AdminUserController extends Controller
                 'last_name' => 'required|string|max:255',
                 'email' => 'required|email|max:255|unique:users,email,' . $id,
                 'password' => 'nullable|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
-                'role_id' => 'required|integer|exists:roles,id',
-                'gender_id' => 'required|integer|exists:genders,id',
-                'suffix_id' => 'nullable|integer|exists:suffixes,id',
+                'role_id' => 'nullable|integer|exists:roles,id',
+                'gender_id' => 'nullable|numeric|exists:genders,id',
+                'suffix_id' => 'nullable|numeric|exists:suffixes,id',
                 'contact_number' => 'nullable|string|max:20',
                 'street' => 'nullable|string|max:255',
                 'city' => 'nullable|string|max:255',
@@ -229,6 +224,7 @@ class AdminUserController extends Controller
                 Log::warning('Validation failed for user update:', [
                     'errors' => $validator->errors()->toArray(),
                     'input' => $request->all(),
+                    'user_id' => $id,
                 ]);
                 return response()->json(['messages' => $validator->errors()], 422);
             }
@@ -249,8 +245,12 @@ class AdminUserController extends Controller
             // Prepare user data
             $userData = [
                 'email' => $validated['email'],
-                'role_id' => (int)$validated['role_id'],
             ];
+            
+            // Only update role_id if provided
+            if (isset($validated['role_id']) && $validated['role_id']) {
+                $userData['role_id'] = (int)$validated['role_id'];
+            }
             if (isset($validated['password']) && $validated['password']) {
                 $userData['password'] = Hash::make($validated['password']);
             }
@@ -267,7 +267,7 @@ class AdminUserController extends Controller
                 'first_name' => $validated['first_name'],
                 'middlename' => $validated['middlename'] ?? $profile->middlename,
                 'last_name' => $validated['last_name'],
-                'gender_id' => (int)$validated['gender_id'],
+                'gender_id' => isset($validated['gender_id']) && $validated['gender_id'] ? (int)$validated['gender_id'] : $profile->gender_id,
                 'suffix_id' => $validated['suffix_id'] ?? $profile->suffix_id,
                 'contact_number' => $validated['contact_number'] ?? $profile->contact_number,
                 'street' => $validated['street'] ?? $profile->street,
@@ -279,7 +279,7 @@ class AdminUserController extends Controller
 
             // Handle profile image
             if ($request->hasFile('profile_img')) {
-                if ($profile->profile_img) {
+                if ($profile->profile_img && $profile->profile_img !== 'img/defaultpfp.jpg') {
                     Storage::disk('public')->delete($profile->profile_img);
                     Log::info('Deleted old profile image', ['old_file' => $profile->profile_img]);
                 }
@@ -287,11 +287,18 @@ class AdminUserController extends Controller
                 $profileData['profile_img'] = $path;
                 Log::info('Profile image uploaded', ['new_file' => $path]);
             } elseif ($request->input('profile_img') === '') {
-                if ($profile->profile_img) {
+                if ($profile->profile_img && $profile->profile_img !== 'img/defaultpfp.jpg') {
                     Storage::disk('public')->delete($profile->profile_img);
                     Log::info('Deleted profile image', ['old_file' => $profile->profile_img]);
                 }
                 $profileData['profile_img'] = null;
+            } elseif ($request->input('profile_img') === 'default') {
+                if ($profile->profile_img && $profile->profile_img !== 'img/defaultpfp.jpg') {
+                    Storage::disk('public')->delete($profile->profile_img);
+                    Log::info('Deleted old profile image, setting to default', ['old_file' => $profile->profile_img]);
+                }
+                $profileData['profile_img'] = 'img/defaultpfp.jpg';
+                Log::info('Profile image set to default');
             }
 
             // Begin transaction
@@ -307,6 +314,8 @@ class AdminUserController extends Controller
 
             DB::commit();
 
+            // Force refresh the user and its relationships
+            $user->refresh();
             $user->load(['role', 'profile.gender', 'profile.suffix']);
 
             return response()->json([
@@ -408,7 +417,7 @@ public function bulkArchive(Request $request): JsonResponse
             'role_id' => $user->role_id,
             'role_name' => $user->role ? $user->role->role_name : null,
             'gender_id' => $profile ? $profile->gender_id : null,
-            'gender_name' => $profile && $profile->gender ? $profile->gender->name : null,
+            'gender_name' => $profile && $profile->gender ? $profile->gender->gender_name : null,
             'suffix_id' => $profile ? $profile->suffix_id : null,
             'suffix_name' => $profile && $profile->suffix ? $profile->suffix->suffix_name : null,
             'first_name' => $profile ? $profile->first_name : null,
@@ -425,5 +434,87 @@ public function bulkArchive(Request $request): JsonResponse
             'updated_at' => $user->updated_at,
             'archived' => $user->archived,
         ];
+    }
+
+    /**
+     * Switch user role between Worker (1) and Employer (2)
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function switchUserRole(Request $request): JsonResponse
+    {
+        try {
+            // Get user ID from request
+            $userId = $request->user_id;
+            
+            if (!$userId) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'User ID is required'
+                ], 400);
+            }
+            
+            $user = User::find($userId);
+            
+            if (!$user) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'User not found'
+                ], 404);
+            }
+
+            // Validate the new role_id
+            $validator = Validator::make($request->all(), [
+                'role_id' => 'required|integer|in:1,2'
+            ]);
+
+            if ($validator->fails()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Validation failed',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            $newRoleId = $request->role_id;
+            
+            // Check if user is trying to switch to the same role
+            if ($user->role_id == $newRoleId) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'User is already assigned to this role'
+                ], 400);
+            }
+
+            // Update the user's role
+            $user->role_id = $newRoleId;
+            $user->save();
+
+            // Get the role name
+            $role = Role::find($newRoleId);
+            $roleName = $role ? $role->role_name : ($newRoleId == 1 ? 'Worker' : 'Employer');
+
+            // Return updated user data
+            return response()->json([
+                'success' => true,
+                'message' => 'Role switched successfully',
+                'user' => [
+                    'id' => $user->id,
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'role_id' => $user->role_id,
+                    'role_name' => $roleName,
+                    'updated_at' => $user->updated_at
+                ]
+            ]);
+
+        } catch (\Exception $e) {
+            Log::error('Role switch error: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to switch role'
+            ], 500);
+        }
     }
 }

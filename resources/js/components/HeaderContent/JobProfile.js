@@ -55,12 +55,12 @@ const JobProfile = () => {
       <div className="profile-container">
         <div className="profile-left">
           <div className="profile-info">
-            <h2>{job.title}</h2>
+            <h2>{job.job_title}</h2>
             <div className="status-container">
               <span className="status-dot"></span>
-              <p className="status">Available Now</p>
+              <p className="status">{job.archived ? 'Archived' : 'Available Now'}</p>
             </div>
-            <p className="location">{job.location}</p>
+            <p className="location">Posted by: {job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name}</p>
             <button className="edit-profile" onClick={handleApplyJob}>
               Apply Job
             </button>
@@ -68,10 +68,14 @@ const JobProfile = () => {
           <div className="stats">
             <div className="stat-item">
               <span className="stat-label">Salary</span>
-              <span className="stat-number">{job.salary}</span>
+              <span className="stat-number">₱{job.salary}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-label">Job Type</span>
+              <span className="stat-number">{job.job_type}</span>
             </div>
           </div>
-          <p className="member-since">POSTED SINCE: {job.postedAt}</p>
+          <p className="member-since">POSTED SINCE: {new Date(job.created_at).toLocaleDateString()}</p>
           <p className="report">Report Job</p>
         </div>
 
@@ -92,17 +96,18 @@ const JobProfile = () => {
               <div className="overview">
                 <h4>About</h4>
                 <p>{job.description}</p>
-                <h4>Employment Type</h4>
-                <p>{job.employmentType || 'Not specified'}</p>
                 <h4>Skills Required</h4>
                 <div className="skills-row">
-                  {job.skills.map((skill, index) => (
-                    <span key={index} className="chip">{skill}</span>
+                  {job.skills && job.skills.map((skill, index) => (
+                    <span key={index} className="chip">
+                      {skill.name} ({skill.experience || 'No experience specified'})
+                    </span>
                   ))}
                 </div>
-                <h4>Requirements</h4>
+                <h4>Application Period</h4>
                 <ul>
-                  <li>Minimum Rank: {job.requirements.minRank}</li>
+                  <li>Start: {new Date(job.application_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}</li>
+                  <li>Deadline: {new Date(job.application_deadline).toLocaleDateString('en-US', { timeZone: 'UTC' })}</li>
                 </ul>
               </div>
             )}

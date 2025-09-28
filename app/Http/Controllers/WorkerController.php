@@ -6,6 +6,7 @@ use App\Models\Worker;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Skill;
+use App\Models\Rank;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
@@ -24,21 +25,67 @@ class WorkerController extends Controller
             $search = $request->query('search', '');
             $page = $request->query('page', 1);
             $limit = $request->query('limit', 10);
+            $status = $request->query('status', 'all');
+            $excludeUserId = $request->query('exclude_user_id');
 
             $query = User::with(['profile', 'worker'])
-                ->where('role_id', 1)
-                ->where('archived', false);
+                ->whereIn('users.role_id', [1, 2]) // Allow both workers (1) and employers (2)
+                ->where('users.archived', false)
+                ->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'ACCEPTED');
+                    // $q->where('verified', true);
+                });
+
+            // Exclude specific user if provided
+            if ($excludeUserId) {
+                $query->where('users.id', '!=', $excludeUserId);
+            }
 
             if (!empty($search)) {
                 $query->whereHas('profile', function ($q) use ($search) {
                     $q->where('first_name', 'like', '%' . $search . '%')
-                      ->orWhere('middlename', 'like', '%' . $search . '%')
-                      ->orWhere('last_name', 'like', '%' . $search . '%')
-                      ->orWhere('email', 'like', '%' . $search . '%');
+                      ->orWhere('middlename', ' like', '%' . $search . '%')
+                      ->orWhere('last_name', 'like', '%' . $search . '%');
+                })->orWhere('users.email', 'like', '%' . $search . '%');
+            }
+
+            // Filter by status
+            if ($status !== 'all') {
+                $query->whereHas('worker', function ($q) use ($status) {
+                    switch ($status) {
+                        case 'to_review':
+                            $q->where(function ($subQ) {
+                                $subQ->whereNull('is_reviewed')
+                                     ->orWhere('is_reviewed', '')
+                                     ->orWhere('is_reviewed', '0')
+                                     ->orWhere('is_reviewed', 'TO BE REVIEWED');
+                            });
+                            break;
+                        case 'accepted':
+                            $q->where('is_reviewed', 'ACCEPTED');
+                            break;
+                        case 'declined':
+                            $q->where('is_reviewed', 'DECLINED');
+                            break;
+                    }
                 });
             }
 
-            $workers = $query->paginate($limit, ['*'], 'page', $page);
+            // Order by review status: TO BE REVIEWED first, then ACCEPTED, then DECLINED
+            $query->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+                  ->leftJoin('workers', 'profiles.id', '=', 'workers.profile_id')
+                  ->orderByRaw("
+                    CASE 
+                        WHEN workers.is_reviewed IS NULL OR workers.is_reviewed = '' OR workers.is_reviewed = '0' OR workers.is_reviewed = 'TO BE REVIEWED' THEN 1
+                        WHEN workers.is_reviewed = 'ACCEPTED' THEN 2
+                        WHEN workers.is_reviewed = 'DECLINED' THEN 3
+                        ELSE 4
+                    END
+                  ")
+                  ->orderBy('users.created_at', 'desc')
+                  ->select('users.*');
+
+                $workers = $query->paginate($limit, ['*'], 'page', $page);
 
             foreach ($workers as $user) {
                 if (!$user->profile) {
@@ -101,19 +148,55 @@ class WorkerController extends Controller
             $search = $request->query('search', '');
             $page = $request->query('page', 1);
             $limit = $request->query('limit', 10);
+            $status = $request->query('status', 'all');
 
             $query = User::with(['profile', 'worker'])
-                ->where('role_id', 1)
-                ->where('archived', true);
+                ->where('users.role_id', 1)
+                ->where('users.archived', true);
 
             if (!empty($search)) {
                 $query->whereHas('profile', function ($q) use ($search) {
                     $q->where('first_name', 'like', '%' . $search . '%')
                       ->orWhere('middlename', 'like', '%' . $search . '%')
-                      ->orWhere('last_name', 'like', '%' . $search . '%')
-                      ->orWhere('email', 'like', '%' . $search . '%');
+                      ->orWhere('last_name', 'like', '%' . $search . '%');
+                })->orWhere('users.email', 'like', '%' . $search . '%');
+            }
+
+            // Filter by status
+            if ($status !== 'all') {
+                $query->whereHas('worker', function ($q) use ($status) {
+                    switch ($status) {
+                        case 'to_review':
+                            $q->where(function ($subQ) {
+                                $subQ->whereNull('is_reviewed')
+                                     ->orWhere('is_reviewed', '')
+                                     ->orWhere('is_reviewed', '0')
+                                     ->orWhere('is_reviewed', 'TO BE REVIEWED');
+                            });
+                            break;
+                        case 'accepted':
+                            $q->where('is_reviewed', 'ACCEPTED');
+                            break;
+                        case 'declined':
+                            $q->where('is_reviewed', 'DECLINED');
+                            break;
+                    }
                 });
             }
+
+            // Order by review status: TO BE REVIEWED first, then ACCEPTED, then DECLINED
+            $query->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+                  ->leftJoin('workers', 'profiles.id', '=', 'workers.profile_id')
+                  ->orderByRaw("
+                    CASE 
+                        WHEN workers.is_reviewed IS NULL OR workers.is_reviewed = '' OR workers.is_reviewed = '0' OR workers.is_reviewed = 'TO BE REVIEWED' THEN 1
+                        WHEN workers.is_reviewed = 'ACCEPTED' THEN 2
+                        WHEN workers.is_reviewed = 'DECLINED' THEN 3
+                        ELSE 4
+                    END
+                  ")
+                  ->orderBy('users.created_at', 'desc')
+                  ->select('users.*');
 
             $workers = $query->paginate($limit, ['*'], 'page', $page);
 
@@ -175,9 +258,22 @@ class WorkerController extends Controller
     public function show($id, Request $request): JsonResponse
     {
         try {
+            // First try to find user with role_id 1 or 2 (workers and employers with worker profiles)
             $user = User::with(['profile', 'worker'])
-                ->where('role_id', 1)
-                ->findOrFail($id);
+                ->whereIn('role_id', [1, 2])
+                ->find($id);
+            
+            // If not found, try to find user who has worker data (even if role_id changed)
+            if (!$user) {
+                $user = User::with(['profile', 'worker'])
+                    ->whereHas('worker')
+                    ->find($id);
+            }
+            
+            // If still not found, throw 404
+            if (!$user) {
+                throw new \Exception("User not found or not a worker");
+            }
 
             if (!$user->profile) {
                 $user->profile()->create([
@@ -204,7 +300,7 @@ class WorkerController extends Controller
                 $user->load('worker');
             }
 
-            Log::info('Fetched worker with role_id = 1', ['id' => $id]);
+            Log::info('Fetched worker (current or former)', ['id' => $id, 'role_id' => $user->role_id]);
             return response()->json($this->formatWorker($user), 200);
         } catch (\Exception $e) {
             Log::error('Error fetching worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
@@ -230,8 +326,18 @@ class WorkerController extends Controller
                 return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
+            // Parse preferred_working_hours if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_hours;
+            if (is_string($preferredWorkingHours)) {
+                $preferredWorkingHours = json_decode($preferredWorkingHours, true);
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
+            }
+
             $validator = Validator::make(
-                array_merge($request->all(), ['skills_id' => $skillsId]),
+                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_hours' => $preferredWorkingHours]),
                 [
                     'first_name' => 'required|string|max:255',
                     'middlename' => 'nullable|string|max:255',
@@ -242,7 +348,12 @@ class WorkerController extends Controller
                     'gender_id' => 'required|integer|exists:genders,id',
                     'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
                     'street' => 'nullable|string|max:255',
-                    'work_type' => 'required|in:part-time,full-time,one-time-job',
+                    'work_type' => 'required|in:part-time,full-time,one-time',
+                    'hours_per_day' => 'nullable|integer|min:1|max:24',
+                    'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
+                    'preferred_working_hours' => 'nullable|array',
+                    'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+                    'bio' => 'nullable|string|max:1000',
                     'skills_id' => 'required|array|min:1',
                     'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
                     'skills_id.*.skill_name' => 'required|string|max:255',
@@ -330,14 +441,32 @@ class WorkerController extends Controller
                 }
             }
 
+            // Parse preferred_working_hours if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_hours;
+            if (is_string($preferredWorkingHours)) {
+                $preferredWorkingHours = json_decode($preferredWorkingHours, true);
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
+            }
+
             $worker = Worker::create([
                 'profile_id' => $profile->id,
                 'work_type' => $request->work_type,
+                'hours_per_day' => $request->hours_per_day,
+                'monthly_salary' => $request->monthly_salary,
+                'preferred_working_hours' => $preferredWorkingHours,
+                'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
                 'archived' => false,
-                'is_reviewed' => '0',
+                'is_reviewed' => null,
             ]);
 
             Log::info('Worker created', [
@@ -408,8 +537,18 @@ class WorkerController extends Controller
                 return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
+            // Parse preferred_working_hours if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_hours;
+            if (is_string($preferredWorkingHours)) {
+                $preferredWorkingHours = json_decode($preferredWorkingHours, true);
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
+            }
+
             $validator = Validator::make(
-                array_merge($request->all(), ['skills_id' => $skillsId]),
+                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_hours' => $preferredWorkingHours]),
                 [
                     'first_name' => 'required|string|max:255',
                     'middlename' => 'nullable|string|max:255',
@@ -421,6 +560,11 @@ class WorkerController extends Controller
                     'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
                     'street' => 'nullable|string|max:255',
                     'work_type' => 'required|in:part-time,full-time,one-time-job',
+                    'hours_per_day' => 'nullable|integer|min:1|max:24',
+                    'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
+                    'preferred_working_hours' => 'nullable|array',
+                    'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+                    'bio' => 'nullable|string|max:1000',
                     'skills_id' => 'required|array|min:1',
                     'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
                     'skills_id.*.skill_name' => 'required|string|max:255',
@@ -528,6 +672,10 @@ class WorkerController extends Controller
 
             $user->worker->update([
                 'work_type' => $request->work_type,
+                'hours_per_day' => $request->hours_per_day,
+                'monthly_salary' => $request->monthly_salary,
+                'preferred_working_hours' => $preferredWorkingHours,
+                'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
@@ -537,6 +685,10 @@ class WorkerController extends Controller
             Log::info('Worker updated', [
                 'worker_id' => $user->worker->id,
                 'work_type' => $request->work_type,
+                'hours_per_day' => $request->hours_per_day,
+                'monthly_salary' => $request->monthly_salary,
+                'preferred_working_hours' => $preferredWorkingHours,
+                'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
@@ -578,28 +730,84 @@ class WorkerController extends Controller
                 return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
+            // Handle structured skills_id format
+            $primarySkills = $skillsId['primary_skills'] ?? [];
+            $additionalSkills = $skillsId['additional_skills'] ?? [];
+            $allSkills = array_merge($primarySkills, $additionalSkills);
+            
+            // Ensure arrays are always present
+            if (!isset($skillsId['primary_skills'])) {
+                $skillsId['primary_skills'] = [];
+            }
+            if (!isset($skillsId['additional_skills'])) {
+                $skillsId['additional_skills'] = [];
+            }
+            
+            Log::info('Processing skills update', [
+                'worker_id' => $user->worker->id,
+                'primary_skills_count' => count($primarySkills),
+                'additional_skills_count' => count($additionalSkills),
+                'total_skills' => count($allSkills),
+                'skills_id_structure' => $skillsId
+            ]);
+
+            // Custom validation for structured skills_id
             $validator = Validator::make(
                 ['skills_id' => $skillsId],
                 [
-                    'skills_id' => 'required|array|min:1',
-                    'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
-                    'skills_id.*.skill_name' => 'required|string|max:255',
-                    'skills_id.*.sub_skills' => 'nullable|array',
-                    'skills_id.*.sub_skills.*' => 'string|max:255',
+                    'skills_id' => 'required|array',
+                    'skills_id.primary_skills' => 'array',
+                    'skills_id.additional_skills' => 'array',
                 ]
             );
 
+            // Validate individual skills if arrays are not empty
+            if (!empty($primarySkills)) {
+                $validator->sometimes('skills_id.primary_skills.*.skill_id', 'required|integer|exists:skills,id', function ($input) {
+                    return !empty($input->skills_id['primary_skills']);
+                });
+                $validator->sometimes('skills_id.primary_skills.*.skill_name', 'required|string|max:255', function ($input) {
+                    return !empty($input->skills_id['primary_skills']);
+                });
+                $validator->sometimes('skills_id.primary_skills.*.sub_skills', 'nullable|array', function ($input) {
+                    return !empty($input->skills_id['primary_skills']);
+                });
+                $validator->sometimes('skills_id.primary_skills.*.sub_skills.*', 'string|max:255', function ($input) {
+                    return !empty($input->skills_id['primary_skills']);
+                });
+            }
+
+            if (!empty($additionalSkills)) {
+                $validator->sometimes('skills_id.additional_skills.*.skill_id', 'required|integer|exists:skills,id', function ($input) {
+                    return !empty($input->skills_id['additional_skills']);
+                });
+                $validator->sometimes('skills_id.additional_skills.*.skill_name', 'required|string|max:255', function ($input) {
+                    return !empty($input->skills_id['additional_skills']);
+                });
+                $validator->sometimes('skills_id.additional_skills.*.sub_skills', 'nullable|array', function ($input) {
+                    return !empty($input->skills_id['additional_skills']);
+                });
+                $validator->sometimes('skills_id.additional_skills.*.sub_skills.*', 'string|max:255', function ($input) {
+                    return !empty($input->skills_id['additional_skills']);
+                });
+            }
+
             if ($validator->fails()) {
-                Log::warning('Validation failed for skills update', ['errors' => $validator->errors()->toArray()]);
+                Log::warning('Validation failed for skills update', [
+                    'errors' => $validator->errors()->toArray(),
+                    'input_data' => $skillsId,
+                    'primary_skills' => $primarySkills,
+                    'additional_skills' => $additionalSkills
+                ]);
                 return response()->json(['errors' => $validator->errors()->toArray()], 400);
             }
 
-            $skillIds = array_column($skillsId, 'skill_id');
+            $skillIds = array_column($allSkills, 'skill_id');
             if (count(array_unique($skillIds)) !== count($skillIds)) {
                 return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
             }
 
-            foreach ($skillsId as $index => $skillData) {
+            foreach ($allSkills as $index => $skillData) {
                 $skill = Skill::find($skillData['skill_id']);
                 if ($skill && !empty($skillData['sub_skills'])) {
                     $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
@@ -613,21 +821,28 @@ class WorkerController extends Controller
                 }
             }
 
-            if (count($skillsId) > 15) {
+            if (count($allSkills) > 15) {
                 Log::warning('Skill limit exceeded', [
                     'worker_id' => $user->worker->id,
-                    'total_skills' => count($skillsId),
+                    'total_skills' => count($allSkills),
                 ]);
                 return response()->json(['error' => 'Cannot have more than 15 skills'], 400);
             }
 
+            // Ensure the final structure has both arrays
+            $finalSkillsId = [
+                'primary_skills' => $primarySkills,
+                'additional_skills' => $additionalSkills,
+            ];
+            
             $user->worker->update([
-                'skills_id' => $skillsId,
+                'skills_id' => $finalSkillsId,
             ]);
 
             Log::info('Worker skills updated', [
                 'worker_id' => $user->worker->id,
-                'skills_id' => $skillsId,
+                'skills_id' => $finalSkillsId,
+                'total_skills' => count($allSkills),
             ]);
 
             return response()->json([
@@ -700,7 +915,7 @@ class WorkerController extends Controller
 
             $users = User::whereIn('id', $ids)
                 ->where('role_id', 1)
-                ->where('archived', !$archived)
+                ->where('users.archived', !$archived)
                 ->get();
 
             if ($users->isEmpty()) {
@@ -827,6 +1042,300 @@ class WorkerController extends Controller
     }
 
     /**
+     * Remove a skill from worker profile.
+     */
+    public function removeSkill(Request $request): JsonResponse
+    {
+        try {
+            Log::info('Remove skill request data', ['input' => $request->all()]);
+
+            $validator = Validator::make($request->all(), [
+                'profile_id' => 'required|integer|exists:profiles,id',
+                'skill_id' => 'required|integer',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for removing skill', [
+                    'errors' => $validator->errors()->toArray(),
+                    'request' => $request->all(),
+                ]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $profileId = $request->profile_id;
+            $skillId = (string)$request->skill_id;
+
+            $worker = Worker::where('profile_id', $profileId)->first();
+
+            if (!$worker) {
+                return response()->json(['error' => 'Worker record not found'], 404);
+            }
+
+            $skillsId = $this->parseArray($worker->skills_id);
+            
+            Log::info('Attempting to remove skill', [
+                'worker_id' => $worker->id,
+                'profile_id' => $profileId,
+                'skill_id_to_remove' => $skillId,
+                'current_skills' => $skillsId,
+                'skill_ids_in_array' => array_column($skillsId, 'skill_id')
+            ]);
+            
+            // Find and remove the skill
+            $originalCount = count($skillsId);
+            $skillsId = array_filter($skillsId, function($skill) use ($skillId) {
+                $skillIdInArray = (string)$skill['skill_id'];
+                $isMatch = $skillIdInArray === $skillId;
+                Log::info('Comparing skill IDs', [
+                    'skill_id_to_remove' => $skillId,
+                    'skill_id_in_array' => $skillIdInArray,
+                    'is_match' => $isMatch
+                ]);
+                return !$isMatch;
+            });
+            
+            // Re-index the array
+            $skillsId = array_values($skillsId);
+
+            if (count($skillsId) === $originalCount) {
+                Log::info('Skill not found in worker skills', [
+                    'worker_id' => $worker->id,
+                    'profile_id' => $profileId,
+                    'skill_id' => $skillId,
+                    'available_skill_ids' => array_column($this->parseArray($worker->skills_id), 'skill_id')
+                ]);
+                return response()->json(['message' => 'Skill not found in worker profile'], 404);
+            }
+
+            $worker->update([
+                'skills_id' => $skillsId,
+            ]);
+
+            $user = User::whereHas('profile', function ($query) use ($profileId) {
+                $query->where('id', $profileId);
+            })->with(['profile', 'worker'])->first();
+
+            Log::info('Skill removed from worker', [
+                'worker_id' => $worker->id,
+                'profile_id' => $profileId,
+                'skill_id' => $skillId,
+                'remaining_skills' => count($skillsId),
+            ]);
+
+            return response()->json([
+                'message' => 'Skill removed successfully',
+                'worker' => $this->formatWorker($user),
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error removing skill from worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to remove skill: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Bulk review workers.
+     */
+    public function bulkReview(Request $request): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'worker_ids' => 'required|array',
+                'worker_ids.*' => 'integer|exists:users,id',
+                'is_reviewed' => 'required|in:ACCEPTED,DECLINED',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for bulk review', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $ids = $request->input('worker_ids', []);
+            $status = $request->input('is_reviewed');
+
+            $users = User::whereIn('id', $ids)
+                ->where('role_id', 1)
+                ->with(['worker'])
+                ->get();
+
+            if ($users->isEmpty()) {
+                return response()->json(['error' => 'No valid workers found for review'], 400);
+            }
+
+            $updatedCount = 0;
+            foreach ($users as $user) {
+                if ($user->worker && $user->worker->is_reviewed !== $status) {
+                    // Only update if status is different and worker is pending review
+                    if (in_array($user->worker->is_reviewed, [null, '', '0', 'TO BE REVIEWED'])) {
+                        $user->worker->update(['is_reviewed' => $status]);
+                        $updatedCount++;
+                    }
+                }
+            }
+
+            if ($updatedCount === 0) {
+                return response()->json(['error' => 'No workers were updated. They may already have this status or are not pending review.'], 400);
+            }
+
+            Log::info('Workers bulk reviewed', ['ids' => $ids, 'is_reviewed' => $status, 'updated_count' => $updatedCount]);
+            return response()->json(['message' => $updatedCount . ' workers ' . strtolower($status) . ' successfully'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error bulk reviewing workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to review workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Bulk delete declined workers.
+     */
+    public function bulkDeleteDeclined(Request $request): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'worker_ids' => 'required|array',
+                'worker_ids.*' => 'integer|exists:users,id',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for bulk delete declined', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $ids = $request->input('worker_ids', []);
+
+            $users = User::whereIn('id', $ids)
+                ->where('role_id', 1)
+                ->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'DECLINED');
+                })
+                ->with(['profile', 'worker'])
+                ->get();
+
+            if ($users->isEmpty()) {
+                return response()->json(['error' => 'No declined workers found for deletion'], 400);
+            }
+
+            $deletedCount = 0;
+            foreach ($users as $user) {
+                // Delete associated files
+                if ($user->profile && $user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
+                    Storage::disk('public')->delete($user->profile->profile_img);
+                }
+
+                if ($user->worker && $user->worker->credentials_photo) {
+                    $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
+                    foreach ($credentialsPhoto as $photo) {
+                        if ($photo && Storage::disk('public')->exists($photo)) {
+                            Storage::disk('public')->delete($photo);
+                        }
+                    }
+                }
+
+                // Delete the user and related records (cascade will handle profile and worker)
+                $user->delete();
+                $deletedCount++;
+            }
+
+            Log::info('Declined workers bulk deleted', ['ids' => $ids, 'deleted_count' => $deletedCount]);
+            return response()->json(['message' => $deletedCount . ' declined workers deleted successfully'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error bulk deleting declined workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to delete declined workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Bulk delete archived workers.
+     */
+    public function bulkDeleteArchived(Request $request): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'worker_ids' => 'required|array',
+                'worker_ids.*' => 'integer|exists:users,id',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for bulk delete archived', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $ids = $request->input('worker_ids', []);
+
+            $users = User::whereIn('id', $ids)
+                ->where('role_id', 1)
+                ->where('users.archived', true)
+                ->with(['profile', 'worker'])
+                ->get();
+
+            if ($users->isEmpty()) {
+                return response()->json(['error' => 'No archived workers found for deletion'], 400);
+            }
+
+            $deletedCount = 0;
+            foreach ($users as $user) {
+                // Delete associated files
+                if ($user->profile && $user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
+                    Storage::disk('public')->delete($user->profile->profile_img);
+                }
+
+                if ($user->worker && $user->worker->credentials_photo) {
+                    $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
+                    foreach ($credentialsPhoto as $photo) {
+                        if ($photo && Storage::disk('public')->exists($photo)) {
+                            Storage::disk('public')->delete($photo);
+                        }
+                    }
+                }
+
+                // Delete the user and related records (cascade will handle profile and worker)
+                $user->delete();
+                $deletedCount++;
+            }
+
+            Log::info('Archived workers bulk deleted', ['ids' => $ids, 'deleted_count' => $deletedCount]);
+            return response()->json(['message' => $deletedCount . ' archived workers deleted successfully'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error bulk deleting archived workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to delete archived workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Delete a single worker.
+     */
+    public function destroy($id): JsonResponse
+    {
+        try {
+            $user = User::with(['profile', 'worker'])
+                ->where('role_id', 1)
+                ->findOrFail($id);
+
+            // Delete associated files
+            if ($user->profile && $user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
+                Storage::disk('public')->delete($user->profile->profile_img);
+            }
+
+            if ($user->worker && $user->worker->credentials_photo) {
+                $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
+                foreach ($credentialsPhoto as $photo) {
+                    if ($photo && Storage::disk('public')->exists($photo)) {
+                        Storage::disk('public')->delete($photo);
+                    }
+                }
+            }
+
+            // Delete the user and related records (cascade will handle profile and worker)
+            $user->delete();
+
+            Log::info('Worker deleted', ['id' => $id]);
+            return response()->json(['message' => 'Worker deleted successfully'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error deleting worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to delete worker: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
      * Update worker's review status.
      */
     public function review(Request $request, $id): JsonResponse
@@ -914,6 +1423,100 @@ class WorkerController extends Controller
     }
 
     /**
+     * Calculate worker rank based on experience and reviews.
+     */
+    protected function calculateWorkerRank($user)
+    {
+        if (!$user->worker) {
+            return null;
+        }
+
+        $skillsId = $this->parseArray($user->worker->skills_id);
+        $totalExperience = 0;
+        $totalReviews = 0;
+        $averageRating = 0;
+
+        // Calculate total experience from skills
+        if (is_array($skillsId)) {
+            if (isset($skillsId['primary_skills']) && is_array($skillsId['primary_skills'])) {
+                foreach ($skillsId['primary_skills'] as $skill) {
+                    if (isset($skill['experience'])) {
+                        $totalExperience += $this->convertExperienceToMonths($skill['experience']);
+                    }
+                }
+            }
+            if (isset($skillsId['additional_skills']) && is_array($skillsId['additional_skills'])) {
+                foreach ($skillsId['additional_skills'] as $skill) {
+                    if (isset($skill['experience'])) {
+                        $totalExperience += $this->convertExperienceToMonths($skill['experience']);
+                    }
+                }
+            }
+        }
+
+        // TODO: Add review calculation logic when reviews are implemented
+        // For now, we'll use experience-based ranking
+
+        // Get active ranks (archived = false)
+        $ranks = Rank::where('archived', false)->orderBy('required_reviews', 'asc')->get();
+
+        // Determine rank based on experience
+        $selectedRank = null;
+        foreach ($ranks as $rank) {
+            if ($totalExperience >= $this->getExperienceThresholdForRank($rank->name)) {
+                $selectedRank = $rank;
+            }
+        }
+
+        // If no rank found, assign Bronze as default
+        if (!$selectedRank) {
+            $selectedRank = $ranks->where('name', 'Bronze')->first();
+        }
+
+        return $selectedRank;
+    }
+
+    /**
+     * Convert experience string to months.
+     */
+    protected function convertExperienceToMonths($experience)
+    {
+        switch ($experience) {
+            case '0-11-months':
+                return 6; // Average of 0-11 months
+            case '1-2-years':
+                return 18; // Average of 1-2 years
+            case '2-5-years':
+                return 42; // Average of 2-5 years
+            case '5-10-years':
+                return 90; // Average of 5-10 years
+            case '10+ years':
+                return 120; // 10+ years
+            default:
+                return 0;
+        }
+    }
+
+    /**
+     * Get experience threshold for rank.
+     */
+    protected function getExperienceThresholdForRank($rankName)
+    {
+        switch ($rankName) {
+            case 'Bronze':
+                return 0; // 0-11 months
+            case 'Silver':
+                return 18; // 1-2 years
+            case 'Gold':
+                return 42; // 2-5 years
+            case 'Diamond':
+                return 90; // 5-10 years
+            default:
+                return 0;
+        }
+    }
+
+    /**
      * Format worker data for response.
      */
     protected function formatWorker($user)
@@ -924,6 +1527,8 @@ class WorkerController extends Controller
                 'id' => $user->id,
                 'email' => $user->email,
                 'archived' => $user->archived,
+                'created_at' => $user->created_at,
+                'updated_at' => $user->updated_at,
                 'profile' => $user->profile ? [
                     'first_name' => $user->profile->first_name,
                     'middlename' => $user->profile->middlename,
@@ -990,10 +1595,54 @@ class WorkerController extends Controller
             unset($skill); // Unset reference to avoid accidental modification
         }
 
+        // Structure skills_id based on the data format
+        $structuredSkillsId = [];
+        if (is_array($skillsId) && count($skillsId) > 0) {
+            // Check if it's already structured (has primary_skills and additional_skills keys)
+            if (isset($skillsId['primary_skills']) && isset($skillsId['additional_skills'])) {
+                // Ensure arrays are properly formatted (not objects with numeric keys)
+                $primarySkills = is_array($skillsId['primary_skills']) ? array_values($skillsId['primary_skills']) : [];
+                $additionalSkills = is_array($skillsId['additional_skills']) ? array_values($skillsId['additional_skills']) : [];
+                
+                // Remove any extra fields that might have been added incorrectly
+                $primarySkills = array_filter($primarySkills, function($item) {
+                    return is_array($item) && isset($item['skill_id']) && isset($item['skill_name']);
+                });
+                $additionalSkills = array_filter($additionalSkills, function($item) {
+                    return is_array($item) && isset($item['skill_id']) && isset($item['skill_name']);
+                });
+                
+                $structuredSkillsId = [
+                    'primary_skills' => array_values($primarySkills),
+                    'additional_skills' => array_values($additionalSkills),
+                ];
+            } else {
+                // Convert flat array to structured format
+                // First skill is primary, rest are additional
+                $primarySkills = count($skillsId) > 0 ? [$skillsId[0]] : [];
+                $additionalSkills = count($skillsId) > 1 ? array_slice($skillsId, 1) : [];
+                
+                $structuredSkillsId = [
+                    'primary_skills' => array_values($primarySkills),
+                    'additional_skills' => array_values($additionalSkills),
+                ];
+            }
+        } else {
+            $structuredSkillsId = [
+                'primary_skills' => [],
+                'additional_skills' => [],
+            ];
+        }
+
+        // Calculate rank for the worker
+        $workerRank = $this->calculateWorkerRank($user);
+
         return [
             'id' => $user->id,
             'email' => $user->email,
             'archived' => $user->archived,
+            'created_at' => $user->created_at,
+            'updated_at' => $user->updated_at,
             'profile' => $user->profile ? [
                 'first_name' => $user->profile->first_name,
                 'middlename' => $user->profile->middlename,
@@ -1010,11 +1659,22 @@ class WorkerController extends Controller
             ] : null,
             'worker' => [
                 'work_type' => $user->worker->work_type,
-                'skills_id' => $skillsId,
+                'hours_per_day' => $user->worker->hours_per_day,
+                'monthly_salary' => $user->worker->monthly_salary,
+                'preferred_working_hours' => $user->worker->preferred_working_hours,
+                'bio' => $user->worker->bio,
+                'skills_id' => $structuredSkillsId,
                 'credentials_name' => $credentialsName,
                 'credentials_photo' => $credentialsPhoto,
                 'archived' => $user->worker->archived,
                 'is_reviewed' => $user->worker->is_reviewed,
+                'verified' => $user->worker->verified ?? false,
+                'rank' => $workerRank ? [
+                    'id' => $workerRank->id,
+                    'name' => $workerRank->name,
+                    'image' => $workerRank->image,
+                    'required_reviews' => $workerRank->required_reviews,
+                ] : null,
             ],
         ];
     }
@@ -1029,12 +1689,21 @@ class WorkerController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'profile_id' => 'required|integer|exists:profiles,id',
-                'work_type' => 'required|in:part-time,full-time,one-time-job',
-                'skills_id' => 'required|array|min:1',
-                'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
-                'skills_id.*.skill_name' => 'required|string|max:255',
-                'skills_id.*.sub_skills' => 'nullable|array',
-                'skills_id.*.sub_skills.*' => 'string|max:255',
+                'work_type' => 'required|in:part-time,full-time,one-time',
+                'hours_per_day' => 'nullable|integer|min:1|max:24',
+                'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
+                'preferred_working_hours' => 'nullable|string',
+                'skills_id' => 'required|array',
+                'skills_id.primary_skills' => 'required|array|min:1',
+                'skills_id.primary_skills.*.skill_id' => 'required|integer|exists:skills,id',
+                'skills_id.primary_skills.*.skill_name' => 'required|string|max:255',
+                'skills_id.primary_skills.*.sub_skills' => 'nullable|array',
+                'skills_id.primary_skills.*.sub_skills.*' => 'string|max:255',
+                'skills_id.additional_skills' => 'nullable|array',
+                'skills_id.additional_skills.*.skill_id' => 'required_with:skills_id.additional_skills.*|integer|exists:skills,id',
+                'skills_id.additional_skills.*.skill_name' => 'required_with:skills_id.additional_skills.*|string|max:255',
+                'skills_id.additional_skills.*.sub_skills' => 'nullable|array',
+                'skills_id.additional_skills.*.sub_skills.*' => 'string|max:255',
                 'credentials' => 'nullable|array',
                 'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
                 'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
@@ -1073,12 +1742,17 @@ class WorkerController extends Controller
                 return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
-            $skillIds = array_column($skillsId, 'skill_id');
+            // Process primary and additional skills separately
+            $primarySkills = $skillsId['primary_skills'] ?? [];
+            $additionalSkills = $skillsId['additional_skills'] ?? [];
+            $allSkills = array_merge($primarySkills, $additionalSkills);
+
+            $skillIds = array_column($allSkills, 'skill_id');
             if (count(array_unique($skillIds)) !== count($skillIds)) {
                 return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
             }
 
-            foreach ($skillsId as $index => $skillData) {
+            foreach ($allSkills as $index => $skillData) {
                 $skill = Skill::find($skillData['skill_id']);
                 if ($skill && !empty($skillData['sub_skills'])) {
                     $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
@@ -1092,12 +1766,22 @@ class WorkerController extends Controller
                 }
             }
 
-            if (count($skillsId) > 15) {
+            if (count($allSkills) > 15) {
                 Log::warning('Skill limit exceeded', [
                     'worker_id' => $user->worker->id,
-                    'total_skills' => count($skillsId),
+                    'total_skills' => count($allSkills),
                 ]);
                 return response()->json(['error' => 'Cannot have more than 15 skills'], 400);
+            }
+
+            // Parse preferred_working_hours if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_hours;
+            if (is_string($preferredWorkingHours)) {
+                $preferredWorkingHours = json_decode($preferredWorkingHours, true);
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
             }
 
             $credentials_name = [];
@@ -1123,9 +1807,13 @@ class WorkerController extends Controller
 
             $user->worker->update([
                 'work_type' => $request->work_type,
-                'skills_id' => $skillsId,
+                'hours_per_day' => $request->hours_per_day,
+                'monthly_salary' => $request->monthly_salary,
+                'preferred_working_hours' => $preferredWorkingHours,
+                'skills_id' => $skillsId, // Keep the original structure with primary_skills and additional_skills
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
+                'is_reviewed' => null,
             ]);
 
             Log::info('Worker profile completed', [
@@ -1144,6 +1832,101 @@ class WorkerController extends Controller
         } catch (\Exception $e) {
             Log::error('Error completing profile: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
             return response()->json(['error' => 'Failed to complete profile: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Fetch workers filtered by skills and only ACCEPTED status.
+     */
+    public function getWorkersBySkills(Request $request): JsonResponse
+    {
+        try {
+            $skillNames = $request->query('skill_names', []);
+            $page = $request->query('page', 1);
+            $limit = $request->query('limit', 10);
+            $excludeUserId = $request->query('exclude_user_id');
+
+            // If skill_names is a string, convert to array
+            if (is_string($skillNames)) {
+                $skillNames = explode(',', $skillNames);
+            }
+
+            $query = User::with(['profile', 'worker'])
+                ->whereIn('users.role_id', [1, 2]) // Allow both workers (1) and employers (2)
+                ->where('users.archived', false)
+                ->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'ACCEPTED');
+                    // $q->where('verified', true);
+                });
+
+            // Exclude specific user if provided
+            if ($excludeUserId) {
+                $query->where('users.id', '!=', $excludeUserId);
+            }
+
+            // Filter by skills if provided
+            if (!empty($skillNames)) {
+                Log::info('Filtering workers by skills', ['skill_names' => $skillNames]);
+                
+                // First, let's try without skill filtering to see if we get any workers
+                $testQuery = clone $query;
+                $testWorkers = $testQuery->get();
+                Log::info('Workers without skill filter', ['count' => $testWorkers->count()]);
+                
+                // Apply skill filtering using a comprehensive approach
+                $query->whereHas('worker', function ($q) use ($skillNames) {
+                    $q->where(function ($subQ) use ($skillNames) {
+                        foreach ($skillNames as $skillName) {
+                            // Search for skill name in the JSON structure with multiple patterns
+                            $subQ->orWhere('skills_id', 'like', '%"skill_name":"' . $skillName . '"%')
+                                 ->orWhere('skills_id', 'like', '%"skill_name": "' . $skillName . '"%')
+                                 ->orWhere('skills_id', 'like', '%skill_name":"' . $skillName . '"%')
+                                 ->orWhere('skills_id', 'like', '%skill_name": "' . $skillName . '"%')
+                                 ->orWhere('skills_id', 'like', '%' . $skillName . '%');
+                        }
+                    });
+                });
+            }
+
+            // Debug: Log the SQL query being executed
+            Log::info('SQL Query for workers by skills', ['sql' => $query->toSql(), 'bindings' => $query->getBindings()]);
+
+            $workers = $query->orderBy('users.created_at', 'desc')
+                           ->paginate($limit, ['*'], 'page', $page);
+
+            $response = [
+                'workers' => collect($workers->items())->map(function ($user) {
+                    return $this->formatWorker($user);
+                })->toArray(),
+                'pagination' => [
+                    'currentPage' => $workers->currentPage(),
+                    'totalPages' => $workers->lastPage(),
+                    'totalItems' => $workers->total(),
+                ],
+            ];
+
+            // Debug: Log some sample skills_id data
+            $sampleWorkers = $workers->take(2);
+            foreach ($sampleWorkers as $worker) {
+                if ($worker->worker && $worker->worker->skills_id) {
+                    Log::info('Sample worker skills_id', [
+                        'worker_id' => $worker->id,
+                        'skills_id' => $worker->worker->skills_id
+                    ]);
+                }
+            }
+
+            Log::info('Fetched workers by skills', [
+                'skill_names' => $skillNames,
+                'count' => $workers->count(),
+                'page' => $page,
+                'limit' => $limit,
+            ]);
+
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            Log::error('Error fetching workers by skills: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to fetch workers by skills: ' . $e->getMessage()], 500);
         }
     }
 }

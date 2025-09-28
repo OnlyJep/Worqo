@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaTimes } from "react-icons/fa";
 import axios from "axios";
 import "./../../../../sass/components/usermodal.scss";
+import { dispatchProfileImageUpdate } from "../../../utils/profileImageUtils";
 
 const UserModal = ({ onClose, onSubmit, isEdit, initialData }) => {
   const [formData, setFormData] = useState({

@@ -13,6 +13,7 @@ const Headerz = () => {
   const [user, setUser] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [isSwitching, setIsSwitching] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
@@ -33,6 +34,20 @@ const Headerz = () => {
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+   // Listen for profile image updates
+  useEffect(() => {
+    const handleProfileImageUpdate = (event) => {
+      const updatedUser = event.detail.user;
+      setUser(updatedUser);
+      setImageError(false); // Reset image error state
+    };
+
+    window.addEventListener('profileImageUpdated', handleProfileImageUpdate);
+    return () => {
+      window.removeEventListener('profileImageUpdated', handleProfileImageUpdate);
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -72,6 +87,74 @@ const Headerz = () => {
       navigate('/profile-settings');
       setIsLoading(false);
     }, 800);
+  };
+
+  const handleSwitchAccount = async () => {
+    if (!user) return;
+    
+    setIsSwitching(true);
+    setIsDropdownOpen(false);
+    
+    try {
+      const newRoleId = user.role_id === 1 ? 2 : 1;
+      const authToken = localStorage.getItem('auth_token');
+      
+      // Call backend API to update role in database
+      const response = await fetch('http://127.0.0.1:8000/api/users/switch-role', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          user_id: user.id,
+          role_id: newRoleId
+        })
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        
+        if (data.success) {
+          // Update localStorage with the new user data from backend
+          const updatedUser = {
+            ...user,
+            role_id: data.user.role_id,
+            role_name: data.user.role_name
+          };
+          
+          localStorage.setItem('user', JSON.stringify(updatedUser));
+          setUser(updatedUser);
+          
+          // Show switching animation
+          setTimeout(() => {
+            setIsSwitching(false);
+            window.location.reload();
+          }, 2000);
+        } else {
+          console.error('Role switch failed:', data.message || 'Unknown error');
+          alert('Failed to switch role: ' + (data.message || 'Unknown error'));
+          setIsSwitching(false);
+        }
+      } else {
+        let errorMessage = 'Failed to switch role';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.message || errorMessage;
+        } catch (e) {
+          errorMessage = `Server error (${response.status}): ${response.statusText}`;
+        }
+        console.error('API error:', errorMessage);
+        alert('Error: ' + errorMessage);
+        setIsSwitching(false);
+      }
+      
+    } catch (error) {
+      console.error('Switch account error:', error.message);
+      alert('Network error: ' + error.message);
+      setIsSwitching(false);
+    }
   };
 
   const handleLogout = async () => {
@@ -119,6 +202,15 @@ const Headerz = () => {
   return (
     <header className="headerz">
       {isLoading && <Loader />}
+      {isSwitching && (
+        <div className="switching-overlay">
+          <div className="switching-content">
+            <div className="switching-spinner"></div>
+            <h3>Switching to {user?.role_id === 1 ? 'Employer' : 'Worker'}...</h3>
+            <p>Please wait while we update your account</p>
+          </div>
+        </div>
+      )}
       <div className="headerz-container">
         {/* Mobile Menu Button */}
         <div className="mobile-menu">
@@ -131,10 +223,21 @@ const Headerz = () => {
         {/* Navigation Links */}
         <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <span onClick={goToHome}>Home</span>
-          <span onClick={goToServices}>Services</span>
+          {/* Hide Services for Workers (role_id = 1) */}
+          {(!isLoggedIn || user?.role_id !== 1) && (
+            <span onClick={goToServices}>Services</span>
+          )}
           <span onClick={goToAbout}>About Us</span>
-          <span onClick={goToFindJobs}>Find Jobs</span>
-          <span onClick={goToPostJobs}>Post Jobs</span>
+          {/* Hide Find Jobs for Employers (role_id = 2) */}
+          {(!isLoggedIn || user?.role_id !== 2) && (
+            <span onClick={goToFindJobs}>Find Jobs</span>
+          )}
+          {/* Hide Post Jobs for Workers (role_id = 1) */}
+          {(!isLoggedIn || user?.role_id !== 1) && (
+            <span onClick={goToPostJobs}>Post Jobs</span>
+          )}
+          {/* Additional navigation items */}
+          <span onClick={() => navigate('/contact')}>Contact</span>
         </nav>
 
         {/* Right Side: Icons and Login/Profile */}
@@ -158,7 +261,7 @@ const Headerz = () => {
           {isLoggedIn ? (
             <div className="profile" ref={dropdownRef}>
               <img
-                src={imageError || !user?.profile_img ? '/default-profile.png' : user.profile_img}
+                src={imageError || !user?.profile_img ? '/default-profile.png' : `http://127.0.0.1:8000/storage/${user.profile_img}`}
                 alt="Profile"
                 className="profile-icon"
                 onError={handleImageError}
@@ -173,6 +276,9 @@ const Headerz = () => {
                     <ul>
                       <li onClick={handleProfileSettings}>
                         <FaUserCog className="menu-icon" /> Profile Settings
+                      </li>
+                      <li onClick={handleSwitchAccount}>
+                        <FaUserCog className="menu-icon" /> Switch to {user?.role_id === 1 ? 'Employer' : 'Worker'}
                       </li>
                       <li onClick={handleLogout}>
                         <FaSignOutAlt className="menu-icon" /> Logout

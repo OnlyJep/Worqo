@@ -103,21 +103,23 @@
           line-height: 1.5;
         }
 
+        .address-contact {
+          font-size: 14px;
+          color: #374151;
+          margin-bottom: 8px;
+          font-weight: 500;
+          
+          strong {
+            color: #1f2937;
+            font-weight: 700;
+          }
+        }
+
         .address-phone {
           font-size: 14px;
           color: #374151;
           margin-top: 8px;
           font-weight: 500;
-        }
-
-        .default-badge {
-          display: inline-block;
-          color: #001E40;
-          font-size: 12px;
-          font-weight: 600;
-          padding: 4px 8px;
-          border-radius: 4px;
-          margin-top: 8px;
         }
       }
     }

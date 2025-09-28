@@ -205,7 +205,7 @@ const Notif = () => {
                     style={{ marginRight: '1rem' }}
                   />
                   <img 
-                    src={notif.profile_img} 
+                    src={notif.profile_img ? `http://127.0.0.1:8000/storage/${notif.profile_img}` : '/default-profile.png'} 
                     alt={notif.user} 
                     style={{ 
                       width: '40px', 
@@ -283,7 +283,7 @@ const Notif = () => {
             <div style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
                 <img 
-                  src={selectedNotif.profile_img} 
+                  src={selectedNotif.profile_img ? `http://127.0.0.1:8000/storage/${selectedNotif.profile_img}` : '/default-profile.png'} 
                   alt={selectedNotif.user} 
                   style={{ 
                     width: '50px', 

@@ -77,6 +77,7 @@ class RegisterController extends Controller
                 'last_name' => $request->last_name,
                 'gender_id' => $gender->id,
                 'suffix_id' => $suffix ? $suffix->id : null,
+                'profile_img' => 'profiles/defaultpfp.jpg',
             ]);
 
             DB::commit();
