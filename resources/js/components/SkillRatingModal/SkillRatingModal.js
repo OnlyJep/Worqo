@@ -309,8 +309,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       }
       const profile = await response.json();
       console.log('Fetched profile from /api/workers:', JSON.stringify(profile, null, 2));
-      if (profile && profile.id && isMounted.current) {
-        setProfileId(profile.id);
+      if (profile && profile.profile_id && isMounted.current) {
+        setProfileId(profile.profile_id);
         
         // Handle structured skills_id format
         const skillsData = profile.worker?.skills_id || {};

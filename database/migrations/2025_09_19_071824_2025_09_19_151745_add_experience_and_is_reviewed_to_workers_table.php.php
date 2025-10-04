@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('workers', function (Blueprint $table) {
             $table->text('experience')->nullable()->after('skills_id');
-            $table->enum('is_reviewed', ['ACCEPTED', 'DECLINED'])->nullable()->after('credentials_photo');
+            $table->enum('is_reviewed', ['ACCEPTED', 'DECLINED'])->nullable()->after('experience');
         });
     }
 

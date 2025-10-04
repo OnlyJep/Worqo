@@ -179754,8 +179754,8 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
           case 6:
             profile = _context2.v;
             console.log('Fetched profile from /api/workers:', JSON.stringify(profile, null, 2));
-            if (profile && profile.id && isMounted.current) {
-              setProfileId(profile.id);
+            if (profile && profile.profile_id && isMounted.current) {
+              setProfileId(profile.profile_id);
 
               // Handle structured skills_id format
               skillsData = ((_profile$worker = profile.worker) === null || _profile$worker === void 0 ? void 0 : _profile$worker.skills_id) || {};

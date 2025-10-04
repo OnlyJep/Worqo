@@ -107,7 +107,6 @@ class WorkerController extends Controller
                         'work_type' => 'part-time',
                         'skills_id' => [],
                         'credentials_name' => [],
-                        'credentials_photo' => [],
                         'archived' => false,
                     ]);
                     $user->load('worker');
@@ -220,7 +219,6 @@ class WorkerController extends Controller
                         'work_type' => 'part-time',
                         'skills_id' => [],
                         'credentials_name' => [],
-                        'credentials_photo' => [],
                         'archived' => true,
                     ]);
                     $user->load('worker');
@@ -294,7 +292,6 @@ class WorkerController extends Controller
                     'work_type' => 'part-time',
                     'skills_id' => [],
                     'credentials_name' => [],
-                    'credentials_photo' => [],
                     'archived' => $user->archived,
                 ]);
                 $user->load('worker');
@@ -361,8 +358,7 @@ class WorkerController extends Controller
                     'skills_id.*.sub_skills.*' => 'string|max:255',
                     'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                     'credentials' => 'nullable|array',
-                    'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
-                    'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                    'credentials.*.credentials_name' => 'required|string|max:255',
                 ]
             );
 
@@ -423,20 +419,14 @@ class WorkerController extends Controller
             $profile = Profile::create($profileData);
 
             $credentials_name = [];
-            $credentials_photo = [];
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $credential) {
                     if (
                         isset($credential['credentials_name']) &&
                         !empty($credential['credentials_name']) &&
-                        isset($credential['credentials_photo']) &&
-                        $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile
+                        !empty($credential['credentials_name'])
                     ) {
-                        $file = $credential['credentials_photo'];
-                        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-                        $path = $file->storeAs('credentialsphoto', $filename, 'public');
                         $credentials_name[] = $credential['credentials_name'];
-                        $credentials_photo[] = $path;
                     }
                 }
             }
@@ -464,7 +454,6 @@ class WorkerController extends Controller
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
-                'credentials_photo' => $credentials_photo,
                 'archived' => false,
                 'is_reviewed' => null,
             ]);
@@ -475,7 +464,6 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
-                'credentials_photo' => $credentials_photo,
             ]);
 
             return response()->json([
@@ -520,7 +508,6 @@ class WorkerController extends Controller
                     'work_type' => $request->work_type ?? 'part-time',
                     'skills_id' => [],
                     'credentials_name' => [],
-                    'credentials_photo' => [],
                     'archived' => $user->archived,
                     'is_reviewed' => '0',
                 ]);
@@ -572,8 +559,7 @@ class WorkerController extends Controller
                     'skills_id.*.sub_skills.*' => 'string|max:255',
                     'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                     'credentials' => 'nullable|array',
-                    'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
-                    'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                    'credentials.*.credentials_name' => 'required|string|max:255',
                 ]
             );
 
@@ -639,35 +625,15 @@ class WorkerController extends Controller
             $user->profile->update($profileData);
 
             $credentials_name = [];
-            $credentials_photo = [];
             $existing_credentials_name = $this->parseArray($user->worker->credentials_name);
-            $existing_credentials_photo = $this->parseArray($user->worker->credentials_photo);
 
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $index => $credential) {
                     if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
                         $credentials_name[] = $credential['credentials_name'];
-                        if (
-                            isset($credential['credentials_photo']) &&
-                            $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile
-                        ) {
-                            $file = $credential['credentials_photo'];
-                            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-                            $path = $file->storeAs('credentialsphoto', $filename, 'public');
-                            $credentials_photo[] = $path;
-                        } elseif (isset($existing_credentials_photo[$index]) && !empty($existing_credentials_photo[$index])) {
-                            $credentials_photo[] = $existing_credentials_photo[$index];
-                        } else {
-                            $credentials_photo[] = null;
-                        }
                     }
                 }
 
-                foreach ($existing_credentials_photo as $index => $oldPhoto) {
-                    if ($oldPhoto && !in_array($oldPhoto, $credentials_photo) && Storage::disk('public')->exists($oldPhoto)) {
-                        Storage::disk('public')->delete($oldPhoto);
-                    }
-                }
             }
 
             $user->worker->update([
@@ -678,7 +644,6 @@ class WorkerController extends Controller
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
-                'credentials_photo' => $credentials_photo,
                 'archived' => $user->archived,
             ]);
 
@@ -691,7 +656,6 @@ class WorkerController extends Controller
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
-                'credentials_photo' => $credentials_photo,
             ]);
 
             return response()->json([
@@ -983,7 +947,6 @@ class WorkerController extends Controller
                     'work_type' => 'part-time',
                     'skills_id' => [],
                     'credentials_name' => [],
-                    'credentials_photo' => [],
                     'archived' => false,
                     'is_reviewed' => '0',
                 ]
@@ -1221,14 +1184,9 @@ class WorkerController extends Controller
                     Storage::disk('public')->delete($user->profile->profile_img);
                 }
 
-                if ($user->worker && $user->worker->credentials_photo) {
-                    $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
-                    foreach ($credentialsPhoto as $photo) {
-                        if ($photo && Storage::disk('public')->exists($photo)) {
-                            Storage::disk('public')->delete($photo);
-                        }
-                    }
-                }
+                if ($user->worker) {
+                    $credentialsPhoto = [];
+            }
 
                 // Delete the user and related records (cascade will handle profile and worker)
                 $user->delete();
@@ -1278,14 +1236,9 @@ class WorkerController extends Controller
                     Storage::disk('public')->delete($user->profile->profile_img);
                 }
 
-                if ($user->worker && $user->worker->credentials_photo) {
-                    $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
-                    foreach ($credentialsPhoto as $photo) {
-                        if ($photo && Storage::disk('public')->exists($photo)) {
-                            Storage::disk('public')->delete($photo);
-                        }
-                    }
-                }
+                if ($user->worker) {
+                    $credentialsPhoto = [];
+            }
 
                 // Delete the user and related records (cascade will handle profile and worker)
                 $user->delete();
@@ -1315,8 +1268,8 @@ class WorkerController extends Controller
                 Storage::disk('public')->delete($user->profile->profile_img);
             }
 
-            if ($user->worker && $user->worker->credentials_photo) {
-                $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
+            if ($user->worker) {
+                $credentialsPhoto = [];
                 foreach ($credentialsPhoto as $photo) {
                     if ($photo && Storage::disk('public')->exists($photo)) {
                         Storage::disk('public')->delete($photo);
@@ -1549,7 +1502,7 @@ class WorkerController extends Controller
 
         $skillsId = $this->parseArray($user->worker->skills_id);
         $credentialsName = $this->parseArray($user->worker->credentials_name);
-        $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
+        $credentialsPhoto = [];
 
         // Ensure $skillsId is an array of arrays
         if (!is_array($skillsId)) {
@@ -1643,7 +1596,9 @@ class WorkerController extends Controller
             'archived' => $user->archived,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
+            'profile_id' => $user->profile ? $user->profile->id : null,
             'profile' => $user->profile ? [
+                'id' => $user->profile->id,
                 'first_name' => $user->profile->first_name,
                 'middlename' => $user->profile->middlename,
                 'last_name' => $user->profile->last_name,
@@ -1665,7 +1620,6 @@ class WorkerController extends Controller
                 'bio' => $user->worker->bio,
                 'skills_id' => $structuredSkillsId,
                 'credentials_name' => $credentialsName,
-                'credentials_photo' => $credentialsPhoto,
                 'archived' => $user->worker->archived,
                 'is_reviewed' => $user->worker->is_reviewed,
                 'verified' => $user->worker->verified ?? false,
@@ -1705,8 +1659,7 @@ class WorkerController extends Controller
                 'skills_id.additional_skills.*.sub_skills' => 'nullable|array',
                 'skills_id.additional_skills.*.sub_skills.*' => 'string|max:255',
                 'credentials' => 'nullable|array',
-                'credentials.*.credentials_name' => 'required_with:credentials.*.credentials_photo|string|max:255',
-                'credentials.*.credentials_photo' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png|max:2048',
+                'credentials.*.credentials_name' => 'required|string|max:255',
             ]);
 
             if ($validator->fails()) {
@@ -1725,7 +1678,6 @@ class WorkerController extends Controller
                     'work_type' => $request->work_type,
                     'skills_id' => [],
                     'credentials_name' => [],
-                    'credentials_photo' => [],
                     'archived' => false,
                     'is_reviewed' => '0',
                 ]);
@@ -1785,22 +1737,10 @@ class WorkerController extends Controller
             }
 
             $credentials_name = [];
-            $credentials_photo = [];
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $index => $credential) {
                     if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
                         $credentials_name[] = $credential['credentials_name'];
-                        if (
-                            isset($credential['credentials_photo']) &&
-                            $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile
-                        ) {
-                            $file = $credential['credentials_photo'];
-                            $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-                            $path = $file->storeAs('credentialsphoto', $filename, 'public');
-                            $credentials_photo[] = $path;
-                        } else {
-                            $credentials_photo[] = null;
-                        }
                     }
                 }
             }
@@ -1812,7 +1752,6 @@ class WorkerController extends Controller
                 'preferred_working_hours' => $preferredWorkingHours,
                 'skills_id' => $skillsId, // Keep the original structure with primary_skills and additional_skills
                 'credentials_name' => $credentials_name,
-                'credentials_photo' => $credentials_photo,
                 'is_reviewed' => null,
             ]);
 
@@ -1822,7 +1761,6 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
-                'credentials_photo' => $credentials_photo,
             ]);
 
             return response()->json([
