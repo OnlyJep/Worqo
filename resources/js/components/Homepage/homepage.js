@@ -3,11 +3,10 @@ import './../../../sass/components/HomepageStyles/homepage.scss';
 import Headerz from '../HeaderContent/Headerz';
 import Stats from '../StatsContent/stats';
 import Footer from '../FooterContent/footer';
-import SkillRatingModal from '../SkillRatingModal/SkillRatingModal';
+import ProfileSetupNotification from '../ProfileSetupNotification/ProfileSetupNotification';
 import { IconSearch } from '@tabler/icons-react';
 
 const HomePage = () => {
-  const [showProfileModal, setShowProfileModal] = useState(false);
   const [user, setUser] = useState(null);
   const [isProfileComplete, setIsProfileComplete] = useState(false);
 
@@ -18,83 +17,27 @@ const HomePage = () => {
       console.log('HomePage: Loaded user from localStorage:', parsedUser);
       setUser(parsedUser);
 
-      // Only show profile modal for workers (role_id === 1), not for employers (role_id === 2)
+      // Check if profile is complete for UI state
       if (parsedUser.role_id === 1) {
-        const checkProfile = async () => {
-          console.log('Checking profile for user:', parsedUser.id);
-          const isComplete = localStorage.getItem(`isProfileComplete_${parsedUser.id}`);
-          const skillsCompleted = localStorage.getItem(`skillsStepCompleted_${parsedUser.id}`);
-          console.log('LocalStorage - isProfileComplete:', isComplete, 'skillsStepCompleted:', skillsCompleted);
-
-          if (isComplete === 'true' || skillsCompleted === 'true') {
-            console.log('Profile or skills completed in localStorage, setting isProfileComplete to true');
-            setIsProfileComplete(true);
-            setShowProfileModal(false);
-            return;
-          }
-
-          try {
-            const authToken = localStorage.getItem('auth_token');
-            if (!authToken) {
-              console.warn('No authentication token found');
-              setShowProfileModal(true);
-              return;
-            }
-            const response = await fetch(`http://127.0.0.1:8000/api/workers/${parsedUser.id}`, {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${authToken}`,
-              },
-            });
-            if (!response.ok) {
-              console.error('Worker fetch failed:', response.status, response.statusText);
-              setShowProfileModal(true);
-              return;
-            }
-            const profileData = await response.json();
-            console.log('Fetched profile data from /api/workers:', JSON.stringify(profileData, null, 2));
-
-            const skills = Array.isArray(profileData?.worker?.skills_id) ? profileData.worker.skills_id : [];
-            const hasCredentials = Array.isArray(profileData?.worker?.credentials_name) && profileData.worker.credentials_name.length > 0;
-            if (skills.length >= 2 && hasCredentials) {
-              console.log(`Found ${skills.length} skills and credentials, overriding localStorage and setting isProfileComplete to true`);
-              localStorage.setItem(`skillsStepCompleted_${parsedUser.id}`, 'true');
-              localStorage.setItem(`isProfileComplete_${parsedUser.id}`, 'true');
-              setIsProfileComplete(true);
-              setShowProfileModal(false);
-            } else {
-              console.log(`Skills found: ${skills.length}, Credentials: ${hasCredentials ? 'Yes' : 'No'}, showing modal`);
-              setShowProfileModal(true);
-            }
-          } catch (error) {
-            console.error('Error fetching profile:', error.message);
-            setShowProfileModal(true);
-          }
-        };
-        checkProfile();
+        const isComplete = localStorage.getItem(`isProfileComplete_${parsedUser.id}`);
+        const skillsCompleted = localStorage.getItem(`skillsStepCompleted_${parsedUser.id}`);
+        
+        if (isComplete === 'true' || skillsCompleted === 'true') {
+          setIsProfileComplete(true);
+        } else {
+          setIsProfileComplete(false);
+        }
       } else if (parsedUser.role_id === 2) {
-        // For employers, set profile as complete and don't show modal
-        console.log('User is an employer (role_id 2), setting isProfileComplete to true');
+        // For employers, set profile as complete
         setIsProfileComplete(true);
-        setShowProfileModal(false);
       }
-    } else {
-      console.log('No user data found in localStorage');
     }
   }, []);
 
-  const handleProfileModalComplete = () => {
-    console.log('Profile modal completed, updating states');
-    setShowProfileModal(false);
-    setIsProfileComplete(true);
-    localStorage.setItem(`isProfileComplete_${user.id}`, 'true');
-    localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
-    window.location.reload();
-  };
 
   return (
     <div className="homepage">
+      <ProfileSetupNotification />
       <Headerz />
       
       <div className="content-wrapper">
@@ -153,23 +96,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      {!isProfileComplete && user && user.role_id === 1 && (
-        <div className="profile-prompt">
-          <p>
-            Finish your profile to start browsing jobs!{' '}
-            <button onClick={() => setShowProfileModal(true)}>Complete Now</button>
-          </p>
-        </div>
-      )}
-
       <Footer />
-      
-      <SkillRatingModal
-        isOpen={showProfileModal}
-        onClose={() => setShowProfileModal(false)}
-        onComplete={handleProfileModalComplete}
-        user={user?.role_id === 1 ? user : null}
-      />
     </div>
   );
 };

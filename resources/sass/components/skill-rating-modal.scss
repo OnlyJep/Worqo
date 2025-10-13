@@ -411,35 +411,44 @@
   }
 
   .credentials-list {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
     .list-header {
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 16px;
 
       .list-title {
+        font-size: 16px;
         font-weight: 600;
-        color: #333;
+        color: #374151;
       }
     }
 
     .credential-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-      background: white;
-      border: 1px solid #e0e0e0;
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
       border-radius: 8px;
-      margin-bottom: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #3b82f6;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       .credential-info {
-        display: flex;
-        flex-direction: column;
-
         .credential-name {
+          font-size: 16px;
           font-weight: 600;
-          color: #333;
-          margin-bottom: 5px;
+          color: #374151;
+          margin-bottom: 8px;
+          display: block;
         }
 
         .credential-file {
@@ -449,17 +458,26 @@
       }
 
       .remove-credential-btn {
-        background: #e74c3c;
-        color: white;
-        border: none;
-        padding: 8px 16px;
+        background: #f9fafb;
+        color: #374151;
+        border: 1px solid #d1d5db;
         border-radius: 4px;
-        font-size: 12px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 500;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: all 0.2s ease;
+        display: inline-block;
+        text-align: center;
+        align-self: flex-start;
 
         &:hover {
-          background: #c0392b;
+          background: #f3f4f6;
+          border-color: #9ca3af;
+        }
+
+        &:active {
+          background: #e5e7eb;
         }
       }
     }
@@ -502,9 +520,10 @@
 
 // Buttons
 .btn {
-  padding: 12px 24px;
+  padding: 16px 32px;
   border: none;
   border-radius: 6px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -530,8 +549,8 @@
     }
 
     &.btn-large {
-      padding: 16px 32px;
-      font-size: 16px;
+      padding: 20px 40px;
+      font-size: 20px;
     }
   }
 

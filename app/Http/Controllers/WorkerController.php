@@ -915,6 +915,7 @@ class WorkerController extends Controller
                 'skill_name' => 'required|string|max:255',
                 'sub_skills' => 'nullable|array',
                 'sub_skills.*' => 'string|max:255',
+                'experience' => 'nullable|string|in:no-experience,0-11-months,1-2-years,2-5-years,5-10-years,10+ years',
             ]);
 
             if ($validator->fails()) {
@@ -967,6 +968,7 @@ class WorkerController extends Controller
                 'skill_id' => (string)$skillId,
                 'skill_name' => $request->skill_name,
                 'sub_skills' => $subSkills,
+                'experience' => $request->experience ?? '0-11-months',
             ];
 
             if (count($skillsId) > 15) {

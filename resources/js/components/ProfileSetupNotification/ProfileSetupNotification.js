@@ -1,0 +1,107 @@
+import React, { useState, useEffect } from 'react';
+import { IconX, IconUser, IconArrowRight } from '@tabler/icons-react';
+import { useNavigate } from 'react-router-dom';
+import '../../../sass/components/_profilesetupnotification.scss';
+
+const ProfileSetupNotification = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isProfileComplete, setIsProfileComplete] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      const parsedUser = JSON.parse(userData);
+      setUser(parsedUser);
+
+      // Only show notification for workers (role_id === 1), not for employers (role_id === 2)
+      if (parsedUser.role_id === 1) {
+        const checkProfile = async () => {
+          const isComplete = localStorage.getItem(`isProfileComplete_${parsedUser.id}`);
+          const skillsCompleted = localStorage.getItem(`skillsStepCompleted_${parsedUser.id}`);
+
+          if (isComplete === 'true' || skillsCompleted === 'true') {
+            setIsProfileComplete(true);
+            setIsVisible(false);
+            return;
+          }
+
+          try {
+            const authToken = localStorage.getItem('auth_token');
+            if (!authToken) {
+              setIsVisible(true);
+              return;
+            }
+            
+            const response = await fetch(`http://127.0.0.1:8000/api/workers/${parsedUser.id}`, {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`,
+              },
+            });
+            
+            if (!response.ok) {
+              setIsVisible(true);
+              return;
+            }
+            
+            const profileData = await response.json();
+            const skills = Array.isArray(profileData?.worker?.skills_id) ? profileData.worker.skills_id : [];
+            const hasCredentials = Array.isArray(profileData?.worker?.credentials_name) && profileData.worker.credentials_name.length > 0;
+            
+            if (skills.length >= 2 && hasCredentials) {
+              localStorage.setItem(`skillsStepCompleted_${parsedUser.id}`, 'true');
+              localStorage.setItem(`isProfileComplete_${parsedUser.id}`, 'true');
+              setIsProfileComplete(true);
+              setIsVisible(false);
+            } else {
+              setIsVisible(true);
+            }
+          } catch (error) {
+            console.error('Error checking profile:', error);
+            setIsVisible(true);
+          }
+        };
+        checkProfile();
+      }
+    }
+  }, []);
+
+  const handleCompleteProfile = () => {
+    navigate('/skill-rating');
+  };
+
+  const handleDismiss = () => {
+    setIsVisible(false);
+  };
+
+  if (!isVisible || !user || user.role_id !== 1 || isProfileComplete) {
+    return null;
+  }
+
+  return (
+    <div className="profile-setup-notification">
+      <div className="notification-content">
+        <div className="notification-icon">
+          <IconUser size={24} />
+        </div>
+        <div className="notification-text">
+          <h4>Complete Setup Your Profile</h4>
+        </div>
+        <div className="notification-actions">
+          <button className="complete-btn" onClick={handleCompleteProfile}>
+            Complete Now
+            <IconArrowRight size={16} />
+          </button>
+          <button className="dismiss-btn" onClick={handleDismiss}>
+            <IconX size={16} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProfileSetupNotification;

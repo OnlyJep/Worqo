@@ -1,0 +1,736 @@
+// Skills Experience Component Styles
+$primary-color: #3b82f6;
+$secondary-color: #6366f1;
+$bg-primary: #ffffff;
+$bg-secondary: #f8fafc;
+$bg-tertiary: #f1f5f9;
+$text-primary: #1e293b;
+$text-secondary: #64748b;
+$border-light: #e2e8f0;
+$border-medium: #cbd5e1;
+$success-color: #10b981;
+$error-color: #ef4444;
+
+// Skills Experience Container
+.skills-experience-container {
+  .step-header {
+    margin-bottom: 32px;
+    
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: $text-primary;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    
+    .step-description {
+      font-size: 16px;
+      color: $text-secondary;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .form-section {
+    .skills-section {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      position: relative;
+
+      .skill-group {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+        z-index: 1;
+
+        // Ensure additional skills dropdown stays in place
+        &:nth-child(2) {
+          z-index: 2;
+        }
+
+        .form-label {
+          font-size: 16px;
+          font-weight: 600;
+          color: $text-primary;
+          margin-bottom: 8px;
+          display: block;
+
+          .required {
+            color: $error-color;
+            margin-left: 4px;
+          }
+        }
+
+        // Custom dropdown styles
+        .custom-dropdown {
+          position: relative;
+          width: 100%;
+          z-index: 1;
+          isolation: isolate;
+          contain: layout style;
+          transform: translateZ(0);
+
+          // When dropdown is open, increase z-index to appear above other dropdowns
+          &.dropdown-open {
+            z-index: 1000;
+            
+            .dropdown-menu {
+              z-index: 1001;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              right: 0;
+              transform: translateZ(0);
+              will-change: transform;
+            }
+          }
+
+          .dropdown-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border: 2px solid $border-light;
+            border-radius: 8px;
+            background: $bg-primary;
+            color: $text-primary;
+            font-size: 16px;
+            font-weight: 500;
+            min-height: 56px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            outline: none;
+            user-select: none;
+            position: relative;
+            transform: translateZ(0);
+            will-change: transform;
+            width: 100%;
+            z-index: 1;
+
+            &:hover {
+              border-color: $primary-color;
+              box-shadow: 0 2px 8px rgba($primary-color, 0.1);
+            }
+
+            &:focus {
+              border-color: $primary-color;
+              box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+            }
+
+            &:active {
+              transform: translateY(1px);
+            }
+
+            .dropdown-value {
+              flex: 1;
+              color: $text-primary;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 1.5;
+            }
+
+            .dropdown-arrow {
+              color: $text-secondary;
+              transition: transform 0.3s ease;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 20px;
+              height: 20px;
+              pointer-events: none;
+
+              &.open {
+                transform: rotate(180deg);
+              }
+
+              .chevron-icon {
+                transition: transform 0.3s ease, color 0.2s ease;
+                pointer-events: none;
+                
+                &:hover {
+                  color: $primary-color;
+                }
+              }
+            }
+          }
+
+          .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: $bg-primary;
+            border: 2px solid $border-light;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            z-index: 1002;
+            margin-top: -2px;
+            display: block;
+            max-height: 400px;
+            overflow: hidden;
+            isolation: isolate;
+            transform: translateZ(0);
+            will-change: transform;
+
+            .dropdown-items {
+              max-height: 300px;
+              overflow-y: auto;
+              padding: 8px 0;
+              
+              // Hide scrollbar for WebKit browsers (Chrome, Safari, Edge)
+              &::-webkit-scrollbar {
+                width: 0;
+                background: transparent;
+              }
+              
+              // Hide scrollbar for Firefox
+              scrollbar-width: none;
+              
+              // Ensure scrolling still works
+              -ms-overflow-style: none;
+
+              .dropdown-item {
+                padding: 12px 16px;
+                color: $text-primary;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border-bottom: 1px solid $border-light;
+                min-height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                outline: none;
+
+                &:last-child {
+                  border-bottom: none;
+                }
+
+                &:focus {
+                  background: rgba($primary-color, 0.1);
+                  border-left: 3px solid $primary-color;
+                }
+
+                &.selected {
+                  background: rgba($success-color, 0.1);
+                  border-left: 3px solid $success-color;
+                }
+
+                &.disabled {
+                  opacity: 0.5;
+                  cursor: not-allowed;
+                  background: rgba($text-secondary, 0.05);
+                  
+                  &:focus {
+                    background: rgba($text-secondary, 0.05);
+                    border-left: none;
+                  }
+                }
+
+                .item-text {
+                  flex: 1;
+                }
+
+                .checkmark {
+                  color: $success-color;
+                  font-weight: bold;
+                  margin-left: 8px;
+                }
+
+                .primary-indicator,
+                .additional-indicator {
+                  font-size: 11px;
+                  padding: 2px 6px;
+                  border-radius: 12px;
+                  margin-left: 8px;
+                  font-weight: 500;
+                }
+
+                .primary-indicator {
+                  background: rgba($primary-color, 0.1);
+                  color: $primary-color;
+                }
+
+                .additional-indicator {
+                  background: rgba($secondary-color, 0.1);
+                  color: $secondary-color;
+                }
+
+                .loading-indicator {
+                  font-size: 12px;
+                  color: $text-secondary;
+                  font-style: italic;
+                  margin-left: 8px;
+                }
+
+                &:hover {
+                  background: $bg-tertiary;
+                  color: $primary-color;
+                }
+              }
+            }
+          }
+        }
+
+        // Selected skills display
+        .selected-skills {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-top: 16px;
+
+          .skill-card {
+            background: $bg-primary;
+            border: 1px solid $border-light;
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+
+            &:hover {
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              border-color: $primary-color;
+            }
+
+            &.primary-skill {
+              border-left: 4px solid $primary-color;
+            }
+
+            &.additional-skill {
+              border-left: 4px solid $secondary-color;
+            }
+
+            .skill-header {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 8px;
+
+              .skill-name {
+                font-size: 16px;
+                font-weight: 600;
+                color: $text-primary;
+              }
+
+              .remove-skill-btn {
+                background: none;
+                border: none;
+                color: $text-secondary;
+                cursor: pointer;
+                padding: 4px;
+                border-radius: 4px;
+                transition: all 0.2s ease;
+
+                &:hover {
+                  background: rgba($error-color, 0.1);
+                  color: $error-color;
+                }
+              }
+            }
+
+            .skill-info {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+
+              .skill-experience {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .experience-label {
+                  font-size: 14px;
+                  color: $text-secondary;
+                  font-weight: 600;
+                }
+
+                .experience-value {
+                  font-size: 14px;
+                  color: $primary-color;
+                  font-weight: 600;
+                  background: rgba($primary-color, 0.1);
+                  padding: 2px 8px;
+                  border-radius: 12px;
+                }
+              }
+
+              .skill-sub-skills {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .sub-skills-label {
+                  font-size: 14px;
+                  color: $text-secondary;
+                  font-weight: 600;
+                }
+
+                .sub-skills-list {
+                  font-size: 14px;
+                  color: $text-secondary;
+                  font-style: italic;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Step navigation
+  .step-navigation {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 5px solid $border-light;
+
+    .navigation-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      .btn {
+        padding: 16px 32px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        min-width: 140px;
+
+        &.btn-secondary {
+          background: $bg-secondary;
+          color: $text-primary;
+          border: 2px solid $border-light;
+
+          &:hover {
+            background: $border-light;
+            border-color: $border-medium;
+          }
+        }
+
+        &.btn-primary {
+          background: $primary-color;
+          color: white;
+
+          &:hover:not(:disabled) {
+            background: darken($primary-color, 10%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+          }
+
+          &:disabled {
+            background: $border-medium;
+            color: $text-secondary;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+          }
+
+          &.btn-large {
+            padding: 20px 40px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  // Skill details modal
+  .skill-details-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+
+    .modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      position: relative;
+      background: $bg-primary;
+      border-radius: 12px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        border-bottom: 1px solid $border-light;
+
+        h3 {
+          font-size: 24px;
+          font-weight: 700;
+          color: $text-primary;
+          margin: 0;
+        }
+
+        .close-btn {
+          background: none;
+          border: none;
+          color: $text-secondary;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 6px;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: rgba($error-color, 0.1);
+            color: $error-color;
+          }
+        }
+      }
+
+      .modal-body {
+        padding: 24px;
+        overflow-y: auto;
+        flex: 1;
+
+        .experience-section {
+          margin-bottom: 32px;
+
+          .form-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: $text-primary;
+            margin-bottom: 8px;
+            display: block;
+
+            .required {
+              color: $error-color;
+              font-weight: 400;
+              margin-left: 4px;
+            }
+          }
+
+          .section-description {
+            font-size: 14px;
+            color: $text-secondary;
+            margin-bottom: 16px;
+          }
+
+          .experience-select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid $border-light;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: $bg-primary;
+            color: $text-primary;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            min-height: 56px;
+            line-height: 1.5;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 20px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+
+            &:focus {
+              outline: none;
+              border-color: $primary-color;
+              box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+              background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%232563eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            }
+
+            &:hover {
+              border-color: $primary-color;
+              background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%232563eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            }
+          }
+        }
+
+        .sub-skills-section {
+          .form-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: $text-primary;
+            margin-bottom: 8px;
+            display: block;
+          }
+
+          .section-description {
+            font-size: 14px;
+            color: $text-secondary;
+            margin-bottom: 24px;
+          }
+
+          .sub-skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+
+            .sub-skills-column {
+              .column-title {
+                font-size: 16px;
+                font-weight: 600;
+                color: $text-primary;
+                margin-bottom: 16px;
+                display: block;
+              }
+
+              .sub-skills-list {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                max-height: 300px;
+                overflow-y: auto;
+
+                .sub-skill-item {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  padding: 12px 16px;
+                  background: $bg-secondary;
+                  border: 1px solid $border-light;
+                  border-radius: 6px;
+                  transition: all 0.2s ease;
+
+                  &:last-child {
+                    border-bottom: none;
+                  }
+
+                  &.selected {
+                    background: rgba($success-color, 0.1);
+                    border-left: 3px solid $success-color;
+                  }
+
+                  .sub-skill-text {
+                    font-size: 14px;
+                    color: $text-primary;
+                    font-weight: 500;
+                  }
+
+                  .btn {
+                    padding: 6px 8px;
+                    border: 1px solid $border-medium;
+                    border-radius: 4px;
+                    background: $bg-primary;
+                    color: $text-secondary;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:hover {
+                      border-color: $primary-color;
+                      color: $primary-color;
+                    }
+
+                    &.btn-sm {
+                      padding: 4px 6px;
+                      font-size: 12px;
+                    }
+
+                    &.btn-outline {
+                      background: transparent;
+                    }
+                  }
+                }
+              }
+
+              .empty-state {
+                padding: 40px 20px;
+                text-align: center;
+                color: $text-secondary;
+                font-style: italic;
+              }
+            }
+          }
+        }
+      }
+
+      .modal-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 24px;
+        border-top: 1px solid $border-light;
+
+        .btn {
+          padding: 16px 32px;
+          border-radius: 6px;
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          border: none;
+
+          &.btn-secondary {
+            background: $bg-secondary;
+            color: $text-primary;
+            border: 1px solid $border-light;
+
+            &:hover {
+              background: $border-light;
+            }
+          }
+
+          &.btn-primary {
+            background: $primary-color;
+            color: white;
+
+            &:hover {
+              background: darken($primary-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .skills-experience-container {
+    .form-section .skills-section .skill-group {
+      .custom-dropdown .dropdown-menu .sub-skills-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    .skill-details-modal .modal-content {
+      margin: 0;
+      max-height: 95vh;
+      max-width: 100%;
+
+      .modal-body .sub-skills-section .sub-skills-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  }
+}

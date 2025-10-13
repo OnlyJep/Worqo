@@ -2,8 +2,48 @@ import React, { useState, useEffect, useRef } from 'react';
 import { IconX, IconChevronDown, IconPlus, IconMinus } from '@tabler/icons-react';
 import { Select, Dropdown, message, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import '../../../sass/components/_skillratingmodal.scss';
+import Headerz from '../HeaderContent/Headerz';
+import SkillsExperience from './SkillsExperience';
 const { Option } = Select;
+
+// Category options shown in the first dropdown (three only)
+const credentialCategories = [
+  { value: 'government', label: 'Government Credential' },
+  { value: 'professional', label: 'Professional Credential' },
+  { value: 'personal', label: 'Personal Credential' },
+];
+
+// Map of credential type options per category (shown inside modal)
+const credentialSubTypes = {
+  government: [
+    { value: 'SSS ID', label: 'SSS ID / SSS Number' },
+    { value: 'TIN ID', label: 'TIN ID / Tax Identification Number' },
+    { value: 'PhilHealth ID', label: 'PhilHealth ID' },
+    { value: 'Pag-IBIG ID', label: 'Pag-IBIG ID' },
+    { value: 'National ID', label: 'National ID / Postal ID' },
+    { value: 'Drivers License', label: 'Driver\'s License' },
+    { value: 'Passport', label: 'Passport' },
+    { value: 'Voters ID', label: 'Voter\'s ID' },
+    { value: 'Barangay Clearance', label: 'Barangay Clearance' },
+    { value: 'Police Clearance', label: 'Police Clearance' },
+    { value: 'NBI Clearance', label: 'NBI Clearance' },
+  ],
+  professional: [
+    { value: 'TESDA Certificate', label: 'TESDA / NC Certificates' },
+    { value: 'Diploma', label: 'Diploma / Transcript of Records' },
+    { value: 'Training Certificate', label: 'Training Certificates' },
+    { value: 'Professional License', label: 'License or Professional ID (e.g., PRC License)' },
+    { value: 'Work Portfolio', label: 'Work Experience Records / Portfolio' },
+    { value: 'Certificate of Employment', label: 'Certificate of Employment' },
+    { value: 'Performance Evaluation', label: 'Performance Evaluation / Feedback' },
+    { value: 'Work Photos', label: 'Work Accomplishment Photos (for skilled workers like carpenters, painters, etc.)' },
+  ],
+  personal: [
+    { value: 'Resume/CV', label: 'Resume / Curriculum Vitae (CV)' },
+    { value: 'Birth Certificate', label: 'Birth Certificate' },
+    { value: 'Character Reference', label: 'Character Reference / Reference Letter' },
+  ],
+};
 
 const credentialOptions = [
   { value: "Resume/CV", label: "Resume / Curriculum Vitae (CV)" },
@@ -49,6 +89,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [pendingSkills, setPendingSkills] = useState([]);
   const [showSkillModal, setShowSkillModal] = useState(false);
+  const [isAddingPrimarySkill, setIsAddingPrimarySkill] = useState(false);
   const [userSkills, setUserSkills] = useState({ 
     primary_skills: [], 
     additional_skills: [] 
@@ -64,6 +105,9 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const [credentials, setCredentials] = useState([]);
   const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null });
   const [errors, setErrors] = useState({});
+  const [selectedCredentialCategory, setSelectedCredentialCategory] = useState("");
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const [isTypeDropdownOpen, setIsTypeDropdownOpen] = useState(false);
   const [isProfileComplete, setIsProfileComplete] = useState(false);
   const [skillsStepCompleted, setSkillsStepCompleted] = useState(false);
   const [workPreferencesCompleted, setWorkPreferencesCompleted] = useState(false);
@@ -72,7 +116,13 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const [monthlySalary, setMonthlySalary] = useState('');
   const [preferredWorkingHours, setPreferredWorkingHours] = useState([]);
   const [bio, setBio] = useState('');
+  const [isWorkTypeDropdownOpen, setIsWorkTypeDropdownOpen] = useState(false);
+  const [isAdditionalSkillsDropdownOpen, setIsAdditionalSkillsDropdownOpen] = useState(false);
+  const [isWorkingDaysDropdownOpen, setIsWorkingDaysDropdownOpen] = useState(false);
   const credentialFileRef = useRef(null);
+  const workTypeDropdownRef = useRef(null);
+  const additionalSkillsDropdownRef = useRef(null);
+  const workingDaysDropdownRef = useRef(null);
   const navigate = useNavigate();
   const isMounted = useRef(true);
   const abortController = useRef(new AbortController());
@@ -82,6 +132,26 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     return () => {
       isMounted.current = false;
       abortController.current.abort();
+    };
+  }, []);
+
+  // Handle click outside dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (workTypeDropdownRef.current && !workTypeDropdownRef.current.contains(event.target)) {
+        setIsWorkTypeDropdownOpen(false);
+      }
+      if (additionalSkillsDropdownRef.current && !additionalSkillsDropdownRef.current.contains(event.target)) {
+        setIsAdditionalSkillsDropdownOpen(false);
+      }
+      if (workingDaysDropdownRef.current && !workingDaysDropdownRef.current.contains(event.target)) {
+        setIsWorkingDaysDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -113,7 +183,15 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         setIsProfileComplete(true);
         setSkillsStepCompleted(true);
         localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
-        if (isMounted.current) navigate('/homepage');
+        if (isMounted.current) {
+          if (window.location.pathname.includes('/skill-rating')) {
+            // If used as a page, use window.location
+            window.location.href = '/homepage';
+          } else {
+            // If used as a modal, use navigate
+            navigate('/homepage');
+          }
+        }
         return;
       }
 
@@ -153,7 +231,15 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         setSkillsStepCompleted(true);
         localStorage.setItem(`isProfileComplete_${user.id}`, 'true');
         localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
-        if (isMounted.current) navigate('/homepage');
+        if (isMounted.current) {
+          if (window.location.pathname.includes('/skill-rating')) {
+            // If used as a page, use window.location
+            window.location.href = '/homepage';
+          } else {
+            // If used as a modal, use navigate
+            navigate('/homepage');
+          }
+        }
       } else {
         console.log(`Skills found: ${totalSkills} (${primarySkills.length} primary, ${additionalSkills.length} additional), Credentials: ${hasCredentials ? 'Yes' : 'No'}, keeping skillsStepCompleted as false`);
         localStorage.setItem(`skillsStepCompleted_${user.id}`, 'false');
@@ -440,6 +526,23 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     }
   }, [searchTermAdditional, availableSkills, userSkills]);
 
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isCategoryDropdownOpen && !event.target.closest('.category-dropdown-container')) {
+        setIsCategoryDropdownOpen(false);
+      }
+      if (isTypeDropdownOpen && !event.target.closest('.type-dropdown-container')) {
+        setIsTypeDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isCategoryDropdownOpen, isTypeDropdownOpen]);
+
   const handlePrimarySkillSelect = (value) => {
     console.log('Selecting primary skill:', value);
     if (userSkills?.primary_skills?.length > 0) {
@@ -462,10 +565,9 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       return;
     }
     console.log('Opening sub-skills modal for skill:', skill);
+    setIsAddingPrimarySkill(true);
     setSelectedSkill({
-      ...skill,
-      experience: 'no-experience',
-      hourly_rate: ''
+      ...skill
     });
     // Initialize with all sub-skills available and none selected
     setAvailableSubSkills(skill.sub_skills || []);
@@ -490,9 +592,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       console.log('Opening sub-skills modal for additional skills:', newSkills);
       setPendingSkills(newSkills);
       setSelectedSkill({
-        ...newSkills[0],
-        experience: 'no-experience',
-        hourly_rate: ''
+        ...newSkills[0]
       });
       // Initialize with all sub-skills available and none selected
       setAvailableSubSkills(newSkills[0].sub_skills || []);
@@ -500,6 +600,54 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       setShowSkillModal(true);
     } else {
       message.error('All selected skills are already added or invalid.');
+    }
+  };
+
+  const handleAdditionalSkillToggle = (skill) => {
+    console.log('Toggling additional skill:', skill);
+    const totalSkills = (userSkills.primary_skills?.length || 0) + (userSkills.additional_skills?.length || 0);
+    
+    // Check if skill is already selected
+    const isAlreadySelected = userSkills.additional_skills?.some(userSkill => parseInt(userSkill.skill_id) === skill.id);
+    
+    if (isAlreadySelected) {
+      // Remove skill
+      handleRemoveSkill(skill.id, false);
+    } else {
+      // Add skill
+      if (totalSkills >= 15) {
+        message.error('You can only add up to 15 skills. Please remove a skill first.');
+        return;
+      }
+      
+      // Check if it's already a primary skill
+      if (userSkills.primary_skills?.some(primarySkill => parseInt(primarySkill.skill_id) === skill.id)) {
+        message.error('This skill has already been added as a primary skill.');
+        return;
+      }
+      
+      // Add the skill
+      setIsAddingPrimarySkill(false);
+      setPendingSkills([skill]);
+      setSelectedSkill({
+        ...skill
+      });
+      setAvailableSubSkills(skill.sub_skills || []);
+      setSelectedSubSkills([]);
+      setShowSkillModal(true);
+    }
+  };
+
+  const handleWorkingDayToggle = (day) => {
+    console.log('Toggling working day:', day);
+    const isSelected = preferredWorkingHours.includes(day);
+    
+    if (isSelected) {
+      // Remove day
+      setPreferredWorkingHours(prev => prev.filter(d => d !== day));
+    } else {
+      // Add day
+      setPreferredWorkingHours(prev => [...prev, day]);
     }
   };
 
@@ -519,11 +667,13 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       const allSubSkills = originalSkill.sub_skills || [];
       const availableSubSkills = allSubSkills.filter(subSkill => !alreadySelectedSubSkills.includes(subSkill));
       
+      // Determine if this is a primary or additional skill being edited
+      const isPrimarySkill = userSkills.primary_skills && userSkills.primary_skills.some(ps => ps.skill_id === skillId);
+      setIsAddingPrimarySkill(isPrimarySkill);
+      
       setSelectedSkill({ 
         ...skill, 
-        sub_skills: originalSkill.sub_skills || [],
-        experience: skill.experience || 'no-experience',
-        hourly_rate: skill.hourly_rate || ''
+        sub_skills: originalSkill.sub_skills || []
       });
       setAvailableSubSkills(availableSubSkills);
       setSelectedSubSkills(alreadySelectedSubSkills);
@@ -604,6 +754,10 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
   const addCredential = () => {
     console.log('Adding credential:', newCredential);
+    if (!selectedCredentialCategory) {
+      setErrors((prev) => ({ ...prev, new_credential_category: "Please select a credential category" }));
+      return;
+    }
     if (!newCredential.credentials_name) {
       setErrors((prev) => ({ ...prev, new_credential_name: "Please select a credential type" }));
       return;
@@ -612,9 +766,10 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       setErrors((prev) => ({ ...prev, new_credential_photo: "Please upload a credential file" }));
       return;
     }
-    setCredentials((prev) => [...prev, { ...newCredential }]);
+    setCredentials((prev) => [...prev, { ...newCredential, category: selectedCredentialCategory }]);
     setNewCredential({ credentials_name: "", credentials_photo: null });
-    setErrors((prev) => ({ ...prev, new_credential_name: "", new_credential_photo: "" }));
+    setSelectedCredentialCategory("");
+    setErrors((prev) => ({ ...prev, new_credential_category: "", new_credential_name: "", new_credential_photo: "" }));
     if (credentialFileRef.current) {
       credentialFileRef.current.value = "";
     }
@@ -646,8 +801,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       skill_id: String(selectedSkill.skill_id || selectedSkill.id),
       skill_name: selectedSkill.skill_name || selectedSkill.name,
       sub_skills: selectedSubSkills,
-      experience: selectedSkill.experience || 'no-experience',
-      hourly_rate: selectedSkill.hourly_rate || '',
+      experience: selectedSkill.experience || '0-11-months',
     };
 
     const authToken = localStorage.getItem('auth_token');
@@ -676,11 +830,19 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         const updatedSkills = { ...userSkills };
         const primaryIndex = updatedSkills.primary_skills.findIndex(skill => skill.skill_id === newSkill.skill_id);
         if (primaryIndex !== -1) {
-          updatedSkills.primary_skills[primaryIndex] = { ...updatedSkills.primary_skills[primaryIndex], sub_skills: newSkill.sub_skills };
+          updatedSkills.primary_skills[primaryIndex] = { 
+            ...updatedSkills.primary_skills[primaryIndex], 
+            sub_skills: newSkill.sub_skills,
+            experience: newSkill.experience
+          };
         } else {
           const additionalIndex = updatedSkills.additional_skills.findIndex(skill => skill.skill_id === newSkill.skill_id);
           if (additionalIndex !== -1) {
-            updatedSkills.additional_skills[additionalIndex] = { ...updatedSkills.additional_skills[additionalIndex], sub_skills: newSkill.sub_skills };
+            updatedSkills.additional_skills[additionalIndex] = { 
+              ...updatedSkills.additional_skills[additionalIndex], 
+              sub_skills: newSkill.sub_skills,
+              experience: newSkill.experience
+            };
           }
         }
         
@@ -736,6 +898,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
             skill_id: skillId,
             skill_name: skillName,
             sub_skills: selectedSubSkills.length > 0 ? selectedSubSkills : [],
+            experience: selectedSkill.experience || '0-11-months',
           }),
           signal: abortController.current.signal,
         });
@@ -756,52 +919,78 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         console.log('Skill response:', data);
 
         if (data.message === 'Skill already added') {
-          // Update existing skill with new sub-skills
+          // Skill already exists in database, add it to local state
           if (isMounted.current) {
             setUserSkills(prev => {
-              const updated = { ...prev };
-              // Check if it's in primary skills
-              const primaryIndex = prev.primary_skills.findIndex(skill => skill.skill_id === newSkill.skill_id);
-              if (primaryIndex !== -1) {
-                updated.primary_skills[primaryIndex] = { ...updated.primary_skills[primaryIndex], sub_skills: newSkill.sub_skills };
+              // Check if skill already exists in local state
+              const existsInPrimary = prev.primary_skills.some(skill => skill.skill_id === newSkill.skill_id);
+              const existsInAdditional = prev.additional_skills.some(skill => skill.skill_id === newSkill.skill_id);
+              
+              let updated;
+              if (existsInPrimary || existsInAdditional) {
+                // Update existing skill
+                updated = { ...prev };
+                if (existsInPrimary) {
+                  const index = updated.primary_skills.findIndex(skill => skill.skill_id === newSkill.skill_id);
+                  updated.primary_skills[index] = { 
+                    ...updated.primary_skills[index], 
+                    sub_skills: newSkill.sub_skills,
+                    experience: newSkill.experience
+                  };
+                } else {
+                  const index = updated.additional_skills.findIndex(skill => skill.skill_id === newSkill.skill_id);
+                  updated.additional_skills[index] = { 
+                    ...updated.additional_skills[index], 
+                    sub_skills: newSkill.sub_skills,
+                    experience: newSkill.experience
+                  };
+                }
               } else {
-                // Check if it's in additional skills
-                const additionalIndex = prev.additional_skills.findIndex(skill => skill.skill_id === newSkill.skill_id);
-                if (additionalIndex !== -1) {
-                  updated.additional_skills[additionalIndex] = { ...updated.additional_skills[additionalIndex], sub_skills: newSkill.sub_skills };
+                // Add new skill to local state
+                if (isAddingPrimarySkill) {
+                  // For primary skills, replace the existing one (only one primary skill allowed)
+                  updated = { ...prev, primary_skills: [newSkill] };
+                } else {
+                  updated = { ...prev, additional_skills: [...prev.additional_skills, newSkill] };
                 }
               }
+              
+              // Check if we have enough skills to complete the step
+              const totalSkills = (updated.primary_skills?.length || 0) + (updated.additional_skills?.length || 0);
+              if (totalSkills >= 2) {
+                console.log('Total skills >= 2 after adding, setting skillsStepCompleted to true');
+                setSkillsStepCompleted(true);
+                localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+              }
+              
               return updated;
             });
+            message.success('Skill added successfully');
           }
         } else {
           // New skill added successfully
           if (isMounted.current) {
             setUserSkills(prev => {
-              // Check if skill already exists
-              const existsInPrimary = prev.primary_skills.some(skill => skill.skill_id === newSkill.skill_id);
-              const existsInAdditional = prev.additional_skills.some(skill => skill.skill_id === newSkill.skill_id);
-              
-              if (existsInPrimary || existsInAdditional) {
-                // Update existing skill
-                const updated = { ...prev };
-                if (existsInPrimary) {
-                  const index = updated.primary_skills.findIndex(skill => skill.skill_id === newSkill.skill_id);
-                  updated.primary_skills[index] = { ...updated.primary_skills[index], sub_skills: newSkill.sub_skills };
-                } else {
-                  const index = updated.additional_skills.findIndex(skill => skill.skill_id === newSkill.skill_id);
-                  updated.additional_skills[index] = { ...updated.additional_skills[index], sub_skills: newSkill.sub_skills };
-                }
-                return updated;
-              }
-              
-              // Add new skill - determine if it should be primary or additional
-              if (prev.primary_skills.length === 0) {
-                return { ...prev, primary_skills: [newSkill] };
+              // Add new skill - use the flag to determine if it should be primary or additional
+              let updated;
+              if (isAddingPrimarySkill) {
+                // For primary skills, replace the existing one (only one primary skill allowed)
+                updated = { ...prev, primary_skills: [newSkill] };
               } else {
-                return { ...prev, additional_skills: [...prev.additional_skills, newSkill] };
+                updated = { ...prev, additional_skills: [...prev.additional_skills, newSkill] };
               }
+              
+              // Check if we have enough skills to complete the step
+              const totalSkills = (updated.primary_skills?.length || 0) + (updated.additional_skills?.length || 0);
+              if (totalSkills >= 2) {
+                console.log('Total skills >= 2 after adding, setting skillsStepCompleted to true');
+                setSkillsStepCompleted(true);
+                localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
+              }
+              
+              return updated;
             });
+            message.success('Skill added successfully');
           }
         }
       }
@@ -824,15 +1013,10 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
             setSelectedSkill(null);
             setAvailableSubSkills([]);
             setSelectedSubSkills([]);
+            setIsAddingPrimarySkill(false);
             return [];
           }
         });
-        const totalSkills = (userSkills.primary_skills?.length || 0) + (userSkills.additional_skills?.length || 0) + 1;
-        if (totalSkills >= 2) {
-          console.log('Total skills >= 2 after adding, setting skillsStepCompleted to true');
-          setSkillsStepCompleted(true);
-          localStorage.setItem(`skillsStepCompleted_${user.id}`, 'true');
-        }
       }
     } catch (error) {
       if (error.name === 'AbortError') {
@@ -959,6 +1143,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
           setSelectedSkill(null);
           setAvailableSubSkills([]);
           setSelectedSubSkills([]);
+          setIsAddingPrimarySkill(false);
           return [];
         }
       });
@@ -1020,8 +1205,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     skillsId.primary_skills.forEach((skill, index) => {
       submitData.append(`skills_id[primary_skills][${index}][skill_id]`, skill.skill_id);
       submitData.append(`skills_id[primary_skills][${index}][skill_name]`, skill.skill_name);
-      submitData.append(`skills_id[primary_skills][${index}][experience]`, skill.experience || 'no-experience');
-      submitData.append(`skills_id[primary_skills][${index}][hourly_rate]`, skill.hourly_rate || '');
       skill.sub_skills.forEach((subSkill, subIndex) => {
         submitData.append(`skills_id[primary_skills][${index}][sub_skills][${subIndex}]`, subSkill);
       });
@@ -1031,8 +1214,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     skillsId.additional_skills.forEach((skill, index) => {
       submitData.append(`skills_id[additional_skills][${index}][skill_id]`, skill.skill_id);
       submitData.append(`skills_id[additional_skills][${index}][skill_name]`, skill.skill_name);
-      submitData.append(`skills_id[additional_skills][${index}][experience]`, skill.experience || 'no-experience');
-      submitData.append(`skills_id[additional_skills][${index}][hourly_rate]`, skill.hourly_rate || '');
       skill.sub_skills.forEach((subSkill, subIndex) => {
         submitData.append(`skills_id[additional_skills][${index}][sub_skills][${subIndex}]`, subSkill);
       });
@@ -1081,7 +1262,13 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         localStorage.removeItem(`additionalSkills_${user.id}`);
         localStorage.removeItem(`profile_${user.id}`);
         onComplete();
-        navigate('/homepage');
+        if (window.location.pathname.includes('/skill-rating')) {
+          // If used as a page, use window.location
+          window.location.href = '/homepage';
+        } else {
+          // If used as a modal, use navigate
+          navigate('/homepage');
+        }
       }
     } catch (error) {
       if (error.name === 'AbortError') {
@@ -1108,13 +1295,21 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     ]
   });
 
-  if (!isOpen || !user?.id || isProfileComplete || user?.role_id === 2) {
+  // When used as a page, always render (isOpen is always true)
+  // When used as a modal, check isOpen condition
+  if (!isOpen && !window.location.pathname.includes('/skill-rating')) {
     console.log('SkillRatingModal not rendered: isOpen=', isOpen, 'user.id=', user?.id, 'isProfileComplete=', isProfileComplete, 'user.role_id=', user?.role_id);
+    return null;
+  }
+
+  if (!user?.id || isProfileComplete || user?.role_id === 2) {
+    console.log('SkillRatingModal not rendered: user.id=', user?.id, 'isProfileComplete=', isProfileComplete, 'user.role_id=', user?.role_id);
     return null;
   }
 
   return (
     <div className="skill-rating-overlay">
+      <Headerz />
       <div className="skill-rating-container">
         <div className="progress-side">
           <div className="logo">Worqo</div>
@@ -1158,27 +1353,51 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                 <div className="form-row">
                   <div className="form-group">
                     <label className="form-label">Work Type <span className="required">*</span></label>
-                    <Select
-                      value={workType}
-                      onChange={(value) => {
-                        setWorkType(value);
+                    <div className="custom-dropdown" ref={workTypeDropdownRef}>
+                      <div 
+                        className="dropdown-trigger"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log('Dropdown clicked, current state:', isWorkTypeDropdownOpen);
+                          setIsWorkTypeDropdownOpen(!isWorkTypeDropdownOpen);
+                        }}
+                      >
+                        <span className="dropdown-value">
+                          {workTypeOptions.find(option => option.value === workType)?.label || 'Select work type'}
+                        </span>
+                        <span className={`dropdown-arrow ${isWorkTypeDropdownOpen ? 'open' : ''}`}>
+                          <IconChevronDown size={16} />
+                        </span>
+                      </div>
+                      {isWorkTypeDropdownOpen && (
+                        <div className="dropdown-menu">
+                          {workTypeOptions.map(option => (
+                            <div
+                              key={option.value}
+                              className={`dropdown-item ${workType === option.value ? 'selected' : ''}`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('Option clicked:', option.label);
+                                setWorkType(option.value);
+                                setIsWorkTypeDropdownOpen(false);
                         // Auto-set hours per day based on work type
-                        if (value === 'full-time') {
+                                if (option.value === 'full-time') {
                           setHoursPerDay(8);
-                        } else if (value === 'part-time') {
+                                } else if (option.value === 'part-time') {
                           setHoursPerDay(4);
-                        } else if (value === 'one-time') {
+                                } else if (option.value === 'one-time') {
                           setHoursPerDay(1);
                         }
                       }}
-                      className="form-select"
                     >
-                      {workTypeOptions.map(option => (
-                        <Option key={option.value} value={option.value}>
                           {option.label}
-                        </Option>
+                            </div>
                       ))}
-                    </Select>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <div className="form-group">
@@ -1200,7 +1419,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label className="form-label">Expected Monthly Salary (PHP)</label>
+                    <label className="form-label">Expected Monthly Salary </label>
                     <Input
                       type="number"
                       value={monthlySalary}
@@ -1215,19 +1434,54 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
                   <div className="form-group">
                     <label className="form-label">Preferred Working Days</label>
-                    <Select
-                      mode="multiple"
-                      value={preferredWorkingHours}
-                      onChange={setPreferredWorkingHours}
-                      placeholder="Select your preferred working days"
-                      className="form-select"
-                    >
-                      {workingDaysOptions.map(option => (
-                        <Option key={option.value} value={option.value}>
-                          {option.label}
-                        </Option>
-                      ))}
-                    </Select>
+                    <div className="custom-multi-dropdown" ref={workingDaysDropdownRef}>
+                      <div 
+                        className="multi-dropdown-trigger"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log('Working days dropdown clicked, current state:', isWorkingDaysDropdownOpen);
+                          setIsWorkingDaysDropdownOpen(!isWorkingDaysDropdownOpen);
+                        }}
+                      >
+                        <div className="multi-dropdown-value">
+                          {preferredWorkingHours.length > 0 
+                            ? preferredWorkingHours.map(day => {
+                                const dayOption = workingDaysOptions.find(option => option.value === day);
+                                return dayOption ? dayOption.label : day;
+                              }).join(' • ')
+                            : 'Select working days'
+                          }
+                        </div>
+                        <span className={`dropdown-arrow ${isWorkingDaysDropdownOpen ? 'open' : ''}`}>
+                          <IconChevronDown size={16} />
+                        </span>
+                      </div>
+                      {isWorkingDaysDropdownOpen && (
+                        <div className="multi-dropdown-menu">
+                          <div className="dropdown-items">
+                            {workingDaysOptions.map(option => {
+                              const isSelected = preferredWorkingHours.includes(option.value);
+                              
+                              return (
+                                <div
+                                  key={option.value}
+                                  className={`multi-dropdown-item ${isSelected ? 'selected' : ''}`}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    handleWorkingDayToggle(option.value);
+                                  }}
+                                >
+                                  <span className="item-text">{option.label}</span>
+                                  {isSelected && <span className="checkmark">✓</span>}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                     <span className="form-help">Select the days you're available to work</span>
                   </div>
                 </div>
@@ -1250,153 +1504,54 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
           )}
 
           {step === 4 && (
-            <>
-              <div className="step-header">
-                <h1>Skills & Experience</h1>
-                <p className="step-description">Add your primary skill and additional skills to showcase your expertise.</p>
-              </div>
-
-              <div className="form-section">
-                <div className="section-title">Your Skills</div>
-                <p className="section-description">Add your primary skill and additional skills to showcase your expertise.</p>
-
-                <div className="skills-section">
-                  <div className="skill-group">
-                    <label className="form-label">Primary Skill <span className="required">*</span></label>
-                    <Select
-                      showSearch
-                      placeholder="Choose your main skill"
-                      onSearch={setSearchTermPrimary}
-                      onSelect={handlePrimarySkillSelect}
-                      className="form-select"
-                      optionFilterProp="children"
-                      allowClear
-                      value={undefined}
-                    >
-                      {filteredSkillsPrimary.map(skill => (
-                        <Option key={skill.id} value={skill.id}>
-                          {skill.name}
-                        </Option>
-                      ))}
-                    </Select>
-                    <span className="form-help">Select your strongest skill</span>
-                    
-                    {(userSkills.primary_skills?.length || 0) > 0 && (
-                      <div className="selected-skills">
-                        {(userSkills.primary_skills || []).map(skill => (
-                          <Dropdown 
-                            key={skill.skill_id} 
-                            menu={skillMenu(skill)} 
-                            trigger={['click']}
-                            placement="bottomRight"
-                          >
-                            <div className="skill-card primary-skill">
-                              <div className="skill-header">
-                                <span className="skill-name">{skill.skill_name}</span>
-                                <IconChevronDown size={16} className="dropdown-arrow" />
-                              </div>
-                              <div className="skill-details">
-                                {skill.sub_skills?.length > 0 && (
-                                  <div className="skill-sub-skills">
-                                    <span className="sub-skills-label">Sub-skills:</span>
-                                    <span className="sub-skills-list">{skill.sub_skills.join(', ')}</span>
-                                  </div>
-                                )}
-                                {skill.experience && (
-                                  <div className="skill-experience">
-                                    <span className="experience-label">Experience:</span>
-                                    <span className="experience-value">{experienceOptions.find(e => e.value === skill.experience)?.label}</span>
-                                  </div>
-                                )}
-                                {skill.hourly_rate && (
-                                  <div className="skill-rate">
-                                    <span className="rate-label">Rate:</span>
-                                    <span className="rate-value">₱{skill.hourly_rate}/hr</span>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </Dropdown>
-                        ))}
-                      </div>
-                    )}
-                    {(userSkills.primary_skills?.length || 0) === 0 && (
-                      <div className="empty-state">
-                        <span className="empty-text">No primary skill selected</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="skill-group">
-                    <label className="form-label">Additional Skills</label>
-                    <Select
-                      mode="multiple"
-                      showSearch
-                      placeholder="Choose additional skills"
-                      onSearch={setSearchTermAdditional}
-                      onChange={handleAdditionalSkillsSelect}
-                      className="form-select"
-                      optionFilterProp="children"
-                      maxTagCount={0}
-                      tagRender={() => null}
-                      allowClear
-                      value={[]}
-                    >
-                      {filteredSkillsAdditional.map(skill => (
-                        <Option key={skill.id} value={skill.id}>
-                          {skill.name}
-                        </Option>
-                      ))}
-                    </Select>
-                    <span className="form-help">Add other skills you possess</span>
-                    
-                    {userSkills.additional_skills.length > 0 ? (
-                      <div className="selected-skills">
-                        {userSkills.additional_skills.map(skill => (
-                          <Dropdown 
-                            key={skill.skill_id} 
-                            menu={skillMenu(skill)} 
-                            trigger={['click']}
-                            placement="bottomRight"
-                          >
-                            <div className="skill-card additional-skill">
-                              <div className="skill-header">
-                                <span className="skill-name">{skill.skill_name}</span>
-                                <IconChevronDown size={16} className="dropdown-arrow" />
-                              </div>
-                              <div className="skill-details">
-                                {skill.sub_skills?.length > 0 && (
-                                  <div className="skill-sub-skills">
-                                    <span className="sub-skills-label">Sub-skills:</span>
-                                    <span className="sub-skills-list">{skill.sub_skills.join(', ')}</span>
-                                  </div>
-                                )}
-                                {skill.experience && (
-                                  <div className="skill-experience">
-                                    <span className="experience-label">Experience:</span>
-                                    <span className="experience-value">{experienceOptions.find(e => e.value === skill.experience)?.label}</span>
-                                  </div>
-                                )}
-                                {skill.hourly_rate && (
-                                  <div className="skill-rate">
-                                    <span className="rate-label">Rate:</span>
-                                    <span className="rate-value">₱{skill.hourly_rate}/hr</span>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </Dropdown>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="empty-state">
-                        <span className="empty-text">No additional skills selected</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </>
+            <SkillsExperience
+              userSkills={userSkills}
+              setUserSkills={setUserSkills}
+              availableSkills={availableSkills}
+              setAvailableSkills={setAvailableSkills}
+              filteredSkillsPrimary={filteredSkillsPrimary}
+              setFilteredSkillsPrimary={setFilteredSkillsPrimary}
+              filteredSkillsAdditional={filteredSkillsAdditional}
+              setFilteredSkillsAdditional={setFilteredSkillsAdditional}
+              searchTermPrimary={searchTermPrimary}
+              setSearchTermPrimary={setSearchTermPrimary}
+              searchTermAdditional={searchTermAdditional}
+              setSearchTermAdditional={setSearchTermAdditional}
+              primarySkill={primarySkill}
+              setPrimarySkill={setPrimarySkill}
+              additionalSkills={additionalSkills}
+              setAdditionalSkills={setAdditionalSkills}
+              selectedSubSkills={selectedSubSkills}
+              setSelectedSubSkills={setSelectedSubSkills}
+              availableSubSkills={availableSubSkills}
+              setAvailableSubSkills={setAvailableSubSkills}
+              selectedSkill={selectedSkill}
+              setSelectedSkill={setSelectedSkill}
+              showSkillModal={showSkillModal}
+              setShowSkillModal={setShowSkillModal}
+              pendingSkills={pendingSkills}
+              setPendingSkills={setPendingSkills}
+              profileId={profileId}
+              user={user}
+              handlePrimarySkillSelect={handlePrimarySkillSelect}
+              handleAdditionalSkillsSelect={handleAdditionalSkillsSelect}
+              handleAdditionalSkillToggle={handleAdditionalSkillToggle}
+              handleSkillItemClick={handleSkillItemClick}
+              handleAddSubSkill={handleAddSubSkill}
+              handleRemoveSubSkill={handleRemoveSubSkill}
+              handleSaveSkill={handleSaveSkill}
+              handleRemoveSkill={handleRemoveSkill}
+              handleModalClose={handleModalClose}
+              isWorkTypeDropdownOpen={isWorkTypeDropdownOpen}
+              setIsWorkTypeDropdownOpen={setIsWorkTypeDropdownOpen}
+              isAdditionalSkillsDropdownOpen={isAdditionalSkillsDropdownOpen}
+              setIsAdditionalSkillsDropdownOpen={setIsAdditionalSkillsDropdownOpen}
+              workTypeDropdownRef={workTypeDropdownRef}
+              additionalSkillsDropdownRef={additionalSkillsDropdownRef}
+              fetchSkills={fetchSkills}
+              handleNextStep={handleNextStep}
+              handlePreviousStep={handlePreviousStep}
+            />
           )}
 
           {step === 5 && (
@@ -1413,20 +1568,89 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                 <div className="credentials-section">
                   <div className="credential-form">
                     <div className="form-group">
-                      <label className="form-label">Credential Type</label>
-                      <Select
-                        value={newCredential.credentials_name}
-                        onChange={(value) => handleNewCredentialChange({ target: { value } }, "credentials_name")}
-                        placeholder="Choose a credential type"
-                        className="form-select"
-                      >
-                        {credentialOptions.map((option) => (
-                          <Option key={option.value} value={option.value}>
-                            {option.label}
-                          </Option>
-                        ))}
-                      </Select>
+                      <label className="form-label">Credential Category</label>
+                      <div className="category-dropdown-container">
+                        <div
+                          className="custom-dropdown-trigger"
+                          onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+                        >
+                          <span className="dropdown-value">
+                            {selectedCredentialCategory 
+                              ? credentialCategories.find(cat => cat.value === selectedCredentialCategory)?.label
+                              : 'Choose a credential category'
+                            }
+                          </span>
+                          <span className={`dropdown-icon ${isCategoryDropdownOpen ? 'open' : ''}`}>
+                            <IconChevronDown size={16} />
+                          </span>
+                        </div>
+                        
+                        {isCategoryDropdownOpen && (
+                          <div className="custom-dropdown-menu">
+                            {credentialCategories.map((option) => (
+                              <div
+                                key={option.value}
+                                className={`custom-dropdown-item ${selectedCredentialCategory === option.value ? 'selected' : ''}`}
+                                onClick={() => {
+                                  setSelectedCredentialCategory(option.value);
+                                  setNewCredential(prev => ({ ...prev, credentials_name: "", credentials_photo: null }));
+                                  setIsCategoryDropdownOpen(false);
+                                }}
+                              >
+                                <span className="dropdown-item-label">{option.label}</span>
+                                {selectedCredentialCategory === option.value && (
+                                  <span className="dropdown-item-check">✓</span>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      {errors.new_credential_category && <span className="error-message">{errors.new_credential_category}</span>}
                     </div>
+
+                    {selectedCredentialCategory && (
+                      <div className="form-group">
+                        <label className="form-label">Credential Type</label>
+                        <div className="type-dropdown-container">
+                          <div
+                            className="custom-dropdown-trigger"
+                            onClick={() => setIsTypeDropdownOpen(!isTypeDropdownOpen)}
+                          >
+                            <span className="dropdown-value">
+                              {newCredential.credentials_name
+                                ? credentialSubTypes[selectedCredentialCategory]?.find(option => option.value === newCredential.credentials_name)?.label
+                                : 'Choose a credential type'
+                              }
+                            </span>
+                            <span className={`dropdown-icon ${isTypeDropdownOpen ? 'open' : ''}`}>
+                              <IconChevronDown size={16} />
+                            </span>
+                          </div>
+                          
+                          {isTypeDropdownOpen && (
+                            <div className="custom-dropdown-menu">
+                              {credentialSubTypes[selectedCredentialCategory]?.map(option => (
+                                <div
+                                  key={option.value}
+                                  className={`custom-dropdown-item ${newCredential.credentials_name === option.value ? 'selected' : ''}`}
+                                  onClick={() => {
+                                    handleNewCredentialChange({ target: { value: option.value } }, "credentials_name");
+                                    setIsTypeDropdownOpen(false);
+                                  }}
+                                >
+                                  <span className="dropdown-item-label">{option.label}</span>
+                                  {newCredential.credentials_name === option.value && (
+                                    <span className="dropdown-item-check">✓</span>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                        {errors.new_credential_name && <span className="error-message">{errors.new_credential_name}</span>}
+                      </div>
+                    )}
 
                     {newCredential.credentials_name && (
                       <div className="form-group">
@@ -1441,9 +1665,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                             id="credential-file"
                           />
                           <label htmlFor="credential-file" className="file-upload-label">
-                            <span className="upload-icon">📁</span>
-                            <span className="upload-text">Choose file or drag and drop</span>
-                            <span className="upload-hint">PDF, DOC, DOCX, JPG, PNG (Max 2MB)</span>
+                            <span className="upload-text">Choose file (PDF, DOC, DOCX, JPG, PNG Max 2MB)</span>
                           </label>
                         </div>
                         {newCredential.credentials_photo && (
@@ -1451,22 +1673,21 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                             <span className="file-name">{newCredential.credentials_photo.name}</span>
                           </div>
                         )}
+                        {errors.new_credential_photo && <span className="error-message">{errors.new_credential_photo}</span>}
                       </div>
                     )}
 
-                    {newCredential.credentials_name && (
-                      <button 
-                        type="button" 
-                        onClick={addCredential}
-                        className="add-credential-btn"
-                        disabled={!newCredential.credentials_photo}
-                      >
-                        Add Credential
-                      </button>
+                    {newCredential.credentials_name && newCredential.credentials_photo && (
+                      <div className="form-group">
+                        <button 
+                          type="button" 
+                          onClick={addCredential}
+                          className="add-credential-btn"
+                        >
+                          Add Credential
+                        </button>
+                      </div>
                     )}
-
-                    {errors.new_credential_name && <span className="error-message">{errors.new_credential_name}</span>}
-                    {errors.new_credential_photo && <span className="error-message">{errors.new_credential_photo}</span>}
                   </div>
 
                   {credentials.length > 0 ? (
@@ -1478,7 +1699,11 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                         <div key={index} className="credential-item">
                           <div className="credential-info">
                             <span className="credential-name">{cred.credentials_name}</span>
-                            <span className="credential-file">{cred.credentials_photo?.name || "No file selected"}</span>
+                            {cred.category && (
+                              <span className="credential-category">
+                                {credentialCategories.find(cat => cat.value === cred.category)?.label}
+                              </span>
+                            )}
                           </div>
                           <button 
                             type="button" 
@@ -1554,110 +1779,9 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
             )}
           </div>
 
-          {showSkillModal && selectedSkill && step === 4 && (
-            <div className="skill-details-modal">
-              <div className="modal-overlay" onClick={() => setShowSkillModal(false)}></div>
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h3>{selectedSkill.skill_name || selectedSkill.name}</h3>
-                  <button className="close-btn" onClick={handleModalClose}>
-                    <IconX size={20} />
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <div className="skill-details-section">
-                    <div className="form-group">
-                      <label className="form-label">Experience Level <span className="required">*</span></label>
-                      <Select
-                        value={selectedSkill.experience || 'no-experience'}
-                        onChange={(value) => setSelectedSkill(prev => ({ ...prev, experience: value }))}
-                        className="form-select"
-                      >
-                        {experienceOptions.map(option => (
-                          <Option key={option.value} value={option.value}>
-                            {option.label}
-                          </Option>
-                        ))}
-                      </Select>
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label">Hourly Rate for this Skill (PHP)</label>
-                      <input
-                        type="number"
-                        value={selectedSkill.hourly_rate || ''}
-                        onChange={(e) => setSelectedSkill(prev => ({ ...prev, hourly_rate: e.target.value }))}
-                        placeholder="e.g., 500"
-                        min="0"
-                        step="10"
-                        className="form-input"
-                      />
-                      <span className="form-help">Set a specific rate for this skill (optional)</span>
-                    </div>
-                  </div>
-
-                  <div className="sub-skills-section">
-                    <label className="form-label">Sub-Skills <span className="required">*</span></label>
-                    <p className="section-description">Add or remove sub-skills using the buttons below.</p>
-                    <div className="sub-skills-container">
-                      <div className="sub-skills-column">
-                        <h4 className="column-title">Available Sub-Skills</h4>
-                        {availableSubSkills.length > 0 ? (
-                          <div className="sub-skills-list">
-                            {availableSubSkills.map(subSkill => (
-                              <div key={subSkill} className="sub-skill-item">
-                                <span className="sub-skill-text">{subSkill}</span>
-                                <button
-                                  className="btn btn-sm btn-outline"
-                                  onClick={() => handleAddSubSkill(subSkill)}
-                                  aria-label={`Add ${subSkill} to selected sub-skills`}
-                                >
-                                  <IconPlus size={16} />
-                                </button>
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <div className="empty-state">
-                            <span className="empty-text">No available sub-skills</span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="sub-skills-column">
-                        <h4 className="column-title">Selected Sub-Skills</h4>
-                        {selectedSubSkills.length > 0 ? (
-                          <div className="sub-skills-list">
-                            {selectedSubSkills.map(subSkill => (
-                              <div key={subSkill} className="sub-skill-item selected">
-                                <span className="sub-skill-text">{subSkill}</span>
-                                <button
-                                  className="btn btn-sm btn-outline"
-                                  onClick={() => handleRemoveSubSkill(subSkill)}
-                                  aria-label={`Remove ${subSkill} from selected sub-skills`}
-                                >
-                                  <IconMinus size={16} />
-                                </button>
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <div className="empty-state">
-                            <span className="empty-text">No sub-skills selected</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="modal-footer">
-                  <button className="btn btn-secondary" onClick={() => setShowSkillModal(false)}>Cancel</button>
-                  <button className="btn btn-primary" onClick={handleSaveSkill}>Save Skill</button>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
+
     </div>
   );
 };

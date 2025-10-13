@@ -36,6 +36,7 @@ import Services from "./components/adminside/services/Services";
 import Company from "./components/adminside/company/Company.js";
 import ProfileSettings from "./components/profilesettings/profilesettings";
 import AdminProfileSetting from "./components/AdminSetting/AdminProfileSetting.js";
+import SkillRatingModal from "./components/SkillRatingModal/SkillRatingModal";
 
 
 
@@ -177,6 +178,19 @@ export default function Routers() {
           } 
         />
         <Route path="/profile-settings/*" element={<ProfileSettings />} />
+        <Route 
+          path="/skill-rating" 
+          element={
+            <ProtectedRoute>
+              <SkillRatingModal
+                isOpen={true}
+                onClose={() => window.history.back()}
+                onComplete={() => window.location.href = '/homepage'}
+                user={JSON.parse(localStorage.getItem('user') || '{}')}
+              />
+            </ProtectedRoute>
+          } 
+        />
         <Route 
           path="/post-jobs" 
           element={
