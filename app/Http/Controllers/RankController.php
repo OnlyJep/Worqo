@@ -35,7 +35,7 @@ class RankController extends Controller
                 $query->where('archived', $archived === 'true');
             }
 
-            $ranks = $query->paginate($limit, ['id', 'name', 'image', 'required_reviews', 'created_at', 'updated_at', 'archived'], 'page', $page);
+            $ranks = $query->paginate($limit, ['id', 'name', 'image', 'min_points', 'max_points', 'created_at', 'updated_at', 'archived'], 'page', $page);
 
             return response()->json([
                 'ranks' => $ranks->items(),
@@ -64,7 +64,8 @@ class RankController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string|max:255',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'required_reviews' => 'required|integer|min:0',
+                'min_points' => 'required|integer|min:0',
+                'max_points' => 'nullable|integer|min:0|gt:min_points',
             ]);
 
             if ($validator->fails()) {
@@ -80,7 +81,8 @@ class RankController extends Controller
             $rank = Rank::create([
                 'name' => $request->name,
                 'image' => $imagePath,
-                'required_reviews' => $request->required_reviews,
+                'min_points' => $request->min_points,
+                'max_points' => $request->max_points,
                 'archived' => false,
             ]);
 
@@ -115,7 +117,8 @@ class RankController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string|max:255',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'required_reviews' => 'required|integer|min:0',
+                'min_points' => 'required|integer|min:0',
+                'max_points' => 'nullable|integer|min:0|gt:min_points',
             ]);
 
             if ($validator->fails()) {
@@ -134,7 +137,8 @@ class RankController extends Controller
             $rank->update([
                 'name' => $request->name,
                 'image' => $imagePath,
-                'required_reviews' => $request->required_reviews,
+                'min_points' => $request->min_points,
+                'max_points' => $request->max_points,
             ]);
 
             return response()->json([

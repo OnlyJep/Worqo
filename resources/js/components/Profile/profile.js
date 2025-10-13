@@ -22,6 +22,13 @@ const Profile = ({ initialServiceType }) => {
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const [reviewsLoading, setReviewsLoading] = useState(false);
+  const [averageRating, setAverageRating] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
+  const [workerRank, setWorkerRank] = useState(null);
+  const [totalPoints, setTotalPoints] = useState(0);
+  const [progressPercent, setProgressPercent] = useState(0);
 
   // Helper function to get rank based on experience
   const getRankByExperience = (experience) => {
@@ -214,8 +221,105 @@ const Profile = ({ initialServiceType }) => {
 
     if (workerId) {
       fetchWorkerData();
+      fetchWorkerReviews();
     }
   }, [workerId]);
+
+  // Fetch worker reviews
+  const fetchWorkerReviews = async () => {
+    try {
+      setReviewsLoading(true);
+      const response = await axios.get(`http://127.0.0.1:8000/api/reviews/worker/${workerId}`, {
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.data.success) {
+        setReviews(response.data.reviews);
+        const avgRating = response.data.average_rating || 0;
+        const numReviews = response.data.total_reviews || 0;
+        setAverageRating(avgRating);
+        setTotalReviews(numReviews);
+        
+        // Calculate total points: (Average Rating × 5000 × Number of Reviews)
+        const calculatedPoints = avgRating * 5000 * numReviews;
+        setTotalPoints(calculatedPoints);
+        
+        // Determine rank based on total points
+        await fetchWorkerRank(calculatedPoints);
+      } else {
+        // If fetch fails, still show rank with 0 points
+        setTotalPoints(0);
+        await fetchWorkerRank(0);
+      }
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+      // Even on error, show rank with 0 points
+      setTotalPoints(0);
+      await fetchWorkerRank(0);
+    } finally {
+      setReviewsLoading(false);
+    }
+  };
+
+  // Fetch worker rank based on total points
+  const fetchWorkerRank = async (points) => {
+    try {
+      if (points >= 0) {
+        const response = await axios.get('http://127.0.0.1:8000/api/ranks', {
+          headers: { Accept: "application/json" }
+        });
+        
+        // Get all ranks sorted by min_points
+        const ranks = (response.data.ranks || []).sort((a, b) => a.min_points - b.min_points);
+        
+        // Find the rank where points fall within the range
+        let matchedRank = null;
+        for (let i = 0; i < ranks.length; i++) {
+          const rank = ranks[i];
+          const minPoints = rank.min_points || 0;
+          const maxPoints = rank.max_points;
+          
+          if (maxPoints === null || maxPoints === undefined) {
+            // This is the highest rank (no max limit)
+            if (points >= minPoints) {
+              matchedRank = rank;
+            }
+          } else {
+            // Check if points fall within this rank's range
+            if (points >= minPoints && points <= maxPoints) {
+              matchedRank = rank;
+              break;
+            }
+          }
+        }
+        
+        if (matchedRank) {
+          setWorkerRank(matchedRank);
+          
+          // Calculate progress toward next rank
+          const currentMinPoints = matchedRank.min_points || 0;
+          const currentMaxPoints = matchedRank.max_points;
+          
+          if (currentMaxPoints !== null && currentMaxPoints !== undefined) {
+            const rangeSize = currentMaxPoints - currentMinPoints;
+            const pointsInRange = points - currentMinPoints;
+            const progress = Math.min(100, Math.max(0, (pointsInRange / rangeSize) * 100));
+            setProgressPercent(progress);
+          } else {
+            // Highest rank - always at 100%
+            setProgressPercent(100);
+          }
+        } else if (ranks.length > 0) {
+          // If no rank matched and points are 0, use first rank (Bronze)
+          matchedRank = ranks[0];
+          setWorkerRank(matchedRank);
+          setProgressPercent(0);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching worker rank:", error);
+    }
+  };
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -348,7 +452,7 @@ const Profile = ({ initialServiceType }) => {
         <div className="profile-left">
           <div className="profile-info">
             <div className="name-container">
-            <h2>{worker.name}</h2>
+              <h2>{worker.name}</h2>
                <div className="badges-container">
                  {(worker.verified === true || worker.verified === 1) && (
                    <div className="verified-badge" title="Verified Worker">
@@ -367,6 +471,40 @@ const Profile = ({ initialServiceType }) => {
             <button className="edit-profile" onClick={handleHireNowClick}>
               HIRE NOW
             </button>
+          </div>
+          <div className="rank-display-section">
+            {workerRank ? (
+              <div className="rank-display">
+                <img 
+                  src={`http://127.0.0.1:8000/storage/${workerRank.image}`}
+                  alt={`${workerRank.name} Rank`}
+                  className="worker-rank-badge"
+                  title={`${workerRank.name} Rank - ${totalPoints.toLocaleString()} points`}
+                />
+                <div className="rank-progress">
+                  <div className="progress-info">
+                    <span className="rank-name">{workerRank.name}</span>
+                    <span className="points-text">{totalPoints.toLocaleString()} pts</span>
+                  </div>
+                  <div className="progress-bar-container">
+                    <div 
+                      className={`progress-bar-fill rank-${workerRank.name.toLowerCase()}`}
+                      style={{ width: `${progressPercent}%` }}
+                    ></div>
+                  </div>
+                  <span className="progress-label">
+                    {workerRank.max_points 
+                      ? `${totalPoints.toLocaleString()} / ${workerRank.max_points.toLocaleString()}`
+                      : `${totalPoints.toLocaleString()} pts`
+                    }
+                  </span>
+                </div>
+              </div>
+            ) : (
+              <div className="rank-display">
+                <div className="rank-loading">Loading rank...</div>
+              </div>
+            )}
           </div>
           <div className="stats">
             <div className="stat-item">
@@ -505,8 +643,66 @@ const Profile = ({ initialServiceType }) => {
             )}
             {activeTab === 'REVIEWS' && (
               <div className="reviews">
-                <h4>Reviews</h4>
-                <p>No reviews available yet.</p>
+                {totalReviews > 0 && (
+                  <div className="reviews-header">
+                    <div className="reviews-summary">
+                      <div className="average-rating">
+                        <span className="rating-number">{averageRating.toFixed(1)}</span>
+                        <div className="stars">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <span key={star} className={star <= Math.round(averageRating) ? 'star filled' : 'star'}>
+                              ★
+                            </span>
+                          ))}
+                        </div>
+                        <span className="total-reviews">({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {reviewsLoading ? (
+                  <p>Loading reviews...</p>
+                ) : reviews.length > 0 ? (
+                  <div className="reviews-list">
+                    {reviews.map((review) => (
+                      <div key={review.id} className="review-item">
+                        <div className="review-header">
+                          <div className="reviewer-info">
+                            <img 
+                              src={review.reviewer.profile_img 
+                                ? `http://127.0.0.1:8000/storage/${review.reviewer.profile_img}` 
+                                : profilePhoto
+                              } 
+                              alt={review.reviewer.name}
+                              className="reviewer-avatar"
+                            />
+                            <div className="reviewer-details">
+                              <span className="reviewer-name">{review.reviewer.name}</span>
+                              <div className="review-rating">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                  <span key={star} className={star <= review.rating ? 'star filled' : 'star'}>
+                                    ★
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <span className="review-date">
+                            {new Date(review.created_at).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'short', 
+                              day: 'numeric' 
+                            })}
+                          </span>
+                        </div>
+                        <p className="review-comment">{review.comment}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p>No reviews available yet.</p>
+                )}
               </div>
             )}
           </div>

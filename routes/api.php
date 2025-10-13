@@ -24,6 +24,7 @@ use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\NotificationController;
 
 // AUTHENTICATION ROUTES
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -81,6 +82,7 @@ Route::put('/reviews/{id}', [ReviewController::class, 'update']);
 Route::patch('/reviews/{id}/archive', [ReviewController::class, 'archive']);
 Route::patch('/reviews/{id}/restore', [ReviewController::class, 'restore']);
 Route::post('/reviews/bulk', [ReviewController::class, 'bulkAction']);
+Route::get('/reviews/worker/{workerId}', [ReviewController::class, 'getWorkerReviews']);
 
 // SKILLS ROUTES
 Route::get('/skills', [SkillController::class, 'index']);
@@ -177,6 +179,15 @@ Route::put('/bookings/{id}/status', [BookingController::class, 'updateStatus'])-
 Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->name('bookings.addReview');
 Route::patch('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
 
+// NOTIFICATION ROUTES
+Route::middleware('auth:api')->group(function () {
+    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::get('/notifications/unread-count', [NotificationController::class, 'unreadCount'])->name('notifications.unreadCount');
+    Route::put('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
+    Route::put('/notifications/{id}/unread', [NotificationController::class, 'markAsUnread'])->name('notifications.markAsUnread');
+    Route::put('/notifications/mark-all-read', [NotificationController::class, 'markAllAsRead'])->name('notifications.markAllAsRead');
+    Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+});
 
 // PASSWORD ROUTES
 Route::middleware('auth:api')->group(function () {

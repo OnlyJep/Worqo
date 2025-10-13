@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Headerz from "./Headerz";
 import Footer from '../FooterContent/footer';
 
@@ -8,59 +9,102 @@ const Notif = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedNotifications, setSelectedNotifications] = useState([]);
   const [activeTab, setActiveTab] = useState('all'); // Track active tab: 'all' or 'unread'
-
-  // Simulated current user ID (e.g., Jeff Ogabang, id: 1)
-  const currentUserId = 1;
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:8000/api/users');
-        const data = await response.json();
-        const users = data.users;
-
-        // Find the current user
-        const currentUser = users.find(user => user.id === currentUserId);
-
-        if (currentUser) {
-          // Create a personalized welcome notification for the current user
-          setNotifications([{
-            id: currentUser.id,
-            user: `${currentUser.first_name} ${currentUser.last_name || ''} ${currentUser.suffix_name || ''}`.trim(),
-            action: "Welcome to Worqo Job Portal!",
-            platform: "Worqo Job Portal",
-            time: "Just now",
-            profile_img: currentUser.profile_img,
-            isUnread: true,
-            message: `Hi ${currentUser.first_name}, welcome to Worqo Job Portal! Start exploring job opportunities or manage your profile to get started.`
-          }]);
-        }
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-
-    fetchUsers();
+    fetchNotifications();
   }, []);
+
+  const fetchNotifications = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem('auth_token');
+      
+      if (!token) {
+        console.log('No auth token found');
+        setLoading(false);
+        return;
+      }
+
+      const response = await axios.get('http://127.0.0.1:8000/api/notifications', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.data.success) {
+        setNotifications(response.data.notifications);
+        // Dispatch event to update header badge
+        window.dispatchEvent(new CustomEvent('notificationUpdated'));
+      }
+    } catch (error) {
+      console.error('Error fetching notifications:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const unreadCount = notifications.filter(notif => notif.isUnread).length;
 
-  const handleMarkAsRead = (notifId) => {
-    setNotifications(notifications.map(notif =>
-      notif.id === notifId ? { ...notif, isUnread: false } : notif
-    ));
-    setIsModalOpen(false);
+  const handleMarkAsRead = async (notifId) => {
+    try {
+      const token = localStorage.getItem('auth_token');
+      await axios.put(`http://127.0.0.1:8000/api/notifications/${notifId}/read`, {}, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
+        }
+      });
+      
+      setNotifications(notifications.map(notif =>
+        notif.id === notifId ? { ...notif, isUnread: false } : notif
+      ));
+      setIsModalOpen(false);
+      // Dispatch event to update header badge
+      window.dispatchEvent(new CustomEvent('notificationUpdated'));
+    } catch (error) {
+      console.error('Error marking notification as read:', error);
+    }
   };
 
-  const handleMarkAsUnread = (notifId) => {
-    setNotifications(notifications.map(notif =>
-      notif.id === notifId ? { ...notif, isUnread: true } : notif
-    ));
-    setIsModalOpen(false);
+  const handleMarkAsUnread = async (notifId) => {
+    try {
+      const token = localStorage.getItem('auth_token');
+      await axios.put(`http://127.0.0.1:8000/api/notifications/${notifId}/unread`, {}, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
+        }
+      });
+      
+      setNotifications(notifications.map(notif =>
+        notif.id === notifId ? { ...notif, isUnread: true } : notif
+      ));
+      setIsModalOpen(false);
+      // Dispatch event to update header badge
+      window.dispatchEvent(new CustomEvent('notificationUpdated'));
+    } catch (error) {
+      console.error('Error marking notification as unread:', error);
+    }
   };
 
-  const handleMarkAllAsRead = () => {
-    setNotifications(notifications.map(notif => ({ ...notif, isUnread: false })));
+  const handleMarkAllAsRead = async () => {
+    try {
+      const token = localStorage.getItem('auth_token');
+      await axios.put('http://127.0.0.1:8000/api/notifications/mark-all-read', {}, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
+        }
+      });
+      
+      setNotifications(notifications.map(notif => ({ ...notif, isUnread: false })));
+      // Dispatch event to update header badge
+      window.dispatchEvent(new CustomEvent('notificationUpdated'));
+    } catch (error) {
+      console.error('Error marking all as read:', error);
+    }
   };
 
   const handleCheckboxChange = (notifId) => {
@@ -187,7 +231,16 @@ const Notif = () => {
               )}
             </div>
             
-            {displayedNotifications.length > 0 ? (
+            {loading ? (
+              <div style={{ 
+                textAlign: 'center',
+                padding: '4rem 2rem',
+                backgroundColor: 'white',
+                borderRadius: '0 0 10px 10px'
+              }}>
+                <p>Loading notifications...</p>
+              </div>
+            ) : displayedNotifications.length > 0 ? (
               displayedNotifications.map((notif) => (
                 <div key={notif.id} style={{ 
                   backgroundColor: notif.isUnread ? '#f0faff' : 'white',
@@ -205,18 +258,22 @@ const Notif = () => {
                     style={{ marginRight: '1rem' }}
                   />
                   <img 
-                    src={notif.profile_img ? `http://127.0.0.1:8000/storage/${notif.profile_img}` : '/default-profile.png'} 
+                    src={notif.profile_img ? `http://127.0.0.1:8000/storage/${notif.profile_img}` : 'img/defaultpfp.jpg'} 
                     alt={notif.user} 
                     style={{ 
                       width: '40px', 
                       height: '40px', 
                       borderRadius: '50%', 
-                      marginRight: '1rem' 
+                      marginRight: '1rem',
+                      objectFit: 'cover'
                     }} 
+                    onError={(e) => {
+                      e.target.src = 'img/defaultpfp.jpg';
+                    }}
                   />
                   <div style={{ flex: 1, cursor: 'pointer' }} onClick={() => openModal(notif)}>
                     <p style={{ margin: '0', fontWeight: notif.isUnread ? 'bold' : 'normal' }}>
-                      {notif.user} {notif.action}
+                      {notif.user} - {notif.action}
                     </p>
                     <p style={{ margin: '0.5rem 0 0', color: '#666', fontSize: '0.9rem' }}>
                       {notif.time}
@@ -283,14 +340,18 @@ const Notif = () => {
             <div style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
                 <img 
-                  src={selectedNotif.profile_img ? `http://127.0.0.1:8000/storage/${selectedNotif.profile_img}` : '/default-profile.png'} 
+                  src={selectedNotif.profile_img ? `http://127.0.0.1:8000/storage/${selectedNotif.profile_img}` : 'img/defaultpfp.jpg'} 
                   alt={selectedNotif.user} 
                   style={{ 
                     width: '50px', 
                     height: '50px', 
                     borderRadius: '50%', 
-                    marginRight: '1rem' 
-                  }} 
+                    marginRight: '1rem',
+                    objectFit: 'cover'
+                  }}
+                  onError={(e) => {
+                    e.target.src = 'img/defaultpfp.jpg';
+                  }}
                 />
                 <div>
                   <p style={{ margin: 0, fontWeight: 'bold' }}>{selectedNotif.user}</p>
@@ -299,7 +360,8 @@ const Notif = () => {
                   </p>
                 </div>
               </div>
-              <p style={{ margin: '1rem 0' }}>{selectedNotif.message}</p>
+              <h4 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem', color: '#333' }}>{selectedNotif.action}</h4>
+              <p style={{ margin: '1rem 0', lineHeight: '1.6' }}>{selectedNotif.message}</p>
             </div>
             <div style={{
               padding: '1rem',

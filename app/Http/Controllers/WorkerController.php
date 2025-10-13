@@ -7,6 +7,7 @@ use App\Models\Profile;
 use App\Models\User;
 use App\Models\Skill;
 use App\Models\Rank;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
@@ -1133,6 +1134,29 @@ class WorkerController extends Controller
                     if (in_array($user->worker->is_reviewed, [null, '', '0', 'TO BE REVIEWED'])) {
                         $user->worker->update(['is_reviewed' => $status]);
                         $updatedCount++;
+                        
+                        // Send notification to worker about review decision
+                        if ($status === 'ACCEPTED') {
+                            NotificationController::createNotification(
+                                $user->id,
+                                null, // Admin action, no specific sender
+                                'review_approval',
+                                'Profile Approved',
+                                'Congratulations! Your worker profile has been approved by the admin. You can now receive bookings and job offers.',
+                                $user->worker->id,
+                                'worker'
+                            );
+                        } elseif ($status === 'DECLINED') {
+                            NotificationController::createNotification(
+                                $user->id,
+                                null, // Admin action, no specific sender
+                                'review_rejection',
+                                'Profile Declined',
+                                'Your worker profile has been declined. Please review your credentials and try again with updated information.',
+                                $user->worker->id,
+                                'worker'
+                            );
+                        }
                     }
                 }
             }
@@ -1413,7 +1437,7 @@ class WorkerController extends Controller
         // For now, we'll use experience-based ranking
 
         // Get active ranks (archived = false)
-        $ranks = Rank::where('archived', false)->orderBy('required_reviews', 'asc')->get();
+        $ranks = Rank::where('archived', false)->orderBy('min_points', 'asc')->get();
 
         // Determine rank based on experience
         $selectedRank = null;
@@ -1629,7 +1653,8 @@ class WorkerController extends Controller
                     'id' => $workerRank->id,
                     'name' => $workerRank->name,
                     'image' => $workerRank->image,
-                    'required_reviews' => $workerRank->required_reviews,
+                    'min_points' => $workerRank->min_points,
+                    'max_points' => $workerRank->max_points,
                 ] : null,
             ],
         ];

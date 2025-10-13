@@ -7,7 +7,8 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
     name: initialData.name || "",
     image: null,
     image_url: initialData.image_url || null,
-    required_reviews: initialData.required_reviews || 0,
+    min_points: initialData.min_points || 0,
+    max_points: initialData.max_points || null,
   });
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState("");
@@ -20,7 +21,8 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
         name: initialData.name || "",
         image: null,
         image_url: initialData.image_url || null,
-        required_reviews: initialData.required_reviews || 0,
+        min_points: initialData.min_points || 0,
+        max_points: initialData.max_points || null,
       });
       setErrors({});
       setApiError("");
@@ -34,7 +36,7 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
 
   const handleInputChange = (e, field) => {
     const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
-    if (field === "required_reviews" && value) {
+    if ((field === "min_points" || field === "max_points") && value) {
       if (!/^\d*$/.test(value)) return;
     }
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -50,8 +52,15 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
   const validateForm = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Rank name is required";
-    if (formData.required_reviews < 0 || !Number.isInteger(Number(formData.required_reviews))) {
-      newErrors.required_reviews = "Required reviews must be a positive integer";
+    if (formData.min_points < 0 || !Number.isInteger(Number(formData.min_points))) {
+      newErrors.min_points = "Minimum points must be a positive integer";
+    }
+    if (formData.max_points !== null && formData.max_points !== "" && formData.max_points !== undefined) {
+      if (formData.max_points < 0 || !Number.isInteger(Number(formData.max_points))) {
+        newErrors.max_points = "Maximum points must be a positive integer";
+      } else if (Number(formData.max_points) <= Number(formData.min_points)) {
+        newErrors.max_points = "Maximum points must be greater than minimum points";
+      }
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -64,7 +73,8 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
     const submitData = {
       name: formData.name.trim(),
       image: formData.image,
-      required_reviews: Number(formData.required_reviews),
+      min_points: Number(formData.min_points),
+      max_points: formData.max_points !== null && formData.max_points !== "" ? Number(formData.max_points) : null,
     };
 
     abortControllerRef.current = new AbortController();
@@ -144,16 +154,29 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
             {errors.image && <span className="error">{errors.image}</span>}
           </div>
           <div className="form-group">
-            <label>Required Reviews</label>
+            <label>Minimum Points</label>
             <input
               type="number"
-              value={formData.required_reviews}
-              onChange={(e) => handleInputChange(e, "required_reviews")}
-              placeholder="Enter required reviews"
+              value={formData.min_points}
+              onChange={(e) => handleInputChange(e, "min_points")}
+              placeholder="Enter minimum points (e.g., 0, 50000)"
               min="0"
+              step="1"
               required
             />
-            {errors.required_reviews && <span className="error">{errors.required_reviews}</span>}
+            {errors.min_points && <span className="error">{errors.min_points}</span>}
+          </div>
+          <div className="form-group">
+            <label>Maximum Points (optional, leave empty for "and above")</label>
+            <input
+              type="number"
+              value={formData.max_points || ""}
+              onChange={(e) => handleInputChange(e, "max_points")}
+              placeholder="Enter maximum points (e.g., 49999)"
+              min="0"
+              step="1"
+            />
+            {errors.max_points && <span className="error">{errors.max_points}</span>}
           </div>
           <div className="adminmodal-buttons">
             <button className="submit-button" type="submit">

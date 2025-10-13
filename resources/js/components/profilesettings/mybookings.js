@@ -162,7 +162,7 @@ const MyBookings = () => {
       const authToken = localStorage.getItem("auth_token");
       const response = await axios.post(`http://127.0.0.1:8000/api/bookings/${selectedWorker.id}/review`, {
         rating: feedbackData.rating,
-        review: feedbackData.feedback
+        comment: feedbackData.feedback
       }, {
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -323,7 +323,7 @@ const MyBookings = () => {
                           >
                             View Transaction
                           </button>
-                          {!booking.rating && (
+                          {!booking.has_review && (
                             <button 
                               className="give-feedback-btn"
                               onClick={() => handleGiveFeedback(booking)}

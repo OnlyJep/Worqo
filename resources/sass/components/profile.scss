@@ -412,39 +412,119 @@
         }
 
         .reviews {
-          .review-item {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
+          .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
 
-            &:last-child {
-              border-bottom: none;
-              margin-bottom: 0;
+            h4 {
+              margin: 0;
             }
 
-            .review-header {
-              display: flex;
-              justify-content: space-between;
-              margin-bottom: 8px;
+            .reviews-summary {
+              .average-rating {
+                display: flex;
+                align-items: center;
+                gap: 10px;
 
-              .reviewer {
-                font-weight: 600;
-                color: #2d3748;
+                .rating-number {
+                  font-size: 24px;
+                  font-weight: 600;
+                  color: #2d3748;
+                }
+
+                .stars {
+                  display: flex;
+                  gap: 2px;
+
+                  .star {
+                    color: #cbd5e0;
+                    font-size: 18px;
+
+                    &.filled {
+                      color: #f59e0b;
+                    }
+                  }
+                }
+
+                .total-reviews {
+                  color: #718096;
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+
+          .reviews-list {
+            .review-item {
+              border-bottom: 1px solid #eee;
+              padding-bottom: 20px;
+              margin-bottom: 20px;
+
+              &:last-child {
+                border-bottom: none;
+                margin-bottom: 0;
               }
 
-              .rating {
-                color: #f59e0b;
+              .review-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 12px;
+
+                .reviewer-info {
+                  display: flex;
+                  gap: 12px;
+                  align-items: center;
+
+                  .reviewer-avatar {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                  }
+
+                  .reviewer-details {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    .reviewer-name {
+                      font-weight: 600;
+                      color: #2d3748;
+                      font-size: 15px;
+                    }
+
+                    .review-rating {
+                      display: flex;
+                      gap: 2px;
+
+                      .star {
+                        color: #cbd5e0;
+                        font-size: 14px;
+
+                        &.filled {
+                          color: #f59e0b;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .review-date {
+                  color: #718096;
+                  font-size: 13px;
+                  white-space: nowrap;
+                }
               }
-            }
 
-            .review-comment {
-              color: #4a5568;
-              margin-bottom: 8px;
-            }
-
-            .review-date {
-              color: #718096;
-              font-size: 12px;
+              .review-comment {
+                color: #4a5568;
+                line-height: 1.6;
+                margin-left: 60px;
+                font-size: 14px;
+              }
             }
           }
         }
@@ -666,6 +746,101 @@
     font-size: 1.8rem;
     font-weight: 600;
     color: #333;
+  }
+}
+
+.rank-display-section {
+  margin: 15px 0;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  .rank-display {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .worker-rank-badge {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      flex-shrink: 0;
+      background: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    }
+
+    .rank-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex: 1;
+
+      .progress-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .rank-name {
+          font-size: 15px;
+          font-weight: 600;
+          color: #333;
+        }
+
+        .points-text {
+          font-size: 13px;
+          font-weight: 600;
+          color: #666;
+        }
+      }
+
+      .progress-bar-container {
+        width: 100%;
+        height: 10px;
+        background: #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+
+        .progress-bar-fill {
+          height: 100%;
+          border-radius: 10px;
+          transition: width 0.3s ease;
+
+          // Bronze - brown
+          &.rank-bronze {
+            background: linear-gradient(90deg, #8b4513, #a0522d);
+          }
+
+          // Silver - gray/silver
+          &.rank-silver {
+            background: linear-gradient(90deg, #c0c0c0, #d3d3d3);
+          }
+
+          // Gold - gold
+          &.rank-gold {
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+          }
+
+          // Platinum - metallic
+          &.rank-platinum {
+            background: linear-gradient(90deg, #e5e4e2, #bcc6cc);
+          }
+
+          // Diamond - light blue metallic
+          &.rank-diamond {
+            background: linear-gradient(90deg, #b9f2ff, #4fc3f7);
+          }
+        }
+      }
+
+      .progress-label {
+        font-size: 11px;
+        color: #888;
+        text-align: right;
+        font-weight: 500;
+      }
+    }
   }
 }
 

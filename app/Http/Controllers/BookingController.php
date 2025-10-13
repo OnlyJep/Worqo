@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use App\Http\Controllers\NotificationController;
 
 class BookingController extends Controller
 {
@@ -103,6 +104,20 @@ class BookingController extends Controller
             'status' => 'pending'
         ]);
 
+        // Send notification to worker about new booking
+        if ($authUser) {
+            $employerName = $authUser->profile->first_name ?? 'Someone';
+            NotificationController::createNotification(
+                $request->worker_id,
+                $authUser->id,
+                'booking',
+                'New Booking Request',
+                "$employerName has sent you a booking request for {$request->service_type}. Please review and respond.",
+                $booking->id,
+                'booking'
+            );
+        }
+
         return response()->json([
             'success' => true,
             'message' => 'Booking request sent successfully',
@@ -127,6 +142,15 @@ class BookingController extends Controller
                 ->where('worker_id', $userId)
                 ->orderBy('created_at', 'desc')
                 ->get();
+
+            // Add review information to each booking
+            $bookings->each(function ($booking) {
+                $review = \App\Models\Review::where('user_id', $booking->employer_id)
+                    ->where('reviewed_user_id', $booking->worker_id)
+                    ->first();
+                $booking->has_review = $review ? true : false;
+                $booking->review_data = $review;
+            });
 
             return response()->json([
                 'success' => true,
@@ -159,6 +183,15 @@ class BookingController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
 
+            // Add review information to each booking
+            $bookings->each(function ($booking) {
+                $review = \App\Models\Review::where('user_id', $booking->employer_id)
+                    ->where('reviewed_user_id', $booking->worker_id)
+                    ->first();
+                $booking->has_review = $review ? true : false;
+                $booking->review_data = $review;
+            });
+
             return response()->json([
                 'success' => true,
                 'bookings' => $bookings
@@ -178,8 +211,7 @@ class BookingController extends Controller
     public function updateStatus(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'status' => 'required|in:pending,accepted,declined,cancelled,completed',
-            'worker_notes' => 'nullable|string'
+            'status' => 'required|in:pending,accepted,declined,cancelled,completed'
         ]);
 
         if ($validator->fails()) {
@@ -201,10 +233,47 @@ class BookingController extends Controller
             ], 403);
         }
 
+        $oldStatus = $booking->status;
         $booking->update([
-            'status' => $request->status,
-            'worker_notes' => $request->worker_notes
+            'status' => $request->status
         ]);
+
+        // Send notification to employer about status change
+        if ($booking->employer_id && $oldStatus !== $request->status) {
+            $workerName = $authUser->profile->first_name ?? 'Worker';
+            
+            if ($request->status === 'accepted') {
+                NotificationController::createNotification(
+                    $booking->employer_id,
+                    $authUser->id,
+                    'booking_accepted',
+                    'Booking Accepted',
+                    "$workerName has accepted your booking request for {$booking->service_type}.",
+                    $booking->id,
+                    'booking'
+                );
+            } elseif ($request->status === 'declined') {
+                NotificationController::createNotification(
+                    $booking->employer_id,
+                    $authUser->id,
+                    'booking_declined',
+                    'Booking Declined',
+                    "$workerName has declined your booking request for {$booking->service_type}.",
+                    $booking->id,
+                    'booking'
+                );
+            } elseif ($request->status === 'completed') {
+                NotificationController::createNotification(
+                    $booking->employer_id,
+                    $authUser->id,
+                    'booking_completed',
+                    'Booking Completed',
+                    "$workerName has marked the booking for {$booking->service_type} as completed.",
+                    $booking->id,
+                    'booking'
+                );
+            }
+        }
 
         return response()->json([
             'success' => true,
@@ -215,12 +284,13 @@ class BookingController extends Controller
 
     /**
      * Add review and rating for completed booking
+     * Note: Reviews are now handled in the Review model/table
      */
     public function addReview(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'rating' => 'required|integer|min:1|max:5',
-            'review' => 'required|string'
+            'comment' => 'required|string'
         ]);
 
         if ($validator->fails()) {
@@ -250,15 +320,19 @@ class BookingController extends Controller
             ], 400);
         }
 
-        $booking->update([
+        // Create review in the reviews table
+        $review = \App\Models\Review::create([
+            'user_id' => $authUser->id,
+            'reviewed_user_id' => $booking->worker_id,
             'rating' => $request->rating,
-            'review' => $request->review
+            'comment' => $request->comment,
+            'archived' => false
         ]);
 
         return response()->json([
             'success' => true,
             'message' => 'Review added successfully',
-            'booking' => $booking
+            'review' => $review
         ]);
     }
 

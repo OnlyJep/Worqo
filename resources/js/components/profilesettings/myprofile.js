@@ -15,6 +15,13 @@ const MyProfile = () => {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
   
+  // Rank and reviews states
+  const [workerRank, setWorkerRank] = useState(null);
+  const [totalPoints, setTotalPoints] = useState(0);
+  const [progressPercent, setProgressPercent] = useState(0);
+  const [averageRating, setAverageRating] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
+  
   // Profile form states
   const [profileData, setProfileData] = useState({
     firstName: '',
@@ -49,6 +56,13 @@ const MyProfile = () => {
     fetchGenders();
     fetchSuffixes();
   }, []);
+
+  // Fetch rank and reviews when user is loaded
+  useEffect(() => {
+    if (user?.id && user?.role_id === 1) {
+      fetchWorkerReviews(user.id);
+    }
+  }, [user]);
 
   // Handle clicking outside dropdown
   useEffect(() => {
@@ -148,6 +162,110 @@ const MyProfile = () => {
     } catch (error) {
       console.error('Error fetching suffixes:', error);
     }
+  };
+
+  const fetchWorkerReviews = async (workerId) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/reviews/worker/${workerId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setAverageRating(data.average_rating || 0);
+        setTotalReviews(data.total_reviews || 0);
+        
+        // Calculate total points: avgRating * 5000 * numReviews
+        const avgRating = data.average_rating || 0;
+        const numReviews = data.total_reviews || 0;
+        const calculatedPoints = avgRating * 5000 * numReviews;
+        setTotalPoints(calculatedPoints);
+        
+        // Fetch rank based on total points
+        fetchWorkerRank(calculatedPoints);
+      } else {
+        // If fetch fails, still show rank with 0 points
+        setTotalPoints(0);
+        fetchWorkerRank(0);
+      }
+    } catch (error) {
+      console.error('Error fetching worker reviews:', error);
+      // Even on error, show rank with 0 points
+      setTotalPoints(0);
+      fetchWorkerRank(0);
+    }
+  };
+
+  const fetchWorkerRank = async (points) => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/ranks');
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Handle both array and object response formats
+        const ranks = Array.isArray(data) ? data : (data.ranks || data.data || []);
+        
+        console.log('Fetched ranks:', ranks);
+        console.log('Total points:', points);
+        
+        // Sort ranks by min_points to ensure correct order
+        const sortedRanks = ranks.sort((a, b) => (a.min_points || 0) - (b.min_points || 0));
+        
+        // Find the rank that matches the total points
+        const matchedRank = sortedRanks.find(rank => {
+          const minPoints = rank.min_points || 0;
+          const maxPoints = rank.max_points;
+          
+          if (maxPoints === null || maxPoints === undefined) {
+            // For the highest rank with no upper limit
+            return points >= minPoints;
+          }
+          
+          return points >= minPoints && points <= maxPoints;
+        });
+        
+        if (matchedRank) {
+          console.log('Matched rank:', matchedRank);
+          setWorkerRank(matchedRank);
+          
+          // Calculate progress percentage towards next rank
+          if (matchedRank.max_points !== null && matchedRank.max_points !== undefined) {
+            const rangeSize = matchedRank.max_points - matchedRank.min_points;
+            const currentProgress = points - matchedRank.min_points;
+            const percent = (currentProgress / rangeSize) * 100;
+            setProgressPercent(Math.min(percent, 100));
+          } else {
+            // If it's the highest rank, set to 100%
+            setProgressPercent(100);
+          }
+        } else if (sortedRanks.length > 0) {
+          // If no rank matched, default to first rank (Bronze)
+          console.log('No rank matched, using first rank:', sortedRanks[0]);
+          setWorkerRank(sortedRanks[0]);
+          setProgressPercent(0);
+        } else {
+          console.error('No ranks available');
+        }
+      } else {
+        console.error('Failed to fetch ranks:', response.status);
+        // Try to get a default rank anyway
+        trySetDefaultRank();
+      }
+    } catch (error) {
+      console.error('Error fetching worker rank:', error);
+      // Try to get a default rank anyway
+      trySetDefaultRank();
+    }
+  };
+
+  const trySetDefaultRank = () => {
+    // Set a minimal default rank if API fails
+    setWorkerRank({
+      id: 1,
+      name: 'Bronze',
+      min_points: 0,
+      max_points: 49999,
+      image: 'img/default-rank.png'
+    });
+    setTotalPoints(0);
+    setProgressPercent(0);
   };
 
   const handleProfileChange = (e) => {
@@ -591,6 +709,44 @@ const MyProfile = () => {
               </div>
             )}
           </div>
+          
+          {/* Rank Display - Only show for workers */}
+          {user?.role_id === 1 && (
+            <div className="rank-display-section">
+              {workerRank ? (
+                <div className="rank-display">
+                  <img 
+                    src={`http://127.0.0.1:8000/storage/${workerRank.image}`}
+                    alt={`${workerRank.name} Rank`}
+                    className="worker-rank-badge"
+                    title={`${workerRank.name} Rank - ${totalPoints.toLocaleString()} points`}
+                  />
+                  <div className="rank-progress">
+                    <div className="progress-info">
+                      <span className="rank-name">{workerRank.name}</span>
+                      <span className="points-text">{totalPoints.toLocaleString()} pts</span>
+                    </div>
+                    <div className="progress-bar-container">
+                      <div 
+                        className={`progress-bar-fill rank-${workerRank.name.toLowerCase()}`}
+                        style={{ width: `${progressPercent}%` }}
+                      ></div>
+                    </div>
+                    <span className="progress-label">
+                      {workerRank.max_points 
+                        ? `${totalPoints.toLocaleString()} / ${workerRank.max_points.toLocaleString()}`
+                        : `${totalPoints.toLocaleString()} pts`
+                      }
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <div className="rank-display">
+                  <div className="rank-loading">Loading rank...</div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <form onSubmit={handleProfileSubmit} className="profile-form">

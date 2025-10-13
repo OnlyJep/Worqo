@@ -2,13 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaCaretDown, FaUserCog, FaSignOutAlt } from 'react-icons/fa';
 import { IconBell, IconMenu2, IconMessageCircle } from '@tabler/icons-react';
+import axios from 'axios';
 import './../../../sass/components/Headerz.scss';
 import Loader from '../LoaderContent/loader';
 
 const Headerz = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [unreadCount, setUnreadCount] = useState(2); // Sample unread count
+  const [unreadCount, setUnreadCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -24,6 +25,8 @@ const Headerz = () => {
     if (token && storedUser) {
       setIsLoggedIn(true);
       setUser(JSON.parse(storedUser));
+      // Fetch unread notifications count
+      fetchUnreadCount();
     }
 
     // Handle click outside for dropdown
@@ -36,6 +39,38 @@ const Headerz = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Poll for unread notifications count every 30 seconds
+  useEffect(() => {
+    if (!isLoggedIn) return;
+
+    const interval = setInterval(() => {
+      fetchUnreadCount();
+    }, 30000); // 30 seconds
+
+    return () => clearInterval(interval);
+  }, [isLoggedIn]);
+
+  // Fetch unread notification count
+  const fetchUnreadCount = async () => {
+    try {
+      const token = localStorage.getItem('auth_token');
+      if (!token) return;
+
+      const response = await axios.get('http://127.0.0.1:8000/api/notifications/unread-count', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.data.success) {
+        setUnreadCount(response.data.unread_count || 0);
+      }
+    } catch (error) {
+      console.error('Error fetching unread count:', error);
+    }
+  };
+
    // Listen for profile image updates
   useEffect(() => {
     const handleProfileImageUpdate = (event) => {
@@ -47,6 +82,18 @@ const Headerz = () => {
     window.addEventListener('profileImageUpdated', handleProfileImageUpdate);
     return () => {
       window.removeEventListener('profileImageUpdated', handleProfileImageUpdate);
+    };
+  }, []);
+
+  // Listen for notification updates
+  useEffect(() => {
+    const handleNotificationUpdate = () => {
+      fetchUnreadCount();
+    };
+
+    window.addEventListener('notificationUpdated', handleNotificationUpdate);
+    return () => {
+      window.removeEventListener('notificationUpdated', handleNotificationUpdate);
     };
   }, []);
 
@@ -261,7 +308,7 @@ const Headerz = () => {
           {isLoggedIn ? (
             <div className="profile" ref={dropdownRef}>
               <img
-                src={imageError || !user?.profile_img ? '/default-profile.png' : `http://127.0.0.1:8000/storage/${user.profile_img}`}
+                src={imageError || !user?.profile_img ? 'img/defaultpfp.jpg' : `http://127.0.0.1:8000/storage/${user.profile_img}`}
                 alt="Profile"
                 className="profile-icon"
                 onError={handleImageError}

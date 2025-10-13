@@ -139,7 +139,7 @@ const Ranks = () => {
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
-    setRankToEdit({ name: "", required_reviews: 0, image: null });
+    setRankToEdit({ name: "", image: null, min_points: 0, max_points: null });
     setIsModalOpen(true);
     setError("");
   };
@@ -150,7 +150,8 @@ const Ranks = () => {
       name: rank.name || "",
       image: null, // No file selected initially
       image_url: rank.image ? `/storage/${rank.image}` : null, // Store existing image URL
-      required_reviews: rank.required_reviews || 0,
+      min_points: rank.min_points || 0,
+      max_points: rank.max_points || null,
     });
     setIsEditMode(true);
     setIsModalOpen(true);
@@ -171,7 +172,10 @@ const Ranks = () => {
       if (formData.image instanceof File) {
         submitData.append("image", formData.image);
       }
-      submitData.append("required_reviews", formData.required_reviews || 0);
+      submitData.append("min_points", formData.min_points || 0);
+      if (formData.max_points !== null && formData.max_points !== undefined) {
+        submitData.append("max_points", formData.max_points);
+      }
 
       for (let [key, value] of submitData.entries()) {
         console.log(`${key}: ${value}`);
@@ -203,7 +207,10 @@ const Ranks = () => {
       if (formData.image instanceof File) {
         submitData.append("image", formData.image);
       }
-      submitData.append("required_reviews", formData.required_reviews || 0);
+      submitData.append("min_points", formData.min_points || 0);
+      if (formData.max_points !== null && formData.max_points !== undefined) {
+        submitData.append("max_points", formData.max_points);
+      }
       submitData.append("_method", "PUT");
 
       for (let [key, value] of submitData.entries()) {
@@ -351,7 +358,7 @@ const Ranks = () => {
                   </th>
                   <th>Rank Name</th>
                   <th>Rank Image</th>
-                  <th>Required Reviews</th>
+                  <th>Points Range</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -397,7 +404,9 @@ const Ranks = () => {
                           style={{ width: "40px", height: "40px", objectFit: "contain" }}
                         />
                       </td>
-                      <td data-label="Required Reviews">{rank.required_reviews}</td>
+                      <td data-label="Points Range">
+                        {rank.min_points?.toLocaleString() || '0'} - {rank.max_points ? rank.max_points.toLocaleString() : '∞'}
+                      </td>
                       <td data-label="Created At">{formatDate(rank.created_at)}</td>
                       <td data-label="Updated At">{formatDate(rank.updated_at)}</td>
                     </tr>
@@ -449,7 +458,7 @@ const Ranks = () => {
           onClose={handleModalClose}
           onSubmit={isEditMode ? handleRankUpdate : handleRankAdd}
           isEdit={isEditMode}
-          initialData={rankToEdit || { name: "", required_reviews: 0, image: null }}
+          initialData={rankToEdit || { name: "", image: null, min_points: 0, max_points: null }}
         />
       )}
     </div>

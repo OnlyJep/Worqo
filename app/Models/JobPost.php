@@ -15,12 +15,14 @@ class JobPost extends Model
      * @var array
      */
     protected $fillable = [
-        'company_id',
         'profile_id',
+        'job_title',
         'skills',
+        'skill_experiences',
         'ranks',
         'description',
         'salary',
+        'salary_type',
         'job_type',
         'street',
         'city',
@@ -39,20 +41,13 @@ class JobPost extends Model
      */
     protected $casts = [
         'skills' => 'array', // Automatically cast JSON to array
+        'skill_experiences' => 'array', // Automatically cast JSON to array
         'ranks' => 'array', // Automatically cast JSON to array
         'salary' => 'decimal:2',
         'application_start' => 'datetime',
         'application_deadline' => 'datetime',
         'archived' => 'boolean',
     ];
-
-    /**
-     * Get the company that owns the job post.
-     */
-    public function company(): BelongsTo
-    {
-        return $this->belongsTo(Company::class, 'company_id');
-    }
 
     /**
      * Get the profile that owns the job post.

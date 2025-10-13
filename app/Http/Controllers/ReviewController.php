@@ -152,4 +152,65 @@ class ReviewController extends Controller
 
         return response()->json(['message' => 'Bulk action completed']);
     }
+
+    /**
+     * Get reviews for a specific worker
+     */
+    public function getWorkerReviews($workerId)
+    {
+        try {
+            // Verify the worker exists
+            $worker = User::find($workerId);
+            if (!$worker) {
+                return response()->json(['error' => 'Worker not found'], 404);
+            }
+
+            // Get all non-archived reviews for this worker
+            $reviews = Review::with(['user.profile'])
+                ->where('reviewed_user_id', $workerId)
+                ->where('archived', false)
+                ->orderBy('created_at', 'desc')
+                ->get();
+
+            // Format reviews with reviewer information
+            $formattedReviews = $reviews->map(function ($review) {
+                $reviewer = $review->user;
+                $profile = $reviewer->profile ?? null;
+                
+                $reviewerName = 'Anonymous';
+                if ($profile) {
+                    $nameParts = array_filter([
+                        $profile->first_name,
+                        $profile->last_name
+                    ]);
+                    $reviewerName = implode(' ', $nameParts) ?: 'Anonymous';
+                }
+
+                return [
+                    'id' => $review->id,
+                    'rating' => $review->rating,
+                    'comment' => $review->comment,
+                    'created_at' => $review->created_at,
+                    'reviewer' => [
+                        'id' => $reviewer->id,
+                        'name' => $reviewerName,
+                        'profile_img' => $profile->profile_img ?? null,
+                    ]
+                ];
+            });
+
+            return response()->json([
+                'success' => true,
+                'reviews' => $formattedReviews,
+                'average_rating' => $reviews->avg('rating'),
+                'total_reviews' => $reviews->count()
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error fetching worker reviews: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'error' => 'Failed to fetch reviews'
+            ], 500);
+        }
+    }
 }

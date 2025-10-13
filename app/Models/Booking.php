@@ -19,19 +19,14 @@ class Booking extends Model
         'book_end',
         'hourly_rate',
         'total_amount',
-        'status',
-        'worker_notes',
-        'employer_notes',
-        'rating',
-        'review'
+        'status'
     ];
 
     protected $casts = [
         'book_in' => 'datetime',
         'book_end' => 'datetime',
         'hourly_rate' => 'decimal:2',
-        'total_amount' => 'decimal:2',
-        'rating' => 'integer'
+        'total_amount' => 'decimal:2'
     ];
 
     // Relationships
