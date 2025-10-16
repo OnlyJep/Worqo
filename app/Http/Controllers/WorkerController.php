@@ -1528,7 +1528,16 @@ class WorkerController extends Controller
 
         $skillsId = $this->parseArray($user->worker->skills_id);
         $credentialsName = $this->parseArray($user->worker->credentials_name);
-        $credentialsPhoto = [];
+        $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
+        
+        // Debug logging for credentials
+        Log::info('formatWorker credentials debug', [
+            'user_id' => $user->id,
+            'raw_credentials_name' => $user->worker->credentials_name,
+            'raw_credentials_photo' => $user->worker->credentials_photo,
+            'parsed_credentials_name' => $credentialsName,
+            'parsed_credentials_photo' => $credentialsPhoto,
+        ]);
 
         // Ensure $skillsId is an array of arrays
         if (!is_array($skillsId)) {
@@ -1646,6 +1655,7 @@ class WorkerController extends Controller
                 'bio' => $user->worker->bio,
                 'skills_id' => $structuredSkillsId,
                 'credentials_name' => $credentialsName,
+                'credentials_photo' => $credentialsPhoto,
                 'archived' => $user->worker->archived,
                 'is_reviewed' => $user->worker->is_reviewed,
                 'verified' => $user->worker->verified ?? false,
@@ -1892,6 +1902,218 @@ class WorkerController extends Controller
         } catch (\Exception $e) {
             Log::error('Error fetching workers by skills: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
             return response()->json(['error' => 'Failed to fetch workers by skills: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Update worker's work preferences.
+     */
+    public function updatePreferences(Request $request, $id): JsonResponse
+    {
+        try {
+            Log::info('Update work preferences request data', [
+                'id' => $id, 
+                'input' => $request->all()
+            ]);
+
+            $user = User::with(['profile', 'worker'])
+                ->where('role_id', 1)
+                ->findOrFail($id);
+
+            if (!$user->worker) {
+                return response()->json(['error' => 'Worker record not found'], 404);
+            }
+
+            // Validate the request
+            $request->validate([
+                'work_type' => 'nullable|string|max:255',
+                'hours_per_day' => 'nullable|integer|min:1|max:24',
+                'monthly_salary' => 'nullable|numeric|min:0',
+                'preferred_working_hours' => 'nullable|string',
+                'bio' => 'nullable|string|max:1000',
+            ]);
+
+            // Update worker preferences
+            $updateData = [];
+            
+            if ($request->has('work_type')) {
+                $updateData['work_type'] = $request->input('work_type');
+            }
+            
+            if ($request->has('hours_per_day')) {
+                $updateData['hours_per_day'] = $request->input('hours_per_day');
+            }
+            
+            if ($request->has('monthly_salary')) {
+                $updateData['monthly_salary'] = $request->input('monthly_salary');
+            }
+            
+            if ($request->has('preferred_working_hours')) {
+                $updateData['preferred_working_hours'] = $request->input('preferred_working_hours');
+            }
+            
+            if ($request->has('bio')) {
+                $updateData['bio'] = $request->input('bio');
+            }
+
+            $user->worker->update($updateData);
+
+            Log::info('Worker preferences updated', [
+                'worker_id' => $user->worker->id,
+                'update_data' => $updateData,
+            ]);
+
+            return response()->json([
+                'message' => 'Work preferences updated successfully',
+                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating work preferences: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            
+            return response()->json(['error' => 'Unable to save your work preferences at this time.'], 500);
+        }
+    }
+
+    /**
+     * Update worker's credentials.
+     */
+    public function updateCredentials(Request $request, $id): JsonResponse
+    {
+        try {
+            Log::info('Update credentials request data', [
+                'id' => $id, 
+                'input' => $request->all(),
+                'files' => $request->allFiles(),
+                'content_type' => $request->header('Content-Type'),
+                'method' => $request->method()
+            ]);
+
+            $user = User::with(['profile', 'worker'])
+                ->where('role_id', 1)
+                ->findOrFail($id);
+
+            if (!$user->worker) {
+                return response()->json(['error' => 'Worker record not found'], 404);
+            }
+
+            $credentialsNames = [];
+            $credentialsPhotos = [];
+
+            // Handle credentials data - check for both formats
+            $credentialsData = [];
+            
+            // Check if credentials are sent as individual form fields (from frontend)
+            $credentialIndex = 0;
+            while ($request->has("credentials[{$credentialIndex}][credentials_name]")) {
+                $credentialName = $request->input("credentials[{$credentialIndex}][credentials_name]");
+                $credentialPhoto = $request->file("credentials[{$credentialIndex}][credentials_photo]");
+                $existingPhoto = $request->input("credentials[{$credentialIndex}][existing_photo]");
+                
+                $credentialsData[] = [
+                    'credentials_name' => $credentialName,
+                    'credentials_photo' => $credentialPhoto,
+                    'existing_photo' => $existingPhoto
+                ];
+                $credentialIndex++;
+            }
+            
+            // If no individual fields found, check for JSON credentials field
+            if (empty($credentialsData) && $request->has('credentials')) {
+                $credentialsData = $request->input('credentials');
+                
+                // If credentials is a JSON string, decode it
+                if (is_string($credentialsData)) {
+                    $credentialsData = json_decode($credentialsData, true);
+                }
+                
+                // Ensure it's an array
+                if (!is_array($credentialsData)) {
+                    $credentialsData = [];
+                }
+                
+                // Extract files from the request and attach them to credentials
+                $requestFiles = $request->allFiles();
+                if (isset($requestFiles['credentials']) && is_array($requestFiles['credentials'])) {
+                    foreach ($requestFiles['credentials'] as $index => $fileGroup) {
+                        if (isset($fileGroup['credentials_photo']) && isset($credentialsData[$index])) {
+                            $credentialsData[$index]['credentials_photo'] = $fileGroup['credentials_photo'];
+                        }
+                    }
+                }
+            }
+            
+            // Debug: Log the credentials data structure
+            Log::info('Credentials data structure', [
+                'credentials_data' => $credentialsData,
+                'request_all' => $request->all(),
+                'request_files' => $request->allFiles(),
+            ]);
+            
+            // Process credentials data
+            foreach ($credentialsData as $index => $credential) {
+                if (isset($credential['credentials_name'])) {
+                    $credentialsNames[] = $credential['credentials_name'];
+                    
+                    // Handle file upload - check multiple possible formats
+                    $fileProcessed = false;
+                    
+                    // Check if it's an UploadedFile object
+                    if (isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
+                        $file = $credential['credentials_photo'];
+                        $filename = time() . '_' . $index . '_' . $file->getClientOriginalName();
+                        $path = $file->storeAs('credentials', $filename, 'public');
+                        $credentialsPhotos[] = $path;
+                        $fileProcessed = true;
+                        Log::info('File uploaded successfully', ['path' => $path, 'filename' => $filename]);
+                    }
+                    
+                    // Check if it's an existing photo path
+                    if (!$fileProcessed && isset($credential['existing_photo']) && !empty($credential['existing_photo'])) {
+                        $credentialsPhotos[] = $credential['existing_photo'];
+                        $fileProcessed = true;
+                        Log::info('Using existing photo', ['path' => $credential['existing_photo']]);
+                    }
+                    
+                    // If no file was processed, set to null
+                    if (!$fileProcessed) {
+                        $credentialsPhotos[] = null;
+                        Log::warning('No file processed for credential', ['index' => $index, 'credential' => $credential]);
+                    }
+                }
+            }
+
+            // Update worker credentials
+            $user->worker->update([
+                'credentials_name' => $credentialsNames,
+                'credentials_photo' => $credentialsPhotos,
+            ]);
+
+            Log::info('Worker credentials updated', [
+                'worker_id' => $user->worker->id,
+                'credentials_count' => count($credentialsNames),
+                'credentials_names' => $credentialsNames,
+                'credentials_photos' => $credentialsPhotos,
+                'raw_credentials_data' => $credentialsData,
+            ]);
+
+            return response()->json([
+                'message' => 'Credentials updated successfully',
+                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating credentials: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            
+            // Provide user-friendly error messages
+            $errorMessage = 'Unable to save your credentials at this time.';
+            if (strpos($e->getMessage(), 'foreach') !== false) {
+                $errorMessage = 'Please add at least one credential before saving.';
+            } elseif (strpos($e->getMessage(), 'file') !== false) {
+                $errorMessage = 'There was an issue with the uploaded file. Please try again.';
+            } elseif (strpos($e->getMessage(), 'validation') !== false) {
+                $errorMessage = 'Please check your credential information and try again.';
+            }
+            
+            return response()->json(['error' => $errorMessage], 500);
         }
     }
 }

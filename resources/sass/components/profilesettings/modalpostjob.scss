@@ -103,7 +103,7 @@
         font-size: 14px;
         font-weight: 600;
         color: #374151;
-        margin-bottom: 12px; // CHANGED: Increased from 8px to 12px to add small gap between label and input/textarea
+        margin-top: 20px; // Move labels downward 1.5x (1.5 * 6px = 9px)
       }
 
       // CHANGED: Adjust downward 1x for specific labels (Salary, Email, Desired Hours, Contact Person, Type of Work, Skills Requirement)
@@ -392,7 +392,8 @@
         border: 1px solid #e5e7eb;
 
         h4 {
-          margin: 0 0 20px 0;
+          margin: 0 0 20px 0; 
+          padding-top: 40px; // Move h4 downward using padding
           font-size: 18px;
           font-weight: 700;
           color: #1f2937;

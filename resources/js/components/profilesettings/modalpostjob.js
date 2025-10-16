@@ -10,6 +10,7 @@ const ModalPostJob = ({ onClose, onSubmit, editingJob = null }) => {
     salary: editingJob?.salary || '',
     salaryType: editingJob?.salary_type || 'per_hour',
     typeOfEmployment: editingJob?.job_type || 'full-time',
+    hiringType: editingJob?.hiring_type || 'individual',
     applicationStart: editingJob?.application_start ? new Date(editingJob.application_start).toISOString().slice(0, 16) : '',
     applicationDeadline: editingJob?.application_deadline ? new Date(editingJob.application_deadline).toISOString().slice(0, 16) : '',
     skills: editingJob?.skills || [],
@@ -292,7 +293,7 @@ const ModalPostJob = ({ onClose, onSubmit, editingJob = null }) => {
                 </div>
               </div>
 
-              {/* Job Type and Application Dates Row */}
+              {/* Job Type and Hiring Type Row */}
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="typeOfEmployment">Job Type *</label>
@@ -311,6 +312,24 @@ const ModalPostJob = ({ onClose, onSubmit, editingJob = null }) => {
                   </select>
                 </div>
                 <div className="form-group">
+                  <label htmlFor="hiringType">Hiring Type *</label>
+                  <select
+                    id="hiringType"
+                    name="hiringType"
+                    value={formData.hiringType}
+                    onChange={handleInputChange}
+                    className="small-input"
+                    required
+                  >
+                    <option value="individual">Individual</option>
+                    <option value="team">Team</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Application Dates Row */}
+              <div className="form-row">
+                <div className="form-group">
                   <label htmlFor="applicationStart">Application Start *</label>
                   <input
                     type="datetime-local"
@@ -322,20 +341,19 @@ const ModalPostJob = ({ onClose, onSubmit, editingJob = null }) => {
                     required
                   />
                 </div>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="applicationDeadline">Application Deadline *</label>
-                <input
-                  type="datetime-local"
-                  id="applicationDeadline"
-                  name="applicationDeadline"
-                  value={formData.applicationDeadline}
-                  onChange={handleInputChange}
-                  min={formData.applicationStart}
-                  className="full-width-input"
-                  required
-                />
+                <div className="form-group">
+                  <label htmlFor="applicationDeadline">Application Deadline *</label>
+                  <input
+                    type="datetime-local"
+                    id="applicationDeadline"
+                    name="applicationDeadline"
+                    value={formData.applicationDeadline}
+                    onChange={handleInputChange}
+                    min={formData.applicationStart}
+                    className="small-input"
+                    required
+                  />
+                </div>
               </div>
 
               {/* Skills Selection */}

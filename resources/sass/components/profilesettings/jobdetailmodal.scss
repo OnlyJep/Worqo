@@ -1,0 +1,195 @@
+// This file extends the modalpostjob.scss styles for the view-only mode
+
+.modal-post-job.view-only {
+  .expired-banner {
+    background-color: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 0 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      color: #dc2626;
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+
+  .modal-form.view-mode {
+    // Apply same label styling as edit mode
+    .form-group {
+      label {
+        margin-top: 20px; // Same as edit mode - labels moved downward
+        margin-bottom: 6px; // Same as edit mode - labels close to inputs
+      }
+    }
+
+    .read-only-field {
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #1f2937;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
+
+      &.textarea-like {
+        min-height: 100px;
+        align-items: flex-start;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+
+    .selected-skills-preview {
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px;
+
+      .skills-preview-title {
+        font-size: 13px;
+        color: #6b7280;
+        font-weight: 500;
+        margin-bottom: 12px;
+      }
+
+      .skill-tag {
+        background: white;
+        color: #374151;
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 13px;
+        font-weight: 400;
+        border: 1px solid #d1d5db;
+        display: inline-block;
+        margin-right: 8px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .contact-info {
+      margin-top: 5px; // Moved upward 2x (was 24px)
+      padding: 20px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      width: 752px;
+      height: 200px;
+
+      h4 {
+        margin: 10px 0 10px 0; // Moved downward 2x
+        font-size: 18px;
+        font-weight: 700;
+        color: #1f2937;
+        border-bottom: 2px solid #e5e7eb;
+        padding-bottom: 8px;
+      }
+
+      .form-row {
+        margin-top: 0px; // Moved upward 2x
+        margin-bottom: 0;
+      }
+
+      .form-group {
+        label {
+          font-weight: 600;
+          color: #374151;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e7eb;
+
+      .cancel-btn {
+        background-color: #f3f4f6;
+        color: #1f2937;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: #e5e7eb;
+        }
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .modal-post-job.view-only {
+    .expired-banner {
+      margin: 0 20px 16px;
+      padding: 10px 14px;
+
+      span {
+        font-size: 13px;
+      }
+    }
+
+    .modal-form.view-mode {
+      .read-only-field {
+        padding: 10px 12px;
+        font-size: 13px;
+
+        &.textarea-like {
+          min-height: 80px;
+        }
+      }
+
+      .selected-skills-preview {
+        padding: 10px;
+
+        .skills-preview-title {
+          font-size: 12px;
+          margin-bottom: 10px;
+        }
+
+        .skill-tag {
+          font-size: 12px;
+          padding: 5px 10px;
+        }
+      }
+
+      .contact-info {
+        margin-top: 20px;
+        padding-top: 20px;
+
+        h4 {
+          font-size: 15px;
+          margin-bottom: 12px;
+        }
+      }
+
+      .form-actions {
+        margin-top: 20px;
+        padding-top: 20px;
+
+        .cancel-btn {
+          padding: 10px 20px;
+          font-size: 13px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+

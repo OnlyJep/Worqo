@@ -4,12 +4,15 @@ import { message } from 'antd';
 import axios from 'axios';
 import ModalPostJob from './modalpostjob';
 import JobApplicationsModal from './JobApplicationsModal';
+import JobDetailModal from './JobDetailModal';
 import '../../../sass/components/profilesettings/mypostjob.scss';
 
 const MyPostJob = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isApplicationsModalOpen, setIsApplicationsModalOpen] = useState(false);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [selectedJobForApplications, setSelectedJobForApplications] = useState(null);
+  const [selectedJobForDetail, setSelectedJobForDetail] = useState(null);
   const [editingJob, setEditingJob] = useState(null);
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -95,6 +98,7 @@ const MyPostJob = () => {
         salary: parseFloat(jobData.salary),
         salary_type: jobData.salaryType,
         job_type: jobData.typeOfEmployment,
+        hiring_type: jobData.hiringType,
         application_start: jobData.applicationStart,
         application_deadline: jobData.applicationDeadline
       };
@@ -133,9 +137,20 @@ const MyPostJob = () => {
     }
   };
 
-  const handleViewApplicants = (job) => {
+  const handleViewApplicants = (job, e) => {
+    e.stopPropagation(); // Prevent card click
     setSelectedJobForApplications(job);
     setIsApplicationsModalOpen(true);
+  };
+
+  const handleCardClick = (job) => {
+    setSelectedJobForDetail(job);
+    setIsDetailModalOpen(true);
+  };
+
+  const handleEditClick = (jobId, e) => {
+    e.stopPropagation(); // Prevent card click
+    handleEditJob(jobId);
   };
 
 
@@ -162,19 +177,23 @@ const MyPostJob = () => {
       <div className="jobs-list">
         {jobs.length > 0 ? (
           jobs.map((job) => (
-            <div key={job.id} className={`job-card ${job.archived ? 'expired' : ''}`}>
+            <div 
+              key={job.id} 
+              className={`job-card ${job.archived ? 'expired' : ''}`}
+              onClick={() => handleCardClick(job)}
+            >
               <div className="job-card-header">
                 <div className="job-actions">
                   <button 
                     className="view-applicants-btn"
-                    onClick={() => handleViewApplicants(job)}
+                    onClick={(e) => handleViewApplicants(job, e)}
                     title="View Applicants"
                   >
                     <FaUserFriends className="action-icon" />
                   </button>
                   <button 
                     className="edit-job-btn"
-                    onClick={() => handleEditJob(job.id)}
+                    onClick={(e) => handleEditClick(job.id, e)}
                     title="Edit Job"
                   >
                     <FaRegEdit className="action-icon" />
@@ -187,8 +206,8 @@ const MyPostJob = () => {
                 <h3 className="job-title">{job.job_title || `Job Post #${job.id}`}</h3>
                 
                 <div className="job-metadata">
-                  <span className="posted-date">Posted on {new Date(job.created_at).toLocaleDateString()}</span>
                   <span className="job-salary">₱{job.salary.toLocaleString()}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</span>
+                  <span className="posted-date">Posted on {new Date(job.created_at).toLocaleDateString()}</span>
                 </div>
 
                 <div className="job-description">
@@ -207,17 +226,6 @@ const MyPostJob = () => {
                   ) : (
                     <span className="skill-tag">No specific skills required</span>
                   )}
-                </div>
-
-                <div className="job-timeline">
-                  <div className="timeline-item">
-                    <span className="timeline-label">Application Start:</span>
-                    <span className="timeline-value">{new Date(job.application_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span>
-                  </div>
-                  <div className="timeline-item">
-                    <span className="timeline-label">Application Deadline:</span>
-                    <span className="timeline-value">{new Date(job.application_deadline).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -248,6 +256,16 @@ const MyPostJob = () => {
           onClose={() => {
             setIsApplicationsModalOpen(false);
             setSelectedJobForApplications(null);
+          }}
+        />
+      )}
+
+      {isDetailModalOpen && selectedJobForDetail && (
+        <JobDetailModal
+          job={selectedJobForDetail}
+          onClose={() => {
+            setIsDetailModalOpen(false);
+            setSelectedJobForDetail(null);
           }}
         />
       )}

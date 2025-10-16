@@ -27,25 +27,30 @@ class RegisterController extends Controller
         try {
             // Define validation rules
             $rules = [
-                'first_name' => 'required|string|max:255',
+                'first_name' => 'required|string|max:255|min:2',
                 'middle_name' => 'nullable|string|max:255',
-                'last_name' => 'required|string|max:255',
+                'last_name' => 'required|string|max:255|min:2',
                 'gender' => ['required', Rule::exists('genders', 'gender_name')],
                 'suffix' => ['nullable', Rule::exists('suffixes', 'suffix_name')],
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+                'email' => 'required|email|unique:users,email|max:255',
+                'password' => 'required|string|min:8|max:255|regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
                 'role_id' => ['required', 'integer', Rule::in(Role::whereIn('id', [1, 2])->pluck('id')->toArray())],
             ];
 
             // Validate input
             $validator = Validator::make($request->all(), $rules, [
                 'password.regex' => 'The password must contain at least one uppercase letter, one digit, and one special character.',
+                'email.unique' => 'This email address is already registered.',
+                'gender.required' => 'Please select a gender.',
+                'role_id.required' => 'Please select a role.',
+                'first_name.required' => 'First name is required.',
+                'last_name.required' => 'Last name is required.',
             ]);
 
             if ($validator->fails()) {
                 return response()->json([
                     'status' => 'error',
-                    'error' => 'Validation failed',
+                    'message' => 'Validation failed',
                     'errors' => $validator->errors(),
                 ], 422);
             }
@@ -56,7 +61,23 @@ class RegisterController extends Controller
 
             // Fetch gender and suffix
             $gender = Gender::where('gender_name', $request->gender)->first();
-            $suffix = $request->suffix ? Suffix::where('suffix_name', $request->suffix)->first() : null;
+            if (!$gender) {
+                return response()->json([
+                    'status' => 'error',
+                    'error' => 'Invalid gender selected',
+                ], 422);
+            }
+            
+            $suffix = null;
+            if ($request->suffix) {
+                $suffix = Suffix::where('suffix_name', $request->suffix)->first();
+                if (!$suffix) {
+                    return response()->json([
+                        'status' => 'error',
+                        'error' => 'Invalid suffix selected',
+                    ], 422);
+                }
+            }
 
             // Create user
             $user = User::create([
@@ -77,7 +98,6 @@ class RegisterController extends Controller
                 'last_name' => $request->last_name,
                 'gender_id' => $gender->id,
                 'suffix_id' => $suffix ? $suffix->id : null,
-                'profile_img' => 'profiles/defaultpfp.jpg',
             ]);
 
             DB::commit();
@@ -92,10 +112,14 @@ class RegisterController extends Controller
             ], 201);
         } catch (\Exception $e) {
             DB::rollback();
-            \Log::error('Registration failed: ' . $e->getMessage(), ['trace' => $e->getTrace()]);
+            \Log::error('Registration failed: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+                'request_data' => $request->except(['password']), // Don't log password
+            ]);
             return response()->json([
                 'status' => 'error',
-                'error' => 'Registration failed: ' . $e->getMessage(),
+                'message' => 'Registration failed. Please try again.',
+                'error' => config('app.debug') ? $e->getMessage() : 'An error occurred during registration',
             ], 500);
         }
     }
@@ -108,12 +132,26 @@ class RegisterController extends Controller
      */
     private function generateUniqueUsername(string $baseUsername): string
     {
+        // Clean the base username to ensure it's valid
+        $baseUsername = preg_replace('/[^a-z0-9.]/', '', strtolower($baseUsername));
+        
+        // Ensure it starts with a letter
+        if (!preg_match('/^[a-z]/', $baseUsername)) {
+            $baseUsername = 'user' . $baseUsername;
+        }
+        
         $username = $baseUsername;
         $counter = 1;
 
         while (User::where('username', $username)->exists()) {
             $username = $baseUsername . $counter;
             $counter++;
+            
+            // Prevent infinite loop
+            if ($counter > 9999) {
+                $username = $baseUsername . time();
+                break;
+            }
         }
 
         return $username;

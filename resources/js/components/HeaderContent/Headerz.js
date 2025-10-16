@@ -23,10 +23,17 @@ const Headerz = () => {
     const token = localStorage.getItem('auth_token');
     const storedUser = localStorage.getItem('user');
     if (token && storedUser) {
-      setIsLoggedIn(true);
-      setUser(JSON.parse(storedUser));
-      // Fetch unread notifications count
-      fetchUnreadCount();
+      try {
+        const userData = JSON.parse(storedUser);
+        setIsLoggedIn(true);
+        setUser(userData);
+        // Fetch unread notifications count
+        fetchUnreadCount();
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user');
+      }
     }
 
     // Handle click outside for dropdown
@@ -54,7 +61,12 @@ const Headerz = () => {
   const fetchUnreadCount = async () => {
     try {
       const token = localStorage.getItem('auth_token');
-      if (!token) return;
+      const storedUser = localStorage.getItem('user');
+      
+      if (!token || !storedUser) {
+        console.log('No token or user found, skipping unread count fetch');
+        return;
+      }
 
       const response = await axios.get('http://127.0.0.1:8000/api/notifications/unread-count', {
         headers: {
@@ -67,7 +79,19 @@ const Headerz = () => {
         setUnreadCount(response.data.unread_count || 0);
       }
     } catch (error) {
-      console.error('Error fetching unread count:', error);
+      // Only log error if it's not a 401 (unauthorized) error
+      if (error.response?.status !== 401) {
+        console.error('Error fetching unread count:', error);
+      }
+      // If 401, user might need to re-authenticate
+      if (error.response?.status === 401) {
+        console.log('User not authenticated, clearing auth state');
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user');
+        setIsLoggedIn(false);
+        setUser(null);
+        setUnreadCount(0);
+      }
     }
   };
 

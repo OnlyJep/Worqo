@@ -64,6 +64,7 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: all 0.3s ease;
+    cursor: pointer;
 
     &:hover {
       transform: translateY(-2px);
@@ -143,8 +144,8 @@
 
       .job-metadata {
         display: flex;
-        flex-direction: column;
-        gap: 4px;
+        justify-content: space-between;
+        align-items: center;
         margin-bottom: 20px;
 
         .posted-date {
@@ -156,7 +157,7 @@
         .job-salary {
           font-size: 16px;
           color: #374151;
-          font-weight: 400;
+          font-weight: 500;
         }
       }
 
@@ -165,8 +166,8 @@
 
         .description-title {
           font-size: 16px;
-          font-weight: 400;
-          color: #374151;
+          font-weight: 700; // Make bold
+          color: #000000;
           margin: 0 0 8px 0;
         }
 
@@ -183,14 +184,14 @@
 
         .skills-title {
           font-size: 16px;
-          font-weight: 400;
-          color: #374151;
+          font-weight: 700; // Make bold
+          color: #000000;
           margin: 0 0 12px 0;
         }
 
         .skill-tag {
           background: #f9fafb;
-          color: #374151;
+          color: #60646b;
           padding: 6px 12px;
           border-radius: 16px;
           font-size: 14px;
@@ -231,6 +232,50 @@
           }
         }
       }
+    }
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+
+    .empty-icon {
+      margin-bottom: 20px;
+
+      img {
+        width: 150px;
+        height: 150px;
+        opacity: 0.6;
+      }
+    }
+
+    .empty-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 0 0 8px 0;
+    }
+
+    .empty-description {
+      font-size: 14px;
+      color: #6b7280;
+      margin: 0;
+    }
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+
+    p {
+      font-size: 16px;
+      color: #6b7280;
     }
   }
 }

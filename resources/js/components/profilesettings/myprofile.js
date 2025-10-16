@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { message } from 'antd';
+import { MdEdit } from "react-icons/md";
 import '../../../sass/components/profilesettings/myprofile.scss';
 
 const MyProfile = () => {
@@ -46,7 +47,62 @@ const MyProfile = () => {
     confirm: false
   });
   
+  // Work preferences states (for workers)
+  const [workPreferences, setWorkPreferences] = useState({
+    workType: '',
+    hoursPerDay: '',
+    monthlySalary: '',
+    preferredWorkingDays: [],
+    bio: ''
+  });
+  const [isEditingWorkPreferences, setIsEditingWorkPreferences] = useState(false);
+  
+  // Skills and Experience states (for workers)
+  const [workerSkills, setWorkerSkills] = useState({
+    primary_skills: [],
+    additional_skills: []
+  });
+  const [isEditingSkills, setIsEditingSkills] = useState(false);
+  const [availableSkills, setAvailableSkills] = useState([]);
+  const [selectedPrimarySkillId, setSelectedPrimarySkillId] = useState('');
+  const [selectedAdditionalSkillIds, setSelectedAdditionalSkillIds] = useState([]);
+  
+  // Credentials states (for workers)
+  const [workerCredentials, setWorkerCredentials] = useState([]);
+  const [isEditingCredentials, setIsEditingCredentials] = useState(false);
+  const [newCredential, setNewCredential] = useState({ credentials_name: '', credentials_photo: null });
+  const [showAddCredentialForm, setShowAddCredentialForm] = useState(false);
+  
   const fileInputRef = useRef(null);
+  const credentialFileInputRef = useRef(null);
+
+  // Credential types from SkillRatingModal
+  const credentialTypes = [
+    { value: "Resume/CV", label: "Resume / Curriculum Vitae (CV)" },
+    { value: "Birth Certificate", label: "Birth Certificate (PSA-issued)" },
+    { value: "Barangay Clearance", label: "Barangay Clearance" },
+    { value: "Police Clearance", label: "Police Clearance" },
+    { value: "NBI Clearance", label: "NBI Clearance" },
+    { value: "Medical Certificate", label: "Medical Certificate / Health Certificate" },
+    { value: "SSS Number", label: "SSS Number (Social Security System)" },
+    { value: "PhilHealth Number", label: "PhilHealth Number" },
+    { value: "Pag-IBIG Number", label: "Pag-IBIG Number (HDMF)" },
+    { value: "TIN", label: "TIN (Tax Identification Number)" },
+    { value: "Valid Government ID", label: "Valid Government ID (e.g., Passport, Driver's License, Voter's ID, UMID, National ID)" },
+    { value: "TESDA Certificate", label: "TESDA / NC Certificates" },
+    { value: "Diploma", label: "Diploma / Transcript of Records" },
+    { value: "Training Certificate", label: "Training Certificates" },
+    { value: "Professional License", label: "License or Professional ID (e.g., PRC License)" },
+    { value: "Work Portfolio", label: "Work Experience Records / Portfolio" },
+    { value: "Certificate of Employment", label: "Certificate of Employment" },
+    { value: "Performance Evaluation", label: "Performance Evaluation / Feedback" },
+    { value: "Work Photos", label: "Work Accomplishment Photos (for skilled workers like carpenters, painters, etc.)" },
+    { value: "Character Reference", label: "Character Reference / Reference Letter" },
+    { value: "Drivers License", label: "Driver's License" },
+    { value: "Passport", label: "Passport" },
+    { value: "Voters ID", label: "Voter's ID" },
+    { value: "National ID", label: "National ID / Postal ID" }
+  ];
 
   // Load user data on component mount
   useEffect(() => {
@@ -61,6 +117,8 @@ const MyProfile = () => {
   useEffect(() => {
     if (user?.id && user?.role_id === 1) {
       fetchWorkerReviews(user.id);
+      fetchWorkerProfile(user.id);
+      fetchAvailableSkills();
     }
   }, [user]);
 
@@ -77,6 +135,25 @@ const MyProfile = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [showProfileDropdown]);
+
+  // Listen for skills/credentials updates from Skill Rating Modal
+  useEffect(() => {
+    const handleSkillsCredentialsUpdate = () => {
+      console.log('Skills/Credentials updated event received, refreshing worker profile...');
+      if (user?.id && user?.role_id === 1) {
+        fetchWorkerProfile(user.id);
+      }
+    };
+
+    // Listen for custom event dispatched when skills/credentials are saved
+    window.addEventListener('workerSkillsUpdated', handleSkillsCredentialsUpdate);
+    window.addEventListener('workerCredentialsUpdated', handleSkillsCredentialsUpdate);
+    
+    return () => {
+      window.removeEventListener('workerSkillsUpdated', handleSkillsCredentialsUpdate);
+      window.removeEventListener('workerCredentialsUpdated', handleSkillsCredentialsUpdate);
+    };
+  }, [user]);
 
   const loadUserData = async () => {
     const storedUser = localStorage.getItem("user");
@@ -268,6 +345,111 @@ const MyProfile = () => {
     setProgressPercent(0);
   };
 
+  const fetchAvailableSkills = async () => {
+    try {
+      const token = localStorage.getItem("auth_token");
+      const response = await fetch('http://127.0.0.1:8000/api/skills', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setAvailableSkills(data);
+      }
+    } catch (error) {
+      console.error('Error fetching skills:', error);
+    }
+  };
+
+  const fetchWorkerProfile = async (workerId) => {
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) return;
+
+      const response = await fetch(`http://127.0.0.1:8000/api/workers/${workerId}`, {
+        method: "GET",
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const workerData = data.worker || data;
+        
+        console.log('Fetched worker data:', workerData);
+        console.log('Skills data:', workerData.skills_id);
+        console.log('Credentials data:', workerData.credentials_name, workerData.credentials_photo);
+        
+        // Set work preferences from worker data
+        setWorkPreferences({
+          workType: workerData.work_type || '',
+          hoursPerDay: workerData.hours_per_day || '',
+          monthlySalary: workerData.monthly_salary || '',
+          preferredWorkingDays: Array.isArray(workerData.preferred_working_hours) 
+            ? workerData.preferred_working_hours 
+            : (workerData.preferred_working_hours ? JSON.parse(workerData.preferred_working_hours) : []),
+          bio: workerData.bio || ''
+        });
+        
+        // Set skills from worker data
+        const skillsData = workerData.skills_id || {};
+        
+        console.log('Primary skills from backend:', skillsData.primary_skills);
+        console.log('Additional skills from backend:', skillsData.additional_skills);
+        
+        // Process primary skills to ensure consistent field names
+        const primarySkills = Array.isArray(skillsData.primary_skills) 
+          ? skillsData.primary_skills.map(skill => ({
+              id: skill.skill_id || skill.id,
+              skill_name: skill.skill_name,
+              sub_skills: skill.sub_skills || [],
+              experience: skill.experience || ''
+            }))
+          : [];
+        
+        // Process additional skills to ensure consistent field names
+        const additionalSkills = Array.isArray(skillsData.additional_skills) 
+          ? skillsData.additional_skills.map(skill => ({
+              id: skill.skill_id || skill.id,
+              skill_name: skill.skill_name,
+              sub_skills: skill.sub_skills || [],
+              experience: skill.experience || ''
+            }))
+          : [];
+        
+        console.log('Processed primary skills:', primarySkills);
+        console.log('Processed additional skills:', additionalSkills);
+        
+        setWorkerSkills({
+          primary_skills: primarySkills,
+          additional_skills: additionalSkills
+        });
+        
+        // Set credentials from worker data
+        if (workerData.credentials_name && Array.isArray(workerData.credentials_name)) {
+          const creds = workerData.credentials_name.map((name, index) => {
+            const photo = workerData.credentials_photo?.[index];
+            console.log(`Credential ${index}: name="${name}", photo="${photo}"`);
+            return {
+              credentials_name: name,
+              credentials_photo: photo || null
+            };
+          });
+          console.log('Setting credentials from backend:', creds);
+          console.log('Raw credentials_photo from backend:', workerData.credentials_photo);
+          setWorkerCredentials(creds);
+        } else {
+          console.log('No credentials found in backend data');
+          setWorkerCredentials([]);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching worker profile:', error);
+    }
+  };
+
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
     setProfileData(prev => ({
@@ -281,6 +463,34 @@ const MyProfile = () => {
     setPasswordData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+
+  const handleWorkPreferencesChange = (e) => {
+    const { name, value } = e.target;
+    
+    // Auto-set hours per day when work type changes
+    if (name === 'workType') {
+      let hoursPerDay = value === 'full-time' ? 8 : value === 'part-time' ? 4 : 1;
+      setWorkPreferences(prev => ({
+        ...prev,
+        workType: value,
+        hoursPerDay: hoursPerDay
+      }));
+    } else {
+      setWorkPreferences(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+  };
+
+  const handleWorkingDayToggle = (day) => {
+    setWorkPreferences(prev => ({
+      ...prev,
+      preferredWorkingDays: prev.preferredWorkingDays.includes(day)
+        ? prev.preferredWorkingDays.filter(d => d !== day)
+        : [...prev.preferredWorkingDays, day]
     }));
   };
 
@@ -327,6 +537,496 @@ const MyProfile = () => {
       newPassword: "",
       confirmPassword: ""
     });
+  };
+
+  const handleEditWorkPreferences = () => {
+    setIsEditingWorkPreferences(true);
+  };
+
+  const handleCancelWorkPreferencesEdit = async () => {
+    setIsEditingWorkPreferences(false);
+    // Reload work preferences from server
+    if (user?.id && user?.role_id === 1) {
+      await fetchWorkerProfile(user.id);
+    }
+  };
+
+  const handleEditSkills = () => {
+    setIsEditingSkills(true);
+  };
+
+  const handleCancelSkillsEdit = async () => {
+    setIsEditingSkills(false);
+    // Reload skills from server
+    if (user?.id && user?.role_id === 1) {
+      await fetchWorkerProfile(user.id);
+    }
+  };
+
+  const handleSaveIndividualSkill = async (skillType, skillData) => {
+    setIsLoading(true);
+    
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) {
+        message.error("You must be logged in to update skills");
+        return;
+      }
+
+      // Only include skills that have actual data
+      const primarySkillsData = workerSkills.primary_skills
+        .filter(skill => skill && skill.id && skill.skill_name && skill.skill_name.trim() !== '')
+        .map(skill => ({
+          skill_id: skill.id,
+          skill_name: skill.skill_name,
+          sub_skills: skill.sub_skills || [],
+          experience: skill.experience || ''
+        }));
+      
+      const additionalSkillsData = workerSkills.additional_skills
+        .filter(skill => skill && skill.id && skill.skill_name && skill.skill_name.trim() !== '')
+        .map(skill => ({
+          skill_id: skill.id,
+          skill_name: skill.skill_name,
+          sub_skills: skill.sub_skills || [],
+          experience: skill.experience || ''
+        }));
+
+      const requestData = {
+        skills_id: {
+          primary_skills: primarySkillsData,
+          additional_skills: additionalSkillsData
+        }
+      };
+      
+      console.log('Sending skills data:', requestData);
+      console.log('Primary skills count:', primarySkillsData.length);
+      console.log('Additional skills count:', additionalSkillsData.length);
+      console.log('Current workerSkills state:', workerSkills);
+      
+      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/skills`, {
+        method: "PUT",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(requestData)
+      });
+
+      if (response.ok) {
+        message.success(`${skillType} skill saved successfully!`);
+        // Refresh data immediately
+        await fetchWorkerProfile(user.id);
+        // Dispatch event for other components
+        window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
+        
+        // Show the skill items immediately after saving
+        // The skill items will be displayed because the data is refreshed
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        message.error(`Failed to save ${skillType} skill: ${errorData.message || 'Please try again.'}`);
+      }
+    } catch (error) {
+      console.error(`${skillType} skill save error:`, error);
+      message.error(`An error occurred while saving ${skillType} skill. Please check your connection.`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSkillsSubmit = async () => {
+    // Validate that primary skill is selected
+    if (!workerSkills.primary_skills || workerSkills.primary_skills.length === 0) {
+      message.error("Please select a primary skill");
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) {
+        message.error("You must be logged in to update skills");
+        return;
+      }
+
+      // Only include skills that have actual data
+      const primarySkillsData = workerSkills.primary_skills
+        .filter(skill => skill && skill.id && skill.skill_name && skill.skill_name.trim() !== '')
+        .map(skill => ({
+          skill_id: skill.id,
+          skill_name: skill.skill_name,
+          sub_skills: skill.sub_skills || [],
+          experience: skill.experience || ''
+        }));
+      
+      const additionalSkillsData = workerSkills.additional_skills
+        .filter(skill => skill && skill.id && skill.skill_name && skill.skill_name.trim() !== '')
+        .map(skill => ({
+          skill_id: skill.id,
+          skill_name: skill.skill_name,
+          sub_skills: skill.sub_skills || [],
+          experience: skill.experience || ''
+        }));
+
+      const requestData = {
+        skills_id: {
+          primary_skills: primarySkillsData,
+          additional_skills: additionalSkillsData
+        }
+      };
+      
+      console.log('Sending skills data (handleSkillsSubmit):', requestData);
+
+      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/skills`, {
+        method: "PUT",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(requestData)
+      });
+
+      if (response.ok) {
+        message.success("Skills updated successfully!");
+        setIsEditingSkills(false);
+        // Refresh data immediately
+        await fetchWorkerProfile(user.id);
+        // Dispatch event for other components
+        window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        message.error(`Failed to update skills: ${errorData.message || 'Please try again.'}`);
+      }
+    } catch (error) {
+      console.error("Skills update error:", error);
+      message.error("An error occurred while updating skills. Please check your connection.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handlePrimarySkillChange = (e) => {
+    const skillId = e.target.value;
+    const selectedSkill = availableSkills.find(skill => skill.id === parseInt(skillId));
+    
+    console.log('Selected skill for primary:', selectedSkill);
+    console.log('Available skills:', availableSkills);
+    
+    if (selectedSkill) {
+      const skillName = selectedSkill.name || selectedSkill.skill_name;
+      console.log('Skill name:', skillName);
+      
+      setWorkerSkills(prev => ({
+        ...prev,
+        primary_skills: [{
+          id: selectedSkill.id,
+          skill_name: skillName,
+          sub_skills: [],
+          experience: ''
+        }]
+      }));
+    }
+  };
+
+
+  const handleSkillExperienceChange = (skillId, experience, isPrimary = false) => {
+    setWorkerSkills(prev => {
+      if (isPrimary) {
+        return {
+          ...prev,
+          primary_skills: prev.primary_skills.map(skill => 
+            skill.id === skillId ? { ...skill, experience } : skill
+          )
+        };
+      } else {
+        return {
+          ...prev,
+          additional_skills: prev.additional_skills.map(skill => 
+            skill.id === skillId ? { ...skill, experience } : skill
+          )
+        };
+      }
+    });
+  };
+
+  const handleSubSkillAdd = (skillId, subSkill, isPrimary = false) => {
+    if (!subSkill.trim()) return;
+    
+    setWorkerSkills(prev => {
+      if (isPrimary) {
+        return {
+          ...prev,
+          primary_skills: prev.primary_skills.map(skill => 
+            skill.id === skillId 
+              ? { ...skill, sub_skills: [...(skill.sub_skills || []), subSkill.trim()] }
+              : skill
+          )
+        };
+      } else {
+        return {
+          ...prev,
+          additional_skills: prev.additional_skills.map(skill => 
+            skill.id === skillId 
+              ? { ...skill, sub_skills: [...(skill.sub_skills || []), subSkill.trim()] }
+              : skill
+          )
+        };
+      }
+    });
+  };
+
+  const handleSubSkillRemove = (skillId, subSkillToRemove, isPrimary = false) => {
+    setWorkerSkills(prev => {
+      if (isPrimary) {
+        return {
+          ...prev,
+          primary_skills: prev.primary_skills.map(skill => 
+            skill.id === skillId 
+              ? { ...skill, sub_skills: (skill.sub_skills || []).filter(sub => sub !== subSkillToRemove) }
+              : skill
+          )
+        };
+      } else {
+        return {
+          ...prev,
+          additional_skills: prev.additional_skills.map(skill => 
+            skill.id === skillId 
+              ? { ...skill, sub_skills: (skill.sub_skills || []).filter(sub => sub !== subSkillToRemove) }
+              : skill
+          )
+        };
+      }
+    });
+  };
+
+  const handleRemoveAdditionalSkill = () => {
+    setWorkerSkills(prev => ({
+      ...prev,
+      additional_skills: []
+    }));
+  };
+
+  const handleEditCredentials = () => {
+    setIsEditingCredentials(true);
+  };
+
+  const handleCancelCredentialsEdit = async () => {
+    setIsEditingCredentials(false);
+    // Reload credentials from server
+    if (user?.id && user?.role_id === 1) {
+      await fetchWorkerProfile(user.id);
+    }
+  };
+
+  const handleRemoveCredential = async (index) => {
+    const updatedCredentials = workerCredentials.filter((_, i) => i !== index);
+    setWorkerCredentials(updatedCredentials);
+    
+    // Auto-save the changes to backend
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) {
+        message.error("You must be logged in to delete credentials");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('user_id', user.id);
+      
+      // Send updated credentials (without the deleted one)
+      if (updatedCredentials.length === 0) {
+        formData.append('credentials', JSON.stringify([]));
+      } else {
+        updatedCredentials.forEach((cred, credIndex) => {
+          formData.append(`credentials[${credIndex}][credentials_name]`, cred.credentials_name);
+          if (cred.credentials_photo instanceof File) {
+            formData.append(`credentials[${credIndex}][credentials_photo]`, cred.credentials_photo);
+          } else if (typeof cred.credentials_photo === 'string' && cred.credentials_photo.trim() !== '') {
+            formData.append(`credentials[${credIndex}][existing_photo]`, cred.credentials_photo);
+          }
+        });
+      }
+
+      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/update-credentials`, {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        message.success("Credential deleted successfully!");
+        // Refresh data to get updated credentials from backend
+        await fetchWorkerProfile(user.id);
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        message.error(`Failed to delete credential: ${errorData.message || errorData.error || 'Please try again.'}`);
+        // Revert the change if backend save failed
+        setWorkerCredentials(workerCredentials);
+      }
+    } catch (error) {
+      console.error("Credential deletion error:", error);
+      message.error("An error occurred while deleting the credential. Please check your connection.");
+      // Revert the change if backend save failed
+      setWorkerCredentials(workerCredentials);
+    }
+  };
+
+  const handleNewCredentialChange = (e, field) => {
+    if (field === 'credentials_photo') {
+      const file = e.target.files[0];
+      if (file) {
+        // Validate file type
+        const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg'];
+        if (!validTypes.includes(file.type)) {
+          message.error('File must be PDF, Word, JPG, or PNG');
+          return;
+        }
+        // Validate file size (2MB)
+        if (file.size > 2 * 1024 * 1024) {
+          message.error('File size must not exceed 2MB');
+          return;
+        }
+        setNewCredential(prev => ({ ...prev, credentials_photo: file }));
+      }
+    } else {
+      setNewCredential(prev => ({ ...prev, [field]: e.target.value }));
+    }
+  };
+
+  const handleAddCredential = () => {
+    if (!newCredential.credentials_name.trim()) {
+      message.error('Please enter a credential name');
+      return;
+    }
+    if (!newCredential.credentials_photo) {
+      message.error('Please upload a credential document');
+      return;
+    }
+
+    console.log('Adding credential:', {
+      name: newCredential.credentials_name,
+      photo: newCredential.credentials_photo,
+      isFile: newCredential.credentials_photo instanceof File,
+      type: typeof newCredential.credentials_photo
+    });
+
+    setWorkerCredentials(prev => [...prev, { ...newCredential }]);
+    setNewCredential({ credentials_name: '', credentials_photo: null });
+    setShowAddCredentialForm(false);
+    if (credentialFileInputRef.current) {
+      credentialFileInputRef.current.value = '';
+    }
+    message.success('Credential added! Click "Save Changes" to save.');
+  };
+
+  const handleCredentialsSubmit = async () => {
+    setIsLoading(true);
+    
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) {
+        message.error("You must be logged in to update credentials");
+        return;
+      }
+
+      // Validate that we have credentials to save
+      if (workerCredentials.length === 0) {
+        message.error("Please add at least one credential before saving");
+        setIsLoading(false);
+        return;
+      }
+
+      // Check if user is in the middle of adding a credential
+      if (newCredential.credentials_name || newCredential.credentials_photo) {
+        message.error("Please click 'Add to List' to add the credential before saving");
+        setIsLoading(false);
+        return;
+      }
+
+      // Update credentials via API using complete-profile endpoint
+      const formData = new FormData();
+      formData.append('user_id', user.id);
+      
+      // Add credentials
+      if (workerCredentials.length > 0) {
+        // Add credentials as individual form fields
+        workerCredentials.forEach((cred, index) => {
+          formData.append(`credentials[${index}][credentials_name]`, cred.credentials_name);
+          if (cred.credentials_photo instanceof File) {
+            // New file upload
+            formData.append(`credentials[${index}][credentials_photo]`, cred.credentials_photo);
+            console.log(`Adding new file for credential ${index}:`, cred.credentials_photo.name);
+          } else if (typeof cred.credentials_photo === 'string' && cred.credentials_photo.trim() !== '') {
+            // Existing file path - keep the existing file
+            formData.append(`credentials[${index}][existing_photo]`, cred.credentials_photo);
+            console.log(`Keeping existing file for credential ${index}:`, cred.credentials_photo);
+          } else {
+            // No file provided - this shouldn't happen if validation is working
+            console.warn(`No file provided for credential ${index}`);
+          }
+        });
+        
+        // Also add a JSON version for debugging
+        formData.append('credentials_json', JSON.stringify(workerCredentials));
+      }
+
+      console.log('Sending credentials data:', workerCredentials);
+      console.log('FormData contents:');
+      for (let pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+      }
+      
+      // Debug: Check each credential's file type
+      workerCredentials.forEach((cred, index) => {
+        console.log(`Credential ${index}:`, {
+          name: cred.credentials_name,
+          photo: cred.credentials_photo,
+          isFile: cred.credentials_photo instanceof File,
+          type: typeof cred.credentials_photo
+        });
+      });
+
+      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/update-credentials`, {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Credentials update response:', responseData);
+        
+        message.success("Credentials updated successfully!");
+        setIsEditingCredentials(false);
+        setNewCredential({ credentials_name: '', credentials_photo: null });
+        
+        // Clear the file input
+        if (credentialFileInputRef.current) {
+          credentialFileInputRef.current.value = '';
+        }
+        
+        // Refresh data immediately to get updated credentials from backend
+        console.log('Refreshing worker profile after credentials update...');
+        await fetchWorkerProfile(user.id);
+        
+        // Dispatch event for other components
+        window.dispatchEvent(new CustomEvent('workerCredentialsUpdated'));
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Credentials update failed:', response.status, response.statusText, errorData);
+        message.error(`Failed to update credentials: ${errorData.message || errorData.error || 'Please try again.'}`);
+      }
+    } catch (error) {
+      console.error("Credentials update error:", error);
+      message.error("An error occurred while updating credentials. Please check your connection.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleProfileImageChange = (e) => {
@@ -638,6 +1338,59 @@ const MyProfile = () => {
     }
   };
 
+  const handleWorkPreferencesSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validate required fields
+    if (!workPreferences.workType || !workPreferences.hoursPerDay || workPreferences.preferredWorkingDays.length === 0) {
+      message.error("Please fill in all required work preference fields");
+      return;
+    }
+
+    setIsLoading(true);
+    
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) {
+        message.error("You must be logged in to update work preferences");
+        return;
+      }
+
+      const response = await fetch(`http://127.0.0.1:8000/api/workers/${user.id}/preferences`, {
+        method: "PUT",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          work_type: workPreferences.workType,
+          hours_per_day: workPreferences.hoursPerDay,
+          monthly_salary: workPreferences.monthlySalary,
+          preferred_working_hours: JSON.stringify(workPreferences.preferredWorkingDays),
+          bio: workPreferences.bio
+        })
+      });
+
+      if (response.ok) {
+        message.success("Work preferences updated successfully!");
+        setIsEditingWorkPreferences(false);
+      } else {
+        try {
+          const errorData = await response.json();
+          message.error(`Failed to update work preferences: ${errorData.message || 'Please try again.'}`);
+        } catch (jsonError) {
+          console.error("Error parsing error response:", jsonError);
+          message.error(`Failed to update work preferences: Server returned ${response.status} ${response.statusText}`);
+        }
+      }
+    } catch (error) {
+      console.error("Work preferences update error:", error);
+      message.error("An error occurred while updating work preferences. Please check your connection.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
 
   return (
@@ -848,7 +1601,7 @@ const MyProfile = () => {
           <div className="form-actions">
             {!isEditingProfile ? (
               <button type="button" className="edit-btn" onClick={handleEditProfile}>
-                <img src="/images/editprof.svg" alt="Edit" className="btn-icon" />
+                <MdEdit className="btn-icon" />
                 Edit Profile
               </button>
             ) : (
@@ -864,7 +1617,7 @@ const MyProfile = () => {
                     handleProfileSubmit(e);
                   }}
                 >
-                  <img src="/images/editprof.svg" alt="Edit" className="btn-icon" />
+                  <MdEdit className="btn-icon" />
                   Save Changes
                 </button>
               </>
@@ -950,7 +1703,7 @@ const MyProfile = () => {
           <div className="form-actions">
             {!isEditingPassword ? (
               <button type="button" className="edit-btn" onClick={handleEditPassword}>
-                <img src="/images/editprof.svg" alt="Edit" className="btn-icon" />
+                <MdEdit className="btn-icon" />
                 Edit Password
               </button>
             ) : (
@@ -966,7 +1719,7 @@ const MyProfile = () => {
                     handlePasswordSubmit(e);
                   }}
                 >
-                  <img src="/images/editprof.svg" alt="Edit" className="btn-icon" />
+                  <MdEdit className="btn-icon" />
                   Change Password
                 </button>
               </>
@@ -975,6 +1728,624 @@ const MyProfile = () => {
         </form>
       </div>
       
+      {/* Work Preferences Card - Only for Workers */}
+      {user?.role_id === 1 && (
+        <div className="work-preferences-card">
+          <h3 className="card-title">Work Preferences</h3>
+          
+          <form onSubmit={handleWorkPreferencesSubmit} className="work-preferences-form">
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="workType" className="label-up">Work Type</label>
+                <select
+                  id="workType"
+                  name="workType"
+                  value={workPreferences.workType}
+                  onChange={handleWorkPreferencesChange}
+                  disabled={!isEditingWorkPreferences}
+                  className={isEditingWorkPreferences ? 'editing' : ''}
+                >
+                  <option value="">Select Work Type</option>
+                  <option value="part-time">Part-time</option>
+                  <option value="full-time">Full-time</option>
+                  <option value="one-time">One-time</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="hoursPerDay" className="label-up">Hours Per Day</label>
+                <input
+                  type="number"
+                  id="hoursPerDay"
+                  name="hoursPerDay"
+                  value={workPreferences.hoursPerDay}
+                  onChange={handleWorkPreferencesChange}
+                  disabled={!isEditingWorkPreferences || workPreferences.workType === 'full-time'}
+                  className={isEditingWorkPreferences ? 'editing' : ''}
+                  min="1"
+                  max="24"
+                  placeholder="Hours per day"
+                />
+                {workPreferences.workType === 'full-time' && (
+                  <span className="form-help">Full-time is automatically set to 8 hours</span>
+                )}
+              </div>
+            </div>
+
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="monthlySalary" className="label-up">Expected Monthly Salary</label>
+                <input
+                  type="number"
+                  id="monthlySalary"
+                  name="monthlySalary"
+                  value={workPreferences.monthlySalary}
+                  onChange={handleWorkPreferencesChange}
+                  disabled={!isEditingWorkPreferences}
+                  className={isEditingWorkPreferences ? 'editing' : ''}
+                  placeholder="e.g., 15000"
+                  min="0"
+                  step="100"
+                />
+              </div>
+            </div>
+
+            <div className="form-group full-width">
+              <label htmlFor="preferredWorkingDays" className="label-up">Preferred Working Days</label>
+              <div className="working-days-container">
+                {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map(day => (
+                  <label key={day} className={`day-checkbox ${!isEditingWorkPreferences ? 'disabled' : ''}`}>
+                    <input
+                      type="checkbox"
+                      checked={workPreferences.preferredWorkingDays.includes(day)}
+                      onChange={() => handleWorkingDayToggle(day)}
+                      disabled={!isEditingWorkPreferences}
+                    />
+                    <span className="day-label">{day.charAt(0).toUpperCase() + day.slice(1)}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            <div className="form-group full-width">
+              <label htmlFor="bio" className="label-up">Professional Bio</label>
+              <textarea
+                id="bio"
+                name="bio"
+                value={workPreferences.bio}
+                onChange={handleWorkPreferencesChange}
+                disabled={!isEditingWorkPreferences}
+                className={isEditingWorkPreferences ? 'editing' : ''}
+                rows={4}
+                maxLength={500}
+                placeholder="Tell potential employers about yourself..."
+              />
+              <div className="character-count">{workPreferences.bio.length}/500</div>
+            </div>
+
+            <div className="form-actions">
+              {!isEditingWorkPreferences ? (
+                <button type="button" className="worker-prefs-edit-btn" onClick={handleEditWorkPreferences}>
+                  <MdEdit className="btn-icon" />
+                  Edit Preferences
+                </button>
+              ) : (
+                <>
+                  <button type="button" className="worker-prefs-cancel-btn" onClick={handleCancelWorkPreferencesEdit}>
+                    Cancel
+                  </button>
+                  <button type="submit" className="worker-prefs-save-btn">
+                    <MdEdit className="btn-icon" />
+                    Save Changes
+                  </button>
+                </>
+              )}
+            </div>
+          </form>
+        </div>
+      )}
+
+      {/* Skills & Experience Card - Only for Workers */}
+      {user?.role_id === 1 && (
+        <div className="worker-skills-card">
+          <h3 className="card-title">Skills & Experience</h3>
+          
+          <div className="skills-display">
+            {/* Primary Skills */}
+            <div className="skills-section">
+              <h4 className="section-subtitle">Primary Skill</h4>
+              {isEditingSkills ? (
+                <div className="skill-editing-form">
+                  <div className="form-group">
+                    <label htmlFor="primarySkillSelect">Select Primary Skill</label>
+                    <select
+                      id="primarySkillSelect"
+                      value={workerSkills.primary_skills[0]?.id || ''}
+                      onChange={handlePrimarySkillChange}
+                      className="form-input"
+                    >
+                      <option value="">Select Primary Skill</option>
+                      {availableSkills.map((skill) => (
+                        <option key={skill.id} value={skill.id}>
+                          {skill.name || skill.skill_name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  
+                  {workerSkills.primary_skills[0] && (
+                    <div className="skill-details-editing">
+                      <div className="form-group">
+                        <label htmlFor="primaryExperience">Experience Level</label>
+                        <select
+                          id="primaryExperience"
+                          value={workerSkills.primary_skills[0].experience || ''}
+                          onChange={(e) => handleSkillExperienceChange(workerSkills.primary_skills[0].id, e.target.value, true)}
+                          className="form-input"
+                        >
+                          <option value="">Select Experience</option>
+                          <option value="Beginner (0-1 years)">Beginner (0-1 years)</option>
+                          <option value="Intermediate (1-3 years)">Intermediate (1-3 years)</option>
+                          <option value="Advanced (3-5 years)">Advanced (3-5 years)</option>
+                          <option value="Expert (5+ years)">Expert (5+ years)</option>
+                        </select>
+                      </div>
+                      
+                      <div className="form-group">
+                        <label htmlFor="primarySubSkills">Select Sub-skills</label>
+                        <div id="primarySubSkills" className="sub-skills-checkbox-grid">
+                          {(availableSkills.find(skill => skill.id === workerSkills.primary_skills[0].id)?.sub_skills || [])?.map((subSkill, index) => {
+                            const isSelected = workerSkills.primary_skills[0].sub_skills?.includes(subSkill) || false;
+                            return (
+                              <label key={index} className="sub-skill-checkbox-item">
+                                <input
+                                  type="checkbox"
+                                  checked={isSelected}
+                                  onChange={(e) => {
+                                    if (e.target.checked) {
+                                      handleSubSkillAdd(workerSkills.primary_skills[0].id, subSkill, true);
+                                    } else {
+                                      handleSubSkillRemove(workerSkills.primary_skills[0].id, subSkill, true);
+                                    }
+                                  }}
+                                />
+                                <span className="sub-skill-checkbox-label">{subSkill}</span>
+                              </label>
+                            );
+                          })}
+                        </div>
+                        <div className="sub-skills-tags">
+                          {workerSkills.primary_skills[0].sub_skills?.map((subSkill, index) => (
+                            <span key={index} className="sub-skill-tag">
+                              {subSkill}
+                              <button
+                                type="button"
+                                onClick={() => handleSubSkillRemove(workerSkills.primary_skills[0].id, subSkill, true)}
+                                className="remove-sub-skill"
+                              >
+                                ×
+                              </button>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div className="skill-save-section">
+                        <button 
+                          type="button" 
+                          className="cancel-individual-skill-btn"
+                          onClick={() => {
+                            setWorkerSkills(prev => ({
+                              ...prev,
+                              primary_skills: []
+                            }));
+                          }}
+                        >
+                          Cancel
+                        </button>
+                        <button 
+                          type="button" 
+                          className="save-individual-skill-btn"
+                          onClick={() => handleSaveIndividualSkill('Primary', workerSkills.primary_skills[0])}
+                          disabled={!workerSkills.primary_skills[0]?.skill_name}
+                        >
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
+                          </svg>
+                          Save Primary Skill
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <>
+                  {workerSkills.primary_skills && workerSkills.primary_skills.length > 0 ? (
+                    <div className="skills-list">
+                      {workerSkills.primary_skills.map((skill, index) => (
+                        <div key={index} className="skill-item primary-skill">
+                          <div className="skill-header">
+                            <span className="skill-name">{skill.skill_name}</span>
+                          </div>
+                          <div className="skill-details-row">
+                            <div className="sub-skills">
+                              <span className="sub-skills-label">Sub-skills:</span>
+                              <div className="sub-skills-tags">
+                                {skill.sub_skills.map((subSkill, subIndex) => (
+                                  <span key={subIndex} className="sub-skill-tag">{subSkill}</span>
+                                ))}
+                              </div>
+                            </div>
+                            {skill.experience && (
+                              <div className="skill-experience">
+                                <span className="experience-label">Experience:</span>
+                                <span className="experience-value">{skill.experience}</span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="empty-state">No primary skill added yet</p>
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* Additional Skills */}
+            <div className="skills-section">
+              <h4 className="section-subtitle">Additional Skills</h4>
+              {isEditingSkills ? (
+                <div className="additional-skills-editing">
+                  <div className="form-group">
+                    <label htmlFor="additionalSkillsSelect">Select Additional Skill</label>
+                    <select
+                      id="additionalSkillsSelect"
+                      value={workerSkills.additional_skills.length > 0 ? workerSkills.additional_skills[0].id : ''}
+                      onChange={(e) => {
+                        const skillId = e.target.value;
+                        const selectedSkill = availableSkills.find(skill => skill.id === parseInt(skillId));
+                        
+                        console.log('Selected skill for additional:', selectedSkill);
+                        
+                        if (selectedSkill) {
+                          const skillName = selectedSkill.name || selectedSkill.skill_name;
+                          console.log('Additional skill name:', skillName);
+                          
+                          setWorkerSkills(prev => ({
+                            ...prev,
+                            additional_skills: [{
+                              id: selectedSkill.id,
+                              skill_name: skillName,
+                              sub_skills: [],
+                              experience: ''
+                            }]
+                          }));
+                        } else {
+                          setWorkerSkills(prev => ({
+                            ...prev,
+                            additional_skills: []
+                          }));
+                        }
+                      }}
+                      className="form-input"
+                    >
+                      <option value="">Select Additional Skill</option>
+                      {availableSkills.map((skill) => (
+                        <option key={skill.id} value={skill.id}>
+                          {skill.name || skill.skill_name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  
+                  {workerSkills.additional_skills.map((skill, index) => (
+                    <div key={skill.id} className="skill-details-editing">
+                      <div className="skill-header-editing">
+                        <h5 className="skill-editing-title">{skill.skill_name}</h5>
+                        <button
+                          type="button"
+                          className="remove-skill-btn"
+                          onClick={handleRemoveAdditionalSkill}
+                          title="Remove this skill"
+                        >
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                          </svg>
+                        </button>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor={`additionalExperience${skill.id}`}>Experience Level</label>
+                        <select
+                          id={`additionalExperience${skill.id}`}
+                          value={skill.experience || ''}
+                          onChange={(e) => handleSkillExperienceChange(skill.id, e.target.value, false)}
+                          className="form-input"
+                        >
+                          <option value="">Select Experience</option>
+                          <option value="Beginner (0-1 years)">Beginner (0-1 years)</option>
+                          <option value="Intermediate (1-3 years)">Intermediate (1-3 years)</option>
+                          <option value="Advanced (3-5 years)">Advanced (3-5 years)</option>
+                          <option value="Expert (5+ years)">Expert (5+ years)</option>
+                        </select>
+                      </div>
+                      
+                      <div className="form-group">
+                        <label htmlFor={`additionalSubSkills${skill.id}`}>Select Sub-skills</label>
+                        <div id={`additionalSubSkills${skill.id}`} className="sub-skills-checkbox-grid">
+                          {(availableSkills.find(s => s.id === skill.id)?.sub_skills || [])?.map((subSkill, subIndex) => {
+                            const isSelected = skill.sub_skills?.includes(subSkill) || false;
+                            return (
+                              <label key={subIndex} className="sub-skill-checkbox-item">
+                                <input
+                                  type="checkbox"
+                                  checked={isSelected}
+                                  onChange={(e) => {
+                                    if (e.target.checked) {
+                                      handleSubSkillAdd(skill.id, subSkill, false);
+                                    } else {
+                                      handleSubSkillRemove(skill.id, subSkill, false);
+                                    }
+                                  }}
+                                />
+                                <span className="sub-skill-checkbox-label">{subSkill}</span>
+                              </label>
+                            );
+                          })}
+                        </div>
+                        <div className="sub-skills-tags">
+                          {skill.sub_skills?.map((subSkill, subIndex) => (
+                            <span key={subIndex} className="sub-skill-tag">
+                              {subSkill}
+                              <button
+                                type="button"
+                                onClick={() => handleSubSkillRemove(skill.id, subSkill, false)}
+                                className="remove-sub-skill"
+                              >
+                                ×
+                              </button>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div className="skill-save-section">
+                        <button 
+                          type="button" 
+                          className="cancel-individual-skill-btn"
+                          onClick={() => {
+                            setWorkerSkills(prev => ({
+                              ...prev,
+                              additional_skills: []
+                            }));
+                          }}
+                        >
+                          Cancel
+                        </button>
+                        <button 
+                          type="button" 
+                          className="save-individual-skill-btn"
+                          onClick={() => handleSaveIndividualSkill('Additional', workerSkills.additional_skills[0])}
+                          disabled={!workerSkills.additional_skills[0]?.skill_name}
+                        >
+                          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
+                          </svg>
+                          Save Additional Skill
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <>
+                  {workerSkills.additional_skills && workerSkills.additional_skills.length > 0 ? (
+                    <div className="skills-list">
+                      {workerSkills.additional_skills.map((skill, index) => (
+                        <div key={index} className="skill-item additional-skill">
+                          <div className="skill-header">
+                            <span className="skill-name">{skill.skill_name}</span>
+                          </div>
+                          <div className="skill-details-row">
+                            <div className="sub-skills">
+                              <span className="sub-skills-label">Sub-skills:</span>
+                              <div className="sub-skills-tags">
+                                {skill.sub_skills.map((subSkill, subIndex) => (
+                                  <span key={subIndex} className="sub-skill-tag">{subSkill}</span>
+                                ))}
+                              </div>
+                            </div>
+                            {skill.experience && (
+                              <div className="skill-experience">
+                                <span className="experience-label">Experience:</span>
+                                <span className="experience-value">{skill.experience}</span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="empty-state">No additional skills added yet</p>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="form-actions">
+            {!isEditingSkills ? (
+              <button 
+                type="button" 
+                className="worker-skills-edit-btn" 
+                onClick={handleEditSkills}
+              >
+                <MdEdit className="btn-icon" />
+                Edit Skills
+              </button>
+            ) : (
+              <>
+                <button 
+                  type="button" 
+                  className="worker-skills-cancel-btn" 
+                  onClick={handleCancelSkillsEdit}
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="button" 
+                  className="worker-skills-save-btn"
+                  onClick={handleSkillsSubmit}
+                >
+                  <MdEdit className="btn-icon" />
+                  Save Changes
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Credentials Card - Only for Workers */}
+      {user?.role_id === 1 && (
+        <div className="worker-credentials-card">
+          <h3 className="card-title">Credentials</h3>
+          
+          <div className="credentials-display">
+            {/* Add Credential Form - Show when editing */}
+            {isEditingCredentials && (
+              <div className="add-credential-form">
+                <h4 className="add-form-title">Add New Credential</h4>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="credentialName">Credential Type</label>
+                    <select
+                      id="credentialName"
+                      value={newCredential.credentials_name}
+                      onChange={(e) => handleNewCredentialChange(e, 'credentials_name')}
+                      className="form-input"
+                    >
+                      <option value="">Select Credential Type</option>
+                      {credentialTypes.map((credential) => (
+                        <option key={credential.value} value={credential.value}>
+                          {credential.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="credentialFile">Upload Document (PDF, Word, JPG, PNG - Max 2MB)</label>
+                    <input
+                      type="file"
+                      id="credentialFile"
+                      ref={credentialFileInputRef}
+                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                      onChange={(e) => handleNewCredentialChange(e, 'credentials_photo')}
+                      className="form-input"
+                    />
+                    {newCredential.credentials_photo && (
+                      <div className="file-selected-info">
+                        <span className="file-selected">Selected: {newCredential.credentials_photo.name}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <button 
+                  type="button" 
+                  className="add-credential-action-btn"
+                  onClick={handleAddCredential}
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                  </svg>
+                  Add to List
+                </button>
+              </div>
+            )}
+
+            {/* Existing Credentials List */}
+            {workerCredentials && workerCredentials.length > 0 ? (
+              <div className="credentials-list">
+                {workerCredentials.map((credential, index) => (
+                  <div key={index} className="credential-item">
+                    <div className="credential-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                      </svg>
+                    </div>
+                    <div className="credential-info">
+                      <span className="credential-name">{credential.credentials_name}</span>
+                      {credential.credentials_photo ? (
+                        typeof credential.credentials_photo === 'string' ? (
+                          <div className="document-info">
+                            <a 
+                              href={`http://127.0.0.1:8000/storage/${credential.credentials_photo}`} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="view-document-link"
+                            >
+                              View Document
+                            </a>
+                            <span className="file-path">{credential.credentials_photo.split('/').pop()}</span>
+                          </div>
+                        ) : credential.credentials_photo instanceof File ? (
+                          <span className="pending-upload">Pending upload: {credential.credentials_photo.name}</span>
+                        ) : null
+                      ) : (
+                        <span className="no-file-uploaded">No file uploaded</span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      className="remove-credential-btn"
+                      onClick={() => handleRemoveCredential(index)}
+                      title="Delete this credential"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                      </svg>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : !isEditingCredentials ? (
+              <p className="empty-state">No credentials added yet</p>
+            ) : null}
+          </div>
+
+          <div className="form-actions">
+            {!isEditingCredentials ? (
+              <button 
+                type="button" 
+                className="worker-credentials-edit-btn" 
+                onClick={handleEditCredentials}
+              >
+                <MdEdit className="btn-icon" />
+                Edit Credentials
+              </button>
+            ) : (
+              <>
+                <button 
+                  type="button" 
+                  className="worker-credentials-cancel-btn" 
+                  onClick={handleCancelCredentialsEdit}
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="button" 
+                  className="worker-credentials-save-btn"
+                  onClick={handleCredentialsSubmit}
+                >
+                  <MdEdit className="btn-icon" />
+                  Save Changes
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Image Modal */}
       {showImageModal && (
         <div className="image-modal-overlay" onClick={closeImageModal}>

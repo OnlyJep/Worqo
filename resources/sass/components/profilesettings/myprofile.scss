@@ -4,11 +4,20 @@
   gap: 30px;
 
   .profile-card,
-  .password-card {
+  .password-card,
+  .work-preferences-card,
+  .worker-skills-card,
+  .worker-credentials-card {
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
   }
 
   .profile-header {
@@ -505,19 +514,30 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        height: 45px;
-        padding: 12px 24px;
+        width: 165px;
+        height: 36px;
+        padding: 0 16px;
         border-radius: 6px;
-        font-size: 14px;
+        font-size: 12.5px;
         font-weight: 500;
         cursor: pointer;
         transition: all 0.3s ease;
         border: none;
+        justify-content: center;
 
         .btn-icon {
           width: 16px;
           height: 16px;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
+      }
+
+      // Specific sizing for password card edit button
+      .password-card .edit-btn {
+        width: 170px;
       }
 
       .edit-btn {
@@ -551,6 +571,1138 @@
     .password-form {
       .form-group {
         margin-bottom: 20px;
+      }
+    }
+  }
+
+  // Work preferences card styling
+  .work-preferences-card {
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .worker-prefs-edit-btn,
+      .worker-prefs-save-btn,
+      .worker-prefs-cancel-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 165px;
+        height: 36px;
+        padding: 0 16px;
+        border-radius: 6px;
+        font-size: 12.5px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        justify-content: center;
+
+        .btn-icon {
+          width: 16px;
+          height: 16px;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .worker-prefs-edit-btn {
+        width: 175px;
+      }
+
+      .worker-prefs-edit-btn,
+      .worker-prefs-cancel-btn {
+        background-color: #FFFFFF;
+        color: #374151;
+        border: 1px solid #001E40;
+
+        &:hover {
+          background-color: #f8fafc;
+          border-color: #001E40;
+        }
+      }
+
+      .worker-prefs-save-btn {
+        background-color: #001E40;
+        color: white;
+
+        &:hover {
+          background-color: #002a5c;
+        }
+
+        &:active {
+          background-color: #001a33;
+        }
+      }
+    }
+
+    .work-preferences-form {
+      .form-group {
+        &.full-width {
+          grid-column: 1 / -1;
+        }
+      }
+
+      .working-days-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 8px;
+
+        .day-checkbox {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 8px 12px;
+          border: 2px solid #e5e7eb;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          background-color: #f9fafb;
+
+          &.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+          }
+
+          input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            accent-color: #001E40;
+
+            &:disabled {
+              cursor: not-allowed;
+            }
+          }
+
+          .day-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #374151;
+            user-select: none;
+          }
+
+          &:hover:not(.disabled) {
+            border-color: #001E40;
+            background-color: #f0f4f8;
+          }
+
+          input[type="checkbox"]:checked + .day-label {
+            color: #001E40;
+            font-weight: 600;
+          }
+
+          input[type="checkbox"]:checked {
+            & ~ * {
+              color: #001E40;
+            }
+          }
+        }
+      }
+
+      .character-count {
+        display: block;
+        text-align: right;
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 4px;
+      }
+
+      .form-help {
+        display: block;
+        font-size: 12px;
+        color: #6b7280;
+        margin-top: 4px;
+        font-style: italic;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #e5e7eb;
+        border-radius: 6px;
+        font-size: 14px;
+        color: #1f2937;
+        background-color: #f9fafb;
+        transition: all 0.3s ease;
+        resize: vertical;
+        font-family: inherit;
+
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+          background-color: white;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        &:disabled {
+          background-color: #f9fafb;
+          color: #6b7280;
+          cursor: not-allowed;
+        }
+
+        &.editing {
+          background-color: white;
+          border: 2px solid #e5e7eb;
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+        }
+      }
+    }
+  }
+
+  // Skills & Experience card styling (unique for workers)
+  .worker-skills-card {
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .worker-skills-edit-btn,
+      .worker-skills-save-btn,
+      .worker-skills-cancel-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 165px;
+        height: 36px;
+        padding: 0 16px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        justify-content: center;
+
+        .btn-icon {
+          width: 16px;
+          height: 16px;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .worker-skills-edit-btn,
+      .worker-skills-cancel-btn {
+        background-color: #FFFFFF;
+        color: #374151;
+        border: 1px solid #001E40;
+
+        &:hover {
+          background-color: #f8fafc;
+          border-color: #001E40;
+        }
+      }
+
+      .worker-skills-save-btn {
+        background-color: #001E40;
+        color: white;
+
+        &:hover {
+          background-color: #002a5c;
+        }
+
+        &:active {
+          background-color: #001a33;
+        }
+      }
+    }
+
+    .skills-display {
+      margin-bottom: 20px;
+
+      .skills-section {
+        margin-bottom: 30px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .section-subtitle {
+          font-size: 16px;
+          font-weight: 600;
+          color: #1f2937;
+          margin-bottom: 15px;
+          padding-bottom: 8px;
+          border-bottom: 2px solid #e5e7eb;
+        }
+
+        // Skills editing form styling
+        .skill-editing-form {
+          background: #f8fafc;
+          border: 2px dashed #001E40;
+          border-radius: 8px;
+          padding: 20px;
+          margin-bottom: 20px;
+
+          .form-group {
+            margin-bottom: 15px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            label {
+              font-size: 13px;
+              font-weight: 500;
+              color: #374151;
+              margin-bottom: 6px;
+              display: block;
+            }
+
+            .form-input {
+              width: 100%;
+              height: 40px;
+              padding: 10px 12px;
+              border: 1px solid #d1d5db;
+              border-radius: 6px;
+              font-size: 14px;
+              color: #1f2937;
+              background-color: white;
+              transition: all 0.2s ease;
+
+              &:focus {
+                outline: none;
+                border-color: #001E40;
+                box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);
+              }
+            }
+          }
+
+          .skill-save-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+
+            .cancel-individual-skill-btn {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              width: 80px;
+              height: 36px;
+              padding: 0 16px;
+              background: #FFFFFF;
+              color: #374151;
+              border: 1px solid #001E40;
+              border-radius: 6px;
+              font-size: 12.5px;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              justify-content: center;
+
+              &:hover {
+                background: #f8fafc;
+                border-color: #001E40;
+              }
+            }
+
+            .save-individual-skill-btn {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              width: 170px;
+              height: 36px;
+              padding: 0 16px;
+              background: #001E40;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              font-size: 12.5px;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              justify-content: center;
+
+              svg {
+                fill: white;
+              }
+
+              &:hover:not(:disabled) {
+                background: #002a5c;
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              }
+
+              &:active:not(:disabled) {
+                transform: translateY(0);
+              }
+
+              &:disabled {
+                background: #9ca3af;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+              }
+            }
+          }
+
+          .skill-details-editing {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+
+            .form-group {
+              margin-bottom: 15px;
+            }
+          }
+        }
+
+        .additional-skills-editing {
+          background: #f8fafc;
+          border: 2px dashed #001E40;
+          border-radius: 8px;
+          padding: 20px;
+          margin-bottom: 20px;
+
+          .form-group {
+            margin-bottom: 20px;
+
+            label {
+              font-size: 13px;
+              font-weight: 500;
+              color: #374151;
+              margin-bottom: 10px;
+              display: block;
+            }
+
+            .form-input {
+              width: 100%;
+              height: 40px;
+              padding: 10px 12px;
+              border: 1px solid #d1d5db;
+              border-radius: 6px;
+              font-size: 14px;
+              color: #1f2937;
+              background-color: white;
+              transition: all 0.2s ease;
+
+              &:focus {
+                outline: none;
+                border-color: #001E40;
+                box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);
+              }
+
+              // Ensure dropdown opens downward on all screen sizes
+              &[role="combobox"],
+              &[aria-expanded="true"],
+              &:focus {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                position: relative;
+                z-index: 10;
+              }
+              
+              // Force dropdown to open downward
+              option {
+                position: relative;
+                z-index: 1000;
+              }
+            }
+          }
+
+          .skill-save-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+
+            .cancel-individual-skill-btn {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              width: 80px;
+              height: 36px;
+              padding: 0 16px;
+              background: #FFFFFF;
+              color: #374151;
+              border: 1px solid #001E40;
+              border-radius: 6px;
+              font-size: 12.5px;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              justify-content: center;
+
+              &:hover {
+                background: #f8fafc;
+                border-color: #001E40;
+              }
+            }
+
+            .save-individual-skill-btn {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              width: 170px;
+              height: 36px;
+              padding: 0 16px;
+              background: #001E40;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              font-size: 12.5px;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              justify-content: center;
+
+              svg {
+                fill: white;
+              }
+
+              &:hover:not(:disabled) {
+                background: #002a5c;
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+              }
+
+              &:active:not(:disabled) {
+                transform: translateY(0);
+              }
+
+              &:disabled {
+                background: #9ca3af;
+                cursor: not-allowed;
+                transform: none;
+                box-shadow: none;
+              }
+            }
+          }
+
+          .skill-details-editing {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+
+            .skill-header-editing {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+              padding-bottom: 8px;
+              border-bottom: 1px solid #e5e7eb;
+
+              .skill-editing-title {
+                font-size: 14px;
+                font-weight: 600;
+                color: #001E40;
+                margin: 0;
+              }
+
+              .remove-skill-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 28px;
+                height: 28px;
+                background: #fee2e2;
+                border: 1px solid #fca5a5;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                padding: 0;
+
+                svg {
+                  fill: #dc2626;
+                }
+
+                &:hover {
+                  background: #fecaca;
+                  border-color: #f87171;
+                  transform: scale(1.05);
+                }
+              }
+            }
+
+            .form-group {
+              margin-bottom: 15px;
+
+              label {
+                font-size: 12px;
+                font-weight: 500;
+                color: #374151;
+                margin-bottom: 6px;
+                display: block;
+              }
+
+              .form-input {
+                width: 100%;
+                height: 36px;
+                padding: 8px 10px;
+                border: 1px solid #d1d5db;
+                border-radius: 6px;
+                font-size: 13px;
+                color: #1f2937;
+                background-color: white;
+                transition: all 0.2s ease;
+
+                &:focus {
+                  outline: none;
+                  border-color: #001E40;
+                  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);
+                }
+              }
+            }
+          }
+        }
+
+        .sub-skills-checkbox-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+          gap: 8px;
+          margin-top: 8px;
+
+          .sub-skill-checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            padding: 8px 10px 8px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+
+            &:hover {
+              border-color: #001E40;
+              background: #f0f4f8;
+            }
+
+            input[type="checkbox"] {
+              width: 14px;
+              height: 14px;
+              cursor: pointer;
+              accent-color: #001E40;
+              margin: 0;
+              flex-shrink: 0;
+              align-self: flex-start;
+            }
+
+            .sub-skill-checkbox-label {
+              font-size: 12px;
+              font-weight: 500;
+              color: #374151;
+              user-select: none;
+              text-align: left;
+              flex: 1;
+              margin-left: 8px;
+            }
+
+            &:has(input:checked) {
+              border-color: #001E40;
+              background: #f0f4f8;
+
+              .sub-skill-checkbox-label {
+                color: #001E40;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+
+        .sub-skills-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 8px;
+
+          .sub-skill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #374151;
+            font-weight: 500;
+
+            .remove-sub-skill {
+              background: none;
+              border: none;
+              color: #dc2626;
+              cursor: pointer;
+              font-size: 14px;
+              font-weight: bold;
+              padding: 0;
+              margin-left: 4px;
+              transition: color 0.2s ease;
+
+              &:hover {
+                color: #b91c1c;
+              }
+            }
+          }
+        }
+
+        .skills-list {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          .skill-item {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.3s ease;
+
+            &:hover {
+              border-color: #d1d5db;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            &.primary-skill {
+              border-left: 4px solid #001E40;
+            }
+
+            &.additional-skill {
+              border-left: 4px solid #3b82f6;
+            }
+
+            .skill-header {
+              display: flex;
+              align-items: center;
+              margin-bottom: 12px;
+
+              .skill-name {
+                font-size: 16px;
+                font-weight: 600;
+                color: #1f2937;
+              }
+            }
+
+            .skill-details-row {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: 20px;
+
+              .sub-skills {
+                flex: 1;
+                margin-bottom: 0;
+
+                .sub-skills-label {
+                  display: inline-block;
+                  font-size: 13px;
+                  font-weight: 500;
+                  color: #6b7280;
+                  margin-bottom: 6px;
+                }
+
+                .sub-skills-tags {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 6px;
+
+                  .sub-skill-tag {
+                    padding: 4px 10px;
+                    background: white;
+                    border: 1px solid #d1d5db;
+                    border-radius: 6px;
+                    font-size: 12px;
+                    color: #374151;
+                    font-weight: 500;
+                  }
+                }
+              }
+
+              .skill-experience {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                font-size: 13px;
+                flex-shrink: 0;
+
+                .experience-label {
+                  font-weight: 500;
+                  color: #6b7280;
+                }
+
+                .experience-value {
+                  padding: 2px 8px;
+                  background: white;
+                  border: 1px solid #d1d5db;
+                  border-radius: 4px;
+                  color: #374151;
+                  font-weight: 500;
+                  align-self: flex-start;
+                }
+              }
+            }
+          }
+        }
+
+        .empty-state {
+          padding: 20px;
+          text-align: center;
+          color: #9ca3af;
+          font-size: 14px;
+          font-style: italic;
+          background: #f9fafb;
+          border: 2px dashed #e5e7eb;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+
+  // Credentials card styling (unique for workers)
+  .worker-credentials-card {
+    // Add credential form styling
+    .add-credential-form {
+      background: #f8fafc;
+      border: 2px dashed #001E40;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+
+      .add-form-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #001E40;
+        margin-bottom: 15px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 15px;
+
+        @media (min-width: 768px) {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 13px;
+          font-weight: 500;
+          color: #374151;
+          margin-bottom: 6px;
+        }
+
+        .form-input {
+          height: 40px;
+          padding: 10px 12px;
+          border: 1px solid #d1d5db;
+          border-radius: 6px;
+          font-size: 14px;
+          color: #1f2937;
+          background-color: white;
+          transition: all 0.2s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #001E40;
+            box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);
+          }
+
+          &[type="file"] {
+            padding: 8px 12px;
+            cursor: pointer;
+          }
+        }
+
+        // Specific sizing for credential form inputs
+        #credentialName,
+        #credentialFile {
+          width: 400px !important;
+          height: 40px !important;
+        }
+
+        .file-selected-info {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          margin-top: 8px;
+          padding: 8px 12px;
+          background: #f0f9ff;
+          border: 1px solid #0ea5e9;
+          border-radius: 6px;
+
+          .file-selected {
+            display: block;
+            font-size: 12px;
+            color: #0369a1;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .add-credential-action-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        width: 165px;
+        height: 36px;
+        padding: 0 16px;
+        background: #001E40;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 12.5px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        justify-content: center;
+
+        svg {
+          fill: white;
+        }
+
+        &:hover {
+          background: #002a5c;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    // Unique button styling for credentials section
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e5e7eb;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .worker-credentials-edit-btn,
+      .worker-credentials-save-btn,
+      .worker-credentials-cancel-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 165px;
+        height: 36px;
+        padding: 0 16px;
+        border-radius: 6px;
+        font-size: 12.5px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        justify-content: center;
+
+        .btn-icon {
+          width: 16px;
+          height: 16px;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .worker-credentials-edit-btn,
+      .worker-credentials-cancel-btn {
+        background-color: #FFFFFF;
+        color: #374151;
+        border: 1px solid #001E40;
+
+        &:hover {
+          background-color: #f8fafc;
+          border-color: #001E40;
+        }
+      }
+
+      .worker-credentials-save-btn {
+        background-color: #001E40;
+        color: white;
+
+        &:hover {
+          background-color: #002a5c;
+        }
+
+        &:active {
+          background-color: #001a33;
+        }
+      }
+    }
+
+    .credentials-display {
+      margin-bottom: 20px;
+
+      .credentials-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .credential-item {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          padding: 16px;
+          background: #f9fafb;
+          border: 2px solid #e5e7eb;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          position: relative;
+
+          &:hover {
+            border-color: #001E40;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          }
+
+          .remove-credential-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 0;
+            opacity: 0.8;
+
+            svg {
+              fill: #dc2626;
+            }
+
+            &:hover {
+              background: #fecaca;
+              border-color: #f87171;
+              opacity: 1;
+              transform: scale(1.05);
+            }
+          }
+
+          .credential-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #001E40;
+            border-radius: 8px;
+            color: white;
+
+            svg {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          .credential-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            .credential-name {
+              font-size: 15px;
+              font-weight: 600;
+              color: #1f2937;
+            }
+
+            .document-info {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+
+              .view-document-link {
+                font-size: 13px;
+                color: #3b82f6;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.2s ease;
+
+                &:hover {
+                  color: #2563eb;
+                  text-decoration: underline;
+                }
+              }
+
+              .file-path {
+                font-size: 11px;
+                color: #6b7280;
+                font-weight: 400;
+                font-style: italic;
+                word-break: break-all;
+              }
+            }
+
+            .pending-upload {
+              font-size: 12px;
+              color: #f59e0b;
+              font-weight: 500;
+              font-style: italic;
+            }
+
+            .no-file-uploaded {
+              font-size: 12px;
+              color: #9ca3af;
+              font-weight: 500;
+              font-style: italic;
+            }
+          }
+        }
+      }
+
+      .empty-state {
+        padding: 20px;
+        text-align: center;
+        color: #9ca3af;
+        font-size: 14px;
+        font-style: italic;
+        background: #f9fafb;
+        border: 2px dashed #e5e7eb;
+        border-radius: 8px;
       }
     }
   }
@@ -633,6 +1785,21 @@
         border-radius: 8px;
       }
     }
+  }
+}
+
+// Global dropdown direction fix for all screen sizes
+select {
+  &:focus,
+  &:active,
+  &[aria-expanded="true"] {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+  
+  option {
+    position: relative;
+    z-index: 1000;
   }
 }
 

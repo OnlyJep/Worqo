@@ -12,6 +12,7 @@ class JobApplication extends Model
     protected $fillable = [
         'job_post_id',
         'worker_id',
+        'company_id',
         'status',
         'cover_letter',
         'skills',
@@ -36,5 +37,13 @@ class JobApplication extends Model
     public function worker()
     {
         return $this->belongsTo(Profile::class, 'worker_id');
+    }
+
+    /**
+     * Get the company that owns the application (for team applications).
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }

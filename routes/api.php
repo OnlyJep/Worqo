@@ -120,6 +120,8 @@ Route::get('/workers/{id}', [WorkerController::class, 'show'])->name('workers.sh
 Route::post('/workers', [WorkerController::class, 'store'])->name('workers.store');
 Route::put('/workers/{id}', [WorkerController::class, 'update'])->name('workers.update');
 Route::put('/workers/{id}/skills', [WorkerController::class, 'updateSkills'])->name('workers.updateSkills');
+Route::put('/workers/{id}/preferences', [WorkerController::class, 'updatePreferences'])->name('workers.updatePreferences');
+Route::post('/workers/{id}/update-credentials', [WorkerController::class, 'updateCredentials'])->name('workers.updateCredentials');
 Route::patch('/workers/{id}/archive', [WorkerController::class, 'updateArchiveStatus'])->name('workers.archive');
 Route::patch('/workers/{id}/review', [WorkerController::class, 'review'])->name('workers.review');
 Route::post('/workers/bulk-archive', [WorkerController::class, 'bulkArchive'])->name('workers.bulkArchive');

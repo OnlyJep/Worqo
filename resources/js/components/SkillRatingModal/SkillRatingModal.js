@@ -877,6 +877,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         if (isMounted.current) {
           setUserSkills(updatedSkills);
           message.success('Skill updated successfully');
+          // Dispatch event to notify MyProfile component
+          window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
         }
       } else {
         // Add new skill using the add-skill endpoint
@@ -966,6 +968,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
               return updated;
             });
             message.success('Skill added successfully');
+            // Dispatch event to notify MyProfile component
+            window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
           }
         } else {
           // New skill added successfully
@@ -991,6 +995,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
               return updated;
             });
             message.success('Skill added successfully');
+            // Dispatch event to notify MyProfile component
+            window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
           }
         }
       }
@@ -1115,6 +1121,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         }
         
         message.success('Skill removed successfully');
+        // Dispatch event to notify MyProfile component
+        window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
       }
     } catch (error) {
       if (error.name === 'AbortError') {
@@ -1261,6 +1269,11 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         localStorage.removeItem(`primarySkill_${user.id}`);
         localStorage.removeItem(`additionalSkills_${user.id}`);
         localStorage.removeItem(`profile_${user.id}`);
+        
+        // Dispatch events to notify MyProfile component
+        window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
+        window.dispatchEvent(new CustomEvent('workerCredentialsUpdated'));
+        
         onComplete();
         if (window.location.pathname.includes('/skill-rating')) {
           // If used as a page, use window.location

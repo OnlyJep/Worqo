@@ -72360,7 +72360,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".job-applications-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n  max-width: 900px;\n  width: 95%;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 16px 20px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f8fafc;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .close-btn:hover {\n  background-color: #e5e7eb;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content {\n  flex: 3;\n  overflow-y: auto;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section {\n  margin-bottom: 20px;\n  padding-bottom: 16px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section .filter-buttons {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section .filter-buttons button {\n  padding: 8px 16px;\n  border: 1px solid #d1d5db;\n  background: white;\n  color: #6b7280;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section .filter-buttons button:hover {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section .filter-buttons button.active {\n  background: #3b82f6;\n  color: white;\n  border-color: #3b82f6;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 100px;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 30px;\n  text-align: center;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .empty-state p {\n  margin: 0;\n  font-size: 15px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card {\n  background: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card:hover {\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-avatar {\n  width: 40px;\n  height: 40px;\n  background: #3b82f6;\n  color: white;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .worker-collar {\n  font-size: 12px;\n  font-weight: 500;\n  color: #7f8c8d;\n  margin: 0 0 4px 0;\n  padding: 2px 8px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border-radius: 12px;\n  display: inline-block;\n  border: 1px solid #dee2e6;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 12px;\n  color: #6b7280;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 4px 12px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-pending {\n  background: #fef3c7;\n  color: #d97706;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: #d1fae5;\n  color: #059669;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: #fee2e2;\n  color: #dc2626;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: #dbeafe;\n  color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-fired {\n  background: #fef3c7;\n  color: #d97706;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .cover-letter {\n  margin-bottom: 16px;\n  padding: 12px;\n  background: white;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .resume-section {\n  margin-bottom: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .resume-section .download-resume-btn {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 16px;\n  background: #3b82f6;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e3f2fd;\n  color: #1976d2;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .accept-btn,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .decline-btn,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .interview-btn,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .fire-btn {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 16px;\n  border: none;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .accept-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .decline-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .interview-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .fire-btn:hover {\n  transform: translateY(-1px);\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .accept-btn {\n  background: #10b981;\n  color: white;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .accept-btn:hover {\n  background: #059669;\n  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .decline-btn {\n  background: #ef4444;\n  color: white;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .decline-btn:hover {\n  background: #dc2626;\n  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .interview-btn {\n  background: #3b82f6;\n  color: white;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .interview-btn:hover {\n  background: #2563eb;\n  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .fire-btn {\n  background: #f59e0b;\n  color: white;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .fire-btn:hover {\n  background: #d97706;\n  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);\n}\n\n@media (max-width: 768px) {\n  .job-applications-modal-overlay {\n    padding: 15px;\n  }\n  .job-applications-modal-overlay .job-applications-modal {\n    max-width: 98%;\n    width: 98%;\n    max-height: 85vh;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header {\n    padding: 12px 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content {\n    padding: 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .empty-state {\n    padding: 30px 20px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .empty-state .empty-icon {\n    font-size: 40px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .empty-state h3 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .empty-state p {\n    font-size: 14px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card {\n    padding: 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions {\n    flex-direction: column;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .accept-btn,\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .decline-btn {\n    width: 100%;\n    justify-content: center;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".job-applications-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 900px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section {\n  margin-bottom: 20px;\n  padding-bottom: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section .filter-buttons {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section .filter-buttons button {\n  padding: 8px 16px;\n  border: 1px solid #d1d5db;\n  background: white;\n  color: #6b7280;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section .filter-buttons button:hover {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .filter-section .filter-buttons button.active {\n  background: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 100px;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 30px;\n  text-align: center;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .empty-state p {\n  margin: 0;\n  font-size: 15px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  margin-bottom: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card {\n  display: flex;\n  align-items: center;\n  background: #f9fafb;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card:hover {\n  background-color: white;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  transform: translateY(-1px);\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  gap: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .worker-name {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  background: #e5e7eb;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 10px;\n  color: #6b7280;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 14px;\n  color: #6b7280;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .view-profile-btn-top {\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  padding: 8px 12px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .view-profile-btn-top:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .view-profile-btn-top svg {\n  font-size: 14px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 6px 14px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  white-space: nowrap;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-pending {\n  background: #fef3c7;\n  color: #d97706;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: #d1fae5;\n  color: #059669;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: #fee2e2;\n  color: #dc2626;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: #dbeafe;\n  color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status .status-badge.status-fired {\n  background: #fef3c7;\n  color: #d97706;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .cover-letter,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .resume-section,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .worker-skills,\n.job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions {\n  display: none;\n}\n\n@media (max-width: 768px) {\n  .job-applications-modal-overlay {\n    padding: 15px;\n  }\n  .job-applications-modal-overlay .job-applications-modal {\n    max-width: 98%;\n    width: 98%;\n    max-height: 85vh;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header {\n    padding: 12px 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content {\n    padding: 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .empty-state {\n    padding: 30px 20px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .empty-state .empty-icon {\n    font-size: 40px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .empty-state h3 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .empty-state p {\n    font-size: 14px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card {\n    padding: 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions {\n    flex-direction: column;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .accept-btn,\n  .job-applications-modal-overlay .job-applications-modal .modal-content .applications-list .application-card .application-actions .decline-btn {\n    width: 100%;\n    justify-content: center;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/jobdetailmodal.scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/jobdetailmodal.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".modal-post-job.view-only .expired-banner {\n  background-color: #fef2f2;\n  border: 1px solid #fca5a5;\n  border-radius: 8px;\n  padding: 12px 16px;\n  margin: 0 30px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.modal-post-job.view-only .expired-banner span {\n  color: #dc2626;\n  font-weight: 500;\n  font-size: 14px;\n}\n.modal-post-job.view-only .modal-form.view-mode .form-group label {\n  margin-top: 20px;\n  margin-bottom: 6px;\n}\n.modal-post-job.view-only .modal-form.view-mode .read-only-field {\n  background-color: #f9fafb;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 12px 16px;\n  font-size: 14px;\n  color: #1f2937;\n  min-height: 44px;\n  display: flex;\n  align-items: center;\n  line-height: 1.5;\n}\n.modal-post-job.view-only .modal-form.view-mode .read-only-field.textarea-like {\n  min-height: 100px;\n  align-items: flex-start;\n  white-space: pre-wrap;\n  word-wrap: break-word;\n}\n.modal-post-job.view-only .modal-form.view-mode .selected-skills-preview {\n  background-color: #f9fafb;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 12px;\n}\n.modal-post-job.view-only .modal-form.view-mode .selected-skills-preview .skills-preview-title {\n  font-size: 13px;\n  color: #6b7280;\n  font-weight: 500;\n  margin-bottom: 12px;\n}\n.modal-post-job.view-only .modal-form.view-mode .selected-skills-preview .skill-tag {\n  background: white;\n  color: #374151;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 13px;\n  font-weight: 400;\n  border: 1px solid #d1d5db;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.modal-post-job.view-only .modal-form.view-mode .contact-info {\n  margin-top: 5px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n  width: 752px;\n  height: 200px;\n}\n.modal-post-job.view-only .modal-form.view-mode .contact-info h4 {\n  margin: 10px 0 10px 0;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job.view-only .modal-form.view-mode .contact-info .form-row {\n  margin-top: 0px;\n  margin-bottom: 0;\n}\n.modal-post-job.view-only .modal-form.view-mode .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job.view-only .modal-form.view-mode .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 24px;\n  padding-top: 24px;\n  border-top: 1px solid #e5e7eb;\n}\n.modal-post-job.view-only .modal-form.view-mode .form-actions .cancel-btn {\n  background-color: #f3f4f6;\n  color: #1f2937;\n  border: none;\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.modal-post-job.view-only .modal-form.view-mode .form-actions .cancel-btn:hover {\n  background-color: #e5e7eb;\n}\n\n@media (max-width: 768px) {\n  .modal-post-job.view-only .expired-banner {\n    margin: 0 20px 16px;\n    padding: 10px 14px;\n  }\n  .modal-post-job.view-only .expired-banner span {\n    font-size: 13px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .read-only-field {\n    padding: 10px 12px;\n    font-size: 13px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .read-only-field.textarea-like {\n    min-height: 80px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .selected-skills-preview {\n    padding: 10px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .selected-skills-preview .skills-preview-title {\n    font-size: 12px;\n    margin-bottom: 10px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .selected-skills-preview .skill-tag {\n    font-size: 12px;\n    padding: 5px 10px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .contact-info {\n    margin-top: 20px;\n    padding-top: 20px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .contact-info h4 {\n    font-size: 15px;\n    margin-bottom: 12px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .form-actions {\n    margin-top: 20px;\n    padding-top: 20px;\n  }\n  .modal-post-job.view-only .modal-form.view-mode .form-actions .cancel-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n    width: 100%;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72432,7 +72456,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  position: relative;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-bottom: 12px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.skills-selection-container .skills-select-button {\n  width: 100%;\n  padding: 14px 18px;\n  border: 2px dashed #007bff;\n  background-color: #f8f9ff;\n  color: #007bff;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n}\n.skills-selection-container .skills-select-button:hover {\n  background-color: #e3f2fd;\n  border-color: #0056b3;\n  transform: translateY(-1px);\n}\n.skills-selection-container .skills-select-button::before {\n  content: \"🔧\";\n  font-size: 16px;\n}\n.skills-selection-container .selected-skills-preview {\n  margin-top: 16px;\n  padding: 16px;\n  background-color: #f8f9fa;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n}\n.skills-selection-container .selected-skills-preview .skills-preview-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #495057;\n  margin-bottom: 12px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-selection-container .selected-skills-preview .skills-preview-title::before {\n  content: \"✅\";\n  font-size: 14px;\n}\n.skills-selection-container .selected-skills-preview .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 12px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  margin: 4px;\n  display: inline-block;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n  transition: all 0.2s ease;\n}\n.skills-selection-container .selected-skills-preview .skill-tag:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  position: relative;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.skills-selection-container .skills-select-button {\n  width: 100%;\n  padding: 14px 18px;\n  border: 2px dashed #007bff;\n  background-color: #f8f9ff;\n  color: #007bff;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n}\n.skills-selection-container .skills-select-button:hover {\n  background-color: #e3f2fd;\n  border-color: #0056b3;\n  transform: translateY(-1px);\n}\n.skills-selection-container .skills-select-button::before {\n  content: \"🔧\";\n  font-size: 16px;\n}\n.skills-selection-container .selected-skills-preview {\n  margin-top: 16px;\n  padding: 16px;\n  background-color: #f8f9fa;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n}\n.skills-selection-container .selected-skills-preview .skills-preview-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #495057;\n  margin-bottom: 12px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-selection-container .selected-skills-preview .skills-preview-title::before {\n  content: \"✅\";\n  font-size: 14px;\n}\n.skills-selection-container .selected-skills-preview .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 12px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  margin: 4px;\n  display: inline-block;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n  transition: all 0.2s ease;\n}\n.skills-selection-container .selected-skills-preview .skill-tag:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72528,7 +72552,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 400;\n  color: #374151;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 400;\n  color: #374151;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #374151;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72552,7 +72576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.my-profile-container {\n  display: flex;\n  flex-direction: column;\n  gap: 30px;\n}\n.my-profile-container .profile-card,\n.my-profile-container .password-card {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 30px;\n}\n.my-profile-container .profile-header .avatar-container {\n  position: relative;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-profile-container .profile-header .avatar-container .camera-icon {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n  width: 36px;\n  height: 36px;\n  background: #001E40;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 3px solid white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon:hover {\n  background: #002a5c;\n  transform: scale(1.1);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon svg {\n  width: 18px;\n  height: 18px;\n  fill: white;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  margin-top: 10px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  padding: 8px 0;\n  min-width: 180px;\n  z-index: 1000;\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown.show {\n  opacity: 1;\n  visibility: visible;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: none;\n  border: none;\n  width: 100%;\n  text-align: left;\n  font-size: 14px;\n  color: #374151;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item svg {\n  width: 18px;\n  height: 18px;\n  fill: #6b7280;\n  transition: fill 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover {\n  background: #f3f4f6;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover svg {\n  fill: #001E40;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item {\n  color: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item svg {\n  fill: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item:hover {\n  background: #fee2e2;\n}\n.my-profile-container .profile-header .rank-display-section {\n  margin-top: 20px;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 400px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.my-profile-container .card-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 25px;\n}\n.my-profile-container .profile-form .form-row,\n.my-profile-container .password-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-row,\n  .my-profile-container .password-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 15px;\n  }\n}\n.my-profile-container .profile-form .form-group,\n.my-profile-container .password-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .profile-form .form-group label,\n.my-profile-container .password-form .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n}\n.my-profile-container .profile-form .form-group label.label-up,\n.my-profile-container .password-form .form-group label.label-up {\n  margin-bottom: 1px;\n}\n.my-profile-container .profile-form .form-group input,\n.my-profile-container .profile-form .form-group select,\n.my-profile-container .password-form .form-group input,\n.my-profile-container .password-form .form-group select {\n  height: 45px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-form .form-group input:focus,\n.my-profile-container .profile-form .form-group select:focus,\n.my-profile-container .password-form .form-group input:focus,\n.my-profile-container .password-form .form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .profile-form .form-group input:disabled,\n.my-profile-container .profile-form .form-group select:disabled,\n.my-profile-container .password-form .form-group input:disabled,\n.my-profile-container .password-form .form-group select:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .profile-form .form-group input.editing,\n.my-profile-container .profile-form .form-group select.editing,\n.my-profile-container .password-form .form-group input.editing,\n.my-profile-container .password-form .form-group select.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .profile-form .form-group input::-moz-placeholder, .my-profile-container .profile-form .form-group select::-moz-placeholder, .my-profile-container .password-form .form-group input::-moz-placeholder, .my-profile-container .password-form .form-group select::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group input::placeholder,\n.my-profile-container .profile-form .form-group select::placeholder,\n.my-profile-container .password-form .form-group input::placeholder,\n.my-profile-container .password-form .form-group select::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group .date-input-container,\n.my-profile-container .password-form .form-group .date-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator {\n  display: none;\n  -webkit-appearance: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator {\n  display: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container .calendar-icon,\n.my-profile-container .password-form .form-group .date-input-container .calendar-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  pointer-events: none;\n}\n.my-profile-container .profile-form .form-group.date-field .date-input-container input,\n.my-profile-container .password-form .form-group.date-field .date-input-container input {\n  width: 850px;\n}\n.my-profile-container .profile-form .form-group .password-input-container,\n.my-profile-container .password-form .form-group .password-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: color 0.3s ease;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn:hover,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn:hover {\n  color: #374151;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn i,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn i {\n  font-size: 16px;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle {\n  width: 100% !important;\n  height: 45px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:focus,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:hover:not(:disabled),\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:disabled,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle.editing,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle.editing {\n  background-color: white !important;\n  border: 2px solid #e5e7eb !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu,\n.my-profile-container .password-form .form-group .gender-dropdown-menu {\n  width: 100% !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:hover,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active::before,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:first-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 8px !important;\n  border-top-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:last-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 8px !important;\n  border-bottom-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-actions,\n.my-profile-container .password-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-actions,\n  .my-profile-container .password-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  height: 45px;\n  padding: 12px 24px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n}\n.my-profile-container .profile-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .profile-form .form-actions .save-btn .btn-icon,\n.my-profile-container .password-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .password-form .form-actions .save-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .edit-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .profile-form .form-actions .edit-btn:hover,\n.my-profile-container .password-form .form-actions .edit-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .profile-form .form-actions .save-btn:hover,\n.my-profile-container .password-form .form-actions .save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .profile-form .form-actions .save-btn:active,\n.my-profile-container .password-form .form-actions .save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .password-card .password-form .form-group {\n  margin-bottom: 20px;\n}\n\n.image-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.7);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.image-modal-overlay .image-modal {\n  background: white;\n  border-radius: 12px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n}\n.image-modal-overlay .image-modal .image-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.image-modal-overlay .image-modal .image-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 6px;\n  transition: background 0.2s ease;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn svg {\n  fill: #6b7280;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover {\n  background: #f3f4f6;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover svg {\n  fill: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-content {\n  padding: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: auto;\n}\n.image-modal-overlay .image-modal .image-modal-content img {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n}\n\n@media (max-width: 768px) {\n  .my-profile-container {\n    gap: 20px;\n  }\n  .my-profile-container .profile-card,\n  .my-profile-container .password-card {\n    padding: 20px;\n  }\n  .my-profile-container .profile-header {\n    margin-bottom: 20px;\n  }\n  .my-profile-container .profile-header .avatar-container .avatar-placeholder {\n    width: 80px;\n    height: 80px;\n    font-size: 32px;\n  }\n  .my-profile-container .card-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.my-profile-container {\n  display: flex;\n  flex-direction: column;\n  gap: 30px;\n}\n.my-profile-container .profile-card,\n.my-profile-container .password-card,\n.my-profile-container .work-preferences-card,\n.my-profile-container .worker-skills-card,\n.my-profile-container .worker-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n  transition: box-shadow 0.3s ease;\n}\n.my-profile-container .profile-card:hover,\n.my-profile-container .password-card:hover,\n.my-profile-container .work-preferences-card:hover,\n.my-profile-container .worker-skills-card:hover,\n.my-profile-container .worker-credentials-card:hover {\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .profile-header {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 30px;\n}\n.my-profile-container .profile-header .avatar-container {\n  position: relative;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-profile-container .profile-header .avatar-container .camera-icon {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n  width: 36px;\n  height: 36px;\n  background: #001E40;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 3px solid white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon:hover {\n  background: #002a5c;\n  transform: scale(1.1);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon svg {\n  width: 18px;\n  height: 18px;\n  fill: white;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  margin-top: 10px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  padding: 8px 0;\n  min-width: 180px;\n  z-index: 1000;\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown.show {\n  opacity: 1;\n  visibility: visible;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: none;\n  border: none;\n  width: 100%;\n  text-align: left;\n  font-size: 14px;\n  color: #374151;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item svg {\n  width: 18px;\n  height: 18px;\n  fill: #6b7280;\n  transition: fill 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover {\n  background: #f3f4f6;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover svg {\n  fill: #001E40;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item {\n  color: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item svg {\n  fill: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item:hover {\n  background: #fee2e2;\n}\n.my-profile-container .profile-header .rank-display-section {\n  margin-top: 20px;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 400px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.my-profile-container .card-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 25px;\n}\n.my-profile-container .profile-form .form-row,\n.my-profile-container .password-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-row,\n  .my-profile-container .password-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 15px;\n  }\n}\n.my-profile-container .profile-form .form-group,\n.my-profile-container .password-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .profile-form .form-group label,\n.my-profile-container .password-form .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n}\n.my-profile-container .profile-form .form-group label.label-up,\n.my-profile-container .password-form .form-group label.label-up {\n  margin-bottom: 1px;\n}\n.my-profile-container .profile-form .form-group input,\n.my-profile-container .profile-form .form-group select,\n.my-profile-container .password-form .form-group input,\n.my-profile-container .password-form .form-group select {\n  height: 45px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-form .form-group input:focus,\n.my-profile-container .profile-form .form-group select:focus,\n.my-profile-container .password-form .form-group input:focus,\n.my-profile-container .password-form .form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .profile-form .form-group input:disabled,\n.my-profile-container .profile-form .form-group select:disabled,\n.my-profile-container .password-form .form-group input:disabled,\n.my-profile-container .password-form .form-group select:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .profile-form .form-group input.editing,\n.my-profile-container .profile-form .form-group select.editing,\n.my-profile-container .password-form .form-group input.editing,\n.my-profile-container .password-form .form-group select.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .profile-form .form-group input::-moz-placeholder, .my-profile-container .profile-form .form-group select::-moz-placeholder, .my-profile-container .password-form .form-group input::-moz-placeholder, .my-profile-container .password-form .form-group select::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group input::placeholder,\n.my-profile-container .profile-form .form-group select::placeholder,\n.my-profile-container .password-form .form-group input::placeholder,\n.my-profile-container .password-form .form-group select::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group .date-input-container,\n.my-profile-container .password-form .form-group .date-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator {\n  display: none;\n  -webkit-appearance: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator {\n  display: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container .calendar-icon,\n.my-profile-container .password-form .form-group .date-input-container .calendar-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  pointer-events: none;\n}\n.my-profile-container .profile-form .form-group.date-field .date-input-container input,\n.my-profile-container .password-form .form-group.date-field .date-input-container input {\n  width: 850px;\n}\n.my-profile-container .profile-form .form-group .password-input-container,\n.my-profile-container .password-form .form-group .password-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: color 0.3s ease;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn:hover,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn:hover {\n  color: #374151;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn i,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn i {\n  font-size: 16px;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle {\n  width: 100% !important;\n  height: 45px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:focus,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:hover:not(:disabled),\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:disabled,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle.editing,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle.editing {\n  background-color: white !important;\n  border: 2px solid #e5e7eb !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu,\n.my-profile-container .password-form .form-group .gender-dropdown-menu {\n  width: 100% !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:hover,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active::before,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:first-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 8px !important;\n  border-top-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:last-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 8px !important;\n  border-bottom-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-actions,\n.my-profile-container .password-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-actions,\n  .my-profile-container .password-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .profile-form .form-actions .save-btn .btn-icon,\n.my-profile-container .password-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .password-form .form-actions .save-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .password-card .edit-btn,\n.my-profile-container .password-form .form-actions .password-card .edit-btn {\n  width: 170px;\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .edit-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .profile-form .form-actions .edit-btn:hover,\n.my-profile-container .password-form .form-actions .edit-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .profile-form .form-actions .save-btn:hover,\n.my-profile-container .password-form .form-actions .save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .profile-form .form-actions .save-btn:active,\n.my-profile-container .password-form .form-actions .save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .password-card .password-form .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .work-preferences-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .work-preferences-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn {\n  width: 175px;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn:hover,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-top: 8px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  background-color: #f9fafb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox] {\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n  accent-color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:disabled {\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox .day-label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox:hover:not(.disabled) {\n  border-color: #001E40;\n  background-color: #f0f4f8;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked + .day-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked ~ * {\n  color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .character-count {\n  display: block;\n  text-align: right;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-help {\n  display: block;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n  font-style: italic;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  resize: vertical;\n  font-family: inherit;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .worker-skills-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-skills-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn:hover,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-skills-card .skills-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section {\n  margin-bottom: 30px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .section-subtitle {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[role=combobox], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[aria-expanded=true], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  position: relative;\n  z-index: 10;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input option {\n  position: relative;\n  z-index: 1000;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing {\n  margin-top: 20px;\n  padding: 15px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .skill-editing-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #001E40;\n  margin: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 28px;\n  height: 28px;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input {\n  width: 100%;\n  height: 36px;\n  padding: 8px 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 13px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));\n  gap: 8px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item {\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  padding: 8px 10px 8px 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  background: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:hover {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item input[type=checkbox] {\n  width: 14px;\n  height: 14px;\n  cursor: pointer;\n  accent-color: #001E40;\n  margin: 0;\n  flex-shrink: 0;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item .sub-skill-checkbox-label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  text-align: left;\n  flex: 1;\n  margin-left: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) .sub-skill-checkbox-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 4px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill {\n  background: none;\n  border: none;\n  color: #dc2626;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  padding: 0;\n  margin-left: 4px;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill:hover {\n  color: #b91c1c;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list {\n  display: flex;\n  flex-direction: column;\n  gap: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item {\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.primary-skill {\n  border-left: 4px solid #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.additional-skill {\n  border-left: 4px solid #3b82f6;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header .skill-name {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills {\n  flex: 1;\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-label {\n  display: inline-block;\n  font-size: 13px;\n  font-weight: 500;\n  color: #6b7280;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags .sub-skill-tag {\n  padding: 4px 10px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  font-size: 13px;\n  flex-shrink: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-label {\n  font-weight: 500;\n  color: #6b7280;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-value {\n  padding: 2px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  color: #374151;\n  font-weight: 500;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .my-profile-container .worker-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input[type=file] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialName,\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialFile {\n  width: 400px !important;\n  height: 40px !important;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: 8px;\n  padding: 8px 12px;\n  background: #f0f9ff;\n  border: 1px solid #0ea5e9;\n  border-radius: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  display: block;\n  font-size: 12px;\n  color: #0369a1;\n  font-weight: 500;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.my-profile-container .worker-credentials-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-credentials-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn:hover,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n  opacity: 0.8;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  opacity: 1;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  flex-shrink: 0;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #001E40;\n  border-radius: 8px;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon svg {\n  width: 24px;\n  height: 24px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 13px;\n  color: #3b82f6;\n  text-decoration: none;\n  font-weight: 500;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  color: #2563eb;\n  text-decoration: underline;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-weight: 400;\n  font-style: italic;\n  word-break: break-all;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #9ca3af;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n\n.image-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.7);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.image-modal-overlay .image-modal {\n  background: white;\n  border-radius: 12px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n}\n.image-modal-overlay .image-modal .image-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.image-modal-overlay .image-modal .image-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 6px;\n  transition: background 0.2s ease;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn svg {\n  fill: #6b7280;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover {\n  background: #f3f4f6;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover svg {\n  fill: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-content {\n  padding: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: auto;\n}\n.image-modal-overlay .image-modal .image-modal-content img {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n}\n\nselect:focus, select:active, select[aria-expanded=true] {\n  border-bottom-left-radius: 0 !important;\n  border-bottom-right-radius: 0 !important;\n}\nselect option {\n  position: relative;\n  z-index: 1000;\n}\n\n@media (max-width: 768px) {\n  .my-profile-container {\n    gap: 20px;\n  }\n  .my-profile-container .profile-card,\n  .my-profile-container .password-card {\n    padding: 20px;\n  }\n  .my-profile-container .profile-header {\n    margin-bottom: 20px;\n  }\n  .my-profile-container .profile-header .avatar-container .avatar-placeholder {\n    width: 80px;\n    height: 80px;\n    font-size: 32px;\n  }\n  .my-profile-container .card-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -173745,10 +173769,17 @@ var Headerz = function Headerz() {
     var token = localStorage.getItem('auth_token');
     var storedUser = localStorage.getItem('user');
     if (token && storedUser) {
-      setIsLoggedIn(true);
-      setUser(JSON.parse(storedUser));
-      // Fetch unread notifications count
-      fetchUnreadCount();
+      try {
+        var userData = JSON.parse(storedUser);
+        setIsLoggedIn(true);
+        setUser(userData);
+        // Fetch unread notifications count
+        fetchUnreadCount();
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user');
+      }
     }
 
     // Handle click outside for dropdown
@@ -173778,16 +173809,18 @@ var Headerz = function Headerz() {
   // Fetch unread notification count
   var fetchUnreadCount = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var token, response, _t;
+      var token, storedUser, response, _error$response, _error$response2, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
             _context.p = 0;
             token = localStorage.getItem('auth_token');
-            if (token) {
+            storedUser = localStorage.getItem('user');
+            if (!(!token || !storedUser)) {
               _context.n = 1;
               break;
             }
+            console.log('No token or user found, skipping unread count fetch');
             return _context.a(2);
           case 1:
             _context.n = 2;
@@ -173807,7 +173840,19 @@ var Headerz = function Headerz() {
           case 3:
             _context.p = 3;
             _t = _context.v;
-            console.error('Error fetching unread count:', _t);
+            // Only log error if it's not a 401 (unauthorized) error
+            if (((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.status) !== 401) {
+              console.error('Error fetching unread count:', _t);
+            }
+            // If 401, user might need to re-authenticate
+            if (((_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 401) {
+              console.log('User not authenticated, clearing auth state');
+              localStorage.removeItem('auth_token');
+              localStorage.removeItem('user');
+              setIsLoggedIn(false);
+              setUser(null);
+              setUnreadCount(0);
+            }
           case 4:
             return _context.a(2);
         }
@@ -181131,6 +181176,8 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             if (isMounted.current) {
               setUserSkills(updatedSkills);
               antd__WEBPACK_IMPORTED_MODULE_3__["default"].success('Skill updated successfully');
+              // Dispatch event to notify MyProfile component
+              window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
             }
             _context4.n = 20;
             break;
@@ -181245,6 +181292,8 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                   return updated;
                 });
                 antd__WEBPACK_IMPORTED_MODULE_3__["default"].success('Skill added successfully');
+                // Dispatch event to notify MyProfile component
+                window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
               }
             } else {
               // New skill added successfully
@@ -181274,6 +181323,8 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                   return updated;
                 });
                 antd__WEBPACK_IMPORTED_MODULE_3__["default"].success('Skill added successfully');
+                // Dispatch event to notify MyProfile component
+                window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
               }
             }
           case 20:
@@ -181448,6 +181499,8 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
                 localStorage.setItem("skillsStepCompleted_".concat(user.id), 'false');
               }
               antd__WEBPACK_IMPORTED_MODULE_3__["default"].success('Skill removed successfully');
+              // Dispatch event to notify MyProfile component
+              window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
             }
             _context5.n = 13;
             break;
@@ -181629,6 +181682,10 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
               localStorage.removeItem("primarySkill_".concat(user.id));
               localStorage.removeItem("additionalSkills_".concat(user.id));
               localStorage.removeItem("profile_".concat(user.id));
+
+              // Dispatch events to notify MyProfile component
+              window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
+              window.dispatchEvent(new CustomEvent('workerCredentialsUpdated'));
               onComplete();
               if (window.location.pathname.includes('/skill-rating')) {
                 // If used as a page, use window.location
@@ -206120,6 +206177,249 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/profilesettings/JobDetailModal.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/profilesettings/JobDetailModal.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _sass_components_profilesettings_jobdetailmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../sass/components/profilesettings/jobdetailmodal.scss */ "./resources/sass/components/profilesettings/jobdetailmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+var JobDetailModal = function JobDetailModal(_ref) {
+  var job = _ref.job,
+    onClose = _ref.onClose;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState2 = _slicedToArray(_useState, 2),
+    userProfile = _useState2[0],
+    setUserProfile = _useState2[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // Get user profile from localStorage (same as modalpostjob.js)
+    var userData = JSON.parse(localStorage.getItem("user") || '{}');
+    setUserProfile(userData);
+  }, []);
+  if (!job) return null;
+  var formatDateTime = function formatDateTime(dateString) {
+    if (!dateString) return 'N/A';
+    var date = new Date(dateString);
+    return date.toLocaleString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
+  };
+  var formatSalaryType = function formatSalaryType(type) {
+    return type === 'per_hour' ? 'Per Hour' : 'Per Month';
+  };
+  var formatJobType = function formatJobType(type) {
+    if (!type) return 'Not specified';
+    return type.split('-').map(function (word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join('-');
+  };
+  var formatHiringType = function formatHiringType(type) {
+    if (!type) return 'Individual';
+    return type.charAt(0).toUpperCase() + type.slice(1);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "modal-overlay",
+    onClick: onClose,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "modal-post-job view-only",
+      onClick: function onClick(e) {
+        return e.stopPropagation();
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "modal-header",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "modal-title",
+          children: "Job Post Details"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "close-btn",
+          onClick: onClose,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            children: "\xD7"
+          })
+        })]
+      }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "expired-banner",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          children: "\u26A0\uFE0F This job post has expired"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "modal-form view-mode",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "form-columns",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "form-column",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Job Title"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "read-only-field",
+                children: job.job_title || "Job Post #".concat(job.id)
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Job Description"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "read-only-field textarea-like",
+                children: job.description
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  children: "Salary"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "read-only-field",
+                  children: ["\u20B1", job.salary ? job.salary.toLocaleString() : '0']
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  children: "Salary Type"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "read-only-field",
+                  children: formatSalaryType(job.salary_type)
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  children: "Job Type"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "read-only-field",
+                  children: formatJobType(job.job_type)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  children: "Hiring Type"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "read-only-field",
+                  children: formatHiringType(job.hiring_type)
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  children: "Application Start"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "read-only-field",
+                  children: formatDateTime(job.application_start)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  children: "Application Deadline"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "read-only-field",
+                  children: formatDateTime(job.application_deadline)
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Required Skills"
+              }), job.skills && job.skills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "selected-skills-preview",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "skills-preview-title",
+                  children: [job.skills.length, " skill(s) required"]
+                }), job.skills.map(function (skill, index) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+                    className: "skill-tag",
+                    children: [skill.name, " (", skill.experience, ")"]
+                  }, index);
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "read-only-field",
+                children: "No specific skills required"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "contact-info",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+                children: "Contact Information"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "form-group",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                    children: "Email"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "read-only-field",
+                    children: (userProfile === null || userProfile === void 0 ? void 0 : userProfile.email) || 'N/A'
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "form-group",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                    children: "Contact Person"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "read-only-field",
+                    children: userProfile ? "".concat(userProfile.first_name, " ").concat(userProfile.middlename || '', " ").concat(userProfile.last_name, " ").concat(userProfile.suffix_name || '').trim() : 'N/A'
+                  })]
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Posted On"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "read-only-field",
+                children: formatDateTime(job.created_at)
+              })]
+            }), job.updated_at && job.updated_at !== job.created_at && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                children: "Last Updated"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "read-only-field",
+                children: formatDateTime(job.updated_at)
+              })]
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "form-actions",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            type: "button",
+            className: "cancel-btn",
+            onClick: onClose,
+            children: "Close"
+          })
+        })]
+      })]
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (JobDetailModal);
+
+/***/ }),
+
 /***/ "./resources/js/components/profilesettings/TransactionModal.js":
 /*!*********************************************************************!*\
   !*** ./resources/js/components/profilesettings/TransactionModal.js ***!
@@ -206737,6 +207037,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
       salary: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.salary) || '',
       salaryType: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.salary_type) || 'per_hour',
       typeOfEmployment: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_type) || 'full-time',
+      hiringType: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.hiring_type) || 'individual',
       applicationStart: editingJob !== null && editingJob !== void 0 && editingJob.application_start ? new Date(editingJob.application_start).toISOString().slice(0, 16) : '',
       applicationDeadline: editingJob !== null && editingJob !== void 0 && editingJob.application_deadline ? new Date(editingJob.application_deadline).toISOString().slice(0, 16) : '',
       skills: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.skills) || [],
@@ -207131,6 +207432,29 @@ var ModalPostJob = function ModalPostJob(_ref) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  htmlFor: "hiringType",
+                  children: "Hiring Type *"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                  id: "hiringType",
+                  name: "hiringType",
+                  value: formData.hiringType,
+                  onChange: handleInputChange,
+                  className: "small-input",
+                  required: true,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "individual",
+                    children: "Individual"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "team",
+                    children: "Team"
+                  })]
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                   htmlFor: "applicationStart",
                   children: "Application Start *"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
@@ -207142,21 +207466,21 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   className: "small-input",
                   required: true
                 })]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                htmlFor: "applicationDeadline",
-                children: "Application Deadline *"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-                type: "datetime-local",
-                id: "applicationDeadline",
-                name: "applicationDeadline",
-                value: formData.applicationDeadline,
-                onChange: handleInputChange,
-                min: formData.applicationStart,
-                className: "full-width-input",
-                required: true
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  htmlFor: "applicationDeadline",
+                  children: "Application Deadline *"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "datetime-local",
+                  id: "applicationDeadline",
+                  name: "applicationDeadline",
+                  value: formData.applicationDeadline,
+                  onChange: handleInputChange,
+                  min: formData.applicationStart,
+                  className: "small-input",
+                  required: true
+                })]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "form-group",
@@ -208688,8 +209012,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var _modalpostjob__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modalpostjob */ "./resources/js/components/profilesettings/modalpostjob.js");
 /* harmony import */ var _JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./JobApplicationsModal */ "./resources/js/components/profilesettings/JobApplicationsModal.js");
-/* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _JobDetailModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./JobDetailModal */ "./resources/js/components/profilesettings/JobDetailModal.js");
+/* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -208708,6 +209033,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
 var MyPostJob = function MyPostJob() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -208717,26 +209043,34 @@ var MyPostJob = function MyPostJob() {
     _useState4 = _slicedToArray(_useState3, 2),
     isApplicationsModalOpen = _useState4[0],
     setIsApplicationsModalOpen = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
-    selectedJobForApplications = _useState6[0],
-    setSelectedJobForApplications = _useState6[1];
+    isDetailModalOpen = _useState6[0],
+    setIsDetailModalOpen = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState8 = _slicedToArray(_useState7, 2),
-    editingJob = _useState8[0],
-    setEditingJob = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    selectedJobForApplications = _useState8[0],
+    setSelectedJobForApplications = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState0 = _slicedToArray(_useState9, 2),
-    jobs = _useState0[0],
-    setJobs = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    selectedJobForDetail = _useState0[0],
+    setSelectedJobForDetail = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState10 = _slicedToArray(_useState1, 2),
-    loading = _useState10[0],
-    setLoading = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    editingJob = _useState10[0],
+    setEditingJob = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState12 = _slicedToArray(_useState11, 2),
-    userProfile = _useState12[0],
-    setUserProfile = _useState12[1];
+    jobs = _useState12[0],
+    setJobs = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState14 = _slicedToArray(_useState13, 2),
+    loading = _useState14[0],
+    setLoading = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState16 = _slicedToArray(_useState15, 2),
+    userProfile = _useState16[0],
+    setUserProfile = _useState16[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Get user profile from localStorage
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
@@ -208844,6 +209178,7 @@ var MyPostJob = function MyPostJob() {
               salary: parseFloat(jobData.salary),
               salary_type: jobData.salaryType,
               job_type: jobData.typeOfEmployment,
+              hiring_type: jobData.hiringType,
               application_start: jobData.applicationStart,
               application_deadline: jobData.applicationDeadline
             };
@@ -208898,158 +209233,151 @@ var MyPostJob = function MyPostJob() {
       return _ref2.apply(this, arguments);
     };
   }();
-  var handleViewApplicants = function handleViewApplicants(job) {
+  var handleViewApplicants = function handleViewApplicants(job, e) {
+    e.stopPropagation(); // Prevent card click
     setSelectedJobForApplications(job);
     setIsApplicationsModalOpen(true);
   };
+  var handleCardClick = function handleCardClick(job) {
+    setSelectedJobForDetail(job);
+    setIsDetailModalOpen(true);
+  };
+  var handleEditClick = function handleEditClick(jobId, e) {
+    e.stopPropagation(); // Prevent card click
+    handleEditJob(jobId);
+  };
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "my-post-job-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
           children: "Loading job posts..."
         })
       })
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "my-post-job-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       className: "post-job-header",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
         className: "post-job-title",
         children: "My Post Job"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
         className: "add-post-job-btn",
         onClick: handleAddJob,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
           className: "btn-icon"
         }), "Add Post Job"]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "jobs-list",
       children: jobs.length > 0 ? jobs.map(function (job) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "job-card ".concat(job.archived ? 'expired' : ''),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          onClick: function onClick() {
+            return handleCardClick(job);
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "job-card-header",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-actions",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "view-applicants-btn",
-                onClick: function onClick() {
-                  return handleViewApplicants(job);
+                onClick: function onClick(e) {
+                  return handleViewApplicants(job, e);
                 },
                 title: "View Applicants",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUserFriends, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUserFriends, {
                   className: "action-icon"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "edit-job-btn",
-                onClick: function onClick() {
-                  return handleEditJob(job.id);
+                onClick: function onClick(e) {
+                  return handleEditClick(job.id, e);
                 },
                 title: "Edit Job",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaRegEdit, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaRegEdit, {
                   className: "action-icon"
                 })
-              }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "expired-badge",
                 children: "EXPIRED"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "job-content",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
               className: "job-title",
               children: job.job_title || "Job Post #".concat(job.id)
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-metadata",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
-                className: "posted-date",
-                children: ["Posted on ", new Date(job.created_at).toLocaleDateString()]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                 className: "job-salary",
                 children: ["\u20B1", job.salary.toLocaleString(), "/", job.salary_type === 'per_hour' ? 'hour' : 'month']
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+                className: "posted-date",
+                children: ["Posted on ", new Date(job.created_at).toLocaleDateString()]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-description",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
                 className: "description-title",
                 children: "Job Overview/Description"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                 className: "description-text",
                 children: job.description
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-skills",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
                 className: "skills-title",
                 children: "Skills Required"
               }), job.skills && job.skills.length > 0 ? job.skills.map(function (skill, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                   className: "skill-tag",
                   children: [skill.name, " (", skill.experience, ")"]
                 }, index);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "skill-tag",
                 children: "No specific skills required"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "job-timeline",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                className: "timeline-item",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                  className: "timeline-label",
-                  children: "Application Start:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                  className: "timeline-value",
-                  children: new Date(job.application_start).toLocaleDateString('en-US', {
-                    timeZone: 'UTC'
-                  })
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                className: "timeline-item",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                  className: "timeline-label",
-                  children: "Application Deadline:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                  className: "timeline-value",
-                  children: new Date(job.application_deadline).toLocaleDateString('en-US', {
-                    timeZone: 'UTC'
-                  })
-                })]
               })]
             })]
           })]
         }, job.id);
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "empty-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: "/images/mybooking.svg",
             alt: "No Job Posts"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
           className: "empty-title",
           children: "No Job Posts Yet"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
           className: "empty-description",
           children: "Create your first job post to start hiring workers."
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_modalpostjob__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_modalpostjob__WEBPACK_IMPORTED_MODULE_4__["default"], {
       onClose: handleCloseModal,
       onSubmit: handleSubmitJob,
       editingJob: editingJob
-    }), isApplicationsModalOpen && selectedJobForApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), isApplicationsModalOpen && selectedJobForApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
       jobPostId: selectedJobForApplications.id,
       jobTitle: selectedJobForApplications.job_title,
       onClose: function onClose() {
         setIsApplicationsModalOpen(false);
         setSelectedJobForApplications(null);
+      }
+    }), isDetailModalOpen && selectedJobForDetail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_JobDetailModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      job: selectedJobForDetail,
+      onClose: function onClose() {
+        setIsDetailModalOpen(false);
+        setSelectedJobForDetail(null);
       }
     })]
   });
@@ -209071,9 +209399,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var _sass_components_profilesettings_myprofile_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myprofile.scss */ "./resources/sass/components/profilesettings/myprofile.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
+/* harmony import */ var _sass_components_profilesettings_myprofile_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myprofile.scss */ "./resources/sass/components/profilesettings/myprofile.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -209093,7 +209427,9 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
 var MyProfile = function MyProfile() {
+  var _workerSkills$primary, _ref16, _availableSkills$find, _workerSkills$primary3, _workerSkills$primary4;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
     user = _useState2[0],
@@ -209193,7 +209529,145 @@ var MyProfile = function MyProfile() {
     _useState36 = _slicedToArray(_useState35, 2),
     showPasswords = _useState36[0],
     setShowPasswords = _useState36[1];
+
+  // Work preferences states (for workers)
+  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      workType: '',
+      hoursPerDay: '',
+      monthlySalary: '',
+      preferredWorkingDays: [],
+      bio: ''
+    }),
+    _useState38 = _slicedToArray(_useState37, 2),
+    workPreferences = _useState38[0],
+    setWorkPreferences = _useState38[1];
+  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState40 = _slicedToArray(_useState39, 2),
+    isEditingWorkPreferences = _useState40[0],
+    setIsEditingWorkPreferences = _useState40[1];
+
+  // Skills and Experience states (for workers)
+  var _useState41 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      primary_skills: [],
+      additional_skills: []
+    }),
+    _useState42 = _slicedToArray(_useState41, 2),
+    workerSkills = _useState42[0],
+    setWorkerSkills = _useState42[1];
+  var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState44 = _slicedToArray(_useState43, 2),
+    isEditingSkills = _useState44[0],
+    setIsEditingSkills = _useState44[1];
+  var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState46 = _slicedToArray(_useState45, 2),
+    availableSkills = _useState46[0],
+    setAvailableSkills = _useState46[1];
+  var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState48 = _slicedToArray(_useState47, 2),
+    selectedPrimarySkillId = _useState48[0],
+    setSelectedPrimarySkillId = _useState48[1];
+  var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState50 = _slicedToArray(_useState49, 2),
+    selectedAdditionalSkillIds = _useState50[0],
+    setSelectedAdditionalSkillIds = _useState50[1];
+
+  // Credentials states (for workers)
+  var _useState51 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState52 = _slicedToArray(_useState51, 2),
+    workerCredentials = _useState52[0],
+    setWorkerCredentials = _useState52[1];
+  var _useState53 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState54 = _slicedToArray(_useState53, 2),
+    isEditingCredentials = _useState54[0],
+    setIsEditingCredentials = _useState54[1];
+  var _useState55 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      credentials_name: '',
+      credentials_photo: null
+    }),
+    _useState56 = _slicedToArray(_useState55, 2),
+    newCredential = _useState56[0],
+    setNewCredential = _useState56[1];
+  var _useState57 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState58 = _slicedToArray(_useState57, 2),
+    showAddCredentialForm = _useState58[0],
+    setShowAddCredentialForm = _useState58[1];
   var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var credentialFileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  // Credential types from SkillRatingModal
+  var credentialTypes = [{
+    value: "Resume/CV",
+    label: "Resume / Curriculum Vitae (CV)"
+  }, {
+    value: "Birth Certificate",
+    label: "Birth Certificate (PSA-issued)"
+  }, {
+    value: "Barangay Clearance",
+    label: "Barangay Clearance"
+  }, {
+    value: "Police Clearance",
+    label: "Police Clearance"
+  }, {
+    value: "NBI Clearance",
+    label: "NBI Clearance"
+  }, {
+    value: "Medical Certificate",
+    label: "Medical Certificate / Health Certificate"
+  }, {
+    value: "SSS Number",
+    label: "SSS Number (Social Security System)"
+  }, {
+    value: "PhilHealth Number",
+    label: "PhilHealth Number"
+  }, {
+    value: "Pag-IBIG Number",
+    label: "Pag-IBIG Number (HDMF)"
+  }, {
+    value: "TIN",
+    label: "TIN (Tax Identification Number)"
+  }, {
+    value: "Valid Government ID",
+    label: "Valid Government ID (e.g., Passport, Driver's License, Voter's ID, UMID, National ID)"
+  }, {
+    value: "TESDA Certificate",
+    label: "TESDA / NC Certificates"
+  }, {
+    value: "Diploma",
+    label: "Diploma / Transcript of Records"
+  }, {
+    value: "Training Certificate",
+    label: "Training Certificates"
+  }, {
+    value: "Professional License",
+    label: "License or Professional ID (e.g., PRC License)"
+  }, {
+    value: "Work Portfolio",
+    label: "Work Experience Records / Portfolio"
+  }, {
+    value: "Certificate of Employment",
+    label: "Certificate of Employment"
+  }, {
+    value: "Performance Evaluation",
+    label: "Performance Evaluation / Feedback"
+  }, {
+    value: "Work Photos",
+    label: "Work Accomplishment Photos (for skilled workers like carpenters, painters, etc.)"
+  }, {
+    value: "Character Reference",
+    label: "Character Reference / Reference Letter"
+  }, {
+    value: "Drivers License",
+    label: "Driver's License"
+  }, {
+    value: "Passport",
+    label: "Passport"
+  }, {
+    value: "Voters ID",
+    label: "Voter's ID"
+  }, {
+    value: "National ID",
+    label: "National ID / Postal ID"
+  }];
 
   // Load user data on component mount
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -209208,6 +209682,8 @@ var MyProfile = function MyProfile() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1) {
       fetchWorkerReviews(user.id);
+      fetchWorkerProfile(user.id);
+      fetchAvailableSkills();
     }
   }, [user]);
 
@@ -209223,6 +209699,24 @@ var MyProfile = function MyProfile() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [showProfileDropdown]);
+
+  // Listen for skills/credentials updates from Skill Rating Modal
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var handleSkillsCredentialsUpdate = function handleSkillsCredentialsUpdate() {
+      console.log('Skills/Credentials updated event received, refreshing worker profile...');
+      if (user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1) {
+        fetchWorkerProfile(user.id);
+      }
+    };
+
+    // Listen for custom event dispatched when skills/credentials are saved
+    window.addEventListener('workerSkillsUpdated', handleSkillsCredentialsUpdate);
+    window.addEventListener('workerCredentialsUpdated', handleSkillsCredentialsUpdate);
+    return function () {
+      window.removeEventListener('workerSkillsUpdated', handleSkillsCredentialsUpdate);
+      window.removeEventListener('workerCredentialsUpdated', handleSkillsCredentialsUpdate);
+    };
+  }, [user]);
   var loadUserData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
       var storedUser, userData, currentUser, token, response, freshUserData, updatedUserData, localStorageStructure, _t;
@@ -209532,6 +210026,155 @@ var MyProfile = function MyProfile() {
     setTotalPoints(0);
     setProgressPercent(0);
   };
+  var fetchAvailableSkills = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
+      var token, response, data, _t6;
+      return _regenerator().w(function (_context6) {
+        while (1) switch (_context6.p = _context6.n) {
+          case 0:
+            _context6.p = 0;
+            token = localStorage.getItem("auth_token");
+            _context6.n = 1;
+            return fetch('http://127.0.0.1:8000/api/skills', {
+              headers: {
+                'Authorization': "Bearer ".concat(token)
+              }
+            });
+          case 1:
+            response = _context6.v;
+            if (!response.ok) {
+              _context6.n = 3;
+              break;
+            }
+            _context6.n = 2;
+            return response.json();
+          case 2:
+            data = _context6.v;
+            setAvailableSkills(data);
+          case 3:
+            _context6.n = 5;
+            break;
+          case 4:
+            _context6.p = 4;
+            _t6 = _context6.v;
+            console.error('Error fetching skills:', _t6);
+          case 5:
+            return _context6.a(2);
+        }
+      }, _callee6, null, [[0, 4]]);
+    }));
+    return function fetchAvailableSkills() {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+  var fetchWorkerProfile = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(workerId) {
+      var token, response, data, workerData, skillsData, primarySkills, additionalSkills, creds, _t7;
+      return _regenerator().w(function (_context7) {
+        while (1) switch (_context7.p = _context7.n) {
+          case 0:
+            _context7.p = 0;
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context7.n = 1;
+              break;
+            }
+            return _context7.a(2);
+          case 1:
+            _context7.n = 2;
+            return fetch("http://127.0.0.1:8000/api/workers/".concat(workerId), {
+              method: "GET",
+              headers: {
+                'Authorization': "Bearer ".concat(token)
+              }
+            });
+          case 2:
+            response = _context7.v;
+            if (!response.ok) {
+              _context7.n = 4;
+              break;
+            }
+            _context7.n = 3;
+            return response.json();
+          case 3:
+            data = _context7.v;
+            workerData = data.worker || data;
+            console.log('Fetched worker data:', workerData);
+            console.log('Skills data:', workerData.skills_id);
+            console.log('Credentials data:', workerData.credentials_name, workerData.credentials_photo);
+
+            // Set work preferences from worker data
+            setWorkPreferences({
+              workType: workerData.work_type || '',
+              hoursPerDay: workerData.hours_per_day || '',
+              monthlySalary: workerData.monthly_salary || '',
+              preferredWorkingDays: Array.isArray(workerData.preferred_working_hours) ? workerData.preferred_working_hours : workerData.preferred_working_hours ? JSON.parse(workerData.preferred_working_hours) : [],
+              bio: workerData.bio || ''
+            });
+
+            // Set skills from worker data
+            skillsData = workerData.skills_id || {};
+            console.log('Primary skills from backend:', skillsData.primary_skills);
+            console.log('Additional skills from backend:', skillsData.additional_skills);
+
+            // Process primary skills to ensure consistent field names
+            primarySkills = Array.isArray(skillsData.primary_skills) ? skillsData.primary_skills.map(function (skill) {
+              return {
+                id: skill.skill_id || skill.id,
+                skill_name: skill.skill_name,
+                sub_skills: skill.sub_skills || [],
+                experience: skill.experience || ''
+              };
+            }) : []; // Process additional skills to ensure consistent field names
+            additionalSkills = Array.isArray(skillsData.additional_skills) ? skillsData.additional_skills.map(function (skill) {
+              return {
+                id: skill.skill_id || skill.id,
+                skill_name: skill.skill_name,
+                sub_skills: skill.sub_skills || [],
+                experience: skill.experience || ''
+              };
+            }) : [];
+            console.log('Processed primary skills:', primarySkills);
+            console.log('Processed additional skills:', additionalSkills);
+            setWorkerSkills({
+              primary_skills: primarySkills,
+              additional_skills: additionalSkills
+            });
+
+            // Set credentials from worker data
+            if (workerData.credentials_name && Array.isArray(workerData.credentials_name)) {
+              creds = workerData.credentials_name.map(function (name, index) {
+                var _workerData$credentia;
+                var photo = (_workerData$credentia = workerData.credentials_photo) === null || _workerData$credentia === void 0 ? void 0 : _workerData$credentia[index];
+                console.log("Credential ".concat(index, ": name=\"").concat(name, "\", photo=\"").concat(photo, "\""));
+                return {
+                  credentials_name: name,
+                  credentials_photo: photo || null
+                };
+              });
+              console.log('Setting credentials from backend:', creds);
+              console.log('Raw credentials_photo from backend:', workerData.credentials_photo);
+              setWorkerCredentials(creds);
+            } else {
+              console.log('No credentials found in backend data');
+              setWorkerCredentials([]);
+            }
+          case 4:
+            _context7.n = 6;
+            break;
+          case 5:
+            _context7.p = 5;
+            _t7 = _context7.v;
+            console.error('Error fetching worker profile:', _t7);
+          case 6:
+            return _context7.a(2);
+        }
+      }, _callee7, null, [[0, 5]]);
+    }));
+    return function fetchWorkerProfile(_x3) {
+      return _ref7.apply(this, arguments);
+    };
+  }();
   var handleProfileChange = function handleProfileChange(e) {
     var _e$target = e.target,
       name = _e$target.name,
@@ -209546,6 +210189,35 @@ var MyProfile = function MyProfile() {
       value = _e$target2.value;
     setPasswordData(function (prev) {
       return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+    });
+  };
+  var handleWorkPreferencesChange = function handleWorkPreferencesChange(e) {
+    var _e$target3 = e.target,
+      name = _e$target3.name,
+      value = _e$target3.value;
+
+    // Auto-set hours per day when work type changes
+    if (name === 'workType') {
+      var hoursPerDay = value === 'full-time' ? 8 : value === 'part-time' ? 4 : 1;
+      setWorkPreferences(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          workType: value,
+          hoursPerDay: hoursPerDay
+        });
+      });
+    } else {
+      setWorkPreferences(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+      });
+    }
+  };
+  var handleWorkingDayToggle = function handleWorkingDayToggle(day) {
+    setWorkPreferences(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        preferredWorkingDays: prev.preferredWorkingDays.includes(day) ? prev.preferredWorkingDays.filter(function (d) {
+          return d !== day;
+        }) : [].concat(_toConsumableArray(prev.preferredWorkingDays), [day])
+      });
     });
   };
   var togglePasswordVisibility = function togglePasswordVisibility(field) {
@@ -209587,6 +210259,682 @@ var MyProfile = function MyProfile() {
       confirmPassword: ""
     });
   };
+  var handleEditWorkPreferences = function handleEditWorkPreferences() {
+    setIsEditingWorkPreferences(true);
+  };
+  var handleCancelWorkPreferencesEdit = /*#__PURE__*/function () {
+    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8() {
+      return _regenerator().w(function (_context8) {
+        while (1) switch (_context8.n) {
+          case 0:
+            setIsEditingWorkPreferences(false);
+            // Reload work preferences from server
+            if (!(user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1)) {
+              _context8.n = 1;
+              break;
+            }
+            _context8.n = 1;
+            return fetchWorkerProfile(user.id);
+          case 1:
+            return _context8.a(2);
+        }
+      }, _callee8);
+    }));
+    return function handleCancelWorkPreferencesEdit() {
+      return _ref8.apply(this, arguments);
+    };
+  }();
+  var handleEditSkills = function handleEditSkills() {
+    setIsEditingSkills(true);
+  };
+  var handleCancelSkillsEdit = /*#__PURE__*/function () {
+    var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9() {
+      return _regenerator().w(function (_context9) {
+        while (1) switch (_context9.n) {
+          case 0:
+            setIsEditingSkills(false);
+            // Reload skills from server
+            if (!(user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1)) {
+              _context9.n = 1;
+              break;
+            }
+            _context9.n = 1;
+            return fetchWorkerProfile(user.id);
+          case 1:
+            return _context9.a(2);
+        }
+      }, _callee9);
+    }));
+    return function handleCancelSkillsEdit() {
+      return _ref9.apply(this, arguments);
+    };
+  }();
+  var handleSaveIndividualSkill = /*#__PURE__*/function () {
+    var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(skillType, skillData) {
+      var token, primarySkillsData, additionalSkillsData, requestData, response, errorData, _t8;
+      return _regenerator().w(function (_context0) {
+        while (1) switch (_context0.p = _context0.n) {
+          case 0:
+            setIsLoading(true);
+            _context0.p = 1;
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context0.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update skills");
+            return _context0.a(2);
+          case 2:
+            // Only include skills that have actual data
+            primarySkillsData = workerSkills.primary_skills.filter(function (skill) {
+              return skill && skill.id && skill.skill_name && skill.skill_name.trim() !== '';
+            }).map(function (skill) {
+              return {
+                skill_id: skill.id,
+                skill_name: skill.skill_name,
+                sub_skills: skill.sub_skills || [],
+                experience: skill.experience || ''
+              };
+            });
+            additionalSkillsData = workerSkills.additional_skills.filter(function (skill) {
+              return skill && skill.id && skill.skill_name && skill.skill_name.trim() !== '';
+            }).map(function (skill) {
+              return {
+                skill_id: skill.id,
+                skill_name: skill.skill_name,
+                sub_skills: skill.sub_skills || [],
+                experience: skill.experience || ''
+              };
+            });
+            requestData = {
+              skills_id: {
+                primary_skills: primarySkillsData,
+                additional_skills: additionalSkillsData
+              }
+            };
+            console.log('Sending skills data:', requestData);
+            console.log('Primary skills count:', primarySkillsData.length);
+            console.log('Additional skills count:', additionalSkillsData.length);
+            console.log('Current workerSkills state:', workerSkills);
+            _context0.n = 3;
+            return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/skills"), {
+              method: "PUT",
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer ".concat(token)
+              },
+              body: JSON.stringify(requestData)
+            });
+          case 3:
+            response = _context0.v;
+            if (!response.ok) {
+              _context0.n = 5;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("".concat(skillType, " skill saved successfully!"));
+            // Refresh data immediately
+            _context0.n = 4;
+            return fetchWorkerProfile(user.id);
+          case 4:
+            // Dispatch event for other components
+            window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
+
+            // Show the skill items immediately after saving
+            // The skill items will be displayed because the data is refreshed
+            _context0.n = 7;
+            break;
+          case 5:
+            _context0.n = 6;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 6:
+            errorData = _context0.v;
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to save ".concat(skillType, " skill: ").concat(errorData.message || 'Please try again.'));
+          case 7:
+            _context0.n = 9;
+            break;
+          case 8:
+            _context0.p = 8;
+            _t8 = _context0.v;
+            console.error("".concat(skillType, " skill save error:"), _t8);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while saving ".concat(skillType, " skill. Please check your connection."));
+          case 9:
+            _context0.p = 9;
+            setIsLoading(false);
+            return _context0.f(9);
+          case 10:
+            return _context0.a(2);
+        }
+      }, _callee0, null, [[1, 8, 9, 10]]);
+    }));
+    return function handleSaveIndividualSkill(_x4, _x5) {
+      return _ref0.apply(this, arguments);
+    };
+  }();
+  var handleSkillsSubmit = /*#__PURE__*/function () {
+    var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1() {
+      var token, primarySkillsData, additionalSkillsData, requestData, response, errorData, _t9;
+      return _regenerator().w(function (_context1) {
+        while (1) switch (_context1.p = _context1.n) {
+          case 0:
+            if (!(!workerSkills.primary_skills || workerSkills.primary_skills.length === 0)) {
+              _context1.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please select a primary skill");
+            return _context1.a(2);
+          case 1:
+            setIsLoading(true);
+            _context1.p = 2;
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context1.n = 3;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update skills");
+            return _context1.a(2);
+          case 3:
+            // Only include skills that have actual data
+            primarySkillsData = workerSkills.primary_skills.filter(function (skill) {
+              return skill && skill.id && skill.skill_name && skill.skill_name.trim() !== '';
+            }).map(function (skill) {
+              return {
+                skill_id: skill.id,
+                skill_name: skill.skill_name,
+                sub_skills: skill.sub_skills || [],
+                experience: skill.experience || ''
+              };
+            });
+            additionalSkillsData = workerSkills.additional_skills.filter(function (skill) {
+              return skill && skill.id && skill.skill_name && skill.skill_name.trim() !== '';
+            }).map(function (skill) {
+              return {
+                skill_id: skill.id,
+                skill_name: skill.skill_name,
+                sub_skills: skill.sub_skills || [],
+                experience: skill.experience || ''
+              };
+            });
+            requestData = {
+              skills_id: {
+                primary_skills: primarySkillsData,
+                additional_skills: additionalSkillsData
+              }
+            };
+            console.log('Sending skills data (handleSkillsSubmit):', requestData);
+            _context1.n = 4;
+            return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/skills"), {
+              method: "PUT",
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer ".concat(token)
+              },
+              body: JSON.stringify(requestData)
+            });
+          case 4:
+            response = _context1.v;
+            if (!response.ok) {
+              _context1.n = 6;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Skills updated successfully!");
+            setIsEditingSkills(false);
+            // Refresh data immediately
+            _context1.n = 5;
+            return fetchWorkerProfile(user.id);
+          case 5:
+            // Dispatch event for other components
+            window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
+            _context1.n = 8;
+            break;
+          case 6:
+            _context1.n = 7;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 7:
+            errorData = _context1.v;
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update skills: ".concat(errorData.message || 'Please try again.'));
+          case 8:
+            _context1.n = 10;
+            break;
+          case 9:
+            _context1.p = 9;
+            _t9 = _context1.v;
+            console.error("Skills update error:", _t9);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating skills. Please check your connection.");
+          case 10:
+            _context1.p = 10;
+            setIsLoading(false);
+            return _context1.f(10);
+          case 11:
+            return _context1.a(2);
+        }
+      }, _callee1, null, [[2, 9, 10, 11]]);
+    }));
+    return function handleSkillsSubmit() {
+      return _ref1.apply(this, arguments);
+    };
+  }();
+  var handlePrimarySkillChange = function handlePrimarySkillChange(e) {
+    var skillId = e.target.value;
+    var selectedSkill = availableSkills.find(function (skill) {
+      return skill.id === parseInt(skillId);
+    });
+    console.log('Selected skill for primary:', selectedSkill);
+    console.log('Available skills:', availableSkills);
+    if (selectedSkill) {
+      var skillName = selectedSkill.name || selectedSkill.skill_name;
+      console.log('Skill name:', skillName);
+      setWorkerSkills(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          primary_skills: [{
+            id: selectedSkill.id,
+            skill_name: skillName,
+            sub_skills: [],
+            experience: ''
+          }]
+        });
+      });
+    }
+  };
+  var handleSkillExperienceChange = function handleSkillExperienceChange(skillId, experience) {
+    var isPrimary = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    setWorkerSkills(function (prev) {
+      if (isPrimary) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          primary_skills: prev.primary_skills.map(function (skill) {
+            return skill.id === skillId ? _objectSpread(_objectSpread({}, skill), {}, {
+              experience: experience
+            }) : skill;
+          })
+        });
+      } else {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          additional_skills: prev.additional_skills.map(function (skill) {
+            return skill.id === skillId ? _objectSpread(_objectSpread({}, skill), {}, {
+              experience: experience
+            }) : skill;
+          })
+        });
+      }
+    });
+  };
+  var handleSubSkillAdd = function handleSubSkillAdd(skillId, subSkill) {
+    var isPrimary = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    if (!subSkill.trim()) return;
+    setWorkerSkills(function (prev) {
+      if (isPrimary) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          primary_skills: prev.primary_skills.map(function (skill) {
+            return skill.id === skillId ? _objectSpread(_objectSpread({}, skill), {}, {
+              sub_skills: [].concat(_toConsumableArray(skill.sub_skills || []), [subSkill.trim()])
+            }) : skill;
+          })
+        });
+      } else {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          additional_skills: prev.additional_skills.map(function (skill) {
+            return skill.id === skillId ? _objectSpread(_objectSpread({}, skill), {}, {
+              sub_skills: [].concat(_toConsumableArray(skill.sub_skills || []), [subSkill.trim()])
+            }) : skill;
+          })
+        });
+      }
+    });
+  };
+  var handleSubSkillRemove = function handleSubSkillRemove(skillId, subSkillToRemove) {
+    var isPrimary = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    setWorkerSkills(function (prev) {
+      if (isPrimary) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          primary_skills: prev.primary_skills.map(function (skill) {
+            return skill.id === skillId ? _objectSpread(_objectSpread({}, skill), {}, {
+              sub_skills: (skill.sub_skills || []).filter(function (sub) {
+                return sub !== subSkillToRemove;
+              })
+            }) : skill;
+          })
+        });
+      } else {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          additional_skills: prev.additional_skills.map(function (skill) {
+            return skill.id === skillId ? _objectSpread(_objectSpread({}, skill), {}, {
+              sub_skills: (skill.sub_skills || []).filter(function (sub) {
+                return sub !== subSkillToRemove;
+              })
+            }) : skill;
+          })
+        });
+      }
+    });
+  };
+  var handleRemoveAdditionalSkill = function handleRemoveAdditionalSkill() {
+    setWorkerSkills(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        additional_skills: []
+      });
+    });
+  };
+  var handleEditCredentials = function handleEditCredentials() {
+    setIsEditingCredentials(true);
+  };
+  var handleCancelCredentialsEdit = /*#__PURE__*/function () {
+    var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee10() {
+      return _regenerator().w(function (_context10) {
+        while (1) switch (_context10.n) {
+          case 0:
+            setIsEditingCredentials(false);
+            // Reload credentials from server
+            if (!(user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1)) {
+              _context10.n = 1;
+              break;
+            }
+            _context10.n = 1;
+            return fetchWorkerProfile(user.id);
+          case 1:
+            return _context10.a(2);
+        }
+      }, _callee10);
+    }));
+    return function handleCancelCredentialsEdit() {
+      return _ref10.apply(this, arguments);
+    };
+  }();
+  var handleRemoveCredential = /*#__PURE__*/function () {
+    var _ref11 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee11(index) {
+      var updatedCredentials, token, formData, response, errorData, _t0;
+      return _regenerator().w(function (_context11) {
+        while (1) switch (_context11.p = _context11.n) {
+          case 0:
+            updatedCredentials = workerCredentials.filter(function (_, i) {
+              return i !== index;
+            });
+            setWorkerCredentials(updatedCredentials);
+
+            // Auto-save the changes to backend
+            _context11.p = 1;
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context11.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to delete credentials");
+            return _context11.a(2);
+          case 2:
+            formData = new FormData();
+            formData.append('user_id', user.id);
+
+            // Send updated credentials (without the deleted one)
+            if (updatedCredentials.length === 0) {
+              formData.append('credentials', JSON.stringify([]));
+            } else {
+              updatedCredentials.forEach(function (cred, credIndex) {
+                formData.append("credentials[".concat(credIndex, "][credentials_name]"), cred.credentials_name);
+                if (cred.credentials_photo instanceof File) {
+                  formData.append("credentials[".concat(credIndex, "][credentials_photo]"), cred.credentials_photo);
+                } else if (typeof cred.credentials_photo === 'string' && cred.credentials_photo.trim() !== '') {
+                  formData.append("credentials[".concat(credIndex, "][existing_photo]"), cred.credentials_photo);
+                }
+              });
+            }
+            _context11.n = 3;
+            return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/update-credentials"), {
+              method: "POST",
+              headers: {
+                'Authorization': "Bearer ".concat(token)
+              },
+              body: formData
+            });
+          case 3:
+            response = _context11.v;
+            if (!response.ok) {
+              _context11.n = 5;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Credential deleted successfully!");
+            // Refresh data to get updated credentials from backend
+            _context11.n = 4;
+            return fetchWorkerProfile(user.id);
+          case 4:
+            _context11.n = 7;
+            break;
+          case 5:
+            _context11.n = 6;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 6:
+            errorData = _context11.v;
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to delete credential: ".concat(errorData.message || errorData.error || 'Please try again.'));
+            // Revert the change if backend save failed
+            setWorkerCredentials(workerCredentials);
+          case 7:
+            _context11.n = 9;
+            break;
+          case 8:
+            _context11.p = 8;
+            _t0 = _context11.v;
+            console.error("Credential deletion error:", _t0);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while deleting the credential. Please check your connection.");
+            // Revert the change if backend save failed
+            setWorkerCredentials(workerCredentials);
+          case 9:
+            return _context11.a(2);
+        }
+      }, _callee11, null, [[1, 8]]);
+    }));
+    return function handleRemoveCredential(_x6) {
+      return _ref11.apply(this, arguments);
+    };
+  }();
+  var handleNewCredentialChange = function handleNewCredentialChange(e, field) {
+    if (field === 'credentials_photo') {
+      var file = e.target.files[0];
+      if (file) {
+        // Validate file type
+        var validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg'];
+        if (!validTypes.includes(file.type)) {
+          antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File must be PDF, Word, JPG, or PNG');
+          return;
+        }
+        // Validate file size (2MB)
+        if (file.size > 2 * 1024 * 1024) {
+          antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File size must not exceed 2MB');
+          return;
+        }
+        setNewCredential(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            credentials_photo: file
+          });
+        });
+      }
+    } else {
+      setNewCredential(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, e.target.value));
+      });
+    }
+  };
+  var handleAddCredential = function handleAddCredential() {
+    if (!newCredential.credentials_name.trim()) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please enter a credential name');
+      return;
+    }
+    if (!newCredential.credentials_photo) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please upload a credential document');
+      return;
+    }
+    console.log('Adding credential:', {
+      name: newCredential.credentials_name,
+      photo: newCredential.credentials_photo,
+      isFile: newCredential.credentials_photo instanceof File,
+      type: _typeof(newCredential.credentials_photo)
+    });
+    setWorkerCredentials(function (prev) {
+      return [].concat(_toConsumableArray(prev), [_objectSpread({}, newCredential)]);
+    });
+    setNewCredential({
+      credentials_name: '',
+      credentials_photo: null
+    });
+    setShowAddCredentialForm(false);
+    if (credentialFileInputRef.current) {
+      credentialFileInputRef.current.value = '';
+    }
+    antd__WEBPACK_IMPORTED_MODULE_1__["default"].success('Credential added! Click "Save Changes" to save.');
+  };
+  var handleCredentialsSubmit = /*#__PURE__*/function () {
+    var _ref12 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12() {
+      var token, formData, _iterator, _step, pair, response, responseData, errorData, _t1;
+      return _regenerator().w(function (_context12) {
+        while (1) switch (_context12.p = _context12.n) {
+          case 0:
+            setIsLoading(true);
+            _context12.p = 1;
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context12.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update credentials");
+            return _context12.a(2);
+          case 2:
+            if (!(workerCredentials.length === 0)) {
+              _context12.n = 3;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please add at least one credential before saving");
+            setIsLoading(false);
+            return _context12.a(2);
+          case 3:
+            if (!(newCredential.credentials_name || newCredential.credentials_photo)) {
+              _context12.n = 4;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please click 'Add to List' to add the credential before saving");
+            setIsLoading(false);
+            return _context12.a(2);
+          case 4:
+            // Update credentials via API using complete-profile endpoint
+            formData = new FormData();
+            formData.append('user_id', user.id);
+
+            // Add credentials
+            if (workerCredentials.length > 0) {
+              // Add credentials as individual form fields
+              workerCredentials.forEach(function (cred, index) {
+                formData.append("credentials[".concat(index, "][credentials_name]"), cred.credentials_name);
+                if (cred.credentials_photo instanceof File) {
+                  // New file upload
+                  formData.append("credentials[".concat(index, "][credentials_photo]"), cred.credentials_photo);
+                  console.log("Adding new file for credential ".concat(index, ":"), cred.credentials_photo.name);
+                } else if (typeof cred.credentials_photo === 'string' && cred.credentials_photo.trim() !== '') {
+                  // Existing file path - keep the existing file
+                  formData.append("credentials[".concat(index, "][existing_photo]"), cred.credentials_photo);
+                  console.log("Keeping existing file for credential ".concat(index, ":"), cred.credentials_photo);
+                } else {
+                  // No file provided - this shouldn't happen if validation is working
+                  console.warn("No file provided for credential ".concat(index));
+                }
+              });
+
+              // Also add a JSON version for debugging
+              formData.append('credentials_json', JSON.stringify(workerCredentials));
+            }
+            console.log('Sending credentials data:', workerCredentials);
+            console.log('FormData contents:');
+            _iterator = _createForOfIteratorHelper(formData.entries());
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                pair = _step.value;
+                console.log(pair[0] + ': ' + pair[1]);
+              }
+
+              // Debug: Check each credential's file type
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+            workerCredentials.forEach(function (cred, index) {
+              console.log("Credential ".concat(index, ":"), {
+                name: cred.credentials_name,
+                photo: cred.credentials_photo,
+                isFile: cred.credentials_photo instanceof File,
+                type: _typeof(cred.credentials_photo)
+              });
+            });
+            _context12.n = 5;
+            return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/update-credentials"), {
+              method: "POST",
+              headers: {
+                'Authorization': "Bearer ".concat(token)
+              },
+              body: formData
+            });
+          case 5:
+            response = _context12.v;
+            if (!response.ok) {
+              _context12.n = 8;
+              break;
+            }
+            _context12.n = 6;
+            return response.json();
+          case 6:
+            responseData = _context12.v;
+            console.log('Credentials update response:', responseData);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Credentials updated successfully!");
+            setIsEditingCredentials(false);
+            setNewCredential({
+              credentials_name: '',
+              credentials_photo: null
+            });
+
+            // Clear the file input
+            if (credentialFileInputRef.current) {
+              credentialFileInputRef.current.value = '';
+            }
+
+            // Refresh data immediately to get updated credentials from backend
+            console.log('Refreshing worker profile after credentials update...');
+            _context12.n = 7;
+            return fetchWorkerProfile(user.id);
+          case 7:
+            // Dispatch event for other components
+            window.dispatchEvent(new CustomEvent('workerCredentialsUpdated'));
+            _context12.n = 10;
+            break;
+          case 8:
+            _context12.n = 9;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 9:
+            errorData = _context12.v;
+            console.error('Credentials update failed:', response.status, response.statusText, errorData);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update credentials: ".concat(errorData.message || errorData.error || 'Please try again.'));
+          case 10:
+            _context12.n = 12;
+            break;
+          case 11:
+            _context12.p = 11;
+            _t1 = _context12.v;
+            console.error("Credentials update error:", _t1);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating credentials. Please check your connection.");
+          case 12:
+            _context12.p = 12;
+            setIsLoading(false);
+            return _context12.f(12);
+          case 13:
+            return _context12.a(2);
+        }
+      }, _callee12, null, [[1, 11, 12, 13]]);
+    }));
+    return function handleCredentialsSubmit() {
+      return _ref12.apply(this, arguments);
+    };
+  }();
   var handleProfileImageChange = function handleProfileImageChange(e) {
     var file = e.target.files[0];
     if (file) {
@@ -209661,39 +211009,39 @@ var MyProfile = function MyProfile() {
     setShowImageModal(false);
   };
   var handleProfileSubmit = /*#__PURE__*/function () {
-    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(e) {
-      var emailRegex, token, requestData, body, contentType, formData, headers, method, url, response, responseData, updatedUser, currentUserData, currentUser, finalUserData, localStorageStructure, errorData, _t6, _t7, _t8;
-      return _regenerator().w(function (_context6) {
-        while (1) switch (_context6.p = _context6.n) {
+    var _ref13 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee13(e) {
+      var emailRegex, token, requestData, body, contentType, formData, headers, method, url, response, responseData, updatedUser, currentUserData, currentUser, finalUserData, localStorageStructure, errorData, _t10, _t11, _t12;
+      return _regenerator().w(function (_context13) {
+        while (1) switch (_context13.p = _context13.n) {
           case 0:
             e.preventDefault();
 
             // Validate required fields
             if (!(!profileData.firstName.trim() || !profileData.lastName.trim() || !profileData.email.trim())) {
-              _context6.n = 1;
+              _context13.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all required fields (First Name, Last Name, Email)");
-            return _context6.a(2);
+            return _context13.a(2);
           case 1:
             // Validate email format
             emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (emailRegex.test(profileData.email)) {
-              _context6.n = 2;
+              _context13.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please enter a valid email address");
-            return _context6.a(2);
+            return _context13.a(2);
           case 2:
             setIsLoading(true);
-            _context6.p = 3;
+            _context13.p = 3;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context6.n = 4;
+              _context13.n = 4;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update your profile");
-            return _context6.a(2);
+            return _context13.a(2);
           case 4:
             // Prepare the request data
             requestData = {
@@ -209759,23 +211107,23 @@ var MyProfile = function MyProfile() {
               body.append('_method', 'PUT');
               method = "POST";
             }
-            _context6.n = 5;
+            _context13.n = 5;
             return fetch(url, {
               method: method,
               headers: headers,
               body: body
             });
           case 5:
-            response = _context6.v;
+            response = _context13.v;
             if (!response.ok) {
-              _context6.n = 10;
+              _context13.n = 10;
               break;
             }
-            _context6.p = 6;
-            _context6.n = 7;
+            _context13.p = 6;
+            _context13.n = 7;
             return response.json();
           case 7:
-            responseData = _context6.v;
+            responseData = _context13.v;
             updatedUser = responseData.user; // Extract user data from response
             // Preserve role_id from current user
             currentUserData = JSON.parse(localStorage.getItem("user") || '{}');
@@ -209807,100 +211155,100 @@ var MyProfile = function MyProfile() {
               });
             });
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Profile updated successfully!");
-            _context6.n = 9;
+            _context13.n = 9;
             break;
           case 8:
-            _context6.p = 8;
-            _t6 = _context6.v;
-            console.error("JSON parsing error:", _t6);
+            _context13.p = 8;
+            _t10 = _context13.v;
+            console.error("JSON parsing error:", _t10);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].warning("Profile updated but there was an issue with the response format.");
             setIsEditingProfile(false);
           case 9:
-            _context6.n = 13;
+            _context13.n = 13;
             break;
           case 10:
-            _context6.p = 10;
-            _context6.n = 11;
+            _context13.p = 10;
+            _context13.n = 11;
             return response.json();
           case 11:
-            errorData = _context6.v;
+            errorData = _context13.v;
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update profile: ".concat(errorData.message || 'Please try again.'));
-            _context6.n = 13;
+            _context13.n = 13;
             break;
           case 12:
-            _context6.p = 12;
-            _t7 = _context6.v;
-            console.error("Error parsing error response:", _t7);
+            _context13.p = 12;
+            _t11 = _context13.v;
+            console.error("Error parsing error response:", _t11);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update profile: Server returned ".concat(response.status, " ").concat(response.statusText));
           case 13:
-            _context6.n = 15;
+            _context13.n = 15;
             break;
           case 14:
-            _context6.p = 14;
-            _t8 = _context6.v;
-            console.error("Profile update error:", _t8);
+            _context13.p = 14;
+            _t12 = _context13.v;
+            console.error("Profile update error:", _t12);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating your profile. Please check your connection.");
           case 15:
-            _context6.p = 15;
+            _context13.p = 15;
             setIsLoading(false);
-            return _context6.f(15);
+            return _context13.f(15);
           case 16:
-            return _context6.a(2);
+            return _context13.a(2);
         }
-      }, _callee6, null, [[10, 12], [6, 8], [3, 14, 15, 16]]);
+      }, _callee13, null, [[10, 12], [6, 8], [3, 14, 15, 16]]);
     }));
-    return function handleProfileSubmit(_x3) {
-      return _ref6.apply(this, arguments);
+    return function handleProfileSubmit(_x7) {
+      return _ref13.apply(this, arguments);
     };
   }();
   var handlePasswordSubmit = /*#__PURE__*/function () {
-    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(e) {
-      var token, response, errorData, _t9, _t0;
-      return _regenerator().w(function (_context7) {
-        while (1) switch (_context7.p = _context7.n) {
+    var _ref14 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee14(e) {
+      var token, response, errorData, _t13, _t14;
+      return _regenerator().w(function (_context14) {
+        while (1) switch (_context14.p = _context14.n) {
           case 0:
             e.preventDefault();
 
             // Validate required fields
             if (!(!passwordData.currentPassword.trim() || !passwordData.newPassword.trim() || !passwordData.confirmPassword.trim())) {
-              _context7.n = 1;
+              _context14.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all password fields");
-            return _context7.a(2);
+            return _context14.a(2);
           case 1:
             if (!(passwordData.newPassword !== passwordData.confirmPassword)) {
-              _context7.n = 2;
+              _context14.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("New passwords do not match!");
-            return _context7.a(2);
+            return _context14.a(2);
           case 2:
             if (!(passwordData.newPassword.length < 6)) {
-              _context7.n = 3;
+              _context14.n = 3;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("New password must be at least 6 characters long");
-            return _context7.a(2);
+            return _context14.a(2);
           case 3:
             if (!(passwordData.currentPassword === passwordData.newPassword)) {
-              _context7.n = 4;
+              _context14.n = 4;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("New password must be different from current password");
-            return _context7.a(2);
+            return _context14.a(2);
           case 4:
             setIsLoading(true);
-            _context7.p = 5;
+            _context14.p = 5;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context7.n = 6;
+              _context14.n = 6;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to change your password");
-            return _context7.a(2);
+            return _context14.a(2);
           case 6:
-            _context7.n = 7;
+            _context14.n = 7;
             return fetch('http://127.0.0.1:8000/api/change-password', {
               method: "POST",
               headers: {
@@ -209914,9 +211262,9 @@ var MyProfile = function MyProfile() {
               })
             });
           case 7:
-            response = _context7.v;
+            response = _context14.v;
             if (!response.ok) {
-              _context7.n = 8;
+              _context14.n = 8;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Password changed successfully!");
@@ -209926,59 +211274,145 @@ var MyProfile = function MyProfile() {
               confirmPassword: ""
             });
             setIsEditingPassword(false);
-            _context7.n = 11;
+            _context14.n = 11;
             break;
           case 8:
-            _context7.p = 8;
-            _context7.n = 9;
+            _context14.p = 8;
+            _context14.n = 9;
             return response.json();
           case 9:
-            errorData = _context7.v;
+            errorData = _context14.v;
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to change password: ".concat(errorData.error || 'Please try again.'));
-            _context7.n = 11;
+            _context14.n = 11;
             break;
           case 10:
-            _context7.p = 10;
-            _t9 = _context7.v;
-            console.error("Error parsing error response:", _t9);
+            _context14.p = 10;
+            _t13 = _context14.v;
+            console.error("Error parsing error response:", _t13);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to change password: Server returned ".concat(response.status, " ").concat(response.statusText));
           case 11:
-            _context7.n = 13;
+            _context14.n = 13;
             break;
           case 12:
-            _context7.p = 12;
-            _t0 = _context7.v;
-            console.error("Password change error:", _t0);
+            _context14.p = 12;
+            _t14 = _context14.v;
+            console.error("Password change error:", _t14);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while changing your password. Please check your connection.");
           case 13:
-            _context7.p = 13;
+            _context14.p = 13;
             setIsLoading(false);
-            return _context7.f(13);
+            return _context14.f(13);
           case 14:
-            return _context7.a(2);
+            return _context14.a(2);
         }
-      }, _callee7, null, [[8, 10], [5, 12, 13, 14]]);
+      }, _callee14, null, [[8, 10], [5, 12, 13, 14]]);
     }));
-    return function handlePasswordSubmit(_x4) {
-      return _ref7.apply(this, arguments);
+    return function handlePasswordSubmit(_x8) {
+      return _ref14.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  var handleWorkPreferencesSubmit = /*#__PURE__*/function () {
+    var _ref15 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15(e) {
+      var token, response, errorData, _t15, _t16;
+      return _regenerator().w(function (_context15) {
+        while (1) switch (_context15.p = _context15.n) {
+          case 0:
+            e.preventDefault();
+
+            // Validate required fields
+            if (!(!workPreferences.workType || !workPreferences.hoursPerDay || workPreferences.preferredWorkingDays.length === 0)) {
+              _context15.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all required work preference fields");
+            return _context15.a(2);
+          case 1:
+            setIsLoading(true);
+            _context15.p = 2;
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context15.n = 3;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update work preferences");
+            return _context15.a(2);
+          case 3:
+            _context15.n = 4;
+            return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/preferences"), {
+              method: "PUT",
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer ".concat(token)
+              },
+              body: JSON.stringify({
+                work_type: workPreferences.workType,
+                hours_per_day: workPreferences.hoursPerDay,
+                monthly_salary: workPreferences.monthlySalary,
+                preferred_working_hours: JSON.stringify(workPreferences.preferredWorkingDays),
+                bio: workPreferences.bio
+              })
+            });
+          case 4:
+            response = _context15.v;
+            if (!response.ok) {
+              _context15.n = 5;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Work preferences updated successfully!");
+            setIsEditingWorkPreferences(false);
+            _context15.n = 8;
+            break;
+          case 5:
+            _context15.p = 5;
+            _context15.n = 6;
+            return response.json();
+          case 6:
+            errorData = _context15.v;
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update work preferences: ".concat(errorData.message || 'Please try again.'));
+            _context15.n = 8;
+            break;
+          case 7:
+            _context15.p = 7;
+            _t15 = _context15.v;
+            console.error("Error parsing error response:", _t15);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update work preferences: Server returned ".concat(response.status, " ").concat(response.statusText));
+          case 8:
+            _context15.n = 10;
+            break;
+          case 9:
+            _context15.p = 9;
+            _t16 = _context15.v;
+            console.error("Work preferences update error:", _t16);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating work preferences. Please check your connection.");
+          case 10:
+            _context15.p = 10;
+            setIsLoading(false);
+            return _context15.f(10);
+          case 11:
+            return _context15.a(2);
+        }
+      }, _callee15, null, [[5, 7], [2, 9, 10, 11]]);
+    }));
+    return function handleWorkPreferencesSubmit(_x9) {
+      return _ref15.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "my-profile-container",
-    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "loading-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "spinner"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "profile-card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "profile-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "avatar-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "avatar-placeholder ".concat(!profileImagePreview && (!(user !== null && user !== void 0 && user.profile_img) || (user === null || user === void 0 ? void 0 : user.profile_img) === 'img/defaultpfp.jpg') ? 'no-image' : ''),
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
               src: profileImagePreview || (user !== null && user !== void 0 && user.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? "http://127.0.0.1:8000/storage/".concat(user.profile_img, "?v=").concat(Date.now()) : "img/defaultpfp.jpg"),
               alt: "Profile",
               onError: function onError(e) {
@@ -209986,7 +211420,7 @@ var MyProfile = function MyProfile() {
                 e.target.parentElement.classList.add('no-image');
               }
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             type: "file",
             accept: "image/jpeg,image/png,image/jpg",
             onChange: handleProfileImageChange,
@@ -209994,102 +211428,102 @@ var MyProfile = function MyProfile() {
               display: 'none'
             },
             ref: fileInputRef
-          }), isEditingProfile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          }), isEditingProfile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "camera-icon",
             onClick: toggleProfileDropdown,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               viewBox: "0 0 24 24",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                 d: "M12 15.2c-2.35 0-4.27-1.92-4.27-4.27s1.92-4.27 4.27-4.27 4.27 1.92 4.27 4.27-1.92 4.27-4.27 4.27zM16 3.33c-1.11 0-2.08.56-2.65 1.42L12.71 5.5H8c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-11c0-.55-.45-1-1-1h-4.71l-.64-.75c-.57-.86-1.54-1.42-2.65-1.42z"
               })
             })
-          }), isEditingProfile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), isEditingProfile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "profile-dropdown ".concat(showProfileDropdown ? 'show' : ''),
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
               type: "button",
               className: "dropdown-item",
               onClick: handleViewProfile,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                 viewBox: "0 0 24 24",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                   d: "M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
                 })
               }), "View Profile"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
               type: "button",
               className: "dropdown-item",
               onClick: handleChangeProfile,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                 viewBox: "0 0 24 24",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                   d: "M12 15.2c-2.35 0-4.27-1.92-4.27-4.27s1.92-4.27 4.27-4.27 4.27 1.92 4.27 4.27-1.92 4.27-4.27 4.27zM16 3.33c-1.11 0-2.08.56-2.65 1.42L12.71 5.5H8c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-11c0-.55-.45-1-1-1h-4.71l-.64-.75c-.57-.86-1.54-1.42-2.65-1.42z"
                 })
               }), "Change Profile"]
-            }), (profileImagePreview || (user === null || user === void 0 ? void 0 : user.profile_img) && user.profile_img !== 'img/defaultpfp.jpg') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+            }), (profileImagePreview || (user === null || user === void 0 ? void 0 : user.profile_img) && user.profile_img !== 'img/defaultpfp.jpg') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
               type: "button",
               className: "dropdown-item delete-item",
               onClick: handleDeleteProfile,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                 viewBox: "0 0 24 24",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                   d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
                 })
               }), "Delete Profile"]
             })]
           })]
-        }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "rank-display-section",
-          children: workerRank ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: workerRank ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "rank-display",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
               src: "http://127.0.0.1:8000/storage/".concat(workerRank.image),
               alt: "".concat(workerRank.name, " Rank"),
               className: "worker-rank-badge",
               title: "".concat(workerRank.name, " Rank - ").concat(totalPoints.toLocaleString(), " points")
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "rank-progress",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "progress-info",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                   className: "rank-name",
                   children: workerRank.name
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
                   className: "points-text",
                   children: [totalPoints.toLocaleString(), " pts"]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "progress-bar-container",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   className: "progress-bar-fill rank-".concat(workerRank.name.toLowerCase()),
                   style: {
                     width: "".concat(progressPercent, "%")
                   }
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "progress-label",
                 children: workerRank.max_points ? "".concat(totalPoints.toLocaleString(), " / ").concat(workerRank.max_points.toLocaleString()) : "".concat(totalPoints.toLocaleString(), " pts")
               })]
             })]
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "rank-display",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "rank-loading",
               children: "Loading rank..."
             })
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
         onSubmit: handleProfileSubmit,
         className: "profile-form",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "firstName",
               className: "label-up",
               children: "First Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "text",
               id: "firstName",
               name: "firstName",
@@ -210098,13 +211532,13 @@ var MyProfile = function MyProfile() {
               disabled: !isEditingProfile,
               className: isEditingProfile ? 'editing' : ''
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "middleName",
               className: "label-up",
               children: "Middle Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "text",
               id: "middleName",
               name: "middleName",
@@ -210115,15 +211549,15 @@ var MyProfile = function MyProfile() {
               placeholder: "Middle Name"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "lastName",
               className: "label-up",
               children: "Last Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "text",
               id: "lastName",
               name: "lastName",
@@ -210132,39 +211566,39 @@ var MyProfile = function MyProfile() {
               disabled: !isEditingProfile,
               className: isEditingProfile ? 'editing' : ''
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "suffix",
               className: "label-up",
               children: "Suffix"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
               id: "suffix",
               name: "suffix",
               value: profileData.suffix,
               onChange: handleProfileChange,
               disabled: !isEditingProfile,
               className: isEditingProfile ? 'editing' : '',
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "",
                 children: "Select Suffix"
               }), suffixes.map(function (suffix) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                   value: suffix.id,
                   children: suffix.suffix_name
                 }, suffix.id);
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "email",
               className: "label-up",
               children: "Email"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "email",
               id: "email",
               name: "email",
@@ -210173,79 +211607,75 @@ var MyProfile = function MyProfile() {
               disabled: !isEditingProfile,
               className: isEditingProfile ? 'editing' : ''
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "gender",
               className: "label-up",
               children: "Gender"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
               id: "gender",
               name: "gender",
               value: profileData.gender,
               onChange: handleProfileChange,
               disabled: !isEditingProfile,
               className: isEditingProfile ? 'editing' : '',
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "",
                 children: "Select Gender"
               }), genders.map(function (gender) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                   value: gender.id,
                   children: gender.gender_name
                 }, gender.id);
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-actions",
-          children: !isEditingProfile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+          children: !isEditingProfile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             type: "button",
             className: "edit-btn",
             onClick: handleEditProfile,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-              src: "/images/editprof.svg",
-              alt: "Edit",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
               className: "btn-icon"
             }), "Edit Profile"]
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               type: "button",
               className: "edit-btn",
               onClick: handleCancelProfileEdit,
               children: "Cancel"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
               type: "submit",
               className: "save-btn",
               onClick: function onClick(e) {
                 console.log("Save profile button clicked");
                 handleProfileSubmit(e);
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "/images/editprof.svg",
-                alt: "Edit",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
                 className: "btn-icon"
               }), "Save Changes"]
             })]
           })
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "password-card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "card-title",
         children: "Change Password"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
         onSubmit: handlePasswordSubmit,
         className: "password-form",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             htmlFor: "currentPassword",
             children: "Current Password"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "password-input-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: showPasswords.current ? "text" : "password",
               id: "currentPassword",
               name: "currentPassword",
@@ -210254,25 +211684,25 @@ var MyProfile = function MyProfile() {
               disabled: !isEditingPassword,
               className: isEditingPassword ? 'editing' : '',
               placeholder: "Enter current password"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               type: "button",
               className: "eye-btn",
               onClick: function onClick() {
                 return togglePasswordVisibility('current');
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                 className: "fas fa-eye"
               })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             htmlFor: "newPassword",
             children: "New Password"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "password-input-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: showPasswords["new"] ? "text" : "password",
               id: "newPassword",
               name: "newPassword",
@@ -210281,25 +211711,25 @@ var MyProfile = function MyProfile() {
               disabled: !isEditingPassword,
               className: isEditingPassword ? 'editing' : '',
               placeholder: "Enter new password"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               type: "button",
               className: "eye-btn",
               onClick: function onClick() {
                 return togglePasswordVisibility('new');
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                 className: "fas fa-eye"
               })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             htmlFor: "confirmPassword",
             children: "Confirm New Password"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "password-input-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: showPasswords.confirm ? "text" : "password",
               id: "confirmPassword",
               name: "confirmPassword",
@@ -210308,77 +211738,831 @@ var MyProfile = function MyProfile() {
               disabled: !isEditingPassword,
               className: isEditingPassword ? 'editing' : '',
               placeholder: "Confirm new password"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               type: "button",
               className: "eye-btn",
               onClick: function onClick() {
                 return togglePasswordVisibility('confirm');
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                 className: "fas fa-eye"
               })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-actions",
-          children: !isEditingPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+          children: !isEditingPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             type: "button",
             className: "edit-btn",
             onClick: handleEditPassword,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-              src: "/images/editprof.svg",
-              alt: "Edit",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
               className: "btn-icon"
             }), "Edit Password"]
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               type: "button",
               className: "edit-btn",
               onClick: handleCancelPasswordEdit,
               children: "Cancel"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
               type: "submit",
               className: "save-btn",
               onClick: function onClick(e) {
                 console.log("Save password button clicked");
                 handlePasswordSubmit(e);
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "/images/editprof.svg",
-                alt: "Edit",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
                 className: "btn-icon"
               }), "Change Password"]
             })]
           })
         })]
       })]
-    }), showImageModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "work-preferences-card",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        className: "card-title",
+        children: "Work Preferences"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+        onSubmit: handleWorkPreferencesSubmit,
+        className: "work-preferences-form",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "form-row",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "workType",
+              className: "label-up",
+              children: "Work Type"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+              id: "workType",
+              name: "workType",
+              value: workPreferences.workType,
+              onChange: handleWorkPreferencesChange,
+              disabled: !isEditingWorkPreferences,
+              className: isEditingWorkPreferences ? 'editing' : '',
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: "",
+                children: "Select Work Type"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: "part-time",
+                children: "Part-time"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: "full-time",
+                children: "Full-time"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: "one-time",
+                children: "One-time"
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "hoursPerDay",
+              className: "label-up",
+              children: "Hours Per Day"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              type: "number",
+              id: "hoursPerDay",
+              name: "hoursPerDay",
+              value: workPreferences.hoursPerDay,
+              onChange: handleWorkPreferencesChange,
+              disabled: !isEditingWorkPreferences || workPreferences.workType === 'full-time',
+              className: isEditingWorkPreferences ? 'editing' : '',
+              min: "1",
+              max: "24",
+              placeholder: "Hours per day"
+            }), workPreferences.workType === 'full-time' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "form-help",
+              children: "Full-time is automatically set to 8 hours"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "form-row",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "monthlySalary",
+              className: "label-up",
+              children: "Expected Monthly Salary"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              type: "number",
+              id: "monthlySalary",
+              name: "monthlySalary",
+              value: workPreferences.monthlySalary,
+              onChange: handleWorkPreferencesChange,
+              disabled: !isEditingWorkPreferences,
+              className: isEditingWorkPreferences ? 'editing' : '',
+              placeholder: "e.g., 15000",
+              min: "0",
+              step: "100"
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "form-group full-width",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            htmlFor: "preferredWorkingDays",
+            className: "label-up",
+            children: "Preferred Working Days"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "working-days-container",
+            children: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map(function (day) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+                className: "day-checkbox ".concat(!isEditingWorkPreferences ? 'disabled' : ''),
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "checkbox",
+                  checked: workPreferences.preferredWorkingDays.includes(day),
+                  onChange: function onChange() {
+                    return handleWorkingDayToggle(day);
+                  },
+                  disabled: !isEditingWorkPreferences
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "day-label",
+                  children: day.charAt(0).toUpperCase() + day.slice(1)
+                })]
+              }, day);
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "form-group full-width",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            htmlFor: "bio",
+            className: "label-up",
+            children: "Professional Bio"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
+            id: "bio",
+            name: "bio",
+            value: workPreferences.bio,
+            onChange: handleWorkPreferencesChange,
+            disabled: !isEditingWorkPreferences,
+            className: isEditingWorkPreferences ? 'editing' : '',
+            rows: 4,
+            maxLength: 500,
+            placeholder: "Tell potential employers about yourself..."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "character-count",
+            children: [workPreferences.bio.length, "/500"]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "form-actions",
+          children: !isEditingWorkPreferences ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            type: "button",
+            className: "worker-prefs-edit-btn",
+            onClick: handleEditWorkPreferences,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
+              className: "btn-icon"
+            }), "Edit Preferences"]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "button",
+              className: "worker-prefs-cancel-btn",
+              onClick: handleCancelWorkPreferencesEdit,
+              children: "Cancel"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+              type: "submit",
+              className: "worker-prefs-save-btn",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
+                className: "btn-icon"
+              }), "Save Changes"]
+            })]
+          })
+        })]
+      })]
+    }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "worker-skills-card",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        className: "card-title",
+        children: "Skills & Experience"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "skills-display",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "skills-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+            className: "section-subtitle",
+            children: "Primary Skill"
+          }), isEditingSkills ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "skill-editing-form",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "primarySkillSelect",
+                children: "Select Primary Skill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                id: "primarySkillSelect",
+                value: ((_workerSkills$primary = workerSkills.primary_skills[0]) === null || _workerSkills$primary === void 0 ? void 0 : _workerSkills$primary.id) || '',
+                onChange: handlePrimarySkillChange,
+                className: "form-input",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "",
+                  children: "Select Primary Skill"
+                }), availableSkills.map(function (skill) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: skill.id,
+                    children: skill.name || skill.skill_name
+                  }, skill.id);
+                })]
+              })]
+            }), workerSkills.primary_skills[0] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "skill-details-editing",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  htmlFor: "primaryExperience",
+                  children: "Experience Level"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                  id: "primaryExperience",
+                  value: workerSkills.primary_skills[0].experience || '',
+                  onChange: function onChange(e) {
+                    return handleSkillExperienceChange(workerSkills.primary_skills[0].id, e.target.value, true);
+                  },
+                  className: "form-input",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "",
+                    children: "Select Experience"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "Beginner (0-1 years)",
+                    children: "Beginner (0-1 years)"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "Intermediate (1-3 years)",
+                    children: "Intermediate (1-3 years)"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "Advanced (3-5 years)",
+                    children: "Advanced (3-5 years)"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "Expert (5+ years)",
+                    children: "Expert (5+ years)"
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  htmlFor: "primarySubSkills",
+                  children: "Select Sub-skills"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  id: "primarySubSkills",
+                  className: "sub-skills-checkbox-grid",
+                  children: (_ref16 = ((_availableSkills$find = availableSkills.find(function (skill) {
+                    return skill.id === workerSkills.primary_skills[0].id;
+                  })) === null || _availableSkills$find === void 0 ? void 0 : _availableSkills$find.sub_skills) || []) === null || _ref16 === void 0 ? void 0 : _ref16.map(function (subSkill, index) {
+                    var _workerSkills$primary2;
+                    var isSelected = ((_workerSkills$primary2 = workerSkills.primary_skills[0].sub_skills) === null || _workerSkills$primary2 === void 0 ? void 0 : _workerSkills$primary2.includes(subSkill)) || false;
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+                      className: "sub-skill-checkbox-item",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                        type: "checkbox",
+                        checked: isSelected,
+                        onChange: function onChange(e) {
+                          if (e.target.checked) {
+                            handleSubSkillAdd(workerSkills.primary_skills[0].id, subSkill, true);
+                          } else {
+                            handleSubSkillRemove(workerSkills.primary_skills[0].id, subSkill, true);
+                          }
+                        }
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "sub-skill-checkbox-label",
+                        children: subSkill
+                      })]
+                    }, index);
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "sub-skills-tags",
+                  children: (_workerSkills$primary3 = workerSkills.primary_skills[0].sub_skills) === null || _workerSkills$primary3 === void 0 ? void 0 : _workerSkills$primary3.map(function (subSkill, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                      className: "sub-skill-tag",
+                      children: [subSkill, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                        type: "button",
+                        onClick: function onClick() {
+                          return handleSubSkillRemove(workerSkills.primary_skills[0].id, subSkill, true);
+                        },
+                        className: "remove-sub-skill",
+                        children: "\xD7"
+                      })]
+                    }, index);
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "skill-save-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                  type: "button",
+                  className: "cancel-individual-skill-btn",
+                  onClick: function onClick() {
+                    setWorkerSkills(function (prev) {
+                      return _objectSpread(_objectSpread({}, prev), {}, {
+                        primary_skills: []
+                      });
+                    });
+                  },
+                  children: "Cancel"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+                  type: "button",
+                  className: "save-individual-skill-btn",
+                  onClick: function onClick() {
+                    return handleSaveIndividualSkill('Primary', workerSkills.primary_skills[0]);
+                  },
+                  disabled: !((_workerSkills$primary4 = workerSkills.primary_skills[0]) !== null && _workerSkills$primary4 !== void 0 && _workerSkills$primary4.skill_name),
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                    viewBox: "0 0 24 24",
+                    width: "16",
+                    height: "16",
+                    fill: "currentColor",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                      d: "M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"
+                    })
+                  }), "Save Primary Skill"]
+                })]
+              })]
+            })]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: workerSkills.primary_skills && workerSkills.primary_skills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "skills-list",
+              children: workerSkills.primary_skills.map(function (skill, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "skill-item primary-skill",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "skill-header",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                      className: "skill-name",
+                      children: skill.skill_name
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    className: "skill-details-row",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "sub-skills",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "sub-skills-label",
+                        children: "Sub-skills:"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "sub-skills-tags",
+                        children: skill.sub_skills.map(function (subSkill, subIndex) {
+                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                            className: "sub-skill-tag",
+                            children: subSkill
+                          }, subIndex);
+                        })
+                      })]
+                    }), skill.experience && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "skill-experience",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "experience-label",
+                        children: "Experience:"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "experience-value",
+                        children: skill.experience
+                      })]
+                    })]
+                  })]
+                }, index);
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "empty-state",
+              children: "No primary skill added yet"
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "skills-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+            className: "section-subtitle",
+            children: "Additional Skills"
+          }), isEditingSkills ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "additional-skills-editing",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "additionalSkillsSelect",
+                children: "Select Additional Skill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                id: "additionalSkillsSelect",
+                value: workerSkills.additional_skills.length > 0 ? workerSkills.additional_skills[0].id : '',
+                onChange: function onChange(e) {
+                  var skillId = e.target.value;
+                  var selectedSkill = availableSkills.find(function (skill) {
+                    return skill.id === parseInt(skillId);
+                  });
+                  console.log('Selected skill for additional:', selectedSkill);
+                  if (selectedSkill) {
+                    var skillName = selectedSkill.name || selectedSkill.skill_name;
+                    console.log('Additional skill name:', skillName);
+                    setWorkerSkills(function (prev) {
+                      return _objectSpread(_objectSpread({}, prev), {}, {
+                        additional_skills: [{
+                          id: selectedSkill.id,
+                          skill_name: skillName,
+                          sub_skills: [],
+                          experience: ''
+                        }]
+                      });
+                    });
+                  } else {
+                    setWorkerSkills(function (prev) {
+                      return _objectSpread(_objectSpread({}, prev), {}, {
+                        additional_skills: []
+                      });
+                    });
+                  }
+                },
+                className: "form-input",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "",
+                  children: "Select Additional Skill"
+                }), availableSkills.map(function (skill) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: skill.id,
+                    children: skill.name || skill.skill_name
+                  }, skill.id);
+                })]
+              })]
+            }), workerSkills.additional_skills.map(function (skill, index) {
+              var _ref17, _availableSkills$find2, _skill$sub_skills2, _workerSkills$additio;
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "skill-details-editing",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "skill-header-editing",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+                    className: "skill-editing-title",
+                    children: skill.skill_name
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                    type: "button",
+                    className: "remove-skill-btn",
+                    onClick: handleRemoveAdditionalSkill,
+                    title: "Remove this skill",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                      viewBox: "0 0 24 24",
+                      width: "16",
+                      height: "16",
+                      fill: "currentColor",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                        d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                      })
+                    })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "form-group",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                    htmlFor: "additionalExperience".concat(skill.id),
+                    children: "Experience Level"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                    id: "additionalExperience".concat(skill.id),
+                    value: skill.experience || '',
+                    onChange: function onChange(e) {
+                      return handleSkillExperienceChange(skill.id, e.target.value, false);
+                    },
+                    className: "form-input",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                      value: "",
+                      children: "Select Experience"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                      value: "Beginner (0-1 years)",
+                      children: "Beginner (0-1 years)"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                      value: "Intermediate (1-3 years)",
+                      children: "Intermediate (1-3 years)"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                      value: "Advanced (3-5 years)",
+                      children: "Advanced (3-5 years)"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                      value: "Expert (5+ years)",
+                      children: "Expert (5+ years)"
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "form-group",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                    htmlFor: "additionalSubSkills".concat(skill.id),
+                    children: "Select Sub-skills"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    id: "additionalSubSkills".concat(skill.id),
+                    className: "sub-skills-checkbox-grid",
+                    children: (_ref17 = ((_availableSkills$find2 = availableSkills.find(function (s) {
+                      return s.id === skill.id;
+                    })) === null || _availableSkills$find2 === void 0 ? void 0 : _availableSkills$find2.sub_skills) || []) === null || _ref17 === void 0 ? void 0 : _ref17.map(function (subSkill, subIndex) {
+                      var _skill$sub_skills;
+                      var isSelected = ((_skill$sub_skills = skill.sub_skills) === null || _skill$sub_skills === void 0 ? void 0 : _skill$sub_skills.includes(subSkill)) || false;
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
+                        className: "sub-skill-checkbox-item",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                          type: "checkbox",
+                          checked: isSelected,
+                          onChange: function onChange(e) {
+                            if (e.target.checked) {
+                              handleSubSkillAdd(skill.id, subSkill, false);
+                            } else {
+                              handleSubSkillRemove(skill.id, subSkill, false);
+                            }
+                          }
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                          className: "sub-skill-checkbox-label",
+                          children: subSkill
+                        })]
+                      }, subIndex);
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "sub-skills-tags",
+                    children: (_skill$sub_skills2 = skill.sub_skills) === null || _skill$sub_skills2 === void 0 ? void 0 : _skill$sub_skills2.map(function (subSkill, subIndex) {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                        className: "sub-skill-tag",
+                        children: [subSkill, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                          type: "button",
+                          onClick: function onClick() {
+                            return handleSubSkillRemove(skill.id, subSkill, false);
+                          },
+                          className: "remove-sub-skill",
+                          children: "\xD7"
+                        })]
+                      }, subIndex);
+                    })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "skill-save-section",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                    type: "button",
+                    className: "cancel-individual-skill-btn",
+                    onClick: function onClick() {
+                      setWorkerSkills(function (prev) {
+                        return _objectSpread(_objectSpread({}, prev), {}, {
+                          additional_skills: []
+                        });
+                      });
+                    },
+                    children: "Cancel"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+                    type: "button",
+                    className: "save-individual-skill-btn",
+                    onClick: function onClick() {
+                      return handleSaveIndividualSkill('Additional', workerSkills.additional_skills[0]);
+                    },
+                    disabled: !((_workerSkills$additio = workerSkills.additional_skills[0]) !== null && _workerSkills$additio !== void 0 && _workerSkills$additio.skill_name),
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                      viewBox: "0 0 24 24",
+                      width: "16",
+                      height: "16",
+                      fill: "currentColor",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                        d: "M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"
+                      })
+                    }), "Save Additional Skill"]
+                  })]
+                })]
+              }, skill.id);
+            })]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+            children: workerSkills.additional_skills && workerSkills.additional_skills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "skills-list",
+              children: workerSkills.additional_skills.map(function (skill, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "skill-item additional-skill",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "skill-header",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                      className: "skill-name",
+                      children: skill.skill_name
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    className: "skill-details-row",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "sub-skills",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "sub-skills-label",
+                        children: "Sub-skills:"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "sub-skills-tags",
+                        children: skill.sub_skills.map(function (subSkill, subIndex) {
+                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                            className: "sub-skill-tag",
+                            children: subSkill
+                          }, subIndex);
+                        })
+                      })]
+                    }), skill.experience && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "skill-experience",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "experience-label",
+                        children: "Experience:"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "experience-value",
+                        children: skill.experience
+                      })]
+                    })]
+                  })]
+                }, index);
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "empty-state",
+              children: "No additional skills added yet"
+            })
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "form-actions",
+        children: !isEditingSkills ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+          type: "button",
+          className: "worker-skills-edit-btn",
+          onClick: handleEditSkills,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
+            className: "btn-icon"
+          }), "Edit Skills"]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            type: "button",
+            className: "worker-skills-cancel-btn",
+            onClick: handleCancelSkillsEdit,
+            children: "Cancel"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            type: "button",
+            className: "worker-skills-save-btn",
+            onClick: handleSkillsSubmit,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
+              className: "btn-icon"
+            }), "Save Changes"]
+          })]
+        })
+      })]
+    }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "worker-credentials-card",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        className: "card-title",
+        children: "Credentials"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "credentials-display",
+        children: [isEditingCredentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "add-credential-form",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+            className: "add-form-title",
+            children: "Add New Credential"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "form-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "credentialName",
+                children: "Credential Type"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                id: "credentialName",
+                value: newCredential.credentials_name,
+                onChange: function onChange(e) {
+                  return handleNewCredentialChange(e, 'credentials_name');
+                },
+                className: "form-input",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "",
+                  children: "Select Credential Type"
+                }), credentialTypes.map(function (credential) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: credential.value,
+                    children: credential.label
+                  }, credential.value);
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "credentialFile",
+                children: "Upload Document (PDF, Word, JPG, PNG - Max 2MB)"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "file",
+                id: "credentialFile",
+                ref: credentialFileInputRef,
+                accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png",
+                onChange: function onChange(e) {
+                  return handleNewCredentialChange(e, 'credentials_photo');
+                },
+                className: "form-input"
+              }), newCredential.credentials_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "file-selected-info",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                  className: "file-selected",
+                  children: ["Selected: ", newCredential.credentials_photo.name]
+                })
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            type: "button",
+            className: "add-credential-action-btn",
+            onClick: handleAddCredential,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+              viewBox: "0 0 24 24",
+              width: "18",
+              height: "18",
+              fill: "currentColor",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+              })
+            }), "Add to List"]
+          })]
+        }), workerCredentials && workerCredentials.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "credentials-list",
+          children: workerCredentials.map(function (credential, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "credential-item",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "credential-icon",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                  viewBox: "0 0 24 24",
+                  width: "24",
+                  height: "24",
+                  fill: "currentColor",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    d: "M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "credential-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "credential-name",
+                  children: credential.credentials_name
+                }), credential.credentials_photo ? typeof credential.credentials_photo === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "document-info",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                    href: "http://127.0.0.1:8000/storage/".concat(credential.credentials_photo),
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className: "view-document-link",
+                    children: "View Document"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    className: "file-path",
+                    children: credential.credentials_photo.split('/').pop()
+                  })]
+                }) : credential.credentials_photo instanceof File ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                  className: "pending-upload",
+                  children: ["Pending upload: ", credential.credentials_photo.name]
+                }) : null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "no-file-uploaded",
+                  children: "No file uploaded"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                type: "button",
+                className: "remove-credential-btn",
+                onClick: function onClick() {
+                  return handleRemoveCredential(index);
+                },
+                title: "Delete this credential",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                  viewBox: "0 0 24 24",
+                  width: "18",
+                  height: "18",
+                  fill: "currentColor",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  })
+                })
+              })]
+            }, index);
+          })
+        }) : !isEditingCredentials ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "empty-state",
+          children: "No credentials added yet"
+        }) : null]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "form-actions",
+        children: !isEditingCredentials ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+          type: "button",
+          className: "worker-credentials-edit-btn",
+          onClick: handleEditCredentials,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
+            className: "btn-icon"
+          }), "Edit Credentials"]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            type: "button",
+            className: "worker-credentials-cancel-btn",
+            onClick: handleCancelCredentialsEdit,
+            children: "Cancel"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            type: "button",
+            className: "worker-credentials-save-btn",
+            onClick: handleCredentialsSubmit,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
+              className: "btn-icon"
+            }), "Save Changes"]
+          })]
+        })
+      })]
+    }), showImageModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "image-modal-overlay",
       onClick: closeImageModal,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "image-modal",
         onClick: function onClick(e) {
           return e.stopPropagation();
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "image-modal-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
             children: "Profile Picture"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
             className: "close-btn",
             onClick: closeImageModal,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               viewBox: "0 0 24 24",
               width: "24",
               height: "24",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                 d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
               })
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "image-modal-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
             src: profileImagePreview || (user !== null && user !== void 0 && user.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? "http://127.0.0.1:8000/storage/".concat(user.profile_img, "?v=").concat(Date.now()) : "img/defaultpfp.jpg"),
             alt: "Profile",
             onError: function onError(e) {
@@ -212655,6 +214839,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_jobapplicationsmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/profilesettings/jobdetailmodal.scss":
+/*!***********************************************************************!*\
+  !*** ./resources/sass/components/profilesettings/jobdetailmodal.scss ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_jobdetailmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./jobdetailmodal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/jobdetailmodal.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_jobdetailmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_jobdetailmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
