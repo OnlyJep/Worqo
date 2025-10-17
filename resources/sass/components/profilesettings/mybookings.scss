@@ -92,9 +92,6 @@
          background: #f8fafc;
          border-radius: 12px;
          padding: 24px;
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
          position: relative; // Added for absolute positioning of salary
 
@@ -215,7 +212,29 @@
        .booking-actions {
          display: flex;
          gap: 12px;
+         justify-content: flex-end;
          margin-top: 20px;
+         flex-wrap: wrap;
+
+         .message-btn {
+           background: #4CAF50;
+           color: white;
+           border: none;
+           width: 100px;
+           height: 33px;
+           border-radius: 6px;
+           font-size: 12px;
+           font-weight: 600;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+
+           &:hover {
+             background: #45a049;
+           }
+         }
 
          .view-transaction-btn {
            background: #001E40;

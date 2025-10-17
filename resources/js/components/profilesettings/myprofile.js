@@ -619,9 +619,8 @@ const MyProfile = () => {
         await fetchWorkerProfile(user.id);
         // Dispatch event for other components
         window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
-        
-        // Show the skill items immediately after saving
-        // The skill items will be displayed because the data is refreshed
+        // Exit edit mode so saved items render cleanly
+        setIsEditingSkills(false);
       } else {
         const errorData = await response.json().catch(() => ({}));
         message.error(`Failed to save ${skillType} skill: ${errorData.message || 'Please try again.'}`);
@@ -800,10 +799,10 @@ const MyProfile = () => {
     });
   };
 
-  const handleRemoveAdditionalSkill = () => {
+  const handleRemoveAdditionalSkill = (removeId) => {
     setWorkerSkills(prev => ({
       ...prev,
-      additional_skills: []
+      additional_skills: (prev.additional_skills || []).filter(s => s.id !== removeId)
     }));
   };
 
@@ -1405,12 +1404,12 @@ const MyProfile = () => {
       <div className="profile-card">
         <div className="profile-header">
           <div className="avatar-container">
-            <div className={`avatar-placeholder ${!profileImagePreview && (!user?.profile_img || user?.profile_img === 'img/defaultpfp.jpg') ? 'no-image' : ''}`}>
+            <div className={`avatar-placeholder ${!profileImagePreview && (!user?.profile_img || user?.profile_img === 'images/defpfp.svg') ? 'no-image' : ''}`}>
               <img 
-                src={profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : "img/defaultpfp.jpg")} 
+                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
                 alt="Profile" 
                 onError={(e) => {
-                  e.target.src = "img/defaultpfp.jpg";
+                  e.target.src = "images/defpfp.svg";
                   e.target.parentElement.classList.add('no-image');
                 }}
               />
@@ -1883,10 +1882,12 @@ const MyProfile = () => {
                           className="form-input"
                         >
                           <option value="">Select Experience</option>
-                          <option value="Beginner (0-1 years)">Beginner (0-1 years)</option>
-                          <option value="Intermediate (1-3 years)">Intermediate (1-3 years)</option>
-                          <option value="Advanced (3-5 years)">Advanced (3-5 years)</option>
-                          <option value="Expert (5+ years)">Expert (5+ years)</option>
+                          <option value="no-experience">No Experience</option>
+                          <option value="0-11-months">0 to 11 months</option>
+                          <option value="1-2-years">1 to 2 years</option>
+                          <option value="2-5-years">2 to 5 years</option>
+                          <option value="5-10-years">5 to 10 years</option>
+                          <option value="10-plus-years">10+ years</option>
                         </select>
                       </div>
                       
@@ -2012,15 +2013,19 @@ const MyProfile = () => {
                           const skillName = selectedSkill.name || selectedSkill.skill_name;
                           console.log('Additional skill name:', skillName);
                           
-                          setWorkerSkills(prev => ({
-                            ...prev,
-                            additional_skills: [{
-                              id: selectedSkill.id,
-                              skill_name: skillName,
-                              sub_skills: [],
-                              experience: ''
-                            }]
-                          }));
+                          setWorkerSkills(prev => {
+                            const exists = (prev.additional_skills || []).some(s => s.id === selectedSkill.id);
+                            const updated = exists
+                              ? prev.additional_skills
+                              : [
+                                  ...(prev.additional_skills || []),
+                                  { id: selectedSkill.id, skill_name: skillName, sub_skills: [], experience: '' }
+                                ];
+                            return {
+                              ...prev,
+                              additional_skills: updated
+                            };
+                          });
                         } else {
                           setWorkerSkills(prev => ({
                             ...prev,
@@ -2046,7 +2051,7 @@ const MyProfile = () => {
                         <button
                           type="button"
                           className="remove-skill-btn"
-                          onClick={handleRemoveAdditionalSkill}
+                          onClick={() => handleRemoveAdditionalSkill(skill.id)}
                           title="Remove this skill"
                         >
                           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -2063,10 +2068,12 @@ const MyProfile = () => {
                           className="form-input"
                         >
                           <option value="">Select Experience</option>
-                          <option value="Beginner (0-1 years)">Beginner (0-1 years)</option>
-                          <option value="Intermediate (1-3 years)">Intermediate (1-3 years)</option>
-                          <option value="Advanced (3-5 years)">Advanced (3-5 years)</option>
-                          <option value="Expert (5+ years)">Expert (5+ years)</option>
+                          <option value="no-experience">No Experience</option>
+                          <option value="0-11-months">0 to 11 months</option>
+                          <option value="1-2-years">1 to 2 years</option>
+                          <option value="2-5-years">2 to 5 years</option>
+                          <option value="5-10-years">5 to 10 years</option>
+                          <option value="10-plus-years">10+ years</option>
                         </select>
                       </div>
                       
@@ -2125,8 +2132,8 @@ const MyProfile = () => {
                         <button 
                           type="button" 
                           className="save-individual-skill-btn"
-                          onClick={() => handleSaveIndividualSkill('Additional', workerSkills.additional_skills[0])}
-                          disabled={!workerSkills.additional_skills[0]?.skill_name}
+                          onClick={() => handleSaveIndividualSkill('Additional')}
+                          disabled={!skill?.skill_name}
                         >
                           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                             <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
@@ -2275,18 +2282,18 @@ const MyProfile = () => {
                     </div>
                     <div className="credential-info">
                       <span className="credential-name">{credential.credentials_name}</span>
-                      {credential.credentials_photo ? (
-                        typeof credential.credentials_photo === 'string' ? (
+                      {credential.credentials_photo || credential.credentials_doc ? (
+                        typeof credential.credentials_photo === 'string' || typeof credential.credentials_doc === 'string' ? (
                           <div className="document-info">
                             <a 
-                              href={`http://127.0.0.1:8000/storage/${credential.credentials_photo}`} 
+                              href={`http://127.0.0.1:8000/storage/${credential.credentials_photo || credential.credentials_doc}`} 
                               target="_blank" 
                               rel="noopener noreferrer"
                               className="view-document-link"
                             >
                               View Document
                             </a>
-                            <span className="file-path">{credential.credentials_photo.split('/').pop()}</span>
+                            <span className="file-path">{(credential.credentials_photo || credential.credentials_doc).split('/').pop()}</span>
                           </div>
                         ) : credential.credentials_photo instanceof File ? (
                           <span className="pending-upload">Pending upload: {credential.credentials_photo.name}</span>
@@ -2360,10 +2367,10 @@ const MyProfile = () => {
             </div>
             <div className="image-modal-content">
               <img 
-                src={profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : "img/defaultpfp.jpg")} 
+                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
                 alt="Profile" 
                 onError={(e) => {
-                  e.target.src = "img/defaultpfp.jpg";
+                  e.target.src = "images/defpfp.svg";
                 }}
               />
             </div>

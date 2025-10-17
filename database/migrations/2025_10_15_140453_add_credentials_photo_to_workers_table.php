@@ -13,9 +13,11 @@ class AddCredentialsPhotoToWorkersTable extends Migration
      */
     public function up()
     {
-        Schema::table('workers', function (Blueprint $table) {
-            $table->json('credentials_photo')->nullable()->after('credentials_name');
-        });
+        if (!Schema::hasColumn('workers', 'credentials_photo')) {
+            Schema::table('workers', function (Blueprint $table) {
+                $table->json('credentials_photo')->nullable()->after('credentials_name');
+            });
+        }
     }
 
     /**
@@ -25,8 +27,10 @@ class AddCredentialsPhotoToWorkersTable extends Migration
      */
     public function down()
     {
-        Schema::table('workers', function (Blueprint $table) {
-            $table->dropColumn('credentials_photo');
-        });
+        if (Schema::hasColumn('workers', 'credentials_photo')) {
+            Schema::table('workers', function (Blueprint $table) {
+                $table->dropColumn('credentials_photo');
+            });
+        }
     }
 }

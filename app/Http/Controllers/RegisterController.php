@@ -10,6 +10,7 @@ use App\Models\Suffix;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
@@ -101,6 +102,15 @@ class RegisterController extends Controller
             ]);
 
             DB::commit();
+
+            // Send welcome notification
+            NotificationController::createNotification(
+                $user->id,
+                null,
+                'welcome',
+                'Welcome to WORQO',
+                'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started.'
+            );
 
             return response()->json([
                 'status' => 'success',

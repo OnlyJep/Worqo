@@ -338,6 +338,34 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                       {getStatusBadge(application.status)}
                     </div>
                   </div>
+                  <div style={{ marginTop: '8px' }}>
+                    <span style={{ color: '#333' }}>Want to message this applicant? </span>
+                    <a
+                      href="#"
+                      onClick={async (e) => {
+                        e.preventDefault();
+                        const stored = JSON.parse(localStorage.getItem('user') || '{}');
+                        const currentRole = stored?.role_id;
+                        const targetRole = 2; // employer role to chat as employer
+                        try {
+                          if (currentRole && currentRole !== targetRole) {
+                            const authToken = localStorage.getItem('auth_token');
+                            await fetch('http://127.0.0.1:8000/api/users/switch-role', {
+                              method: 'POST',
+                              headers: { 'Authorization': `Bearer ${authToken}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                              body: JSON.stringify({ user_id: stored.id || stored?.user?.id, role_id: targetRole })
+                            }).catch(() => {});
+                            const updated = { ...(stored.user || stored), role_id: targetRole };
+                            localStorage.setItem('user', JSON.stringify(stored.user ? { user: updated } : updated));
+                          }
+                        } catch (_) {}
+                        window.location.href = '/message';
+                      }}
+                      style={{ color: '#1a73e8', textDecoration: 'underline' }}
+                    >
+                      Click here
+                    </a>
+                  </div>
 
                   {application.cover_letter && (
                     <div className="cover-letter">

@@ -72,19 +72,6 @@ class BookingController extends Controller
             ], 400);
         }
 
-        // Check if there's already a pending booking between this employer and worker
-        $existingBooking = Booking::where('employer_id', $authUser ? $authUser->id : null)
-            ->where('worker_id', $request->worker_id)
-            ->whereIn('status', ['pending', 'accepted'])
-            ->first();
-
-        if ($existingBooking) {
-            return response()->json([
-                'success' => false,
-                'message' => 'You already have a pending or accepted booking with this worker'
-            ], 400);
-        }
-
         // Calculate total amount
         $bookIn = Carbon::parse($request->book_in);
         $bookEnd = Carbon::parse($request->book_end);
@@ -112,7 +99,7 @@ class BookingController extends Controller
                 $authUser->id,
                 'booking',
                 'New Booking Request',
-                "$employerName has sent you a booking request for {$request->service_type}. Please review and respond.",
+                "$employerName has sent you a booking request for {$request->service_type}. Please review and respond. Click Here to go to@http://127.0.0.1:8000/profile-settings/bookings",
                 $booking->id,
                 'booking'
             );
@@ -259,6 +246,16 @@ class BookingController extends Controller
                     'booking_declined',
                     'Booking Declined',
                     "$workerName has declined your booking request for {$booking->service_type}.",
+                    $booking->id,
+                    'booking'
+                );
+            } elseif ($request->status === 'cancelled') {
+                NotificationController::createNotification(
+                    $booking->employer_id,
+                    $authUser->id,
+                    'booking_cancelled',
+                    'Booking Cancelled',
+                    "$workerName has cancelled the booking for {$booking->service_type}.",
                     $booking->id,
                     'booking'
                 );

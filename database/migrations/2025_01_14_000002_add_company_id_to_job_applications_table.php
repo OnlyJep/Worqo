@@ -12,31 +12,40 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Use raw SQL to be more defensive
-        DB::statement('ALTER TABLE job_applications DROP FOREIGN KEY IF EXISTS job_applications_job_post_id_foreign');
-        DB::statement('ALTER TABLE job_applications DROP FOREIGN KEY IF EXISTS job_applications_worker_id_foreign');
-        DB::statement('ALTER TABLE job_applications DROP INDEX IF EXISTS job_applications_job_post_id_worker_id_unique');
-        
-        Schema::table('job_applications', function (Blueprint $table) {
-            // Make worker_id nullable since company applications won't have a worker_id
-            $table->unsignedBigInteger('worker_id')->nullable()->change();
-        });
-        
-        // Check if company_id column exists before adding it
-        if (!Schema::hasColumn('job_applications', 'company_id')) {
-            Schema::table('job_applications', function (Blueprint $table) {
-                $table->unsignedBigInteger('company_id')->nullable()->after('worker_id');
-            });
-        }
-        
-        //Re-add foreign key constraints
-        DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_job_post_id_foreign FOREIGN KEY (job_post_id) REFERENCES jobposts(id) ON DELETE CASCADE');
-        DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_worker_id_foreign FOREIGN KEY (worker_id) REFERENCES profiles(id) ON DELETE CASCADE');
-        
-        // Only add company_id foreign key if it doesn't already exist
-        $foreignKeys = DB::select("SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE TABLE_NAME = 'job_applications' AND CONSTRAINT_NAME = 'job_applications_company_id_foreign'");
-        if (empty($foreignKeys)) {
-            DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_company_id_foreign FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE');
+        if (Schema::hasTable('job_applications')) {
+            // Drop unique index if it exists
+            try {
+                Schema::table('job_applications', function (Blueprint $table) {
+                    $table->dropUnique('job_applications_job_post_id_worker_id_unique');
+                });
+            } catch (\Throwable $e) {
+                // ignore if index missing
+            }
+
+            // Make worker_id nullable
+            if (Schema::hasColumn('job_applications', 'worker_id')) {
+                Schema::table('job_applications', function (Blueprint $table) {
+                    $table->unsignedBigInteger('worker_id')->nullable()->change();
+                });
+            }
+
+            // Add company_id if missing
+            if (!Schema::hasColumn('job_applications', 'company_id')) {
+                Schema::table('job_applications', function (Blueprint $table) {
+                    $table->unsignedBigInteger('company_id')->nullable()->after('worker_id');
+                });
+            }
+
+            // Add foreign keys, guard with try/catch to avoid duplicate errors
+            try {
+                DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_job_post_id_foreign FOREIGN KEY (job_post_id) REFERENCES jobposts(id) ON DELETE CASCADE');
+            } catch (\Throwable $e) {}
+            try {
+                DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_worker_id_foreign FOREIGN KEY (worker_id) REFERENCES profiles(id) ON DELETE CASCADE');
+            } catch (\Throwable $e) {}
+            try {
+                DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_company_id_foreign FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE');
+            } catch (\Throwable $e) {}
         }
     }
 
@@ -45,23 +54,31 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Drop foreign keys
-        DB::statement('ALTER TABLE job_applications DROP FOREIGN KEY IF EXISTS job_applications_company_id_foreign');
-        DB::statement('ALTER TABLE job_applications DROP FOREIGN KEY IF EXISTS job_applications_worker_id_foreign');
-        DB::statement('ALTER TABLE job_applications DROP FOREIGN KEY IF EXISTS job_applications_job_post_id_foreign');
-        
-        Schema::table('job_applications', function (Blueprint $table) {
-            // Drop company_id column
-            $table->dropColumn('company_id');
-            
-            // Restore worker_id as non-nullable
-            $table->unsignedBigInteger('worker_id')->nullable(false)->change();
-        });
-        
-        // Re-add foreign key constraints and unique index
-        DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_job_post_id_foreign FOREIGN KEY (job_post_id) REFERENCES jobposts(id) ON DELETE CASCADE');
-        DB::statement('ALTER TABLE job_applications ADD CONSTRAINT job_applications_worker_id_foreign FOREIGN KEY (worker_id) REFERENCES profiles(id) ON DELETE CASCADE');
-        DB::statement('ALTER TABLE job_applications ADD UNIQUE INDEX job_applications_job_post_id_worker_id_unique (job_post_id, worker_id)');
+        if (Schema::hasTable('job_applications')) {
+            // Drop foreign keys (guarded)
+            foreach (['job_applications_company_id_foreign','job_applications_worker_id_foreign','job_applications_job_post_id_foreign'] as $fk) {
+                try { DB::statement("ALTER TABLE job_applications DROP FOREIGN KEY $fk"); } catch (\Throwable $e) {}
+            }
+
+            if (Schema::hasColumn('job_applications', 'company_id')) {
+                Schema::table('job_applications', function (Blueprint $table) {
+                    $table->dropColumn('company_id');
+                });
+            }
+
+            if (Schema::hasColumn('job_applications', 'worker_id')) {
+                Schema::table('job_applications', function (Blueprint $table) {
+                    $table->unsignedBigInteger('worker_id')->nullable(false)->change();
+                });
+            }
+
+            // Re-add unique index if columns exist
+            try {
+                Schema::table('job_applications', function (Blueprint $table) {
+                    $table->unique(['job_post_id','worker_id'], 'job_applications_job_post_id_worker_id_unique');
+                });
+            } catch (\Throwable $e) {}
+        }
     }
 };
 

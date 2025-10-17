@@ -10,6 +10,7 @@ $border-light: #e2e8f0;
 $border-medium: #cbd5e1;
 $success-color: #10b981;
 $error-color: #ef4444;
+$warning-color: #f59e0b;
 
 // Skills Experience Container
 .skills-experience-container {
@@ -32,12 +33,54 @@ $error-color: #ef4444;
     }
   }
 
+  // Address Notification
+  .address-notification {
+    background-color: rgba($warning-color, 0.1);
+    border: 1px solid rgba($warning-color, 0.3);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    
+    .notification-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      
+      .notification-icon {
+        color: $warning-color;
+        flex-shrink: 0;
+      }
+      
+      .notification-text {
+        color: $text-primary;
+        font-weight: 500;
+        flex: 1;
+      }
+      
+      .notification-link {
+        background: none;
+        border: none;
+        color: $primary-color;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: underline;
+        padding: 0;
+        font-size: inherit;
+        
+        &:hover {
+          color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+
   .form-section {
     .skills-section {
       display: flex;
       flex-direction: column;
       gap: 32px;
       position: relative;
+      overflow: visible;
 
       .skill-group {
         display: flex;
@@ -46,9 +89,25 @@ $error-color: #ef4444;
         position: relative;
         z-index: 1;
 
-        // Ensure additional skills dropdown stays in place
+        // Primary skills group - higher z-index when dropdown is open
+        &:first-child {
+          z-index: 1;
+          
+          &.dropdown-open {
+            z-index: 2000;
+          }
+        }
+
+        // Additional skills group - lower z-index to stay behind primary dropdown
         &:nth-child(2) {
-          z-index: 2;
+          z-index: 0;
+          position: relative;
+        }
+
+        // When primary dropdown is open, push additional skills behind
+        &.behind-dropdown {
+          z-index: -1;
+          position: relative;
         }
 
         .form-label {
@@ -79,6 +138,21 @@ $error-color: #ef4444;
             
             .dropdown-menu {
               z-index: 1001;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              right: 0;
+              transform: translateZ(0);
+              will-change: transform;
+            }
+          }
+
+          // Primary skill dropdown should have higher z-index when open
+          &:first-child.dropdown-open {
+            z-index: 2000;
+            
+            .dropdown-menu {
+              z-index: 2001;
               position: absolute;
               top: 100%;
               left: 0;

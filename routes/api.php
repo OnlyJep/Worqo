@@ -25,6 +25,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\MessageController;
 
 // AUTHENTICATION ROUTES
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -48,6 +49,7 @@ Route::post('/users/bulk-archive', [AdminUserController::class, 'bulkArchive']);
 Route::post('/users/switch-role', [AdminUserController::class, 'switchUserRole'])->name('users.switchRole');
 
 Route::get('/users/{id}', [AdminUserController::class, 'show']);
+Route::get('/users/{id}/status', [AdminUserController::class, 'showWithStatus']);
 Route::put('/users/{id}', [AdminUserController::class, 'update']);
 Route::post('/users/{id}', [AdminUserController::class, 'update']); // For method spoofing with FormData
 Route::patch('/users/{id}/archive', [AdminUserController::class, 'archive']);
@@ -179,17 +181,19 @@ Route::get('/bookings/employer', [BookingController::class, 'getEmployerBookings
 Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
 Route::put('/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
 Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->name('bookings.addReview');
-Route::patch('/bookings/{id}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
 
-// NOTIFICATION ROUTES
-Route::middleware('auth:api')->group(function () {
-    Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
-    Route::get('/notifications/unread-count', [NotificationController::class, 'unreadCount'])->name('notifications.unreadCount');
-    Route::put('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
-    Route::put('/notifications/{id}/unread', [NotificationController::class, 'markAsUnread'])->name('notifications.markAsUnread');
-    Route::put('/notifications/mark-all-read', [NotificationController::class, 'markAllAsRead'])->name('notifications.markAllAsRead');
-    Route::delete('/notifications/{id}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
-});
+// NOTIFICATION ROUTES (no auth middleware)
+Route::get('/notifications', [NotificationController::class, 'index']);
+Route::get('/notifications/unread-count', [NotificationController::class, 'unreadCount']);
+Route::put('/notifications/{id}/read', [NotificationController::class, 'markAsRead']);
+Route::put('/notifications/{id}/unread', [NotificationController::class, 'markAsUnread']);
+Route::put('/notifications/mark-all-read', [NotificationController::class, 'markAllAsRead']);
+
+// MESSAGES ROUTES (no auth middleware)
+Route::get('/messages/conversations', [MessageController::class, 'conversations']);
+Route::get('/messages/thread/{otherUserId}', [MessageController::class, 'thread']);
+Route::post('/messages/send', [MessageController::class, 'send']);
+// (Removed duplicate auth:api notifications block to avoid 401)
 
 // PASSWORD ROUTES
 Route::middleware('auth:api')->group(function () {

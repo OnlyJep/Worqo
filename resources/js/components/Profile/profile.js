@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './../../../sass/components/profile.scss';
 import Headerz from "../HeaderContent/Headerz";
@@ -11,6 +11,7 @@ import { message } from 'antd';
 
 const Profile = ({ initialServiceType }) => {
   const { workerId } = useParams();
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState('OVERVIEW');
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
@@ -93,6 +94,14 @@ const Profile = ({ initialServiceType }) => {
     }
   };
 
+  // Handle Message button click
+  const handleMessageClick = () => {
+    // Store the target user ID in localStorage
+    localStorage.setItem('message_target_user_id', worker.id);
+    // Navigate to messages page
+    window.location.href = '/message';
+  };
+
   // Fetch worker data from API
   useEffect(() => {
     const fetchWorkerData = async () => {
@@ -170,7 +179,9 @@ const Profile = ({ initialServiceType }) => {
           id: workerData.id,
           name: fullName,
           email: workerData.email,
-          status: "ACTIVE NOW", // Since we only show ACCEPTED workers
+          status: workerData.last_active_text || (workerData.is_online ? "Online" : "Offline"),
+          is_online: workerData.is_online,
+          last_active_text: workerData.last_active_text,
           hourlyRate: workerData.worker?.skills_id?.primary_skills?.[0]?.hourly_rate 
             ? parseFloat(workerData.worker.skills_id.primary_skills[0].hourly_rate) 
             : 150.00,
@@ -429,6 +440,11 @@ const Profile = ({ initialServiceType }) => {
     );
   }
 
+  // Check if service parameter exists in URL
+  const searchParams = new URLSearchParams(location.search);
+  const hasServiceParam = searchParams.has('service');
+  const serviceType = searchParams.get('service') || initialServiceType;
+
   return (
     <div className="profile-page">
       <Headerz />
@@ -464,13 +480,26 @@ const Profile = ({ initialServiceType }) => {
                </div>
             </div>
             <div className="status-container">
-              <span className="status-dot"></span>
-              <p className="status">{worker.status === "ACTIVE NOW" ? "Available now" : worker.status}</p>
+              <span className={`status-dot ${worker.is_online ? 'online' : 'offline'}`}></span>
+              <p className="status">{worker.last_active_text || (worker.is_online ? "Online" : "Offline")}</p>
             </div>
             <p className="location">{worker.location}</p>
-            <button className="edit-profile" onClick={handleHireNowClick}>
-              HIRE NOW
-            </button>
+            <div className="profile-actions">
+              {hasServiceParam && (
+                <button className="edit-profile" onClick={handleHireNowClick}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="white"/>
+                  </svg>
+                  HIRE NOW
+                </button>
+              )}
+              <button className="message-button" onClick={handleMessageClick}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z" fill="white"/>
+                </svg>
+                MESSAGE
+              </button>
+            </div>
           </div>
           <div className="rank-display-section">
             {workerRank ? (
@@ -714,6 +743,7 @@ const Profile = ({ initialServiceType }) => {
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
         onSubmit={(details) => handleBookingSubmit(details)}
+        serviceType={serviceType}
       />
 
       {/* Confirmation Modal */}

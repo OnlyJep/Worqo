@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
 import './../../../sass/components/BookModal.scss';
 
-const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
+const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
   const [bookingDetails, setBookingDetails] = useState({
-    service_type: '',
+    service_type: serviceType || '',
     work_type: worker?.work_type || 'part-time',
     book_in: '',
     book_end: '',
@@ -15,7 +15,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
   useEffect(() => {
     if (!isOpen) {
       setBookingDetails({
-        service_type: '',
+        service_type: serviceType || '',
         work_type: worker?.work_type || 'part-time',
         book_in: '',
         book_end: '',
@@ -23,7 +23,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
         hourly_rate: worker?.hourlyRate || 0,
       });
     }
-  }, [isOpen, worker]);
+  }, [isOpen, worker, serviceType]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -92,6 +92,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
     const oneHourFromNow = new Date(currentTime.getTime() + (60 * 60 * 1000)); // Add 1 hour in milliseconds
     return selectedTime >= oneHourFromNow;
   };
+  
   const isValidEndDate = (endDate) => {
     const start = new Date(bookingDetails.book_in);
     const end = new Date(endDate);
@@ -136,7 +137,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
   return (
     <div className="adminmodal-overlay">
       <div className="adminmodal">
-        <h2>Planning to hire {worker.name}</h2> {/* Removed X button and updated title */}
+        <h2>Planning to hire {worker.name}</h2>
         <div className="adminmodal-content">
           <div className="form-group">
             <label>Service Type</label>
@@ -198,7 +199,6 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
                 }
               }}
               min={bookingDetails.book_in || minDate}
-              required
             />
           </div>
           <div className="form-group">
@@ -207,7 +207,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
               name="description"
               value={bookingDetails.description}
               onChange={handleChange}
-              placeholder="Describe the work or service you need"
+              placeholder="Please describe the work you need done..."
               required
             />
           </div>
@@ -223,12 +223,8 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
           <button className="cancel-button" onClick={onClose}>
             Cancel
           </button>
-          <button
-            className="submit-button"
-            onClick={handleSubmit}
-            disabled={!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in)}
-          >
-            Submit Hiring Request
+          <button className="submit-button" onClick={handleSubmit}>
+            Send Request
           </button>
         </div>
       </div>

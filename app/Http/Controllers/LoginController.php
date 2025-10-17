@@ -29,6 +29,15 @@ class LoginController extends Controller
                     return response()->json(['message' => 'Account is archived and cannot log in'], 403);
                 }
 
+                // Update last_activity timestamp when user logs in
+                Log::info('Updating last_activity on login', [
+                    'user_id' => $user->id,
+                    'previous_activity' => $user->last_activity,
+                    'new_activity' => now()
+                ]);
+                $user->last_activity = now();
+                $user->save();
+
                 Log::info('Authenticated User:', [
                     'user_id' => $user->id,
                     'email' => $user->email,
@@ -62,6 +71,15 @@ class LoginController extends Controller
         try {
             $user = Auth::guard('api')->user();
             if ($user) {
+                // Update last_activity timestamp when user logs out
+                Log::info('Updating last_activity on logout', [
+                    'user_id' => $user->id,
+                    'previous_activity' => $user->last_activity,
+                    'new_activity' => now()
+                ]);
+                $user->last_activity = now();
+                $user->save();
+                
                 // Revoke the current access token
                 $user->tokens()->delete();
                 Log::info('User logged out', ['user_id' => $user->id]);
@@ -108,6 +126,7 @@ class LoginController extends Controller
             'profile_img' => $profile ? $profile->profile_img : null,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
+            'last_activity' => $user->last_activity,
             'archived' => $user->archived,
         ];
     }

@@ -113,6 +113,7 @@ const WorkerList = () => {
         timeout: 10000,
       });
       
+      console.log('API Response:', response.data);
       const workersData = Array.isArray(response.data.workers) ? response.data.workers : [];
       
       setWorkers(workersData);
@@ -812,14 +813,17 @@ const WorkerList = () => {
   };
 
   const getReviewStatus = (isReviewed) => {
+    console.log('getReviewStatus called with:', isReviewed, 'type:', typeof isReviewed);
     if (isReviewed === 'ACCEPTED') return 'ACCEPTED';
     if (isReviewed === 'DECLINED') return 'DECLINED';
     if (isReviewed === null || isReviewed === undefined || isReviewed === '' || isReviewed === '0' || isReviewed === 'TO BE REVIEWED') return 'TO BE REVIEWED';
+    console.log('Returning default TO BE REVIEWED for:', isReviewed);
     return 'TO BE REVIEWED';
   };
 
   const renderStatusBadge = (isReviewed) => {
     const status = getReviewStatus(isReviewed);
+    console.log('renderStatusBadge called with:', isReviewed, 'status:', status);
     const cls = status === 'ACCEPTED' ? 'accepted' : status === 'DECLINED' ? 'declined' : 'pending';
     return (
       <span className={`status-badge ${cls}`}>{status}</span>
@@ -830,7 +834,27 @@ const WorkerList = () => {
   const filteredWorkers = workers.filter((worker) => {
     const fullName = getFullName(worker, suffixes).toLowerCase();
     const matchesSearch = searchTerm === '' || fullName.includes(searchTerm.toLowerCase()) || worker.email?.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesSearch;
+    
+    // Filter by review status based on activeTab
+    const workerStatus = getReviewStatus(worker.worker?.is_reviewed);
+    let matchesStatus = true;
+    
+    switch (activeTab) {
+      case 'to_review':
+        matchesStatus = workerStatus === 'TO BE REVIEWED';
+        break;
+      case 'accepted':
+        matchesStatus = workerStatus === 'ACCEPTED';
+        break;
+      case 'declined':
+        matchesStatus = workerStatus === 'DECLINED';
+        break;
+      default:
+        // For 'all' tab, show all workers
+        matchesStatus = true;
+    }
+    
+    return matchesSearch && matchesStatus;
   });
   
   const totalPages = pagination.totalPages || 1;
@@ -1022,13 +1046,14 @@ const WorkerList = () => {
                 ) : currentWorkers.length > 0 ? (
                   currentWorkers.map((worker) => {
                     const credentials = Array.isArray(worker.worker?.credentials_name) && 
-                      Array.isArray(worker.worker?.credentials_photo)
+                      (Array.isArray(worker.worker?.credentials_photo) || Array.isArray(worker.worker?.credentials_doc))
                       ? worker.worker.credentials_name
                           .map((name, index) => ({
                             credentials_name: name,
-                            credentials_photo: worker.worker.credentials_photo[index],
+                            credentials_photo: worker.worker.credentials_photo?.[index] || null,
+                            credentials_doc: worker.worker.credentials_doc?.[index] || null,
                           }))
-                          .filter((cred) => cred.credentials_name && cred.credentials_photo)
+                          .filter((cred) => cred.credentials_name && (cred.credentials_photo || cred.credentials_doc))
                       : [];
                     return (
                       <tr key={worker.id}>
@@ -1145,7 +1170,7 @@ const WorkerList = () => {
                                     className="credential-link"
                                     onClick={() => handlePreviewClick(cred)}
                                   >
-                                    {isImageFile(cred.credentials_photo)
+                                    {isImageFile(cred.credentials_photo || cred.credentials_doc)
                                       ? "View Image"
                                       : "View File"}
                                   </button>
@@ -1165,7 +1190,11 @@ const WorkerList = () => {
                           )}
                         </td>
                         <td className="email-cell">{worker.email || "N/A"}</td>
-                        <td>{renderStatusBadge(worker.worker?.is_reviewed)}</td>
+                        <td>
+                          {/* Debug: Log the is_reviewed value */}
+                          {console.log('Worker ID:', worker.id, 'is_reviewed:', worker.worker?.is_reviewed)}
+                          {renderStatusBadge(worker.worker?.is_reviewed)}
+                        </td>
                         <td>{formatDate(worker.created_at)}</td>
                         <td>{formatDate(worker.updated_at)}</td>
                       </tr>
@@ -1224,22 +1253,22 @@ const WorkerList = () => {
         <div className="preview-modal-overlay">
           <div className="preview-modal">
             <h3>{previewCredential.credentials_name}</h3>
-            {isImageFile(previewCredential.credentials_photo) ? (
+            {isImageFile(previewCredential.credentials_photo || previewCredential.credentials_doc) ? (
               <img
-                src={`http://127.0.0.1:8000/storage/${previewCredential.credentials_photo}`}
+                src={`http://127.0.0.1:8000/storage/${previewCredential.credentials_photo || previewCredential.credentials_doc}`}
                 alt={previewCredential.credentials_name}
                 className="preview-image"
                 style={{ maxWidth: "100%", maxHeight: "400px" }}
                 onError={(e) => {
                   e.target.style.display = "none";
-                  e.target.parentElement.innerHTML += `<p style="color: red;">Failed to load image: ${previewCredential.credentials_photo}</p>`;
+                  e.target.parentElement.innerHTML += `<p style="color: red;">Failed to load image: ${previewCredential.credentials_photo || previewCredential.credentials_doc}</p>`;
                 }}
               />
             ) : (
               <div className="preview-file">
                 <p>File: {previewCredential.credentials_name}</p>
                 <a
-                  href={`http://127.0.0.1:8000/storage/${previewCredential.credentials_photo}`}
+                  href={`http://127.0.0.1:8000/storage/${previewCredential.credentials_photo || previewCredential.credentials_doc}`}
                   download
                   className="download-button"
                 >

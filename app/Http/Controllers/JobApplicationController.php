@@ -6,6 +6,7 @@ use App\Models\JobApplication;
 use App\Models\JobPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\NotificationController;
 
 class JobApplicationController extends Controller
 {
@@ -83,6 +84,20 @@ class JobApplicationController extends Controller
 
             $application->load('company');
 
+            // Notify job owner about new application
+            $jobOwnerId = JobPost::find($request->job_post_id)?->profile_id; // adjust if using users table
+            if ($jobOwnerId) {
+                NotificationController::createNotification(
+                    $jobOwnerId,
+                    null,
+                    'job_application',
+                    'New Job Application',
+                    'A company applied to your job post.',
+                    $application->id,
+                    'job_application'
+                );
+            }
+
             return response()->json($application, 201);
         } else {
             // For individual hiring, require worker_id
@@ -133,6 +148,20 @@ class JobApplicationController extends Controller
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }]);
 
+            // Notify job owner about new application
+            $jobOwnerId = JobPost::find($request->job_post_id)?->profile_id; // adjust if using users table
+            if ($jobOwnerId) {
+                NotificationController::createNotification(
+                    $jobOwnerId,
+                    $request->worker_id,
+                    'job_application',
+                    'New Job Application',
+                    'Someone applied to your job post.',
+                    $application->id,
+                    'job_application'
+                );
+            }
+
             return response()->json($application, 201);
         }
     }
@@ -145,7 +174,15 @@ class JobApplicationController extends Controller
         $validator = Validator::make($request->all(), [
             'status' => 'required|in:accepted,declined,for_interview,fired',
         ]);
-
+        // Notify applicant about status change
+        $application = JobApplication::findOrFail($applicationId);
+        $targetUserId = $application->worker_id; // if team/company, you may notify company owner
+        if ($targetUserId) {
+            $type = 'job_application_status';
+            $title = 'Application Status Updated';
+            $message = 'Your job application status is now: ' . $request->status;
+            NotificationController::createNotification($targetUserId, null, $type, $title, $message, $application->id, 'job_application');
+        }
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }

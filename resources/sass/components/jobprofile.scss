@@ -115,6 +115,34 @@
             background: #104E8B; // Darker blue
           }
         }
+
+        .message-button {
+          background: #4CAF50; // Green theme for messaging
+          border: none;
+          color: #fff;
+          border-radius: 20px;
+          cursor: pointer;
+          padding: 8px 16px;
+          font-size: 14px;
+          margin: 10px 0;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          max-width: 300px;
+
+          &:hover {
+            background: #388E3C; // Darker green
+          }
+        }
+
+        .profile-actions {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
       }
 
       .stats {

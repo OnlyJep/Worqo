@@ -27,6 +27,13 @@ const JobProfile = () => {
     setIsApplyModalOpen(true);
   };
 
+  const handleMessageClick = () => {
+    // Store the target user ID in localStorage
+    localStorage.setItem('message_target_user_id', job.user_id);
+    // Navigate to messages page
+    window.location.href = '/message';
+  };
+
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
@@ -61,9 +68,14 @@ const JobProfile = () => {
               <p className="status">{job.archived ? 'Archived' : 'Available Now'}</p>
             </div>
             <p className="location">Posted by: {job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name}</p>
-            <button className="edit-profile" onClick={handleApplyJob}>
-              Apply Job
-            </button>
+            <div className="profile-actions">
+              <button className="edit-profile" onClick={handleApplyJob}>
+                Apply Job
+              </button>
+              <button className="message-button" onClick={handleMessageClick}>
+                MESSAGE EMPLOYER
+              </button>
+            </div>
           </div>
           <div className="stats">
             <div className="stat-item">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Headerz from "./Headerz";
 import Footer from '../FooterContent/footer';
 
@@ -10,28 +11,37 @@ const Notif = () => {
   const [selectedNotifications, setSelectedNotifications] = useState([]);
   const [activeTab, setActiveTab] = useState('all'); // Track active tab: 'all' or 'unread'
   const [loading, setLoading] = useState(true);
+  const [userProfile, setUserProfile] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchNotifications();
+    fetchUserProfile();
   }, []);
+
+  const fetchUserProfile = async () => {
+    try {
+      const userData = JSON.parse(localStorage.getItem('user') || '{}');
+      const userId = userData?.id || userData?.user?.id;
+      if (!userId) return;
+
+      const response = await axios.get(`http://127.0.0.1:8000/api/users/${userId}`);
+      if (response.data.success) {
+        setUserProfile(response.data.user || response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+    }
+  };
 
   const fetchNotifications = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem('auth_token');
-      
-      if (!token) {
-        console.log('No auth token found');
-        setLoading(false);
-        return;
-      }
+      const userData = JSON.parse(localStorage.getItem('user') || '{}');
+      const userId = userData?.id || userData?.user?.id;
+      if (!userId) { setLoading(false); return; }
 
-      const response = await axios.get('http://127.0.0.1:8000/api/notifications', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Accept': 'application/json'
-        }
-      });
+      const response = await axios.get(`http://127.0.0.1:8000/api/notifications?user_id=${userId}`);
 
       if (response.data.success) {
         setNotifications(response.data.notifications);
@@ -45,17 +55,84 @@ const Notif = () => {
     }
   };
 
+  // Check if address is complete
+  const isAddressComplete = userProfile?.profile?.street && userProfile?.profile?.contact_number;
+  
+  // Check worker profile review status
+  const workerProfileStatus = userProfile?.worker?.is_reviewed || 'TO BE REVIEWED';
+
+  // Generate system notifications
+  const generateSystemNotifications = () => {
+    const systemNotifications = [];
+    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+    const userId = userData?.id || userData?.user?.id;
+    
+    // Address completion notification - Updated format
+    if (!isAddressComplete) {
+      systemNotifications.push({
+        id: 'system-address-' + userId,
+        user: 'WORQO Job Portal',
+        action: 'Welcome to WORQO',
+        message: 'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started.',
+        time: '2 minutes ago',
+        isUnread: true,
+        profile_img: 'images/system-icon.svg',
+        type: 'address',
+        isSystem: true
+      });
+    }
+    
+    // Worker profile review notifications
+    if (userProfile?.role_id === 1 && userProfile?.worker) { // Worker role
+      if (workerProfileStatus === 'TO BE REVIEWED') {
+        systemNotifications.push({
+          id: 'system-review-pending-' + userId,
+          user: 'System',
+          action: 'Profile Review Pending',
+          message: 'Please wait while your worker profile is being reviewed by WORQO Job Portal.',
+          time: 'Just now',
+          isUnread: true,
+          profile_img: 'images/system-icon.svg',
+          type: 'review',
+          isSystem: true
+        });
+      } else if (workerProfileStatus === 'ACCEPTED') {
+        systemNotifications.push({
+          id: 'system-review-approved-' + userId,
+          user: 'System',
+          action: 'Profile Approved',
+          message: 'Congratulations! Your worker profile has been approved by WORQO Job Portal.',
+          time: 'Just now',
+          isUnread: true,
+          profile_img: 'images/system-icon.svg',
+          type: 'review-approved',
+          isSystem: true
+        });
+      } else if (workerProfileStatus === 'DECLINED') {
+        systemNotifications.push({
+          id: 'system-review-declined-' + userId,
+          user: 'System',
+          action: 'Profile Declined',
+          message: 'Unfortunately, your worker profile has been declined by WORQO Job Portal. Please review and update your information.',
+          time: 'Just now',
+          isUnread: true,
+          profile_img: 'images/system-icon.svg',
+          type: 'review-declined',
+          isSystem: true
+        });
+      }
+    }
+    
+    return systemNotifications;
+  };
+
   const unreadCount = notifications.filter(notif => notif.isUnread).length;
 
   const handleMarkAsRead = async (notifId) => {
     try {
-      const token = localStorage.getItem('auth_token');
-      await axios.put(`http://127.0.0.1:8000/api/notifications/${notifId}/read`, {}, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Accept': 'application/json'
-        }
-      });
+      const userData = JSON.parse(localStorage.getItem('user') || '{}');
+      const userId = userData?.id || userData?.user?.id;
+      await axios.put(`http://127.0.0.1:8000/api/notifications/${notifId}/read`, {}, { headers: { 'X-User-Id': userId } });
       
       setNotifications(notifications.map(notif =>
         notif.id === notifId ? { ...notif, isUnread: false } : notif
@@ -70,13 +147,9 @@ const Notif = () => {
 
   const handleMarkAsUnread = async (notifId) => {
     try {
-      const token = localStorage.getItem('auth_token');
-      await axios.put(`http://127.0.0.1:8000/api/notifications/${notifId}/unread`, {}, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Accept': 'application/json'
-        }
-      });
+      const userData = JSON.parse(localStorage.getItem('user') || '{}');
+      const userId = userData?.id || userData?.user?.id;
+      await axios.put(`http://127.0.0.1:8000/api/notifications/${notifId}/unread`, {}, { headers: { 'X-User-Id': userId } });
       
       setNotifications(notifications.map(notif =>
         notif.id === notifId ? { ...notif, isUnread: true } : notif
@@ -91,13 +164,9 @@ const Notif = () => {
 
   const handleMarkAllAsRead = async () => {
     try {
-      const token = localStorage.getItem('auth_token');
-      await axios.put('http://127.0.0.1:8000/api/notifications/mark-all-read', {}, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Accept': 'application/json'
-        }
-      });
+      const userData = JSON.parse(localStorage.getItem('user') || '{}');
+      const userId = userData?.id || userData?.user?.id;
+      await axios.put('http://127.0.0.1:8000/api/notifications/mark-all-read', {}, { headers: { 'X-User-Id': userId } });
       
       setNotifications(notifications.map(notif => ({ ...notif, isUnread: false })));
       // Dispatch event to update header badge
@@ -125,9 +194,12 @@ const Notif = () => {
     setSelectedNotif(null);
   };
 
+  // Combine system notifications with API notifications
+  const allNotifications = [...generateSystemNotifications(), ...notifications];
+  
   const displayedNotifications = activeTab === 'unread'
-    ? notifications.filter(notif => notif.isUnread)
-    : notifications;
+    ? allNotifications.filter(notif => notif.isUnread)
+    : allNotifications;
 
   return (
     <>
@@ -256,9 +328,10 @@ const Notif = () => {
                     checked={selectedNotifications.includes(notif.id)}
                     onChange={() => handleCheckboxChange(notif.id)}
                     style={{ marginRight: '1rem' }}
+                    disabled={notif.isSystem} // Disable checkbox for system notifications
                   />
                   <img 
-                    src={notif.profile_img ? `http://127.0.0.1:8000/storage/${notif.profile_img}` : 'img/defaultpfp.jpg'} 
+                    src={notif.profile_img && notif.profile_img.startsWith('images/') ? notif.profile_img : (notif.profile_img ? `http://127.0.0.1:8000/storage/${notif.profile_img}` : 'images/defpfp.svg')} 
                     alt={notif.user} 
                     style={{ 
                       width: '40px', 
@@ -267,9 +340,7 @@ const Notif = () => {
                       marginRight: '1rem',
                       objectFit: 'cover'
                     }} 
-                    onError={(e) => {
-                      e.target.src = 'img/defaultpfp.jpg';
-                    }}
+                    onError={(e) => { e.target.src = 'images/defpfp.svg'; }}
                   />
                   <div style={{ flex: 1, cursor: 'pointer' }} onClick={() => openModal(notif)}>
                     <p style={{ margin: '0', fontWeight: notif.isUnread ? 'bold' : 'normal' }}>
@@ -278,6 +349,49 @@ const Notif = () => {
                     <p style={{ margin: '0.5rem 0 0', color: '#666', fontSize: '0.9rem' }}>
                       {notif.time}
                     </p>
+                    <p style={{ margin: '0.25rem 0 0', fontSize: '0.9rem' }}>
+                      {notif.message}
+                    </p>
+                    {notif.target_role_id && (
+                      <p style={{ margin: '0.25rem 0 0', fontSize: '0.9rem' }}>
+                        <span style={{ color: '#333' }}>Want to view this booking? </span>
+                        <a
+                          href="#"
+                          onClick={async (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Dispatch event to handle the special link with role switching
+                            window.dispatchEvent(new CustomEvent('notificationLinkClicked', {
+                              detail: {
+                                url: '/profile-settings/bookings',
+                                targetRoleId: notif.target_role_id
+                              }
+                            }));
+                          }}
+                          style={{ color: '#1a73e8', textDecoration: 'underline' }}
+                        >
+                          Click here
+                        </a>
+                      </p>
+                    )}
+                    {notif.type === 'address' && (
+                      <p style={{ margin: '0.25rem 0 0', fontSize: '0.9rem' }}>
+                        <span style={{ color: '#333' }}>Complete your address: </span>
+                        <a
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            // Navigate to address settings
+                            navigate('/profile-settings/addresses');
+                          }}
+                          style={{ color: '#1a73e8', textDecoration: 'underline' }}
+                        >
+                          Click here
+                        </a>
+                      </p>
+                    )}
                   </div>
                 </div>
               ))
@@ -340,7 +454,7 @@ const Notif = () => {
             <div style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
                 <img 
-                  src={selectedNotif.profile_img ? `http://127.0.0.1:8000/storage/${selectedNotif.profile_img}` : 'img/defaultpfp.jpg'} 
+                  src={selectedNotif.profile_img && selectedNotif.profile_img.startsWith('images/') ? selectedNotif.profile_img : (selectedNotif.profile_img ? `http://127.0.0.1:8000/storage/${selectedNotif.profile_img}` : 'images/defpfp.svg')} 
                   alt={selectedNotif.user} 
                   style={{ 
                     width: '50px', 
@@ -349,9 +463,7 @@ const Notif = () => {
                     marginRight: '1rem',
                     objectFit: 'cover'
                   }}
-                  onError={(e) => {
-                    e.target.src = 'img/defaultpfp.jpg';
-                  }}
+                  onError={(e) => { e.target.src = 'images/defpfp.svg'; }}
                 />
                 <div>
                   <p style={{ margin: 0, fontWeight: 'bold' }}>{selectedNotif.user}</p>
@@ -362,6 +474,67 @@ const Notif = () => {
               </div>
               <h4 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem', color: '#333' }}>{selectedNotif.action}</h4>
               <p style={{ margin: '1rem 0', lineHeight: '1.6' }}>{selectedNotif.message}</p>
+              
+              {/* Special actions for system notifications */}
+              {selectedNotif.type === 'address' && (
+                <button
+                  onClick={() => {
+                    closeModal();
+                    navigate('/profile-settings/addresses');
+                  }}
+                  style={{
+                    backgroundColor: '#00C4CC',
+                    color: 'white',
+                    border: 'none',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    marginTop: '1rem'
+                  }}
+                >
+                  Complete Address Now
+                </button>
+              )}
+              
+              {selectedNotif.type === 'review' && (
+                <button
+                  onClick={() => {
+                    closeModal();
+                    navigate('/profile-settings');
+                  }}
+                  style={{
+                    backgroundColor: '#00C4CC',
+                    color: 'white',
+                    border: 'none',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    marginTop: '1rem'
+                  }}
+                >
+                  View Profile Status
+                </button>
+              )}
+              
+              {(selectedNotif.type === 'review-approved' || selectedNotif.type === 'review-declined') && (
+                <button
+                  onClick={() => {
+                    closeModal();
+                    navigate('/profile-settings');
+                  }}
+                  style={{
+                    backgroundColor: '#00C4CC',
+                    color: 'white',
+                    border: 'none',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    marginTop: '1rem'
+                  }}
+                >
+                  View Profile
+                </button>
+              )}
             </div>
             <div style={{
               padding: '1rem',
@@ -370,7 +543,7 @@ const Notif = () => {
               justifyContent: 'flex-end',
               gap: '1rem'
             }}>
-              {selectedNotif.isUnread ? (
+              {selectedNotif.isUnread && !selectedNotif.isSystem ? (
                 <button
                   onClick={() => handleMarkAsRead(selectedNotif.id)}
                   style={{
@@ -384,7 +557,7 @@ const Notif = () => {
                 >
                   Mark as Read
                 </button>
-              ) : (
+              ) : !selectedNotif.isSystem ? (
                 <button
                   onClick={() => handleMarkAsUnread(selectedNotif.id)}
                   style={{
@@ -398,7 +571,7 @@ const Notif = () => {
                 >
                   Mark as Unread
                 </button>
-              )}
+              ) : null}
               <button
                 onClick={closeModal}
                 style={{

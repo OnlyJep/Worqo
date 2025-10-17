@@ -12,8 +12,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Update the default status from 'pending' to 'for_interview'
-        DB::statement("ALTER TABLE job_applications MODIFY COLUMN status ENUM('for_interview', 'accepted', 'declined', 'fired') DEFAULT 'for_interview'");
+        // Update the default status to 'for_interview' while preserving existing enum values
+        DB::statement("ALTER TABLE job_applications MODIFY COLUMN status ENUM('pending', 'for_interview', 'accepted', 'declined', 'fired') DEFAULT 'for_interview'");
     }
 
     /**
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Revert back to 'pending' as default
-        DB::statement("ALTER TABLE job_applications MODIFY COLUMN status ENUM('pending', 'accepted', 'declined', 'for_interview', 'fired') DEFAULT 'pending'");
+        // Revert back to 'pending' as default (enum values unchanged)
+        DB::statement("ALTER TABLE job_applications MODIFY COLUMN status ENUM('pending', 'for_interview', 'accepted', 'declined', 'fired') DEFAULT 'pending'");
     }
 };

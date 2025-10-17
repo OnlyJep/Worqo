@@ -17,4 +17,35 @@
 @import 'components/_skillsexperience';
 @import 'components/AdminProfileSetting';
 @import 'components/_profilesetupnotification';
+@import 'components/Headerz';
+
+// Ant Design message size overrides
+.ant-message {
+  z-index: 9999;
+}
+
+.ant-message-notice-content {
+  padding: 24px 28px !important;
+  border-radius: 10px !important;
+}
+
+.ant-message-custom-content {
+  font-size: 24px !important;
+  line-height: 1.7 !important;
+}
+
+.ant-message .ant-message-notice-content .ant-message-icon + span {
+  font-size: 24px !important;
+}
+
+.ant-message .ant-message-notice-content .ant-message-icon {
+  font-size: 28px !important;
+  margin-right: 12px !important;
+}
+
+.ant-message-success .ant-message-notice-content,
+.ant-message-error .ant-message-notice-content,
+.ant-message-warning .ant-message-notice-content {
+  min-width: 560px;
+}
 

@@ -12,7 +12,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('reviewed_user_id')->constrained('users')->onDelete('cascade');
-            $table->integer('rating')->unsigned()->between(1, 5);
+            $table->unsignedTinyInteger('rating');
             $table->text('comment')->nullable();
             $table->boolean('archived')->default(false);
             $table->timestamps();

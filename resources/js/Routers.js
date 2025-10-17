@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { message } from "antd";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Homepage from "./components/Homepage/homepage";
@@ -107,6 +108,31 @@ const RootRoute = () => {
   return <Navigate to={targetRoute} replace />;
 };
 
+// Guard for Post Jobs: allow only Employer (role_id === 2)
+const PostJobsGuard = () => {
+  const navigate = useNavigate();
+  const { isAuthenticated, userRole } = useAuth();
+
+  React.useEffect(() => {
+    const goTo = isAuthenticated ? "/homepage" : "/login";
+    if (!isAuthenticated || userRole !== 2) {
+      message.warning("You need to be an employer to post a job.");
+      navigate(goTo, { replace: true });
+    }
+  }, [isAuthenticated, userRole, navigate]);
+
+  if (!isAuthenticated || userRole !== 2) {
+    return null;
+  }
+
+  return (
+    <div style={{ padding: '2rem', textAlign: 'center' }}>
+      <h2>Post Jobs</h2>
+      <p>This feature is coming soon!</p>
+    </div>
+  );
+};
+
 export default function Routers() {
   return (
     <Router>
@@ -131,20 +157,12 @@ export default function Routers() {
         <Route path="/homepage" element={<Homepage />} />
         <Route 
           path="/services" 
-          element={
-            <RoleBasedRoute restrictedRoles={[1]}>
-              <Service />
-            </RoleBasedRoute>
-          } 
+          element={<Service />} 
         />
         <Route path="/headerz" element={<Headerz />} />
         <Route 
           path="/find-jobs" 
-          element={
-            <RoleBasedRoute restrictedRoles={[2]}>
-              <FindJob />
-            </RoleBasedRoute>
-          } 
+          element={<FindJob />} 
         />
         <Route path="/job/:jobId" element={<JobProfile />} />
         <Route path="/about" element={<AboutUs />} />
@@ -171,11 +189,7 @@ export default function Routers() {
         <Route path="/pay" element={<Pay />} />
         <Route 
           path="/profile/:workerId" 
-          element={
-            <RoleBasedRoute restrictedRoles={[1]}>
-              <Profile />
-            </RoleBasedRoute>
-          } 
+          element={<Profile />} 
         />
         <Route path="/profile-settings/*" element={<ProfileSettings />} />
         <Route 
@@ -193,14 +207,7 @@ export default function Routers() {
         />
         <Route 
           path="/post-jobs" 
-          element={
-            <RoleBasedRoute restrictedRoles={[1]}>
-              <div style={{ padding: '2rem', textAlign: 'center' }}>
-                <h2>Post Jobs</h2>
-                <p>This feature is coming soon!</p>
-              </div>
-            </RoleBasedRoute>
-          } 
+          element={<PostJobsGuard />} 
         />
         <Route
           path="/admin"

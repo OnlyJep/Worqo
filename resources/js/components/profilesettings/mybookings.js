@@ -286,6 +286,20 @@ const MyBookings = () => {
                     </div>
                   </div>
                 <div className="booking-actions">
+                  {/* Message Button */}
+                  <button 
+                    className="message-btn"
+                    onClick={() => {
+                      // Store the target user ID in localStorage
+                      const targetUserId = isEmployerView ? booking.worker_id : booking.employer_id;
+                      localStorage.setItem('message_target_user_id', targetUserId);
+                      // Navigate to messages page
+                      window.location.href = '/message';
+                    }}
+                  >
+                    Message
+                  </button>
+                  
                   {/* Employer Actions */}
                   {isEmployerView && (
                     <>

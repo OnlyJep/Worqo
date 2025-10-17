@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { IconX, IconChevronDown, IconPlus, IconMinus } from '@tabler/icons-react';
 import { Select, Dropdown, message, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import Headerz from '../HeaderContent/Headerz';
 import SkillsExperience from './SkillsExperience';
 const { Option } = Select;
 
@@ -47,7 +46,7 @@ const credentialSubTypes = {
 
 const credentialOptions = [
   { value: "Resume/CV", label: "Resume / Curriculum Vitae (CV)" },
-  { value: "Birth Certificate", label: "Birth Certificate (PSA-issued)" },
+  { value: "Birth Certificate", label: "Birth Certificate" },
   { value: "Barangay Clearance", label: "Barangay Clearance" },
   { value: "Police Clearance", label: "Police Clearance" },
   { value: "NBI Clearance", label: "NBI Clearance" },
@@ -126,6 +125,51 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const navigate = useNavigate();
   const isMounted = useRef(true);
   const abortController = useRef(new AbortController());
+
+  // Map working days to indices for consistent ordering and range formatting
+  const workingDayIndexMap = {
+    monday: 0,
+    tuesday: 1,
+    wednesday: 2,
+    thursday: 3,
+    friday: 4,
+    saturday: 5,
+    sunday: 6,
+  };
+
+  const getWorkingDayLabel = (value) => {
+    const option = workingDaysOptions.find(opt => opt.value === value);
+    return option ? option.label : value;
+  };
+
+  const formatPreferredWorkingDays = (days) => {
+    if (!Array.isArray(days) || days.length === 0) return '';
+    if (days.length === 1) return getWorkingDayLabel(days[0]);
+    
+    // Sort days by their index to maintain proper order
+    const sorted = [...new Set(days)].sort((a, b) => (workingDayIndexMap[a] ?? 0) - (workingDayIndexMap[b] ?? 0));
+    
+    // Check if days are consecutive
+    let isConsecutive = true;
+    for (let i = 1; i < sorted.length; i++) {
+      const currentIndex = workingDayIndexMap[sorted[i]] ?? 0;
+      const previousIndex = workingDayIndexMap[sorted[i-1]] ?? 0;
+      if (currentIndex !== previousIndex + 1) {
+        isConsecutive = false;
+        break;
+      }
+    }
+    
+    if (isConsecutive && sorted.length > 1) {
+      // For consecutive days, use dash format
+      const start = sorted[0];
+      const end = sorted[sorted.length - 1];
+      return `${getWorkingDayLabel(start)} - ${getWorkingDayLabel(end)}`;
+    } else {
+      // For non-consecutive days, use ampersand format
+      return sorted.map(day => getWorkingDayLabel(day)).join(' & ');
+    }
+  };
 
   useEffect(() => {
     isMounted.current = true;
@@ -389,14 +433,22 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         },
         signal: abortController.current.signal,
       });
+      console.log('Profile API Response:', response);
       if (!response.ok) {
-        console.error('Worker fetch failed:', response.status, response.statusText);
-        throw new Error('Failed to fetch worker profile');
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.error || errorData.message || `HTTP ${response.status}: ${response.statusText}`;
+        console.error('Worker fetch failed:', response.status, response.statusText, errorData);
+        throw new Error(errorMessage);
       }
       const profile = await response.json();
       console.log('Fetched profile from /api/workers:', JSON.stringify(profile, null, 2));
-      if (profile && profile.profile_id && isMounted.current) {
-        setProfileId(profile.profile_id);
+      if (profile && (profile.profile_id || profile.worker) && isMounted.current) {
+        // Set profile ID if available
+        if (profile.profile_id) {
+          setProfileId(profile.profile_id);
+        } else if (profile.profile && profile.profile.id) {
+          setProfileId(profile.profile.id);
+        }
         
         // Handle structured skills_id format
         const skillsData = profile.worker?.skills_id || {};
@@ -762,8 +814,9 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       setErrors((prev) => ({ ...prev, new_credential_name: "Please select a credential type" }));
       return;
     }
-    if (!newCredential.credentials_photo) {
-      setErrors((prev) => ({ ...prev, new_credential_photo: "Please upload a credential file" }));
+    // At least one credential is required
+    if (credentials.length === 0 && (!newCredential.credentials_photo && !newCredential.credentials_name)) {
+      setErrors((prev) => ({ ...prev, new_credential_photo: "Please add at least one credential" }));
       return;
     }
     setCredentials((prev) => [...prev, { ...newCredential, category: selectedCredentialCategory }]);
@@ -877,8 +930,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         if (isMounted.current) {
           setUserSkills(updatedSkills);
           message.success('Skill updated successfully');
-          // Dispatch event to notify MyProfile component
-          window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
         }
       } else {
         // Add new skill using the add-skill endpoint
@@ -968,8 +1019,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
               return updated;
             });
             message.success('Skill added successfully');
-            // Dispatch event to notify MyProfile component
-            window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
           }
         } else {
           // New skill added successfully
@@ -995,8 +1044,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
               return updated;
             });
             message.success('Skill added successfully');
-            // Dispatch event to notify MyProfile component
-            window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
           }
         }
       }
@@ -1121,8 +1168,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         }
         
         message.success('Skill removed successfully');
-        // Dispatch event to notify MyProfile component
-        window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
       }
     } catch (error) {
       if (error.name === 'AbortError') {
@@ -1187,6 +1232,11 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     }
     if ((userSkills.primary_skills?.length || 0) === 0 || (userSkills.additional_skills?.length || 0) === 0) {
       message.error('Please select at least 1 primary and 1 additional skill.');
+      return;
+    }
+    // Check if at least one credential is provided
+    if (credentials.length === 0) {
+      message.error('Please add at least one credential to complete your profile.');
       return;
     }
 
@@ -1269,11 +1319,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         localStorage.removeItem(`primarySkill_${user.id}`);
         localStorage.removeItem(`additionalSkills_${user.id}`);
         localStorage.removeItem(`profile_${user.id}`);
-        
-        // Dispatch events to notify MyProfile component
-        window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
-        window.dispatchEvent(new CustomEvent('workerCredentialsUpdated'));
-        
         onComplete();
         if (window.location.pathname.includes('/skill-rating')) {
           // If used as a page, use window.location
@@ -1322,7 +1367,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
   return (
     <div className="skill-rating-overlay">
-      <Headerz />
       <div className="skill-rating-container">
         <div className="progress-side">
           <div className="logo">Worqo</div>
@@ -1459,12 +1503,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                       >
                         <div className="multi-dropdown-value">
                           {preferredWorkingHours.length > 0 
-                            ? preferredWorkingHours.map(day => {
-                                const dayOption = workingDaysOptions.find(option => option.value === day);
-                                return dayOption ? dayOption.label : day;
-                              }).join(' • ')
-                            : 'Select working days'
-                          }
+                            ? formatPreferredWorkingDays(preferredWorkingHours)
+                            : 'Select working days'}
                         </div>
                         <span className={`dropdown-arrow ${isWorkingDaysDropdownOpen ? 'open' : ''}`}>
                           <IconChevronDown size={16} />
@@ -1573,7 +1613,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                 <h1>Add Your Credentials</h1>
                 <p className="step-description">Upload relevant documents to support your skills and build trust with potential employers.</p>
               </div>
-
+              <form id="worker-credentials-form" name="worker-credentials-form" className="worker-credentials-form" onSubmit={(e) => e.preventDefault()}>
               <div className="form-section">
                 <div className="section-title">Professional Credentials</div>
                 <p className="section-description">Add any relevant credentials to support your skills (optional but recommended).</p>
@@ -1675,9 +1715,9 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                             onChange={(e) => handleNewCredentialChange(e, "credentials_photo")}
                             ref={credentialFileRef}
                             className="file-input"
-                            id="credential-file"
+                            id="worker-credential-file"
                           />
-                          <label htmlFor="credential-file" className="file-upload-label">
+                          <label htmlFor="worker-credential-file" className="file-upload-label">
                             <span className="upload-text">Choose file (PDF, DOC, DOCX, JPG, PNG Max 2MB)</span>
                           </label>
                         </div>
@@ -1702,39 +1742,42 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                       </div>
                     )}
                   </div>
-
-                  {credentials.length > 0 ? (
-                    <div className="credentials-list">
-                      <div className="list-header">
-                        <span className="list-title">Added Credentials ({credentials.length})</span>
-                      </div>
-                      {credentials.map((cred, index) => (
-                        <div key={index} className="credential-item">
-                          <div className="credential-info">
-                            <span className="credential-name">{cred.credentials_name}</span>
-                            {cred.category && (
-                              <span className="credential-category">
-                                {credentialCategories.find(cat => cat.value === cred.category)?.label}
-                              </span>
-                            )}
-                          </div>
-                          <button 
-                            type="button" 
-                            onClick={() => removeCredential(index)}
-                            className="remove-credential-btn"
-                          >
-                            Remove
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="empty-credentials">
-                      <span className="empty-text">No credentials added yet</span>
-                      <span className="empty-hint">Add credentials to build trust with employers</span>
-                    </div>
-                  )}
                 </div>
+              </div>
+              </form>
+
+              <div className="form-section added-credentials-section">
+                <div className="section-title">Added Credentials ({credentials.length})</div>
+                {credentials.length > 0 ? (
+                  <div className="credentials-list worker-credentials-list">
+                    {credentials.map((cred, index) => (
+                      <div key={index} className="credential-item worker-credential-item">
+                        <div className="credential-info">
+                          <span className="credential-name">{cred.credentials_name}</span>
+                          {cred.category && (
+                            <span className="credential-category">
+                              {credentialCategories.find(cat => cat.value === cred.category)?.label}
+                            </span>
+                          )}
+                        </div>
+                        <button 
+                          type="button" 
+                          onClick={() => removeCredential(index)}
+                          className="remove-credential-btn"
+                          aria-label="Remove credential"
+                          title="Remove"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="empty-credentials">
+                    <span className="empty-text">No credentials added yet</span>
+                    <span className="empty-hint">Add credentials to build trust with employers</span>
+                  </div>
+                )}
               </div>
             </>
           )}
