@@ -25,14 +25,13 @@
     margin-bottom: 30px;
     overflow-x: auto;
 
-    .booking-tab-container {
+    .bookings-tabs {
       display: flex;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
+      gap: 0;
+      width: 100%;
     }
 
-    .booking-tab {
+    .tab-button {
       background: none;
       border: none;
       padding: 12px 20px;
@@ -44,15 +43,7 @@
       border-bottom: 2px solid transparent;
       white-space: nowrap;
       min-width: fit-content;
-      pointer-events: auto;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      position: relative;
-      z-index: 2;
-      display: block;
-      width: 100%;
+      flex: 1;
 
       &:hover {
         color: #374151;
@@ -87,297 +78,70 @@
       flex-direction: column;
       gap: 20px;
     }
+  }
 
-       .booking-card {
-         background: #f8fafc;
-         border-radius: 12px;
-         padding: 24px;
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-         position: relative; // Added for absolute positioning of salary
+  // Bulk Delete Container
+  .bulk-delete-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+    padding: 0 20px;
 
-         .booking-worker-info {
-           display: flex;
-           align-items: center;
-           gap: 16px;
-           flex: 1;
+    .delete-selected-btn {
+      background: #dc2626;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
 
-        .worker-profile {
-          .worker-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-          }
-        }
-
-        .worker-details {
-          .worker-name {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1f2937;
-            margin: 0 0 4px 0;
-          }
-
-          .worker-profession {
-            font-size: 14px;
-            color: #6b7280;
-            margin: 0 0 12px 0;
-          }
-
-          .worker-badges {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 8px;
-
-             .verified-badge {
-               display: flex;
-               align-items: center;
-               gap: 4px;
-               font-size: 12px;
-               font-weight: 600;
-
-               .verified-icon {
-                 color: #4DA34D;
-                 font-size: 14px;
-               }
-             }
-
-             .blue-collar-badge {
-               display: flex;
-               align-items: center;
-               gap: 4px;
-               font-size: 12px;
-               font-weight: 600;
-               color: #024570;
-
-               .blue-collar-icon {
-                 width: 14px;
-                 height: 14px;
-               }
-             }
-
-             .white-collar-badge {
-               display: flex;
-               align-items: center;
-               gap: 4px;
-               font-size: 12px;
-               font-weight: 600;
-               color: #6b7280;
-
-               .white-collar-icon {
-                 width: 14px;
-                 height: 14px;
-               }
-             }
-
-             .pink-collar-badge {
-               display: flex;
-               align-items: center;
-               gap: 4px;
-               font-size: 12px;
-               font-weight: 600;
-               color: #ec4899;
-
-               .pink-collar-icon {
-                 width: 14px;
-                 height: 14px;
-               }
-             }
-          }
-
-          .booking-status {
-            font-size: 14px;
-            color: #374151;
-
-            .status-text {
-              font-weight: 600;
-            }
-          }
-        }
+      &:hover {
+        background: #b91c1c;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
       }
 
-       .booking-salary {
-         font-size: 16px;
-         font-weight: 600;
-         color: #1f2937;
-         position: absolute;
-         top: 20px;
-         right: 20px;
-         height: 60px;
-         width: auto;
-         white-space: nowrap;
-         z-index: 1;
-       }
-
-       .booking-actions {
-         display: flex;
-         gap: 12px;
-         margin-top: 20px;
-
-         .view-transaction-btn {
-           background: #001E40;
-           color: white;
-           border: none;
-           width: 110px;
-           height: 33px;
-           border-radius: 6px;
-           font-size: 12px;
-           font-weight: 600;
-           cursor: pointer;
-           transition: all 0.3s ease;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-
-           &:hover {
-             background: #002a5c;
-           }
-         }
-
-         .cancel-booking-btn {
-           background: white;
-           color: #374151;
-           border: 1px solid #d1d5db;
-           width: 100px;
-           height: 33px;
-           border-radius: 6px;
-           font-size: 12px;
-           font-weight: 600;
-           cursor: pointer;
-           transition: all 0.3s ease;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-
-           &:hover {
-             background: #f9fafb;
-             border-color: #9ca3af;
-           }
-         }
-
-         .rate-booking-btn {
-           background: #001E40;
-           color: white;
-           border: none;
-           width: 100px;
-           height: 33px;
-           border-radius: 6px;
-           font-size: 12px;
-           font-weight: 600;
-           cursor: pointer;
-           transition: all 0.3s ease;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-
-           &:hover {
-             background: #15803d;
-           }
-         }
-
-         .give-feedback-btn {
-           background: #001E40;
-           color: white;
-           border: none;
-           width: 100px;
-           height: 33px;
-           border-radius: 6px;
-           font-size: 12px;
-           font-weight: 600;
-           cursor: pointer;
-           transition: all 0.3s ease;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-
-           &:hover {
-             background: #002a5c;
-           }
-         }
-
-         .accept-btn {
-           background: #4CAF50;
-           color: white;
-           border: none;
-           width: 100px;
-           height: 33px;
-           border-radius: 6px;
-           font-size: 12px;
-           font-weight: 600;
-           cursor: pointer;
-           transition: all 0.3s ease;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-
-           &:hover {
-             background: #45a049;
-           }
-         }
-
-         .decline-btn {
-           background: #f44336;
-           color: white;
-           border: none;
-           width: 100px;
-           height: 33px;
-           border-radius: 6px;
-           font-size: 12px;
-           font-weight: 600;
-           cursor: pointer;
-           transition: all 0.3s ease;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-
-           &:hover {
-             background: #da190b;
-           }
-         }
-
-         .complete-btn {
-           background: #2196F3;
-           color: white;
-           border: none;
-           width: 140px;
-           height: 33px;
-           border-radius: 6px;
-           font-size: 12px;
-           font-weight: 600;
-           cursor: pointer;
-           transition: all 0.3s ease;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-
-           &:hover {
-             background: #1976D2;
-           }
-         }
-
-        .status-only {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 8px 16px;
-
-          .declined-text {
-            color: #dc2626;
-            font-size: 14px;
-            font-weight: 600;
-          }
-
-          .cancelled-text {
-            color: #888888;
-            font-size: 14px;
-            font-weight: 600;
-          }
-        }
+      &:active {
+        transform: translateY(0);
       }
     }
+  }
+
+  // Loading State
+  .loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #e5e7eb;
+      border-top: 4px solid #3b82f6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #6b7280;
+      margin: 0;
+    }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
     .empty-state {
       text-align: center;
@@ -401,7 +165,6 @@
       }
     }
   }
-}
 
 // Responsive design
 @media (max-width: 768px) {
@@ -419,65 +182,26 @@
       gap: 0;
       margin-bottom: 20px;
 
-      .booking-tab-container {
-        flex: 1;
-        min-width: 0;
+      .bookings-tabs {
+        flex-direction: column;
       }
 
-      .booking-tab {
+      .tab-button {
         padding: 10px 16px;
         font-size: 13px;
-        min-width: 100px;
-        width: 100%;
         text-align: center;
+        border-bottom: 1px solid #e5e7eb;
+        border-right: none;
+
+        &:last-child {
+          border-bottom: none;
+        }
       }
     }
 
     .bookings-content {
       min-height: 300px;
       margin-top: -15px; // Consistent spacing for all navigation tabs on mobile
-
-      .booking-card {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 16px;
-
-        .booking-worker-info {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-
-          .worker-details {
-            .worker-badges {
-              justify-content: center;
-            }
-          }
-        }
-
-        .booking-salary {
-          text-align: center;
-          margin-right: 0;
-          margin-bottom: 12px;
-        }
-
-         .booking-actions {
-           justify-content: center;
-           flex-wrap: wrap;
-           margin-top: 24px; // Consistent button spacing on mobile
-           
-           .view-transaction-btn,
-           .cancel-booking-btn,
-           .rate-booking-btn,
-           .give-feedback-btn,
-           .accept-btn,
-           .decline-btn,
-           .complete-btn {
-             width: 110px;
-             height: 33px;
-             font-size: 12px;
-           }
-         }
-      }
 
       .empty-state {
         padding: 20px 10px;

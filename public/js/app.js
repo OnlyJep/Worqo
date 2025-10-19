@@ -72312,7 +72312,31 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.profile-page .profile-header {\n  position: relative;\n  width: 100%;\n}\n.profile-page .profile-header .cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.profile-page .profile-header .cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-header .profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.profile-page .profile-header .profile-photo-wrapper .profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.profile-page .profile-container .profile-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.profile-page .profile-container .profile-left .profile-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.profile-page .profile-container .profile-left .profile-info h2 {\n  font-size: 20px;\n  margin: 5px 0;\n  color: #000000;\n}\n.profile-page .profile-container .profile-left .profile-info .status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.profile-page .profile-container .profile-left .profile-info .status-dot {\n  width: 8px;\n  height: 8px;\n  background-color: #1E90FF;\n  border-radius: 50%;\n}\n.profile-page .profile-container .profile-left .profile-info .status {\n  font-size: 14px;\n  margin: 5px 0;\n  color: #1E90FF;\n}\n.profile-page .profile-container .profile-left .profile-info .location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.profile-page .profile-container .profile-left .profile-info .edit-profile {\n  background: #1E90FF;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  max-width: 300px;\n}\n.profile-page .profile-container .profile-left .profile-info .edit-profile:hover {\n  background: #104E8B;\n}\n.profile-page .profile-container .profile-left .stats {\n  margin: 20px 0;\n  background: #f9fafb;\n  padding: 15px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-left .stats .stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n  padding: 8px 0;\n  border-bottom: 1px solid #eee;\n}\n.profile-page .profile-container .profile-left .stats .stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-left .stats .stat-item .stat-label {\n  font-size: 16px;\n  color: #2d3748;\n  font-weight: 500;\n}\n.profile-page .profile-container .profile-left .stats .stat-item .stat-number {\n  font-size: 16px;\n  font-weight: 600;\n  color: #000000;\n}\n.profile-page .profile-container .profile-left .social-links {\n  margin: 20px 0;\n  width: 88%;\n}\n.profile-page .profile-container .profile-left .social-links h4 {\n  font-size: 12px;\n  color: #666;\n  text-transform: uppercase;\n  margin-bottom: 10px;\n}\n.profile-page .profile-container .profile-left .social-links .social-links-container {\n  background: #f9fafb;\n  border: 1px solid #e0e0e0;\n  border-radius: 8px;\n  padding: 10px 15px;\n}\n.profile-page .profile-container .profile-left .social-links .social-icon {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin: 8px 0;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-left .social-links .social-icon .social-media-icon {\n  width: 20px;\n  height: 20px;\n}\n.profile-page .profile-container .profile-left .social-links .social-icon span {\n  flex-grow: 1;\n  color: #2d3748;\n}\n.profile-page .profile-container .profile-left .member-since {\n  font-size: 12px;\n  color: #666;\n  text-transform: uppercase;\n  margin: 15px 0;\n}\n.profile-page .profile-container .profile-left .report {\n  color: #666;\n  font-size: 14px;\n  cursor: pointer;\n}\n.profile-page .profile-container .profile-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  height: calc(100vh - 320px);\n}\n.profile-page .profile-container .profile-right .tabs {\n  display: flex;\n  border-bottom: 1px solid #eee;\n  background: #f9fafb;\n  padding: 0 10px;\n}\n.profile-page .profile-container .profile-right .tabs .tab {\n  padding: 10px 15px;\n  background: none;\n  border: none;\n  cursor: pointer;\n  font-size: 14px;\n  text-transform: uppercase;\n  color: #666;\n  border-radius: 4px 4px 0 0;\n}\n.profile-page .profile-container .profile-right .tabs .tab.active {\n  color: #1E90FF;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  background: #fff;\n}\n.profile-page .profile-container .profile-right .tabs .tab:hover {\n  background: #e6f0fa;\n}\n.profile-page .profile-container .profile-right .tab-content {\n  flex: 1;\n  padding: 20px;\n  background: #fff;\n  border-radius: 0 8px 8px 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-right .tab-content .overview h4,\n.profile-page .profile-container .profile-right .tab-content .credentials h4,\n.profile-page .profile-container .profile-right .tab-content .reviews h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview p,\n.profile-page .profile-container .profile-right .tab-content .credentials p,\n.profile-page .profile-container .profile-right .tab-content .reviews p {\n  color: #4a5568;\n  line-height: 1.7;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-row,\n.profile-page .profile-container .profile-right .tab-content .credentials .skills-row,\n.profile-page .profile-container .profile-right .tab-content .reviews .skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 15px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-row .chip,\n.profile-page .profile-container .profile-right .tab-content .credentials .skills-row .chip,\n.profile-page .profile-container .profile-right .tab-content .reviews .skills-row .chip {\n  background: #e6f0fa;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1E90FF;\n}\n.profile-page .profile-container .profile-right .tab-content .overview ul,\n.profile-page .profile-container .profile-right .tab-content .credentials ul,\n.profile-page .profile-container .profile-right .tab-content .reviews ul {\n  list-style: disc;\n  padding-left: 20px;\n  margin-bottom: 15px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview ul li,\n.profile-page .profile-container .profile-right .tab-content .credentials ul li,\n.profile-page .profile-container .profile-right .tab-content .reviews ul li {\n  color: #4a5568;\n  margin-bottom: 8px;\n  line-height: 1.6;\n}\n.profile-page .profile-container .profile-right .tab-content .overview h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview p {\n  color: #555;\n  line-height: 1.7;\n  margin-bottom: 25px;\n  font-size: 16px;\n  background: #f8f9fa;\n  padding: 15px;\n  border-radius: 8px;\n  border-left: 4px solid #1E90FF;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section {\n  margin-bottom: 30px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category {\n  margin-bottom: 25px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category h5 {\n  margin-bottom: 15px;\n  color: #1E90FF;\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category .skill-item {\n  background: linear-gradient(135deg, #f8f9fa, #ffffff);\n  border: 1px solid #e9ecef;\n  border-radius: 12px;\n  padding: 20px;\n  margin-bottom: 15px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: all 0.3s ease;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category .skill-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category .skill-item .skill-name {\n  font-weight: 600;\n  color: #333;\n  margin-bottom: 10px;\n  font-size: 16px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category .skill-item .skill-name .sub-skills {\n  color: #666;\n  font-weight: 400;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category .skill-item .skill-details {\n  display: flex;\n  gap: 25px;\n  font-size: 14px;\n  flex-wrap: wrap;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category .skill-item .skill-details .experience {\n  color: #666;\n  background: #e9ecef;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .skills-section .skills-category .skill-item .skill-details .hourly-rate {\n  color: #1E90FF;\n  font-weight: 600;\n  background: #e3f2fd;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .contact-info {\n  background: linear-gradient(135deg, #f8f9fa, #ffffff);\n  border-radius: 12px;\n  padding: 25px;\n  border: 1px solid #e9ecef;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n}\n.profile-page .profile-container .profile-right .tab-content .overview .contact-info p {\n  margin-bottom: 15px;\n  display: flex;\n  align-items: center;\n  font-size: 16px;\n  background: none;\n  border: none;\n  padding: 0;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .contact-info p:last-child {\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-right .tab-content .overview .contact-info p strong {\n  color: #333;\n  font-weight: 600;\n  min-width: 80px;\n  margin-right: 10px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-header h4 {\n  margin: 0;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-header .reviews-summary .average-rating {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-header .reviews-summary .average-rating .rating-number {\n  font-size: 24px;\n  font-weight: 600;\n  color: #2d3748;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-header .reviews-summary .average-rating .stars {\n  display: flex;\n  gap: 2px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-header .reviews-summary .average-rating .stars .star {\n  color: #cbd5e0;\n  font-size: 18px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-header .reviews-summary .average-rating .stars .star.filled {\n  color: #f59e0b;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-header .reviews-summary .average-rating .total-reviews {\n  color: #718096;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item {\n  border-bottom: 1px solid #eee;\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header .reviewer-info {\n  display: flex;\n  gap: 12px;\n  align-items: center;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header .reviewer-info .reviewer-avatar {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header .reviewer-info .reviewer-details {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header .reviewer-info .reviewer-details .reviewer-name {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 15px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header .reviewer-info .reviewer-details .review-rating {\n  display: flex;\n  gap: 2px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header .reviewer-info .reviewer-details .review-rating .star {\n  color: #cbd5e0;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header .reviewer-info .reviewer-details .review-rating .star.filled {\n  color: #f59e0b;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-header .review-date {\n  color: #718096;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.profile-page .profile-container .profile-right .tab-content .reviews .reviews-list .review-item .review-comment {\n  color: #4a5568;\n  line-height: 1.6;\n  margin-left: 60px;\n  font-size: 14px;\n}\n\n.subscription-modal {\n  max-width: 600px;\n  width: 90%;\n}\n.subscription-modal .modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 16px;\n}\n.subscription-modal .subscription-plans {\n  display: flex;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.subscription-modal .subscription-plans .plan-card {\n  flex: 1;\n  border: 2px solid #e0e0e0;\n  border-radius: 12px;\n  padding: 20px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.subscription-modal .subscription-plans .plan-card:hover {\n  border-color: #1E90FF;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 20px rgba(30, 144, 255, 0.1);\n}\n.subscription-modal .subscription-plans .plan-card.selected {\n  border-color: #1E90FF;\n  background: linear-gradient(135deg, #1E90FF, #4169E1);\n  color: white;\n}\n.subscription-modal .subscription-plans .plan-card.selected .price {\n  color: white;\n}\n.subscription-modal .subscription-plans .plan-card.selected .features li {\n  color: rgba(255, 255, 255, 0.9);\n}\n.subscription-modal .subscription-plans .plan-card h3 {\n  margin: 0 0 15px 0;\n  font-size: 18px;\n  font-weight: 600;\n}\n.subscription-modal .subscription-plans .plan-card .price {\n  margin-bottom: 20px;\n}\n.subscription-modal .subscription-plans .plan-card .price .currency {\n  font-size: 20px;\n  font-weight: 600;\n}\n.subscription-modal .subscription-plans .plan-card .price .amount {\n  font-size: 32px;\n  font-weight: 700;\n  margin: 0 5px;\n}\n.subscription-modal .subscription-plans .plan-card .price .period {\n  font-size: 16px;\n  color: #666;\n}\n.subscription-modal .subscription-plans .plan-card .features {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.subscription-modal .subscription-plans .plan-card .features li {\n  padding: 5px 0;\n  color: #666;\n  position: relative;\n  padding-left: 20px;\n}\n.subscription-modal .subscription-plans .plan-card .features li:before {\n  content: \"✓\";\n  position: absolute;\n  left: 0;\n  color: #1E90FF;\n  font-weight: bold;\n}\n.subscription-modal .subscription-plans .plan-card .savings-badge {\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  background: #FF6B6B;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.subscription-modal .payment-methods {\n  margin-bottom: 30px;\n}\n.subscription-modal .payment-methods h4 {\n  margin-bottom: 15px;\n  text-align: center;\n  color: #333;\n}\n.subscription-modal .payment-methods .payment-options {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 10px;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  padding: 12px 20px;\n  border: 2px solid #e0e0e0;\n  border-radius: 8px;\n  background: white;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  font-weight: 500;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn:hover {\n  border-color: #1E90FF;\n  background: #f8f9ff;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn .payment-icon {\n  font-size: 18px;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn.gcash:hover {\n  border-color: #0070f3;\n  background: #f0f8ff;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn.debit:hover {\n  border-color: #28a745;\n  background: #f0fff4;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn.credit:hover {\n  border-color: #ffc107;\n  background: #fffdf0;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn.paypal:hover {\n  border-color: #0070ba;\n  background: #f0f8ff;\n}\n\n.blurred-contact {\n  display: inline-block;\n  margin-left: 8px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(30, 144, 255, 0.05));\n  border: 2px dashed #1E90FF;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n  min-width: 120px;\n  text-align: center;\n}\n.blurred-contact:hover {\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0.1));\n  border-color: #0070f3;\n  transform: scale(1.05);\n}\n.blurred-contact:active {\n  transform: scale(0.95);\n}\n\n.upgrade-hint {\n  color: #1E90FF;\n  font-size: 12px;\n  font-weight: 500;\n  margin-left: 8px;\n  background: #e3f2fd;\n  padding: 2px 6px;\n  border-radius: 4px;\n  border: 1px solid #1E90FF;\n}\n\n.name-container {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.name-container h2 {\n  margin: 0;\n  font-size: 1.8rem;\n  font-weight: 600;\n  color: #333;\n}\n\n.rank-display-section {\n  margin: 15px 0;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n\n.badges-container {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.75rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.verified-badge svg {\n  flex-shrink: 0;\n}\n\n.rank-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.75rem;\n  font-weight: 600;\n  border: 1px solid #ffb300;\n  transition: all 0.2s ease;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge:hover {\n  background: linear-gradient(135deg, #ffed4e, #ffd700);\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);\n}\n.rank-badge .rank-icon {\n  width: 16px;\n  height: 16px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n}\n\n.rank-badge[title*=Bronze] {\n  background: linear-gradient(135deg, #cd7f32, #daa520);\n  color: #fff;\n  border-color: #b8860b;\n  box-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);\n}\n.rank-badge[title*=Silver] {\n  background: linear-gradient(135deg, #c0c0c0, #e5e5e5);\n  color: #333;\n  border-color: #999;\n  box-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);\n}\n.rank-badge[title*=Gold] {\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  border-color: #ffb300;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge[title*=Diamond] {\n  background: linear-gradient(135deg, #b9f2ff, #e6f7ff);\n  color: #0066cc;\n  border-color: #4fc3f7;\n  box-shadow: 0 2px 4px rgba(185, 242, 255, 0.3);\n}\n\n.skill-name-with-rank {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.skill-name-with-rank .skill-rank-icon {\n  width: 32px;\n  height: 32px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 6px;\n  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);\n  border: 2px solid #fff;\n}\n.skill-name-with-rank .skill-name {\n  font-weight: 600;\n  color: #333;\n  font-size: 1.1rem;\n  line-height: 1.4;\n}\n\n.skill-header {\n  margin-bottom: 12px;\n}\n\n.login-modal {\n  max-width: 500px;\n  width: 90%;\n}\n.login-modal .modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 1rem;\n}\n.login-modal .login-options {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.login-modal .login-option {\n  text-align: center;\n  padding: 20px;\n  border: 2px solid #f0f0f0;\n  border-radius: 12px;\n  background: #fafafa;\n  transition: all 0.3s ease;\n}\n.login-modal .login-option:hover {\n  border-color: #007bff;\n  background: #f8f9ff;\n}\n.login-modal .login-option h3 {\n  margin: 0 0 8px 0;\n  color: #333;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.login-modal .login-option p {\n  margin: 0 0 15px 0;\n  color: #666;\n  font-size: 0.9rem;\n  line-height: 1.4;\n}\n.login-modal .login-divider {\n  text-align: center;\n  position: relative;\n  margin: 10px 0;\n}\n.login-modal .login-divider::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 1px;\n  background: #ddd;\n}\n.login-modal .login-divider span {\n  background: #fff;\n  padding: 0 15px;\n  color: #999;\n  font-size: 0.9rem;\n  font-weight: 500;\n}\n.login-modal .login-btn {\n  width: 100%;\n  padding: 12px 24px;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.login-modal .login-btn.signin-btn {\n  background: #007bff;\n  color: white;\n}\n.login-modal .login-btn.signin-btn:hover {\n  background: #0056b3;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);\n}\n.login-modal .login-btn.signup-btn {\n  background: #28a745;\n  color: white;\n}\n.login-modal .login-btn.signup-btn:hover {\n  background: #1e7e34;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.profile-worker-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.profile-worker-page .profile-worker-header {\n  position: relative;\n  width: 100%;\n}\n.profile-worker-page .profile-worker-header .profile-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.profile-worker-page .profile-worker-header .profile-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-worker-page .profile-worker-header .profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.profile-worker-page .profile-worker-header .profile-photo-wrapper .profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-worker-page .profile-worker-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.profile-worker-page .profile-worker-container .profile-worker-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-worker-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-worker-info h2 {\n  font-size: 20px;\n  margin: 5px 0;\n  color: #000000;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-worker-info .profile-status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-worker-info .profile-status-dot {\n  width: 8px;\n  height: 8px;\n  background-color: #1E90FF;\n  border-radius: 50%;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-worker-info .profile-status {\n  font-size: 14px;\n  margin: 5px 0;\n  color: #1E90FF;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-worker-info .profile-location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-worker-info .profile-edit-profile {\n  background: #1E90FF;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 12px 24px;\n  font-size: 16px;\n  margin: 15px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  min-width: 350px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-worker-info .profile-edit-profile:hover {\n  background: #104E8B;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-stats {\n  margin: 20px 0;\n  background: #f9fafb;\n  padding: 15px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-stats .profile-stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n  padding: 8px 0;\n  border-bottom: 1px solid #eee;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-stats .profile-stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-stats .profile-stat-item .profile-stat-label {\n  font-size: 16px;\n  color: #2d3748;\n  font-weight: 500;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .profile-stats .profile-stat-item .profile-stat-number {\n  font-size: 16px;\n  font-weight: 600;\n  color: #000000;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .social-links {\n  margin: 20px 0;\n  width: 88%;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .social-links h4 {\n  font-size: 12px;\n  color: #666;\n  text-transform: uppercase;\n  margin-bottom: 10px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .social-links .social-links-container {\n  background: #f9fafb;\n  border: 1px solid #e0e0e0;\n  border-radius: 8px;\n  padding: 10px 15px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .social-links .social-icon {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin: 8px 0;\n  font-size: 14px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .social-links .social-icon .social-media-icon {\n  width: 20px;\n  height: 20px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .social-links .social-icon span {\n  flex-grow: 1;\n  color: #2d3748;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .member-since {\n  font-size: 12px;\n  color: #666;\n  text-transform: uppercase;\n  margin: 15px 0;\n}\n.profile-worker-page .profile-worker-container .profile-worker-left .report {\n  color: #666;\n  font-size: 14px;\n  cursor: pointer;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  height: calc(100vh - 320px);\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tabs {\n  display: flex;\n  border-bottom: 1px solid #eee;\n  background: #f9fafb;\n  padding: 0 10px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tabs .tab {\n  padding: 10px 15px;\n  background: none;\n  border: none;\n  cursor: pointer;\n  font-size: 14px;\n  text-transform: uppercase;\n  color: #666;\n  border-radius: 4px 4px 0 0;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tabs .tab.active {\n  color: #1E90FF;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  background: #fff;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tabs .tab:hover {\n  background: #e6f0fa;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content {\n  flex: 1;\n  padding: 20px;\n  background: #fff;\n  border-radius: 0 8px 8px 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview h4,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-credentials h4,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview p,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-credentials p,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews p {\n  color: #4a5568;\n  line-height: 1.7;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .skills-row,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-credentials .skills-row,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 15px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .skills-row .chip,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-credentials .skills-row .chip,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .skills-row .chip {\n  background: #e6f0fa;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1E90FF;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview ul,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-credentials ul,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews ul {\n  list-style: disc;\n  padding-left: 20px;\n  margin-bottom: 15px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview ul li,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-credentials ul li,\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews ul li {\n  color: #4a5568;\n  margin-bottom: 8px;\n  line-height: 1.6;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview p {\n  color: #555;\n  line-height: 1.7;\n  margin-bottom: 25px;\n  font-size: 16px;\n  background: #f8f9fa;\n  padding: 15px;\n  border-radius: 8px;\n  border-left: 4px solid #1E90FF;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section {\n  margin-bottom: 30px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category {\n  margin-bottom: 25px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category h5 {\n  margin-bottom: 15px;\n  color: #1E90FF;\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item {\n  background: linear-gradient(135deg, #f8f9fa, #ffffff);\n  border: 1px solid #e9ecef;\n  border-radius: 12px;\n  padding: 20px;\n  margin-bottom: 15px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: all 0.3s ease;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name {\n  font-weight: 600;\n  color: #333;\n  margin-bottom: 10px;\n  font-size: 16px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name .profile-sub-skills {\n  color: #666;\n  font-weight: 400;\n  font-size: 14px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details {\n  display: flex;\n  gap: 25px;\n  font-size: 14px;\n  flex-wrap: wrap;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details .profile-experience {\n  color: #666;\n  background: #e9ecef;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details .profile-hourly-rate {\n  color: #1E90FF;\n  font-weight: 600;\n  background: #e3f2fd;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .contact-info {\n  background: linear-gradient(135deg, #f8f9fa, #ffffff);\n  border-radius: 12px;\n  padding: 25px;\n  border: 1px solid #e9ecef;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .contact-info p {\n  margin-bottom: 15px;\n  display: flex;\n  align-items: center;\n  font-size: 16px;\n  background: none;\n  border: none;\n  padding: 0;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .contact-info p:last-child {\n  margin-bottom: 0;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-overview .contact-info p strong {\n  color: #333;\n  font-weight: 600;\n  min-width: 80px;\n  margin-right: 10px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-header h4 {\n  margin: 0;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .average-rating {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .average-rating .rating-number {\n  font-size: 24px;\n  font-weight: 600;\n  color: #2d3748;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .average-rating .stars {\n  display: flex;\n  gap: 2px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .average-rating .stars .star {\n  color: #cbd5e0;\n  font-size: 18px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .average-rating .stars .star.filled {\n  color: #f59e0b;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .average-rating .profile-total-reviews {\n  color: #718096;\n  font-size: 14px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item {\n  border-bottom: 1px solid #eee;\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info {\n  display: flex;\n  gap: 12px;\n  align-items: center;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-avatar {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-reviewer-name {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 15px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating {\n  display: flex;\n  gap: 2px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating .star {\n  color: #cbd5e0;\n  font-size: 14px;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating .star.filled {\n  color: #f59e0b;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-review-date {\n  color: #718096;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.profile-worker-page .profile-worker-container .profile-worker-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-comment {\n  color: #4a5568;\n  line-height: 1.6;\n  margin-left: 60px;\n  font-size: 14px;\n}\n\n.profile-subscription-modal {\n  max-width: 600px;\n  width: 90%;\n}\n.profile-subscription-modal .profile-modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 16px;\n}\n.profile-subscription-modal .subscription-plans {\n  display: flex;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.profile-subscription-modal .subscription-plans .plan-card {\n  flex: 1;\n  border: 2px solid #e0e0e0;\n  border-radius: 12px;\n  padding: 20px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.profile-subscription-modal .subscription-plans .plan-card:hover {\n  border-color: #1E90FF;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 20px rgba(30, 144, 255, 0.1);\n}\n.profile-subscription-modal .subscription-plans .plan-card.selected {\n  border-color: #1E90FF;\n  background: linear-gradient(135deg, #1E90FF, #4169E1);\n  color: white;\n}\n.profile-subscription-modal .subscription-plans .plan-card.selected .price {\n  color: white;\n}\n.profile-subscription-modal .subscription-plans .plan-card.selected .features li {\n  color: rgba(255, 255, 255, 0.9);\n}\n.profile-subscription-modal .subscription-plans .plan-card h3 {\n  margin: 0 0 15px 0;\n  font-size: 18px;\n  font-weight: 600;\n}\n.profile-subscription-modal .subscription-plans .plan-card .price {\n  margin-bottom: 20px;\n}\n.profile-subscription-modal .subscription-plans .plan-card .price .currency {\n  font-size: 20px;\n  font-weight: 600;\n}\n.profile-subscription-modal .subscription-plans .plan-card .price .amount {\n  font-size: 32px;\n  font-weight: 700;\n  margin: 0 5px;\n}\n.profile-subscription-modal .subscription-plans .plan-card .price .period {\n  font-size: 16px;\n  color: #666;\n}\n.profile-subscription-modal .subscription-plans .plan-card .features {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.profile-subscription-modal .subscription-plans .plan-card .features li {\n  padding: 5px 0;\n  color: #666;\n  position: relative;\n  padding-left: 20px;\n}\n.profile-subscription-modal .subscription-plans .plan-card .features li:before {\n  content: \"✓\";\n  position: absolute;\n  left: 0;\n  color: #1E90FF;\n  font-weight: bold;\n}\n.profile-subscription-modal .subscription-plans .plan-card .savings-badge {\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  background: #FF6B6B;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.profile-subscription-modal .payment-methods {\n  margin-bottom: 30px;\n}\n.profile-subscription-modal .payment-methods h4 {\n  margin-bottom: 15px;\n  text-align: center;\n  color: #333;\n}\n.profile-subscription-modal .payment-methods .payment-options {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 10px;\n}\n.profile-subscription-modal .payment-methods .payment-options .payment-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  padding: 12px 20px;\n  border: 2px solid #e0e0e0;\n  border-radius: 8px;\n  background: white;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  font-weight: 500;\n}\n.profile-subscription-modal .payment-methods .payment-options .payment-btn:hover {\n  border-color: #1E90FF;\n  background: #f8f9ff;\n}\n.profile-subscription-modal .payment-methods .payment-options .payment-btn .payment-icon {\n  font-size: 18px;\n}\n.profile-subscription-modal .payment-methods .payment-options .payment-btn.gcash:hover {\n  border-color: #0070f3;\n  background: #f0f8ff;\n}\n.profile-subscription-modal .payment-methods .payment-options .payment-btn.debit:hover {\n  border-color: #28a745;\n  background: #f0fff4;\n}\n.profile-subscription-modal .payment-methods .payment-options .payment-btn.credit:hover {\n  border-color: #ffc107;\n  background: #fffdf0;\n}\n.profile-subscription-modal .payment-methods .payment-options .payment-btn.paypal:hover {\n  border-color: #0070ba;\n  background: #f0f8ff;\n}\n\n.blurred-contact {\n  display: inline-block;\n  margin-left: 8px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(30, 144, 255, 0.05));\n  border: 2px dashed #1E90FF;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n  min-width: 120px;\n  text-align: center;\n}\n.blurred-contact:hover {\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0.1));\n  border-color: #0070f3;\n  transform: scale(1.05);\n}\n.blurred-contact:active {\n  transform: scale(0.95);\n}\n\n.upgrade-hint {\n  color: #1E90FF;\n  font-size: 12px;\n  font-weight: 500;\n  margin-left: 8px;\n  background: #e3f2fd;\n  padding: 2px 6px;\n  border-radius: 4px;\n  border: 1px solid #1E90FF;\n}\n\n.profile-name-container {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.profile-name-container h2 {\n  margin: 0;\n  font-size: 1.8rem;\n  font-weight: 600;\n  color: #333;\n}\n\n.profile-rank-display-section {\n  margin: 15px 0;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.profile-rank-display-section .profile-rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.profile-rank-display-section .profile-rank-display .profile-worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-info .profile-rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.profile-rank-display-section .profile-rank-display .profile-rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n\n.profile-badges-container {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.profile-verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.75rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.profile-verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.profile-verified-badge svg {\n  flex-shrink: 0;\n}\n\n.rank-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.75rem;\n  font-weight: 600;\n  border: 1px solid #ffb300;\n  transition: all 0.2s ease;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge:hover {\n  background: linear-gradient(135deg, #ffed4e, #ffd700);\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);\n}\n.rank-badge .rank-icon {\n  width: 16px;\n  height: 16px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n}\n\n.rank-badge[title*=Bronze] {\n  background: linear-gradient(135deg, #cd7f32, #daa520);\n  color: #fff;\n  border-color: #b8860b;\n  box-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);\n}\n.rank-badge[title*=Silver] {\n  background: linear-gradient(135deg, #c0c0c0, #e5e5e5);\n  color: #333;\n  border-color: #999;\n  box-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);\n}\n.rank-badge[title*=Gold] {\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  border-color: #ffb300;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge[title*=Diamond] {\n  background: linear-gradient(135deg, #b9f2ff, #e6f7ff);\n  color: #0066cc;\n  border-color: #4fc3f7;\n  box-shadow: 0 2px 4px rgba(185, 242, 255, 0.3);\n}\n\n.profile-skill-name-with-rank {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.profile-skill-name-with-rank .profile-skill-rank-icon {\n  width: 32px;\n  height: 32px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 6px;\n  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);\n  border: 2px solid #fff;\n}\n.profile-skill-name-with-rank .profile-skill-name {\n  font-weight: 600;\n  color: #333;\n  font-size: 1.1rem;\n  line-height: 1.4;\n}\n\n.profile-skill-header {\n  margin-bottom: 12px;\n}\n\n.profile-login-modal {\n  max-width: 500px;\n  width: 90%;\n}\n.profile-login-modal .profile-modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 1rem;\n}\n.profile-login-modal .login-options {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.profile-login-modal .login-option {\n  text-align: center;\n  padding: 20px;\n  border: 2px solid #f0f0f0;\n  border-radius: 12px;\n  background: #fafafa;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .login-option:hover {\n  border-color: #007bff;\n  background: #f8f9ff;\n}\n.profile-login-modal .login-option h3 {\n  margin: 0 0 8px 0;\n  color: #333;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.profile-login-modal .login-option p {\n  margin: 0 0 15px 0;\n  color: #666;\n  font-size: 0.9rem;\n  line-height: 1.4;\n}\n.profile-login-modal .login-divider {\n  text-align: center;\n  position: relative;\n  margin: 10px 0;\n}\n.profile-login-modal .login-divider::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 1px;\n  background: #ddd;\n}\n.profile-login-modal .login-divider span {\n  background: #fff;\n  padding: 0 15px;\n  color: #999;\n  font-size: 0.9rem;\n  font-weight: 500;\n}\n.profile-login-modal .login-btn {\n  width: 100%;\n  padding: 12px 24px;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .login-btn.signin-btn {\n  background: #007bff;\n  color: white;\n}\n.profile-login-modal .login-btn.signin-btn:hover {\n  background: #0056b3;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);\n}\n.profile-login-modal .login-btn.signup-btn {\n  background: #28a745;\n  color: white;\n}\n.profile-login-modal .login-btn.signup-btn:hover {\n  background: #1e7e34;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/BookingRequest.scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/BookingRequest.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-request-card {\n  background: white;\n  border-radius: 12px;\n  padding: 20px;\n  margin-bottom: 16px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  border: 1px solid #e5e7eb;\n  position: relative;\n  transition: all 0.3s ease;\n}\n.booking-request-card:hover {\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n  transform: translateY(-2px);\n}\n\n.booking-request-checkbox {\n  position: absolute;\n  top: 20px;\n  left: 20px;\n  z-index: 10;\n}\n.booking-request-checkbox .booking-checkbox {\n  width: 18px;\n  height: 18px;\n  cursor: pointer;\n  accent-color: #3b82f6;\n}\n\n.booking-request-worker-info {\n  display: flex;\n  gap: 16px;\n  margin-left: 40px;\n}\n\n.worker-profile {\n  flex-shrink: 0;\n}\n.worker-profile .worker-avatar {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n}\n\n.worker-details {\n  flex: 1;\n  min-width: 0;\n}\n.worker-details .worker-name-row {\n  display: flex !important;\n  align-items: center !important;\n  justify-content: space-between !important;\n  margin-bottom: 4px;\n  width: 100%;\n}\n.worker-details .worker-name {\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0;\n  flex-shrink: 0;\n}\n.worker-details .booking-status {\n  font-size: 14px;\n  color: #374151;\n  margin-left: auto;\n  margin-right: -90px;\n}\n.worker-details .booking-status .status-text {\n  font-weight: 600;\n}\n.worker-details .worker-badges {\n  margin-bottom: 8px;\n}\n.worker-details .worker-badges .verified-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  background: #f0f9ff;\n  color: #0369a1;\n  padding: 4px 8px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.worker-details .worker-badges .verified-badge .verified-icon {\n  font-size: 14px;\n}\n.worker-details .booking-salary {\n  font-size: 16px;\n  font-weight: 600;\n  color: #059669;\n  margin-bottom: 8px;\n}\n.worker-details .booking-dates {\n  margin-bottom: 12px;\n}\n.worker-details .booking-dates p {\n  margin: 2px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.worker-details .booking-description p {\n  margin: 0;\n  font-size: 14px;\n  color: #374151;\n  line-height: 1.5;\n}\n\n.booking-request-actions {\n  margin-top: 200px;\n  display: flex;\n  gap: 12px;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n}\n.booking-request-actions button {\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 2px solid transparent;\n}\n.booking-request-actions button:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n}\n.booking-request-actions button:active {\n  transform: translateY(0);\n}\n.booking-request-actions .view-transaction-btn {\n  background: transparent;\n  color: #374151;\n  border: 2px solid #d1d5db;\n}\n.booking-request-actions .view-transaction-btn:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n}\n.booking-request-actions .accept-btn {\n  background: transparent;\n  color: #059669;\n  border: 2px solid #10b981;\n}\n.booking-request-actions .accept-btn:hover {\n  background: #ecfdf5;\n  border-color: #059669;\n}\n.booking-request-actions .decline-btn {\n  background: transparent;\n  color: #dc2626;\n  border: 2px solid #ef4444;\n}\n.booking-request-actions .decline-btn:hover {\n  background: #fef2f2;\n  border-color: #dc2626;\n}\n.booking-request-actions .cancel-booking-btn {\n  background: transparent;\n  color: #dc2626;\n  border: 2px solid #ef4444;\n}\n.booking-request-actions .cancel-booking-btn:hover {\n  background: #fef2f2;\n  border-color: #dc2626;\n}\n.booking-request-actions .complete-btn {\n  background: transparent;\n  color: #2563eb;\n  border: 2px solid #3b82f6;\n}\n.booking-request-actions .complete-btn:hover {\n  background: #eff6ff;\n  border-color: #2563eb;\n}\n.booking-request-actions .give-feedback-btn {\n  background: transparent;\n  color: #7c3aed;\n  border: 2px solid #8b5cf6;\n}\n.booking-request-actions .give-feedback-btn:hover {\n  background: #faf5ff;\n  border-color: #7c3aed;\n}\n.booking-request-actions span {\n  font-size: 14px;\n  font-weight: 500;\n  color: #6b7280;\n  padding: 8px 16px;\n  background: #f3f4f6;\n  border-radius: 6px;\n  border: 1px solid #d1d5db;\n}\n\n@media (max-width: 768px) {\n  .booking-request-card {\n    padding: 16px;\n  }\n  .booking-request-checkbox {\n    top: 16px;\n    left: 16px;\n  }\n  .booking-request-worker-info {\n    margin-left: 36px;\n    gap: 12px;\n  }\n  .worker-profile .worker-avatar {\n    width: 50px;\n    height: 50px;\n  }\n  .worker-details .worker-name {\n    font-size: 16px;\n  }\n  .worker-details .booking-status {\n    font-size: 12px;\n    margin-right: -60px;\n  }\n  .worker-details .booking-salary {\n    font-size: 14px;\n  }\n  .worker-details .booking-dates p {\n    font-size: 12px;\n  }\n  .worker-details .booking-description p {\n    font-size: 12px;\n  }\n  .booking-request-actions {\n    margin-top: 144px;\n    gap: 8px;\n  }\n  .booking-request-actions button {\n    padding: 6px 12px;\n    font-size: 12px;\n  }\n  .booking-request-actions span {\n    padding: 6px 12px;\n    font-size: 12px;\n  }\n}\n@media (max-width: 480px) {\n  .booking-request-card {\n    padding: 12px;\n  }\n  .booking-request-worker-info {\n    flex-direction: column;\n    margin-left: 32px;\n    gap: 8px;\n  }\n  .worker-profile {\n    align-self: flex-start;\n  }\n  .worker-details .worker-name-row {\n    flex-direction: column;\n    align-items: flex-start !important;\n    gap: 4px;\n  }\n  .worker-details .booking-status {\n    margin-right: 0;\n    margin-left: 0;\n  }\n  .booking-request-actions {\n    margin-top: 120px;\n    justify-content: center;\n  }\n  .booking-request-actions button {\n    flex: 1;\n    min-width: 0;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72415,30 +72439,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".address-modal-overlay {\n  position: 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/modalfeedback.scss":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/modalfeedback.scss ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  padding: 20px;\n  min-height: 100vh;\n  min-width: 100vw;\n}\n\n.modal-content {\n  background: white;\n  border-radius: 12px;\n  width: 500px;\n  height: 400px;\n  overflow: hidden;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  animation: modalSlideIn 0.3s ease-out;\n}\n.modal-content .modal-header {\n  width: 500px;\n  height: 60px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-content .modal-header .modal-title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-content .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.2s ease;\n}\n.modal-content .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-content .modal-form {\n  padding: 24px;\n}\n.modal-content .modal-form .rating-section {\n  margin-bottom: 24px;\n  margin-top: -32px;\n}\n.modal-content .modal-form .rating-section .stars-container {\n  display: flex;\n  justify-content: center;\n  margin-bottom: 8px;\n  transform: scale(2);\n}\n.modal-content .modal-form .rating-section .rating-instruction {\n  text-align: center;\n  font-size: 14px;\n  color: #374151;\n  margin: 0;\n}\n.modal-content .modal-form .feedback-section {\n  margin-bottom: 24px;\n  margin-top: 20px;\n}\n.modal-content .modal-form .feedback-section .feedback-label {\n  display: block;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-bottom: 8px;\n}\n.modal-content .modal-form .feedback-section .feedback-textarea {\n  width: 100%;\n  min-height: 100px;\n  padding: 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  resize: vertical;\n  transition: all 0.3s ease;\n}\n.modal-content .modal-form .feedback-section .feedback-textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-content .modal-form .feedback-section .feedback-textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-content .modal-form .feedback-section .feedback-textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-content .modal-form .modal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 16px;\n}\n.modal-content .modal-form .modal-buttons .cancel-btn,\n.modal-content .modal-form .modal-buttons .submit-btn {\n  padding: 10px 20px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n}\n.modal-content .modal-form .modal-buttons .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-content .modal-form .modal-buttons .cancel-btn:hover {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-content .modal-form .modal-buttons .submit-btn {\n  background-color: #1d4ed8;\n  color: white;\n  border-color: #1d4ed8;\n}\n.modal-content .modal-form .modal-buttons .submit-btn:hover:not(:disabled) {\n  background-color: #1e40af;\n  border-color: #1e40af;\n}\n.modal-content .modal-form .modal-buttons .submit-btn:disabled {\n  background-color: #9ca3af;\n  border-color: #9ca3af;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n\n@keyframes modalSlideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n@media (max-width: 600px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-content {\n    width: 100%;\n    max-width: 100%;\n  }\n  .modal-content .modal-header {\n    padding: 16px 20px;\n  }\n  .modal-content .modal-header .modal-title {\n    font-size: 18px;\n  }\n  .modal-content .modal-form {\n    padding: 20px;\n  }\n  .modal-content .modal-form .modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .modal-content .modal-form .modal-buttons .cancel-btn,\n  .modal-content .modal-form .modal-buttons .submit-btn {\n    width: 100%;\n    justify-content: center;\n  }\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/modalpostjob.scss":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/modalpostjob.scss ***!
@@ -72504,7 +72504,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".my-bookings-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-bookings-container .bookings-header {\n  margin-bottom: 20px;\n}\n.my-bookings-container .bookings-header .bookings-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-bookings-container .bookings-navigation {\n  display: flex;\n  gap: 30px;\n  border-bottom: 1px solid #e5e7eb;\n  margin-bottom: 30px;\n  overflow-x: auto;\n}\n.my-bookings-container .bookings-navigation .booking-tab-container {\n  display: flex;\n  flex-shrink: 0;\n  position: relative;\n  z-index: 1;\n}\n.my-bookings-container .bookings-navigation .booking-tab {\n  background: none;\n  border: none;\n  padding: 12px 20px;\n  font-size: 14px;\n  font-weight: 500;\n  color: #6b7280;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border-bottom: 2px solid transparent;\n  white-space: nowrap;\n  min-width: -moz-fit-content;\n  min-width: fit-content;\n  pointer-events: auto;\n  user-select: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  position: relative;\n  z-index: 2;\n  display: block;\n  width: 100%;\n}\n.my-bookings-container .bookings-navigation .booking-tab:hover {\n  color: #374151;\n  background-color: #f8fafc;\n}\n.my-bookings-container .bookings-navigation .booking-tab:active {\n  transform: translateY(1px);\n  background-color: #e5e7eb;\n}\n.my-bookings-container .bookings-navigation .booking-tab.active {\n  color: #1d4ed8;\n  border-bottom-color: #1d4ed8;\n  background-color: #eff6ff;\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 300px;\n  margin-top: -15px;\n}\n.my-bookings-container .bookings-content .bookings-list {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-bookings-container .bookings-content .booking-card {\n  background: #f8fafc;\n  border-radius: 12px;\n  padding: 24px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  position: relative;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-profile .worker-avatar {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-name {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 4px 0;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-profession {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0 0 12px 0;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges {\n  display: flex;\n  gap: 12px;\n  margin-bottom: 8px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges .verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges .verified-badge .verified-icon {\n  color: #4DA34D;\n  font-size: 14px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges .blue-collar-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  font-size: 12px;\n  font-weight: 600;\n  color: #024570;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges .blue-collar-badge .blue-collar-icon {\n  width: 14px;\n  height: 14px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges .white-collar-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges .white-collar-badge .white-collar-icon {\n  width: 14px;\n  height: 14px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges .pink-collar-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  font-size: 12px;\n  font-weight: 600;\n  color: #ec4899;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges .pink-collar-badge .pink-collar-icon {\n  width: 14px;\n  height: 14px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .booking-status {\n  font-size: 14px;\n  color: #374151;\n}\n.my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .booking-status .status-text {\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content .booking-card .booking-salary {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  height: 60px;\n  width: auto;\n  white-space: nowrap;\n  z-index: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions {\n  display: flex;\n  gap: 12px;\n  margin-top: 20px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .view-transaction-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  width: 110px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .view-transaction-btn:hover {\n  background: #002a5c;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .cancel-booking-btn {\n  background: white;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  width: 100px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .cancel-booking-btn:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .rate-booking-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  width: 100px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .rate-booking-btn:hover {\n  background: #15803d;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .give-feedback-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  width: 100px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .give-feedback-btn:hover {\n  background: #002a5c;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .accept-btn {\n  background: #4CAF50;\n  color: white;\n  border: none;\n  width: 100px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .accept-btn:hover {\n  background: #45a049;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .decline-btn {\n  background: #f44336;\n  color: white;\n  border: none;\n  width: 100px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .decline-btn:hover {\n  background: #da190b;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .complete-btn {\n  background: #2196F3;\n  color: white;\n  border: none;\n  width: 140px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .complete-btn:hover {\n  background: #1976D2;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .status-only {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 8px 16px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .status-only .declined-text {\n  color: #dc2626;\n  font-size: 14px;\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .status-only .cancelled-text {\n  color: #888888;\n  font-size: 14px;\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content .empty-state {\n  text-align: center;\n  padding: 40px 20px;\n}\n.my-bookings-container .bookings-content .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-bookings-container .bookings-content .empty-state .empty-icon img {\n  width: 120px;\n  height: 120px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.my-bookings-container .bookings-content .empty-state .empty-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n\n@media (max-width: 768px) {\n  .my-bookings-container {\n    padding: 20px;\n  }\n  .my-bookings-container .bookings-header .bookings-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-bookings-container .bookings-navigation {\n    gap: 0;\n    margin-bottom: 20px;\n  }\n  .my-bookings-container .bookings-navigation .booking-tab-container {\n    flex: 1;\n    min-width: 0;\n  }\n  .my-bookings-container .bookings-navigation .booking-tab {\n    padding: 10px 16px;\n    font-size: 13px;\n    min-width: 100px;\n    width: 100%;\n    text-align: center;\n  }\n  .my-bookings-container .bookings-content {\n    min-height: 300px;\n    margin-top: -15px;\n  }\n  .my-bookings-container .bookings-content .booking-card {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-worker-info {\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-worker-info .worker-details .worker-badges {\n    justify-content: center;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-salary {\n    text-align: center;\n    margin-right: 0;\n    margin-bottom: 12px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-actions {\n    justify-content: center;\n    flex-wrap: wrap;\n    margin-top: 24px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-actions .view-transaction-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .cancel-booking-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .rate-booking-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .give-feedback-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .accept-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .decline-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .complete-btn {\n    width: 110px;\n    height: 33px;\n    font-size: 12px;\n  }\n  .my-bookings-container .bookings-content .empty-state {\n    padding: 20px 10px;\n  }\n  .my-bookings-container .bookings-content .empty-state .empty-icon {\n    margin-bottom: 15px;\n  }\n  .my-bookings-container .bookings-content .empty-state .empty-icon img {\n    width: 80px;\n    height: 80px;\n  }\n  .my-bookings-container .bookings-content .empty-state .empty-title {\n    font-size: 20px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".my-bookings-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-bookings-container .bookings-header {\n  margin-bottom: 20px;\n}\n.my-bookings-container .bookings-header .bookings-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-bookings-container .bookings-navigation {\n  display: flex;\n  gap: 30px;\n  border-bottom: 1px solid #e5e7eb;\n  margin-bottom: 30px;\n  overflow-x: auto;\n}\n.my-bookings-container .bookings-navigation .bookings-tabs {\n  display: flex;\n  gap: 0;\n  width: 100%;\n}\n.my-bookings-container .bookings-navigation .tab-button {\n  background: none;\n  border: none;\n  padding: 12px 20px;\n  font-size: 14px;\n  font-weight: 500;\n  color: #6b7280;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border-bottom: 2px solid transparent;\n  white-space: nowrap;\n  min-width: -moz-fit-content;\n  min-width: fit-content;\n  flex: 1;\n}\n.my-bookings-container .bookings-navigation .tab-button:hover {\n  color: #374151;\n  background-color: #f8fafc;\n}\n.my-bookings-container .bookings-navigation .tab-button:active {\n  transform: translateY(1px);\n  background-color: #e5e7eb;\n}\n.my-bookings-container .bookings-navigation .tab-button.active {\n  color: #1d4ed8;\n  border-bottom-color: #1d4ed8;\n  background-color: #eff6ff;\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 300px;\n  margin-top: -15px;\n}\n.my-bookings-container .bookings-content .bookings-list {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-bookings-container .bulk-delete-container {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 16px;\n  padding: 0 20px;\n}\n.my-bookings-container .bulk-delete-container .delete-selected-btn {\n  background: #dc2626;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.my-bookings-container .bulk-delete-container .delete-selected-btn:hover {\n  background: #b91c1c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);\n}\n.my-bookings-container .bulk-delete-container .delete-selected-btn:active {\n  transform: translateY(0);\n}\n.my-bookings-container .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 20px;\n}\n.my-bookings-container .loading-state .loading-spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.my-bookings-container .loading-state p {\n  font-size: 16px;\n  color: #6b7280;\n  margin: 0;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.my-bookings-container .empty-state {\n  text-align: center;\n  padding: 40px 20px;\n}\n.my-bookings-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-bookings-container .empty-state .empty-icon img {\n  width: 120px;\n  height: 120px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.my-bookings-container .empty-state .empty-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n\n@media (max-width: 768px) {\n  .my-bookings-container {\n    padding: 20px;\n  }\n  .my-bookings-container .bookings-header .bookings-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-bookings-container .bookings-navigation {\n    gap: 0;\n    margin-bottom: 20px;\n  }\n  .my-bookings-container .bookings-navigation .bookings-tabs {\n    flex-direction: column;\n  }\n  .my-bookings-container .bookings-navigation .tab-button {\n    padding: 10px 16px;\n    font-size: 13px;\n    text-align: center;\n    border-bottom: 1px solid #e5e7eb;\n    border-right: none;\n  }\n  .my-bookings-container .bookings-navigation .tab-button:last-child {\n    border-bottom: none;\n  }\n  .my-bookings-container .bookings-content {\n    min-height: 300px;\n    margin-top: -15px;\n  }\n  .my-bookings-container .bookings-content .empty-state {\n    padding: 20px 10px;\n  }\n  .my-bookings-container .bookings-content .empty-state .empty-icon {\n    margin-bottom: 15px;\n  }\n  .my-bookings-container .bookings-content .empty-state .empty-icon img {\n    width: 80px;\n    height: 80px;\n  }\n  .my-bookings-container .bookings-content .empty-state .empty-title {\n    font-size: 20px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72625,30 +72625,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".profile-settings-sidebar {\n  width: 250px;\n  max-width: 250px;\n  min-width: 250px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  padding: 20px 0;\n  margin-right: 20px;\n  margin-top: 0;\n  overflow: hidden;\n  flex-shrink: 0;\n  position: sticky;\n  top: 20px;\n}\n.profile-settings-sidebar .sidebar-container {\n  display: flex;\n  flex-direction: column;\n  gap: 0;\n}\n.profile-settings-sidebar .sidebar-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  text-decoration: none;\n  color: #6b7280;\n  transition: all 0.3s ease;\n  border-bottom: 1px solid #f3f4f6;\n  position: relative;\n}\n.profile-settings-sidebar .sidebar-item:last-child {\n  border-bottom: none;\n}\n.profile-settings-sidebar .sidebar-item:hover {\n  background-color: #f8fafc;\n  color: #374151;\n}\n.profile-settings-sidebar .sidebar-item.active {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  border-right: 3px solid #1d4ed8;\n}\n.profile-settings-sidebar .sidebar-item.active .sidebar-icon {\n  color: #1d4ed8;\n}\n.profile-settings-sidebar .sidebar-item.active .sidebar-label {\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.profile-settings-sidebar .sidebar-item .sidebar-icon {\n  width: 20px;\n  height: 20px;\n  margin-right: 12px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.profile-settings-sidebar .sidebar-item .sidebar-label {\n  font-size: 14px;\n  font-weight: 500;\n  transition: color 0.3s ease;\n}\n\n@media (max-width: 768px) {\n  .profile-settings-sidebar {\n    width: 100%;\n    max-width: 100%;\n    min-width: 100%;\n    margin-right: 0;\n    margin-bottom: 20px;\n    margin-top: 0;\n    position: static;\n  }\n  .profile-settings-sidebar .sidebar-container {\n    flex-direction: row;\n    overflow-x: auto;\n    padding: 0 10px;\n  }\n  .profile-settings-sidebar .sidebar-item {\n    flex-shrink: 0;\n    border-bottom: none;\n    border-right: 1px solid #f3f4f6;\n    min-width: 120px;\n    justify-content: center;\n    text-align: center;\n    flex-direction: column;\n    padding: 15px 10px;\n  }\n  .profile-settings-sidebar .sidebar-item:last-child {\n    border-right: none;\n  }\n  .profile-settings-sidebar .sidebar-item.active {\n    border-right: none;\n    border-bottom: 3px solid #1d4ed8;\n  }\n  .profile-settings-sidebar .sidebar-item .sidebar-icon {\n    margin-right: 0;\n    margin-bottom: 5px;\n    width: 18px;\n    height: 18px;\n  }\n  .profile-settings-sidebar .sidebar-item .sidebar-label {\n    font-size: 12px;\n  }\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/transactionmodal.scss":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/transactionmodal.scss ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".transaction-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.transaction-modal {\n  background: white;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 600px;\n  max-height: 80vh;\n  overflow-y: auto;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n\n.transaction-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e0e0e0;\n}\n.transaction-modal-header h2 {\n  margin: 0;\n  color: #333;\n  font-size: 1.5rem;\n  font-weight: 600;\n}\n.transaction-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #666;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: all 0.2s ease;\n}\n.transaction-modal-header .close-btn:hover {\n  background-color: #f5f5f5;\n  color: #333;\n}\n\n.transaction-modal-content {\n  padding: 24px;\n}\n\n.transaction-section {\n  margin-bottom: 24px;\n}\n.transaction-section:last-child {\n  margin-bottom: 0;\n}\n.transaction-section h3 {\n  margin: 0 0 16px 0;\n  color: #333;\n  font-size: 1.1rem;\n  font-weight: 600;\n  border-bottom: 2px solid #f0f0f0;\n  padding-bottom: 8px;\n}\n\n.transaction-details {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n\n.detail-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  padding: 8px 0;\n  border-bottom: 1px solid #f5f5f5;\n}\n.detail-row:last-child {\n  border-bottom: none;\n}\n.detail-row .label {\n  font-weight: 500;\n  color: #666;\n  min-width: 120px;\n  flex-shrink: 0;\n}\n.detail-row .value {\n  color: #333;\n  text-align: right;\n  flex: 1;\n  word-break: break-word;\n}\n.detail-row.total-row {\n  background-color: #f8f9fa;\n  padding: 12px;\n  border-radius: 8px;\n  border: 2px solid #e9ecef;\n  margin-top: 8px;\n}\n.detail-row.total-row .label {\n  font-weight: 600;\n  color: #333;\n}\n.detail-row.total-row .total-amount {\n  font-weight: 700;\n  font-size: 1.1rem;\n  color: #28a745;\n}\n\n.status-pending {\n  color: #ffa500;\n  font-weight: 600;\n}\n\n.status-accepted {\n  color: #4CAF50;\n  font-weight: 600;\n}\n\n.status-completed {\n  color: #2196F3;\n  font-weight: 600;\n}\n\n.status-declined {\n  color: #f44336;\n  font-weight: 600;\n}\n\n.status-cancelled {\n  color: #9e9e9e;\n  font-weight: 600;\n}\n\n.notes-content {\n  background-color: #f8f9fa;\n  padding: 12px;\n  border-radius: 8px;\n  border-left: 4px solid #007bff;\n}\n.notes-content p {\n  margin: 0;\n  color: #333;\n  line-height: 1.5;\n}\n\n.star {\n  color: #ddd;\n  font-size: 1.2rem;\n}\n.star.filled {\n  color: #ffc107;\n}\n\n.transaction-modal-footer {\n  padding: 20px 24px;\n  border-top: 1px solid #e0e0e0;\n  display: flex;\n  justify-content: flex-end;\n}\n.transaction-modal-footer .close-button {\n  background-color: #6c757d;\n  color: white;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n.transaction-modal-footer .close-button:hover {\n  background-color: #5a6268;\n  transform: translateY(-1px);\n}\n\n@media (max-width: 768px) {\n  .transaction-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .transaction-modal-header,\n  .transaction-modal-content,\n  .transaction-modal-footer {\n    padding: 16px;\n  }\n  .detail-row {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 4px;\n  }\n  .detail-row .label {\n    min-width: auto;\n  }\n  .detail-row .value {\n    text-align: left;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -90461,1010 +90437,6 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 process.umask = function() { return 0; };
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/checkPropTypes.js":
-/*!***************************************************!*\
-  !*** ./node_modules/prop-types/checkPropTypes.js ***!
-  \***************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var printWarning = function() {};
-
-if (true) {
-  var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
-  var loggedTypeFailures = {};
-  var has = __webpack_require__(/*! ./lib/has */ "./node_modules/prop-types/lib/has.js");
-
-  printWarning = function(text) {
-    var message = 'Warning: ' + text;
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) { /**/ }
-  };
-}
-
-/**
- * Assert that the values match with the type specs.
- * Error messages are memorized and will only be shown once.
- *
- * @param {object} typeSpecs Map of name to a ReactPropType
- * @param {object} values Runtime values that need to be type-checked
- * @param {string} location e.g. "prop", "context", "child context"
- * @param {string} componentName Name of the component for error messages.
- * @param {?Function} getStack Returns the component stack.
- * @private
- */
-function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  if (true) {
-    for (var typeSpecName in typeSpecs) {
-      if (has(typeSpecs, typeSpecName)) {
-        var error;
-        // Prop type validation may throw. In case they do, we don't want to
-        // fail the render phase where it didn't fail before. So we log it.
-        // After these have been cleaned up, we'll let them throw.
-        try {
-          // This is intentionally an invariant that gets caught. It's the same
-          // behavior as without this statement except with a better message.
-          if (typeof typeSpecs[typeSpecName] !== 'function') {
-            var err = Error(
-              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
-              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' +
-              'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.'
-            );
-            err.name = 'Invariant Violation';
-            throw err;
-          }
-          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
-        } catch (ex) {
-          error = ex;
-        }
-        if (error && !(error instanceof Error)) {
-          printWarning(
-            (componentName || 'React class') + ': type specification of ' +
-            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
-            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
-            'You may have forgotten to pass an argument to the type checker ' +
-            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
-            'shape all require an argument).'
-          );
-        }
-        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-          // Only monitor this failure once because there tends to be a lot of the
-          // same error.
-          loggedTypeFailures[error.message] = true;
-
-          var stack = getStack ? getStack() : '';
-
-          printWarning(
-            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
-          );
-        }
-      }
-    }
-  }
-}
-
-/**
- * Resets warning cache when testing.
- *
- * @private
- */
-checkPropTypes.resetWarningCache = function() {
-  if (true) {
-    loggedTypeFailures = {};
-  }
-}
-
-module.exports = checkPropTypes;
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/factoryWithTypeCheckers.js":
-/*!************************************************************!*\
-  !*** ./node_modules/prop-types/factoryWithTypeCheckers.js ***!
-  \************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
-var assign = __webpack_require__(/*! object-assign */ "./node_modules/object-assign/index.js");
-
-var ReactPropTypesSecret = __webpack_require__(/*! ./lib/ReactPropTypesSecret */ "./node_modules/prop-types/lib/ReactPropTypesSecret.js");
-var has = __webpack_require__(/*! ./lib/has */ "./node_modules/prop-types/lib/has.js");
-var checkPropTypes = __webpack_require__(/*! ./checkPropTypes */ "./node_modules/prop-types/checkPropTypes.js");
-
-var printWarning = function() {};
-
-if (true) {
-  printWarning = function(text) {
-    var message = 'Warning: ' + text;
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-}
-
-function emptyFunctionThatReturnsNull() {
-  return null;
-}
-
-module.exports = function(isValidElement, throwOnDirectAccess) {
-  /* global Symbol */
-  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
-
-  /**
-   * Returns the iterator method function contained on the iterable object.
-   *
-   * Be sure to invoke the function with the iterable as context:
-   *
-   *     var iteratorFn = getIteratorFn(myIterable);
-   *     if (iteratorFn) {
-   *       var iterator = iteratorFn.call(myIterable);
-   *       ...
-   *     }
-   *
-   * @param {?object} maybeIterable
-   * @return {?function}
-   */
-  function getIteratorFn(maybeIterable) {
-    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-    if (typeof iteratorFn === 'function') {
-      return iteratorFn;
-    }
-  }
-
-  /**
-   * Collection of methods that allow declaration and validation of props that are
-   * supplied to React components. Example usage:
-   *
-   *   var Props = require('ReactPropTypes');
-   *   var MyArticle = React.createClass({
-   *     propTypes: {
-   *       // An optional string prop named "description".
-   *       description: Props.string,
-   *
-   *       // A required enum prop named "category".
-   *       category: Props.oneOf(['News','Photos']).isRequired,
-   *
-   *       // A prop named "dialog" that requires an instance of Dialog.
-   *       dialog: Props.instanceOf(Dialog).isRequired
-   *     },
-   *     render: function() { ... }
-   *   });
-   *
-   * A more formal specification of how these methods are used:
-   *
-   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
-   *   decl := ReactPropTypes.{type}(.isRequired)?
-   *
-   * Each and every declaration produces a function with the same signature. This
-   * allows the creation of custom validation functions. For example:
-   *
-   *  var MyLink = React.createClass({
-   *    propTypes: {
-   *      // An optional string or URI prop named "href".
-   *      href: function(props, propName, componentName) {
-   *        var propValue = props[propName];
-   *        if (propValue != null && typeof propValue !== 'string' &&
-   *            !(propValue instanceof URI)) {
-   *          return new Error(
-   *            'Expected a string or an URI for ' + propName + ' in ' +
-   *            componentName
-   *          );
-   *        }
-   *      }
-   *    },
-   *    render: function() {...}
-   *  });
-   *
-   * @internal
-   */
-
-  var ANONYMOUS = '<<anonymous>>';
-
-  // Important!
-  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
-  var ReactPropTypes = {
-    array: createPrimitiveTypeChecker('array'),
-    bigint: createPrimitiveTypeChecker('bigint'),
-    bool: createPrimitiveTypeChecker('boolean'),
-    func: createPrimitiveTypeChecker('function'),
-    number: createPrimitiveTypeChecker('number'),
-    object: createPrimitiveTypeChecker('object'),
-    string: createPrimitiveTypeChecker('string'),
-    symbol: createPrimitiveTypeChecker('symbol'),
-
-    any: createAnyTypeChecker(),
-    arrayOf: createArrayOfTypeChecker,
-    element: createElementTypeChecker(),
-    elementType: createElementTypeTypeChecker(),
-    instanceOf: createInstanceTypeChecker,
-    node: createNodeChecker(),
-    objectOf: createObjectOfTypeChecker,
-    oneOf: createEnumTypeChecker,
-    oneOfType: createUnionTypeChecker,
-    shape: createShapeTypeChecker,
-    exact: createStrictShapeTypeChecker,
-  };
-
-  /**
-   * inlined Object.is polyfill to avoid requiring consumers ship their own
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-   */
-  /*eslint-disable no-self-compare*/
-  function is(x, y) {
-    // SameValue algorithm
-    if (x === y) {
-      // Steps 1-5, 7-10
-      // Steps 6.b-6.e: +0 != -0
-      return x !== 0 || 1 / x === 1 / y;
-    } else {
-      // Step 6.a: NaN == NaN
-      return x !== x && y !== y;
-    }
-  }
-  /*eslint-enable no-self-compare*/
-
-  /**
-   * We use an Error-like object for backward compatibility as people may call
-   * PropTypes directly and inspect their output. However, we don't use real
-   * Errors anymore. We don't inspect their stack anyway, and creating them
-   * is prohibitively expensive if they are created too often, such as what
-   * happens in oneOfType() for any type before the one that matched.
-   */
-  function PropTypeError(message, data) {
-    this.message = message;
-    this.data = data && typeof data === 'object' ? data: {};
-    this.stack = '';
-  }
-  // Make `instanceof Error` still work for returned errors.
-  PropTypeError.prototype = Error.prototype;
-
-  function createChainableTypeChecker(validate) {
-    if (true) {
-      var manualPropTypeCallCache = {};
-      var manualPropTypeWarningCount = 0;
-    }
-    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
-      componentName = componentName || ANONYMOUS;
-      propFullName = propFullName || propName;
-
-      if (secret !== ReactPropTypesSecret) {
-        if (throwOnDirectAccess) {
-          // New behavior only for users of `prop-types` package
-          var err = new Error(
-            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
-            'Use `PropTypes.checkPropTypes()` to call them. ' +
-            'Read more at http://fb.me/use-check-prop-types'
-          );
-          err.name = 'Invariant Violation';
-          throw err;
-        } else if ( true && typeof console !== 'undefined') {
-          // Old behavior for people using React.PropTypes
-          var cacheKey = componentName + ':' + propName;
-          if (
-            !manualPropTypeCallCache[cacheKey] &&
-            // Avoid spamming the console because they are often not actionable except for lib authors
-            manualPropTypeWarningCount < 3
-          ) {
-            printWarning(
-              'You are manually calling a React.PropTypes validation ' +
-              'function for the `' + propFullName + '` prop on `' + componentName + '`. This is deprecated ' +
-              'and will throw in the standalone `prop-types` package. ' +
-              'You may be seeing this warning due to a third-party PropTypes ' +
-              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
-            );
-            manualPropTypeCallCache[cacheKey] = true;
-            manualPropTypeWarningCount++;
-          }
-        }
-      }
-      if (props[propName] == null) {
-        if (isRequired) {
-          if (props[propName] === null) {
-            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
-          }
-          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
-        }
-        return null;
-      } else {
-        return validate(props, propName, componentName, location, propFullName);
-      }
-    }
-
-    var chainedCheckType = checkType.bind(null, false);
-    chainedCheckType.isRequired = checkType.bind(null, true);
-
-    return chainedCheckType;
-  }
-
-  function createPrimitiveTypeChecker(expectedType) {
-    function validate(props, propName, componentName, location, propFullName, secret) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== expectedType) {
-        // `propValue` being instance of, say, date/regexp, pass the 'object'
-        // check, but we can offer a more precise error message here rather than
-        // 'of type `object`'.
-        var preciseType = getPreciseType(propValue);
-
-        return new PropTypeError(
-          'Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'),
-          {expectedType: expectedType}
-        );
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createAnyTypeChecker() {
-    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
-  }
-
-  function createArrayOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
-      }
-      var propValue = props[propName];
-      if (!Array.isArray(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
-      }
-      for (var i = 0; i < propValue.length; i++) {
-        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
-        if (error instanceof Error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!isValidElement(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createElementTypeTypeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      if (!ReactIs.isValidElementType(propValue)) {
-        var propType = getPropType(propValue);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createInstanceTypeChecker(expectedClass) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!(props[propName] instanceof expectedClass)) {
-        var expectedClassName = expectedClass.name || ANONYMOUS;
-        var actualClassName = getClassName(props[propName]);
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createEnumTypeChecker(expectedValues) {
-    if (!Array.isArray(expectedValues)) {
-      if (true) {
-        if (arguments.length > 1) {
-          printWarning(
-            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
-            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
-          );
-        } else {
-          printWarning('Invalid argument supplied to oneOf, expected an array.');
-        }
-      }
-      return emptyFunctionThatReturnsNull;
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      for (var i = 0; i < expectedValues.length; i++) {
-        if (is(propValue, expectedValues[i])) {
-          return null;
-        }
-      }
-
-      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
-        var type = getPreciseType(value);
-        if (type === 'symbol') {
-          return String(value);
-        }
-        return value;
-      });
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createObjectOfTypeChecker(typeChecker) {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (typeof typeChecker !== 'function') {
-        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
-      }
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
-      }
-      for (var key in propValue) {
-        if (has(propValue, key)) {
-          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-          if (error instanceof Error) {
-            return error;
-          }
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createUnionTypeChecker(arrayOfTypeCheckers) {
-    if (!Array.isArray(arrayOfTypeCheckers)) {
-       true ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : 0;
-      return emptyFunctionThatReturnsNull;
-    }
-
-    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-      var checker = arrayOfTypeCheckers[i];
-      if (typeof checker !== 'function') {
-        printWarning(
-          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
-          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
-        );
-        return emptyFunctionThatReturnsNull;
-      }
-    }
-
-    function validate(props, propName, componentName, location, propFullName) {
-      var expectedTypes = [];
-      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-        var checker = arrayOfTypeCheckers[i];
-        var checkerResult = checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret);
-        if (checkerResult == null) {
-          return null;
-        }
-        if (checkerResult.data && has(checkerResult.data, 'expectedType')) {
-          expectedTypes.push(checkerResult.data.expectedType);
-        }
-      }
-      var expectedTypesMessage = (expectedTypes.length > 0) ? ', expected one of type [' + expectedTypes.join(', ') + ']': '';
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`' + expectedTypesMessage + '.'));
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createNodeChecker() {
-    function validate(props, propName, componentName, location, propFullName) {
-      if (!isNode(props[propName])) {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function invalidValidatorError(componentName, location, propFullName, key, type) {
-    return new PropTypeError(
-      (componentName || 'React class') + ': ' + location + ' type `' + propFullName + '.' + key + '` is invalid; ' +
-      'it must be a function, usually from the `prop-types` package, but received `' + type + '`.'
-    );
-  }
-
-  function createShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      for (var key in shapeTypes) {
-        var checker = shapeTypes[key];
-        if (typeof checker !== 'function') {
-          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createStrictShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      // We need to check all keys in case some are required but missing from props.
-      var allKeys = assign({}, props[propName], shapeTypes);
-      for (var key in allKeys) {
-        var checker = shapeTypes[key];
-        if (has(shapeTypes, key) && typeof checker !== 'function') {
-          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
-        }
-        if (!checker) {
-          return new PropTypeError(
-            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
-            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
-            '\nValid keys: ' + JSON.stringify(Object.keys(shapeTypes), null, '  ')
-          );
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-
-    return createChainableTypeChecker(validate);
-  }
-
-  function isNode(propValue) {
-    switch (typeof propValue) {
-      case 'number':
-      case 'string':
-      case 'undefined':
-        return true;
-      case 'boolean':
-        return !propValue;
-      case 'object':
-        if (Array.isArray(propValue)) {
-          return propValue.every(isNode);
-        }
-        if (propValue === null || isValidElement(propValue)) {
-          return true;
-        }
-
-        var iteratorFn = getIteratorFn(propValue);
-        if (iteratorFn) {
-          var iterator = iteratorFn.call(propValue);
-          var step;
-          if (iteratorFn !== propValue.entries) {
-            while (!(step = iterator.next()).done) {
-              if (!isNode(step.value)) {
-                return false;
-              }
-            }
-          } else {
-            // Iterator will provide entry [k,v] tuples rather than values.
-            while (!(step = iterator.next()).done) {
-              var entry = step.value;
-              if (entry) {
-                if (!isNode(entry[1])) {
-                  return false;
-                }
-              }
-            }
-          }
-        } else {
-          return false;
-        }
-
-        return true;
-      default:
-        return false;
-    }
-  }
-
-  function isSymbol(propType, propValue) {
-    // Native Symbol.
-    if (propType === 'symbol') {
-      return true;
-    }
-
-    // falsy value can't be a Symbol
-    if (!propValue) {
-      return false;
-    }
-
-    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
-    if (propValue['@@toStringTag'] === 'Symbol') {
-      return true;
-    }
-
-    // Fallback for non-spec compliant Symbols which are polyfilled.
-    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
-      return true;
-    }
-
-    return false;
-  }
-
-  // Equivalent of `typeof` but with special handling for array and regexp.
-  function getPropType(propValue) {
-    var propType = typeof propValue;
-    if (Array.isArray(propValue)) {
-      return 'array';
-    }
-    if (propValue instanceof RegExp) {
-      // Old webkits (at least until Android 4.0) return 'function' rather than
-      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
-      // passes PropTypes.object.
-      return 'object';
-    }
-    if (isSymbol(propType, propValue)) {
-      return 'symbol';
-    }
-    return propType;
-  }
-
-  // This handles more types than `getPropType`. Only used for error messages.
-  // See `createPrimitiveTypeChecker`.
-  function getPreciseType(propValue) {
-    if (typeof propValue === 'undefined' || propValue === null) {
-      return '' + propValue;
-    }
-    var propType = getPropType(propValue);
-    if (propType === 'object') {
-      if (propValue instanceof Date) {
-        return 'date';
-      } else if (propValue instanceof RegExp) {
-        return 'regexp';
-      }
-    }
-    return propType;
-  }
-
-  // Returns a string that is postfixed to a warning about an invalid type.
-  // For example, "undefined" or "of type array"
-  function getPostfixForTypeWarning(value) {
-    var type = getPreciseType(value);
-    switch (type) {
-      case 'array':
-      case 'object':
-        return 'an ' + type;
-      case 'boolean':
-      case 'date':
-      case 'regexp':
-        return 'a ' + type;
-      default:
-        return type;
-    }
-  }
-
-  // Returns class name of the object, if any.
-  function getClassName(propValue) {
-    if (!propValue.constructor || !propValue.constructor.name) {
-      return ANONYMOUS;
-    }
-    return propValue.constructor.name;
-  }
-
-  ReactPropTypes.checkPropTypes = checkPropTypes;
-  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
-  ReactPropTypes.PropTypes = ReactPropTypes;
-
-  return ReactPropTypes;
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/prop-types/index.js ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (true) {
-  var ReactIs = __webpack_require__(/*! react-is */ "./node_modules/prop-types/node_modules/react-is/index.js");
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(/*! ./factoryWithTypeCheckers */ "./node_modules/prop-types/factoryWithTypeCheckers.js")(ReactIs.isElement, throwOnDirectAccess);
-} else // removed by dead control flow
-{}
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/lib/ReactPropTypesSecret.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
-  \*************************************************************/
-/***/ ((module) => {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-
-module.exports = ReactPropTypesSecret;
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/lib/has.js":
-/*!********************************************!*\
-  !*** ./node_modules/prop-types/lib/has.js ***!
-  \********************************************/
-/***/ ((module) => {
-
-module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-/** @license React v16.13.1
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-
-
-if (true) {
-  (function() {
-'use strict';
-
-// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
-// nor polyfill, then a plain number is used for performance.
-var hasSymbol = typeof Symbol === 'function' && Symbol.for;
-var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
-var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-// (unstable) APIs that have been removed. Can we remove the symbols?
-
-var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
-var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for('react.block') : 0xead9;
-var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
-var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
-var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
-
-function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
-}
-
-function typeOf(object) {
-  if (typeof object === 'object' && object !== null) {
-    var $$typeof = object.$$typeof;
-
-    switch ($$typeof) {
-      case REACT_ELEMENT_TYPE:
-        var type = object.type;
-
-        switch (type) {
-          case REACT_ASYNC_MODE_TYPE:
-          case REACT_CONCURRENT_MODE_TYPE:
-          case REACT_FRAGMENT_TYPE:
-          case REACT_PROFILER_TYPE:
-          case REACT_STRICT_MODE_TYPE:
-          case REACT_SUSPENSE_TYPE:
-            return type;
-
-          default:
-            var $$typeofType = type && type.$$typeof;
-
-            switch ($$typeofType) {
-              case REACT_CONTEXT_TYPE:
-              case REACT_FORWARD_REF_TYPE:
-              case REACT_LAZY_TYPE:
-              case REACT_MEMO_TYPE:
-              case REACT_PROVIDER_TYPE:
-                return $$typeofType;
-
-              default:
-                return $$typeof;
-            }
-
-        }
-
-      case REACT_PORTAL_TYPE:
-        return $$typeof;
-    }
-  }
-
-  return undefined;
-} // AsyncMode is deprecated along with isAsyncMode
-
-var AsyncMode = REACT_ASYNC_MODE_TYPE;
-var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
-var ContextConsumer = REACT_CONTEXT_TYPE;
-var ContextProvider = REACT_PROVIDER_TYPE;
-var Element = REACT_ELEMENT_TYPE;
-var ForwardRef = REACT_FORWARD_REF_TYPE;
-var Fragment = REACT_FRAGMENT_TYPE;
-var Lazy = REACT_LAZY_TYPE;
-var Memo = REACT_MEMO_TYPE;
-var Portal = REACT_PORTAL_TYPE;
-var Profiler = REACT_PROFILER_TYPE;
-var StrictMode = REACT_STRICT_MODE_TYPE;
-var Suspense = REACT_SUSPENSE_TYPE;
-var hasWarnedAboutDeprecatedIsAsyncMode = false; // AsyncMode should be deprecated
-
-function isAsyncMode(object) {
-  {
-    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-      hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-
-      console['warn']('The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
-    }
-  }
-
-  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
-}
-function isConcurrentMode(object) {
-  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
-}
-function isContextConsumer(object) {
-  return typeOf(object) === REACT_CONTEXT_TYPE;
-}
-function isContextProvider(object) {
-  return typeOf(object) === REACT_PROVIDER_TYPE;
-}
-function isElement(object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-}
-function isForwardRef(object) {
-  return typeOf(object) === REACT_FORWARD_REF_TYPE;
-}
-function isFragment(object) {
-  return typeOf(object) === REACT_FRAGMENT_TYPE;
-}
-function isLazy(object) {
-  return typeOf(object) === REACT_LAZY_TYPE;
-}
-function isMemo(object) {
-  return typeOf(object) === REACT_MEMO_TYPE;
-}
-function isPortal(object) {
-  return typeOf(object) === REACT_PORTAL_TYPE;
-}
-function isProfiler(object) {
-  return typeOf(object) === REACT_PROFILER_TYPE;
-}
-function isStrictMode(object) {
-  return typeOf(object) === REACT_STRICT_MODE_TYPE;
-}
-function isSuspense(object) {
-  return typeOf(object) === REACT_SUSPENSE_TYPE;
-}
-
-exports.AsyncMode = AsyncMode;
-exports.ConcurrentMode = ConcurrentMode;
-exports.ContextConsumer = ContextConsumer;
-exports.ContextProvider = ContextProvider;
-exports.Element = Element;
-exports.ForwardRef = ForwardRef;
-exports.Fragment = Fragment;
-exports.Lazy = Lazy;
-exports.Memo = Memo;
-exports.Portal = Portal;
-exports.Profiler = Profiler;
-exports.StrictMode = StrictMode;
-exports.Suspense = Suspense;
-exports.isAsyncMode = isAsyncMode;
-exports.isConcurrentMode = isConcurrentMode;
-exports.isContextConsumer = isContextConsumer;
-exports.isContextProvider = isContextProvider;
-exports.isElement = isElement;
-exports.isForwardRef = isForwardRef;
-exports.isFragment = isFragment;
-exports.isLazy = isLazy;
-exports.isMemo = isMemo;
-exports.isPortal = isPortal;
-exports.isProfiler = isProfiler;
-exports.isStrictMode = isStrictMode;
-exports.isSuspense = isSuspense;
-exports.isValidElementType = isValidElementType;
-exports.typeOf = typeOf;
-  })();
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/prop-types/node_modules/react-is/index.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/prop-types/node_modules/react-is/index.js ***!
-  \****************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-
-
-if (false) // removed by dead control flow
-{} else {
-  module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js");
-}
 
 
 /***/ }),
@@ -160801,538 +159773,6 @@ if (false) // removed by dead control flow
 
 /***/ }),
 
-/***/ "./node_modules/react-rating-stars-component/dist/hooks/useConfig.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/react-rating-stars-component/dist/hooks/useConfig.js ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-exports["default"] = useConfig;
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-function useConfig(config) {
-    var _useState = (0, _react.useState)(config.count),
-        _useState2 = _slicedToArray(_useState, 2),
-        count = _useState2[0],
-        setCount = _useState2[1];
-
-    var _useState3 = (0, _react.useState)(config.size),
-        _useState4 = _slicedToArray(_useState3, 2),
-        size = _useState4[0],
-        setSize = _useState4[1];
-
-    var _useState5 = (0, _react.useState)(config.char),
-        _useState6 = _slicedToArray(_useState5, 2),
-        char = _useState6[0],
-        setChar = _useState6[1];
-
-    var _useState7 = (0, _react.useState)(config.color),
-        _useState8 = _slicedToArray(_useState7, 2),
-        color = _useState8[0],
-        setColor = _useState8[1];
-
-    var _useState9 = (0, _react.useState)(config.activeColor),
-        _useState10 = _slicedToArray(_useState9, 2),
-        activeColor = _useState10[0],
-        setActiveColor = _useState10[1];
-
-    var _useState11 = (0, _react.useState)(config.isHalf),
-        _useState12 = _slicedToArray(_useState11, 2),
-        isHalf = _useState12[0],
-        setIsHalf = _useState12[1];
-
-    var _useState13 = (0, _react.useState)(config.edit),
-        _useState14 = _slicedToArray(_useState13, 2),
-        edit = _useState14[0],
-        setEdit = _useState14[1];
-
-    var _useState15 = (0, _react.useState)(config.emptyIcon),
-        _useState16 = _slicedToArray(_useState15, 2),
-        emptyIcon = _useState16[0],
-        setEmptyIcon = _useState16[1];
-
-    var _useState17 = (0, _react.useState)(config.halfIcon),
-        _useState18 = _slicedToArray(_useState17, 2),
-        halfIcon = _useState18[0],
-        setHalfIcon = _useState18[1];
-
-    var _useState19 = (0, _react.useState)(config.filledIcon),
-        _useState20 = _slicedToArray(_useState19, 2),
-        filledIcon = _useState20[0],
-        setFilledIcon = _useState20[1];
-
-    var _useState21 = (0, _react.useState)(config.a11y),
-        _useState22 = _slicedToArray(_useState21, 2),
-        a11y = _useState22[0],
-        setA11y = _useState22[1];
-
-    var configObj = {
-        count: count,
-        size: size,
-        char: char,
-        color: color,
-        activeColor: activeColor,
-        isHalf: isHalf,
-        edit: edit,
-        emptyIcon: emptyIcon,
-        halfIcon: halfIcon,
-        filledIcon: filledIcon,
-        a11y: a11y
-    };
-
-    function setConfig(config) {
-        setCount(config.count);
-        setSize(config.size);
-        setChar(config.char);
-        setColor(config.color);
-        setActiveColor(config.activeColor);
-        setIsHalf(config.isHalf);
-        setEdit(config.edit);
-        setEmptyIcon(config.emptyIcon);
-        setHalfIcon(config.halfIcon);
-        setFilledIcon(config.filledIcon);
-        setA11y(config.a11y);
-    }
-
-    return [configObj, setConfig];
-}
-
-/***/ }),
-
-/***/ "./node_modules/react-rating-stars-component/dist/react-stars.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/react-rating-stars-component/dist/react-stars.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _useConfig3 = __webpack_require__(/*! ./hooks/useConfig */ "./node_modules/react-rating-stars-component/dist/hooks/useConfig.js");
-
-var _useConfig4 = _interopRequireDefault(_useConfig3);
-
-var _star = __webpack_require__(/*! ./star */ "./node_modules/react-rating-stars-component/dist/star.js");
-
-var _star2 = _interopRequireDefault(_star);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var parentStyles = {
-    overflow: "hidden",
-    position: "relative"
-};
-
-function getHalfStarStyles(color, uniqueness) {
-    return '\n    .react-stars-' + uniqueness + ':before {\n      position: absolute;\n      overflow: hidden;\n      display: block;\n      z-index: 1;\n      top: 0; left: 0;\n      width: 50%;\n      content: attr(data-forhalf);\n      color: ' + color + ';\n  }';
-}
-
-function getHalfStarStyleForIcons(color) {
-    return '\n          span.react-stars-half > * {\n          color: ' + color + ';\n      }';
-};
-
-function ReactStars(props) {
-    var _useState = (0, _react.useState)(''),
-        _useState2 = _slicedToArray(_useState, 2),
-        uniqueness = _useState2[0],
-        setUniqueness = _useState2[1];
-
-    var _useState3 = (0, _react.useState)(0),
-        _useState4 = _slicedToArray(_useState3, 2),
-        currentValue = _useState4[0],
-        setCurrentValue = _useState4[1];
-
-    var _useState5 = (0, _react.useState)([]),
-        _useState6 = _slicedToArray(_useState5, 2),
-        stars = _useState6[0],
-        setStars = _useState6[1];
-
-    var _useState7 = (0, _react.useState)(false),
-        _useState8 = _slicedToArray(_useState7, 2),
-        isUsingIcons = _useState8[0],
-        setIsUsingIcons = _useState8[1];
-
-    var _useConfig = (0, _useConfig4.default)(props),
-        _useConfig2 = _slicedToArray(_useConfig, 2),
-        config = _useConfig2[0],
-        setConfig = _useConfig2[1];
-
-    var _useState9 = (0, _react.useState)(0),
-        _useState10 = _slicedToArray(_useState9, 2),
-        halfStarAt = _useState10[0],
-        setHalfStarAt = _useState10[1];
-
-    var _useState11 = (0, _react.useState)(false),
-        _useState12 = _slicedToArray(_useState11, 2),
-        halfStarHidden = _useState12[0],
-        setHalfStarHidden = _useState12[1];
-
-    var _useState13 = (0, _react.useState)(''),
-        _useState14 = _slicedToArray(_useState13, 2),
-        classNames = _useState14[0],
-        setClassNames = _useState14[1];
-
-    function iconsUsed(config) {
-        return !config.isHalf && config.emptyIcon && config.filledIcon || config.isHalf && config.emptyIcon && config.halfIcon && config.filledIcon;
-    }
-
-    function createUniqueness() {
-        setUniqueness((Math.random() + "").replace(".", ""));
-    }
-
-    (0, _react.useEffect)(function () {
-        addClassNames();
-        validateInitialValue(props.value, props.count);
-        setStars(getStars(props.value));
-        setConfig(props);
-        createUniqueness();
-        setIsUsingIcons(iconsUsed(props));
-        setHalfStarAt(Math.floor(props.value));
-        setHalfStarHidden(props.isHalf && props.value % 1 < 0.5);
-    }, []);
-
-    function validateInitialValue(value, count) {
-        if (value < 0 || value > count) {
-            setCurrentValue(0);
-        } else {
-            setCurrentValue(value);
-        }
-    }
-
-    function addClassNames() {
-        var reactStarsClass = 'react-stars';
-        setClassNames(props.classNames + (' ' + reactStarsClass));
-    }
-
-    function isDecimal(value) {
-        return value % 1 === 0;
-    }
-
-    function getRate() {
-        return config.isHalf ? Math.floor(currentValue) : Math.round(currentValue);
-    }
-
-    function getStars(activeCount) {
-        if (typeof activeCount === 'undefined') {
-            activeCount = getRate();
-        }
-
-        var stars = [];
-        for (var i = 0; i < config.count; i++) {
-            stars.push({
-                active: i <= activeCount - 1
-            });
-        }
-        return stars;
-    }
-
-    function mouseOver(event) {
-        if (!config.edit) return;
-
-        var index = Number(event.currentTarget.getAttribute('data-index'));
-
-        if (config.isHalf) {
-            var isAtHalf = moreThanHalf(event);
-            setHalfStarHidden(isAtHalf);
-            if (isAtHalf) index += 1;
-            setHalfStarAt(index);
-        } else {
-            index += 1;
-        }
-
-        updateStars(index);
-    }
-
-    function updateStars(index) {
-        var currentActive = stars.filter(function (x) {
-            return x.active;
-        });
-        if (index !== currentActive.length) {
-            setStars(getStars(index));
-        }
-    }
-
-    function moreThanHalf(event) {
-        var target = event.target;
-
-        var boundingClientRect = target.getBoundingClientRect();
-        var mouseAt = event.clientX - boundingClientRect.left;
-        mouseAt = Math.round(Math.abs(mouseAt));
-
-        return mouseAt > boundingClientRect.width / 2;
-    }
-
-    function mouseLeave() {
-        if (!config.edit) return;
-
-        updateHalfStarValues(currentValue);
-        setStars(getStars());
-    }
-
-    function updateHalfStarValues(value) {
-        if (config.isHalf) {
-            setHalfStarHidden(isDecimal(value));
-            setHalfStarAt(Math.floor(value));
-        }
-    }
-
-    function onClick(event) {
-        if (!config.edit) return;
-
-        var index = Number(event.currentTarget.getAttribute('data-index'));
-        var value = void 0;
-        if (config.isHalf) {
-            var isAtHalf = moreThanHalf(event);
-            setHalfStarHidden(isAtHalf);
-            if (isAtHalf) index += 1;
-            value = isAtHalf ? index : index + 0.5;
-            setHalfStarAt(index);
-        } else {
-            value = index = index + 1;
-        }
-
-        currentValueUpdated(value);
-    }
-
-    function renderHalfStarStyleElement() {
-        return _react2.default.createElement('style', { dangerouslySetInnerHTML: {
-                __html: isUsingIcons ? getHalfStarStyleForIcons(config.activeColor) : getHalfStarStyles(config.activeColor, uniqueness)
-            } });
-    }
-
-    function currentValueUpdated(value) {
-        if (value !== currentValue) {
-            setStars(getStars(value));
-            setCurrentValue(value);
-            props.onChange(value);
-        }
-    }
-
-    function handleKeyDown(event) {
-        if (!config.a11y && !config.edit) return;
-
-        var key = event.key;
-
-        var value = currentValue;
-
-        var keyNumber = Number(key); // e.g. "1" => 1, "ArrowUp" => NaN
-        if (keyNumber) {
-            if (Number.isInteger(keyNumber) && keyNumber > 0 && keyNumber <= config.count) {
-                value = keyNumber;
-            }
-        } else {
-            if ((key === "ArrowUp" || key === "ArrowRight") && value < config.count) {
-                event.preventDefault();
-
-                value += config.isHalf ? 0.5 : 1;
-            } else if ((key === "ArrowDown" || key === "ArrowLeft") && value > 0.5) {
-                event.preventDefault();
-                value -= config.isHalf ? 0.5 : 1;
-            }
-        }
-
-        updateHalfStarValues(value);
-
-        currentValueUpdated(value);
-    }
-
-    function renderStars() {
-        return stars.map(function (star, i) {
-            return _react2.default.createElement(_star2.default, {
-                key: i,
-                index: i,
-                active: star.active,
-                config: config,
-                onMouseOver: mouseOver,
-                onMouseLeave: mouseLeave,
-                onClick: onClick,
-                halfStarHidden: halfStarHidden,
-                halfStarAt: halfStarAt,
-                isUsingIcons: isUsingIcons,
-                uniqueness: uniqueness
-            });
-        });
-    }
-
-    return _react2.default.createElement(
-        'div',
-        { className: 'react-stars-wrapper-' + uniqueness,
-            style: { display: 'flex' } },
-        _react2.default.createElement(
-            'div',
-            { tabIndex: config.a11y && config.edit ? 0 : null,
-                'aria-label': 'add rating by typing an integer from 0 to 5 or pressing arrow keys',
-                onKeyDown: handleKeyDown,
-                className: classNames,
-                style: parentStyles },
-            config.isHalf && renderHalfStarStyleElement(),
-            renderStars(),
-            _react2.default.createElement(
-                'p',
-                { style: { position: 'absolute', left: '-200rem' }, role: 'status' },
-                currentValue
-            )
-        )
-    );
-}
-
-ReactStars.propTypes = {
-    classNames: _propTypes2.default.string,
-    edit: _propTypes2.default.bool,
-    half: _propTypes2.default.bool,
-    value: _propTypes2.default.number,
-    count: _propTypes2.default.number,
-    char: _propTypes2.default.string,
-    size: _propTypes2.default.number,
-    color: _propTypes2.default.string,
-    activeColor: _propTypes2.default.string,
-    emptyIcon: _propTypes2.default.element,
-    halfIcon: _propTypes2.default.element,
-    filledIcon: _propTypes2.default.element,
-    a11y: _propTypes2.default.bool
-};
-
-ReactStars.defaultProps = {
-    edit: true,
-    half: false,
-    value: 0,
-    count: 5,
-    char: '★',
-    size: 15,
-    color: 'gray',
-    activeColor: '#ffd700',
-    a11y: true,
-
-    onChange: function onChange() {}
-};
-
-exports["default"] = ReactStars;
-
-/***/ }),
-
-/***/ "./node_modules/react-rating-stars-component/dist/star.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/react-rating-stars-component/dist/star.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-exports["default"] = Star;
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var defaultStyles = {
-    position: "relative",
-    overflow: "hidden",
-    cursor: "pointer",
-    display: "block",
-    float: "left"
-};
-
-function Star(props) {
-    var index = props.index,
-        active = props.active,
-        config = props.config,
-        onMouseOver = props.onMouseOver,
-        onMouseLeave = props.onMouseLeave,
-        onClick = props.onClick,
-        halfStarHidden = props.halfStarHidden,
-        halfStarAt = props.halfStarAt,
-        isUsingIcons = props.isUsingIcons,
-        uniqueness = props.uniqueness;
-    var color = config.color,
-        activeColor = config.activeColor,
-        size = config.size,
-        char = config.char,
-        isHalf = config.isHalf,
-        edit = config.edit,
-        halfIcon = config.halfIcon,
-        emptyIcon = config.emptyIcon,
-        filledIcon = config.filledIcon;
-
-
-    var starClass = '';
-    var half = false;
-
-    if (isHalf && !halfStarHidden && halfStarAt === index) {
-        if (!isUsingIcons) starClass = "react-stars-" + uniqueness;else starClass = 'react-stars-half';
-        half = true;
-    }
-
-    var style = _extends({}, defaultStyles, {
-        color: active ? activeColor : color,
-        cursor: edit ? 'pointer' : 'default',
-        fontSize: size + "px"
-    });
-
-    function renderIcon() {
-        if (!isUsingIcons) {
-            return char;
-        } else {
-            if (active) {
-                return filledIcon;
-            } else if (!active && half) {
-                return halfIcon;
-            } else {
-                return emptyIcon;
-            }
-        }
-    }
-
-    return _react2.default.createElement(
-        "span",
-        {
-            className: starClass,
-            style: style,
-            key: index,
-            "data-index": index,
-            "data-forhalf": filledIcon ? index : char,
-            onMouseOver: onMouseOver,
-            onMouseMove: onMouseOver,
-            onMouseLeave: onMouseLeave,
-            onClick: onClick },
-        renderIcon()
-    );
-}
-
-/***/ }),
-
 /***/ "./node_modules/react-router-dom/dist/index.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react-router-dom/dist/index.js ***!
@@ -177007,8 +175447,10 @@ var BookModal = function BookModal(_ref) {
       work_type: (worker === null || worker === void 0 ? void 0 : worker.work_type) || 'part-time',
       book_in: '',
       book_end: '',
+      time_in: '',
+      time_out: '',
       description: '',
-      hourly_rate: (worker === null || worker === void 0 ? void 0 : worker.hourlyRate) || 0
+      daily_rate: ''
     }),
     _useState2 = _slicedToArray(_useState, 2),
     bookingDetails = _useState2[0],
@@ -177020,8 +175462,10 @@ var BookModal = function BookModal(_ref) {
         work_type: (worker === null || worker === void 0 ? void 0 : worker.work_type) || 'part-time',
         book_in: '',
         book_end: '',
+        time_in: '',
+        time_out: '',
         description: '',
-        hourly_rate: (worker === null || worker === void 0 ? void 0 : worker.hourlyRate) || 0
+        daily_rate: ''
       });
     }
   }, [isOpen, worker]);
@@ -177029,225 +175473,445 @@ var BookModal = function BookModal(_ref) {
     var _e$target = e.target,
       name = _e$target.name,
       value = _e$target.value;
-    setBookingDetails(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+    if (name === 'book_in' || name === 'book_end') {
+      setBookingDetails(function (prev) {
+        var updated = _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+        if (updated.book_in && updated.book_end) {
+          var startTime = new Date(updated.book_in);
+          var startHour = startTime.getHours();
+          var startMinute = startTime.getMinutes();
+
+          // Time In: Start time + 1 hour
+          var timeInHour = startHour + 1;
+          var timeInMinute = startMinute;
+          if (timeInHour >= 24) {
+            timeInHour = timeInHour - 24;
+          }
+          var hoursPerDay = 8; // Default
+          switch (updated.work_type) {
+            case 'full-time':
+              hoursPerDay = 8;
+              break;
+            case 'part-time':
+              hoursPerDay = 6;
+              break;
+            case 'one-time':
+              hoursPerDay = 8;
+              break;
+          }
+
+          // Time Out: Time In + working hours
+          var timeOutHour = timeInHour + hoursPerDay;
+          var timeOutMinute = timeInMinute;
+          if (timeOutHour >= 24) {
+            timeOutHour = timeOutHour - 24;
+          }
+          var timeInStr = "".concat(timeInHour.toString().padStart(2, '0'), ":").concat(timeInMinute.toString().padStart(2, '0'));
+          var timeOutStr = "".concat(timeOutHour.toString().padStart(2, '0'), ":").concat(timeOutMinute.toString().padStart(2, '0'));
+          updated.time_in = timeInStr;
+          updated.time_out = timeOutStr;
+        }
+        return updated;
+      });
+    } else {
+      setBookingDetails(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+      });
+    }
+  };
+  var calculateActualHours = function calculateActualHours() {
+    var time_in = bookingDetails.time_in,
+      time_out = bookingDetails.time_out;
+    if (!time_in || !time_out) return 0;
+    var _time_in$split$map = time_in.split(':').map(Number),
+      _time_in$split$map2 = _slicedToArray(_time_in$split$map, 2),
+      startHour = _time_in$split$map2[0],
+      startMinute = _time_in$split$map2[1];
+    var _time_out$split$map = time_out.split(':').map(Number),
+      _time_out$split$map2 = _slicedToArray(_time_out$split$map, 2),
+      endHour = _time_out$split$map2[0],
+      endMinute = _time_out$split$map2[1];
+    var startTime = startHour * 60 + startMinute;
+    var endTime = endHour * 60 + endMinute;
+    var diffMinutes = endTime - startTime;
+    if (diffMinutes < 0) {
+      diffMinutes += 24 * 60;
+    }
+    return diffMinutes / 60;
+  };
+  var isBlueCollarWorker = function isBlueCollarWorker() {
+    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) return false;
+    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
+    var blueCollarSkills = ['construction', 'carpenter', 'electrician', 'plumber', 'mechanic', 'welder', 'painter', 'mason', 'roofer', 'laborer', 'maintenance', 'repair', 'installation', 'assembly', 'manufacturing', 'factory', 'warehouse', 'delivery', 'driver', 'security', 'janitor', 'cleaner', 'gardener', 'landscaper', 'farming', 'agriculture', 'mining', 'oil', 'gas', 'trucking', 'logistics', 'shipping', 'loading', 'unloading'];
+    return allSkills.some(function (skill) {
+      var _skill$skill_name;
+      var skillName = ((_skill$skill_name = skill.skill_name) === null || _skill$skill_name === void 0 ? void 0 : _skill$skill_name.toLowerCase()) || '';
+      return blueCollarSkills.some(function (blueCollarSkill) {
+        return skillName.includes(blueCollarSkill) || blueCollarSkill.includes(skillName);
+      });
     });
   };
-  var calculateDuration = function calculateDuration(startDate, endDate) {
-    if (!startDate || !endDate) return {
-      hours: 0,
-      days: 0
-    };
-    var start = new Date(startDate);
+  var calculateWorkingDays = function calculateWorkingDays(startDate, endDate, workType) {
+    var workingDaysCount = 0;
+    var currentDate = new Date(startDate);
+    currentDate.setHours(0, 0, 0, 0);
     var end = new Date(endDate);
-    var diffTime = Math.abs(end - start);
-    var diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return {
-      hours: diffHours,
-      days: diffDays
-    };
+    end.setHours(0, 0, 0, 0);
+    end.setDate(end.getDate() + 1);
+    while (currentDate < end) {
+      var dayOfWeek = currentDate.getDay();
+      if (workType === 'one-time') {
+        workingDaysCount++;
+      } else if (isBlueCollarWorker()) {
+        if (dayOfWeek >= 1 && dayOfWeek <= 6) {
+          // Monday to Saturday
+          workingDaysCount++;
+        }
+      } else {
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+          // Monday to Friday
+          workingDaysCount++;
+        }
+      }
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return workingDaysCount;
   };
   var calculateSalary = function calculateSalary() {
     var book_in = bookingDetails.book_in,
-      book_end = bookingDetails.book_end;
-    if (!book_in || !book_end) return {
+      book_end = bookingDetails.book_end,
+      work_type = bookingDetails.work_type,
+      daily_rate = bookingDetails.daily_rate;
+    if (!book_in || !book_end || !daily_rate) return {
       total: 0,
-      hours: 0
+      hours: 0,
+      explanation: ''
     };
-    var duration = calculateDuration(book_in, book_end);
-    var hourlyRate = parseFloat(bookingDetails.hourly_rate) || 0;
-    var total = hourlyRate * duration.hours;
+    var startDate = new Date(book_in);
+    var endDate = new Date(book_end);
+    var dailyRate = parseFloat(daily_rate) || 0;
+    var workingDays = 0;
+    var hoursPerDay = 0;
+    var totalHours = 0;
+    var explanation = '';
+    var actualHoursPerDay = calculateActualHours();
+    switch (work_type) {
+      case 'full-time':
+        workingDays = calculateWorkingDays(startDate, endDate, 'full-time');
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8;
+        totalHours = workingDays * hoursPerDay;
+        var fullTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        explanation = "Full-time: ".concat(hoursPerDay, " hours/day, ").concat(fullTimeDays, ". Total: ").concat(workingDays, " working days");
+        break;
+      case 'part-time':
+        workingDays = calculateWorkingDays(startDate, endDate, 'part-time');
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 6;
+        totalHours = workingDays * hoursPerDay;
+        var partTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        var weeklyHours = isBlueCollarWorker() ? '36 hours/week' : '30 hours/week';
+        explanation = "Part-time: ".concat(hoursPerDay, " hours/day, ").concat(partTimeDays, " (").concat(weeklyHours, "). Total: ").concat(workingDays, " working days");
+        break;
+      case 'one-time':
+        workingDays = 1;
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8;
+        totalHours = hoursPerDay;
+        explanation = "One-time project: ".concat(hoursPerDay, " hours (adjustable by employer)");
+        break;
+      default:
+        workingDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8;
+        totalHours = workingDays * hoursPerDay;
+        explanation = "Standard calculation: ".concat(workingDays, " working days");
+    }
+    var totalSalary = dailyRate * workingDays;
     return {
-      total: total.toFixed(2),
-      hours: duration.hours
+      total: totalSalary.toFixed(2),
+      hours: totalHours,
+      workingDays: workingDays,
+      hoursPerDay: hoursPerDay,
+      explanation: explanation
     };
   };
-  var handleSubmit = function handleSubmit() {
-    // Validate required fields before submitting
-    if (!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all required fields");
-      return;
-    }
-
-    // Validate that book_in is at least 1 hour in the future
-    if (!validateBookInTime(bookingDetails.book_in)) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please select a time at least 1 hour from now");
-      return;
-    }
-
-    // Validate date range
-    if (bookingDetails.book_end <= bookingDetails.book_in) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("End date must be after start date");
-      return;
-    }
-
-    // Ensure hourly_rate is a number
-    var validatedDetails = _objectSpread(_objectSpread({}, bookingDetails), {}, {
-      hourly_rate: parseFloat(bookingDetails.hourly_rate) || 0
-    });
-    console.log('Submitting booking details:', validatedDetails);
-    onSubmit(validatedDetails); // Pass details to parent for further processing
-  };
-
-  // Date validation: Ensure book_end is not before book_in
-  // Set minimum date to 1 hour from now to avoid timezone issues
-  var now = new Date();
-  now.setHours(now.getHours() + 1); // Add 1 hour buffer
-  var minDate = now.toISOString().slice(0, 16); // Current datetime + 1 hour
-
-  // Additional validation for book_in to be at least 1 hour in the future
-  var validateBookInTime = function validateBookInTime(bookInTime) {
-    if (!bookInTime) return true;
-    var selectedTime = new Date(bookInTime);
-    var currentTime = new Date();
-    var oneHourFromNow = new Date(currentTime.getTime() + 60 * 60 * 1000); // Add 1 hour in milliseconds
-    return selectedTime >= oneHourFromNow;
-  };
-  var isValidEndDate = function isValidEndDate(endDate) {
-    var start = new Date(bookingDetails.book_in);
-    var end = new Date(endDate);
-    return end >= start;
-  };
-
-  // Get available service types with sub-skills based on worker skills
-  var getAvailableServiceTypes = function getAvailableServiceTypes() {
-    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) return [];
-    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
-
-    // Create a structure with main skills and their sub-skills
-    var skillStructure = {};
-    allSkills.forEach(function (skill) {
-      var mainSkill = skill.skill_name;
-      if (!skillStructure[mainSkill]) {
-        skillStructure[mainSkill] = {
-          main: mainSkill,
-          subSkills: []
+  var getSalaryInfo = function getSalaryInfo() {
+    var workType = bookingDetails.work_type;
+    var isBlueCollar = isBlueCollarWorker();
+    switch (workType) {
+      case 'part-time':
+        var partTimeDays = isBlueCollar ? 'Monday-Saturday' : 'Monday-Friday';
+        var partTimeWeeklyHours = isBlueCollar ? '36 hours/week' : '30 hours/week';
+        return {
+          label: 'Daily Rate (Part-time)',
+          placeholder: 'Enter daily rate amount',
+          description: "6 hours per day, ".concat(partTimeDays, " (").concat(partTimeWeeklyHours, ")")
         };
-      }
-
-      // Add sub-skills if they exist
-      if (skill.sub_skills && Array.isArray(skill.sub_skills)) {
-        skill.sub_skills.forEach(function (subSkill) {
-          if (!skillStructure[mainSkill].subSkills.includes(subSkill)) {
-            skillStructure[mainSkill].subSkills.push(subSkill);
-          }
-        });
-      }
-    });
-    return Object.values(skillStructure);
+      case 'full-time':
+        var fullTimeDays = isBlueCollar ? 'Monday-Saturday' : 'Monday-Friday';
+        var fullTimeWeeklyHours = isBlueCollar ? '48 hours/week' : '40 hours/week';
+        return {
+          label: 'Daily Rate (Full-time)',
+          placeholder: 'Enter daily rate amount',
+          description: "8 hours per day, ".concat(fullTimeDays, " (").concat(fullTimeWeeklyHours, ")")
+        };
+      case 'one-time':
+        return {
+          label: 'Daily Rate (One-time)',
+          placeholder: 'Enter daily rate amount',
+          description: 'Hours depend on employer needs'
+        };
+      default:
+        return {
+          label: 'Daily Rate',
+          placeholder: 'Enter daily rate amount',
+          description: 'Standard daily rate'
+        };
+    }
+  };
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    if (!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.daily_rate) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please fill in all required fields');
+      return;
+    }
+    var salaryInfo = calculateSalary();
+    if (salaryInfo.total <= 0) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please enter a valid daily rate');
+      return;
+    }
+    onSubmit(bookingDetails);
   };
   if (!isOpen) return null;
+  var salaryInfo = getSalaryInfo();
+  var salaryCalculation = calculateSalary();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: "adminmodal-overlay",
+    className: "booking-modal-overlay",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "adminmodal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
-        children: ["Planning to hire ", worker.name]
-      }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "adminmodal-content",
+      className: "booking-modal",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "booking-modal-header",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+          children: ["Book ", worker === null || worker === void 0 ? void 0 : worker.name]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "booking-modal-close",
+          onClick: onClose,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+            viewBox: "0 0 24 24",
+            width: "24",
+            height: "24",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+              d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            })
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        onSubmit: handleSubmit,
+        className: "booking-form",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
+          className: "booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "booking-form-label",
             children: "Service Type"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
             name: "service_type",
             value: bookingDetails.service_type,
             onChange: handleChange,
+            className: "booking-form-input",
             required: true,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
               value: "",
-              children: "Select a service"
-            }), getAvailableServiceTypes().map(function (skillGroup, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("optgroup", {
-                label: skillGroup.main,
-                children: skillGroup.subSkills.length > 0 ? skillGroup.subSkills.map(function (subSkill, subIndex) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                    value: "".concat(skillGroup.main, " - ").concat(subSkill),
-                    children: subSkill
-                  }, "".concat(index, "-").concat(subIndex));
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                  value: skillGroup.main,
-                  children: skillGroup.main
-                })
-              }, index);
+              children: "Select Service Type"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "consultation",
+              children: "Consultation"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "project",
+              children: "Project"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "maintenance",
+              children: "Maintenance"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "repair",
+              children: "Repair"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "installation",
+              children: "Installation"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "other",
+              children: "Other"
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
+          className: "booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "booking-form-label",
             children: "Work Type"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "text",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
             name: "work_type",
             value: bookingDetails.work_type,
-            readOnly: true,
-            disabled: true
+            onChange: handleChange,
+            className: "booking-form-input",
+            required: true,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "part-time",
+              children: "Part-time"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "full-time",
+              children: "Full-time"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "one-time",
+              children: "One-time"
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
+          className: "booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            children: "Book In (Date & Time)"
+            className: "booking-form-label",
+            children: "Book In"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             type: "datetime-local",
             name: "book_in",
             value: bookingDetails.book_in,
             onChange: handleChange,
-            min: minDate,
-            required: true
+            className: "booking-form-input",
+            required: true,
+            min: new Date().toISOString().slice(0, 16)
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("small", {
-            style: {
-              color: '#666',
-              fontSize: '12px'
-            },
             children: "Please select a time at least 1 hour from now"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
+          className: "booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            children: "Book End (Date & Time)"
+            className: "booking-form-label",
+            children: "Book End"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             type: "datetime-local",
             name: "book_end",
             value: bookingDetails.book_end,
-            onChange: function onChange(e) {
-              if (isValidEndDate(e.target.value)) {
-                handleChange(e);
-              }
-            },
-            min: bookingDetails.book_in || minDate,
-            required: true
+            onChange: handleChange,
+            className: "booking-form-input",
+            required: true,
+            min: bookingDetails.book_in || new Date().toISOString().slice(0, 16)
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("small", {
+            children: "Select when the work should end"
+          })]
+        }), bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "booking-form-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              className: "booking-form-label",
+              children: "Time In"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "time",
+              name: "time_in",
+              value: bookingDetails.time_in,
+              onChange: handleChange,
+              className: "booking-form-input",
+              placeholder: "Select start time"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("small", {
+              children: "Auto-populated: Book In time + 1 hour (or set custom time)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "booking-form-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              className: "booking-form-label",
+              children: "Time Out"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "time",
+              name: "time_out",
+              value: bookingDetails.time_out,
+              onChange: handleChange,
+              className: "booking-form-input",
+              placeholder: "Select end time"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("small", {
+              children: "Auto-populated: Time In + working hours (or set custom time)"
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
+          className: "booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "booking-form-label",
+            children: salaryInfo.label
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            type: "number",
+            name: "daily_rate",
+            value: bookingDetails.daily_rate,
+            onChange: handleChange,
+            className: "booking-form-input",
+            placeholder: salaryInfo.placeholder,
+            min: "0",
+            step: "0.01",
+            required: true
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("small", {
+            children: salaryInfo.description
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            className: "booking-form-label",
             children: "Description"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
             name: "description",
             value: bookingDetails.description,
             onChange: handleChange,
-            placeholder: "Describe the work or service you need",
-            required: true
+            className: "booking-form-input",
+            rows: 4,
+            placeholder: "Describe the work needed..."
+          })]
+        }), bookingDetails.book_in && bookingDetails.book_end && bookingDetails.daily_rate && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "salary-calculation-preview",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+            children: "Salary Calculation Preview"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "calculation-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "Daily Rate:"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              children: ["\u20B1", bookingDetails.daily_rate]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "calculation-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "Working Days:"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              children: [salaryCalculation.workingDays, " days"]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "calculation-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "Hours per Day:"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              children: [salaryCalculation.hoursPerDay, " hours"]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "calculation-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "Total Hours:"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              children: [salaryCalculation.hours, " hours"]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "calculation-row total-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "Total Salary:"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+              children: ["\u20B1", salaryCalculation.total]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("small", {
+              children: salaryCalculation.explanation
+            })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            children: "Estimated Cost"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            children: ["Hours: ", calculateSalary().hours, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "Total: \u20B1", calculateSalary().total]
+          className: "booking-form-actions",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            type: "button",
+            className: "booking-cancel-btn",
+            onClick: onClose,
+            children: "Cancel"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            type: "submit",
+            className: "booking-submit-btn",
+            children: "Book Worker"
           })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "adminmodal-buttons",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "cancel-button",
-          onClick: onClose,
-          children: "Cancel"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "submit-button",
-          onClick: handleSubmit,
-          disabled: !bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in),
-          children: "Submit Hiring Request"
         })]
       })]
     })
@@ -177460,7 +176124,7 @@ var Profile = function Profile(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var fetchWorkerData = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var _workerData$worker, _workerData$worker2, _workerData$worker3, _workerData$worker4, _workerData$worker5, _workerData$worker6, _workerData$profile, _workerData$profile2, _workerData$profile3, _workerData$profile4, _workerData$profile5, _workerData$profile6, _workerData$profile7, _workerData$profile8, _workerData$profile9, _workerData$worker7, _workerData$worker8, _workerData$worker9, _workerData$worker0, _workerData$worker1, _workerData$profile0, _workerData$profile1, _workerData$profile10, _workerData$profile11, _workerData$profile12, _workerData$worker10, _workerData$worker11, _workerData$worker12, _workerData$worker13, _workerData$worker14, _workerData$worker15, _workerData$worker16, _workerData$worker17, _workerData$worker18, authToken, userData, currentUser, headers, workerData, response, _apiError$response, firstName, middleName, lastName, suffix, nameParts, fullName, addressParts, fullAddress, formattedWorker, _error$response, _t, _t2;
+        var _workerData$worker, _workerData$worker2, _workerData$worker3, _workerData$worker4, _workerData$worker5, _workerData$worker6, _workerData$profile, _workerData$profile2, _workerData$profile3, _workerData$profile4, _workerData$profile5, _workerData$profile6, _workerData$profile7, _workerData$profile8, _workerData$profile9, _workerData$worker7, _workerData$worker8, _workerData$worker9, _workerData$worker0, _workerData$worker1, _workerData$profile0, _workerData$profile1, _workerData$profile10, _workerData$profile11, _workerData$profile12, _workerData$worker10, _workerData$worker11, _workerData$worker12, _workerData$worker13, _workerData$worker14, _workerData$worker15, _workerData$worker16, _workerData$worker17, _workerData$worker18, _workerData$worker19, authToken, userData, currentUser, headers, workerData, response, _apiError$response, firstName, middleName, lastName, suffix, nameParts, fullName, addressParts, fullAddress, formattedWorker, _error$response, _t, _t2;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
@@ -177569,7 +176233,8 @@ var Profile = function Profile(_ref) {
                 created_at: workerData.created_at,
                 // Add verified and rank information
                 verified: ((_workerData$worker16 = workerData.worker) === null || _workerData$worker16 === void 0 ? void 0 : _workerData$worker16.verified) === true || ((_workerData$worker17 = workerData.worker) === null || _workerData$worker17 === void 0 ? void 0 : _workerData$worker17.verified) === 1,
-                rank: ((_workerData$worker18 = workerData.worker) === null || _workerData$worker18 === void 0 ? void 0 : _workerData$worker18.rank) || null
+                rank: ((_workerData$worker18 = workerData.worker) === null || _workerData$worker18 === void 0 ? void 0 : _workerData$worker18.rank) || null,
+                preferred_working_days: ((_workerData$worker19 = workerData.worker) === null || _workerData$worker19 === void 0 ? void 0 : _workerData$worker19.preferred_working_days) || []
               };
               console.log("Formatted worker data:", formattedWorker);
               setWorker(formattedWorker);
@@ -177809,7 +176474,9 @@ var Profile = function Profile(_ref) {
               description: details.description,
               book_in: formatDateTime(details.book_in),
               book_end: formatDateTime(details.book_end),
-              hourly_rate: parseFloat(worker.hourlyRate) || 0
+              time_in: details.time_in,
+              time_out: details.time_out,
+              daily_rate: parseFloat(details.daily_rate) || 0
             };
             console.log('Sending booking data:', bookingData);
             _context4.n = 4;
@@ -177864,31 +176531,31 @@ var Profile = function Profile(_ref) {
   };
   if (loading) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "profile-page",
+      className: "profile-worker-page",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "loading-container",
+        className: "profile-loading-container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_8__["default"], {})
       })]
     });
   }
   if (error || !worker) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "profile-page",
+      className: "profile-worker-page",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "error-container",
+        className: "profile-error-container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-          className: "error-message",
+          className: "profile-error-message",
           children: error || "Worker not found"
         })
       })]
     });
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-    className: "profile-page",
+    className: "profile-worker-page",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "profile-header",
+      className: "profile-worker-header",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "cover-photo",
+        className: "profile-cover-photo",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
           src: _resources_sass_img_coverphoto_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
           alt: "Cover"
@@ -177902,19 +176569,19 @@ var Profile = function Profile(_ref) {
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "profile-container",
+      className: "profile-worker-container",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "profile-left",
+        className: "profile-worker-left",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "profile-info",
+          className: "profile-worker-info",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "name-container",
+            className: "profile-name-container",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
               children: worker.name
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "badges-container",
+              className: "profile-badges-container",
               children: (worker.verified === true || worker.verified === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "verified-badge",
+                className: "profile-verified-badge",
                 title: "Verified Worker",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("svg", {
                   width: "16",
@@ -177930,36 +176597,36 @@ var Profile = function Profile(_ref) {
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "status-container",
+            className: "profile-status-container",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "status-dot"
+              className: "profile-status-dot"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-              className: "status",
+              className: "profile-status",
               children: worker.status === "ACTIVE NOW" ? "Available now" : worker.status
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-            className: "location",
+            className: "profile-location",
             children: worker.location
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "edit-profile",
+            className: "profile-edit-profile",
             onClick: handleHireNowClick,
             children: "HIRE NOW"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "rank-display-section",
+          className: "profile-rank-display-section",
           children: workerRank ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "rank-display",
+            className: "profile-rank-display",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
               src: "http://127.0.0.1:8000/storage/".concat(workerRank.image),
               alt: "".concat(workerRank.name, " Rank"),
-              className: "worker-rank-badge",
+              className: "profile-worker-rank-badge",
               title: "".concat(workerRank.name, " Rank - ").concat(totalPoints.toLocaleString(), " points")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "rank-progress",
+              className: "profile-rank-progress",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                 className: "progress-info",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                  className: "rank-name",
+                  className: "profile-rank-name",
                   children: workerRank.name
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
                   className: "points-text",
@@ -177979,47 +176646,49 @@ var Profile = function Profile(_ref) {
               })]
             })]
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            className: "rank-display",
+            className: "profile-rank-display",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
               className: "rank-loading",
               children: "Loading rank..."
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "stats",
+          className: "profile-stats",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "stat-item",
+            className: "profile-stat-item",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "stat-label",
+              className: "profile-stat-label",
               children: "Work Type"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "stat-number",
+              className: "profile-stat-number",
               children: worker.work_type || 'Part-time'
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "stat-item",
+            className: "profile-stat-item",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "stat-label",
-              children: "Hourly Rate"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-              className: "stat-number",
-              children: ["\u20B1", worker.hourlyRate, "/hr"]
+              className: "profile-stat-label",
+              children: "Preferred Working Days"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+              className: "profile-stat-number",
+              children: worker.preferred_working_days && worker.preferred_working_days.length > 0 ? worker.preferred_working_days.join(', ').replace(/\b\w/g, function (l) {
+                return l.toUpperCase();
+              }) : 'Not specified'
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "stat-item",
+            className: "profile-stat-item",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "stat-label",
+              className: "profile-stat-label",
               children: "Hours/Day"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-              className: "stat-number",
+              className: "profile-stat-number",
               children: [worker.hours_per_day || 4, " hrs"]
             })]
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "profile-right",
+        className: "profile-worker-right",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "tabs",
+          className: "profile-tabs",
           children: ['OVERVIEW', 'CREDENTIALS', 'REVIEWS'].map(function (tab) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
               className: "tab ".concat(activeTab === tab ? 'active' : ''),
@@ -178030,9 +176699,9 @@ var Profile = function Profile(_ref) {
             }, tab);
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "tab-content",
+          className: "profile-tab-content",
           children: [activeTab === 'OVERVIEW' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "overview",
+            className: "profile-overview",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
               children: "About"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
@@ -178040,74 +176709,74 @@ var Profile = function Profile(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
               children: "Skills"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "skills-section",
+              className: "profile-skills-section",
               children: [worker.primary_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                className: "skills-category",
+                className: "profile-skills-category",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h5", {
                   children: "Primary Skills"
                 }), worker.primary_skills.map(function (skill, index) {
                   var skillRank = getRankByExperience(skill.experience);
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                    className: "skill-item",
+                    className: "profile-skill-item",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                      className: "skill-header",
+                      className: "profile-skill-header",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                        className: "skill-name-with-rank",
+                        className: "profile-skill-name-with-rank",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
                           src: "http://127.0.0.1:8000/storage/".concat(skillRank.image),
                           alt: "".concat(skillRank.name, " Rank"),
-                          className: "skill-rank-icon"
+                          className: "profile-skill-rank-icon"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                          className: "skill-name",
+                          className: "profile-skill-name",
                           children: [skill.skill_name, skill.sub_skills && skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                            className: "sub-skills",
+                            className: "profile-sub-skills",
                             children: [" - ", skill.sub_skills.join(', ')]
                           })]
                         })]
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                      className: "skill-details",
+                      className: "profile-skill-details",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                        className: "experience",
+                        className: "profile-experience",
                         children: ["Experience: ", skill.experience]
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                        className: "hourly-rate",
+                        className: "profile-hourly-rate",
                         children: ["\u20B1", skill.hourly_rate, "/hour"]
                       })]
                     })]
                   }, index);
                 })]
               }), worker.additional_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                className: "skills-category",
+                className: "profile-skills-category",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h5", {
                   children: "Additional Skills"
                 }), worker.additional_skills.map(function (skill, index) {
                   var skillRank = getRankByExperience(skill.experience);
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                    className: "skill-item",
+                    className: "profile-skill-item",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                      className: "skill-header",
+                      className: "profile-skill-header",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                        className: "skill-name-with-rank",
+                        className: "profile-skill-name-with-rank",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
                           src: "http://127.0.0.1:8000/storage/".concat(skillRank.image),
                           alt: "".concat(skillRank.name, " Rank"),
-                          className: "skill-rank-icon"
+                          className: "profile-skill-rank-icon"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                          className: "skill-name",
+                          className: "profile-skill-name",
                           children: [skill.skill_name, skill.sub_skills && skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                            className: "sub-skills",
+                            className: "profile-sub-skills",
                             children: [" - ", skill.sub_skills.join(', ')]
                           })]
                         })]
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                      className: "skill-details",
+                      className: "profile-skill-details",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                        className: "experience",
+                        className: "profile-experience",
                         children: ["Experience: ", skill.experience]
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                        className: "hourly-rate",
+                        className: "profile-hourly-rate",
                         children: ["\u20B1", skill.hourly_rate, "/hour"]
                       })]
                     })]
@@ -178118,7 +176787,7 @@ var Profile = function Profile(_ref) {
               })]
             })]
           }), activeTab === 'CREDENTIALS' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "credentials",
+            className: "profile-credentials",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
               children: "Credentials"
             }), worker.credentials.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("ul", {
@@ -178130,12 +176799,12 @@ var Profile = function Profile(_ref) {
             }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
               children: "No credentials available"
             }), worker.credentials_photo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "credentials-photos",
+              className: "profile-credentials-photos",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h5", {
                 children: "Credential Documents"
               }), worker.credentials_photo.map(function (photo, index) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                  className: "credential-photo",
+                  className: "profile-credential-photo",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
                     href: "http://127.0.0.1:8000/storage/".concat(photo),
                     target: "_blank",
@@ -178146,18 +176815,18 @@ var Profile = function Profile(_ref) {
               })]
             })]
           }), activeTab === 'REVIEWS' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "reviews",
+            className: "profile-reviews",
             children: [totalReviews > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "reviews-header",
+              className: "profile-reviews-header",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "reviews-summary",
+                className: "profile-reviews-summary",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                  className: "average-rating",
+                  className: "profile-average-rating",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                    className: "rating-number",
+                    className: "profile-rating-number",
                     children: averageRating.toFixed(1)
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                    className: "stars",
+                    className: "profile-stars",
                     children: [1, 2, 3, 4, 5].map(function (star) {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                         className: star <= Math.round(averageRating) ? 'star filled' : 'star',
@@ -178165,7 +176834,7 @@ var Profile = function Profile(_ref) {
                       }, star);
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                    className: "total-reviews",
+                    className: "profile-total-reviews",
                     children: ["(", totalReviews, " ", totalReviews === 1 ? 'review' : 'reviews', ")"]
                   })]
                 })
@@ -178173,25 +176842,25 @@ var Profile = function Profile(_ref) {
             }), reviewsLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
               children: "Loading reviews..."
             }) : reviews.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "reviews-list",
+              className: "profile-reviews-list",
               children: reviews.map(function (review) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                  className: "review-item",
+                  className: "profile-review-item",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                    className: "review-header",
+                    className: "profile-review-header",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                      className: "reviewer-info",
+                      className: "profile-reviewer-info",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
                         src: review.reviewer.profile_img ? "http://127.0.0.1:8000/storage/".concat(review.reviewer.profile_img) : _resources_sass_img_pfp_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
                         alt: review.reviewer.name,
-                        className: "reviewer-avatar"
+                        className: "profile-reviewer-avatar"
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                        className: "reviewer-details",
+                        className: "profile-reviewer-details",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                          className: "reviewer-name",
+                          className: "profile-reviewer-name",
                           children: review.reviewer.name
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                          className: "review-rating",
+                          className: "profile-review-rating",
                           children: [1, 2, 3, 4, 5].map(function (star) {
                             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                               className: star <= review.rating ? 'star filled' : 'star',
@@ -178201,7 +176870,7 @@ var Profile = function Profile(_ref) {
                         })]
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                      className: "review-date",
+                      className: "profile-review-date",
                       children: new Date(review.created_at).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'short',
@@ -178209,7 +176878,7 @@ var Profile = function Profile(_ref) {
                       })
                     })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-                    className: "review-comment",
+                    className: "profile-review-comment",
                     children: review.comment
                   })]
                 }, review.id);
@@ -178230,15 +176899,15 @@ var Profile = function Profile(_ref) {
         return handleBookingSubmit(details);
       }
     }), isConfirmationModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "adminmodal-overlay",
+      className: "profile-adminmodal-overlay",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "adminmodal",
+        className: "profile-adminmodal",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: "Planning Summary"
         }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "adminmodal-content",
+          className: "profile-adminmodal-content",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
+            className: "profile-form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               children: "Worker"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
@@ -178248,7 +176917,7 @@ var Profile = function Profile(_ref) {
               disabled: true
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
+            className: "profile-form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               children: "Service Type"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
@@ -178258,7 +176927,7 @@ var Profile = function Profile(_ref) {
               disabled: true
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
+            className: "profile-form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               children: "Work Type"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
@@ -178268,7 +176937,7 @@ var Profile = function Profile(_ref) {
               disabled: true
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
+            className: "profile-form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               children: "Book In"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
@@ -178278,7 +176947,7 @@ var Profile = function Profile(_ref) {
               disabled: true
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
+            className: "profile-form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               children: "Book End"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
@@ -178288,7 +176957,7 @@ var Profile = function Profile(_ref) {
               disabled: true
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
+            className: "profile-form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               children: "Description"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("textarea", {
@@ -178297,7 +176966,7 @@ var Profile = function Profile(_ref) {
               disabled: true
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
+            className: "profile-form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               children: "Estimated Cost"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -178305,36 +176974,36 @@ var Profile = function Profile(_ref) {
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "adminmodal-buttons",
+          className: "profile-adminmodal-buttons",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "cancel-button",
+            className: "profile-cancel-button",
             onClick: function onClick() {
               return setIsConfirmationModalOpen(false);
             },
             children: "Cancel"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "submit-button",
+            className: "profile-submit-button",
             onClick: handleConfirmBooking,
             children: "Confirm Booking"
           })]
         })]
       })
     }), isSuccessModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "adminmodal-overlay",
+      className: "profile-adminmodal-overlay",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "adminmodal",
+        className: "profile-adminmodal",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: "Booking Successful"
         }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "adminmodal-content",
+          className: "profile-adminmodal-content",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            className: "form-group",
+            className: "profile-form-group",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
               children: "Thank you for booking this applicant. Please note that the status is currently pending."
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "adminmodal-buttons",
+          className: "profile-adminmodal-buttons",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             className: "submit-button",
             onClick: function onClick() {
@@ -178345,16 +177014,16 @@ var Profile = function Profile(_ref) {
         })]
       })
     }), isSubscriptionModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "adminmodal-overlay",
+      className: "profile-adminmodal-overlay",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "adminmodal subscription-modal",
+        className: "profile-adminmodal subscription-modal",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: "Upgrade to Premium"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-          className: "modal-subtitle",
+          className: "profile-modal-subtitle",
           children: "Unlock contact information and premium features"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "subscription-plans",
+          className: "profile-subscription-plans",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "plan-card ".concat(selectedPlan === 'monthly' ? 'selected' : ''),
             onClick: function onClick() {
@@ -178365,17 +177034,17 @@ var Profile = function Profile(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "price",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "currency",
+                className: "profile-currency",
                 children: "\u20B1"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "amount",
+                className: "profile-amount",
                 children: subscriptionPlans.monthly.price
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
                 className: "period",
                 children: ["/", subscriptionPlans.monthly.period]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("ul", {
-              className: "features",
+              className: "profile-features",
               children: subscriptionPlans.monthly.features.map(function (feature, index) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("li", {
                   children: feature
@@ -178392,7 +177061,7 @@ var Profile = function Profile(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "price",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "currency",
+                className: "profile-currency",
                 children: "\u20B1"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "amount",
@@ -178402,14 +177071,14 @@ var Profile = function Profile(_ref) {
                 children: ["/", subscriptionPlans.yearly.period]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("ul", {
-              className: "features",
+              className: "profile-features",
               children: subscriptionPlans.yearly.features.map(function (feature, index) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("li", {
                   children: feature
                 }, index);
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "savings-badge",
+              className: "profile-savings-badge",
               children: "Save 17%"
             })]
           })]
@@ -178458,9 +177127,9 @@ var Profile = function Profile(_ref) {
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "adminmodal-buttons",
+          className: "profile-adminmodal-buttons",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "cancel-button",
+            className: "profile-cancel-button",
             onClick: function onClick() {
               setIsSubscriptionModalOpen(false);
               setSelectedPlan(null);
@@ -178470,24 +177139,24 @@ var Profile = function Profile(_ref) {
         })]
       })
     }), isLoginModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "adminmodal-overlay",
+      className: "profile-adminmodal-overlay",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "adminmodal login-modal",
+        className: "profile-adminmodal login-modal",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: "Sign In Required"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-          className: "modal-subtitle",
+          className: "profile-modal-subtitle",
           children: "You need to be logged in to book this worker"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "login-options",
+          className: "profile-login-options",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "login-option",
+            className: "profile-login-option",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
               children: "Already have an account?"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
               children: "Sign in to your existing account to book this worker"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-              className: "login-btn signin-btn",
+              className: "profile-login-btn profile-signin-btn",
               onClick: function onClick() {
                 setIsLoginModalOpen(false);
                 // Navigate to login page or open login modal
@@ -178496,18 +177165,18 @@ var Profile = function Profile(_ref) {
               children: "Sign In"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            className: "login-divider",
+            className: "profile-login-divider",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
               children: "OR"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "login-option",
+            className: "profile-login-option",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
               children: "New to Worqo?"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
               children: "Create a new account to start booking workers"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-              className: "login-btn signup-btn",
+              className: "profile-login-btn profile-signup-btn",
               onClick: function onClick() {
                 setIsLoginModalOpen(false);
                 // Navigate to signup page or open signup modal
@@ -178517,9 +177186,9 @@ var Profile = function Profile(_ref) {
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "adminmodal-buttons",
+          className: "profile-adminmodal-buttons",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "cancel-button",
+            className: "profile-cancel-button",
             onClick: function onClick() {
               return setIsLoginModalOpen(false);
             },
@@ -178530,19 +177199,19 @@ var Profile = function Profile(_ref) {
     })]
   });
   function calculateSalary(details) {
-    if (!details.book_in || !details.book_end) return {
+    if (!details.book_in || !details.book_end || !details.daily_rate) return {
       total: 0,
       hours: 0
     };
     var start = new Date(details.book_in);
     var end = new Date(details.book_end);
     var diffTime = Math.abs(end - start);
-    var diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-    var hourlyRate = worker.hourlyRate;
-    var total = hourlyRate * diffHours;
+    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    var dailyRate = parseFloat(details.daily_rate) || 0;
+    var total = dailyRate * diffDays;
     return {
       total: total.toFixed(2),
-      hours: diffHours
+      hours: diffDays
     };
   }
 };
@@ -181609,7 +180278,7 @@ var SkillRatingModal = function SkillRatingModal(_ref) {
             submitData.append('work_type', workType);
             submitData.append('hours_per_day', hoursPerDay);
             submitData.append('monthly_salary', monthlySalary);
-            submitData.append('preferred_working_hours', JSON.stringify(preferredWorkingHours));
+            submitData.append('preferred_working_days', JSON.stringify(preferredWorkingHours));
             submitData.append('bio', bio);
 
             // Add primary skills
@@ -205520,6 +204189,212 @@ var Login = function Login() {
 
 /***/ }),
 
+/***/ "./resources/js/components/profilesettings/BookingRequest.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/profilesettings/BookingRequest.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
+/* harmony import */ var _sass_components_profilesettings_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../sass/components/profilesettings/BookingRequest.scss */ "./resources/sass/components/profilesettings/BookingRequest.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var BookingRequest = function BookingRequest(_ref) {
+  var booking = _ref.booking,
+    userRole = _ref.userRole,
+    onCancelBooking = _ref.onCancelBooking,
+    onStatusUpdate = _ref.onStatusUpdate,
+    onViewTransaction = _ref.onViewTransaction,
+    onGiveFeedback = _ref.onGiveFeedback,
+    isSelected = _ref.isSelected,
+    onSelect = _ref.onSelect;
+  // Determine if this is employer or worker view
+  var isEmployerView = userRole === 2;
+  var personData = isEmployerView ? booking.worker : booking.employer;
+  var personProfile = personData === null || personData === void 0 ? void 0 : personData.profile;
+  console.log("Rendering booking ".concat(booking.id, " for ").concat(isEmployerView ? 'employer' : 'worker', " with status: ").concat(booking.status));
+
+  // Format date function
+  var formatDate = function formatDate(dateString) {
+    var date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "booking-request-card",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "booking-request-checkbox",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "checkbox",
+        className: "booking-checkbox",
+        checked: isSelected || false,
+        onChange: function onChange(e) {
+          return onSelect && onSelect(booking.id, e.target.checked);
+        }
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "booking-request-worker-info",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "worker-profile",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          src: personProfile !== null && personProfile !== void 0 && personProfile.profile_img ? "http://127.0.0.1:8000/storage/".concat(personProfile.profile_img) : '/images/default-avatar.svg',
+          alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'User',
+          className: "worker-avatar"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "worker-details",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "worker-name-row",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+            className: "worker-name",
+            children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'Unknown User'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "booking-status",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "status-text",
+              style: {
+                color: booking.status === 'pending' ? '#ffa500' : booking.status === 'accepted' ? '#4CAF50' : booking.status === 'completed' ? '#2196F3' : booking.status === 'declined' ? '#f44336' : '#9e9e9e'
+              },
+              children: booking.status.charAt(0).toUpperCase() + booking.status.slice(1)
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "worker-badges",
+          children: (personData === null || personData === void 0 ? void 0 : personData.verified) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "verified-badge",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdVerified, {
+              className: "verified-icon"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: "Verified"
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "booking-salary",
+          children: ["Total: \u20B1", booking.total_amount]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "booking-dates",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            children: ["Start: ", formatDate(booking.book_in)]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            children: ["End: ", formatDate(booking.book_end)]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "booking-description",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+              children: "Description:"
+            }), " ", booking.description]
+          })
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "booking-request-actions",
+      children: [isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "view-transaction-btn",
+            onClick: function onClick() {
+              return onViewTransaction(booking);
+            },
+            children: "View Transaction"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "cancel-booking-btn",
+            onClick: function onClick() {
+              return onCancelBooking(booking.id);
+            },
+            children: "Cancel Booking"
+          })]
+        }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "view-transaction-btn",
+          onClick: function onClick() {
+            return onViewTransaction(booking);
+          },
+          children: "View Transaction"
+        }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "view-transaction-btn",
+            onClick: function onClick() {
+              return onViewTransaction(booking);
+            },
+            children: "View Transaction"
+          }), !booking.has_review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "give-feedback-btn",
+            onClick: function onClick() {
+              return onGiveFeedback(booking);
+            },
+            children: "Give Feedback"
+          })]
+        }), (booking.status === 'declined' || booking.status === 'cancelled') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: booking.status.charAt(0).toUpperCase() + booking.status.slice(1)
+          })
+        })]
+      }), !isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "view-transaction-btn",
+            onClick: function onClick() {
+              return onViewTransaction(booking);
+            },
+            children: "View Transaction"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "accept-btn",
+            onClick: function onClick() {
+              return onStatusUpdate(booking.id, 'accepted');
+            },
+            children: "Accept"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "decline-btn",
+            onClick: function onClick() {
+              return onStatusUpdate(booking.id, 'declined');
+            },
+            children: "Decline"
+          })]
+        }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "view-transaction-btn",
+            onClick: function onClick() {
+              return onViewTransaction(booking);
+            },
+            children: "View Transaction"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "complete-btn",
+            onClick: function onClick() {
+              return onStatusUpdate(booking.id, 'completed');
+            },
+            children: "Mark as Completed"
+          })]
+        }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "view-transaction-btn",
+          onClick: function onClick() {
+            return onViewTransaction(booking);
+          },
+          children: "View Transaction"
+        }), (booking.status === 'declined' || booking.status === 'cancelled') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: booking.status.charAt(0).toUpperCase() + booking.status.slice(1)
+          })
+        })]
+      })]
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BookingRequest);
+
+/***/ }),
+
 /***/ "./resources/js/components/profilesettings/JobApplicationsModal.js":
 /*!*************************************************************************!*\
   !*** ./resources/js/components/profilesettings/JobApplicationsModal.js ***!
@@ -206420,236 +205295,6 @@ var JobDetailModal = function JobDetailModal(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/components/profilesettings/TransactionModal.js":
-/*!*********************************************************************!*\
-  !*** ./resources/js/components/profilesettings/TransactionModal.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _sass_components_profilesettings_transactionmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../sass/components/profilesettings/transactionmodal.scss */ "./resources/sass/components/profilesettings/transactionmodal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var TransactionModal = function TransactionModal(_ref) {
-  var isOpen = _ref.isOpen,
-    onClose = _ref.onClose,
-    booking = _ref.booking;
-  if (!isOpen || !booking) return null;
-  var formatDate = function formatDate(dateString) {
-    return new Date(dateString).toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
-  var calculateDuration = function calculateDuration(startDate, endDate) {
-    var start = new Date(startDate);
-    var end = new Date(endDate);
-    var diffTime = Math.abs(end - start);
-    var diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-    return diffHours;
-  };
-  var duration = calculateDuration(booking.book_in, booking.book_end);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "transaction-modal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "transaction-modal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "transaction-modal-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          children: "Transaction Details"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "close-btn",
-          onClick: onClose,
-          children: "\xD7"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "transaction-modal-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "transaction-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-            children: "Booking Information"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "transaction-details",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Service Type:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "value",
-                children: booking.service_type
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Work Type:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "value",
-                children: booking.work_type
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Status:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "value status-".concat(booking.status),
-                children: booking.status.charAt(0).toUpperCase() + booking.status.slice(1)
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Start Date:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "value",
-                children: formatDate(booking.book_in)
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "End Date:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "value",
-                children: formatDate(booking.book_end)
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Duration:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                className: "value",
-                children: [duration, " hours"]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Description:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "value",
-                children: booking.description
-              })]
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "transaction-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-            children: "Financial Details"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "transaction-details",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Hourly Rate:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                className: "value",
-                children: ["\u20B1", booking.hourly_rate]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Total Hours:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                className: "value",
-                children: [duration, " hours"]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row total-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Total Amount:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                className: "value total-amount",
-                children: ["\u20B1", booking.total_amount]
-              })]
-            })]
-          })]
-        }), booking.worker_notes && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "transaction-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-            children: "Worker Notes"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "notes-content",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              children: booking.worker_notes
-            })
-          })]
-        }), booking.employer_notes && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "transaction-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-            children: "Employer Notes"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "notes-content",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              children: booking.employer_notes
-            })
-          })]
-        }), booking.rating && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "transaction-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-            children: "Review & Rating"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "transaction-details",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Rating:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-                className: "value",
-                children: [Array.from({
-                  length: 5
-                }, function (_, i) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                    className: "star ".concat(i < booking.rating ? 'filled' : ''),
-                    children: "\u2605"
-                  }, i);
-                }), "(", booking.rating, "/5)"]
-              })]
-            }), booking.review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "detail-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "label",
-                children: "Review:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "value",
-                children: booking.review
-              })]
-            })]
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "transaction-modal-footer",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          className: "close-button",
-          onClick: onClose,
-          children: "Close"
-        })
-      })]
-    })
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TransactionModal);
-
-/***/ }),
-
 /***/ "./resources/js/components/profilesettings/modaladdress.js":
 /*!*****************************************************************!*\
   !*** ./resources/js/components/profilesettings/modaladdress.js ***!
@@ -206849,139 +205494,6 @@ var ModalAddress = function ModalAddress(_ref) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalAddress);
-
-/***/ }),
-
-/***/ "./resources/js/components/profilesettings/modalfeedback.js":
-/*!******************************************************************!*\
-  !*** ./resources/js/components/profilesettings/modalfeedback.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_rating_stars_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-rating-stars-component */ "./node_modules/react-rating-stars-component/dist/react-stars.js");
-/* harmony import */ var _sass_components_profilesettings_modalfeedback_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../sass/components/profilesettings/modalfeedback.scss */ "./resources/sass/components/profilesettings/modalfeedback.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
-
-
-var ModalFeedback = function ModalFeedback(_ref) {
-  var onClose = _ref.onClose,
-    onSubmit = _ref.onSubmit,
-    workerName = _ref.workerName;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-    _useState2 = _slicedToArray(_useState, 2),
-    rating = _useState2[0],
-    setRating = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
-    _useState4 = _slicedToArray(_useState3, 2),
-    feedback = _useState4[0],
-    setFeedback = _useState4[1];
-  var handleRatingChange = function handleRatingChange(newRating) {
-    setRating(newRating);
-  };
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    if (rating > 0 && feedback.trim()) {
-      onSubmit({
-        rating: rating,
-        feedback: feedback.trim(),
-        workerName: workerName
-      });
-      onClose();
-    }
-  };
-  var handleCancel = function handleCancel() {
-    setRating(0);
-    setFeedback('');
-    onClose();
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: "modal-overlay",
-    onClick: onClose,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "modal-content",
-      onClick: function onClick(e) {
-        return e.stopPropagation();
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "modal-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-          className: "modal-title",
-          children: "Give Feedback"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "close-btn",
-          onClick: onClose,
-          children: "\xD7"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-        onSubmit: handleSubmit,
-        className: "modal-form",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "rating-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "stars-container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_rating_stars_component__WEBPACK_IMPORTED_MODULE_1__["default"], {
-              count: 5,
-              onChange: handleRatingChange,
-              size: 24,
-              activeColor: "#1d4ed8",
-              color: "#d1d5db",
-              value: rating
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-            className: "rating-instruction",
-            children: "Click to rate"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "feedback-section",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "feedback",
-            className: "feedback-label",
-            children: "Give Feedback"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
-            id: "feedback",
-            name: "feedback",
-            value: feedback,
-            onChange: function onChange(e) {
-              return setFeedback(e.target.value);
-            },
-            placeholder: "Share your experience with this worker...",
-            className: "feedback-textarea",
-            rows: 4,
-            required: true
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            type: "button",
-            className: "cancel-btn",
-            onClick: handleCancel,
-            children: "Cancel"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            type: "submit",
-            className: "submit-btn",
-            disabled: rating === 0 || !feedback.trim(),
-            children: "Submit"
-          })]
-        })]
-      })]
-    })
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalFeedback);
 
 /***/ }),
 
@@ -207416,17 +205928,17 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   className: "small-input",
                   required: true,
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: "any",
+                    children: "Any"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                     value: "full-time",
                     children: "Full-time"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                     value: "part-time",
                     children: "Part-time"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    value: "contract",
-                    children: "Contract"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    value: "freelance",
-                    children: "Freelance"
+                    value: "one-time",
+                    children: "One-time"
                   })]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -208108,13 +206620,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _modalfeedback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modalfeedback */ "./resources/js/components/profilesettings/modalfeedback.js");
-/* harmony import */ var _TransactionModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TransactionModal */ "./resources/js/components/profilesettings/TransactionModal.js");
-/* harmony import */ var _sass_components_profilesettings_mybookings_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mybookings.scss */ "./resources/sass/components/profilesettings/mybookings.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _BookingRequest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BookingRequest */ "./resources/js/components/profilesettings/BookingRequest.js");
+/* harmony import */ var _sass_components_profilesettings_mybookings_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mybookings.scss */ "./resources/sass/components/profilesettings/mybookings.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -208130,517 +206639,320 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-
-
-
 var MyBookings = function MyBookings() {
-  var _selectedWorker$worke;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('all'),
     _useState2 = _slicedToArray(_useState, 2),
     activeTab = _useState2[0],
     setActiveTab = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    isFeedbackModalOpen = _useState4[0],
-    setIsFeedbackModalOpen = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    bookings = _useState4[0],
+    setBookings = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState6 = _slicedToArray(_useState5, 2),
-    isTransactionModalOpen = _useState6[0],
-    setIsTransactionModalOpen = _useState6[1];
+    loading = _useState6[0],
+    setLoading = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState8 = _slicedToArray(_useState7, 2),
-    selectedWorker = _useState8[0],
-    setSelectedWorker = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    userRole = _useState8[0],
+    setUserRole = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(new Set()),
     _useState0 = _slicedToArray(_useState9, 2),
-    selectedBooking = _useState0[0],
-    setSelectedBooking = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState10 = _slicedToArray(_useState1, 2),
-    bookings = _useState10[0],
-    setBookings = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState12 = _slicedToArray(_useState11, 2),
-    loading = _useState12[0],
-    setLoading = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState14 = _slicedToArray(_useState13, 2),
-    userRole = _useState14[0],
-    setUserRole = _useState14[1];
-  var bookingCategories = [{
-    id: 'all',
-    label: 'All Bookings'
-  }, {
-    id: 'pending',
-    label: 'Pending'
-  }, {
-    id: 'declined',
-    label: 'Declined'
-  }, {
-    id: 'accepted',
-    label: 'Accepted'
-  }, {
-    id: 'cancelled',
-    label: 'Cancelled'
-  }, {
-    id: 'completed',
-    label: 'Completed'
-  }];
+    selectedBookings = _useState0[0],
+    setSelectedBookings = _useState0[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // Get user role from localStorage
-    var userData = JSON.parse(localStorage.getItem("user") || '{}');
-    setUserRole(userData.role_id);
+    fetchUserRole();
     fetchBookings();
   }, []);
-  var fetchBookings = /*#__PURE__*/function () {
+  var fetchUserRole = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var authToken, userData, endpoint, response, sortedBookings, _error$response, _t;
+      var response, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
             _context.p = 0;
-            authToken = localStorage.getItem("auth_token");
-            if (authToken) {
-              _context.n = 1;
-              break;
-            }
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please log in to view bookings");
-            return _context.a(2);
+            _context.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/user');
           case 1:
-            // Determine API endpoint based on user role
-            userData = JSON.parse(localStorage.getItem("user") || '{}');
-            endpoint = userData.role_id === 1 ? 'worker' : 'employer';
-            _context.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/bookings/".concat(endpoint, "?user_id=").concat(userData.id), {
-              headers: {
-                Authorization: "Bearer ".concat(authToken),
-                Accept: "application/json"
-              }
-            });
-          case 2:
             response = _context.v;
-            if (response.data.success) {
-              // Sort bookings: Pending first, then Accepted, Completed, Declined, Cancelled
-              sortedBookings = response.data.bookings.sort(function (a, b) {
-                var statusOrder = {
-                  'pending': 1,
-                  'accepted': 2,
-                  'completed': 3,
-                  'declined': 4,
-                  'cancelled': 5
-                };
-                return statusOrder[a.status] - statusOrder[b.status];
-              });
-              console.log('Fetched bookings for role_id', userData.role_id, ':', sortedBookings);
-              setBookings(sortedBookings);
-            } else {
-              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch bookings");
-            }
-            _context.n = 4;
+            setUserRole(response.data.role_id);
+            _context.n = 3;
             break;
-          case 3:
-            _context.p = 3;
+          case 2:
+            _context.p = 2;
             _t = _context.v;
-            console.error("Error fetching bookings:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch bookings");
-          case 4:
-            _context.p = 4;
-            setLoading(false);
-            return _context.f(4);
-          case 5:
+            console.error('Error fetching user role:', _t);
+          case 3:
             return _context.a(2);
         }
-      }, _callee, null, [[0, 3, 4, 5]]);
+      }, _callee, null, [[0, 2]]);
     }));
-    return function fetchBookings() {
+    return function fetchUserRole() {
       return _ref.apply(this, arguments);
     };
   }();
-  var handleCancelBooking = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(bookingId) {
-      var authToken, response, _error$response2, _t2;
+  var fetchBookings = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var response, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
             _context2.p = 0;
-            authToken = localStorage.getItem("auth_token");
+            setLoading(true);
             _context2.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].patch("http://127.0.0.1:8000/api/bookings/".concat(bookingId, "/cancel"), {}, {
-              headers: {
-                Authorization: "Bearer ".concat(authToken),
-                Accept: "application/json"
-              }
-            });
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/bookings');
           case 1:
             response = _context2.v;
-            if (response.data.success) {
-              antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Booking cancelled successfully");
-              fetchBookings();
-            } else {
-              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error(response.data.message || "Failed to cancel booking");
-            }
+            setBookings(response.data);
             _context2.n = 3;
             break;
           case 2:
             _context2.p = 2;
             _t2 = _context2.v;
-            console.error("Error cancelling booking:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to cancel booking");
+            console.error('Error fetching bookings:', _t2);
           case 3:
+            _context2.p = 3;
+            setLoading(false);
+            return _context2.f(3);
+          case 4:
             return _context2.a(2);
         }
-      }, _callee2, null, [[0, 2]]);
+      }, _callee2, null, [[0, 2, 3, 4]]);
     }));
-    return function handleCancelBooking(_x) {
+    return function fetchBookings() {
       return _ref2.apply(this, arguments);
     };
   }();
-  var handleStatusUpdate = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(bookingId, status) {
-      var authToken, response, _error$response3, _t3;
+  var handleCancelBooking = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(bookingId) {
+      var _t3;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
             _context3.p = 0;
-            authToken = localStorage.getItem("auth_token");
             _context3.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("http://127.0.0.1:8000/api/bookings/".concat(bookingId, "/status"), {
-              status: status
-            }, {
-              headers: {
-                Authorization: "Bearer ".concat(authToken),
-                Accept: "application/json",
-                "Content-Type": "application/json"
-              }
-            });
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].put("/api/bookings/".concat(bookingId, "/cancel"));
           case 1:
-            response = _context3.v;
-            if (response.data.success) {
-              antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Booking ".concat(status, " successfully"));
-              fetchBookings();
-            } else {
-              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error(response.data.message || "Failed to ".concat(status, " booking"));
-            }
+            fetchBookings();
             _context3.n = 3;
             break;
           case 2:
             _context3.p = 2;
             _t3 = _context3.v;
-            console.error("Error updating booking status:", ((_error$response3 = _t3.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t3.message);
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to ".concat(status, " booking"));
+            console.error('Error cancelling booking:', _t3);
           case 3:
             return _context3.a(2);
         }
       }, _callee3, null, [[0, 2]]);
     }));
-    return function handleStatusUpdate(_x2, _x3) {
+    return function handleCancelBooking(_x) {
       return _ref3.apply(this, arguments);
     };
   }();
-
-  // Filter bookings based on active tab
-  var getFilteredBookings = function getFilteredBookings() {
-    if (activeTab === 'all') {
-      return bookings;
-    }
-    return bookings.filter(function (booking) {
-      return booking.status.toLowerCase() === activeTab;
-    });
-  };
-  var filteredBookings = getFilteredBookings();
-  var handleTabClick = function handleTabClick(tabId) {
-    console.log('Tab clicked:', tabId); // Debug log
-    console.log('Current active tab before:', activeTab); // Debug log
-    setActiveTab(tabId);
-    console.log('Setting active tab to:', tabId); // Debug log
-  };
-  var handleGiveFeedback = function handleGiveFeedback(booking) {
-    setSelectedWorker(booking);
-    setIsFeedbackModalOpen(true);
-  };
-  var handleCloseFeedbackModal = function handleCloseFeedbackModal() {
-    setIsFeedbackModalOpen(false);
-    setSelectedWorker(null);
-  };
-  var handleViewTransaction = function handleViewTransaction(booking) {
-    console.log('Opening transaction modal for booking:', booking);
-    setSelectedBooking(booking);
-    setIsTransactionModalOpen(true);
-  };
-  var handleCloseTransactionModal = function handleCloseTransactionModal() {
-    setIsTransactionModalOpen(false);
-    setSelectedBooking(null);
-  };
-  var handleSubmitFeedback = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(feedbackData) {
-      var authToken, response, _error$response4, _t4;
+  var handleStatusUpdate = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(bookingId, status) {
+      var _t4;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
             _context4.p = 0;
-            authToken = localStorage.getItem("auth_token");
             _context4.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post("http://127.0.0.1:8000/api/bookings/".concat(selectedWorker.id, "/review"), {
-              rating: feedbackData.rating,
-              comment: feedbackData.feedback
-            }, {
-              headers: {
-                Authorization: "Bearer ".concat(authToken),
-                Accept: "application/json",
-                "Content-Type": "application/json"
-              }
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].put("/api/bookings/".concat(bookingId, "/status"), {
+              status: status
             });
           case 1:
-            response = _context4.v;
-            if (response.data.success) {
-              antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Review submitted successfully");
-              setIsFeedbackModalOpen(false);
-              setSelectedWorker(null);
-              fetchBookings();
-            } else {
-              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error(response.data.message || "Failed to submit review");
-            }
+            fetchBookings();
             _context4.n = 3;
             break;
           case 2:
             _context4.p = 2;
             _t4 = _context4.v;
-            console.error("Error submitting review:", ((_error$response4 = _t4.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t4.message);
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to submit review");
+            console.error('Error updating booking status:', _t4);
           case 3:
             return _context4.a(2);
         }
       }, _callee4, null, [[0, 2]]);
     }));
-    return function handleSubmitFeedback(_x4) {
+    return function handleStatusUpdate(_x2, _x3) {
       return _ref4.apply(this, arguments);
     };
   }();
+  var handleViewTransaction = function handleViewTransaction(booking) {
+    // Implement transaction view logic
+    console.log('View transaction for booking:', booking);
+  };
+  var handleGiveFeedback = function handleGiveFeedback(booking) {
+    // Implement feedback logic
+    console.log('Give feedback for booking:', booking);
+  };
+  var handleSelectBooking = function handleSelectBooking(bookingId, isSelected) {
+    setSelectedBookings(function (prev) {
+      var newSet = new Set(prev);
+      if (isSelected) {
+        newSet.add(bookingId);
+      } else {
+        newSet["delete"](bookingId);
+      }
+      return newSet;
+    });
+  };
+  var handleDeleteSelected = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
+      var bookingIds, _t5;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
+          case 0:
+            if (!(selectedBookings.size === 0)) {
+              _context5.n = 1;
+              break;
+            }
+            return _context5.a(2);
+          case 1:
+            _context5.p = 1;
+            bookingIds = Array.from(selectedBookings);
+            _context5.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"]('/api/bookings/bulk', {
+              data: {
+                booking_ids: bookingIds
+              }
+            });
+          case 2:
+            setSelectedBookings(new Set());
+            fetchBookings();
+            _context5.n = 4;
+            break;
+          case 3:
+            _context5.p = 3;
+            _t5 = _context5.v;
+            console.error('Error deleting selected bookings:', _t5);
+          case 4:
+            return _context5.a(2);
+        }
+      }, _callee5, null, [[1, 3]]);
+    }));
+    return function handleDeleteSelected() {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+  var filteredBookings = bookings.filter(function (booking) {
+    if (activeTab === 'all') return true;
+    return booking.status === activeTab;
+  });
+  var tabs = [{
+    key: 'all',
+    label: 'All Bookings'
+  }, {
+    key: 'pending',
+    label: 'Pending'
+  }, {
+    key: 'accepted',
+    label: 'Accepted'
+  }, {
+    key: 'completed',
+    label: 'Completed'
+  }, {
+    key: 'declined',
+    label: 'Declined'
+  }, {
+    key: 'cancelled',
+    label: 'Cancelled'
+  }];
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "my-bookings-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "loading-state",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "loading-spinner"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
           children: "Loading bookings..."
-        })
+        })]
       })
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "my-bookings-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "bookings-header",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
         className: "bookings-title",
-        children: userRole === 1 ? 'Booking Requests' : 'My Bookings'
+        children: "My Bookings"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "bookings-navigation",
-      children: bookingCategories.map(function (category) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "booking-tab-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-            type: "button",
-            className: "booking-tab ".concat(activeTab === category.id ? 'active' : ''),
-            onClick: function onClick(e) {
-              e.preventDefault();
-              e.stopPropagation();
-              handleTabClick(category.id);
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "bookings-tabs",
+        children: tabs.map(function (tab) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "tab-button ".concat(activeTab === tab.key ? 'active' : ''),
+            onClick: function onClick() {
+              return setActiveTab(tab.key);
             },
-            onMouseDown: function onMouseDown(e) {
-              return e.preventDefault();
-            },
-            children: category.label
-          })
-        }, category.id);
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "bookings-content",
-      children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-        className: "bookings-list",
-        children: filteredBookings.map(function (booking) {
-          // Determine if this is employer or worker view
-          var isEmployerView = userRole === 2;
-          var personData = isEmployerView ? booking.worker : booking.employer;
-          var personProfile = personData === null || personData === void 0 ? void 0 : personData.profile;
-          console.log("Rendering booking ".concat(booking.id, " for ").concat(isEmployerView ? 'employer' : 'worker', " with status: ").concat(booking.status));
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "booking-card",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "booking-worker-info",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                className: "worker-profile",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
-                  src: personProfile !== null && personProfile !== void 0 && personProfile.profile_img ? "http://127.0.0.1:8000/storage/".concat(personProfile.profile_img) : '/images/default-avatar.svg',
-                  alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'User',
-                  className: "worker-avatar"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                className: "worker-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
-                  className: "worker-name",
-                  children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'Unknown User'
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-                  className: "worker-profession",
-                  children: isEmployerView ? booking.service_type : 'Employer'
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                  className: "worker-badges",
-                  children: (personData === null || personData === void 0 ? void 0 : personData.verified) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                    className: "verified-badge",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdVerified, {
-                      className: "verified-icon"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                      children: "Verified"
-                    })]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                  className: "booking-status",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                    children: "Status : "
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                    className: "status-text",
-                    style: {
-                      color: booking.status === 'pending' ? '#ffa500' : booking.status === 'accepted' ? '#4CAF50' : booking.status === 'completed' ? '#2196F3' : booking.status === 'declined' ? '#f44336' : '#9e9e9e'
-                    },
-                    children: booking.status.charAt(0).toUpperCase() + booking.status.slice(1)
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                  className: "booking-salary",
-                  children: ["Total: \u20B1", booking.total_amount]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                  className: "booking-dates",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
-                    children: ["Start: ", new Date(booking.book_in).toLocaleString()]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
-                    children: ["End: ", new Date(booking.book_end).toLocaleString()]
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                  className: "booking-description",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("strong", {
-                      children: "Description:"
-                    }), " ", booking.description]
-                  })
-                })]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "booking-actions",
-              children: [isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "view-transaction-btn",
-                    onClick: function onClick() {
-                      return handleViewTransaction(booking);
-                    },
-                    children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "cancel-booking-btn",
-                    onClick: function onClick() {
-                      return handleCancelBooking(booking.id);
-                    },
-                    children: "Cancel Booking"
-                  })]
-                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                  className: "view-transaction-btn",
-                  onClick: function onClick() {
-                    return handleViewTransaction(booking);
-                  },
-                  children: "View Transaction"
-                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "view-transaction-btn",
-                    onClick: function onClick() {
-                      return handleViewTransaction(booking);
-                    },
-                    children: "View Transaction"
-                  }), !booking.has_review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "give-feedback-btn",
-                    onClick: function onClick() {
-                      return handleGiveFeedback(booking);
-                    },
-                    children: "Give Feedback"
-                  })]
-                }), (booking.status === 'declined' || booking.status === 'cancelled') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                  className: "status-only",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                    className: "".concat(booking.status, "-text"),
-                    children: booking.status.charAt(0).toUpperCase() + booking.status.slice(1)
-                  })
-                })]
-              }), !isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "view-transaction-btn",
-                    onClick: function onClick() {
-                      return handleViewTransaction(booking);
-                    },
-                    children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "accept-btn",
-                    onClick: function onClick() {
-                      return handleStatusUpdate(booking.id, 'accepted');
-                    },
-                    children: "Accept"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "decline-btn",
-                    onClick: function onClick() {
-                      return handleStatusUpdate(booking.id, 'declined');
-                    },
-                    children: "Decline"
-                  })]
-                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "view-transaction-btn",
-                    onClick: function onClick() {
-                      return handleViewTransaction(booking);
-                    },
-                    children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                    className: "complete-btn",
-                    onClick: function onClick() {
-                      return handleStatusUpdate(booking.id, 'completed');
-                    },
-                    children: "Mark as Completed"
-                  })]
-                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                  className: "view-transaction-btn",
-                  onClick: function onClick() {
-                    return handleViewTransaction(booking);
-                  },
-                  children: "View Transaction"
-                }), (booking.status === 'declined' || booking.status === 'cancelled') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                  className: "status-only",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                    className: "".concat(booking.status, "-text"),
-                    children: booking.status.charAt(0).toUpperCase() + booking.status.slice(1)
-                  })
-                })]
-              })]
-            })]
-          }, booking.id);
+            children: tab.label
+          }, tab.key);
         })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      })
+    }), selectedBookings.size > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "bulk-delete-container",
+      style: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        marginBottom: '16px',
+        padding: '0 20px'
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+        className: "delete-selected-btn",
+        onClick: handleDeleteSelected,
+        style: {
+          background: '#dc2626',
+          color: 'white',
+          border: 'none',
+          padding: '8px 16px',
+          borderRadius: '6px',
+          fontSize: '14px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '6px'
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: "\uD83D\uDDD1\uFE0F"
+        }), "Delete Selected (", selectedBookings.size, ")"]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "bookings-content",
+      children: filteredBookings.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "empty-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
             src: "/images/mybooking.svg",
             alt: "No Bookings"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
           className: "empty-title",
           children: "No Bookings Yet"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "empty-description",
+          children: activeTab === 'all' ? "You haven't made any bookings yet." : "No ".concat(activeTab, " bookings found.")
         })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "bookings-list",
+        children: filteredBookings.map(function (booking) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_BookingRequest__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            booking: booking,
+            userRole: userRole,
+            onCancelBooking: handleCancelBooking,
+            onStatusUpdate: handleStatusUpdate,
+            onViewTransaction: handleViewTransaction,
+            onGiveFeedback: handleGiveFeedback,
+            isSelected: selectedBookings.has(booking.id),
+            onSelect: handleSelectBooking
+          }, booking.id);
+        })
       })
-    }), isFeedbackModalOpen && selectedWorker && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_modalfeedback__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      onClose: handleCloseFeedbackModal,
-      onSubmit: handleSubmitFeedback,
-      workerName: (_selectedWorker$worke = selectedWorker.worker) !== null && _selectedWorker$worke !== void 0 && _selectedWorker$worke.profile ? "".concat(selectedWorker.worker.profile.first_name, " ").concat(selectedWorker.worker.profile.last_name) : 'Worker'
-    }), isTransactionModalOpen && selectedBooking && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_TransactionModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      isOpen: isTransactionModalOpen,
-      onClose: handleCloseTransactionModal,
-      booking: selectedBooking
     })]
   });
 };
@@ -210108,7 +208420,7 @@ var MyProfile = function MyProfile() {
               workType: workerData.work_type || '',
               hoursPerDay: workerData.hours_per_day || '',
               monthlySalary: workerData.monthly_salary || '',
-              preferredWorkingDays: Array.isArray(workerData.preferred_working_hours) ? workerData.preferred_working_hours : workerData.preferred_working_hours ? JSON.parse(workerData.preferred_working_hours) : [],
+              preferredWorkingDays: Array.isArray(workerData.preferred_working_days) ? workerData.preferred_working_days : workerData.preferred_working_days ? JSON.parse(workerData.preferred_working_days) : [],
               bio: workerData.bio || ''
             });
 
@@ -211348,7 +209660,7 @@ var MyProfile = function MyProfile() {
                 work_type: workPreferences.workType,
                 hours_per_day: workPreferences.hoursPerDay,
                 monthly_salary: workPreferences.monthlySalary,
-                preferred_working_hours: JSON.stringify(workPreferences.preferredWorkingDays),
+                preferred_working_days: JSON.stringify(workPreferences.preferredWorkingDays),
                 bio: workPreferences.bio
               })
             });
@@ -214782,6 +213094,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./resources/sass/components/profilesettings/BookingRequest.scss":
+/*!***********************************************************************!*\
+  !*** ./resources/sass/components/profilesettings/BookingRequest.scss ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./BookingRequest.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/BookingRequest.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./resources/sass/components/profilesettings/jobapplicationsmodal-additional.scss":
 /*!****************************************************************************************!*\
   !*** ./resources/sass/components/profilesettings/jobapplicationsmodal-additional.scss ***!
@@ -214899,36 +213241,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_modaladdress_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/sass/components/profilesettings/modalfeedback.scss":
-/*!**********************************************************************!*\
-  !*** ./resources/sass/components/profilesettings/modalfeedback.scss ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_modalfeedback_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./modalfeedback.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/modalfeedback.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_modalfeedback_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_modalfeedback_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -215169,36 +213481,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_profilesettingsidebar_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/sass/components/profilesettings/transactionmodal.scss":
-/*!*************************************************************************!*\
-  !*** ./resources/sass/components/profilesettings/transactionmodal.scss ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_transactionmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./transactionmodal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/transactionmodal.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_transactionmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_transactionmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

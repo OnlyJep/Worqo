@@ -27,7 +27,9 @@ class BookingController extends Controller
             'description' => 'required|string',
             'book_in' => 'required|date',
             'book_end' => 'required|date|after:book_in',
-            'hourly_rate' => 'required|numeric|min:0',
+            'time_in' => 'nullable|string',
+            'time_out' => 'nullable|string',
+            'daily_rate' => 'required|numeric|min:0',
         ]);
 
         // Custom validation for book_in to be in the future
@@ -85,11 +87,11 @@ class BookingController extends Controller
             ], 400);
         }
 
-        // Calculate total amount
+        // Calculate total amount based on daily rate
         $bookIn = Carbon::parse($request->book_in);
         $bookEnd = Carbon::parse($request->book_end);
-        $hours = $bookIn->diffInHours($bookEnd);
-        $totalAmount = $hours * $request->hourly_rate;
+        $days = $bookIn->diffInDays($bookEnd) + 1; // +1 to include both start and end days
+        $totalAmount = $days * $request->daily_rate;
 
         $booking = Booking::create([
             'employer_id' => $authUser ? $authUser->id : null,
@@ -99,7 +101,9 @@ class BookingController extends Controller
             'description' => $request->description,
             'book_in' => $request->book_in,
             'book_end' => $request->book_end,
-            'hourly_rate' => $request->hourly_rate,
+            'time_in' => $request->time_in,
+            'time_out' => $request->time_out,
+            'daily_rate' => $request->daily_rate,
             'total_amount' => $totalAmount,
             'status' => 'pending'
         ]);

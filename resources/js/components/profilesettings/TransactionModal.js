@@ -74,8 +74,8 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
             <h3>Financial Details</h3>
             <div className="transaction-details">
               <div className="detail-row">
-                <span className="label">Hourly Rate:</span>
-                <span className="value">₱{booking.hourly_rate}</span>
+                <span className="label">Agreed Salary:</span>
+                <span className="value">₱{booking.total_amount}</span>
               </div>
               <div className="detail-row">
                 <span className="label">Total Hours:</span>

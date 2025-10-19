@@ -17,7 +17,9 @@ class Booking extends Model
         'description',
         'book_in',
         'book_end',
-        'hourly_rate',
+        'time_in',
+        'time_out',
+        'daily_rate',
         'total_amount',
         'status'
     ];
@@ -25,7 +27,7 @@ class Booking extends Model
     protected $casts = [
         'book_in' => 'datetime',
         'book_end' => 'datetime',
-        'hourly_rate' => 'decimal:2',
+        'daily_rate' => 'decimal:2',
         'total_amount' => 'decimal:2'
     ];
 

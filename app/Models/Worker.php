@@ -11,7 +11,7 @@ class Worker extends Model
         'work_type',
         'hours_per_day',
         'monthly_salary',
-        'preferred_working_hours',
+        'preferred_working_days',
         'bio',
         'skills_id',
         'credentials_name',
@@ -25,7 +25,7 @@ class Worker extends Model
     protected $casts = [
         'hours_per_day' => 'integer',
         'monthly_salary' => 'decimal:2',
-        'preferred_working_hours' => 'array',
+        'preferred_working_days' => 'array',
         'skills_id' => 'array',
         'credentials_name' => 'array',
         'credentials_photo' => 'array',

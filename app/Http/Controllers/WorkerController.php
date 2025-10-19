@@ -324,8 +324,8 @@ class WorkerController extends Controller
                 return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
-            // Parse preferred_working_hours if it's a JSON string
-            $preferredWorkingHours = $request->preferred_working_hours;
+            // Parse preferred_working_days if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_days;
             if (is_string($preferredWorkingHours)) {
                 $preferredWorkingHours = json_decode($preferredWorkingHours, true);
             }
@@ -335,7 +335,7 @@ class WorkerController extends Controller
             }
 
             $validator = Validator::make(
-                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_hours' => $preferredWorkingHours]),
+                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_days' => $preferredWorkingHours]),
                 [
                     'first_name' => 'required|string|max:255',
                     'middlename' => 'nullable|string|max:255',
@@ -349,8 +349,8 @@ class WorkerController extends Controller
                     'work_type' => 'required|in:part-time,full-time,one-time',
                     'hours_per_day' => 'nullable|integer|min:1|max:24',
                     'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
-                    'preferred_working_hours' => 'nullable|array',
-                    'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+                    'preferred_working_days' => 'nullable|array',
+                    'preferred_working_days.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
                     'bio' => 'nullable|string|max:1000',
                     'skills_id' => 'required|array|min:1',
                     'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
@@ -432,8 +432,8 @@ class WorkerController extends Controller
                 }
             }
 
-            // Parse preferred_working_hours if it's a JSON string
-            $preferredWorkingHours = $request->preferred_working_hours;
+            // Parse preferred_working_days if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_days;
             if (is_string($preferredWorkingHours)) {
                 $preferredWorkingHours = json_decode($preferredWorkingHours, true);
             }
@@ -451,7 +451,7 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'monthly_salary' => $request->monthly_salary,
-                'preferred_working_hours' => $preferredWorkingHours,
+                'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
@@ -525,8 +525,8 @@ class WorkerController extends Controller
                 return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
-            // Parse preferred_working_hours if it's a JSON string
-            $preferredWorkingHours = $request->preferred_working_hours;
+            // Parse preferred_working_days if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_days;
             if (is_string($preferredWorkingHours)) {
                 $preferredWorkingHours = json_decode($preferredWorkingHours, true);
             }
@@ -536,7 +536,7 @@ class WorkerController extends Controller
             }
 
             $validator = Validator::make(
-                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_hours' => $preferredWorkingHours]),
+                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_days' => $preferredWorkingHours]),
                 [
                     'first_name' => 'required|string|max:255',
                     'middlename' => 'nullable|string|max:255',
@@ -550,8 +550,8 @@ class WorkerController extends Controller
                     'work_type' => 'required|in:part-time,full-time,one-time-job',
                     'hours_per_day' => 'nullable|integer|min:1|max:24',
                     'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
-                    'preferred_working_hours' => 'nullable|array',
-                    'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+                    'preferred_working_days' => 'nullable|array',
+                    'preferred_working_days.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
                     'bio' => 'nullable|string|max:1000',
                     'skills_id' => 'required|array|min:1',
                     'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
@@ -641,7 +641,7 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'monthly_salary' => $request->monthly_salary,
-                'preferred_working_hours' => $preferredWorkingHours,
+                'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
@@ -653,7 +653,7 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'monthly_salary' => $request->monthly_salary,
-                'preferred_working_hours' => $preferredWorkingHours,
+                'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
@@ -1651,7 +1651,7 @@ class WorkerController extends Controller
                 'work_type' => $user->worker->work_type,
                 'hours_per_day' => $user->worker->hours_per_day,
                 'monthly_salary' => $user->worker->monthly_salary,
-                'preferred_working_hours' => $user->worker->preferred_working_hours,
+                'preferred_working_days' => $user->worker->preferred_working_days,
                 'bio' => $user->worker->bio,
                 'skills_id' => $structuredSkillsId,
                 'credentials_name' => $credentialsName,
@@ -1683,7 +1683,7 @@ class WorkerController extends Controller
                 'work_type' => 'required|in:part-time,full-time,one-time',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
                 'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
-                'preferred_working_hours' => 'nullable|string',
+                'preferred_working_days' => 'nullable|string',
                 'skills_id' => 'required|array',
                 'skills_id.primary_skills' => 'required|array|min:1',
                 'skills_id.primary_skills.*.skill_id' => 'required|integer|exists:skills,id',
@@ -1763,8 +1763,8 @@ class WorkerController extends Controller
                 return response()->json(['error' => 'Cannot have more than 15 skills'], 400);
             }
 
-            // Parse preferred_working_hours if it's a JSON string
-            $preferredWorkingHours = $request->preferred_working_hours;
+            // Parse preferred_working_days if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_days;
             if (is_string($preferredWorkingHours)) {
                 $preferredWorkingHours = json_decode($preferredWorkingHours, true);
             }
@@ -1786,7 +1786,7 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'monthly_salary' => $request->monthly_salary,
-                'preferred_working_hours' => $preferredWorkingHours,
+                'preferred_working_days' => $preferredWorkingHours,
                 'skills_id' => $skillsId, // Keep the original structure with primary_skills and additional_skills
                 'credentials_name' => $credentials_name,
                 'is_reviewed' => null,
@@ -1929,7 +1929,7 @@ class WorkerController extends Controller
                 'work_type' => 'nullable|string|max:255',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
                 'monthly_salary' => 'nullable|numeric|min:0',
-                'preferred_working_hours' => 'nullable|string',
+                'preferred_working_days' => 'nullable|string',
                 'bio' => 'nullable|string|max:1000',
             ]);
 
@@ -1948,8 +1948,8 @@ class WorkerController extends Controller
                 $updateData['monthly_salary'] = $request->input('monthly_salary');
             }
             
-            if ($request->has('preferred_working_hours')) {
-                $updateData['preferred_working_hours'] = $request->input('preferred_working_hours');
+            if ($request->has('preferred_working_days')) {
+                $updateData['preferred_working_days'] = $request->input('preferred_working_days');
             }
             
             if ($request->has('bio')) {

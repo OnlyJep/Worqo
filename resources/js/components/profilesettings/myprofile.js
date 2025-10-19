@@ -387,9 +387,9 @@ const MyProfile = () => {
           workType: workerData.work_type || '',
           hoursPerDay: workerData.hours_per_day || '',
           monthlySalary: workerData.monthly_salary || '',
-          preferredWorkingDays: Array.isArray(workerData.preferred_working_hours) 
-            ? workerData.preferred_working_hours 
-            : (workerData.preferred_working_hours ? JSON.parse(workerData.preferred_working_hours) : []),
+          preferredWorkingDays: Array.isArray(workerData.preferred_working_days) 
+            ? workerData.preferred_working_days 
+            : (workerData.preferred_working_days ? JSON.parse(workerData.preferred_working_days) : []),
           bio: workerData.bio || ''
         });
         
@@ -1366,7 +1366,7 @@ const MyProfile = () => {
           work_type: workPreferences.workType,
           hours_per_day: workPreferences.hoursPerDay,
           monthly_salary: workPreferences.monthlySalary,
-          preferred_working_hours: JSON.stringify(workPreferences.preferredWorkingDays),
+          preferred_working_days: JSON.stringify(workPreferences.preferredWorkingDays),
           bio: workPreferences.bio
         })
       });

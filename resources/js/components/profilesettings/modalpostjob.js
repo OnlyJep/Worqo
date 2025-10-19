@@ -305,10 +305,10 @@ const ModalPostJob = ({ onClose, onSubmit, editingJob = null }) => {
                     className="small-input"
                     required
                   >
+                    <option value="any">Any</option>
                     <option value="full-time">Full-time</option>
                     <option value="part-time">Part-time</option>
-                    <option value="contract">Contract</option>
-                    <option value="freelance">Freelance</option>
+                    <option value="one-time">One-time</option>
                   </select>
                 </div>
                 <div className="form-group">

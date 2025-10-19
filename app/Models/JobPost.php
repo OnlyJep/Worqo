@@ -25,6 +25,7 @@ class JobPost extends Model
         'salary_type',
         'job_type',
         'hiring_type',
+        'team_size',
         'street',
         'city',
         'province',

@@ -104,6 +104,7 @@ class JobPostController extends Controller
             'salary_type' => 'required|in:per_hour,per_month',
             'job_type' => 'required|in:full-time,part-time,contract,freelance',
             'hiring_type' => 'required|in:individual,team',
+            'team_size' => 'nullable|integer|min:1|max:100',
             'application_start' => 'required|date',
             'application_deadline' => 'required|date|after:application_start',
         ]);
@@ -125,6 +126,7 @@ class JobPostController extends Controller
              'salary_type' => $validated['salary_type'],
              'job_type' => $validated['job_type'],
              'hiring_type' => $validated['hiring_type'],
+             'team_size' => $validated['team_size'] ?? null,
              'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
              'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
              'archived' => false, // Don't auto-archive on creation
@@ -202,6 +204,7 @@ class JobPostController extends Controller
             'salary_type' => 'required|in:per_hour,per_month',
             'job_type' => 'required|in:full-time,part-time,contract,freelance',
             'hiring_type' => 'required|in:individual,team',
+            'team_size' => 'nullable|integer|min:1|max:100',
             'application_start' => 'required|date',
             'application_deadline' => 'required|date|after:application_start',
             'archived' => 'boolean',
@@ -224,6 +227,7 @@ class JobPostController extends Controller
             'salary_type' => $validated['salary_type'],
             'job_type' => $validated['job_type'],
             'hiring_type' => $validated['hiring_type'],
+            'team_size' => $validated['team_size'] ?? null,
             'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
             'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
             'archived' => $validated['archived'] ?? Carbon::parse($validated['application_deadline'], 'Asia/Manila')->isPast(),
