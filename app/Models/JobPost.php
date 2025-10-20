@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class JobPost extends Model
 {
@@ -19,13 +20,14 @@ class JobPost extends Model
         'job_title',
         'skills',
         'skill_experiences',
-        'ranks',
         'description',
         'salary',
         'salary_type',
         'job_type',
         'hiring_type',
         'team_size',
+        'work_start',
+        'work_end',
         'street',
         'city',
         'province',
@@ -44,8 +46,10 @@ class JobPost extends Model
     protected $casts = [
         'skills' => 'array', // Automatically cast JSON to array
         'skill_experiences' => 'array', // Automatically cast JSON to array
-        'ranks' => 'array', // Automatically cast JSON to array
         'salary' => 'decimal:2',
+        'team_size' => 'integer',
+        'work_start' => 'datetime',
+        'work_end' => 'datetime',
         'application_start' => 'datetime',
         'application_deadline' => 'datetime',
         'archived' => 'boolean',
@@ -57,5 +61,13 @@ class JobPost extends Model
     public function profile(): BelongsTo
     {
         return $this->belongsTo(Profile::class, 'profile_id', 'id');
+    }
+
+    /**
+     * Get the applications for the job post.
+     */
+    public function applications(): HasMany
+    {
+        return $this->hasMany(JobApplication::class, 'job_post_id', 'id');
     }
 }

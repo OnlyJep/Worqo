@@ -153,6 +153,12 @@
         max-width: 100%;
       }
 
+      // Team size input specific width
+      #teamSize {
+        width: 752px;
+        max-width: 100%;
+      }
+
       // Type of Employment dropdown styling (copied from gender dropdown)
       .typeOfEmployment-dropdown-toggle {
         width: 355px !important;

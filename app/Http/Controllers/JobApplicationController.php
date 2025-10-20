@@ -17,7 +17,7 @@ class JobApplicationController extends Controller
         $applications = JobApplication::where('job_post_id', $jobPostId)
             ->with([
                 'worker' => function ($query) {
-                    $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
+                    $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'suffixes.suffix_name')
                           ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
                 },
                 'company' // Load company relationship for team applications
@@ -38,10 +38,11 @@ class JobApplicationController extends Controller
         
         // Validate based on hiring_type
         if ($jobPost->hiring_type === 'team') {
-            // For team hiring, require company_id
+            // For team hiring, company_id is optional (individual workers can apply for team jobs)
             $validator = Validator::make($request->all(), [
                 'job_post_id' => 'required|exists:jobposts,id',
-                'company_id' => 'required|exists:companies,id',
+                'company_id' => 'nullable|exists:companies,id',
+                'worker_id' => 'nullable|exists:profiles,id',
                 'cover_letter' => 'required|string',
                 'skills' => 'nullable|array',
                 'skills.*' => 'string',
@@ -52,13 +53,21 @@ class JobApplicationController extends Controller
                 return response()->json(['errors' => $validator->errors()], 422);
             }
 
-            // Check if company already applied
-            $existingApplication = JobApplication::where('job_post_id', $request->job_post_id)
-                ->where('company_id', $request->company_id)
-                ->first();
+            // Check if company or worker already applied
+            $existingApplication = null;
+            if ($request->company_id) {
+                $existingApplication = JobApplication::where('job_post_id', $request->job_post_id)
+                    ->where('company_id', $request->company_id)
+                    ->first();
+            } elseif ($request->worker_id) {
+                $existingApplication = JobApplication::where('job_post_id', $request->job_post_id)
+                    ->where('worker_id', $request->worker_id)
+                    ->first();
+            }
 
             if ($existingApplication) {
-                return response()->json(['message' => 'This company has already applied for this job'], 400);
+                $message = $request->company_id ? 'This company has already applied for this job' : 'You have already applied for this job';
+                return response()->json(['message' => $message], 400);
             }
 
             // Handle resume upload
@@ -74,14 +83,22 @@ class JobApplicationController extends Controller
             $application = JobApplication::create([
                 'job_post_id' => $request->job_post_id,
                 'company_id' => $request->company_id,
-                'worker_id' => null,
+                'worker_id' => $request->worker_id,
                 'cover_letter' => $request->cover_letter,
                 'skills' => $request->skills,
                 'resume_path' => $resumePath,
                 'status' => 'for_interview',
             ]);
 
-            $application->load('company');
+            // Load appropriate relationship based on application type
+            if ($request->company_id) {
+                $application->load('company');
+            } else {
+                $application->load(['worker' => function ($query) {
+                    $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'suffixes.suffix_name')
+                          ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+                }]);
+            }
 
             return response()->json($application, 201);
         } else {
@@ -187,5 +204,62 @@ class JobApplicationController extends Controller
         });
 
         return response()->json($applications);
+    }
+
+    /**
+     * Check if a worker is available during a specific time period
+     */
+    public function checkWorkerAvailability(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'worker_id' => 'required|exists:profiles,id',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $workerId = $request->worker_id;
+        $startDate = $request->start_date;
+        $endDate = $request->end_date;
+
+        // Check for overlapping work periods from accepted job applications
+        $conflictingApplications = JobApplication::where('worker_id', $workerId)
+            ->where('status', 'accepted')
+            ->whereHas('jobPost', function ($query) use ($startDate, $endDate) {
+                $query->where(function ($q) use ($startDate, $endDate) {
+                    // Check if work periods overlap
+                    $q->where(function ($subQ) use ($startDate, $endDate) {
+                        // Job work_start is within the requested period
+                        $subQ->whereBetween('work_start', [$startDate, $endDate])
+                             ->orWhereBetween('work_end', [$startDate, $endDate])
+                             // Or job period completely contains the requested period
+                             ->orWhere(function ($innerQ) use ($startDate, $endDate) {
+                                 $innerQ->where('work_start', '<=', $startDate)
+                                        ->where('work_end', '>=', $endDate);
+                             });
+                    });
+                });
+            })
+            ->with(['jobPost' => function ($query) {
+                $query->select('id', 'job_title', 'work_start', 'work_end');
+            }])
+            ->get();
+
+        $isAvailable = $conflictingApplications->isEmpty();
+
+        return response()->json([
+            'is_available' => $isAvailable,
+            'conflicting_applications' => $conflictingApplications->map(function ($app) {
+                return [
+                    'id' => $app->id,
+                    'job_title' => $app->jobPost->job_title,
+                    'work_start' => $app->jobPost->work_start,
+                    'work_end' => $app->jobPost->work_end,
+                ];
+            }),
+        ]);
     }
 }

@@ -38,9 +38,23 @@ const FindJob = () => {
 			
 			// Apply search term filter if provided
 			if (searchTerm.trim() !== "") {
-				filtered = filtered.filter(job => 
-					job.job_title.toLowerCase().includes(searchTerm.toLowerCase())
-				);
+				filtered = filtered.filter(job => {
+					const searchLower = searchTerm.toLowerCase();
+					
+					// Search in job title
+					const titleMatch = job.job_title.toLowerCase().includes(searchLower);
+					
+					// Search in skills
+					const skillsMatch = job.skills && job.skills.some(skill => 
+						skill.name.toLowerCase().includes(searchLower)
+					);
+					
+					// Search in job description
+					const descriptionMatch = job.description && 
+						job.description.toLowerCase().includes(searchLower);
+					
+					return titleMatch || skillsMatch || descriptionMatch;
+				});
 			}
 			
 			// Apply employment type filter if selected
@@ -81,12 +95,42 @@ const FindJob = () => {
 				const jobsArray = Array.isArray(jobsData) ? jobsData : [];
 				console.log('Jobs Array:', jobsArray); // Debug log
 				
-				// Filter out current user's job posts
+				// Filter out current user's job posts and jobs that are no longer accepting applications
 				const filteredJobsArray = currentUserId 
-					? jobsArray.filter(job => job.profile_id !== currentUserId)
-					: jobsArray;
+					? jobsArray.filter(job => {
+						// Don't show user's own job posts
+						if (job.profile_id === currentUserId) return false;
+						
+						// Filter based on hiring type and accepted application count
+						if (job.hiring_type === 'individual' && job.application_count >= 1) {
+							return false; // Individual jobs with 1+ accepted applications are not shown
+						}
+						
+						if (job.hiring_type === 'team' && job.application_count >= (job.team_size || 20)) {
+							return false; // Team jobs with accepted applications >= team_size are not shown
+						}
+						
+						return true;
+					})
+					: jobsArray.filter(job => {
+						// Filter based on hiring type and accepted application count
+						if (job.hiring_type === 'individual' && job.application_count >= 1) {
+							return false; // Individual jobs with 1+ accepted applications are not shown
+						}
+						
+						if (job.hiring_type === 'team' && job.application_count >= (job.team_size || 20)) {
+							return false; // Team jobs with accepted applications >= team_size are not shown
+						}
+						
+						return true;
+					});
 				
-				console.log('Filtered Jobs (excluding own):', filteredJobsArray.length, 'out of', jobsArray.length);
+				console.log('Filtered Jobs (excluding own and full jobs):', filteredJobsArray.length, 'out of', jobsArray.length);
+				console.log('Jobs filtered by hiring type (accepted applications):', jobsArray.filter(job => {
+					if (job.hiring_type === 'individual' && job.application_count >= 1) return true;
+					if (job.hiring_type === 'team' && job.application_count >= (job.team_size || 20)) return true;
+					return false;
+				}).length);
 				
 				if (isMounted) {
 					setJobs(filteredJobsArray);
@@ -107,8 +151,21 @@ const FindJob = () => {
 
 		loadJobs();
 
+		// Add event listener for storage changes (when jobs are updated)
+		const handleStorageChange = (e) => {
+			if (e.key === 'jobUpdated') {
+				console.log('Job updated detected, refreshing jobs list...');
+				loadJobs();
+				// Clear the storage event
+				localStorage.removeItem('jobUpdated');
+			}
+		};
+
+		window.addEventListener('storage', handleStorageChange);
+
 		return () => {
 			isMounted = false;
+			window.removeEventListener('storage', handleStorageChange);
 		};
 	}, []);
 
@@ -118,8 +175,23 @@ const FindJob = () => {
 				// If no search term, show all jobs
 				setFilteredJobs(jobs);
 			} else {
-				// Only filter when user has actually typed something
-				setFilteredJobs(jobs.filter(job => job.job_title.toLowerCase().includes(searchTerm.toLowerCase())));
+				// Filter jobs by search term in title, skills, and description
+				const searchLower = searchTerm.toLowerCase();
+				setFilteredJobs(jobs.filter(job => {
+					// Search in job title
+					const titleMatch = job.job_title.toLowerCase().includes(searchLower);
+					
+					// Search in skills
+					const skillsMatch = job.skills && job.skills.some(skill => 
+						skill.name.toLowerCase().includes(searchLower)
+					);
+					
+					// Search in job description
+					const descriptionMatch = job.description && 
+						job.description.toLowerCase().includes(searchLower);
+					
+					return titleMatch || skillsMatch || descriptionMatch;
+				}));
 			}
 		}
 	}, [searchTerm, jobs]);
@@ -130,12 +202,12 @@ const FindJob = () => {
 			<Banner />
 			<div className="browse-content">
 				<div className="header-section">
-					<h2 className="category-title">FIND<br/>JOBS</h2>
+					<h2 className="category-title">FINDJOBS</h2>
 					<div className="search-bar">
 						<input
 							className="search-input"
 							type="text"
-							placeholder="Search a worker"
+							placeholder="Search jobs, skills, or descriptions"
 							value={searchTerm}
 							onChange={(e) => setSearchTerm(e.target.value)}
 						/>
@@ -203,39 +275,40 @@ const FindJob = () => {
 							</div>
 						) : (
 							filteredJobs.map((job) => (
-								<article key={job.id} className="result-card job-card">
+									<article key={job.id} className="result-card job-card">
 									<div className="top-strip" />
-									<div className="job-content">
+									<div className="job-content" onClick={() => handleViewJob(job.id)} style={{ cursor: 'pointer' }}>
 										<div className="job-header">
 											<h3 className="job-title">{job.job_title}</h3>
-											<button className="job-view-btn" type="button" onClick={() => handleViewJob(job.id)}>VIEW JOB</button>
 										</div>
 										<div className="job-meta">
-											<div className="meta-line">
-												{job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name} – Posted on {new Date(job.created_at).toLocaleDateString()}
+											<div className="meta-left">
+												<div className="meta-line">
+													{job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name} – Posted on {new Date(job.created_at).toLocaleDateString()}
+												</div>
+												<div className="meta-line salary">₱{job.salary}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</div>
 											</div>
-											<div className="meta-line salary">₱{job.salary}/{job.salary_type === 'per_hour' ? 'hour' : 'month'}</div>
+											<div className="findjob-job-type" style={{
+												color: job.job_type === 'part-time' ? '#3b82f6' : 
+													   job.job_type === 'full-time' ? '#10b981' : 
+													   job.job_type === 'contract' ? '#f59e0b' : '#f59e0b'
+											}}>
+												{job.job_type || 'Any'}
+											</div>
 										</div>
-										<div className="job-section-title">Job Overview/Description</div>
-										<p className="job-desc">{job.description}</p>
-										<div className="job-section-title">Skills Required</div>
-										<div className="job-skills">
+										<div className="findjob-section-title">Job Overview/Description</div>
+										<p className="findjob-desc">
+											{job.description && job.description.length > 150 
+												? `${job.description.substring(0, 150)}...` 
+												: job.description}
+										</p>
+										<div className="findjob-section-title">Skills Required</div>
+										<div className="findjob-skills">
 											{job.skills && job.skills.map((skill, index) => (
-												<span key={index} className="job-chip">
+												<span key={index} className="findjob-chip">
 													{skill.name} ({skill.experience || 'No experience specified'})
 												</span>
 											))}
-										</div>
-										<div className="job-section-title">Application Period</div>
-										<div className="job-timeline">
-											<div className="timeline-item">
-												<span className="timeline-label">Start:</span>
-												<span className="timeline-value">{new Date(job.application_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span>
-											</div>
-											<div className="timeline-item">
-												<span className="timeline-label">Deadline:</span>
-												<span className="timeline-value">{new Date(job.application_deadline).toLocaleDateString('en-US', { timeZone: 'UTC' })}</span>
-											</div>
 										</div>
 									</div>
 								</article>

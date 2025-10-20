@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Login from "./components/login/Login";
@@ -41,7 +41,7 @@ import SkillRatingModal from "./components/SkillRatingModal/SkillRatingModal";
 
 
 const useAuth = () => {
-  return useMemo(() => {
+  const [authState, setAuthState] = useState(() => {
     const token = localStorage.getItem("auth_token");
     const storedUser = localStorage.getItem("user");
     if (token && storedUser) {
@@ -49,7 +49,20 @@ const useAuth = () => {
       return { isAuthenticated: true, userRole: user.role_id };
     }
     return { isAuthenticated: false, userRole: null };
+  });
+
+  useEffect(() => {
+    const token = localStorage.getItem("auth_token");
+    const storedUser = localStorage.getItem("user");
+    if (token && storedUser) {
+      const user = JSON.parse(storedUser);
+      setAuthState({ isAuthenticated: true, userRole: user.role_id });
+    } else {
+      setAuthState({ isAuthenticated: false, userRole: null });
+    }
   }, []);
+
+  return authState;
 };
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -171,11 +184,7 @@ export default function Routers() {
         <Route path="/pay" element={<Pay />} />
         <Route 
           path="/profile/:workerId" 
-          element={
-            <RoleBasedRoute restrictedRoles={[1]}>
-              <Profile />
-            </RoleBasedRoute>
-          } 
+          element={<Profile />}
         />
         <Route path="/profile-settings/*" element={<ProfileSettings />} />
         <Route 

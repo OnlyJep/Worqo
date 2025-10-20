@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\JobPost;
 use App\Models\Skill;
-use App\Models\Rank;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -51,11 +50,13 @@ class JobPostController extends Controller
             'profile' => function ($query) {
                 $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+            },
+            'applications' => function ($query) {
+                $query->select('id', 'job_post_id', 'status');
             }
         ])->paginate($perPage, ['*'], 'page', $page);
 
         $skills = Skill::all()->pluck('name', 'id')->toArray();
-        $ranks = Rank::all()->pluck('name', 'id')->toArray();
 
          $jobPosts->getCollection()->transform(function ($post) use ($skills) {
              // Parse skills from JSON format
@@ -77,13 +78,18 @@ class JobPostController extends Controller
              $post->skills = $skillsData;
              $post->skill_experiences = $skillExperiences;
              
+            // Add application count (only count accepted applications)
+            $post->application_count = $post->applications->where('status', 'accepted')->count();
+            
+            // Also add total applications count for reference
+            $post->total_applications = $post->applications->count();
+             
              return $post;
          });
 
         return response()->json([
             'job_posts' => $jobPosts,
             'skills' => array_values($skills),
-            'ranks' => array_values($ranks),
             'pagination' => [
                 'current_page' => $jobPosts->currentPage(),
                 'total_pages' => $jobPosts->lastPage(),
@@ -97,14 +103,16 @@ class JobPostController extends Controller
         $validator = Validator::make($request->all(), [
             'profile_id' => 'required|exists:profiles,id',
             'job_title' => 'required|string|max:255',
-            'skills' => 'required|array',
-            'skill_experiences' => 'required|array',
+            'skills' => 'nullable|array',
+            'skill_experiences' => 'nullable|array',
             'description' => 'required|string',
             'salary' => 'required|numeric|min:1',
             'salary_type' => 'required|in:per_hour,per_month',
             'job_type' => 'required|in:full-time,part-time,contract,freelance',
             'hiring_type' => 'required|in:individual,team',
-            'team_size' => 'nullable|integer|min:1|max:100',
+            'team_size' => 'nullable|integer|min:1|max:50',
+            'work_start' => 'required|date',
+            'work_end' => 'required|date|after:work_start',
             'application_start' => 'required|date',
             'application_deadline' => 'required|date|after:application_start',
         ]);
@@ -119,14 +127,16 @@ class JobPostController extends Controller
          $jobPost = JobPost::create([
              'profile_id' => $validated['profile_id'],
              'job_title' => $validated['job_title'],
-             'skills' => json_encode($validated['skills']),
-             'skill_experiences' => json_encode($validated['skill_experiences']),
+             'skills' => json_encode($validated['skills'] ?? []),
+             'skill_experiences' => json_encode($validated['skill_experiences'] ?? []),
              'description' => $validated['description'],
              'salary' => $validated['salary'],
              'salary_type' => $validated['salary_type'],
              'job_type' => $validated['job_type'],
              'hiring_type' => $validated['hiring_type'],
-             'team_size' => $validated['team_size'] ?? null,
+             'team_size' => $validated['team_size'] ?? ($validated['hiring_type'] === 'team' ? 2 : 1),
+             'work_start' => Carbon::parse($validated['work_start'], 'Asia/Manila'),
+             'work_end' => Carbon::parse($validated['work_end'], 'Asia/Manila'),
              'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
              'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
              'archived' => false, // Don't auto-archive on creation
@@ -197,14 +207,16 @@ class JobPostController extends Controller
         $validator = Validator::make($request->all(), [
             'profile_id' => 'required|exists:profiles,id',
             'job_title' => 'required|string|max:255',
-            'skills' => 'required|array',
-            'skill_experiences' => 'required|array',
+            'skills' => 'nullable|array',
+            'skill_experiences' => 'nullable|array',
             'description' => 'required|string',
             'salary' => 'required|numeric|min:1',
             'salary_type' => 'required|in:per_hour,per_month',
             'job_type' => 'required|in:full-time,part-time,contract,freelance',
             'hiring_type' => 'required|in:individual,team',
-            'team_size' => 'nullable|integer|min:1|max:100',
+            'team_size' => 'nullable|integer|min:1|max:50',
+            'work_start' => 'required|date',
+            'work_end' => 'required|date|after:work_start',
             'application_start' => 'required|date',
             'application_deadline' => 'required|date|after:application_start',
             'archived' => 'boolean',
@@ -220,14 +232,16 @@ class JobPostController extends Controller
         $jobPost->update([
             'profile_id' => $validated['profile_id'],
             'job_title' => $validated['job_title'],
-            'skills' => json_encode($validated['skills']),
-            'skill_experiences' => json_encode($validated['skill_experiences']),
+            'skills' => json_encode($validated['skills'] ?? []),
+            'skill_experiences' => json_encode($validated['skill_experiences'] ?? []),
             'description' => $validated['description'],
             'salary' => $validated['salary'],
             'salary_type' => $validated['salary_type'],
             'job_type' => $validated['job_type'],
             'hiring_type' => $validated['hiring_type'],
-            'team_size' => $validated['team_size'] ?? null,
+            'team_size' => $validated['team_size'] ?? ($validated['hiring_type'] === 'team' ? 2 : 1),
+            'work_start' => Carbon::parse($validated['work_start'], 'Asia/Manila'),
+            'work_end' => Carbon::parse($validated['work_end'], 'Asia/Manila'),
             'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
             'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
             'archived' => $validated['archived'] ?? Carbon::parse($validated['application_deadline'], 'Asia/Manila')->isPast(),

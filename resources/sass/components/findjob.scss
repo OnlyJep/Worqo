@@ -44,8 +44,8 @@
 				}
 
 				.search-btn {
-					width: 32px;
-					height: 32px;
+					width: 35px;
+					height: 36px;
 					display: inline-flex;
 					align-items: center;
 					justify-content: center;
@@ -63,11 +63,17 @@
 
 				.sort-by {
 					display: flex;
-					align-items: fle;
+					align-items: center;
 					gap: 6px;
 					font-size: 14px;
 					color: #000000;
 					cursor: pointer;
+					width: 100px;
+					height: 36px;
+					padding: 0 10px;
+					border: 1px solid #d1d5db;
+					border-radius: 4px;
+					justify-content: space-between;
 				}
 
 				.sort-icon {
@@ -110,6 +116,10 @@
 			margin: 0;
 			text-transform: uppercase;
 			line-height: 1.1;
+			width: 90px;
+			position: relative;
+			left: 27px;
+			top: 12.25px;
 		}
 
 		// removed after-header image
@@ -202,13 +212,32 @@
 		border: 1px solid #e5ebf1;
 		padding: 0;
 		overflow: hidden;
+		transition: all 0.3s ease;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+			border-color: #1A2A44;
+		}
 
 		.top-strip {
 			height: 48px;
 			background: linear-gradient(180deg, rgba(8, 36, 63, 0.15) 0%, rgba(8,36,63,0.35) 100%);
+			transition: all 0.3s ease;
 		}
 
-		.job-content { padding: 16px 20px 24px; }
+		&:hover .top-strip {
+			background: linear-gradient(180deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.4) 100%);
+		}
+
+		.job-content { 
+			padding: 16px 20px 24px; 
+			transition: all 0.3s ease;
+		}
+
+		&:hover .job-content {
+			background: rgba(59, 130, 246, 0.02);
+		}
 
 		.job-header {
 			display: flex;
@@ -218,24 +247,33 @@
 
 		.job-title { margin: 0; font-size: 18px; font-weight: 800; color: #0b0d0f; }
 
-		.job-view-btn {
-			border: 1px solid #c7d3df;
-			background: #f7fbff;
-			color: #0b2742;
-			border-radius: 999px;
-			padding: 6px 14px;
-			font-size: 11px;
-			cursor: pointer;
+		.job-meta { 
+			margin-top: 10px; 
+			color: #6b7280; 
+			font-size: 11px; 
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
 		}
-
-		.job-meta { margin-top: 10px; color: #6b7280; font-size: 11px; }
+		
+		.meta-left {
+			flex: 1;
+		}
+		
 		.job-meta .salary { margin-top: 4px; color: #0b0d0f; font-weight: 700; }
 
-		.job-section-title { margin-top: 16px; font-size: 11px; color: #6b7280; font-weight: 700; }
-		.job-desc { margin-top: 6px; font-size: 12px; color: #1b2430; line-height: 1.5; }
+		.findjob-section-title { margin-top: 16px; font-size: 11px; color: #000000; font-weight: 700; }
+		.findjob-desc { margin-top: 6px; font-size: 12px; color: #1b2430; line-height: 1.5; }
 
-		.job-skills { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
-		.job-chip { background: #fff; border: 1px solid #d9e2ec; border-radius: 4px; padding: 6px 10px; font-size: 11px; color: #284b63; }
+		.findjob-skills { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+		.findjob-chip { background: #fff; border: 1px solid #0a2a40; border-radius: 4px; padding: 6px 10px; font-size: 11px; color: #284b63; }
+		
+		.findjob-job-type {
+			margin-top: 4px;
+			font-size: 11px;
+			font-weight: 600;
+			text-transform: capitalize;
+		}
 	}
 
 	@media (max-width: 768px) {

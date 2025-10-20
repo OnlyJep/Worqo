@@ -215,6 +215,12 @@
 
         .dropdown-toggle {
           cursor: pointer;
+          
+          // Remove any potential ::after pseudo-elements
+          &::after {
+            display: none !important;
+            content: none !important;
+          }
 
           .dropdown-icon {
             color: #FFFFFF;

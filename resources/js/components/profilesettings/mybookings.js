@@ -1,36 +1,70 @@
 import React, { useState, useEffect } from 'react';
+import { MdVerified } from 'react-icons/md';
+import { message } from 'antd';
 import axios from 'axios';
-import BookingRequest from './BookingRequest';
+import ModalFeedback from './modalfeedback';
+import TransactionModal from './TransactionModal';
 import '../../../sass/components/profilesettings/mybookings.scss';
 
 const MyBookings = () => {
   const [activeTab, setActiveTab] = useState('all');
+  const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
+  const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
+  const [selectedWorker, setSelectedWorker] = useState(null);
+  const [selectedBooking, setSelectedBooking] = useState(null);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState(null);
-  const [selectedBookings, setSelectedBookings] = useState(new Set());
+
+  const bookingCategories = [
+    { id: 'all', label: 'All Bookings' },
+    { id: 'pending', label: 'Pending' },
+    { id: 'declined', label: 'Declined' },
+    { id: 'accepted', label: 'Accepted' },
+    { id: 'cancelled', label: 'Cancelled' },
+    { id: 'completed', label: 'Completed' }
+  ];
 
   useEffect(() => {
-    fetchUserRole();
+    // Get user role from localStorage
+    const userData = JSON.parse(localStorage.getItem("user") || '{}');
+    setUserRole(userData.role_id);
     fetchBookings();
   }, []);
 
-  const fetchUserRole = async () => {
-    try {
-      const response = await axios.get('/api/user');
-      setUserRole(response.data.role_id);
-    } catch (error) {
-      console.error('Error fetching user role:', error);
-    }
-  };
-
   const fetchBookings = async () => {
     try {
-      setLoading(true);
-      const response = await axios.get('/api/bookings');
-      setBookings(response.data);
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        message.error("Please log in to view bookings");
+        return;
+      }
+
+      // Determine API endpoint based on user role
+      const userData = JSON.parse(localStorage.getItem("user") || '{}');
+      const endpoint = userData.role_id === 1 ? 'worker' : 'employer';
+      
+      const response = await axios.get(`http://127.0.0.1:8000/api/bookings/${endpoint}?user_id=${userData.id}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json"
+        }
+      });
+
+      if (response.data.success) {
+        // Sort bookings: Pending first, then Accepted, Completed, Declined, Cancelled
+        const sortedBookings = response.data.bookings.sort((a, b) => {
+          const statusOrder = { 'pending': 1, 'accepted': 2, 'completed': 3, 'declined': 4, 'cancelled': 5 };
+          return statusOrder[a.status] - statusOrder[b.status];
+        });
+        console.log('Fetched bookings for role_id', userData.role_id, ':', sortedBookings);
+        setBookings(sortedBookings);
+      } else {
+        message.error("Failed to fetch bookings");
+      }
     } catch (error) {
-      console.error('Error fetching bookings:', error);
+      console.error("Error fetching bookings:", error.response?.data || error.message);
+      message.error("Failed to fetch bookings");
     } finally {
       setLoading(false);
     }
@@ -38,76 +72,123 @@ const MyBookings = () => {
 
   const handleCancelBooking = async (bookingId) => {
     try {
-      await axios.put(`/api/bookings/${bookingId}/cancel`);
-      fetchBookings();
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.patch(`http://127.0.0.1:8000/api/bookings/${bookingId}/cancel`, {}, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json"
+        }
+      });
+
+      if (response.data.success) {
+        message.success("Booking cancelled successfully");
+        fetchBookings();
+      } else {
+        message.error(response.data.message || "Failed to cancel booking");
+      }
     } catch (error) {
-      console.error('Error cancelling booking:', error);
+      console.error("Error cancelling booking:", error.response?.data || error.message);
+      message.error("Failed to cancel booking");
     }
   };
 
   const handleStatusUpdate = async (bookingId, status) => {
     try {
-      await axios.put(`/api/bookings/${bookingId}/status`, { status });
-      fetchBookings();
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${bookingId}/status`, {
+        status
+      }, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (response.data.success) {
+        message.success(`Booking ${status} successfully`);
+        fetchBookings();
+      } else {
+        message.error(response.data.message || `Failed to ${status} booking`);
+      }
     } catch (error) {
-      console.error('Error updating booking status:', error);
+      console.error("Error updating booking status:", error.response?.data || error.message);
+      message.error(`Failed to ${status} booking`);
     }
   };
 
-  const handleViewTransaction = (booking) => {
-    // Implement transaction view logic
-    console.log('View transaction for booking:', booking);
+  // Filter bookings based on active tab
+  const getFilteredBookings = () => {
+    if (activeTab === 'all') {
+      return bookings;
+    }
+    return bookings.filter(booking => 
+      booking.status.toLowerCase() === activeTab
+    );
+  };
+
+  const filteredBookings = getFilteredBookings();
+
+  const handleTabClick = (tabId) => {
+    console.log('Tab clicked:', tabId); // Debug log
+    console.log('Current active tab before:', activeTab); // Debug log
+    setActiveTab(tabId);
+    console.log('Setting active tab to:', tabId); // Debug log
   };
 
   const handleGiveFeedback = (booking) => {
-    // Implement feedback logic
-    console.log('Give feedback for booking:', booking);
+    setSelectedWorker(booking);
+    setIsFeedbackModalOpen(true);
   };
 
-  const handleSelectBooking = (bookingId, isSelected) => {
-    setSelectedBookings(prev => {
-      const newSet = new Set(prev);
-      if (isSelected) {
-        newSet.add(bookingId);
-      } else {
-        newSet.delete(bookingId);
-      }
-      return newSet;
-    });
+  const handleCloseFeedbackModal = () => {
+    setIsFeedbackModalOpen(false);
+    setSelectedWorker(null);
   };
 
-  const handleDeleteSelected = async () => {
-    if (selectedBookings.size === 0) return;
-    
+  const handleViewTransaction = (booking) => {
+    console.log('Opening transaction modal for booking:', booking);
+    setSelectedBooking(booking);
+    setIsTransactionModalOpen(true);
+  };
+
+  const handleCloseTransactionModal = () => {
+    setIsTransactionModalOpen(false);
+    setSelectedBooking(null);
+  };
+
+  const handleSubmitFeedback = async (feedbackData) => {
     try {
-      const bookingIds = Array.from(selectedBookings);
-      await axios.delete('/api/bookings/bulk', { data: { booking_ids: bookingIds } });
-      setSelectedBookings(new Set());
-      fetchBookings();
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.post(`http://127.0.0.1:8000/api/bookings/${selectedWorker.id}/review`, {
+        rating: feedbackData.rating,
+        comment: feedbackData.feedback
+      }, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (response.data.success) {
+        message.success("Review submitted successfully");
+        setIsFeedbackModalOpen(false);
+        setSelectedWorker(null);
+        fetchBookings();
+      } else {
+        message.error(response.data.message || "Failed to submit review");
+      }
     } catch (error) {
-      console.error('Error deleting selected bookings:', error);
+      console.error("Error submitting review:", error.response?.data || error.message);
+      message.error("Failed to submit review");
     }
   };
-
-  const filteredBookings = bookings.filter(booking => {
-    if (activeTab === 'all') return true;
-    return booking.status === activeTab;
-  });
-
-  const tabs = [
-    { key: 'all', label: 'All Bookings' },
-    { key: 'pending', label: 'Pending' },
-    { key: 'accepted', label: 'Accepted' },
-    { key: 'completed', label: 'Completed' },
-    { key: 'declined', label: 'Declined' },
-    { key: 'cancelled', label: 'Cancelled' }
-  ];
 
   if (loading) {
     return (
       <div className="my-bookings-container">
-        <div className="loading-state">
-          <div className="loading-spinner"></div>
+        <div className="loading-container">
           <p>Loading bookings...</p>
         </div>
       </div>
@@ -117,87 +198,245 @@ const MyBookings = () => {
   return (
     <div className="my-bookings-container">
       <div className="bookings-header">
-        <h2 className="bookings-title">My Bookings</h2>
-      </div>
-      
-      <div className="bookings-navigation">
-        <div className="bookings-tabs">
-          {tabs.map(tab => (
-            <button
-              key={tab.key}
-              className={`tab-button ${activeTab === tab.key ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.key)}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+        <h2 className="bookings-title">
+          {userRole === 1 ? 'Booking Requests' : 'My Bookings'}
+        </h2>
       </div>
 
-      {/* Bulk Delete Button */}
-      {selectedBookings.size > 0 && (
-        <div className="bulk-delete-container" style={{ 
-          display: 'flex', 
-          justifyContent: 'flex-end', 
-          marginBottom: '16px', 
-          padding: '0 20px' 
-        }}>
-          <button 
-            className="delete-selected-btn"
-            onClick={handleDeleteSelected}
-            style={{
-              background: '#dc2626',
-              color: 'white',
-              border: 'none',
-              padding: '8px 16px',
-              borderRadius: '6px',
-              fontSize: '14px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px'
-            }}
-          >
-            <span>🗑️</span>
-            Delete Selected ({selectedBookings.size})
-          </button>
-        </div>
-      )}
-      
+      <div className="bookings-navigation">
+        {bookingCategories.map((category) => (
+          <div key={category.id} className="booking-tab-container">
+            <button
+              type="button"
+              className={`booking-tab ${activeTab === category.id ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleTabClick(category.id);
+              }}
+              onMouseDown={(e) => e.preventDefault()}
+            >
+              {category.label}
+            </button>
+          </div>
+        ))}
+      </div>
+
       <div className="bookings-content">
-        {filteredBookings.length === 0 ? (
+        {filteredBookings.length > 0 ? (
+          <div className="bookings-list">
+            {filteredBookings.map((booking) => {
+              // Determine if this is employer or worker view
+              const isEmployerView = userRole === 2;
+              const personData = isEmployerView ? booking.worker : booking.employer;
+              const personProfile = personData?.profile;
+              
+              console.log(`Rendering booking ${booking.id} for ${isEmployerView ? 'employer' : 'worker'} with status: ${booking.status}`);
+              
+              return (
+                <div key={booking.id} className="booking-card">
+                  <div className="booking-worker-info">
+                    <div className="worker-profile">
+                      <img 
+                        src={personProfile?.profile_img 
+                          ? `http://127.0.0.1:8000/storage/${personProfile.profile_img}` 
+                          : '/images/default-avatar.svg'
+                        } 
+                        alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'User'} 
+                        className="worker-avatar" 
+                      />
+                    </div>
+                    <div className="worker-details">
+                      <h3 className="worker-name">
+                        {personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'Unknown User'}
+                      </h3>
+                      <p className="worker-profession">
+                        {isEmployerView ? booking.service_type : 'Employer'}
+                      </p>
+                      <div className="worker-badges">
+                        {personData?.verified && (
+                          <div className="verified-badge">
+                            <MdVerified className="verified-icon" />
+                            <span>Verified</span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="booking-status">
+                        <span>Status : </span>
+                        <span className="status-text" style={{ 
+                          color: booking.status === 'pending' ? '#ffa500' :
+                                 booking.status === 'accepted' ? '#4CAF50' :
+                                 booking.status === 'completed' ? '#2196F3' :
+                                 booking.status === 'declined' ? '#f44336' :
+                                 '#9e9e9e'
+                        }}>
+                          {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                        </span>
+                      </div>
+                      <div className="booking-salary">
+                        Total: ₱{booking.total_amount}
+                      </div>
+                      <div className="booking-dates">
+                        <p>Start: {new Date(booking.book_in).toLocaleString()}</p>
+                        <p>End: {new Date(booking.book_end).toLocaleString()}</p>
+                      </div>
+                      <div className="booking-description">
+                        <p><strong>Description:</strong> {booking.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                <div className="booking-actions">
+                  {/* Employer Actions */}
+                  {isEmployerView && (
+                    <>
+                      {booking.status === 'pending' && (
+                        <>
+                          <button 
+                            className="view-transaction-btn"
+                            onClick={() => handleViewTransaction(booking)}
+                          >
+                            View Transaction
+                          </button>
+                          <button 
+                            className="cancel-booking-btn"
+                            onClick={() => handleCancelBooking(booking.id)}
+                          >
+                            Cancel Booking
+                          </button>
+                        </>
+                      )}
+                      
+                      {booking.status === 'accepted' && (
+                        <button 
+                          className="view-transaction-btn"
+                          onClick={() => handleViewTransaction(booking)}
+                        >
+                          View Transaction
+                        </button>
+                      )}
+                      
+                      {booking.status === 'completed' && (
+                        <>
+                          <button 
+                            className="view-transaction-btn"
+                            onClick={() => handleViewTransaction(booking)}
+                          >
+                            View Transaction
+                          </button>
+                          {!booking.has_review && (
+                            <button 
+                              className="give-feedback-btn"
+                              onClick={() => handleGiveFeedback(booking)}
+                            >
+                              Give Feedback
+                            </button>
+                          )}
+                        </>
+                      )}
+                      
+                      {(booking.status === 'declined' || booking.status === 'cancelled') && (
+                        <div className="status-only">
+                          <span className={`${booking.status}-text`}>
+                            {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                          </span>
+                        </div>
+                      )}
+                    </>
+                  )}
+                  
+                  {/* Worker Actions */}
+                  {!isEmployerView && (
+                    <>
+                      {booking.status === 'pending' && (
+                        <>
+                          <button 
+                            className="view-transaction-btn"
+                            onClick={() => handleViewTransaction(booking)}
+                          >
+                            View Transaction
+                          </button>
+                          <button 
+                            className="accept-btn"
+                            onClick={() => handleStatusUpdate(booking.id, 'accepted')}
+                          >
+                            Accept
+                          </button>
+                          <button 
+                            className="decline-btn"
+                            onClick={() => handleStatusUpdate(booking.id, 'declined')}
+                          >
+                            Decline
+                          </button>
+                        </>
+                      )}
+                      
+                      {booking.status === 'accepted' && (
+                        <>
+                          <button 
+                            className="view-transaction-btn"
+                            onClick={() => handleViewTransaction(booking)}
+                          >
+                            View Transaction
+                          </button>
+                          <button 
+                            className="complete-btn"
+                            onClick={() => handleStatusUpdate(booking.id, 'completed')}
+                          >
+                            Mark as Completed
+                          </button>
+                        </>
+                      )}
+                      
+                      {booking.status === 'completed' && (
+                        <button 
+                          className="view-transaction-btn"
+                          onClick={() => handleViewTransaction(booking)}
+                        >
+                          View Transaction
+                        </button>
+                      )}
+                      
+                      {(booking.status === 'declined' || booking.status === 'cancelled') && (
+                        <div className="status-only">
+                          <span className={`${booking.status}-text`}>
+                            {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                          </span>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
           <div className="empty-state">
             <div className="empty-icon">
               <img src="/images/mybooking.svg" alt="No Bookings" />
             </div>
             <h3 className="empty-title">No Bookings Yet</h3>
-            <p className="empty-description">
-              {activeTab === 'all' 
-                ? "You haven't made any bookings yet." 
-                : `No ${activeTab} bookings found.`
-              }
-            </p>
-          </div>
-        ) : (
-          <div className="bookings-list">
-            {filteredBookings.map((booking) => (
-              <BookingRequest
-                key={booking.id}
-                booking={booking}
-                userRole={userRole}
-                onCancelBooking={handleCancelBooking}
-                onStatusUpdate={handleStatusUpdate}
-                onViewTransaction={handleViewTransaction}
-                onGiveFeedback={handleGiveFeedback}
-                isSelected={selectedBookings.has(booking.id)}
-                onSelect={handleSelectBooking}
-              />
-            ))}
           </div>
         )}
       </div>
+
+      {/* Feedback Modal */}
+      {isFeedbackModalOpen && selectedWorker && (
+        <ModalFeedback
+          onClose={handleCloseFeedbackModal}
+          onSubmit={handleSubmitFeedback}
+          workerName={selectedWorker.worker?.profile ? `${selectedWorker.worker.profile.first_name} ${selectedWorker.worker.profile.last_name}` : 'Worker'}
+        />
+      )}
+
+      {/* Transaction Modal */}
+      {isTransactionModalOpen && selectedBooking && (
+        <TransactionModal
+          isOpen={isTransactionModalOpen}
+          onClose={handleCloseTransactionModal}
+          booking={selectedBooking}
+        />
+      )}
     </div>
   );
 };

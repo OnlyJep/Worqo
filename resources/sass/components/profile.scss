@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-.profile-worker-page {
+.profile-page {
   font-family: 'Inter', sans-serif;
   width: 100vw;
   min-height: 100vh;
@@ -10,11 +10,11 @@
   flex-direction: column;
   overflow-x: hidden;
 
-  .profile-worker-header {
+  .profile-header {
     position: relative;
     width: 100%;
 
-    .profile-cover-photo {
+    .cover-photo {
       width: 100%;
       height: 250px;
       background: #1E90FF; // Blue theme
@@ -43,7 +43,7 @@
     }
   }
 
-  .profile-worker-container {
+  .profile-container {
     display: flex;
     flex: 1;
     width: 100%;
@@ -52,7 +52,7 @@
     box-sizing: border-box;
     min-height: calc(100vh - 320px);
 
-    .profile-worker-left {
+    .profile-left {
       flex: 1;
       padding-right: 20px;
       background: transparent;
@@ -60,7 +60,7 @@
       height: auto;
       overflow: visible;
 
-      .profile-worker-info {
+      .profile-info {
         text-align: left;
         margin-top: 20px;
 
@@ -70,32 +70,32 @@
           color: #000000; // Black for name
         }
 
-        .profile-status-container {
+        .status-container {
           display: flex;
           align-items: center;
           gap: 5px;
         }
 
-          .profile-status-dot {
+        .status-dot {
           width: 8px;
           height: 8px;
           background-color: #1E90FF; // Blue theme
           border-radius: 50%;
         }
 
-          .profile-status {
+        .status {
           font-size: 14px;
           margin: 5px 0;
           color: #1E90FF; // Blue theme
         }
 
-        .profile-location {
+        .location {
           font-size: 14px;
           color: #666;
           margin: 5px 0;
         }
 
-        .profile-edit-profile {
+        .edit-profile {
           background: #1E90FF; // Blue theme
           border: none;
           color: #fff;
@@ -117,19 +117,20 @@
         }
       }
 
-      .profile-stats {
-        margin: 20px 0;
+      .stats {
+        margin: 25px 0;
         background: #f9fafb;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        min-width: 350px;
 
-        .profile-stat-item {
+        .stat-item {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 12px;
-          padding: 8px 0;
+          margin-bottom: 15px;
+          padding: 12px 0;
           border-bottom: 1px solid #eee;
 
           &:last-child {
@@ -137,16 +138,16 @@
             margin-bottom: 0;
           }
 
-          .profile-stat-label {
-            font-size: 16px;
+          .stat-label {
+            font-size: 18px;
             color: #2d3748;
-            font-weight: 500;
+            font-weight: 600;
           }
 
-          .profile-stat-number {
-            font-size: 16px;
-            font-weight: 600;
-            color: #000000;
+          .stat-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E90FF;
           }
         }
       }
@@ -202,13 +203,13 @@
       }
     }
 
-    .profile-worker-right {
+    .profile-right {
       flex: 3;
       display: flex;
       flex-direction: column;
       height: calc(100vh - 320px);
 
-      .profile-tabs {
+      .tabs {
         display: flex;
         border-bottom: 1px solid #eee;
         background: #f9fafb;
@@ -237,16 +238,16 @@
         }
       }
 
-      .profile-tab-content {
+      .tab-content {
         flex: 1;
         padding: 20px;
         background: #fff;
         border-radius: 0 8px 8px 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-        .profile-overview,
-        .profile-credentials,
-        .profile-reviews {
+        .overview,
+        .credentials,
+        .reviews {
           h4 {
             font-size: 20px;
             margin-bottom: 20px;
@@ -293,7 +294,7 @@
         }
 
         // Enhanced Overview Styles
-        .profile-overview {
+        .overview {
           h4 {
             font-size: 20px;
             margin-bottom: 20px;
@@ -314,10 +315,10 @@
             border-left: 4px solid #1E90FF;
           }
 
-          .profile-skills-section {
+          .skills-section {
             margin-bottom: 30px;
             
-            .profile-skills-category {
+            .skills-category {
               margin-bottom: 25px;
               
               h5 {
@@ -329,7 +330,7 @@
                 letter-spacing: 0.5px;
               }
               
-              .profile-skill-item {
+              .skill-item {
                 background: linear-gradient(135deg, #f8f9fa, #ffffff);
                 border: 1px solid #e9ecef;
                 border-radius: 12px;
@@ -343,33 +344,33 @@
                   box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);
                 }
                 
-                    .profile-skill-name {
+                .skill-name {
                   font-weight: 600;
                   color: #333;
                   margin-bottom: 10px;
                   font-size: 16px;
                   
-                      .profile-sub-skills {
+                  .sub-skills {
                     color: #666;
                     font-weight: 400;
                     font-size: 14px;
                   }
                 }
                 
-                .profile-skill-details {
+                .skill-details {
                   display: flex;
                   gap: 25px;
                   font-size: 14px;
                   flex-wrap: wrap;
                   
-                  .profile-experience {
+                  .experience {
                     color: #666;
                     background: #e9ecef;
                     padding: 4px 8px;
                     border-radius: 4px;
                   }
                   
-                  .profile-hourly-rate {
+                  .hourly-rate {
                     color: #1E90FF;
                     font-weight: 600;
                     background: #e3f2fd;
@@ -411,8 +412,8 @@
           }
         }
 
-        .profile-reviews {
-          .profile-reviews-header {
+        .reviews {
+          .reviews-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -422,7 +423,7 @@
               margin: 0;
             }
 
-            .profile-reviews-summary {
+            .reviews-summary {
               .average-rating {
                 display: flex;
                 align-items: center;
@@ -448,7 +449,7 @@
                   }
                 }
 
-                .profile-total-reviews {
+                .total-reviews {
                   color: #718096;
                   font-size: 14px;
                 }
@@ -456,8 +457,8 @@
             }
           }
 
-          .profile-reviews-list {
-            .profile-review-item {
+          .reviews-list {
+            .review-item {
               border-bottom: 1px solid #eee;
               padding-bottom: 20px;
               margin-bottom: 20px;
@@ -467,36 +468,36 @@
                 margin-bottom: 0;
               }
 
-              .profile-review-header {
+              .review-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
                 margin-bottom: 12px;
 
-                .profile-reviewer-info {
+                .reviewer-info {
                   display: flex;
                   gap: 12px;
                   align-items: center;
 
-                  .profile-reviewer-avatar {
+                  .reviewer-avatar {
                     width: 48px;
                     height: 48px;
                     border-radius: 50%;
                     object-fit: cover;
                   }
 
-                  .profile-reviewer-details {
+                  .reviewer-details {
                     display: flex;
                     flex-direction: column;
                     gap: 4px;
 
-                    .profile-reviewer-name {
+                    .reviewer-name {
                       font-weight: 600;
                       color: #2d3748;
                       font-size: 15px;
                     }
 
-                    .profile-review-rating {
+                    .review-rating {
                       display: flex;
                       gap: 2px;
 
@@ -512,14 +513,14 @@
                   }
                 }
 
-                .profile-review-date {
+                .review-date {
                   color: #718096;
                   font-size: 13px;
                   white-space: nowrap;
                 }
               }
 
-              .profile-review-comment {
+              .review-comment {
                 color: #4a5568;
                 line-height: 1.6;
                 margin-left: 60px;
@@ -534,11 +535,11 @@
 }
 
 // Subscription Modal Styles
-.profile-subscription-modal {
+.subscription-modal {
   max-width: 600px;
   width: 90%;
   
-  .profile-modal-subtitle {
+  .modal-subtitle {
     text-align: center;
     color: #666;
     margin-bottom: 30px;
@@ -736,7 +737,7 @@
 }
 
 // Badge styles for name container
-        .profile-name-container {
+.name-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -749,19 +750,19 @@
   }
 }
 
-      .profile-rank-display-section {
+.rank-display-section {
   margin: 15px 0;
   padding: 12px;
   background: #f9fafb;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
-        .profile-rank-display {
+  .rank-display {
     display: flex;
     align-items: center;
     gap: 15px;
 
-          .profile-worker-rank-badge {
+    .worker-rank-badge {
       width: 45px;
       height: 45px;
       object-fit: contain;
@@ -770,7 +771,7 @@
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
     }
 
-            .profile-rank-progress {
+    .rank-progress {
       display: flex;
       flex-direction: column;
       gap: 5px;
@@ -781,7 +782,7 @@
         justify-content: space-between;
         align-items: center;
 
-              .profile-rank-name {
+        .rank-name {
           font-size: 15px;
           font-weight: 600;
           color: #333;
@@ -844,14 +845,14 @@
   }
 }
 
-          .profile-badges-container {
+.badges-container {
   display: flex;
   gap: 8px;
   align-items: center;
   flex-wrap: wrap;
 }
 
-            .profile-verified-badge {
+.verified-badge {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -934,13 +935,13 @@
 }
 
 // Skill-specific rank badge styles
-                  .profile-skill-name-with-rank {
+.skill-name-with-rank {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
 
-                    .profile-skill-rank-icon {
+  .skill-rank-icon {
     width: 32px;
     height: 32px;
     object-fit: contain;
@@ -950,7 +951,7 @@
     border: 2px solid #fff;
   }
 
-                    .profile-skill-name {
+  .skill-name {
     font-weight: 600;
     color: #333;
     font-size: 1.1rem;
@@ -958,16 +959,16 @@
   }
 }
 
-                .profile-skill-header {
+.skill-header {
   margin-bottom: 12px;
 }
 
 // Login Modal Styles
-.profile-login-modal {
+.login-modal {
   max-width: 500px;
   width: 90%;
   
-  .profile-modal-subtitle {
+  .modal-subtitle {
     text-align: center;
     color: #666;
     margin-bottom: 30px;

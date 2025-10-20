@@ -1,62 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { FaTimes, FaUser, FaCheck, FaTimes as FaX, FaEnvelope, FaCalendar, FaFilePdf, FaDownload, FaFire } from 'react-icons/fa';
+import { FaTimes, FaUser, FaCheck, FaTimes as FaX, FaCalendar, FaFilePdf, FaFire } from 'react-icons/fa';
+import { FaUsersViewfinder } from 'react-icons/fa6';
 import axios from 'axios';
-import { message } from 'antd';
 import '../../../sass/components/profilesettings/jobapplicationsmodal.scss';
-import '../../../sass/components/profilesettings/jobapplicationsmodal-additional.scss';
+import ViewWorkersApplicationModal from './ViewWorkersApplicationModal';
 
 const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState('all');
-  const [collarData, setCollarData] = useState({});
-  const [ranksData, setRanksData] = useState({});
+  const [jobPost, setJobPost] = useState(null);
+  const [showViewWorkersModal, setShowViewWorkersModal] = useState(false);
 
   useEffect(() => {
-    fetchCollarData();
-    fetchRanksData();
+    fetchJobPost();
     fetchApplications();
   }, [jobPostId]);
 
-  const fetchCollarData = async () => {
-    try {
-      const response = await axios.get('http://127.0.0.1:8000/api/collars');
-      const collars = response.data.collars || [];
-      const collarMap = {};
-      
-      collars.forEach(collar => {
-        collarMap[collar.id] = {
-          id: collar.id,
-          name: collar.name,
-          image: collar.collar_img
-        };
-      });
-      
-      setCollarData(collarMap);
-      console.log('Fetched collar data:', collarMap);
-    } catch (error) {
-      console.error('Error fetching collar data:', error);
-    }
-  };
 
-  const fetchRanksData = async () => {
+  const fetchJobPost = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/ranks');
-      const ranks = response.data.ranks || [];
-      const rankMap = {};
-      
-      ranks.forEach(rank => {
-        rankMap[rank.id] = {
-          id: rank.id,
-          name: rank.name,
-          image: rank.image
-        };
-      });
-      
-      setRanksData(rankMap);
-      console.log('Fetched ranks data:', rankMap);
+      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts/${jobPostId}`);
+      setJobPost(response.data.data || response.data);
     } catch (error) {
-      console.error('Error fetching ranks data:', error);
+      console.error('Error fetching job post:', error);
     }
   };
 
@@ -65,24 +32,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
       setLoading(true);
       const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/job/${jobPostId}`);
       console.log('Applications API Response:', response.data);
-      
-      // Fetch detailed worker data for each application
-      const applicationsWithWorkerData = await Promise.all(
-        response.data.map(async (application) => {
-          try {
-            const workerResponse = await axios.get(`http://127.0.0.1:8000/api/workers/${application.worker_id}`);
-            return {
-              ...application,
-              detailedWorker: workerResponse.data
-            };
-          } catch (workerError) {
-            console.error(`Error fetching worker ${application.worker_id}:`, workerError);
-            return application;
-          }
-        })
-      );
-      
-      setApplications(applicationsWithWorkerData);
+      setApplications(response.data);
     } catch (error) {
       console.error('Error fetching applications:', error);
       setApplications([]);
@@ -93,6 +43,21 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
 
   const handleApplicationStatus = async (applicationId, status) => {
     try {
+      // Check hiring type logic
+      if (status === 'accepted' && jobPost) {
+        const acceptedCount = applications.filter(app => app.status === 'accepted').length;
+        
+        if (jobPost.hiring_type === 'individual' && acceptedCount >= 1) {
+          alert('This job is for individual hiring. Only one person can be accepted.');
+          return;
+        }
+        
+        if (jobPost.hiring_type === 'team' && acceptedCount >= 20) {
+          alert('This job is for team hiring. Maximum 20 people can be accepted.');
+          return;
+        }
+      }
+
       await axios.patch(`http://127.0.0.1:8000/api/job-applications/${applicationId}/status`, {
         status: status
       });
@@ -110,102 +75,13 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
     }
   };
 
-  const getStatusBadge = (status) => {
-    const statusConfig = {
-      for_interview: { class: 'status-interview', text: 'For Interview' },
-      accepted: { class: 'status-accepted', text: 'Hired' },
-      declined: { class: 'status-declined', text: 'Declined' },
-      fired: { class: 'status-fired', text: 'Fired' }
-    };
-    
-    const config = statusConfig[status] || statusConfig.for_interview;
-    return <span className={`status-badge ${config.class}`}>{config.text}</span>;
-  };
 
   const getWorkerName = (worker) => {
-    const name = [worker.first_name, worker.middlename, worker.last_name]
-      .filter(Boolean)
+    // Filter out empty/null middle names to avoid double names
+    const nameParts = [worker.first_name, worker.middlename, worker.last_name]
+      .filter(part => part && part.trim() !== '')
       .join(' ');
-    return worker.suffix_name ? `${name} ${worker.suffix_name}` : name;
-  };
-
-  // Helper function to get rank based on experience using real ranks data
-  const getRankByExperience = (experience) => {
-    switch (experience) {
-      case '0-11-months':
-        return ranksData[2] || { name: 'Bronze', image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg' };
-      case '1-2-years':
-        return ranksData[3] || { name: 'Silver', image: 'img/rank/pp1cpyZuiQcpUy44geQdA6GtN5DzvJBZu1Jra53H.png' };
-      case '2-5-years':
-        return ranksData[4] || { name: 'Gold', image: 'img/rank/aTxm30AVX6eA2bX8ICZLRskw66eg9pBgibzhutXO.jpg' };
-      case '5-10-years':
-        return ranksData[5] || { name: 'Diamond', image: 'img/rank/BT3ZPIEvlO4KYEsUpPhD6jVQyskw0tPknV43CoY1.jpg' };
-      default:
-        return ranksData[2] || { name: 'Bronze', image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg' };
-    }
-  };
-
-  // Helper function to map skill IDs to collar information
-  const getCollarBySkillId = (skillId) => {
-    const skillToCollarIdMap = {
-      "1": 2, // Virtual Assistant - Pink Collars
-      "2": 1, // WordPress Developer - Blue Collars
-      "3": 1, // SEO - Blue Collars
-      "4": 2, // Graphic Designer - Pink Collars
-      "5": 1, // Social Media Marketer - Blue Collars
-      "6": 2, // PHP Developer - Pink Collars
-      "7": 1, // Real Estate VA - Blue Collars
-      "8": 2, // Content Writer - Pink Collars
-    };
-    
-    const collarId = skillToCollarIdMap[skillId];
-    if (collarId && collarData[collarId]) {
-      return collarData[collarId];
-    }
-    
-    return null;
-  };
-
-  const getWorkerCollars = (application) => {
-    const collars = [];
-    const collarMap = {};
-    
-    // Get skills from application
-    if (application.skills && Array.isArray(application.skills)) {
-      application.skills.forEach(skillName => {
-        // Map skill names to skill IDs (simplified mapping)
-        const skillIdMap = {
-          "Virtual Assistant": "1",
-          "WordPress Developer": "2",
-          "SEO": "3",
-          "Graphic Designer": "4",
-          "Social Media Marketer": "5",
-          "PHP Developer": "6",
-          "Real Estate Virtual Assistant": "7",
-          "Content Writer": "8"
-        };
-        
-        const skillId = skillIdMap[skillName];
-        if (skillId) {
-          const collarInfo = getCollarBySkillId(skillId);
-          if (collarInfo && !collarMap[collarInfo.id]) {
-            collarMap[collarInfo.id] = collarInfo;
-            collars.push(collarInfo);
-          }
-        }
-      });
-    }
-    
-    // If no collars found, return default Blue Collars
-    if (collars.length === 0) {
-      return [{ 
-        id: 1, 
-        name: "Blue Collars", 
-        image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" 
-      }];
-    }
-    
-    return collars;
+    return worker.suffix_name ? `${nameParts} ${worker.suffix_name}` : nameParts;
   };
 
   const filteredApplications = applications.filter(app => {
@@ -215,16 +91,20 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
 
   const downloadResume = (resumePath) => {
     if (resumePath) {
-      // Since storage:link is configured, the path should be accessible via /storage/
       window.open(`http://127.0.0.1:8000/storage/${resumePath}`, '_blank');
     }
   };
 
   const handleViewProfile = (workerId) => {
-    // Navigate to worker profile page
-    // The Profile component will handle the 404 case if the user is not a worker
-    // Allow viewing of any worker profile, including own profile
     window.open(`/profile/${workerId}`, '_blank');
+  };
+
+  const handleViewApplicationDetails = (application) => {
+    setShowViewWorkersModal(true);
+  };
+
+  const handleCloseViewWorkersModal = () => {
+    setShowViewWorkersModal(false);
   };
 
   return (
@@ -232,110 +112,115 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
       <div className="job-applications-modal">
         <div className="modal-header">
           <h2>Employee Applications - {jobTitle}</h2>
-          <button className="close-btn" onClick={onClose}>
-            <FaTimes />
-          </button>
+          <div className="header-actions">
+            <button className="close-btn" onClick={onClose}>
+              <FaTimes />
+            </button>
+          </div>
         </div>
 
-        <div className="modal-content">
-          {loading ? (
-            <div className="loading-state">
-              <div className="spinner"></div>
-              <p>Loading applications...</p>
-            </div>
-          ) : applications.length === 0 ? (
-            <div className="empty-state">
-              <FaUser className="empty-icon" />
-              <h3>No Applications Yet</h3>
-              <p>No one has applied for this job yet.</p>
-            </div>
-          ) : (
-            <>
-              <div className="filter-section">
-                <h4>Filter by Status:</h4>
-                <div className="filter-buttons">
-                  <button 
-                    className={filterStatus === 'all' ? 'active' : ''}
-                    onClick={() => setFilterStatus('all')}
-                  >
-                    All ({applications.length})
-                  </button>
-                  <button 
-                    className={filterStatus === 'for_interview' ? 'active' : ''}
-                    onClick={() => setFilterStatus('for_interview')}
-                  >
-                    For Interview ({applications.filter(app => app.status === 'for_interview').length})
-                  </button>
-                  <button 
-                    className={filterStatus === 'accepted' ? 'active' : ''}
-                    onClick={() => setFilterStatus('accepted')}
-                  >
-                    Hired ({applications.filter(app => app.status === 'accepted').length})
-                  </button>
-                  <button 
-                    className={filterStatus === 'declined' ? 'active' : ''}
-                    onClick={() => setFilterStatus('declined')}
-                  >
-                    Declined ({applications.filter(app => app.status === 'declined').length})
-                  </button>
-                </div>
+        {loading ? (
+          <div className="loading-state">
+            <div className="spinner"></div>
+            <p>Loading applications...</p>
+          </div>
+        ) : applications.length === 0 ? (
+          <div className="empty-state">
+            <FaUser className="empty-icon" />
+            <h3>No Applications Yet</h3>
+            <p>No one has applied for this job yet.</p>
+          </div>
+        ) : (
+          <>
+            <div className="filter-section">
+              <div className="filter-buttons">
+                <button 
+                  className={filterStatus === 'all' ? 'active' : ''}
+                  onClick={() => setFilterStatus('all')}
+                >
+                  All ({applications.length})
+                </button>
+                <button 
+                  className={filterStatus === 'for_interview' ? 'active' : ''}
+                  onClick={() => setFilterStatus('for_interview')}
+                >
+                  For Interview ({applications.filter(app => app.status === 'for_interview').length})
+                </button>
+                <button 
+                  className={filterStatus === 'accepted' ? 'active' : ''}
+                  onClick={() => setFilterStatus('accepted')}
+                >
+                  Hired ({applications.filter(app => app.status === 'accepted').length})
+                </button>
+                <button 
+                  className={filterStatus === 'declined' ? 'active' : ''}
+                  onClick={() => setFilterStatus('declined')}
+                >
+                  Declined ({applications.filter(app => app.status === 'declined').length})
+                </button>
               </div>
+            </div>
 
-              <div className="applications-list">
-                {filteredApplications.map((application) => (
+            <div className="applications-list">
+              {filteredApplications.map((application) => (
                 <div key={application.id} className="application-card">
                   <div className="application-header">
                     <div className="worker-info">
-                      <div className="worker-avatar">
-                        <img 
-                          src={application.detailedWorker?.profile?.profile_img 
-                            ? `http://127.0.0.1:8000/storage/${application.detailedWorker.profile.profile_img}` 
-                            : application.worker.profile_img 
-                            ? `http://127.0.0.1:8000/storage/${application.worker.profile_img}` 
-                            : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg"
-                          } 
-                          alt={`${getWorkerName(application.worker)}'s avatar`}
-                          className="profile-image"
-                          onError={(e) => {
-                            e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
-                          }}
-                        />
+                      <div className="avatar-container">
+                        <div className="avatar-placeholder">
+                          <img 
+                            src={application.worker.profile_img && application.worker.profile_img !== 'img/defaultpfp.jpg' 
+                              ? `http://127.0.0.1:8000/storage/${application.worker.profile_img}?v=${Date.now()}` 
+                              : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg"
+                            } 
+                            alt={`${getWorkerName(application.worker)}'s avatar`}
+                            onError={(e) => {
+                              e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                            }}
+                          />
+                        </div>
                       </div>
                       <div className="worker-details">
-                        <div className="worker-name-with-collar">
-                          <h4 className="worker-name">{getWorkerName(application.worker)}</h4>
-                          <div className="collar-badges">
-                            {getWorkerCollars(application).map((collar, index) => (
-                              <div key={index} className="collar-badge" title={`${collar.name} Worker`}>
-                                {collar.image ? (
-                                  <img 
-                                    src={`http://127.0.0.1:8000/storage/${collar.image}`} 
-                                    alt={`${collar.name} Collar`}
-                                    className="collar-icon"
-                                  />
-                                ) : (
-                                  <div className="collar-icon-placeholder">
-                                    {collar.name.charAt(0)}
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                        <h4 className="worker-name">{getWorkerName(application.worker)}</h4>
                         <p className="application-date">
-                          <FaCalendar /> Applied on {new Date(application.created_at).toLocaleDateString()}
+                          Applied on {new Date(application.created_at).toLocaleDateString()}
                         </p>
                       </div>
                     </div>
                     <div className="application-status">
-                      <button 
-                        className="view-profile-btn-top"
-                        onClick={() => handleViewProfile(application.worker_id)}
-                        title="View Profile"
-                      >
-                        <FaUser />
-                      </button>
-                      {getStatusBadge(application.status)}
+                      <div className="status-container">
+                        <span className={`status-badge ${application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : application.status === 'declined' ? 'status-declined' : 'status-fired'}`}>
+                          {application.status === 'for_interview' ? 'For Interview' :
+                           application.status === 'accepted' ? 'Hired' :
+                           application.status === 'declined' ? 'Declined' :
+                           application.status === 'fired' ? 'Fired' : application.status}
+                        </span>
+                        {application.status === 'for_interview' && (
+                          <FaUsersViewfinder 
+                            className="interview-icon" 
+                            onClick={() => handleViewApplicationDetails(application)}
+                            title="View Application Details"
+                          />
+                        )}
+                      </div>
+                      {application.status === 'for_interview' && (
+                        <div className="status-actions">
+                          <button 
+                            className="accept-btn-small"
+                            onClick={() => handleApplicationStatus(application.id, 'accepted')}
+                            title="Accept Application"
+                          >
+                            <FaCheck />
+                          </button>
+                          <button 
+                            className="decline-btn-small"
+                            onClick={() => handleApplicationStatus(application.id, 'declined')}
+                            title="Decline Application"
+                          >
+                            <FaX />
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -358,97 +243,15 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                     </div>
                   )}
 
-                  {application.detailedWorker && (
+                  {application.skills && application.skills.length > 0 && (
                     <div className="worker-skills">
                       <h5>Skills:</h5>
                       <div className="skills-list">
-                        {/* Display Primary Skills */}
-                        {application.detailedWorker.worker?.skills_id?.primary_skills?.map((skill, index) => {
-                          const skillRank = getRankByExperience(skill.experience);
-                          return (
-                            <div key={`primary-${index}`} className="skill-item-with-rank">
-                              <div className="skill-rank-and-name">
-                                <img 
-                                  src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
-                                  alt={`${skillRank.name} Rank`}
-                                  className="skill-rank-icon-small"
-                                />
-                                <span className="skill-main-name">{skill.skill_name}</span>
-                              </div>
-                              {skill.sub_skills && skill.sub_skills.length > 0 && (
-                                <div className="skill-sub-skills">
-                                  - {skill.sub_skills.join(', ')}
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                        
-                        {/* Display Additional Skills */}
-                        {application.detailedWorker.worker?.skills_id?.additional_skills?.map((skill, index) => {
-                          const skillRank = getRankByExperience(skill.experience);
-                          return (
-                            <div key={`additional-${index}`} className="skill-item-with-rank">
-                              <div className="skill-rank-and-name">
-                                <img 
-                                  src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
-                                  alt={`${skillRank.name} Rank`}
-                                  className="skill-rank-icon-small"
-                                />
-                                <span className="skill-main-name">{skill.skill_name}</span>
-                              </div>
-                              {skill.sub_skills && skill.sub_skills.length > 0 && (
-                                <div className="skill-sub-skills">
-                                  - {skill.sub_skills.join(', ')}
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                        
-                        {/* Fallback to application.skills if detailedWorker is not available */}
-                        {!application.detailedWorker && application.skills && application.skills.length > 0 && (
-                          <>
-                            {application.skills.map((skill, index) => {
-                              const skillRank = getRankByExperience('2-5-years'); // Default to Gold
-                              
-                              // Parse skill to separate main skill and sub-skills
-                              const parseSkill = (skillString) => {
-                                if (skillString.includes(' - ')) {
-                                  const [mainSkill, ...subSkills] = skillString.split(' - ');
-                                  return {
-                                    main: mainSkill.trim(),
-                                    sub: subSkills.join(' - ').trim()
-                                  };
-                                }
-                                return {
-                                  main: skillString.trim(),
-                                  sub: null
-                                };
-                              };
-                              
-                              const parsedSkill = parseSkill(skill);
-                              
-                              return (
-                                <div key={index} className="skill-item-with-rank">
-                                  <div className="skill-rank-and-name">
-                                    <img 
-                                      src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
-                                      alt={`${skillRank.name} Rank`}
-                                      className="skill-rank-icon-small"
-                                    />
-                                    <span className="skill-main-name">{parsedSkill.main}</span>
-                                  </div>
-                                  {parsedSkill.sub && (
-                                    <div className="skill-sub-skills">
-                                      - {parsedSkill.sub}
-                                    </div>
-                                  )}
-                                </div>
-                              );
-                            })}
-                          </>
-                        )}
+                        {application.skills.map((skill, index) => (
+                          <span key={index} className="skill-tag">
+                            {skill}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   )}
@@ -483,11 +286,19 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
 
                 </div>
               ))}
-              </div>
-            </>
-          )}
-        </div>
+            </div>
+          </>
+        )}
       </div>
+
+      {/* ViewWorkersApplicationModal */}
+      {showViewWorkersModal && (
+        <ViewWorkersApplicationModal
+          jobPostId={jobPostId}
+          jobTitle={jobTitle}
+          onClose={handleCloseViewWorkersModal}
+        />
+      )}
     </div>
   );
 };

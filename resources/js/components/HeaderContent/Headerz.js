@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaCaretDown, FaUserCog, FaSignOutAlt } from 'react-icons/fa';
+import { FaUserCog, FaSignOutAlt } from 'react-icons/fa';
+import { IoMdArrowDropdown } from 'react-icons/io';
 import { IconBell, IconMenu2, IconMessageCircle } from '@tabler/icons-react';
 import axios from 'axios';
 import './../../../sass/components/Headerz.scss';
@@ -341,7 +342,7 @@ const Headerz = () => {
                 className={`dropdown-toggle ${isDropdownOpen ? 'open' : ''}`}
                 onClick={toggleDropdown}
               >
-                <FaCaretDown className="dropdown-icon" />
+                <IoMdArrowDropdown className="dropdown-icon" style={{ color: 'white' }} />
                 {isDropdownOpen && (
                   <div className="dropdown-menu">
                     <ul>

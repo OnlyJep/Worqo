@@ -3,19 +3,20 @@ import { FaBriefcase, FaCalendar, FaMapMarkerAlt, FaDollarSign, FaClock, FaUser 
 import { MdVerified } from 'react-icons/md';
 import { message } from 'antd';
 import axios from 'axios';
+import CancelJobApplicationModal from './CancelJobApplicationModal';
 import '../../../sass/components/profilesettings/myjobs.scss';
 
 const MyJobs = () => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('all');
+  const [cancelModal, setCancelModal] = useState({ isOpen: false, applicationId: null, jobTitle: '' });
 
   const applicationCategories = [
     { id: 'all', label: 'All Applications' },
     { id: 'for_interview', label: 'For Interview' },
     { id: 'accepted', label: 'Hired' },
-    { id: 'declined', label: 'Declined' },
-    { id: 'fired', label: 'Fired' }
+    { id: 'declined', label: 'Declined' }
   ];
 
   useEffect(() => {
@@ -85,6 +86,50 @@ const MyJobs = () => {
     return `₱${parseFloat(salary).toLocaleString()}${salaryType === 'per_hour' ? '/hour' : '/month'}`;
   };
 
+  const handleCancelApplication = async (applicationId) => {
+    try {
+      await axios.patch(`http://127.0.0.1:8000/api/job-applications/${applicationId}/status`, {
+        status: 'declined'
+      });
+      
+      // Update the application status in the local state
+      setApplications(prev => 
+        prev.map(app => 
+          app.id === applicationId 
+            ? { ...app, status: 'declined' }
+            : app
+        )
+      );
+      
+      message.success('Application cancelled successfully');
+    } catch (error) {
+      console.error('Error cancelling application:', error);
+      message.error('Failed to cancel application');
+    }
+  };
+
+  const openCancelModal = (applicationId, jobTitle) => {
+    setCancelModal({
+      isOpen: true,
+      applicationId: applicationId,
+      jobTitle: jobTitle
+    });
+  };
+
+  const closeCancelModal = () => {
+    setCancelModal({
+      isOpen: false,
+      applicationId: null,
+      jobTitle: ''
+    });
+  };
+
+  const confirmCancelApplication = () => {
+    if (cancelModal.applicationId) {
+      handleCancelApplication(cancelModal.applicationId);
+    }
+  };
+
 
 
   // Filter applications based on active tab
@@ -106,8 +151,8 @@ const MyJobs = () => {
 
   if (loading) {
     return (
-      <div className="my-jobs-container">
-        <div className="loading-container">
+      <div className="myjobs-container">
+        <div className="myjobs-loading-container">
           <p>Loading applications...</p>
         </div>
       </div>
@@ -115,17 +160,17 @@ const MyJobs = () => {
   }
 
   return (
-    <div className="my-jobs-container">
-      <div className="post-job-header">
-        <h2 className="post-job-title">My Jobs</h2>
+    <div className="myjobs-container">
+      <div className="myjobs-header">
+        <h2 className="myjobs-title">My Jobs</h2>
       </div>
 
-      <div className="bookings-navigation">
+      <div className="myjobs-navigation">
         {applicationCategories.map((category) => (
-          <div key={category.id} className="booking-tab-container">
+          <div key={category.id} className="myjobs-tab-container">
             <button
               type="button"
-              className={`booking-tab ${activeTab === category.id ? 'active' : ''}`}
+              className={`myjobs-tab ${activeTab === category.id ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -139,7 +184,7 @@ const MyJobs = () => {
         ))}
       </div>
 
-      <div className="jobs-list">
+      <div className="myjobs-list">
         {filteredApplications.length > 0 ? (
           filteredApplications.map((application) => {
             console.log('Application:', application);
@@ -165,26 +210,26 @@ const MyJobs = () => {
             }
 
             return (
-              <div key={application.id} className={`job-card ${application.status === 'declined' || application.status === 'fired' ? 'expired' : ''}`}>
-                        <div className="job-card-header">
-                          <div className="job-actions">
-                            {application.status === 'declined' && <div className="expired-badge">DECLINED</div>}
-                            {application.status === 'fired' && <div className="expired-badge">FIRED</div>}
-                          </div>
-                        </div>
+              <div key={application.id} className={`myjobs-card ${application.status === 'declined' ? 'expired' : ''}`}>
+                <div className="myjobs-card-header">
+                  <div className="myjobs-card-actions">
+                  </div>
+                </div>
 
-                <div className="job-content">
-                  <h3 className="job-title">{jobDetails?.job_title || 'Job Title Not Available'}</h3>
+                <div className="myjobs-content">
+                  <div className="myjobs-title-row">
+                    <h3 className="myjobs-job-title">{jobDetails?.job_title || 'Job Title Not Available'}</h3>
+                    <span className="myjobs-posted-date">Applied on {formatDate(application.created_at)}</span>
+                  </div>
                   
-                  <div className="job-metadata">
-                    <span className="posted-date">Applied on {formatDate(application.created_at)}</span>
-                    <span className="job-salary">₱{jobDetails?.salary?.toLocaleString() || 'N/A'}/{jobDetails?.salary_type === 'per_hour' ? 'hour' : 'month'}</span>
+                  <div className="myjobs-metadata">
+                    <span className="myjobs-salary">₱{jobDetails?.salary?.toLocaleString() || 'N/A'}/{jobDetails?.salary_type === 'per_hour' ? 'hour' : 'month'}</span>
                   </div>
 
-                  <div className="job-info-grid">
-                    <div className="info-item">
-                      <span className="info-label">Employer:</span>
-                      <span className="info-value">
+                  <div className="myjobs-info-grid">
+                    <div className="myjobs-info-item">
+                      <span className="myjobs-info-label">Employer:</span>
+                      <span className="myjobs-info-value">
                         {employerProfile ? 
                           `${employerProfile.first_name} ${employerProfile.middlename || ''} ${employerProfile.last_name}`.trim() : 
                           'Unknown Employer'
@@ -192,53 +237,89 @@ const MyJobs = () => {
                       </span>
                     </div>
 
-                    <div className="info-item">
-                      <span className="info-label">Status:</span>
-                      <span className={`status-badge status-${application.status}`}>
+                    <div className="myjobs-info-item">
+                      <span className="myjobs-info-label">Status:</span>
+                      <span 
+                        className="myjobs-info-value"
+                        style={{
+                          color: application.status === 'declined' ? '#dc3545' :
+                                 application.status === 'accepted' ? '#059669' :
+                                 application.status === 'for_interview' ? '#1890ff' : '#6b7280'
+                        }}
+                      >
                         {application.status === 'for_interview' ? 'For Interview' :
                          application.status === 'accepted' ? 'Hired' :
                          application.status.charAt(0).toUpperCase() + application.status.slice(1)}
                       </span>
                     </div>
 
-                    {application.cover_letter && (
-                      <div className="info-item cover-letter-item">
-                        <span className="info-label">Cover Letter:</span>
-                        <span className="info-value">{application.cover_letter}</span>
-                      </div>
-                    )}
-
                     {application.resume_path && (
-                      <div className="info-item resume-item">
-                        <span className="info-label">Your Resume:</span>
-                        <span className="info-value">
+                      <div className="myjobs-info-item myjobs-resume-item">
+                        <span className="myjobs-info-label">Resume/CV:</span>
+                        <span className="myjobs-info-value">
                           <a 
                             href={`http://127.0.0.1:8000/storage/${application.resume_path}`} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="resume-link"
+                            className="myjobs-resume-link"
                           >
                             View Resume
                           </a>
                         </span>
                       </div>
                     )}
+
+                    {/* Work Period Information */}
+                    {jobDetails?.work_start && jobDetails?.work_end && (
+                      <div className="myjobs-info-item myjobs-work-period-item">
+                        <span className="myjobs-info-label">Work Period:</span>
+                        <span className="myjobs-info-value">
+                          {new Date(jobDetails.work_start).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })} - {new Date(jobDetails.work_end).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}
+                        </span>
+                      </div>
+                    )}
                   </div>
+
+                  {application.status === 'for_interview' && (
+                    <div className="myjobs-cancel-section">
+                      <button 
+                        className="myjobs-cancel-btn"
+                        onClick={() => openCancelModal(application.id, jobDetails?.job_title)}
+                      >
+                        Cancel Application
+                      </button>
+                    </div>
+                  )}
 
                 </div>
               </div>
             );
           })
         ) : (
-          <div className="empty-state">
-            <div className="empty-icon">
+          <div className="myjobs-empty-state">
+            <div className="myjobs-empty-icon">
               <img src="/images/mybooking.svg" alt="No Applications" />
             </div>
-            <h3 className="empty-title">No Applications Yet</h3>
-            <p className="empty-description">You haven't applied for any jobs yet.</p>
+            <h3 className="myjobs-empty-title">No Applications Yet</h3>
+            <p className="myjobs-empty-description">You haven't applied for any jobs yet.</p>
           </div>
         )}
       </div>
+
+      <CancelJobApplicationModal
+        isOpen={cancelModal.isOpen}
+        onClose={closeCancelModal}
+        onConfirm={confirmCancelApplication}
+        jobTitle={cancelModal.jobTitle}
+      />
 
     </div>
   );

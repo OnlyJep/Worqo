@@ -99,6 +99,9 @@ const MyPostJob = () => {
         salary_type: jobData.salaryType,
         job_type: jobData.typeOfEmployment,
         hiring_type: jobData.hiringType,
+        team_size: jobData.teamSize,
+        work_start: jobData.workStart || null,
+        work_end: jobData.workEnd || null,
         application_start: jobData.applicationStart,
         application_deadline: jobData.applicationDeadline
       };
