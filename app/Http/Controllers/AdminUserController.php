@@ -234,6 +234,15 @@ class AdminUserController extends Controller
 
             Profile::create($profileData);
 
+            // Send welcome notification
+            NotificationController::createNotification(
+                $user->id,
+                null,
+                'welcome',
+                'WORQO Job Portal - Welcome to WORQO',
+                'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started. Complete your address: Click here'
+            );
+
             $user->load(['role', 'profile.gender', 'profile.suffix']);
 
             return response()->json([
@@ -532,19 +541,45 @@ public function bulkArchive(Request $request): JsonResponse
     public function switchUserRole(Request $request): JsonResponse
     {
         try {
+            Log::info('Role switch request received:', $request->all());
+            
+            // Get authenticated user
+            $authUser = Auth::guard('api')->user();
+            if (!$authUser) {
+                Log::warning('Role switch failed: User not authenticated');
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Authentication required'
+                ], 401);
+            }
+            
             // Get user ID from request
             $userId = $request->user_id;
             
             if (!$userId) {
+                Log::warning('Role switch failed: User ID is required');
                 return response()->json([
                     'success' => false,
                     'message' => 'User ID is required'
                 ], 400);
             }
             
+            // Security check: Users can only switch their own role
+            if ($authUser->id != $userId) {
+                Log::warning('Role switch failed: User trying to switch another user\'s role', [
+                    'auth_user_id' => $authUser->id,
+                    'target_user_id' => $userId
+                ]);
+                return response()->json([
+                    'success' => false,
+                    'message' => 'You can only switch your own role'
+                ], 403);
+            }
+            
             $user = User::find($userId);
             
             if (!$user) {
+                Log::warning('Role switch failed: User not found', ['user_id' => $userId]);
                 return response()->json([
                     'success' => false,
                     'message' => 'User not found'
@@ -557,6 +592,7 @@ public function bulkArchive(Request $request): JsonResponse
             ]);
 
             if ($validator->fails()) {
+                Log::warning('Role switch validation failed:', $validator->errors()->toArray());
                 return response()->json([
                     'success' => false,
                     'message' => 'Validation failed',
@@ -566,8 +602,15 @@ public function bulkArchive(Request $request): JsonResponse
 
             $newRoleId = $request->role_id;
             
+            Log::info('Role switch attempt:', [
+                'user_id' => $userId,
+                'current_role' => $user->role_id,
+                'new_role' => $newRoleId
+            ]);
+            
             // Check if user is trying to switch to the same role
             if ($user->role_id == $newRoleId) {
+                Log::info('Role switch skipped: User already has the target role');
                 return response()->json([
                     'success' => false,
                     'message' => 'User is already assigned to this role'
@@ -581,6 +624,12 @@ public function bulkArchive(Request $request): JsonResponse
             // Get the role name
             $role = Role::find($newRoleId);
             $roleName = $role ? $role->role_name : ($newRoleId == 1 ? 'Worker' : 'Employer');
+
+            Log::info('Role switch successful:', [
+                'user_id' => $userId,
+                'new_role_id' => $newRoleId,
+                'role_name' => $roleName
+            ]);
 
             // Return updated user data
             return response()->json([
@@ -597,10 +646,13 @@ public function bulkArchive(Request $request): JsonResponse
             ]);
 
         } catch (\Exception $e) {
-            Log::error('Role switch error: ' . $e->getMessage());
+            Log::error('Role switch error: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+                'request_data' => $request->all()
+            ]);
             return response()->json([
                 'success' => false,
-                'message' => 'Failed to switch role'
+                'message' => 'Failed to switch role: ' . $e->getMessage()
             ], 500);
         }
     }

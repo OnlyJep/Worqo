@@ -173987,6 +173987,7 @@ var Headerz = function Headerz() {
   var goToBookings = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
       var targetRoleId,
+        _user$user,
         authToken,
         response,
         data,
@@ -174021,7 +174022,7 @@ var Headerz = function Headerz() {
                 'Accept': 'application/json'
               },
               body: JSON.stringify({
-                user_id: user.id,
+                user_id: user.id || ((_user$user = user.user) === null || _user$user === void 0 ? void 0 : _user$user.id),
                 role_id: targetRoleId
               })
             });
@@ -174092,7 +174093,7 @@ var Headerz = function Headerz() {
   };
   var handleSwitchAccount = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var newRoleId, authToken, response, data, updatedUser, errorMessage, errorData, _t4, _t5;
+      var _user$user2, newRoleId, authToken, userId, response, data, updatedUser, errorMessage, errorData, _t4, _t5;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
@@ -174106,8 +174107,21 @@ var Headerz = function Headerz() {
             setIsDropdownOpen(false);
             _context4.p = 2;
             newRoleId = user.role_id === 1 ? 2 : 1;
-            authToken = localStorage.getItem('auth_token'); // Call backend API to update role in database
-            _context4.n = 3;
+            authToken = localStorage.getItem('auth_token'); // Ensure we have the correct user ID
+            userId = user.id || ((_user$user2 = user.user) === null || _user$user2 === void 0 ? void 0 : _user$user2.id);
+            if (userId) {
+              _context4.n = 3;
+              break;
+            }
+            console.error('No user ID found');
+            alert('Error: User ID not found. Please log in again.');
+            setIsSwitching(false);
+            return _context4.a(2);
+          case 3:
+            console.log('Switching role for user:', userId, 'from', user.role_id, 'to', newRoleId);
+
+            // Call backend API to update role in database
+            _context4.n = 4;
             return fetch('http://127.0.0.1:8000/api/users/switch-role', {
               method: 'POST',
               headers: {
@@ -174116,26 +174130,29 @@ var Headerz = function Headerz() {
                 'Accept': 'application/json'
               },
               body: JSON.stringify({
-                user_id: user.id,
+                user_id: userId,
                 role_id: newRoleId
               })
             });
-          case 3:
+          case 4:
             response = _context4.v;
+            console.log('Role switch response status:', response.status);
             if (!response.ok) {
-              _context4.n = 5;
+              _context4.n = 6;
               break;
             }
-            _context4.n = 4;
+            _context4.n = 5;
             return response.json();
-          case 4:
+          case 5:
             data = _context4.v;
+            console.log('Role switch response data:', data);
             if (data.success) {
               // Update localStorage with the new user data from backend
               updatedUser = _objectSpread(_objectSpread({}, user), {}, {
                 role_id: data.user.role_id,
                 role_name: data.user.role_name
               });
+              console.log('Updated user data:', updatedUser);
               localStorage.setItem('user', JSON.stringify(updatedUser));
               setUser(updatedUser);
 
@@ -174146,42 +174163,47 @@ var Headerz = function Headerz() {
               }, 2000);
             } else {
               console.error('Role switch failed:', data.message || 'Unknown error');
+              console.error('Full response:', data);
               alert('Failed to switch role: ' + (data.message || 'Unknown error'));
               setIsSwitching(false);
             }
-            _context4.n = 10;
+            _context4.n = 11;
             break;
-          case 5:
+          case 6:
             errorMessage = 'Failed to switch role';
-            _context4.p = 6;
-            _context4.n = 7;
+            errorData = null;
+            _context4.p = 7;
+            _context4.n = 8;
             return response.json();
-          case 7:
+          case 8:
             errorData = _context4.v;
             errorMessage = errorData.message || errorMessage;
-            _context4.n = 9;
+            console.error('API error response:', errorData);
+            _context4.n = 10;
             break;
-          case 8:
-            _context4.p = 8;
+          case 9:
+            _context4.p = 9;
             _t4 = _context4.v;
             errorMessage = "Server error (".concat(response.status, "): ").concat(response.statusText);
-          case 9:
+            console.error('Failed to parse error response:', _t4);
+          case 10:
             console.error('API error:', errorMessage);
+            console.error('Response status:', response.status);
             alert('Error: ' + errorMessage);
             setIsSwitching(false);
-          case 10:
-            _context4.n = 12;
-            break;
           case 11:
-            _context4.p = 11;
+            _context4.n = 13;
+            break;
+          case 12:
+            _context4.p = 12;
             _t5 = _context4.v;
             console.error('Switch account error:', _t5.message);
             alert('Network error: ' + _t5.message);
             setIsSwitching(false);
-          case 12:
+          case 13:
             return _context4.a(2);
         }
-      }, _callee4, null, [[6, 8], [2, 11]]);
+      }, _callee4, null, [[7, 9], [2, 12]]);
     }));
     return function handleSwitchAccount() {
       return _ref4.apply(this, arguments);
@@ -175389,11 +175411,11 @@ var Notif = function Notif() {
       systemNotifications.push({
         id: 'system-address-' + userId,
         user: 'WORQO Job Portal',
-        action: 'Welcome to WORQO',
-        message: 'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started.',
+        action: 'WORQO Job Portal - Welcome to WORQO',
+        message: 'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started. Complete your address: Click here',
         time: '2 minutes ago',
         isUnread: true,
-        profile_img: 'images/system-icon.svg',
+        profile_img: 'images/worqo_logo.svg',
         type: 'address',
         isSystem: true
       });
@@ -175405,36 +175427,36 @@ var Notif = function Notif() {
       if (workerProfileStatus === 'TO BE REVIEWED') {
         systemNotifications.push({
           id: 'system-review-pending-' + userId,
-          user: 'System',
+          user: 'WORQO Job Portal',
           action: 'Profile Review Pending',
           message: 'Please wait while your worker profile is being reviewed by WORQO Job Portal.',
           time: 'Just now',
           isUnread: true,
-          profile_img: 'images/system-icon.svg',
+          profile_img: 'images/worqo_logo.svg',
           type: 'review',
           isSystem: true
         });
       } else if (workerProfileStatus === 'ACCEPTED') {
         systemNotifications.push({
           id: 'system-review-approved-' + userId,
-          user: 'System',
+          user: 'WORQO Job Portal',
           action: 'Profile Approved',
           message: 'Congratulations! Your worker profile has been approved by WORQO Job Portal.',
           time: 'Just now',
           isUnread: true,
-          profile_img: 'images/system-icon.svg',
+          profile_img: 'images/worqo_logo.svg',
           type: 'review-approved',
           isSystem: true
         });
       } else if (workerProfileStatus === 'DECLINED') {
         systemNotifications.push({
           id: 'system-review-declined-' + userId,
-          user: 'System',
+          user: 'WORQO Job Portal',
           action: 'Profile Declined',
           message: 'Unfortunately, your worker profile has been declined by WORQO Job Portal. Please review and update your information.',
           time: 'Just now',
           isUnread: true,
-          profile_img: 'images/system-icon.svg',
+          profile_img: 'images/worqo_logo.svg',
           type: 'review-declined',
           isSystem: true
         });
@@ -175807,7 +175829,7 @@ var Notif = function Notif() {
                     },
                     children: "Click here"
                   })]
-                }), notif.type === 'address' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+                }), notif.type === 'address' && notif.message.includes('Complete your address: Click here') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                   style: {
                     margin: '0.25rem 0 0',
                     fontSize: '0.9rem'
@@ -206083,8 +206105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _sass_components_login_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/_login.scss */ "./resources/sass/components/_login.scss");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -206101,7 +206122,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
 
 
 
@@ -206125,7 +206145,7 @@ var Login = function Login() {
     _useState8 = _slicedToArray(_useState7, 2),
     error = _useState8[0],
     setError = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState0 = _slicedToArray(_useState9, 2),
     isLoading = _useState0[0],
     setIsLoading = _useState0[1];
@@ -206140,12 +206160,6 @@ var Login = function Login() {
       setEmail(rememberedEmail);
       setRememberMe(true);
     }
-    var timer = setTimeout(function () {
-      setIsLoading(false);
-    }, 1000);
-    return function () {
-      return clearTimeout(timer);
-    };
   }, []);
   var handleLogin = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(e) {
@@ -206164,11 +206178,6 @@ var Login = function Login() {
             return _context.a(2);
           case 1:
             setIsLoading(true);
-            antd__WEBPACK_IMPORTED_MODULE_1__["default"].loading({
-              content: 'Logging in... Please wait',
-              key: 'login',
-              duration: 0
-            });
             _context.p = 2;
             _context.n = 3;
             return fetch('http://127.0.0.1:8000/api/login', {
@@ -206354,95 +206363,93 @@ var Login = function Login() {
       return _ref2.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "login-wrapper",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "login-card",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "login-image-section"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: "login-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "login-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
-              className: "login-title",
-              children: "Login to Your Account"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-              className: "login-subtitle",
-              children: "See what's going on with your business"
-            })]
-          }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-            className: "login-error",
-            children: error
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-            onSubmit: handleLogin,
-            className: "login-form-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "login-input-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                type: "email",
-                className: "login-email-input",
-                placeholder: "Email",
-                value: email,
-                onChange: function onChange(e) {
-                  return setEmail(e.target.value);
-                },
-                required: true
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "login-password-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                type: showPassword ? 'text' : 'password',
-                className: "login-password-input",
-                placeholder: "Password",
-                value: password,
-                onChange: function onChange(e) {
-                  return setPassword(e.target.value);
-                },
-                required: true
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                className: "password-toggle",
-                onClick: function onClick() {
-                  return setShowPassword(!showPassword);
-                },
-                children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEye, {})
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "login-options-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("label", {
-                className: "remember-me",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                  type: "checkbox",
-                  checked: rememberMe,
-                  onChange: function onChange(e) {
-                    return setRememberMe(e.target.checked);
-                  }
-                }), "Remember me"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                to: "/forgot-password",
-                className: "forgot-password",
-                children: "Forgot Password?"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-              type: "submit",
-              className: "login-submit-btn",
-              disabled: isLoading,
-              children: isLoading ? 'Logging in...' : 'Login'
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "login-signup",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
-              children: ["Not Registered Yet?", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                to: "/register",
-                className: "login-signup-link",
-                children: "Create an account"
-              })]
-            })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    className: "login-wrapper",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "login-card",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "login-image-section"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "login-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "login-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+            className: "login-title",
+            children: "Login to Your Account"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+            className: "login-subtitle",
+            children: "See what's going on with your business"
           })]
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "login-error",
+          children: error
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+          onSubmit: handleLogin,
+          className: "login-form-container",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "login-input-group",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              type: "email",
+              className: "login-email-input",
+              placeholder: "Email",
+              value: email,
+              onChange: function onChange(e) {
+                return setEmail(e.target.value);
+              },
+              required: true
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "login-password-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              type: showPassword ? 'text' : 'password',
+              className: "login-password-input",
+              placeholder: "Password",
+              value: password,
+              onChange: function onChange(e) {
+                return setPassword(e.target.value);
+              },
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "password-toggle",
+              onClick: function onClick() {
+                return setShowPassword(!showPassword);
+              },
+              children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEye, {})
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "login-options-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+              className: "remember-me",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                type: "checkbox",
+                checked: rememberMe,
+                onChange: function onChange(e) {
+                  return setRememberMe(e.target.checked);
+                }
+              }), "Remember me"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+              to: "/forgot-password",
+              className: "forgot-password",
+              children: "Forgot Password?"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            type: "submit",
+            className: "login-submit-btn",
+            disabled: isLoading,
+            children: isLoading ? 'Signing In...' : 'Login'
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "login-signup",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+            children: ["Not Registered Yet?", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+              to: "/register",
+              className: "login-signup-link",
+              children: "Create an account"
+            })]
+          })
         })]
-      })
-    })]
+      })]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Login);

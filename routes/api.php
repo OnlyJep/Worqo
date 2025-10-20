@@ -46,7 +46,7 @@ Route::post('/users', [AdminUserController::class, 'store']);
 Route::post('/users/bulk-archive', [AdminUserController::class, 'bulkArchive']);
 
 // USER ROLE SWITCHING - Must be before /users/{id} route to avoid conflict
-Route::post('/users/switch-role', [AdminUserController::class, 'switchUserRole'])->name('users.switchRole');
+Route::post('/users/switch-role', [AdminUserController::class, 'switchUserRole'])->middleware('auth:api')->name('users.switchRole');
 
 Route::get('/users/{id}', [AdminUserController::class, 'show']);
 Route::get('/users/{id}/status', [AdminUserController::class, 'showWithStatus']);

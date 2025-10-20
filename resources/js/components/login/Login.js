@@ -3,14 +3,13 @@ import { message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './../../../sass/components/_login.scss';
-import Loader from '../LoaderContent/loader';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
@@ -20,10 +19,6 @@ const Login = () => {
       setEmail(rememberedEmail);
       setRememberMe(true);
     }
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
   }, []);
 
   const handleLogin = async (e) => {
@@ -37,7 +32,6 @@ const Login = () => {
     }
 
     setIsLoading(true);
-    message.loading({ content: 'Logging in... Please wait', key: 'login', duration: 0 });
 
     try {
       const response = await fetch('http://127.0.0.1:8000/api/login', {
@@ -163,76 +157,73 @@ const Login = () => {
   };
 
   return (
-    <>
-      {isLoading && <Loader />}
-      <div className="login-wrapper">
-        <div className="login-card">
-          <div className="login-image-section"></div>
-          <div className="login-content">
-            <div className="login-header">
-              <h2 className="login-title">Login to Your Account</h2>
-              <p className="login-subtitle">See what's going on with your business</p>
+    <div className="login-wrapper">
+      <div className="login-card">
+        <div className="login-image-section"></div>
+        <div className="login-content">
+          <div className="login-header">
+            <h2 className="login-title">Login to Your Account</h2>
+            <p className="login-subtitle">See what's going on with your business</p>
+          </div>
+
+          {error && <p className="login-error">{error}</p>}
+
+          <form onSubmit={handleLogin} className="login-form-container">
+            <div className="login-input-group">
+              <input
+                type="email"
+                className="login-email-input"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
 
-            {error && <p className="login-error">{error}</p>}
-
-            <form onSubmit={handleLogin} className="login-form-container">
-              <div className="login-input-group">
-                <input
-                  type="email"
-                  className="login-email-input"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className="login-password-group">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  className="login-password-input"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-                <span className="password-toggle" onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </span>
-              </div>
-
-              <div className="login-options-group">
-                <label className="remember-me">
-                  <input
-                    type="checkbox"
-                    checked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                  />
-                  Remember me
-                </label>
-                <Link to="/forgot-password" className="forgot-password">
-                  Forgot Password?
-                </Link>
-              </div>
-
-              <button type="submit" className="login-submit-btn" disabled={isLoading}>
-                {isLoading ? 'Logging in...' : 'Login'}
-              </button>
-            </form>
-
-            <div className="login-signup">
-              <p>
-                Not Registered Yet?{' '}
-                <Link to="/register" className="login-signup-link">
-                  Create an account
-                </Link>
-              </p>
+            <div className="login-password-group">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                className="login-password-input"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <span className="password-toggle" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
+
+            <div className="login-options-group">
+              <label className="remember-me">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                />
+                Remember me
+              </label>
+              <Link to="/forgot-password" className="forgot-password">
+                Forgot Password?
+              </Link>
+            </div>
+
+            <button type="submit" className="login-submit-btn" disabled={isLoading}>
+              {isLoading ? 'Signing In...' : 'Login'}
+            </button>
+          </form>
+
+          <div className="login-signup">
+            <p>
+              Not Registered Yet?{' '}
+              <Link to="/register" className="login-signup-link">
+                Create an account
+              </Link>
+            </p>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

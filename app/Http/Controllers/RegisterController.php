@@ -109,8 +109,8 @@ class RegisterController extends Controller
                 $user->id,
                 null,
                 'welcome',
-                'Welcome to WORQO',
-                'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started.'
+                'WORQO Job Portal - Welcome to WORQO',
+                'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started. Complete your address: Click here'
             );
 
             return response()->json([

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\NotificationController;
 
 class AdminListController extends Controller
 {
@@ -166,6 +167,15 @@ class AdminListController extends Controller
             }
 
             Profile::create($profileData);
+
+            // Send welcome notification
+            NotificationController::createNotification(
+                $user->id,
+                null,
+                'welcome',
+                'WORQO Job Portal - Welcome to WORQO',
+                'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started. Complete your address: Click here'
+            );
 
             $user->load(['role', 'profile.gender', 'profile.suffix']);
 

@@ -46,7 +46,7 @@ class NotificationController extends Controller
             // Format notifications for frontend
             $formattedNotifications = $notifications->map(function($notif) {
                 $senderName = 'WORQO Job Portal';
-                $senderProfileImg = 'images/worqo_icon.svg';
+                $senderProfileImg = 'images/worqo_logo.svg';
                 
                 if ($notif->sender) {
                     $profile = $notif->sender->profile;

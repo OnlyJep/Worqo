@@ -72,11 +72,11 @@ const Notif = () => {
       systemNotifications.push({
         id: 'system-address-' + userId,
         user: 'WORQO Job Portal',
-        action: 'Welcome to WORQO',
-        message: 'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started.',
+        action: 'WORQO Job Portal - Welcome to WORQO',
+        message: 'Welcome to WORQO! We\'re excited to have you onboard. Complete your profile to get started. Complete your address: Click here',
         time: '2 minutes ago',
         isUnread: true,
-        profile_img: 'images/system-icon.svg',
+        profile_img: 'images/worqo_logo.svg',
         type: 'address',
         isSystem: true
       });
@@ -87,36 +87,36 @@ const Notif = () => {
       if (workerProfileStatus === 'TO BE REVIEWED') {
         systemNotifications.push({
           id: 'system-review-pending-' + userId,
-          user: 'System',
+          user: 'WORQO Job Portal',
           action: 'Profile Review Pending',
           message: 'Please wait while your worker profile is being reviewed by WORQO Job Portal.',
           time: 'Just now',
           isUnread: true,
-          profile_img: 'images/system-icon.svg',
+          profile_img: 'images/worqo_logo.svg',
           type: 'review',
           isSystem: true
         });
       } else if (workerProfileStatus === 'ACCEPTED') {
         systemNotifications.push({
           id: 'system-review-approved-' + userId,
-          user: 'System',
+          user: 'WORQO Job Portal',
           action: 'Profile Approved',
           message: 'Congratulations! Your worker profile has been approved by WORQO Job Portal.',
           time: 'Just now',
           isUnread: true,
-          profile_img: 'images/system-icon.svg',
+          profile_img: 'images/worqo_logo.svg',
           type: 'review-approved',
           isSystem: true
         });
       } else if (workerProfileStatus === 'DECLINED') {
         systemNotifications.push({
           id: 'system-review-declined-' + userId,
-          user: 'System',
+          user: 'WORQO Job Portal',
           action: 'Profile Declined',
           message: 'Unfortunately, your worker profile has been declined by WORQO Job Portal. Please review and update your information.',
           time: 'Just now',
           isUnread: true,
-          profile_img: 'images/system-icon.svg',
+          profile_img: 'images/worqo_logo.svg',
           type: 'review-declined',
           isSystem: true
         });
@@ -375,7 +375,7 @@ const Notif = () => {
                         </a>
                       </p>
                     )}
-                    {notif.type === 'address' && (
+                    {notif.type === 'address' && notif.message.includes('Complete your address: Click here') && (
                       <p style={{ margin: '0.25rem 0 0', fontSize: '0.9rem' }}>
                         <span style={{ color: '#333' }}>Complete your address: </span>
                         <a

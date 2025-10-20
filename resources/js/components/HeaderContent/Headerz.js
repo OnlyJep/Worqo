@@ -182,10 +182,10 @@ const Headerz = () => {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify({
-            user_id: user.id,
-            role_id: targetRoleId
-          })
+        body: JSON.stringify({
+          user_id: user.id || user.user?.id,
+          role_id: targetRoleId
+        })
         });
         
         if (response.ok) {
@@ -249,6 +249,18 @@ const Headerz = () => {
       const newRoleId = user.role_id === 1 ? 2 : 1;
       const authToken = localStorage.getItem('auth_token');
       
+      // Ensure we have the correct user ID
+      const userId = user.id || user.user?.id;
+      
+      if (!userId) {
+        console.error('No user ID found');
+        alert('Error: User ID not found. Please log in again.');
+        setIsSwitching(false);
+        return;
+      }
+      
+      console.log('Switching role for user:', userId, 'from', user.role_id, 'to', newRoleId);
+      
       // Call backend API to update role in database
       const response = await fetch('http://127.0.0.1:8000/api/users/switch-role', {
         method: 'POST',
@@ -258,13 +270,16 @@ const Headerz = () => {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          user_id: user.id,
+          user_id: userId,
           role_id: newRoleId
         })
       });
       
+      console.log('Role switch response status:', response.status);
+      
       if (response.ok) {
         const data = await response.json();
+        console.log('Role switch response data:', data);
         
         if (data.success) {
           // Update localStorage with the new user data from backend
@@ -273,6 +288,8 @@ const Headerz = () => {
             role_id: data.user.role_id,
             role_name: data.user.role_name
           };
+          
+          console.log('Updated user data:', updatedUser);
           
           localStorage.setItem('user', JSON.stringify(updatedUser));
           setUser(updatedUser);
@@ -284,18 +301,25 @@ const Headerz = () => {
           }, 2000);
         } else {
           console.error('Role switch failed:', data.message || 'Unknown error');
+          console.error('Full response:', data);
           alert('Failed to switch role: ' + (data.message || 'Unknown error'));
           setIsSwitching(false);
         }
       } else {
         let errorMessage = 'Failed to switch role';
+        let errorData = null;
+        
         try {
-          const errorData = await response.json();
+          errorData = await response.json();
           errorMessage = errorData.message || errorMessage;
+          console.error('API error response:', errorData);
         } catch (e) {
           errorMessage = `Server error (${response.status}): ${response.statusText}`;
+          console.error('Failed to parse error response:', e);
         }
+        
         console.error('API error:', errorMessage);
+        console.error('Response status:', response.status);
         alert('Error: ' + errorMessage);
         setIsSwitching(false);
       }

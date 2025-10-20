@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Worqo</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="icon" type="image/svg+xml" href="/../images/worqo_icon.svg">
+    <link rel="icon" type="image/svg+xml" href="/../images/worqo_logo.svg">
 </head>
 <body>
     <div id="root"></div>
