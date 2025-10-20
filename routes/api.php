@@ -171,6 +171,7 @@ Route::get('/job-applications/job/{jobPostId}', [JobApplicationController::class
 Route::post('/job-applications/apply', [JobApplicationController::class, 'applyForJob'])->name('job-applications.apply');
 Route::patch('/job-applications/{applicationId}/status', [JobApplicationController::class, 'updateApplicationStatus'])->name('job-applications.status');
 Route::get('/job-applications/worker/{workerId}', [JobApplicationController::class, 'getWorkerApplications'])->name('job-applications.worker');
+Route::post('/job-applications/check-availability', [JobApplicationController::class, 'checkWorkerAvailability'])->name('job-applications.check-availability');
 
 // DASHBOARD STATS ROUTE    
 Route::get('/dashboard-stats', [DashboardController::class, 'getDashboardStats'])->name('dashboard.stats');

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './../../../sass/components/JobProfile.scss'; // Reuse profile.scss
+import './../../../sass/components/JobProfile.scss';
 import Headerz from "../HeaderContent/Headerz";
 import Footer from "../FooterContent/footer";
 import profilePhoto from '../../../../resources/sass/img/pfp.svg';

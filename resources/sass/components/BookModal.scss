@@ -1,4 +1,4 @@
-.adminmodal-overlay {
+.booking-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   overflow: auto;
 }
 
-.adminmodal {
+.booking-modal-container {
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
@@ -24,16 +24,16 @@
   flex-direction: column;
   overflow: hidden;
 
-  h2 {
+  .booking-modal-title {
     margin: 0 0 16px;
     font-size: 22px;
-    color: #1E90FF; // Blue theme
+    color: #0a2a40; // Dark blue theme matching the app
     text-align: center;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
   }
 
-  .adminmodal-content {
+  .booking-modal-form-content {
     flex: 1;
     overflow-y: auto;
     padding-right: 8px;
@@ -41,36 +41,21 @@
     flex-direction: column;
     gap: 12px;
 
-    .form-group {
+    .booking-form-field {
       display: flex;
       flex-direction: column;
       gap: 6px;
 
-      &.name-row {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        @media (max-width: 400px) {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .name-field {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      label {
+      .booking-form-label {
         font-weight: 500;
-        color: #2d3748;
+        color: #0b0d0f; // Dark text matching theme
         font-size: 13px;
         font-family: 'Inter', sans-serif;
       }
 
-      input,
-      select,
-      textarea {
+      .booking-form-input,
+      .booking-form-select,
+      .booking-form-textarea {
         padding: 8px;
         border: 1px solid #d1d5db;
         border-radius: 8px;
@@ -82,26 +67,86 @@
         transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
         &:focus {
-          border-color: #1E90FF; // Blue theme
-          box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
+          border-color: #0a2a40; // Dark blue theme
+          box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);
           outline: none;
         }
 
-        &:disabled {
+        &.booking-form-input-disabled {
           background: #e5e7eb;
           cursor: not-allowed;
           opacity: 0.7;
         }
       }
 
-      textarea {
+      .booking-form-textarea {
         min-height: 80px;
         resize: vertical;
+      }
+
+      .booking-form-hint {
+        color: #6b7280;
+        font-size: 12px;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .salary-calculation-preview {
+        background: #f8fafc;
+        border: 1px solid #E6F2EF;
+        border-radius: 8px;
+        padding: 16px;
+        margin-top: 8px;
+
+        .calculation-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 4px 0;
+          border-bottom: 1px solid #e5e7eb;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &.total-row {
+            border-top: 2px solid #0a2a40;
+            margin-top: 8px;
+            padding-top: 8px;
+            font-weight: 600;
+          }
+
+          .calculation-label {
+            color: #0b0d0f;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+          }
+
+          .calculation-value {
+            color: #0a2a40;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+          }
+        }
+
+        .calculation-explanation {
+          margin-top: 12px;
+          padding-top: 8px;
+          border-top: 1px solid #e5e7eb;
+
+          small {
+            color: #6b7280;
+            font-size: 12px;
+            font-style: italic;
+            font-family: 'Inter', sans-serif;
+          }
+        }
       }
     }
   }
 
-  .adminmodal-buttons {
+  .booking-modal-actions {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
@@ -109,91 +154,93 @@
     padding-top: 12px;
     border-top: 1px solid #e5e7eb;
 
-    .submit-button {
-      background: #1E90FF; // Blue theme
-      color: #ffffff;
+    .booking-btn {
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s ease;
       border: none;
-      padding: 8px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s ease;
 
-      &:hover {
-        background: #104E8B; // Darker blue
+      &.booking-btn-submit {
+        background: #0a2a40; // Dark blue theme matching the app
+        color: #ffffff;
+
+        &:hover:not(:disabled) {
+          background: #062541; // Darker blue on hover
+        }
+
+        &:disabled {
+          background: #6b7280;
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
       }
-    }
 
-    .cancel-button {
-      background: #f3f4f6;
-      color: #374151;
-      border: 1px solid #d1d5db;
-      padding: 8px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s ease;
+      &.booking-btn-cancel {
+        background: #f7f9fc;
+        color: #0b0d0f;
+        border: 1px solid #d1d5db;
 
-      &:hover {
-        background: #e5e7eb;
+        &:hover {
+          background: #e5e7eb;
+          border-color: #9ca3af;
+        }
       }
     }
   }
 
-  .adminmodal-content::-webkit-scrollbar {
+  .booking-modal-form-content::-webkit-scrollbar {
     width: 6px;
   }
 
-  .adminmodal-content::-webkit-scrollbar-track {
+  .booking-modal-form-content::-webkit-scrollbar-track {
     background: #f1f5f9;
     border-radius: 8px;
   }
 
-  .adminmodal-content::-webkit-scrollbar-thumb {
+  .booking-modal-form-content::-webkit-scrollbar-thumb {
     background: #9ca3af;
     border-radius: 8px;
   }
 
   @media (max-width: 600px) {
-    .adminmodal {
+    .booking-modal-container {
       width: 90%;
       max-height: 80vh;
       padding: 16px;
     }
 
-    h2 {
+    .booking-modal-title {
       font-size: 20px;
     }
 
-    .adminmodal-content {
+    .booking-modal-form-content {
       gap: 10px;
     }
 
-    .form-group {
+    .booking-form-field {
       gap: 4px;
 
-      label {
+      .booking-form-label {
         font-size: 12px;
       }
 
-      input,
-      select,
-      textarea {
+      .booking-form-input,
+      .booking-form-select,
+      .booking-form-textarea {
         font-size: 13px;
         padding: 6px;
       }
     }
 
-    .adminmodal-buttons {
+    .booking-modal-actions {
       flex-direction: column;
       gap: 8px;
 
-      .submit-button,
-      .cancel-button {
+      .booking-btn {
         padding: 8px;
         font-size: 13px;
       }

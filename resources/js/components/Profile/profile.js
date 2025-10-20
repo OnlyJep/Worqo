@@ -216,6 +216,7 @@ const Profile = ({ initialServiceType }) => {
           // Add verified and rank information
           verified: workerData.worker?.verified === true || workerData.worker?.verified === 1,
           rank: workerData.worker?.rank || null,
+          preferred_working_days: workerData.worker?.preferred_working_days || [],
         };
 
         console.log("Formatted worker data:", formattedWorker);
@@ -540,8 +541,13 @@ const Profile = ({ initialServiceType }) => {
               <span className="stat-number">{worker.work_type || 'Part-time'}</span>
             </div>
             <div className="stat-item">
-              <span className="stat-label">Hourly Rate</span>
-              <span className="stat-number">₱{worker.hourlyRate}/hr</span>
+              <span className="stat-label">Preferred Working Days</span>
+              <span className="stat-number">
+                {worker.preferred_working_days && worker.preferred_working_days.length > 0 
+                  ? worker.preferred_working_days.join(', ').replace(/\b\w/g, l => l.toUpperCase())
+                  : 'Not specified'
+                }
+              </span>
             </div>
             <div className="stat-item">
               <span className="stat-label">Hours/Day</span>
