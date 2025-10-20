@@ -102,7 +102,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const [availableSubSkills, setAvailableSubSkills] = useState([]);
   const [profileId, setProfileId] = useState(null);
   const [credentials, setCredentials] = useState([]);
-  const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null });
+  const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null, credentials_doc: null });
+  const [editingCredentialIndex, setEditingCredentialIndex] = useState(null);
   const [errors, setErrors] = useState({});
   const [selectedCredentialCategory, setSelectedCredentialCategory] = useState("");
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
@@ -112,7 +113,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const [workPreferencesCompleted, setWorkPreferencesCompleted] = useState(false);
   const [workType, setWorkType] = useState('part-time');
   const [hoursPerDay, setHoursPerDay] = useState(4);
-  const [monthlySalary, setMonthlySalary] = useState('');
   const [preferredWorkingHours, setPreferredWorkingHours] = useState([]);
   const [bio, setBio] = useState('');
   const [isWorkTypeDropdownOpen, setIsWorkTypeDropdownOpen] = useState(false);
@@ -692,6 +692,12 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
   const handleWorkingDayToggle = (day) => {
     console.log('Toggling working day:', day);
+    
+    // Prevent changes for full-time work
+    if (workType === 'full-time') {
+      return;
+    }
+    
     const isSelected = preferredWorkingHours.includes(day);
     
     if (isSelected) {
@@ -701,6 +707,9 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       // Add day
       setPreferredWorkingHours(prev => [...prev, day]);
     }
+    
+    // Close the dropdown after selection
+    setIsWorkingDaysDropdownOpen(false);
   };
 
   const handleSkillItemClick = (skill, action) => {
@@ -776,36 +785,45 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const handleNewCredentialChange = (e, field) => {
     console.log('Changing credential field:', field);
     const value = e.target?.type === "file" ? e.target.files[0] : e.target?.value || e;
-    if (field === "credentials_photo" && value) {
-      if (
-        ![
+    if ((field === "credentials_photo" || field === "credentials_doc") && value) {
+      if (field === "credentials_photo") {
+        // Validate photo files (JPG, PNG only)
+        if (!["image/jpeg", "image/png"].includes(value.type)) {
+          setErrors((prev) => ({
+            ...prev,
+            new_credential_photo: "Photo must be JPG or PNG",
+          }));
+          return;
+        }
+      } else if (field === "credentials_doc") {
+        // Validate document files (PDF, DOC, DOCX only)
+        if (![
           "application/pdf",
           "application/msword",
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-          "image/jpeg",
-          "image/png",
-        ].includes(value.type)
-      ) {
-        setErrors((prev) => ({
-          ...prev,
-          new_credential_photo: "Credential must be PDF, Word, JPG, or PNG",
-        }));
-        return;
+        ].includes(value.type)) {
+          setErrors((prev) => ({
+            ...prev,
+            new_credential_doc: "Document must be PDF, DOC, or DOCX",
+          }));
+          return;
+        }
       }
+      
       if (value.size > 2048 * 1024) {
         setErrors((prev) => ({
           ...prev,
-          new_credential_photo: "Credential file must not exceed 2 MB",
+          [field === "credentials_photo" ? "new_credential_photo" : "new_credential_doc"]: "File must not exceed 2 MB",
         }));
         return;
       }
     }
     setNewCredential((prev) => ({ ...prev, [field]: value }));
-    setErrors((prev) => ({ ...prev, new_credential_name: "", new_credential_photo: "" }));
+    setErrors((prev) => ({ ...prev, new_credential_name: "", new_credential_photo: "", new_credential_doc: "" }));
   };
 
   const addCredential = () => {
-    console.log('Adding credential:', newCredential);
+    console.log('Adding/updating credential:', newCredential, 'editing index:', editingCredentialIndex);
     if (!selectedCredentialCategory) {
       setErrors((prev) => ({ ...prev, new_credential_category: "Please select a credential category" }));
       return;
@@ -814,15 +832,33 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       setErrors((prev) => ({ ...prev, new_credential_name: "Please select a credential type" }));
       return;
     }
-    // At least one credential is required
-    if (credentials.length === 0 && (!newCredential.credentials_photo && !newCredential.credentials_name)) {
-      setErrors((prev) => ({ ...prev, new_credential_photo: "Please add at least one credential" }));
+    // At least one file (photo or document) is required
+    if (credentials.length === 0 && (!newCredential.credentials_photo && !newCredential.credentials_doc)) {
+      setErrors((prev) => ({ ...prev, new_credential_photo: "Please upload at least one file (photo or document)" }));
       return;
     }
-    setCredentials((prev) => [...prev, { ...newCredential, category: selectedCredentialCategory }]);
-    setNewCredential({ credentials_name: "", credentials_photo: null });
+
+    const credentialData = { ...newCredential, category: selectedCredentialCategory };
+
+    if (editingCredentialIndex !== null) {
+      // Update existing credential
+      setCredentials((prev) => 
+        prev.map((cred, index) => 
+          index === editingCredentialIndex ? credentialData : cred
+        )
+      );
+      console.log('Updated credential at index:', editingCredentialIndex);
+    } else {
+      // Add new credential
+      setCredentials((prev) => [...prev, credentialData]);
+      console.log('Added new credential');
+    }
+
+    // Reset form
+    setNewCredential({ credentials_name: "", credentials_photo: null, credentials_doc: null });
     setSelectedCredentialCategory("");
-    setErrors((prev) => ({ ...prev, new_credential_category: "", new_credential_name: "", new_credential_photo: "" }));
+    setEditingCredentialIndex(null);
+    setErrors((prev) => ({ ...prev, new_credential_category: "", new_credential_name: "", new_credential_photo: "", new_credential_doc: "" }));
     if (credentialFileRef.current) {
       credentialFileRef.current.value = "";
     }
@@ -1255,7 +1291,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     submitData.append('profile_id', profileId);
     submitData.append('work_type', workType);
     submitData.append('hours_per_day', hoursPerDay);
-    submitData.append('monthly_salary', monthlySalary);
     submitData.append('preferred_working_hours', JSON.stringify(preferredWorkingHours));
     submitData.append('bio', bio);
 
@@ -1263,6 +1298,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     skillsId.primary_skills.forEach((skill, index) => {
       submitData.append(`skills_id[primary_skills][${index}][skill_id]`, skill.skill_id);
       submitData.append(`skills_id[primary_skills][${index}][skill_name]`, skill.skill_name);
+      submitData.append(`skills_id[primary_skills][${index}][experience]`, skill.experience || '0-11-months');
       skill.sub_skills.forEach((subSkill, subIndex) => {
         submitData.append(`skills_id[primary_skills][${index}][sub_skills][${subIndex}]`, subSkill);
       });
@@ -1272,6 +1308,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     skillsId.additional_skills.forEach((skill, index) => {
       submitData.append(`skills_id[additional_skills][${index}][skill_id]`, skill.skill_id);
       submitData.append(`skills_id[additional_skills][${index}][skill_name]`, skill.skill_name);
+      submitData.append(`skills_id[additional_skills][${index}][experience]`, skill.experience || '0-11-months');
       skill.sub_skills.forEach((subSkill, subIndex) => {
         submitData.append(`skills_id[additional_skills][${index}][sub_skills][${subIndex}]`, subSkill);
       });
@@ -1281,6 +1318,9 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       submitData.append(`credentials[${index}][credentials_name]`, cred.credentials_name);
       if (cred.credentials_photo instanceof File) {
         submitData.append(`credentials[${index}][credentials_photo]`, cred.credentials_photo);
+      }
+      if (cred.credentials_doc instanceof File) {
+        submitData.append(`credentials[${index}][credentials_doc]`, cred.credentials_doc);
       }
     });
 
@@ -1319,6 +1359,10 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
         localStorage.removeItem(`primarySkill_${user.id}`);
         localStorage.removeItem(`additionalSkills_${user.id}`);
         localStorage.removeItem(`profile_${user.id}`);
+        
+        // Dispatch profileCompleted event to hide notification immediately
+        window.dispatchEvent(new CustomEvent('profileCompleted'));
+        
         onComplete();
         if (window.location.pathname.includes('/skill-rating')) {
           // If used as a page, use window.location
@@ -1433,19 +1477,25 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                             <div
                               key={option.value}
                               className={`dropdown-item ${workType === option.value ? 'selected' : ''}`}
-                              onClick={(e) => {
+                                onClick={(e) => {
                                 e.preventDefault();
                                 e.stopPropagation();
                                 console.log('Option clicked:', option.label);
                                 setWorkType(option.value);
                                 setIsWorkTypeDropdownOpen(false);
-                        // Auto-set hours per day based on work type
+                        
+                        // Auto-set hours per day and working days based on work type
                                 if (option.value === 'full-time') {
+                          setHoursPerDay(168); // 168 hours per week (28 hours per day for 6 days)
+                          setPreferredWorkingHours(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']);
+                        } else if (option.value === 'part-time') {
                           setHoursPerDay(8);
-                                } else if (option.value === 'part-time') {
-                          setHoursPerDay(4);
-                                } else if (option.value === 'one-time') {
+                          // Reset working days for part-time to allow fresh selection
+                          setPreferredWorkingHours([]);
+                        } else if (option.value === 'one-time') {
                           setHoursPerDay(1);
+                          // Reset working days for one-time to allow fresh selection
+                          setPreferredWorkingHours([]);
                         }
                       }}
                     >
@@ -1458,85 +1508,87 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">Hours Per Day</label>
+                    <label className="form-label">
+                      {workType === 'full-time' ? 'Hours Per Week' : 
+                       workType === 'part-time' ? 'Hours Per Day' : 
+                       'Hours (Custom)'}
+                    </label>
                     <Input
                       type="number"
                       value={hoursPerDay}
                       onChange={(e) => setHoursPerDay(parseInt(e.target.value) || 1)}
                       min="1"
-                      max="24"
+                      max={workType === 'full-time' ? '168' : workType === 'part-time' ? '34' : '23'}
                       className="form-input"
                       disabled={workType === 'full-time'}
                     />
                     {workType === 'full-time' && (
-                      <span className="form-help">Full-time automatically set to 8 hours per day</span>
+                      <span className="form-help">Full-time automatically set to 168 hours per week (Monday-Saturday)</span>
+                    )}
+                    {workType === 'part-time' && (
+                      <span className="form-help">Part-time: 8 hours per day (1-34 hours, flexible days)</span>
+                    )}
+                    {workType === 'one-time' && (
+                      <span className="form-help">One-time: Set your preferred hours (1-23 hours, flexible days)</span>
                     )}
                   </div>
                 </div>
 
-                <div className="form-row">
-                  <div className="form-group">
-                    <label className="form-label">Expected Monthly Salary </label>
-                    <Input
-                      type="number"
-                      value={monthlySalary}
-                      onChange={(e) => setMonthlySalary(e.target.value)}
-                      min="0"
-                      step="100"
-                      placeholder="e.g., 15000"
-                      className="form-input"
-                    />
-                    <span className="form-help">Set your expected monthly salary (optional)</span>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">Preferred Working Days</label>
-                    <div className="custom-multi-dropdown" ref={workingDaysDropdownRef}>
-                      <div 
-                        className="multi-dropdown-trigger"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          console.log('Working days dropdown clicked, current state:', isWorkingDaysDropdownOpen);
-                          setIsWorkingDaysDropdownOpen(!isWorkingDaysDropdownOpen);
-                        }}
-                      >
-                        <div className="multi-dropdown-value">
-                          {preferredWorkingHours.length > 0 
+                <div className="form-group">
+                  <label className="form-label">Preferred Working Days</label>
+                  <div className={`custom-multi-dropdown ${workType === 'full-time' ? 'disabled' : ''}`} ref={workingDaysDropdownRef}>
+                    <div 
+                      className={`multi-dropdown-trigger ${workType === 'full-time' ? 'disabled' : ''}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (workType === 'full-time') return; // Disable for full-time
+                        console.log('Working days dropdown clicked, current state:', isWorkingDaysDropdownOpen);
+                        setIsWorkingDaysDropdownOpen(!isWorkingDaysDropdownOpen);
+                      }}
+                    >
+                      <div className="multi-dropdown-value">
+                        {workType === 'full-time' 
+                          ? 'Monday - Saturday' 
+                          : preferredWorkingHours.length > 0 
                             ? formatPreferredWorkingDays(preferredWorkingHours)
-                            : 'Select working days'}
-                        </div>
-                        <span className={`dropdown-arrow ${isWorkingDaysDropdownOpen ? 'open' : ''}`}>
-                          <IconChevronDown size={16} />
-                        </span>
+                            : 'Select your preferred working days'
+                        }
                       </div>
-                      {isWorkingDaysDropdownOpen && (
-                        <div className="multi-dropdown-menu">
-                          <div className="dropdown-items">
-                            {workingDaysOptions.map(option => {
-                              const isSelected = preferredWorkingHours.includes(option.value);
-                              
-                              return (
-                                <div
-                                  key={option.value}
-                                  className={`multi-dropdown-item ${isSelected ? 'selected' : ''}`}
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    handleWorkingDayToggle(option.value);
-                                  }}
-                                >
-                                  <span className="item-text">{option.label}</span>
-                                  {isSelected && <span className="checkmark">✓</span>}
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
+                      <span className={`dropdown-arrow ${isWorkingDaysDropdownOpen ? 'open' : ''}`}>
+                        <IconChevronDown size={16} />
+                      </span>
                     </div>
-                    <span className="form-help">Select the days you're available to work</span>
+                    {isWorkingDaysDropdownOpen && (
+                      <div className="multi-dropdown-menu">
+                        <div className="dropdown-items">
+                          {workingDaysOptions.map(option => {
+                            const isSelected = preferredWorkingHours.includes(option.value);
+                            
+                            return (
+                              <div
+                                key={option.value}
+                                className={`multi-dropdown-item ${isSelected ? 'selected' : ''}`}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  handleWorkingDayToggle(option.value);
+                                }}
+                              >
+                                <span className="item-text">{option.label}</span>
+                                {isSelected && <span className="checkmark">✓</span>}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
+                  <span className="form-help">
+                    {workType === 'full-time' ? 'Full-time: Monday-Saturday (automatically set)' :
+                     workType === 'part-time' ? 'Part-time: Select your preferred working days' :
+                     'One-time: Select your preferred working days'}
+                  </span>
                 </div>
 
                 <div className="form-group full-width">
@@ -1706,38 +1758,62 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                     )}
 
                     {newCredential.credentials_name && (
-                      <div className="form-group">
-                        <label className="form-label">Upload Document</label>
-                        <div className="file-upload-container">
-                          <input
-                            type="file"
-                            accept=".pdf,.doc,.docx,.jpg,.png"
-                            onChange={(e) => handleNewCredentialChange(e, "credentials_photo")}
-                            ref={credentialFileRef}
-                            className="file-input"
-                            id="worker-credential-file"
-                          />
-                          <label htmlFor="worker-credential-file" className="file-upload-label">
-                            <span className="upload-text">Choose file (PDF, DOC, DOCX, JPG, PNG Max 2MB)</span>
-                          </label>
-                        </div>
-                        {newCredential.credentials_photo && (
-                          <div className="file-preview">
-                            <span className="file-name">{newCredential.credentials_photo.name}</span>
+                      <>
+                        <div className="form-group">
+                          <label className="form-label">Upload Photo/Image</label>
+                          <div className="file-upload-container">
+                            <input
+                              type="file"
+                              accept=".jpg,.jpeg,.png"
+                              onChange={(e) => handleNewCredentialChange(e, "credentials_photo")}
+                              ref={credentialFileRef}
+                              className="file-input"
+                              id="worker-credential-photo"
+                            />
+                            <label htmlFor="worker-credential-photo" className="file-upload-label">
+                              <span className="upload-text">Choose photo (JPG, PNG Max 2MB)</span>
+                            </label>
                           </div>
-                        )}
-                        {errors.new_credential_photo && <span className="error-message">{errors.new_credential_photo}</span>}
-                      </div>
+                          {newCredential.credentials_photo && (
+                            <div className="file-preview">
+                              <span className="file-name">{newCredential.credentials_photo.name}</span>
+                            </div>
+                          )}
+                          {errors.new_credential_photo && <span className="error-message">{errors.new_credential_photo}</span>}
+                        </div>
+
+                        <div className="form-group">
+                          <label className="form-label">Upload Document (Optional)</label>
+                          <div className="file-upload-container">
+                            <input
+                              type="file"
+                              accept=".pdf,.doc,.docx"
+                              onChange={(e) => handleNewCredentialChange(e, "credentials_doc")}
+                              className="file-input"
+                              id="worker-credential-doc"
+                            />
+                            <label htmlFor="worker-credential-doc" className="file-upload-label">
+                              <span className="upload-text">Choose document (PDF, DOC, DOCX Max 2MB)</span>
+                            </label>
+                          </div>
+                          {newCredential.credentials_doc && (
+                            <div className="file-preview">
+                              <span className="file-name">{newCredential.credentials_doc.name}</span>
+                            </div>
+                          )}
+                          {errors.new_credential_doc && <span className="error-message">{errors.new_credential_doc}</span>}
+                        </div>
+                      </>
                     )}
 
-                    {newCredential.credentials_name && newCredential.credentials_photo && (
+                    {newCredential.credentials_name && (newCredential.credentials_photo || newCredential.credentials_doc) && (
                       <div className="form-group">
                         <button 
                           type="button" 
                           onClick={addCredential}
                           className="add-credential-btn"
                         >
-                          Add Credential
+                          {editingCredentialIndex !== null ? 'Update Credential' : 'Add Credential'}
                         </button>
                       </div>
                     )}
@@ -1746,39 +1822,62 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
               </div>
               </form>
 
-              <div className="form-section added-credentials-section">
-                <div className="section-title">Added Credentials ({credentials.length})</div>
-                {credentials.length > 0 ? (
-                  <div className="credentials-list worker-credentials-list">
-                    {credentials.map((cred, index) => (
-                      <div key={index} className="credential-item worker-credential-item">
-                        <div className="credential-info">
-                          <span className="credential-name">{cred.credentials_name}</span>
-                          {cred.category && (
-                            <span className="credential-category">
-                              {credentialCategories.find(cat => cat.value === cred.category)?.label}
-                            </span>
-                          )}
-                        </div>
-                        <button 
-                          type="button" 
-                          onClick={() => removeCredential(index)}
-                          className="remove-credential-btn"
-                          aria-label="Remove credential"
-                          title="Remove"
-                        >
-                          ×
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="empty-credentials">
-                    <span className="empty-text">No credentials added yet</span>
-                    <span className="empty-hint">Add credentials to build trust with employers</span>
-                  </div>
-                )}
-              </div>
+               <div className="form-section added-credentials-section">
+                 <div className="section-title">Added Credentials ({credentials.length})</div>
+                 {credentials.length > 0 ? (
+                   credentials.map((cred, index) => (
+                     <div 
+                       key={index} 
+                       className="credential-card"
+                       onClick={() => {
+                         // Edit credential functionality - make entire card clickable
+                         setNewCredential(cred);
+                         setSelectedCredentialCategory(cred.category || "");
+                         setEditingCredentialIndex(index); // Set the index of the credential being edited
+                         // Scroll to form
+                         document.querySelector('.credential-form')?.scrollIntoView({ behavior: 'smooth' });
+                       }}
+                       style={{ cursor: 'pointer' }}
+                     >
+                       <div className="credential-header">
+                         <span className="credential-name">{cred.credentials_name}</span>
+                         <button 
+                           className="remove-credential-btn" 
+                           title="Remove credential"
+                           onClick={(e) => {
+                             e.stopPropagation(); // Prevent card click when removing
+                             removeCredential(index);
+                           }}
+                         >
+                           <IconX size={16} />
+                         </button>
+                       </div>
+                       <div className="credential-info">
+                         <div className="credential-category">
+                           <span className="category-label">Category:</span>
+                           <span className="category-value">
+                             {cred.category ? credentialCategories.find(cat => cat.value === cred.category)?.label : 'Professional Credential'}
+                           </span>
+                         </div>
+                         <div className="credential-files">
+                           <span className="files-label">Files:</span>
+                           <span className="files-list">
+                             {cred.credentials_photo ? 'Photo' : ''}
+                             {cred.credentials_photo && cred.credentials_doc ? ', ' : ''}
+                             {cred.credentials_doc ? 'Document' : ''}
+                             {!cred.credentials_photo && !cred.credentials_doc ? 'None uploaded' : ''}
+                           </span>
+                         </div>
+                       </div>
+                     </div>
+                   ))
+                 ) : (
+                   <div className="empty-credentials">
+                     <span className="empty-text">No credentials added yet</span>
+                     <span className="empty-hint">Add credentials to build trust with employers</span>
+                   </div>
+                 )}
+               </div>
             </>
           )}
 
@@ -1786,7 +1885,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
             {step === 3 ? (
               <div className="navigation-buttons">
                 <button
-                  className="btn btn-primary btn-large"
+                  className="work-preferences-next-btn"
                   onClick={() => {
                     // Validate Work Preferences
                     if (workType && hoursPerDay && preferredWorkingHours.length > 0) {
@@ -1803,13 +1902,13 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
             ) : step === 4 ? (
               <div className="navigation-buttons">
                 <button 
-                  className="btn btn-secondary" 
+                  className="skills-experience-back-btn" 
                   onClick={() => setStep(3)}
                 >
                   ← Back
                 </button>
                 <button
-                  className="btn btn-primary btn-large"
+                  className="skills-experience-next-btn"
                   onClick={handleNextStep}
                   disabled={(userSkills.primary_skills?.length || 0) === 0 || (userSkills.additional_skills?.length || 0) === 0}
                 >
@@ -1819,13 +1918,13 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
             ) : (
               <div className="navigation-buttons">
                 <button 
-                  className="btn btn-secondary" 
+                  className="credentials-back-btn" 
                   onClick={handlePreviousStep}
                 >
                   ← Back
                 </button>
                 <button
-                  className="btn btn-primary btn-large"
+                  className="credentials-complete-btn"
                   onClick={handleFinalFinish}
                   disabled={!profileId}
                 >
@@ -1841,5 +1940,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     </div>
   );
 };
+
 
 export default SkillRatingModal;

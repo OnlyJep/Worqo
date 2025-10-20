@@ -318,7 +318,10 @@ const MyProfile = () => {
           setWorkerRank(sortedRanks[0]);
           setProgressPercent(0);
         } else {
-          console.error('No ranks available');
+          console.log('No ranks available - this is normal for new users');
+          // Set a default state when no ranks are available
+          setWorkerRank(null);
+          setProgressPercent(0);
         }
       } else {
         console.error('Failed to fetch ranks:', response.status);
@@ -386,7 +389,6 @@ const MyProfile = () => {
         setWorkPreferences({
           workType: workerData.work_type || '',
           hoursPerDay: workerData.hours_per_day || '',
-          monthlySalary: workerData.monthly_salary || '',
           preferredWorkingDays: Array.isArray(workerData.preferred_working_hours) 
             ? workerData.preferred_working_hours 
             : (workerData.preferred_working_hours ? JSON.parse(workerData.preferred_working_hours) : []),
@@ -429,14 +431,16 @@ const MyProfile = () => {
         
         // Set credentials from worker data
         if (workerData.credentials_name && Array.isArray(workerData.credentials_name)) {
-          const creds = workerData.credentials_name.map((name, index) => {
-            const photo = workerData.credentials_photo?.[index];
-            console.log(`Credential ${index}: name="${name}", photo="${photo}"`);
-            return {
-              credentials_name: name,
-              credentials_photo: photo || null
-            };
-          });
+          const creds = workerData.credentials_name
+            .map((name, index) => {
+              const photo = workerData.credentials_photo?.[index];
+              console.log(`Credential ${index}: name="${name}", photo="${photo}"`);
+              return {
+                credentials_name: name,
+                credentials_photo: photo || null
+              };
+            })
+            .filter(cred => cred.credentials_name && cred.credentials_name.trim() !== ''); // Filter out empty/null credentials
           console.log('Setting credentials from backend:', creds);
           console.log('Raw credentials_photo from backend:', workerData.credentials_photo);
           setWorkerCredentials(creds);
@@ -1364,7 +1368,6 @@ const MyProfile = () => {
         body: JSON.stringify({
           work_type: workPreferences.workType,
           hours_per_day: workPreferences.hoursPerDay,
-          monthly_salary: workPreferences.monthlySalary,
           preferred_working_hours: JSON.stringify(workPreferences.preferredWorkingDays),
           bio: workPreferences.bio
         })

@@ -116,6 +116,7 @@ Route::patch('/employers/{id}/restore', [EmployerController::class, 'restore']);
 
 // WORKER ROUTES
 Route::get('/workers', [WorkerController::class, 'index'])->name('workers.index');
+Route::get('/workers/admin', [WorkerController::class, 'adminIndex'])->name('workers.admin');
 Route::get('/workers/by-skills', [WorkerController::class, 'getWorkersBySkills'])->name('workers.bySkills');
 Route::get('/workers/archived', [WorkerController::class, 'archived'])->name('workers.archived');
 Route::get('/workers/{id}', [WorkerController::class, 'show'])->name('workers.show');

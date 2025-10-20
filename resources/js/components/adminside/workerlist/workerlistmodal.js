@@ -45,7 +45,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     profile_img: null,
     work_type: "",
     hours_per_day: 4,
-    monthly_salary: "",
     preferred_working_hours: [],
     bio: "",
       skills_id: [],
@@ -159,7 +158,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
           profile_img: initialData.profile?.profile_img || null,
           work_type: initialData.worker?.work_type || "",
           hours_per_day: initialData.worker?.hours_per_day || 4,
-          monthly_salary: initialData.worker?.monthly_salary || "",
           preferred_working_hours: preferredWorkingHours,
           bio: initialData.worker?.bio || "",
           skills_id: initialSkills,
@@ -528,7 +526,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     submitData.append("gender_id", formData.gender_id || "");
     submitData.append("work_type", formData.work_type || "");
     submitData.append("hours_per_day", formData.hours_per_day || "");
-    submitData.append("monthly_salary", formData.monthly_salary || "");
     submitData.append("preferred_working_hours", JSON.stringify(formData.preferred_working_hours || []));
     submitData.append("bio", formData.bio || "");
     submitData.append("role_id", formData.role_id);
@@ -842,20 +839,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                       <span className="help-text">Full-time automatically set to 8 hours per day</span>
                     )}
                     {errors.hours_per_day && <span className="error">{errors.hours_per_day}</span>}
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="monthly_salary">Expected Monthly Salary (PHP)</label>
-                    <input
-                      id="monthly_salary"
-                      type="number"
-                      value={formData.monthly_salary}
-                      onChange={(e) => handleInputChange(e, "monthly_salary")}
-                      min="0"
-                      step="100"
-                      placeholder="e.g., 15000"
-                    />
-                    <span className="help-text">Set your expected monthly salary (optional)</span>
-                    {errors.monthly_salary && <span className="error">{errors.monthly_salary}</span>}
                   </div>
                 </div>
                 <div className="form-row">

@@ -149,7 +149,22 @@ const Admintopnavbar = () => {
       } else {
         console.error("Logout failed: ", response.status, response.statusText);
         // Proceed with logout even if API call fails
+        // Preserve profile completion flags before clearing localStorage
+        const profileCompleteFlags = {};
+        const keys = Object.keys(localStorage);
+        keys.forEach(key => {
+          if (key.includes('isProfileComplete_') || key.includes('skillsStepCompleted_')) {
+            profileCompleteFlags[key] = localStorage.getItem(key);
+          }
+        });
+        
         localStorage.clear();
+        
+        // Restore profile completion flags
+        Object.keys(profileCompleteFlags).forEach(key => {
+          localStorage.setItem(key, profileCompleteFlags[key]);
+        });
+        
         setUser(null);
         setIsDropdownOpen(false);
         navigate("/", { replace: true });
@@ -157,7 +172,22 @@ const Admintopnavbar = () => {
     } catch (error) {
       console.error("Logout error:", error.message);
       // Proceed with logout even if there's an error
+      // Preserve profile completion flags before clearing localStorage
+      const profileCompleteFlags = {};
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => {
+        if (key.includes('isProfileComplete_') || key.includes('skillsStepCompleted_')) {
+          profileCompleteFlags[key] = localStorage.getItem(key);
+        }
+      });
+      
       localStorage.clear();
+      
+      // Restore profile completion flags
+      Object.keys(profileCompleteFlags).forEach(key => {
+        localStorage.setItem(key, profileCompleteFlags[key]);
+      });
+      
       setUser(null);
       setIsDropdownOpen(false);
       navigate("/", { replace: true });

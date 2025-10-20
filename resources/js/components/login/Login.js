@@ -70,6 +70,11 @@ const Login = () => {
           last_active_text: 'Online'
         };
         localStorage.setItem('user', JSON.stringify(updatedUser));
+        
+        // Dispatch userLoggedIn event to notify other components
+        window.dispatchEvent(new CustomEvent('userLoggedIn', {
+          detail: { user: updatedUser }
+        }));
 
         const userRole = data.user.role_id;
         console.log('User Role:', userRole);

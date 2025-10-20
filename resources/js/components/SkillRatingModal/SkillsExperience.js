@@ -62,6 +62,30 @@ const SkillsExperience = ({
   // State to track if we've already sent the review request
   const [reviewStatusRequested, setReviewStatusRequested] = useState(false);
   
+  // State for available sub-skills dropdown
+  const [isAvailableSubSkillsDropdownOpen, setIsAvailableSubSkillsDropdownOpen] = useState(false);
+  const availableSubSkillsDropdownRef = useRef(null);
+  
+  // Effect to handle clicking outside the available sub-skills dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (availableSubSkillsDropdownRef.current && 
+          !availableSubSkillsDropdownRef.current.contains(event.target) &&
+          !event.target.closest('.available-sub-skills-dropdown-menu')) {
+        console.log('Clicking outside dropdown, closing...');
+        setIsAvailableSubSkillsDropdownOpen(false);
+      }
+    };
+
+    if (isAvailableSubSkillsDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isAvailableSubSkillsDropdownOpen]);
+  
   // Effect to update review status when skills form is completed
   useEffect(() => {
     const updateReviewStatus = async () => {
@@ -477,13 +501,14 @@ const SkillsExperience = ({
         <div className="skill-details-modal">
           <div className="modal-overlay" onClick={() => setShowSkillModal(false)}></div>
           <div className="modal-content">
-            <div className="modal-header">
-              <h3>{selectedSkill.skill_name || selectedSkill.name}</h3>
-              <button className="close-btn" onClick={handleModalClose}>
-                <IconX size={20} />
-              </button>
-            </div>
             <div className="modal-body">
+              <div className="modal-header-inline">
+                <h3>{selectedSkill.skill_name || selectedSkill.name}</h3>
+                <button className="close-btn" onClick={handleModalClose}>
+                  <IconX size={20} />
+                </button>
+              </div>
+
               <div className="experience-section">
                 <label className="form-label">Experience Level <span className="required">*</span></label>
                 <p className="section-description">Select your experience level with this skill.</p>
@@ -506,40 +531,87 @@ const SkillsExperience = ({
                 </select>
               </div>
 
-
               <div className="sub-skills-section">
                 <label className="form-label">Select Sub-Skills</label>
                 <p className="section-description">Choose the specific sub-skills that apply to your expertise.</p>
                 <div className="sub-skills-container">
-                  <div className="sub-skills-column">
-                    <h4 className="column-title">Available Sub-Skills</h4>
-                    {availableSubSkills.length > 0 ? (
-                      <div className="sub-skills-list">
-                        {availableSubSkills.map(subSkill => (
-                          <div key={subSkill} className="sub-skill-item">
-                            <span className="sub-skill-text">{subSkill}</span>
-                            <button
-                              className="btn btn-sm btn-outline"
-                              onClick={() => handleAddSubSkill(subSkill)}
-                              aria-label={`Add ${subSkill} to selected sub-skills`}
-                            >
-                              <IconPlus size={16} />
-                            </button>
-                          </div>
-                        ))}
+                  <div className="available-sub-skills-dropdown-menu">
+                    <div className={`custom-dropdown ${isAvailableSubSkillsDropdownOpen ? 'dropdown-open' : ''}`} ref={availableSubSkillsDropdownRef}>
+                      <div 
+                        className="dropdown-trigger"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log('Available sub-skills dropdown clicked, current state:', isAvailableSubSkillsDropdownOpen);
+                          console.log('Available sub-skills:', availableSubSkills);
+                          console.log('Available sub-skills length:', availableSubSkills.length);
+                          setIsAvailableSubSkillsDropdownOpen(!isAvailableSubSkillsDropdownOpen);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            console.log('Available sub-skills dropdown activated via keyboard');
+                            setIsAvailableSubSkillsDropdownOpen(!isAvailableSubSkillsDropdownOpen);
+                          } else if (e.key === 'Escape') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setIsAvailableSubSkillsDropdownOpen(false);
+                          }
+                        }}
+                        tabIndex={0}
+                        role="button"
+                        aria-expanded={isAvailableSubSkillsDropdownOpen}
+                        aria-haspopup="listbox"
+                      >
+                        <span className="dropdown-value">
+                          Select Available Sub-Skills
+                        </span>
+                        <span className={`dropdown-arrow ${isAvailableSubSkillsDropdownOpen ? 'open' : ''}`}>
+                          <IconChevronDown
+                            size={16}
+                            className="chevron-icon"
+                            style={{
+                              transform: isAvailableSubSkillsDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                              transition: 'transform 0.3s ease'
+                            }}
+                          />
+                        </span>
                       </div>
-                    ) : (
-                      <div className="empty-state">
-                        <span className="empty-text">No available sub-skills</span>
+                      {isAvailableSubSkillsDropdownOpen && (
+                        <div className="dropdown-menu" style={{ display: 'block', position: 'absolute', zIndex: 1000 }}>
+                        <div className="dropdown-items">
+                          {availableSubSkills.length > 0 ? (
+                            availableSubSkills.map(subSkill => (
+                              <div 
+                                key={subSkill} 
+                                className="dropdown-item"
+                                onClick={() => {
+                                  handleAddSubSkill(subSkill);
+                                  setIsAvailableSubSkillsDropdownOpen(false);
+                                }}
+                                style={{ cursor: 'pointer' }}
+                              >
+                                <span className="item-text">{subSkill}</span>
+                              </div>
+                            ))
+                          ) : (
+                            <div className="dropdown-item disabled">
+                              <span className="item-text">No available sub-skills</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    )}
+                      )}
+                    </div>
                   </div>
-                  <div className="sub-skills-column">
-                    <h4 className="column-title">Selected Sub-Skills</h4>
+                  
+                  <div className="selected-sub-skills-section">
+                    <h4 className="section-title">Selected Sub-Skills</h4>
                     {selectedSubSkills.length > 0 ? (
-                      <div className="sub-skills-list">
+                      <div className="selected-sub-skills-list">
                         {selectedSubSkills.map(subSkill => (
-                          <div key={subSkill} className="sub-skill-item selected">
+                          <div key={subSkill} className="selected-sub-skill-item">
                             <span className="sub-skill-text">{subSkill}</span>
                             <button
                               className="btn btn-sm btn-outline"
@@ -559,10 +631,11 @@ const SkillsExperience = ({
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="modal-footer">
-              <button className="btn btn-secondary" onClick={() => setShowSkillModal(false)}>Cancel</button>
-              <button className="btn btn-primary" onClick={handleSaveSkill}>Add Skill</button>
+
+              <div className="modal-actions">
+                <button className="btn btn-secondary" onClick={() => setShowSkillModal(false)}>Cancel</button>
+                <button className="btn btn-primary" onClick={handleSaveSkill}>Add Skill</button>
+              </div>
             </div>
           </div>
         </div>

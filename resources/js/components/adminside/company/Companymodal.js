@@ -5,17 +5,10 @@ import "./../../../../sass/components/_companymodal.scss";
 
 const { Option } = Select;
 
-const CompanyModal = ({ onClose, onSubmit, isEdit, initialData, employers, workers }) => {
+const CompanyModal = ({ onClose, onSubmit, isEdit, initialData }) => {
   const [formData, setFormData] = useState({
-    company_name: initialData?.company_name || "",
-    employer_id: initialData?.employer_id ? String(initialData.employer_id) : "",
-    worker_ids: Array.isArray(initialData?.worker_ids) ? initialData.worker_ids.map(String) : [],
-    street: initialData?.street || "",
-    contact_number: initialData?.contact_number || "",
-    city: "Butuan City",
-    province: "Agusan Del Norte",
-    postal_code: 8600,
-    country: "Philippines",
+    name: initialData?.name || "",
+    sub_skills: Array.isArray(initialData?.sub_skills) ? initialData.sub_skills : [],
   });
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState("");
@@ -29,13 +22,11 @@ const CompanyModal = ({ onClose, onSubmit, isEdit, initialData, employers, worke
     isMountedRef.current = true;
 
     // Log props and formData for debugging
-    console.log("CompanyModal props:", { employers, workers, initialData });
+    console.log("SkillModal props:", { initialData });
     console.log("formData after initialization:", formData);
 
-    // Check if data is loaded
-    const validEmployers = Array.isArray(employers) && employers.length > 0;
-    const validWorkers = Array.isArray(workers) && workers.length > 0;
-    setDataLoaded(validEmployers && validWorkers);
+    // For skills, we don't need external data loading
+    setDataLoaded(true);
 
     // Reset errors and API error
     if (isMountedRef.current) {
@@ -49,7 +40,7 @@ const CompanyModal = ({ onClose, onSubmit, isEdit, initialData, employers, worke
         abortControllerRef.current.abort();
       }
     };
-  }, [employers, workers, initialData]);
+  }, [initialData]);
 
   const handleChange = (value, name) => {
     const fieldValue = typeof value === 'object' && value.target ? value.target.value : value;
@@ -68,12 +59,7 @@ const CompanyModal = ({ onClose, onSubmit, isEdit, initialData, employers, worke
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.company_name) newErrors.company_name = "Company name is required";
-    if (!formData.employer_id) newErrors.employer_id = "Employer is required";
-    if (!formData.street) newErrors.street = "Street is required";
-    if (formData.contact_number && !/^\+?[\d\s-]{7,20}$/.test(formData.contact_number)) {
-      newErrors.contact_number = "Contact number must be 7-20 digits, spaces, or hyphens";
-    }
+    if (!formData.name) newErrors.name = "Skill name is required";
 
     if (isMountedRef.current) {
       setErrors(newErrors);
@@ -91,29 +77,14 @@ const CompanyModal = ({ onClose, onSubmit, isEdit, initialData, employers, worke
       return;
     }
 
-    const submitData = new FormData();
-    submitData.append("company_name", formData.company_name || "");
-    submitData.append("employer_id", formData.employer_id || "");
-    (formData.worker_ids || []).forEach((workerId) => {
-      submitData.append("worker_ids[]", workerId);
-    });
-    submitData.append("street", formData.street || "");
-    if (formData.contact_number) submitData.append("contact_number", formData.contact_number);
-    submitData.append("city", formData.city);
-    submitData.append("province", formData.province);
-    submitData.append("postal_code", String(formData.postal_code));
-    submitData.append("country", formData.country);
+    const submitData = {
+      name: formData.name || "",
+      sub_skills: formData.sub_skills || [],
+    };
 
     console.log("FormData before submission:", {
-      company_name: formData.company_name,
-      employer_id: formData.employer_id,
-      worker_ids: formData.worker_ids,
-      street: formData.street,
-      contact_number: formData.contact_number,
-      city: formData.city,
-      province: formData.province,
-      postal_code: formData.postal_code,
-      country: formData.country,
+      name: formData.name,
+      sub_skills: formData.sub_skills,
     });
 
     try {
@@ -141,178 +112,116 @@ const CompanyModal = ({ onClose, onSubmit, isEdit, initialData, employers, worke
     }
   };
 
-  const getEmployerName = (employer) => {
-    if (!employer || !employer.profile) {
-      console.warn("Invalid employer or missing profile:", employer);
-      return "Unknown Employer";
+  const [newSubSkill, setNewSubSkill] = useState("");
+
+  const addSubSkill = () => {
+    if (newSubSkill.trim() && !formData.sub_skills.includes(newSubSkill.trim())) {
+      setFormData(prev => ({
+        ...prev,
+        sub_skills: [...prev.sub_skills, newSubSkill.trim()]
+      }));
+      setNewSubSkill("");
     }
-    const { full_name, first_name, middlename, last_name, suffix } = employer.profile;
-    const name = full_name || [first_name, middlename, last_name, suffix].filter(Boolean).join(" ") || "Unknown Employer";
-    console.log("Employer name:", name, { employer });
-    return name;
   };
 
-  const getWorkerName = (worker) => {
-    if (!worker || !worker.profile) {
-      console.warn("Invalid worker or missing profile:", worker);
-      return "Unknown Worker";
-    }
-    const { full_name, first_name, middlename, last_name, suffix } = worker.profile;
-    const name = full_name || [first_name, middlename, last_name, suffix].filter(Boolean).join(" ") || "Unknown Worker";
-    console.log("Worker name:", name, { worker });
-    return name;
+  const removeSubSkill = (index) => {
+    setFormData(prev => ({
+      ...prev,
+      sub_skills: prev.sub_skills.filter((_, i) => i !== index)
+    }));
   };
-
-  // Validate props to prevent rendering issues
-  const validEmployers = Array.isArray(employers) ? employers : [];
-  const validWorkers = Array.isArray(workers) ? workers : [];
 
   return (
     <div className="companymodal-overlay">
       <div className="companymodal">
-        <h2>{isEdit ? "Edit Company" : "Add Company"}</h2>
+        <h2>{isEdit ? "Edit Skill" : "Add Skill"}</h2>
         {apiError && (
           <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>
             {apiError}
           </div>
         )}
-        {!dataLoaded && (
-          <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>
-            Loading employer and worker data. Please wait...
-          </div>
-        )}
         <div className="companymodal-content">
           <div className="form-group">
-            <label>Company Name <span style={{ color: "red" }}>*</span></label>
+            <label>Skill Name <span style={{ color: "red" }}>*</span></label>
             <input
               type="text"
-              name="company_name"
-              value={formData.company_name}
-              onChange={(e) => handleChange(e, "company_name")}
-              placeholder="Enter company name"
+              name="name"
+              value={formData.name}
+              onChange={(e) => handleChange(e, "name")}
+              placeholder="Enter skill name"
               required
-              disabled={!dataLoaded || isLoading}
+              disabled={isLoading}
             />
-            {errors.company_name && <span className="error">{errors.company_name}</span>}
+            {errors.name && <span className="error">{errors.name}</span>}
           </div>
           <div className="form-group">
-            <label>Employer <span style={{ color: "red" }}>*</span></label>
-            <Select
-              name="employer_id"
-              value={formData.employer_id}
-              onChange={(value) => handleChange(value, "employer_id")}
-              placeholder="Select Employer"
-              className="credential-dropdown"
-              required
-              disabled={!dataLoaded || validEmployers.length === 0 || isLoading}
-            >
-              {validEmployers.map((employer) => (
-                <Option key={employer.id} value={String(employer.id)}>
-                  {getEmployerName(employer)}
-                </Option>
-              ))}
-            </Select>
-            {errors.employer_id && <span className="error">{errors.employer_id}</span>}
-          </div>
-          <div className="form-group">
-            <label>Hired Workers (optional)</label>
-            <Select
-              mode="multiple"
-              name="worker_ids"
-              value={formData.worker_ids}
-              onChange={(value) => handleChange(value, "worker_ids")}
-              placeholder="Select Hired Workers"
-              allowClear
-              className="credential-dropdown"
-              disabled={!dataLoaded || validWorkers.length === 0 || isLoading}
-            >
-              {validWorkers.map((worker) => (
-                <Option key={worker.id} value={String(worker.id)}>
-                  {getWorkerName(worker)}
-                </Option>
-              ))}
-            </Select>
-            {errors.worker_ids && <span className="error">{errors.worker_ids}</span>}
-          </div>
-          <div className="form-group">
-            <label>Street <span style={{ color: "red" }}>*</span></label>
-            <input
-              type="text"
-              name="street"
-              value={formData.street}
-              onChange={(e) => handleChange(e, "street")}
-              placeholder="Enter street"
-              required
-              disabled={!dataLoaded || isLoading}
-            />
-            {errors.street && <span className="error">{errors.street}</span>}
-          </div>
-          <div className="form-group">
-            <label>Contact Number (optional)</label>
-            <input
-              type="text"
-              name="contact_number"
-              value={formData.contact_number}
-              onChange={(e) => handleChange(e, "contact_number")}
-              placeholder="Enter contact number"
-              disabled={!dataLoaded || isLoading}
-            />
-            {errors.contact_number && <span className="error">{errors.contact_number}</span>}
-          </div>
-          <div className="form-group name-row">
-            <div className="name-field">
-              <label>City</label>
+            <label>Sub-Skills</label>
+            <div style={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
               <input
                 type="text"
-                name="city"
-                value={formData.city}
-                readOnly
-                disabled
-                style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
+                value={newSubSkill}
+                onChange={(e) => setNewSubSkill(e.target.value)}
+                placeholder="Enter sub-skill"
+                onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addSubSkill())}
+                disabled={isLoading}
+                style={{ flex: 1 }}
               />
+              <button
+                type="button"
+                onClick={addSubSkill}
+                disabled={!newSubSkill.trim() || isLoading}
+                style={{
+                  padding: "8px 16px",
+                  backgroundColor: "#1A2A44",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "4px",
+                  cursor: "pointer"
+                }}
+              >
+                Add
+              </button>
             </div>
-            <div className="name-field">
-              <label>Province</label>
-              <input
-                type="text"
-                name="province"
-                value={formData.province}
-                readOnly
-                disabled
-                style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
-              />
+            {formData.sub_skills.length > 0 && (
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                {formData.sub_skills.map((subSkill, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      backgroundColor: "#f0f0f0",
+                      padding: "4px 8px",
+                      borderRadius: "4px",
+                      gap: "4px"
+                    }}
+                  >
+                    <span>{subSkill}</span>
+                    <button
+                      type="button"
+                      onClick={() => removeSubSkill(index)}
+                      disabled={isLoading}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        color: "#666",
+                        cursor: "pointer",
+                        fontSize: "14px"
+                      }}
+                    >
+                      ×
+                    </button>
             </div>
+                ))}
           </div>
-          <div className="form-group name-row">
-            <div className="name-field">
-              <label>Postal Code</label>
-              <input
-                type="text"
-                name="postal_code"
-                value={formData.postal_code}
-                readOnly
-                disabled
-                style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
-              />
-            </div>
-            <div className="name-field">
-              <label>Country</label>
-              <input
-                type="text"
-                name="country"
-                value={formData.country}
-                readOnly
-                disabled
-                style={{ backgroundColor: "#f0f0f0", cursor: "not-allowed" }}
-              />
-            </div>
+            )}
           </div>
         </div>
         <div className="companymodal-buttons">
           <button className="cancel-button" onClick={onClose} disabled={isLoading}>
             Cancel
           </button>
-          <button className="submit-button" onClick={handleSubmit} disabled={isLoading || !dataLoaded}>
+          <button className="submit-button" onClick={handleSubmit} disabled={isLoading}>
             {isEdit ? "Update" : "Add"}
           </button>
         </div>

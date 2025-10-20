@@ -339,7 +339,22 @@ const Headerz = () => {
         navigate('/', { replace: true });
       } else {
         console.error('Logout failed:', response.status, response.statusText);
+        // Preserve profile completion flags before clearing localStorage
+        const profileCompleteFlags = {};
+        const keys = Object.keys(localStorage);
+        keys.forEach(key => {
+          if (key.includes('isProfileComplete_') || key.includes('skillsStepCompleted_')) {
+            profileCompleteFlags[key] = localStorage.getItem(key);
+          }
+        });
+        
         localStorage.clear();
+        
+        // Restore profile completion flags
+        Object.keys(profileCompleteFlags).forEach(key => {
+          localStorage.setItem(key, profileCompleteFlags[key]);
+        });
+        
         setIsLoggedIn(false);
         setUser(null);
         setIsDropdownOpen(false);
@@ -347,7 +362,22 @@ const Headerz = () => {
       }
     } catch (error) {
       console.error('Logout error:', error.message);
+      // Preserve profile completion flags before clearing localStorage
+      const profileCompleteFlags = {};
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => {
+        if (key.includes('isProfileComplete_') || key.includes('skillsStepCompleted_')) {
+          profileCompleteFlags[key] = localStorage.getItem(key);
+        }
+      });
+      
       localStorage.clear();
+      
+      // Restore profile completion flags
+      Object.keys(profileCompleteFlags).forEach(key => {
+        localStorage.setItem(key, profileCompleteFlags[key]);
+      });
+      
       setIsLoggedIn(false);
       setUser(null);
       setIsDropdownOpen(false);

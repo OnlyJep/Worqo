@@ -95,7 +95,7 @@ class NotificationController extends Controller
                     'related_id' => $notif->related_id,
                     'related_type' => $notif->related_type,
                     'sender_id' => $notif->sender_id,
-                    'sender_role_id' => $notif->sender?->role_id,
+                    'sender_role_id' => $notif->sender ? $notif->sender->role_id : null,
                     'target_role_id' => $targetRoleId, // Add target role ID for frontend
                 ];
             });

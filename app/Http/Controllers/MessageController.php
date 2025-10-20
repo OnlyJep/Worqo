@@ -208,13 +208,13 @@ class MessageController extends Controller
 
         $result = $conversations->map(function ($row) {
             $other = User::with('profile')->find($row->other_user_id);
-            $profile = $other?->profile;
+            $profile = $other ? $other->profile : null;
             
             // Get detailed user info
             $detailedUserInfo = $this->getDetailedUserInfo($row->other_user_id);
             
             return [
-                'user_id' => $other?->id,
+                'user_id' => $other ? $other->id : null,
                 'name' => trim(($profile->first_name ?? '') . ' ' . ($profile->last_name ?? '')),
                 'profile_img' => $profile->profile_img ?? null,
                 'last_message_at' => $row->last_message_at,

@@ -20,15 +20,16 @@ body {
 
 .workerlist-dashboard {
   flex: 1;
-  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);
+  padding: clamp(60px, 10vw, 80px) clamp(5px, 2vw, 10px) clamp(5px, 2vw, 10px);
   display: flex;
   flex-direction: column;
   align-items: stretch;
   background: #FFFFFF;
   transition: margin-left 0.3s ease-in-out;
-  overflow-x: hidden;
+  overflow: auto;
   box-sizing: border-box;
   width: 100%;
+  height: 100vh;
 
   &.sidebar-expanded {
     margin-left: 250px;
@@ -46,12 +47,14 @@ body {
   }
 
   @media (max-width: 480px) {
-    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);
+    padding: clamp(50px, 8vw, 60px) clamp(3px, 1vw, 5px) clamp(3px, 1vw, 5px);
   }
 
-  .workerlist-content {
-    width: 100%;
-    background: #FFFFFF;
+   .workerlist-content {
+     width: 100%;
+     background: #FFFFFF;
+     display: flex;
+     flex-direction: column;
 
     h2 {
       font-size: clamp(18px, 4vw, 24px);
@@ -68,48 +71,37 @@ body {
       gap: clamp(10px, 2vw, 15px);
       flex-wrap: wrap;
 
-      .left-actions {
-        display: flex;
-        align-items: center;
-        flex: 1;
-        min-width: clamp(150px, 30vw, 180px);
+      .search-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666666;
+        font-size: clamp(14px, 3vw, 16px);
+        z-index: 1;
+      }
 
-        .search-container {
-          position: relative;
-          width: 100%;
-          max-width: clamp(180px, 40vw, 200px);
+      .search-input {
+        width: 100%;
+        max-width: clamp(200px, 30vw, 300px);
+        padding: 8px 12px 8px 40px;
+        border: 1px solid #DDDDDD;
+        border-radius: 5px;
+        background: #FFFFFF;
+        color: #333333;
+        font-size: clamp(12px, 3vw, 14px);
+        outline: none;
+        height: 40px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
-          .search-icon {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666666;
-            font-size: clamp(14px, 3vw, 16px);
-          }
+        &:focus {
+          border-color: #1A2A44;
+          box-shadow: 0 0 0 2px rgba(14, 14, 15, 0.2);
+        }
 
-          .search-input {
-            width: 100%;
-            padding: 8px 12px 8px 35px;
-            border: 1px solid #DDDDDD;
-            border-radius: 5px;
-            background: #FFFFFF;
-            color: #333333;
-            font-size: clamp(12px, 3vw, 14px);
-            outline: none;
-            height: 40px;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-
-            &:focus {
-              border-color: #4A90E2;
-              box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
-            }
-
-            @media (max-width: 768px) {
-              max-width: 100%;
-            }
-          }
+        @media (max-width: 768px) {
+          max-width: 100%;
         }
       }
 
@@ -137,7 +129,7 @@ body {
 
           .button-icon {
             margin-right: 8px;
-            color: #4A90E2;
+            color: #1A2A44;
             font-size: clamp(16px, 4vw, 20px);
           }
 
@@ -146,9 +138,9 @@ body {
           }
 
           &:hover {
-            background: #4A90E2;
+            background: #1A2A44;
             color: #FFFFFF;
-            border-color: #4A90E2;
+            border-color: #1A2A44;
             transform: translateY(-2px);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -242,16 +234,16 @@ body {
         transition: all 0.2s ease;
 
         &.active {
-          background: #4A90E2;
+          background: #1A2A44;
           color: #FFFFFF;
-          border-color: #4A90E2;
+          border-color: #1A2A44;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
         }
 
         &:hover {
           background: #F5F9FF;
-          border-color: #4A90E2;
-          color: #4A90E2;
+          border-color: #1A2A44;
+          color: #1A2A44;
         }
       }
 
@@ -265,24 +257,24 @@ body {
       }
     }
 
-    .workerlist-table {
-      overflow-x: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+     .workerlist-table {
+       width: 100%;
+       border-radius: 8px;
+       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 
-      table {
-        width: 100%;
-        min-width: 800px;
-        border-collapse: collapse;
-        table-layout: auto;
+       table {
+         width: 100%;
+         min-width: 100%;
+         border-collapse: collapse;
+         table-layout: fixed;
 
         th {
-          padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);
+          padding: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 6px);
           text-align: center;
           border-bottom: 1px solid #EEEEEE;
           color: #FFFFFF;
-          font-size: clamp(12px, 3vw, 14px);
-          background: #4A90E2;
+          font-size: clamp(10px, 2.5vw, 12px);
+          background: #1A2A44;
           font-weight: 600;
           position: sticky;
           top: 0;
@@ -300,18 +292,18 @@ body {
               font-size: clamp(14px, 3.5vw, 16px);
 
               &:hover {
-                color: #357ABD;
+                color: #1A2A44;
               }
             }
           }
         }
 
         td {
-          padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);
+          padding: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 6px);
           text-align: center;
           border-bottom: 1px solid #EEEEEE;
           color: #333333;
-          font-size: clamp(12px, 3vw, 14px);
+          font-size: clamp(10px, 2.5vw, 12px);
           background: #FFFFFF;
           vertical-align: middle;
           white-space: normal;
@@ -325,7 +317,8 @@ body {
             text-align: left;
             white-space: normal;
             word-wrap: break-word;
-            max-width: 200px;
+            overflow-wrap: break-word;
+            hyphens: auto;
           }
         }
 
@@ -349,13 +342,13 @@ body {
           .restore-icon,
           .accept-icon,
           .decline-icon {
-            color: #4A90E2;
+            color: #1A2A44;
             cursor: pointer;
             font-size: clamp(14px, 3.5vw, 16px);
             transition: color 0.2s ease, transform 0.2s ease;
 
             &:hover {
-              color: #357ABD;
+              color: #1A2A44;
               transform: scale(1.2);
             }
           }
@@ -394,83 +387,72 @@ body {
           .credential-link {
             background: none;
             border: none;
-            color: #4A90E2;
+            color: #1A2A44;
             cursor: pointer;
             font-size: clamp(12px, 3vw, 14px);
             text-decoration: underline;
             transition: color 0.2s ease;
 
             &:hover {
-              color: #357ABD;
+              color: #1A2A44;
             }
           }
         }
 
         th:nth-child(1),
         td:nth-child(1) {
-          width: clamp(100px, 12vw, 120px);
-          min-width: 100px;
+          width: 7%;
         }
 
         th:nth-child(2),
         td:nth-child(2) {
-          width: clamp(60px, 8vw, 80px);
-          min-width: 60px;
+          width: 4%;
         }
 
         th:nth-child(3),
         td:nth-child(3) {
-          width: clamp(120px, 15vw, 140px);
-          min-width: 120px;
+          width: 9%;
         }
 
         th:nth-child(4),
         td:nth-child(4) {
-          width: clamp(80px, 10vw, 100px);
-          min-width: 80px;
+          width: 5%;
         }
 
         th:nth-child(5),
         td:nth-child(5) {
-          width: clamp(150px, 20vw, 180px);
-          min-width: 150px;
+          width: 5%;
         }
 
         th:nth-child(6),
         td:nth-child(6) {
-          width: clamp(150px, 20vw, 180px);
-          min-width: 150px;
+          width: 5%;
         }
 
         th:nth-child(7),
         td:nth-child(7) {
-          width: clamp(120px, 15vw, 140px);
-          min-width: 120px;
+          width: 20%;
         }
 
         th:nth-child(8),
         td:nth-child(8) {
-          width: clamp(90px, 10vw, 110px);
-          min-width: 90px;
+          width: 12%;
         }
 
         th:nth-child(9),
         td:nth-child(9) {
-          width: clamp(120px, 14vw, 140px);
-          min-width: 120px;
+          width: 15%;
         }
 
         th:nth-child(10),
         td:nth-child(10) {
-          width: clamp(100px, 12vw, 120px);
-          min-width: 100px;
+          width: 7%;
         }
 
         /* New Experience column */
         th:nth-child(11),
         td:nth-child(11) {
-          width: clamp(110px, 12vw, 130px);
-          min-width: 110px;
+          width: 11%;
         }
       }
     }
@@ -521,13 +503,13 @@ body {
       }
       &.pending {
         background: #e6f7ff;
-        color: #1890ff;
-        border-color: #91d5ff;
+        color: #1A2A44;
+        border-color: #1A2A44;
         
         &:hover {
           background: #bae7ff;
-          border-color: #69c0ff;
-          color: #096dd9;
+          border-color: #1A2A44;
+          color: #1A2A44;
         }
       }
     }
@@ -572,8 +554,8 @@ body {
         
         &:hover {
           background: #e6f7ff;
-          border-color: #40a9ff;
-          color: #1890ff;
+          border-color: #1A2A44;
+          color: #1A2A44;
         }
       }
       &.exp-gold {
@@ -594,8 +576,8 @@ body {
         
         &:hover {
           background: #e6f7ff;
-          border-color: #40a9ff;
-          color: #1890ff;
+          border-color: #1A2A44;
+          color: #1A2A44;
         }
       }
     }
@@ -633,13 +615,13 @@ body {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
         &:hover {
-          background: #4A90E2;
+          background: #1A2A44;
           color: #FFFFFF;
           transform: scale(1.1);
         }
 
         &.active {
-          background: #4A90E2;
+          background: #1A2A44;
           color: #FFFFFF;
           font-weight: 700;
           transform: scale(1.15);
@@ -831,7 +813,7 @@ body {
 
     .download-button {
       padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
-      background: #4A90E2;
+      background: #1A2A44;
       color: #FFFFFF;
       border: none;
       border-radius: 5px;
@@ -841,7 +823,7 @@ body {
       transition: background 0.3s ease, transform 0.2s ease;
 
       &:hover {
-        background: darken(#4A90E2, 10%);
+        background: darken(#1A2A44, 10%);
         transform: translateY(-2px);
       }
     }

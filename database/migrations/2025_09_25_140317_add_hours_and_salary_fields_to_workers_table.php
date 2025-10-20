@@ -15,7 +15,6 @@ class AddHoursAndSalaryFieldsToWorkersTable extends Migration
     {
         Schema::table('workers', function (Blueprint $table) {
             $table->integer('hours_per_day')->nullable()->after('work_type');
-            $table->decimal('monthly_salary', 12, 2)->nullable()->after('hours_per_day');
         });
     }
 
@@ -27,7 +26,7 @@ class AddHoursAndSalaryFieldsToWorkersTable extends Migration
     public function down()
     {
         Schema::table('workers', function (Blueprint $table) {
-            $table->dropColumn(['hours_per_day', 'monthly_salary']);
+            $table->dropColumn('hours_per_day');
         });
     }
 }

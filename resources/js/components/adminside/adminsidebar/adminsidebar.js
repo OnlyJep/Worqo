@@ -45,27 +45,27 @@ const AdminSidebar = ({ children }) => {
             </li>
             <li className={isActive('/admin/jobs-post')} onClick={() => navigate('/admin/jobs-post')}>
               <FileAddOutlined className="icon" />
-              {isSidebarExpanded && <span>Jobs</span>}
+              {isSidebarExpanded && <span>Post Jobs</span>}
             </li>
             <li className={isActive('/admin/company')} onClick={() => navigate('/admin/company')}>
               <BankOutlined className="icon" />
-              {isSidebarExpanded && <span>Company List</span>}
+              {isSidebarExpanded && <span>Jobs</span>}
             </li>
             <li className={isActive('/admin/users')} onClick={() => navigate('/admin/users')}>
               <UserOutlined className="icon" />
-              {isSidebarExpanded && <span>Users List</span>}
+              {isSidebarExpanded && <span>Users</span>}
             </li>
             <li className={isActive('/admin/adminlist')} onClick={() => navigate('/admin/adminlist')}>
               <TeamOutlined className="icon" />
-              {isSidebarExpanded && <span>Admin List</span>}
+              {isSidebarExpanded && <span>Admin</span>}
             </li>
             <li className={isActive('/admin/workerlist')} onClick={() => navigate('/admin/workerlist')}>
               <UserSwitchOutlined className="icon" />
-              {isSidebarExpanded && <span>Workers List</span>}
+              {isSidebarExpanded && <span>Workers</span>}
             </li>
             <li className={isActive('/admin/employerlist')} onClick={() => navigate('/admin/employerlist')}>
               <TeamOutlined className="icon" />
-              {isSidebarExpanded && <span>Employer List</span>}
+              {isSidebarExpanded && <span>Employer</span>}
             </li>
             <li className={isActive('/admin/reviews')} onClick={() => navigate('/admin/reviews')}>
               <StarOutlined className="icon" />

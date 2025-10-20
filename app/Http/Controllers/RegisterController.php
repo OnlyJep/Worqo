@@ -10,6 +10,7 @@ use App\Models\Suffix;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -122,7 +123,7 @@ class RegisterController extends Controller
             ], 201);
         } catch (\Exception $e) {
             DB::rollback();
-            \Log::error('Registration failed: ' . $e->getMessage(), [
+            Log::error('Registration failed: ' . $e->getMessage(), [
                 'trace' => $e->getTraceAsString(),
                 'request_data' => $request->except(['password']), // Don't log password
             ]);

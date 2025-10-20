@@ -1,4 +1,1094 @@
- > $worker->id,
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Worker;
+use App\Models\Profile;
+use App\Models\User;
+use App\Models\Skill;
+use App\Models\Rank;
+use App\Http\Controllers\NotificationController;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+
+class WorkerController extends Controller
+{
+    /**
+     * Fetch all available workers.
+     */
+    public function index(Request $request): JsonResponse
+    {
+        try {
+            $search = $request->query('search', '');
+            $page = $request->query('page', 1);
+            $limit = $request->query('limit', 10);
+            $status = $request->query('status', 'all');
+            $excludeUserId = $request->query('exclude_user_id');
+
+            $query = User::with(['profile', 'worker'])
+                ->whereIn('users.role_id', [1, 2]) // Allow both workers (1) and employers (2)
+                ->where('users.archived', false)
+                ->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'ACCEPTED');
+                    // $q->where('verified', true);
+                });
+
+            // Exclude specific user if provided
+            if ($excludeUserId) {
+                $query->where('users.id', '!=', $excludeUserId);
+            }
+
+            if (!empty($search)) {
+                $query->whereHas('profile', function ($q) use ($search) {
+                    $q->where('first_name', 'like', '%' . $search . '%')
+                      ->orWhere('middlename', ' like', '%' . $search . '%')
+                      ->orWhere('last_name', 'like', '%' . $search . '%');
+                })->orWhere('users.email', 'like', '%' . $search . '%');
+            }
+
+            // Filter by status
+            if ($status !== 'all') {
+                $query->whereHas('worker', function ($q) use ($status) {
+                    switch ($status) {
+                        case 'to_review':
+                            $q->where(function ($subQ) {
+                                $subQ->whereNull('is_reviewed')
+                                     ->orWhere('is_reviewed', '')
+                                     ->orWhere('is_reviewed', '0')
+                                     ->orWhere('is_reviewed', 'TO BE REVIEWED');
+                            });
+                            break;
+                        case 'accepted':
+                            $q->where('is_reviewed', 'ACCEPTED');
+                            break;
+                        case 'declined':
+                            $q->where('is_reviewed', 'DECLINED');
+                            break;
+                    }
+                });
+            }
+
+            // Order by review status: TO BE REVIEWED first, then ACCEPTED, then DECLINED
+            $query->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+                  ->leftJoin('workers', 'profiles.id', '=', 'workers.profile_id')
+                  ->orderByRaw("
+                    CASE 
+                        WHEN workers.is_reviewed IS NULL OR workers.is_reviewed = '' OR workers.is_reviewed = '0' OR workers.is_reviewed = 'TO BE REVIEWED' THEN 1
+                        WHEN workers.is_reviewed = 'ACCEPTED' THEN 2
+                        WHEN workers.is_reviewed = 'DECLINED' THEN 3
+                        ELSE 4
+                    END
+                  ")
+                  ->orderBy('users.created_at', 'desc')
+                  ->select('users.*');
+
+                $workers = $query->paginate($limit, ['*'], 'page', $page);
+
+            foreach ($workers as $user) {
+                if (!$user->profile) {
+                    $user->profile()->create([
+                        'user_id' => $user->id,
+                        'first_name' => 'Unknown',
+                        'last_name' => 'Worker',
+                        'email' => $user->email,
+                        'city' => 'Butuan City',
+                        'province' => 'Agusan Del Norte',
+                        'postal_code' => '8600',
+                        'country' => 'Philippines',
+                    ]);
+                    $user->load('profile');
+                }
+                if (!$user->worker && $user->profile) {
+                    Worker::create([
+                        'profile_id' => $user->profile->id,
+                        'work_type' => 'part-time',
+                        'skills_id' => [],
+                        'credentials_name' => [],
+                        'archived' => false,
+                    ]);
+                    $user->load('worker');
+                }
+            }
+
+            $response = [
+                'workers' => collect($workers->items())->map(function ($user) {
+                    return $this->formatWorker($user);
+                })->toArray(),
+                'pagination' => [
+                    'currentPage' => $workers->currentPage(),
+                    'totalPages' => $workers->lastPage(),
+                    'totalItems' => $workers->total(),
+                ],
+            ];
+
+            Log::info('Fetched active workers with role_id = 1', [
+                'count' => $workers->count(),
+                'page' => $page,
+                'limit' => $limit,
+                'total' => $workers->total(),
+            ]);
+
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            Log::error('Error fetching workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to fetch workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Fetch all workers for admin interface.
+     */
+    public function adminIndex(Request $request): JsonResponse
+    {
+        try {
+            $search = $request->query('search', '');
+            $page = $request->query('page', 1);
+            $limit = $request->query('limit', 10);
+            $status = $request->query('status', 'all');
+            $excludeUserId = $request->query('exclude_user_id');
+
+            $query = User::with(['profile', 'worker'])
+                ->whereIn('users.role_id', [1, 2]) // Allow both workers (1) and employers (2)
+                ->where('users.archived', false)
+                ->whereHas('worker'); // Show all workers, not just ACCEPTED ones
+
+            // Exclude specific user if provided
+            if ($excludeUserId) {
+                $query->where('users.id', '!=', $excludeUserId);
+            }
+
+            if (!empty($search)) {
+                $query->whereHas('profile', function ($q) use ($search) {
+                    $q->where('first_name', 'like', '%' . $search . '%')
+                      ->orWhere('middlename', ' like', '%' . $search . '%')
+                      ->orWhere('last_name', 'like', '%' . $search . '%');
+                })->orWhere('users.email', 'like', '%' . $search . '%');
+            }
+
+            // Filter by status
+            if ($status !== 'all') {
+                $query->whereHas('worker', function ($q) use ($status) {
+                    switch ($status) {
+                        case 'to_review':
+                            $q->where(function ($subQ) {
+                                $subQ->whereNull('is_reviewed')
+                                     ->orWhere('is_reviewed', '')
+                                     ->orWhere('is_reviewed', '0')
+                                     ->orWhere('is_reviewed', 'TO BE REVIEWED');
+                            });
+                            break;
+                        case 'accepted':
+                            $q->where('is_reviewed', 'ACCEPTED');
+                            break;
+                        case 'declined':
+                            $q->where('is_reviewed', 'DECLINED');
+                            break;
+                    }
+                });
+            }
+
+            // Order by review status: TO BE REVIEWED first, then ACCEPTED, then DECLINED
+            $query->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+                  ->leftJoin('workers', 'profiles.id', '=', 'workers.profile_id')
+                  ->orderByRaw("
+                    CASE 
+                        WHEN workers.is_reviewed IS NULL OR workers.is_reviewed = '' OR workers.is_reviewed = '0' OR workers.is_reviewed = 'TO BE REVIEWED' THEN 1
+                        WHEN workers.is_reviewed = 'ACCEPTED' THEN 2
+                        WHEN workers.is_reviewed = 'DECLINED' THEN 3
+                        ELSE 4
+                    END
+                  ")
+                  ->orderBy('users.created_at', 'desc')
+                  ->select('users.*');
+
+                $workers = $query->paginate($limit, ['*'], 'page', $page);
+
+            foreach ($workers as $user) {
+                if (!$user->profile) {
+                    $user->profile()->create([
+                        'user_id' => $user->id,
+                        'first_name' => 'Unknown',
+                        'last_name' => 'Worker',
+                        'email' => $user->email,
+                        'city' => 'Butuan City',
+                        'province' => 'Agusan Del Norte',
+                        'postal_code' => '8600',
+                        'country' => 'Philippines',
+                    ]);
+                    $user->load('profile');
+                }
+                if (!$user->worker && $user->profile) {
+                    Worker::create([
+                        'profile_id' => $user->profile->id,
+                        'work_type' => 'part-time',
+                        'skills_id' => [],
+                        'credentials_name' => [],
+                        'archived' => false,
+                    ]);
+                    $user->load('worker');
+                }
+            }
+
+            $response = [
+                'workers' => collect($workers->items())->map(function ($user) {
+                    return $this->formatWorker($user);
+                })->toArray(),
+                'pagination' => [
+                    'currentPage' => $workers->currentPage(),
+                    'totalPages' => $workers->lastPage(),
+                    'totalItems' => $workers->total(),
+                ],
+            ];
+
+            Log::info('Fetched workers for admin interface', [
+                'count' => $workers->count(),
+                'page' => $page,
+                'limit' => $limit,
+                'total' => $workers->total(),
+            ]);
+
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            Log::error('Error fetching workers for admin: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to fetch workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Fetch archived workers.
+     */
+    public function archived(Request $request): JsonResponse
+    {
+        try {
+            $search = $request->query('search', '');
+            $page = $request->query('page', 1);
+            $limit = $request->query('limit', 10);
+            $status = $request->query('status', 'all');
+
+            $query = User::with(['profile', 'worker'])
+                ->where('users.role_id', 1)
+                ->where('users.archived', true);
+
+            if (!empty($search)) {
+                $query->whereHas('profile', function ($q) use ($search) {
+                    $q->where('first_name', 'like', '%' . $search . '%')
+                      ->orWhere('middlename', 'like', '%' . $search . '%')
+                      ->orWhere('last_name', 'like', '%' . $search . '%');
+                })->orWhere('users.email', 'like', '%' . $search . '%');
+            }
+
+            // Filter by status
+            if ($status !== 'all') {
+                $query->whereHas('worker', function ($q) use ($status) {
+                    switch ($status) {
+                        case 'to_review':
+                            $q->where(function ($subQ) {
+                                $subQ->whereNull('is_reviewed')
+                                     ->orWhere('is_reviewed', '')
+                                     ->orWhere('is_reviewed', '0')
+                                     ->orWhere('is_reviewed', 'TO BE REVIEWED');
+                            });
+                            break;
+                        case 'accepted':
+                            $q->where('is_reviewed', 'ACCEPTED');
+                            break;
+                        case 'declined':
+                            $q->where('is_reviewed', 'DECLINED');
+                            break;
+                    }
+                });
+            }
+
+            // Order by review status: TO BE REVIEWED first, then ACCEPTED, then DECLINED
+            $query->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+                  ->leftJoin('workers', 'profiles.id', '=', 'workers.profile_id')
+                  ->orderByRaw("
+                    CASE 
+                        WHEN workers.is_reviewed IS NULL OR workers.is_reviewed = '' OR workers.is_reviewed = '0' OR workers.is_reviewed = 'TO BE REVIEWED' THEN 1
+                        WHEN workers.is_reviewed = 'ACCEPTED' THEN 2
+                        WHEN workers.is_reviewed = 'DECLINED' THEN 3
+                        ELSE 4
+                    END
+                  ")
+                  ->orderBy('users.created_at', 'desc')
+                  ->select('users.*');
+
+            $workers = $query->paginate($limit, ['*'], 'page', $page);
+
+            foreach ($workers as $user) {
+                if (!$user->profile) {
+                    $user->profile()->create([
+                        'user_id' => $user->id,
+                        'first_name' => 'Unknown',
+                        'last_name' => 'Worker',
+                        'email' => $user->email,
+                        'city' => 'Butuan City',
+                        'province' => 'Agusan Del Norte',
+                        'postal_code' => '8600',
+                        'country' => 'Philippines',
+                    ]);
+                    $user->load('profile');
+                }
+                if (!$user->worker && $user->profile) {
+                    Worker::create([
+                        'profile_id' => $user->profile->id,
+                        'work_type' => 'part-time',
+                        'skills_id' => [],
+                        'credentials_name' => [],
+                        'archived' => true,
+                    ]);
+                    $user->load('worker');
+                }
+            }
+
+            $response = [
+                'workers' => collect($workers->items())->map(function ($user) {
+                    return $this->formatWorker($user);
+                })->toArray(),
+                'pagination' => [
+                    'currentPage' => $workers->currentPage(),
+                    'totalPages' => $workers->lastPage(),
+                    'totalItems' => $workers->total(),
+                ],
+            ];
+
+            Log::info('Fetched archived workers with role_id = 1', [
+                'count' => $workers->count(),
+                'page' => $page,
+                'limit' => $limit,
+                'total' => $workers->total(),
+            ]);
+
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            Log::error('Error fetching archived workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to fetch archived workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Fetch a specific worker by ID.
+     */
+    public function show($id, Request $request): JsonResponse
+    {
+        try {
+            // First try to find user with role_id 1 or 2 (workers and employers with worker profiles)
+            $user = User::with(['profile', 'worker'])
+                ->whereIn('role_id', [1, 2])
+                ->find($id);
+            
+            // If not found, try to find user who has worker data (even if role_id changed)
+            if (!$user) {
+                $user = User::with(['profile', 'worker'])
+                    ->whereHas('worker')
+                    ->find($id);
+            }
+            
+            // If still not found, throw 404
+            if (!$user) {
+                throw new \Exception("User not found or not a worker");
+            }
+
+            if (!$user->profile) {
+                $user->profile()->create([
+                    'user_id' => $user->id,
+                    'first_name' => 'Unknown',
+                    'last_name' => 'Worker',
+                    'email' => $user->email,
+                    'city' => 'Butuan City',
+                    'province' => 'Agusan Del Norte',
+                    'postal_code' => '8600',
+                    'country' => 'Philippines',
+                ]);
+                $user->load('profile');
+            }
+            if (!$user->worker && $user->profile) {
+                Worker::create([
+                    'profile_id' => $user->profile->id,
+                    'work_type' => 'part-time',
+                    'skills_id' => [],
+                    'credentials_name' => [],
+                    'archived' => $user->archived,
+                ]);
+                $user->load('worker');
+            }
+
+            Log::info('Fetched worker (current or former)', ['id' => $id, 'role_id' => $user->role_id]);
+            return response()->json($this->formatWorker($user), 200);
+        } catch (\Exception $e) {
+            Log::error('Error fetching worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Worker not found: ' . $e->getMessage()], 404);
+        }
+    }
+
+    /**
+     * Create a new worker.
+     */
+    public function store(Request $request): JsonResponse
+    {
+        try {
+            Log::info('Store worker request data', ['input' => $request->all()]);
+
+            $skillsId = $request->input('skills_id', []);
+            if (is_string($skillsId)) {
+                $decoded = json_decode($skillsId, true);
+                $skillsId = is_array($decoded) ? $decoded : [];
+            }
+            if (!is_array($skillsId)) {
+                Log::warning('skills_id is not an array', ['skills_id' => $request->input('skills_id')]);
+                return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
+            }
+
+            // Parse preferred_working_hours if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_hours;
+            if (is_string($preferredWorkingHours)) {
+                $preferredWorkingHours = json_decode($preferredWorkingHours, true);
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
+            }
+
+            $validator = Validator::make(
+                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_hours' => $preferredWorkingHours]),
+                [
+                    'first_name' => 'required|string|max:255',
+                    'middlename' => 'nullable|string|max:255',
+                    'last_name' => 'required|string|max:255',
+                    'suffix_id' => 'nullable|integer|exists:suffixes,id',
+                    'email' => 'required|email|max:255|unique:users,email',
+                    'password' => 'required|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+                    'gender_id' => 'required|integer|exists:genders,id',
+                    'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
+                    'street' => 'nullable|string|max:255',
+                    'work_type' => 'required|in:part-time,full-time,one-time',
+                    'hours_per_day' => 'nullable|integer|min:1|max:24',
+                    'preferred_working_hours' => 'nullable|array',
+                    'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+                    'bio' => 'nullable|string|max:1000',
+                    'skills_id' => 'required|array|min:1',
+                    'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
+                    'skills_id.*.skill_name' => 'required|string|max:255',
+                    'skills_id.*.sub_skills' => 'nullable|array',
+                    'skills_id.*.sub_skills.*' => 'string|max:255',
+                    'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+                    'credentials' => 'nullable|array',
+                    'credentials.*.credentials_name' => 'required|string|max:255',
+                ]
+            );
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for worker creation', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $skillIds = array_column($skillsId, 'skill_id');
+            if (count(array_unique($skillIds)) !== count($skillIds)) {
+                return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
+            }
+
+            foreach ($skillsId as $index => $skillData) {
+                $skill = Skill::find($skillData['skill_id']);
+                if ($skill && !empty($skillData['sub_skills'])) {
+                    $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                    foreach ($skillData['sub_skills'] as $subSkill) {
+                        if (!in_array($subSkill, $availableSubSkills)) {
+                            return response()->json([
+                                'errors' => ["skills_id.$index.sub_skills" => ["Invalid sub-skill: $subSkill"]],
+                            ], 400);
+                        }
+                    }
+                }
+            }
+
+            $user = User::create([
+                'username' => $request->username ?? strtolower($request->first_name . '.' . $request->last_name),
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'role_id' => 1,
+                'archived' => false,
+            ]);
+
+            $profileData = [
+                'user_id' => $user->id,
+                'first_name' => $request->first_name,
+                'middlename' => $request->middlename,
+                'last_name' => $request->last_name,
+                'suffix_id' => $request->suffix_id,
+                'gender_id' => $request->gender_id,
+                'contact_number' => $request->contact_number,
+                'street' => $request->street,
+                'city' => 'Butuan City',
+                'province' => 'Agusan Del Norte',
+                'postal_code' => '8600',
+                'country' => 'Philippines',
+            ];
+
+            if ($request->hasFile('profile_img')) {
+                $file = $request->file('profile_img');
+                $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                $path = $file->storeAs('profiles', $filename, 'public');
+                $profileData['profile_img'] = $path;
+            }
+
+            $profile = Profile::create($profileData);
+
+            $credentials_name = [];
+            if ($request->has('credentials') && is_array($request->credentials)) {
+                foreach ($request->credentials as $credential) {
+                    if (
+                        isset($credential['credentials_name']) &&
+                        !empty($credential['credentials_name']) &&
+                        !empty($credential['credentials_name'])
+                    ) {
+                        $credentials_name[] = $credential['credentials_name'];
+                    }
+                }
+            }
+
+            // Parse preferred_working_hours if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_hours;
+            if (is_string($preferredWorkingHours)) {
+                $preferredWorkingHours = json_decode($preferredWorkingHours, true);
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
+            }
+
+            $worker = Worker::create([
+                'profile_id' => $profile->id,
+                'work_type' => $request->work_type,
+                'hours_per_day' => $request->hours_per_day,
+                'preferred_working_hours' => $preferredWorkingHours,
+                'bio' => $request->bio,
+                'skills_id' => $skillsId,
+                'credentials_name' => $credentials_name,
+                'archived' => false,
+                'is_reviewed' => null,
+            ]);
+
+            Log::info('Worker created', [
+                'worker_id' => $worker->id,
+                'profile_id' => $profile->id,
+                'work_type' => $request->work_type,
+                'skills_id' => $skillsId,
+                'credentials_name' => $credentials_name,
+            ]);
+
+            return response()->json([
+                'message' => 'Worker created successfully',
+                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
+            ], 201);
+        } catch (\Exception $e) {
+            Log::error('Error creating worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to create worker: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Update an existing worker.
+     */
+    public function update(Request $request, $id): JsonResponse
+    {
+        try {
+            Log::info('Update worker request data', ['id' => $id, 'input' => $request->all()]);
+
+            $user = User::with(['profile', 'worker'])
+                ->where('role_id', 1)
+                ->findOrFail($id);
+
+            if (!$user->profile) {
+                $user->profile()->create([
+                    'user_id' => $user->id,
+                    'first_name' => $request->first_name ?? 'Unknown',
+                    'last_name' => $request->last_name ?? 'Worker',
+                    'email' => $user->email,
+                    'city' => 'Butuan City',
+                    'province' => 'Agusan Del Norte',
+                    'postal_code' => '8600',
+                    'country' => 'Philippines',
+                ]);
+                $user->load('profile');
+            }
+
+            if (!$user->worker) {
+                Worker::create([
+                    'profile_id' => $user->profile->id,
+                    'work_type' => $request->work_type ?? 'part-time',
+                    'skills_id' => [],
+                    'credentials_name' => [],
+                    'archived' => $user->archived,
+                    'is_reviewed' => '0',
+                ]);
+                $user->load('worker');
+            }
+
+            $skillsId = $request->input('skills_id', []);
+            if (is_string($skillsId)) {
+                $decoded = json_decode($skillsId, true);
+                $skillsId = is_array($decoded) ? $decoded : [];
+            }
+            if (!is_array($skillsId)) {
+                Log::warning('skills_id is not an array', ['skills_id' => $request->input('skills_id')]);
+                return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
+            }
+
+            // Parse preferred_working_hours if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_hours;
+            if (is_string($preferredWorkingHours)) {
+                $preferredWorkingHours = json_decode($preferredWorkingHours, true);
+            }
+            // Ensure it's always an array
+            if (!is_array($preferredWorkingHours)) {
+                $preferredWorkingHours = [];
+            }
+
+            $validator = Validator::make(
+                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_hours' => $preferredWorkingHours]),
+                [
+                    'first_name' => 'required|string|max:255',
+                    'middlename' => 'nullable|string|max:255',
+                    'last_name' => 'required|string|max:255',
+                    'suffix_id' => 'nullable|integer|exists:suffixes,id',
+                    'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
+                    'password' => 'nullable|string|min:8|regex:/^(?=.*[A-Z])(?=.*\d).+$/',
+                    'gender_id' => 'required|integer|exists:genders,id',
+                    'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
+                    'street' => 'nullable|string|max:255',
+                    'work_type' => 'required|in:part-time,full-time,one-time-job',
+                    'hours_per_day' => 'nullable|integer|min:1|max:24',
+                    'preferred_working_hours' => 'nullable|array',
+                    'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+                    'bio' => 'nullable|string|max:1000',
+                    'skills_id' => 'required|array|min:1',
+                    'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
+                    'skills_id.*.skill_name' => 'required|string|max:255',
+                    'skills_id.*.sub_skills' => 'nullable|array',
+                    'skills_id.*.sub_skills.*' => 'string|max:255',
+                    'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+                    'credentials' => 'nullable|array',
+                    'credentials.*.credentials_name' => 'required|string|max:255',
+                ]
+            );
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for worker update', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $skillIds = array_column($skillsId, 'skill_id');
+            if (count(array_unique($skillIds)) !== count($skillIds)) {
+                return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
+            }
+
+            foreach ($skillsId as $index => $skillData) {
+                $skill = Skill::find($skillData['skill_id']);
+                if ($skill && !empty($skillData['sub_skills'])) {
+                    $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                    foreach ($skillData['sub_skills'] as $subSkill) {
+                        if (!in_array($subSkill, $availableSubSkills)) {
+                            return response()->json([
+                                'errors' => ["skills_id.$index.sub_skills" => ["Invalid sub-skill: $subSkill"]],
+                            ], 400);
+                        }
+                    }
+                }
+            }
+
+            $user->update([
+                'username' => $request->username ?? $user->username,
+                'email' => $request->email,
+                'password' => $request->password ? bcrypt($request->password) : $user->password,
+            ]);
+
+            $profileData = [
+                'first_name' => $request->first_name,
+                'middlename' => $request->middlename,
+                'last_name' => $request->last_name,
+                'suffix_id' => $request->suffix_id,
+                'gender_id' => $request->gender_id,
+                'contact_number' => $request->contact_number,
+                'street' => $request->street,
+                'city' => $request->city ?? $user->profile->city,
+                'province' => $request->province ?? $user->profile->province,
+                'postal_code' => $request->postal_code ?? $user->profile->postal_code,
+                'country' => $request->country ?? $user->profile->country,
+            ];
+
+            if ($request->hasFile('profile_img')) {
+                if ($user->profile->profile_img && Storage::disk('public')->exists($user->profile->profile_img)) {
+                    Storage::disk('public')->delete($user->profile->profile_img);
+                }
+                $file = $request->file('profile_img');
+                $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+                $path = $file->storeAs('profiles', $filename, 'public');
+                $profileData['profile_img'] = $path;
+            } elseif ($request->input('profile_img') === '' && $user->profile->profile_img) {
+                if (Storage::disk('public')->exists($user->profile->profile_img)) {
+                    Storage::disk('public')->delete($user->profile->profile_img);
+                }
+                $profileData['profile_img'] = null;
+            }
+
+            $user->profile->update($profileData);
+
+            $credentials_name = [];
+            $existing_credentials_name = $this->parseArray($user->worker->credentials_name);
+
+            if ($request->has('credentials') && is_array($request->credentials)) {
+                foreach ($request->credentials as $index => $credential) {
+                    if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
+                        $credentials_name[] = $credential['credentials_name'];
+                    }
+                }
+
+            }
+
+            $user->worker->update([
+                'work_type' => $request->work_type,
+                'hours_per_day' => $request->hours_per_day,
+                'preferred_working_hours' => $preferredWorkingHours,
+                'bio' => $request->bio,
+                'skills_id' => $skillsId,
+                'credentials_name' => $credentials_name,
+                'archived' => $user->archived,
+            ]);
+
+            Log::info('Worker updated', [
+                'worker_id' => $user->worker->id,
+                'work_type' => $request->work_type,
+                'hours_per_day' => $request->hours_per_day,
+                'preferred_working_hours' => $preferredWorkingHours,
+                'bio' => $request->bio,
+                'skills_id' => $skillsId,
+                'credentials_name' => $credentials_name,
+            ]);
+
+            return response()->json([
+                'message' => 'Worker updated successfully',
+                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating worker: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update worker: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Update worker's skills.
+     */
+    public function updateSkills(Request $request, $id): JsonResponse
+    {
+        try {
+            Log::info('Update skills request data', ['id' => $id, 'input' => $request->all()]);
+
+            $user = User::with(['profile', 'worker'])
+                ->where('role_id', 1)
+                ->findOrFail($id);
+
+            if (!$user->worker) {
+                return response()->json(['error' => 'Worker record not found'], 404);
+            }
+
+            $skillsId = $request->input('skills_id', []);
+            if (is_string($skillsId)) {
+                $decoded = json_decode($skillsId, true);
+                $skillsId = is_array($decoded) ? $decoded : [];
+            }
+            if (!is_array($skillsId)) {
+                Log::warning('skills_id is not an array', ['skills_id' => $request->input('skills_id')]);
+                return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
+            }
+
+            // Handle structured skills_id format
+            $primarySkills = $skillsId['primary_skills'] ?? [];
+            $additionalSkills = $skillsId['additional_skills'] ?? [];
+            $allSkills = array_merge($primarySkills, $additionalSkills);
+            
+            // Ensure arrays are always present
+            if (!isset($skillsId['primary_skills'])) {
+                $skillsId['primary_skills'] = [];
+            }
+            if (!isset($skillsId['additional_skills'])) {
+                $skillsId['additional_skills'] = [];
+            }
+            
+            Log::info('Processing skills update', [
+                'worker_id' => $user->worker->id,
+                'primary_skills_count' => count($primarySkills),
+                'additional_skills_count' => count($additionalSkills),
+                'total_skills' => count($allSkills),
+                'skills_id_structure' => $skillsId
+            ]);
+
+            // Custom validation for structured skills_id
+            $validator = Validator::make(
+                ['skills_id' => $skillsId],
+                [
+                    'skills_id' => 'required|array',
+                    'skills_id.primary_skills' => 'array',
+                    'skills_id.additional_skills' => 'array',
+                ]
+            );
+
+            // Validate individual skills if arrays are not empty
+            if (!empty($primarySkills)) {
+                $validator->sometimes('skills_id.primary_skills.*.skill_id', 'required|integer|exists:skills,id', function ($input) {
+                    return !empty($input->skills_id['primary_skills']);
+                });
+                $validator->sometimes('skills_id.primary_skills.*.skill_name', 'required|string|max:255', function ($input) {
+                    return !empty($input->skills_id['primary_skills']);
+                });
+                $validator->sometimes('skills_id.primary_skills.*.sub_skills', 'nullable|array', function ($input) {
+                    return !empty($input->skills_id['primary_skills']);
+                });
+                $validator->sometimes('skills_id.primary_skills.*.sub_skills.*', 'string|max:255', function ($input) {
+                    return !empty($input->skills_id['primary_skills']);
+                });
+            }
+
+            if (!empty($additionalSkills)) {
+                $validator->sometimes('skills_id.additional_skills.*.skill_id', 'required|integer|exists:skills,id', function ($input) {
+                    return !empty($input->skills_id['additional_skills']);
+                });
+                $validator->sometimes('skills_id.additional_skills.*.skill_name', 'required|string|max:255', function ($input) {
+                    return !empty($input->skills_id['additional_skills']);
+                });
+                $validator->sometimes('skills_id.additional_skills.*.sub_skills', 'nullable|array', function ($input) {
+                    return !empty($input->skills_id['additional_skills']);
+                });
+                $validator->sometimes('skills_id.additional_skills.*.sub_skills.*', 'string|max:255', function ($input) {
+                    return !empty($input->skills_id['additional_skills']);
+                });
+            }
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for skills update', [
+                    'errors' => $validator->errors()->toArray(),
+                    'input_data' => $skillsId,
+                    'primary_skills' => $primarySkills,
+                    'additional_skills' => $additionalSkills
+                ]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $skillIds = array_column($allSkills, 'skill_id');
+            if (count(array_unique($skillIds)) !== count($skillIds)) {
+                return response()->json(['errors' => ['skills_id' => ['Duplicate skill IDs are not allowed']]], 400);
+            }
+
+            foreach ($allSkills as $index => $skillData) {
+                $skill = Skill::find($skillData['skill_id']);
+                if ($skill && !empty($skillData['sub_skills'])) {
+                    $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                    foreach ($skillData['sub_skills'] as $subSkill) {
+                        if (!in_array($subSkill, $availableSubSkills)) {
+                            return response()->json([
+                                'errors' => ["skills_id.$index.sub_skills" => ["Invalid sub-skill: $subSkill"]],
+                            ], 400);
+                        }
+                    }
+                }
+            }
+
+            if (count($allSkills) > 15) {
+                Log::warning('Skill limit exceeded', [
+                    'worker_id' => $user->worker->id,
+                    'total_skills' => count($allSkills),
+                ]);
+                return response()->json(['error' => 'Cannot have more than 15 skills'], 400);
+            }
+
+            // Ensure the final structure has both arrays
+            $finalSkillsId = [
+                'primary_skills' => $primarySkills,
+                'additional_skills' => $additionalSkills,
+            ];
+            
+            $user->worker->update([
+                'skills_id' => $finalSkillsId,
+            ]);
+
+            Log::info('Worker skills updated', [
+                'worker_id' => $user->worker->id,
+                'skills_id' => $finalSkillsId,
+                'total_skills' => count($allSkills),
+            ]);
+
+            return response()->json([
+                'message' => 'Worker skills updated successfully',
+                'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
+            ], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating worker skills: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update worker skills: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Update worker's archive status.
+     */
+    public function updateArchiveStatus(Request $request, $id): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'archived' => 'required|boolean',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for archive status update', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $user = User::with(['profile', 'worker'])
+                ->where('role_id', 1)
+                ->findOrFail($id);
+
+            $newStatus = $request->input('archived');
+            if ($user->archived === $newStatus) {
+                return response()->json(['error' => 'Worker is already ' . ($newStatus ? 'archived' : 'restored')], 400);
+            }
+
+            $user->update(['archived' => $newStatus]);
+
+            if ($user->worker) {
+                $user->worker->update(['archived' => $newStatus]);
+            }
+
+            Log::info('Worker archive status updated', ['id' => $id, 'archived' => $newStatus]);
+            return response()->json(['message' => 'Worker ' . ($newStatus ? 'archived' : 'restored') . ' successfully'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error updating worker archive status: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update worker archive status: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Bulk archive or restore workers.
+     */
+    public function bulkArchive(Request $request): JsonResponse
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'worker_ids' => 'required|array',
+                'worker_ids.*' => 'integer|exists:users,id',
+                'archived' => 'required|boolean',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for bulk archive', ['errors' => $validator->errors()->toArray()]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $ids = $request->input('worker_ids', []);
+            $archived = $request->input('archived');
+
+            $users = User::whereIn('id', $ids)
+                ->where('role_id', 1)
+                ->where('users.archived', !$archived)
+                ->get();
+
+            if ($users->isEmpty()) {
+                return response()->json(['error' => 'No valid workers found for ' . ($archived ? 'archiving' : 'restoring')], 400);
+            }
+
+            foreach ($users as $user) {
+                $user->update(['archived' => $archived]);
+                if ($user->worker) {
+                    $user->worker->update(['archived' => $archived]);
+                }
+            }
+
+            Log::info('Workers bulk updated', ['ids' => $ids, 'archived' => $archived]);
+            return response()->json(['message' => 'Workers ' . ($archived ? 'archived' : 'restored') . ' successfully'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error bulk updating workers: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to update workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
+     * Add a skill to the worker's skills_id array.
+     */
+    public function addSkill(Request $request): JsonResponse
+    {
+        try {
+            Log::info('Add skill request data', ['input' => $request->all()]);
+
+            $validator = Validator::make($request->all(), [
+                'profile_id' => 'required|integer|exists:profiles,id',
+                'skill_id' => 'required|integer|exists:skills,id',
+                'skill_name' => 'required|string|max:255',
+                'sub_skills' => 'nullable|array',
+                'sub_skills.*' => 'string|max:255',
+                'experience' => 'nullable|string|in:no-experience,0-11-months,1-2-years,2-5-years,5-10-years,10+ years',
+            ]);
+
+            if ($validator->fails()) {
+                Log::warning('Validation failed for adding skill', [
+                    'errors' => $validator->errors()->toArray(),
+                    'request' => $request->all(),
+                ]);
+                return response()->json(['errors' => $validator->errors()->toArray()], 400);
+            }
+
+            $profileId = $request->profile_id;
+            $skillId = $request->skill_id;
+            $skill = Skill::findOrFail($skillId);
+            $subSkills = $request->sub_skills ?? [];
+
+            if (!empty($subSkills)) {
+                $availableSubSkills = $this->parseSubSkills($skill->sub_skills);
+                foreach ($subSkills as $subSkill) {
+                    if (!in_array($subSkill, $availableSubSkills)) {
+                        return response()->json([
+                            'errors' => ['sub_skills' => ["Invalid sub-skill: $subSkill"]],
+                        ], 400);
+                    }
+                }
+            }
+
+            $worker = Worker::firstOrCreate(
+                ['profile_id' => $profileId],
+                [
+                    'work_type' => 'part-time',
+                    'skills_id' => [],
+                    'credentials_name' => [],
+                    'archived' => false,
+                    'is_reviewed' => '0',
+                ]
+            );
+
+            $skillsId = $this->parseArray($worker->skills_id);
+
+            if (in_array($skillId, array_column($skillsId, 'skill_id'))) {
+                Log::info('Skill already exists for worker', [
+                    'worker_id' => $worker->id,
+                    'profile_id' => $profileId,
+                    'skill_id' => $skillId,
+                ]);
+                return response()->json(['message' => 'Skill already added'], 200);
+            }
+
+            $skillsId[] = [
+                'skill_id' => (string)$skillId,
+                'skill_name' => $request->skill_name,
+                'sub_skills' => $subSkills,
+                'experience' => $request->experience ?? '0-11-months',
+            ];
+
+            if (count($skillsId) > 15) {
+                Log::warning('Skill limit exceeded', [
+                    'worker_id' => $worker->id,
                     'profile_id' => $profileId,
                     'total_skills' => count($skillsId),
                 ]);
@@ -553,17 +1643,14 @@
         $skillsId = $this->parseArray($user->worker->skills_id);
         $credentialsName = $this->parseArray($user->worker->credentials_name);
         $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
-        $credentialsDoc = $this->parseArray($user->worker->credentials_doc);
         
         // Debug logging for credentials
         Log::info('formatWorker credentials debug', [
             'user_id' => $user->id,
             'raw_credentials_name' => $user->worker->credentials_name,
             'raw_credentials_photo' => $user->worker->credentials_photo,
-            'raw_credentials_doc' => $user->worker->credentials_doc,
             'parsed_credentials_name' => $credentialsName,
             'parsed_credentials_photo' => $credentialsPhoto,
-            'parsed_credentials_doc' => $credentialsDoc,
         ]);
 
         // Ensure $skillsId is an array of arrays
@@ -652,32 +1739,6 @@
         // Calculate rank for the worker
         $workerRank = $this->calculateWorkerRank($user);
 
-        Log::info('formatWorker returning worker data', [
-            'user_id' => $user->id,
-            'is_reviewed' => $user->worker->is_reviewed,
-            'worker' => [
-                'work_type' => $user->worker->work_type,
-                'hours_per_day' => $user->worker->hours_per_day,
-                'monthly_salary' => $user->worker->monthly_salary,
-                'preferred_working_hours' => $user->worker->preferred_working_hours,
-                'bio' => $user->worker->bio,
-                'skills_id' => $structuredSkillsId,
-                'credentials_name' => $credentialsName,
-                'credentials_photo' => $credentialsPhoto,
-                'credentials_doc' => $credentialsDoc,
-                'archived' => $user->worker->archived,
-                'is_reviewed' => $user->worker->is_reviewed,
-                'verified' => $user->worker->verified ?? false,
-                'rank' => $workerRank ? [
-                    'id' => $workerRank->id,
-                    'name' => $workerRank->name,
-                    'image' => $workerRank->image,
-                    'min_points' => $workerRank->min_points,
-                    'max_points' => $workerRank->max_points,
-                ] : null,
-            ],
-        ]);
-
         return [
             'id' => $user->id,
             'email' => $user->email,
@@ -703,13 +1764,11 @@
             'worker' => [
                 'work_type' => $user->worker->work_type,
                 'hours_per_day' => $user->worker->hours_per_day,
-                'monthly_salary' => $user->worker->monthly_salary,
                 'preferred_working_hours' => $user->worker->preferred_working_hours,
                 'bio' => $user->worker->bio,
                 'skills_id' => $structuredSkillsId,
                 'credentials_name' => $credentialsName,
                 'credentials_photo' => $credentialsPhoto,
-                'credentials_doc' => $credentialsDoc,
                 'archived' => $user->worker->archived,
                 'is_reviewed' => $user->worker->is_reviewed,
                 'verified' => $user->worker->verified ?? false,
@@ -736,7 +1795,6 @@
                 'profile_id' => 'required|integer|exists:profiles,id',
                 'work_type' => 'required|in:part-time,full-time,one-time',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
-                'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
                 'preferred_working_hours' => 'nullable|string',
                 'bio' => 'nullable|string|max:1000',
                 'skills_id' => 'required|array',
@@ -750,8 +1808,10 @@
                 'skills_id.additional_skills.*.skill_name' => 'required_with:skills_id.additional_skills.*|string|max:255',
                 'skills_id.additional_skills.*.sub_skills' => 'nullable|array',
                 'skills_id.additional_skills.*.sub_skills.*' => 'string|max:255',
-                'credentials' => 'required|array|min:1',
+                'credentials' => 'nullable|array',
                 'credentials.*.credentials_name' => 'required|string|max:255',
+                'credentials.*.credentials_photo' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:10240',
+                'credentials.*.credentials_doc' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png,jpg|max:10240',
             ]);
 
             if ($validator->fails()) {
@@ -828,37 +1888,30 @@
                 $preferredWorkingHours = [];
             }
 
-            // Handle credentials with proper separation of photos and documents
             $credentials_name = [];
             $credentials_photo = [];
             $credentials_doc = [];
-
+            
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $index => $credential) {
                     if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
                         $credentials_name[] = $credential['credentials_name'];
                         
-                        // Handle file upload and separate into photo vs doc based on file type
-                        if (isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
-                            $file = $credential['credentials_photo'];
-                            $filename = time() . '_' . $index . '_' . $file->getClientOriginalName();
-                            
-                            // Check file type to determine storage location
-                            $mimeType = $file->getMimeType();
-                            if (in_array($mimeType, ['image/jpeg', 'image/png', 'image/jpg'])) {
-                                // Store images in credentials/photos
-                                $path = $file->storeAs('credentials/photos', $filename, 'public');
-                                $credentials_photo[] = $path;
-                                $credentials_doc[] = null; // No doc file for this credential
-                            } else {
-                                // Store documents in credentials/docs
-                                $path = $file->storeAs('credentials/docs', $filename, 'public');
-                                $credentials_doc[] = $path;
-                                $credentials_photo[] = null; // No photo file for this credential
-                            }
+                        // Handle credentials_photo file upload
+                        if ($request->hasFile("credentials.{$index}.credentials_photo")) {
+                            $photoFile = $request->file("credentials.{$index}.credentials_photo");
+                            $photoPath = $photoFile->store('credentials', 'public');
+                            $credentials_photo[] = $photoPath;
                         } else {
-                            // No file uploaded for this credential
                             $credentials_photo[] = null;
+                        }
+                        
+                        // Handle credentials_doc file upload
+                        if ($request->hasFile("credentials.{$index}.credentials_doc")) {
+                            $docFile = $request->file("credentials.{$index}.credentials_doc");
+                            $docPath = $docFile->store('credentials', 'public');
+                            $credentials_doc[] = $docPath;
+                        } else {
                             $credentials_doc[] = null;
                         }
                     }
@@ -868,13 +1921,12 @@
             $user->worker->update([
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
-                'monthly_salary' => $request->monthly_salary,
                 'preferred_working_hours' => $preferredWorkingHours,
-                'bio' => $request->bio, // Store the professional bio
                 'skills_id' => $skillsId, // Keep the original structure with primary_skills and additional_skills
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
                 'credentials_doc' => $credentials_doc,
+                'bio' => $request->bio,
                 'is_reviewed' => 'TO BE REVIEWED',
             ]);
 
@@ -887,7 +1939,7 @@
                 'credentials_photo' => $credentials_photo,
                 'credentials_doc' => $credentials_doc,
                 'bio' => $request->bio,
-                'is_reviewed_set_to' => 'TO BE REVIEWED',
+                'is_reviewed' => 'TO BE REVIEWED',
             ]);
 
             return response()->json([
@@ -918,7 +1970,11 @@
 
             $query = User::with(['profile', 'worker'])
                 ->whereIn('users.role_id', [1, 2]) // Allow both workers (1) and employers (2)
-                ->where('users.archived', false);
+                ->where('users.archived', false)
+                ->whereHas('worker', function ($q) {
+                    $q->where('is_reviewed', 'ACCEPTED');
+                    // $q->where('verified', true);
+                });
 
             // Exclude specific user if provided
             if ($excludeUserId) {
@@ -1014,7 +2070,6 @@
             $request->validate([
                 'work_type' => 'nullable|string|max:255',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
-                'monthly_salary' => 'nullable|numeric|min:0',
                 'preferred_working_hours' => 'nullable|string',
                 'bio' => 'nullable|string|max:1000',
             ]);
@@ -1028,10 +2083,6 @@
             
             if ($request->has('hours_per_day')) {
                 $updateData['hours_per_day'] = $request->input('hours_per_day');
-            }
-            
-            if ($request->has('monthly_salary')) {
-                $updateData['monthly_salary'] = $request->input('monthly_salary');
             }
             
             if ($request->has('preferred_working_hours')) {
@@ -1136,7 +2187,6 @@
             ]);
             
             // Process credentials data
-            $credentialsDocs = [];
             foreach ($credentialsData as $index => $credential) {
                 if (isset($credential['credentials_name'])) {
                     $credentialsNames[] = $credential['credentials_name'];
@@ -1148,28 +2198,15 @@
                     if (isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
                         $file = $credential['credentials_photo'];
                         $filename = time() . '_' . $index . '_' . $file->getClientOriginalName();
-                        
-                        // Check file type to determine storage location
-                        $mimeType = $file->getMimeType();
-                        if (in_array($mimeType, ['image/jpeg', 'image/png', 'image/jpg'])) {
-                            // Store images in credentials/photos
-                            $path = $file->storeAs('credentials/photos', $filename, 'public');
-                            $credentialsPhotos[] = $path;
-                            $credentialsDocs[] = null; // No doc file for this credential
-                        } else {
-                            // Store documents in credentials/docs
-                            $path = $file->storeAs('credentials/docs', $filename, 'public');
-                            $credentialsDocs[] = $path;
-                            $credentialsPhotos[] = null; // No photo file for this credential
-                        }
+                        $path = $file->storeAs('credentials', $filename, 'public');
+                        $credentialsPhotos[] = $path;
                         $fileProcessed = true;
-                        Log::info('File uploaded successfully', ['path' => $path, 'filename' => $filename, 'mime_type' => $mimeType]);
+                        Log::info('File uploaded successfully', ['path' => $path, 'filename' => $filename]);
                     }
                     
                     // Check if it's an existing photo path
                     if (!$fileProcessed && isset($credential['existing_photo']) && !empty($credential['existing_photo'])) {
                         $credentialsPhotos[] = $credential['existing_photo'];
-                        $credentialsDocs[] = null; // No doc file for this credential
                         $fileProcessed = true;
                         Log::info('Using existing photo', ['path' => $credential['existing_photo']]);
                     }
@@ -1177,7 +2214,6 @@
                     // If no file was processed, set to null
                     if (!$fileProcessed) {
                         $credentialsPhotos[] = null;
-                        $credentialsDocs[] = null;
                         Log::warning('No file processed for credential', ['index' => $index, 'credential' => $credential]);
                     }
                 }
@@ -1187,7 +2223,6 @@
             $user->worker->update([
                 'credentials_name' => $credentialsNames,
                 'credentials_photo' => $credentialsPhotos,
-                'credentials_doc' => $credentialsDocs,
             ]);
 
             Log::info('Worker credentials updated', [

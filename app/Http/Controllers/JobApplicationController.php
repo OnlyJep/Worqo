@@ -85,7 +85,7 @@ class JobApplicationController extends Controller
             $application->load('company');
 
             // Notify job owner about new application
-            $jobOwnerId = JobPost::find($request->job_post_id)?->profile_id; // adjust if using users table
+            $jobOwnerId = ($jobPost = JobPost::find($request->job_post_id)) ? $jobPost->profile_id : null; // adjust if using users table
             if ($jobOwnerId) {
                 NotificationController::createNotification(
                     $jobOwnerId,
@@ -149,7 +149,7 @@ class JobApplicationController extends Controller
             }]);
 
             // Notify job owner about new application
-            $jobOwnerId = JobPost::find($request->job_post_id)?->profile_id; // adjust if using users table
+            $jobOwnerId = ($jobPost = JobPost::find($request->job_post_id)) ? $jobPost->profile_id : null; // adjust if using users table
             if ($jobOwnerId) {
                 NotificationController::createNotification(
                     $jobOwnerId,

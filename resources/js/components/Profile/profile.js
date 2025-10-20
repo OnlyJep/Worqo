@@ -188,7 +188,6 @@ const Profile = ({ initialServiceType }) => {
           description: workerData.worker?.bio || "No bio available",
           work_type: workerData.worker?.work_type || 'part-time',
           hours_per_day: workerData.worker?.hours_per_day || 4,
-          monthly_salary: workerData.worker?.monthly_salary || null,
           location: fullAddress || 'Address not specified',
           profile_img: workerData.profile?.profile_img,
           contact_number: workerData.profile?.contact_number,
