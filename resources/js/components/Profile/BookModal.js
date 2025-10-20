@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
+import axios from 'axios';
 import './../../../sass/components/BookModal.scss';
 
 const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
@@ -14,6 +15,12 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
     daily_rate: '', // Changed from salary to daily_rate
   });
 
+  const [availabilityStatus, setAvailabilityStatus] = useState({
+    isAvailable: true,
+    conflictMessage: '',
+    conflictingJobs: []
+  });
+
   useEffect(() => {
     if (!isOpen) {
       setBookingDetails({
@@ -26,8 +33,20 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
         description: '',
         daily_rate: '',
       });
+      setAvailabilityStatus({
+        isAvailable: true,
+        conflictMessage: '',
+        conflictingJobs: []
+      });
     }
   }, [isOpen, worker]);
+
+  // Check worker availability when booking dates change
+  useEffect(() => {
+    if (bookingDetails.book_in && bookingDetails.book_end && worker?.id) {
+      checkWorkerAvailability();
+    }
+  }, [bookingDetails.book_in, bookingDetails.book_end, worker?.id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -314,6 +333,74 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
     });
   };
 
+  // Check worker availability for the selected dates
+  const checkWorkerAvailability = async () => {
+    try {
+      const { book_in, book_end } = bookingDetails;
+      
+      if (!book_in || !book_end || !worker?.id) {
+        setAvailabilityStatus({
+          isAvailable: true,
+          conflictMessage: '',
+          conflictingJobs: []
+        });
+        return;
+      }
+
+      // Get worker's accepted job applications (hired jobs)
+      const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${worker.id}?status=accepted`);
+      const acceptedJobs = response.data || [];
+
+      // Check for date conflicts
+      const requestedStart = new Date(book_in);
+      const requestedEnd = new Date(book_end);
+      const conflictingJobs = [];
+
+      for (const job of acceptedJobs) {
+        if (job.job_post?.work_start && job.job_post?.work_end) {
+          const jobStart = new Date(job.job_post.work_start);
+          const jobEnd = new Date(job.job_post.work_end);
+
+          // Check if there's any overlap between the requested dates and job dates
+          if (
+            (requestedStart >= jobStart && requestedStart <= jobEnd) ||
+            (requestedEnd >= jobStart && requestedEnd <= jobEnd) ||
+            (requestedStart <= jobStart && requestedEnd >= jobEnd)
+          ) {
+            conflictingJobs.push({
+              jobTitle: job.job_post.job_title,
+              workStart: job.job_post.work_start,
+              workEnd: job.job_post.work_end,
+              employer: job.job_post.profile?.first_name + ' ' + job.job_post.profile?.last_name
+            });
+          }
+        }
+      }
+
+      if (conflictingJobs.length > 0) {
+        setAvailabilityStatus({
+          isAvailable: false,
+          conflictMessage: `Worker is not available during the selected period. They are already hired for ${conflictingJobs.length} job(s) during this time.`,
+          conflictingJobs: conflictingJobs
+        });
+      } else {
+        setAvailabilityStatus({
+          isAvailable: true,
+          conflictMessage: '',
+          conflictingJobs: []
+        });
+      }
+    } catch (error) {
+      console.error('Error checking worker availability:', error);
+      // On error, assume worker is available to avoid blocking legitimate bookings
+      setAvailabilityStatus({
+        isAvailable: true,
+        conflictMessage: '',
+        conflictingJobs: []
+      });
+    }
+  };
+
   const getSalaryInfo = () => {
     const workType = bookingDetails.work_type;
     const isBlueCollar = isBlueCollarWorker();
@@ -372,6 +459,12 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
     // Validate date range
     if (bookingDetails.book_end <= bookingDetails.book_in) {
       message.error("End date must be after start date");
+      return;
+    }
+
+    // Check worker availability
+    if (!availabilityStatus.isAvailable) {
+      message.error(availabilityStatus.conflictMessage);
       return;
     }
 
@@ -513,6 +606,33 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
               required
             />
           </div>
+
+          {/* Availability Warning */}
+          {!availabilityStatus.isAvailable && (
+            <div className="availability-warning">
+              <div className="warning-header">
+                <span className="warning-icon">⚠️</span>
+                <span className="warning-title">Worker Not Available</span>
+              </div>
+              <p className="warning-message">{availabilityStatus.conflictMessage}</p>
+              {availabilityStatus.conflictingJobs.length > 0 && (
+                <div className="conflicting-jobs">
+                  <h5>Conflicting Jobs:</h5>
+                  <ul>
+                    {availabilityStatus.conflictingJobs.map((job, index) => (
+                      <li key={index}>
+                        <strong>{job.jobTitle}</strong> - {job.employer}
+                        <br />
+                        <small>
+                          Work Period: {new Date(job.workStart).toLocaleDateString()} to {new Date(job.workEnd).toLocaleDateString()}
+                        </small>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
           
           {/* Time In/Out Fields - Only show when both Book In and Book End are filled */}
           {bookingDetails.book_in && bookingDetails.book_end && (
@@ -622,7 +742,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
           <button
             className="booking-btn booking-btn-submit"
             onClick={handleSubmit}
-            disabled={!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in)}
+            disabled={!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in) || !availabilityStatus.isAvailable}
           >
             Submit Hiring Request
           </button>

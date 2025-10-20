@@ -407,14 +407,8 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
       });
       
       if (response.status === 201) {
-        // Show different messages based on hiring type
-        if (job.hiring_type === 'individual') {
-          showNotification('Application submitted successfully! The employer will review your profile and skills to determine if you\'re a good fit. Note: This is an individual position - only one person will be hired, but multiple can apply for interview.', 'success');
-        } else if (job.hiring_type === 'team') {
-          showNotification('Application submitted successfully! The employer will review your profile and skills to determine if you\'re a good fit. This is a team position - multiple people can be hired.', 'success');
-        } else {
-          showNotification('Application submitted successfully! The employer will review your profile and skills to determine if you\'re a good fit.', 'success');
-        }
+        // Show success message
+        showNotification('Application has been submitted!', 'success');
         
         setTimeout(() => {
           onSubmit(formData);

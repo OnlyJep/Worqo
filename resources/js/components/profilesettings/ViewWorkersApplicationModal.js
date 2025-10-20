@@ -57,9 +57,15 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
   };
 
   const handleViewProfile = (application) => {
-    // Use the worker's user ID (which is the profile ID) for the profile route
-    const workerUserId = application.worker.id;
-    window.open(`/profile/${workerUserId}`, '_blank');
+    // Debug: Log the application data to see the structure
+    console.log('Application data:', application);
+    console.log('Worker data:', application.worker);
+    console.log('Worker ID:', application.worker.id);
+    
+    // Use the worker's ID for the profile route
+    const workerId = application.worker.id;
+    console.log('Opening profile for worker ID:', workerId);
+    window.open(`/profile/${workerId}`, '_blank');
   };
 
   const handleViewApplicationDetails = (application) => {
@@ -129,6 +135,16 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
                          application.status === 'declined' ? 'Declined' :
                          application.status === 'fired' ? 'Fired' : application.status}
                       </span>
+                    </div>
+                  </div>
+
+                  <div className="profile-info">
+                    <h5>Profile Information</h5>
+                    <div className="profile-details">
+                      <div className="profile-text-details">
+                        <p><strong>Email:</strong> {application.worker?.user?.email || 'Not provided'}</p>
+                        <p><strong>Location:</strong> {application.worker?.city || 'Not specified'}, {application.worker?.province || 'Not specified'}</p>
+                      </div>
                     </div>
                   </div>
 
@@ -209,6 +225,8 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
                   </div>
                   <div className="profile-text-details">
                     <p><strong>Name:</strong> {getWorkerName(selectedApplication.worker)}</p>
+                    <p><strong>Email:</strong> {selectedApplication.worker?.user?.email || 'Not provided'}</p>
+                    <p><strong>Location:</strong> {selectedApplication.worker?.city || 'Not specified'}, {selectedApplication.worker?.province || 'Not specified'}</p>
                     <p><strong>Applied on:</strong> {new Date(selectedApplication.created_at).toLocaleDateString()}</p>
                     <p><strong>Status:</strong> {selectedApplication.status === 'for_interview' ? 'For Interview' : selectedApplication.status}</p>
                   </div>

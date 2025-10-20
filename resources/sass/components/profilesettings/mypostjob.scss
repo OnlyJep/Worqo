@@ -203,6 +203,48 @@
         }
       }
 
+      .application-period {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #f9fafb;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .period-title {
+          font-size: 16px;
+          font-weight: 700;
+          color: #000000;
+          margin: 0 0 15px 0;
+          border-bottom: 2px solid #1E90FF;
+          padding-bottom: 10px;
+        }
+
+        .period-dates {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          .date-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+
+            .date-icon {
+              color: #1E90FF;
+              font-size: 16px;
+              flex-shrink: 0;
+            }
+
+            .date-text {
+              color: #4a5568;
+              font-size: 14px;
+              line-height: 1.6;
+            }
+          }
+        }
+      }
+
       .job-timeline {
         margin-bottom: 20px;
         padding: 12px;

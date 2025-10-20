@@ -17,8 +17,11 @@ class JobApplicationController extends Controller
         $applications = JobApplication::where('job_post_id', $jobPostId)
             ->with([
                 'worker' => function ($query) {
-                    $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'suffixes.suffix_name')
+                    $query->select('profiles.id', 'profiles.user_id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'city', 'province', 'suffixes.suffix_name')
                           ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+                },
+                'worker.user' => function ($query) {
+                    $query->select('id', 'email');
                 },
                 'company' // Load company relationship for team applications
             ])
@@ -95,7 +98,7 @@ class JobApplicationController extends Controller
                 $application->load('company');
             } else {
                 $application->load(['worker' => function ($query) {
-                    $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'suffixes.suffix_name')
+                    $query->select('profiles.id', 'profiles.user_id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'suffixes.suffix_name')
                           ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
                 }]);
             }

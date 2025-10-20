@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaUserFriends, FaRegEdit, FaPlus } from 'react-icons/fa';
+import { MdDateRange } from 'react-icons/md';
 import { message } from 'antd';
 import axios from 'axios';
 import ModalPostJob from './modalpostjob';
@@ -229,6 +230,40 @@ const MyPostJob = () => {
                   ) : (
                     <span className="skill-tag">No specific skills required</span>
                   )}
+                </div>
+
+                <div className="application-period">
+                  <h4 className="period-title">Application Period</h4>
+                  <div className="period-dates">
+                    <div className="date-item">
+                      <MdDateRange className="date-icon" />
+                      <span className="date-text">
+                        Start: {new Date(job.application_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}
+                      </span>
+                    </div>
+                    <div className="date-item">
+                      <MdDateRange className="date-icon" />
+                      <span className="date-text">
+                        Deadline: {new Date(job.application_deadline).toLocaleDateString('en-US', { timeZone: 'UTC' })}
+                      </span>
+                    </div>
+                    {job.work_start && job.work_end && (
+                      <>
+                        <div className="date-item">
+                          <MdDateRange className="date-icon" />
+                          <span className="date-text">
+                            Work Start: {new Date(job.work_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}
+                          </span>
+                        </div>
+                        <div className="date-item">
+                          <MdDateRange className="date-icon" />
+                          <span className="date-text">
+                            Work End: {new Date(job.work_end).toLocaleDateString('en-US', { timeZone: 'UTC' })}
+                          </span>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
