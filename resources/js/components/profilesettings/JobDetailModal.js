@@ -124,6 +124,24 @@ const JobDetailModal = ({ job, onClose }) => {
                 </div>
               </div>
 
+              {/* Work Dates Row */}
+              {(job.work_start || job.work_end) && (
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Work Start</label>
+                    <div className="read-only-field">
+                      {formatDateTime(job.work_start)}
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label>Work End</label>
+                    <div className="read-only-field">
+                      {formatDateTime(job.work_end)}
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Skills Selection */}
               <div className="form-group">
                 <label>Required Skills</label>

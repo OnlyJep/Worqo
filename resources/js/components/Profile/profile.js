@@ -11,7 +11,16 @@ import { message } from 'antd';
 
 const Profile = ({ initialServiceType }) => {
   const { workerId } = useParams();
-  console.log('Profile component mounted with workerId:', workerId);
+  const resolvedWorkerId = (() => {
+    // If route param is not a valid id (e.g., 'profile'), fallback to current user id
+    if (!workerId || isNaN(Number(workerId))) {
+      const storedUser = localStorage.getItem("user");
+      const user = storedUser ? JSON.parse(storedUser) : null;
+      return user?.user?.id || user?.id || null;
+    }
+    return workerId;
+  })();
+  console.log('Profile component mounted with workerId:', workerId, 'resolved:', resolvedWorkerId);
   const [activeTab, setActiveTab] = useState('OVERVIEW');
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
@@ -115,8 +124,8 @@ const Profile = ({ initialServiceType }) => {
 
         let workerData;
         try {
-          console.log('Making API call to:', `http://127.0.0.1:8000/api/workers/${workerId}`);
-          const response = await axios.get(`http://127.0.0.1:8000/api/workers/${workerId}`, {
+          console.log('Making API call to:', `http://127.0.0.1:8000/api/workers/${resolvedWorkerId}`);
+          const response = await axios.get(`http://127.0.0.1:8000/api/workers/${resolvedWorkerId}`, {
             headers,
             timeout: 10000,
           });
@@ -254,7 +263,7 @@ const Profile = ({ initialServiceType }) => {
   const fetchWorkerReviews = async () => {
     try {
       setReviewsLoading(true);
-      const response = await axios.get(`http://127.0.0.1:8000/api/reviews/worker/${workerId}`, {
+      const response = await axios.get(`http://127.0.0.1:8000/api/reviews/worker/${resolvedWorkerId}`, {
         headers: { Accept: "application/json" }
       });
 
@@ -387,7 +396,9 @@ const Profile = ({ initialServiceType }) => {
         description: details.description,
         book_in: formatDateTime(details.book_in),
         book_end: formatDateTime(details.book_end),
-        hourly_rate: parseFloat(worker.hourlyRate) || 0
+        time_in: details.time_in || null,
+        time_out: details.time_out || null,
+        daily_rate: parseFloat(details.daily_rate)
       };
 
       console.log('Sending booking data:', bookingData);

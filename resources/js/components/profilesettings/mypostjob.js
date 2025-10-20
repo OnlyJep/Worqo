@@ -216,7 +216,11 @@ const MyPostJob = () => {
 
                 <div className="job-description">
                   <h4 className="description-title">Job Overview/Description</h4>
-                  <p className="description-text">{job.description}</p>
+                  <p className="description-text">
+                    {job.description && job.description.length > 200 
+                      ? `${job.description.substring(0, 200)}...` 
+                      : job.description}
+                  </p>
                 </div>
 
                 <div className="job-skills">
@@ -230,40 +234,6 @@ const MyPostJob = () => {
                   ) : (
                     <span className="skill-tag">No specific skills required</span>
                   )}
-                </div>
-
-                <div className="application-period">
-                  <h4 className="period-title">Application Period</h4>
-                  <div className="period-dates">
-                    <div className="date-item">
-                      <MdDateRange className="date-icon" />
-                      <span className="date-text">
-                        Start: {new Date(job.application_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}
-                      </span>
-                    </div>
-                    <div className="date-item">
-                      <MdDateRange className="date-icon" />
-                      <span className="date-text">
-                        Deadline: {new Date(job.application_deadline).toLocaleDateString('en-US', { timeZone: 'UTC' })}
-                      </span>
-                    </div>
-                    {job.work_start && job.work_end && (
-                      <>
-                        <div className="date-item">
-                          <MdDateRange className="date-icon" />
-                          <span className="date-text">
-                            Work Start: {new Date(job.work_start).toLocaleDateString('en-US', { timeZone: 'UTC' })}
-                          </span>
-                        </div>
-                        <div className="date-item">
-                          <MdDateRange className="date-icon" />
-                          <span className="date-text">
-                            Work End: {new Date(job.work_end).toLocaleDateString('en-US', { timeZone: 'UTC' })}
-                          </span>
-                        </div>
-                      </>
-                    )}
-                  </div>
                 </div>
               </div>
             </div>

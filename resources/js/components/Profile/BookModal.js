@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { message } from 'antd';
+import { Message } from 'rsuite';
+import { IoWarningOutline } from "react-icons/io5";
 import axios from 'axios';
+import CustomDropdown from '../common/CustomDropdown';
 import './../../../sass/components/BookModal.scss';
 
 const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
   const [bookingDetails, setBookingDetails] = useState({
     service_type: '',
+    sub_skill: '',
     work_type: worker?.work_type || 'part-time',
     book_in: '',
     book_end: '',
@@ -25,6 +29,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
     if (!isOpen) {
       setBookingDetails({
         service_type: '',
+        sub_skill: '',
         work_type: worker?.work_type || 'part-time',
         book_in: '',
         book_end: '',
@@ -351,11 +356,16 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
       const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${worker.id}?status=accepted`);
       const acceptedJobs = response.data || [];
 
+      // Also get all job posts with work schedules to check for conflicts
+      const jobPostsResponse = await axios.get(`http://127.0.0.1:8000/api/jobposts?worker_id=${worker.id}&include_work_schedule=true`);
+      const jobPosts = jobPostsResponse.data?.job_posts?.data || [];
+
       // Check for date conflicts
       const requestedStart = new Date(book_in);
       const requestedEnd = new Date(book_end);
       const conflictingJobs = [];
 
+      // Check conflicts with accepted job applications
       for (const job of acceptedJobs) {
         if (job.job_post?.work_start && job.job_post?.work_end) {
           const jobStart = new Date(job.job_post.work_start);
@@ -371,16 +381,52 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
               jobTitle: job.job_post.job_title,
               workStart: job.job_post.work_start,
               workEnd: job.job_post.work_end,
-              employer: job.job_post.profile?.first_name + ' ' + job.job_post.profile?.last_name
+              employer: job.job_post.profile?.first_name + ' ' + job.job_post.profile?.last_name,
+              type: 'hired'
+            });
+          }
+        }
+      }
+
+      // Check conflicts with job posts that have fixed work schedules
+      for (const jobPost of jobPosts) {
+        if (jobPost.work_start && jobPost.work_end) {
+          const jobStart = new Date(jobPost.work_start);
+          const jobEnd = new Date(jobPost.work_end);
+
+          // Check if there's any overlap between the requested dates and job post work schedule
+          if (
+            (requestedStart >= jobStart && requestedStart <= jobEnd) ||
+            (requestedEnd >= jobStart && requestedEnd <= jobEnd) ||
+            (requestedStart <= jobStart && requestedEnd >= jobEnd)
+          ) {
+            conflictingJobs.push({
+              jobTitle: jobPost.job_title,
+              workStart: jobPost.work_start,
+              workEnd: jobPost.work_end,
+              employer: jobPost.profile?.first_name + ' ' + jobPost.profile?.last_name,
+              type: 'scheduled'
             });
           }
         }
       }
 
       if (conflictingJobs.length > 0) {
+        const hiredCount = conflictingJobs.filter(job => job.type === 'hired').length;
+        const scheduledCount = conflictingJobs.filter(job => job.type === 'scheduled').length;
+        
+        let conflictMessage = 'Worker is not available during the selected period. ';
+        if (hiredCount > 0 && scheduledCount > 0) {
+          conflictMessage += `They are already hired for ${hiredCount} job(s) and have ${scheduledCount} scheduled job(s) during this time.`;
+        } else if (hiredCount > 0) {
+          conflictMessage += `They are already hired for ${hiredCount} job(s) during this time.`;
+        } else {
+          conflictMessage += `They have ${scheduledCount} scheduled job(s) during this time.`;
+        }
+
         setAvailabilityStatus({
           isAvailable: false,
-          conflictMessage: `Worker is not available during the selected period. They are already hired for ${conflictingJobs.length} job(s) during this time.`,
+          conflictMessage: conflictMessage,
           conflictingJobs: conflictingJobs
         });
       } else {
@@ -499,7 +545,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
     return end >= start;
   };
 
-  // Get available service types with sub-skills based on worker skills
+  // Get available service types (main skills only)
   const getAvailableServiceTypes = () => {
     if (!worker?.primary_skills && !worker?.additional_skills) return [];
     const allSkills = [
@@ -507,29 +553,47 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
       ...(worker.additional_skills || [])
     ];
     
-    // Create a structure with main skills and their sub-skills
-    const skillStructure = {};
+    // Create options array for CustomDropdown with unique main skills
+    const skillNames = new Set();
+    const options = [];
     
     allSkills.forEach(skill => {
       const mainSkill = skill.skill_name;
-      if (!skillStructure[mainSkill]) {
-        skillStructure[mainSkill] = {
-          main: mainSkill,
-          subSkills: []
-        };
-      }
-      
-      // Add sub-skills if they exist
-      if (skill.sub_skills && Array.isArray(skill.sub_skills)) {
-        skill.sub_skills.forEach(subSkill => {
-          if (!skillStructure[mainSkill].subSkills.includes(subSkill)) {
-            skillStructure[mainSkill].subSkills.push(subSkill);
-          }
+      if (!skillNames.has(mainSkill)) {
+        skillNames.add(mainSkill);
+        options.push({
+          value: mainSkill,
+          label: mainSkill
         });
       }
     });
     
-    return Object.values(skillStructure);
+    return options;
+  };
+
+  // Get sub-skills for selected service type
+  const getAvailableSubSkills = () => {
+    if (!bookingDetails.service_type) return [];
+    
+    const allSkills = [
+      ...(worker.primary_skills || []),
+      ...(worker.additional_skills || [])
+    ];
+    
+    const options = [];
+    
+    allSkills.forEach(skill => {
+      if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
+        skill.sub_skills.forEach(subSkill => {
+          options.push({
+            value: subSkill,
+            label: subSkill
+          });
+        });
+      }
+    });
+    
+    return options;
   };
 
   if (!isOpen) return null;
@@ -541,29 +605,26 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
         <div className="booking-modal-form-content">
           <div className="booking-form-field">
             <label className="booking-form-label">Service Type</label>
-            <select
-              name="service_type"
+            <CustomDropdown
+              options={getAvailableServiceTypes()}
               value={bookingDetails.service_type}
-              onChange={handleChange}
-              className="booking-form-select"
+              onChange={(value) => setBookingDetails(prev => ({ ...prev, service_type: value, sub_skill: '' }))}
+              placeholder="Select a service"
               required
-            >
-              <option value="">Select a service</option>
-              {getAvailableServiceTypes().map((skillGroup, index) => (
-                <optgroup key={index} label={skillGroup.main}>
-                  {skillGroup.subSkills.length > 0 ? (
-                    skillGroup.subSkills.map((subSkill, subIndex) => (
-                      <option key={`${index}-${subIndex}`} value={`${skillGroup.main} - ${subSkill}`}>
-                        {subSkill}
-                      </option>
-                    ))
-                  ) : (
-                    <option value={skillGroup.main}>{skillGroup.main}</option>
-                  )}
-                </optgroup>
-              ))}
-            </select>
+            />
           </div>
+          
+          {bookingDetails.service_type && getAvailableSubSkills().length > 0 && (
+            <div className="booking-form-field">
+              <label className="booking-form-label">Sub Skills</label>
+              <CustomDropdown
+                options={getAvailableSubSkills()}
+                value={bookingDetails.sub_skill}
+                onChange={(value) => setBookingDetails(prev => ({ ...prev, sub_skill: value }))}
+                placeholder="Select a sub-skill"
+              />
+            </div>
+          )}
           <div className="booking-form-field">
             <label className="booking-form-label">Work Type</label>
             <input
@@ -611,26 +672,11 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
           {!availabilityStatus.isAvailable && (
             <div className="availability-warning">
               <div className="warning-header">
-                <span className="warning-icon">⚠️</span>
-                <span className="warning-title">Worker Not Available</span>
-              </div>
-              <p className="warning-message">{availabilityStatus.conflictMessage}</p>
-              {availabilityStatus.conflictingJobs.length > 0 && (
-                <div className="conflicting-jobs">
-                  <h5>Conflicting Jobs:</h5>
-                  <ul>
-                    {availabilityStatus.conflictingJobs.map((job, index) => (
-                      <li key={index}>
-                        <strong>{job.jobTitle}</strong> - {job.employer}
-                        <br />
-                        <small>
-                          Work Period: {new Date(job.workStart).toLocaleDateString()} to {new Date(job.workEnd).toLocaleDateString()}
-                        </small>
-                      </li>
-                    ))}
-                  </ul>
+                <IoWarningOutline style={{ color: '#ffc107', marginRight: '18px', marginTop: '8px', fontSize: '30px' }} />
+                <div className="rs-message-body">
+                  Worker not free — 1 job scheduled.
                 </div>
-              )}
+              </div>
             </div>
           )}
           

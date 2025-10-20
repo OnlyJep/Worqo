@@ -71179,7 +71179,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 2px solid #0a2a40;\n  margin-top: 8px;\n  padding-top: 8px;\n  font-weight: 600;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation {\n  margin-top: 12px;\n  padding-top: 8px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: #ffffff;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #062541;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #6b7280;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f7f9fc;\n  color: #0b0d0f;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n.booking-modal-container .availability-warning {\n  background: #fef2f2;\n  border: 1px solid #fecaca;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.booking-modal-container .availability-warning .warning-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 8px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-title {\n  font-weight: 600;\n  color: #dc2626;\n  font-size: 14px;\n}\n.booking-modal-container .availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.booking-modal-container .availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}\n@media (max-width: 600px) {\n  .booking-modal-container .booking-modal-container {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .booking-modal-container .booking-modal-title {\n    font-size: 20px;\n  }\n  .booking-modal-container .booking-modal-form-content {\n    gap: 10px;\n  }\n  .booking-modal-container .booking-form-field {\n    gap: 4px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-input,\n  .booking-modal-container .booking-form-field .booking-form-select,\n  .booking-modal-container .booking-form-field .booking-form-textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .booking-modal-container .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .booking-modal-container .booking-modal-actions .booking-btn {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 2px solid #0a2a40;\n  margin-top: 8px;\n  padding-top: 8px;\n  font-weight: 600;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation {\n  margin-top: 12px;\n  padding-top: 8px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: #ffffff;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #062541;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #6b7280;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f7f9fc;\n  color: #0b0d0f;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n.booking-modal-container .availability-warning {\n  background: #fef2f2;\n  border: 1px solid #e1ec68;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.booking-modal-container .availability-warning .warning-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 8px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n}\n.booking-modal-container .availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.booking-modal-container .availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}\n.booking-modal-container .rs-message-body {\n  text-align: left !important;\n  margin-top: 8px;\n  font-size: 14px;\n}\n@media (max-width: 600px) {\n  .booking-modal-container .booking-modal-container {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .booking-modal-container .booking-modal-title {\n    font-size: 20px;\n  }\n  .booking-modal-container .booking-modal-form-content {\n    gap: 10px;\n  }\n  .booking-modal-container .booking-form-field {\n    gap: 4px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-input,\n  .booking-modal-container .booking-form-field .booking-form-select,\n  .booking-modal-container .booking-form-field .booking-form-textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .booking-modal-container .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .booking-modal-container .booking-modal-actions .booking-btn {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72576,7 +72576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .application-period {\n  margin-bottom: 20px;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-post-job-container .job-card .job-content .application-period .period-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 15px 0;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 10px;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 4px 0;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item .date-icon {\n  color: #1E90FF;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item .date-text {\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: transparent;\n  color: #dc3545;\n  border: 1px solid #dc3545;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  outline: none;\n  box-shadow: none;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .application-period {\n  margin-bottom: 20px;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-post-job-container .job-card .job-content .application-period .period-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 15px 0;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 10px;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 4px 0;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item .date-icon {\n  color: #1E90FF;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item .date-text {\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -200020,9 +200020,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _sass_components_BookModal_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../sass/components/BookModal.scss */ "./resources/sass/components/BookModal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/CustomDropdown */ "./resources/js/components/common/CustomDropdown.js");
+/* harmony import */ var _sass_components_BookModal_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/BookModal.scss */ "./resources/sass/components/BookModal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -200049,6 +200051,9 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
+
+
 var BookModal = function BookModal(_ref) {
   var worker = _ref.worker,
     isOpen = _ref.isOpen,
@@ -200056,6 +200061,7 @@ var BookModal = function BookModal(_ref) {
     onSubmit = _ref.onSubmit;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       service_type: '',
+      sub_skill: '',
       work_type: (worker === null || worker === void 0 ? void 0 : worker.work_type) || 'part-time',
       book_in: '',
       book_end: '',
@@ -200079,6 +200085,7 @@ var BookModal = function BookModal(_ref) {
     if (!isOpen) {
       setBookingDetails({
         service_type: '',
+        sub_skill: '',
         work_type: (worker === null || worker === void 0 ? void 0 : worker.work_type) || 'part-time',
         book_in: '',
         book_end: '',
@@ -200370,7 +200377,7 @@ var BookModal = function BookModal(_ref) {
   // Check worker availability for the selected dates
   var checkWorkerAvailability = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var book_in, book_end, response, acceptedJobs, requestedStart, requestedEnd, conflictingJobs, _iterator, _step, _job$job_post, _job$job_post2, job, jobStart, jobEnd, _job$job_post$profile, _job$job_post$profile2, _t;
+      var _jobPostsResponse$dat, book_in, book_end, response, acceptedJobs, jobPostsResponse, jobPosts, requestedStart, requestedEnd, conflictingJobs, _iterator, _step, _job$job_post, _job$job_post2, job, jobStart, jobEnd, _job$job_post$profile, _job$job_post$profile2, _iterator2, _step2, jobPost, _jobStart, _jobEnd, _jobPost$profile, _jobPost$profile2, hiredCount, scheduledCount, conflictMessage, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -200388,13 +200395,18 @@ var BookModal = function BookModal(_ref) {
             return _context.a(2);
           case 1:
             _context.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/job-applications/worker/".concat(worker.id, "?status=accepted"));
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/job-applications/worker/".concat(worker.id, "?status=accepted"));
           case 2:
             response = _context.v;
-            acceptedJobs = response.data || []; // Check for date conflicts
+            acceptedJobs = response.data || []; // Also get all job posts with work schedules to check for conflicts
+            _context.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/jobposts?worker_id=".concat(worker.id, "&include_work_schedule=true"));
+          case 3:
+            jobPostsResponse = _context.v;
+            jobPosts = ((_jobPostsResponse$dat = jobPostsResponse.data) === null || _jobPostsResponse$dat === void 0 || (_jobPostsResponse$dat = _jobPostsResponse$dat.job_posts) === null || _jobPostsResponse$dat === void 0 ? void 0 : _jobPostsResponse$dat.data) || []; // Check for date conflicts
             requestedStart = new Date(book_in);
             requestedEnd = new Date(book_end);
-            conflictingJobs = [];
+            conflictingJobs = []; // Check conflicts with accepted job applications
             _iterator = _createForOfIteratorHelper(acceptedJobs);
             try {
               for (_iterator.s(); !(_step = _iterator.n()).done;) {
@@ -200407,20 +200419,60 @@ var BookModal = function BookModal(_ref) {
                       jobTitle: job.job_post.job_title,
                       workStart: job.job_post.work_start,
                       workEnd: job.job_post.work_end,
-                      employer: ((_job$job_post$profile = job.job_post.profile) === null || _job$job_post$profile === void 0 ? void 0 : _job$job_post$profile.first_name) + ' ' + ((_job$job_post$profile2 = job.job_post.profile) === null || _job$job_post$profile2 === void 0 ? void 0 : _job$job_post$profile2.last_name)
+                      employer: ((_job$job_post$profile = job.job_post.profile) === null || _job$job_post$profile === void 0 ? void 0 : _job$job_post$profile.first_name) + ' ' + ((_job$job_post$profile2 = job.job_post.profile) === null || _job$job_post$profile2 === void 0 ? void 0 : _job$job_post$profile2.last_name),
+                      type: 'hired'
                     });
                   }
                 }
               }
+
+              // Check conflicts with job posts that have fixed work schedules
             } catch (err) {
               _iterator.e(err);
             } finally {
               _iterator.f();
             }
+            _iterator2 = _createForOfIteratorHelper(jobPosts);
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                jobPost = _step2.value;
+                if (jobPost.work_start && jobPost.work_end) {
+                  _jobStart = new Date(jobPost.work_start);
+                  _jobEnd = new Date(jobPost.work_end); // Check if there's any overlap between the requested dates and job post work schedule
+                  if (requestedStart >= _jobStart && requestedStart <= _jobEnd || requestedEnd >= _jobStart && requestedEnd <= _jobEnd || requestedStart <= _jobStart && requestedEnd >= _jobEnd) {
+                    conflictingJobs.push({
+                      jobTitle: jobPost.job_title,
+                      workStart: jobPost.work_start,
+                      workEnd: jobPost.work_end,
+                      employer: ((_jobPost$profile = jobPost.profile) === null || _jobPost$profile === void 0 ? void 0 : _jobPost$profile.first_name) + ' ' + ((_jobPost$profile2 = jobPost.profile) === null || _jobPost$profile2 === void 0 ? void 0 : _jobPost$profile2.last_name),
+                      type: 'scheduled'
+                    });
+                  }
+                }
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
             if (conflictingJobs.length > 0) {
+              hiredCount = conflictingJobs.filter(function (job) {
+                return job.type === 'hired';
+              }).length;
+              scheduledCount = conflictingJobs.filter(function (job) {
+                return job.type === 'scheduled';
+              }).length;
+              conflictMessage = 'Worker is not available during the selected period. ';
+              if (hiredCount > 0 && scheduledCount > 0) {
+                conflictMessage += "They are already hired for ".concat(hiredCount, " job(s) and have ").concat(scheduledCount, " scheduled job(s) during this time.");
+              } else if (hiredCount > 0) {
+                conflictMessage += "They are already hired for ".concat(hiredCount, " job(s) during this time.");
+              } else {
+                conflictMessage += "They have ".concat(scheduledCount, " scheduled job(s) during this time.");
+              }
               setAvailabilityStatus({
                 isAvailable: false,
-                conflictMessage: "Worker is not available during the selected period. They are already hired for ".concat(conflictingJobs.length, " job(s) during this time."),
+                conflictMessage: conflictMessage,
                 conflictingJobs: conflictingJobs
               });
             } else {
@@ -200430,10 +200482,10 @@ var BookModal = function BookModal(_ref) {
                 conflictingJobs: []
               });
             }
-            _context.n = 4;
+            _context.n = 5;
             break;
-          case 3:
-            _context.p = 3;
+          case 4:
+            _context.p = 4;
             _t = _context.v;
             console.error('Error checking worker availability:', _t);
             // On error, assume worker is available to avoid blocking legitimate bookings
@@ -200442,10 +200494,10 @@ var BookModal = function BookModal(_ref) {
               conflictMessage: '',
               conflictingJobs: []
             });
-          case 4:
+          case 5:
             return _context.a(2);
         }
-      }, _callee, null, [[0, 3]]);
+      }, _callee, null, [[0, 4]]);
     }));
     return function checkWorkerAvailability() {
       return _ref2.apply(this, arguments);
@@ -200545,78 +200597,96 @@ var BookModal = function BookModal(_ref) {
     return end >= start;
   };
 
-  // Get available service types with sub-skills based on worker skills
+  // Get available service types (main skills only)
   var getAvailableServiceTypes = function getAvailableServiceTypes() {
     if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) return [];
     var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
 
-    // Create a structure with main skills and their sub-skills
-    var skillStructure = {};
+    // Create options array for CustomDropdown with unique main skills
+    var skillNames = new Set();
+    var options = [];
     allSkills.forEach(function (skill) {
       var mainSkill = skill.skill_name;
-      if (!skillStructure[mainSkill]) {
-        skillStructure[mainSkill] = {
-          main: mainSkill,
-          subSkills: []
-        };
-      }
-
-      // Add sub-skills if they exist
-      if (skill.sub_skills && Array.isArray(skill.sub_skills)) {
-        skill.sub_skills.forEach(function (subSkill) {
-          if (!skillStructure[mainSkill].subSkills.includes(subSkill)) {
-            skillStructure[mainSkill].subSkills.push(subSkill);
-          }
+      if (!skillNames.has(mainSkill)) {
+        skillNames.add(mainSkill);
+        options.push({
+          value: mainSkill,
+          label: mainSkill
         });
       }
     });
-    return Object.values(skillStructure);
+    return options;
+  };
+
+  // Get sub-skills for selected service type
+  var getAvailableSubSkills = function getAvailableSubSkills() {
+    if (!bookingDetails.service_type) return [];
+    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
+    var options = [];
+    allSkills.forEach(function (skill) {
+      if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
+        skill.sub_skills.forEach(function (subSkill) {
+          options.push({
+            value: subSkill,
+            label: subSkill
+          });
+        });
+      }
+    });
+    return options;
   };
   if (!isOpen) return null;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "booking-modal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "booking-modal-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h2", {
         className: "booking-modal-title",
         children: ["Planning to hire ", worker.name]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "booking-modal-form-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
             children: "Service Type"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-            name: "service_type",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            options: getAvailableServiceTypes(),
             value: bookingDetails.service_type,
-            onChange: handleChange,
-            className: "booking-form-select",
-            required: true,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-              value: "",
-              children: "Select a service"
-            }), getAvailableServiceTypes().map(function (skillGroup, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("optgroup", {
-                label: skillGroup.main,
-                children: skillGroup.subSkills.length > 0 ? skillGroup.subSkills.map(function (subSkill, subIndex) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                    value: "".concat(skillGroup.main, " - ").concat(subSkill),
-                    children: subSkill
-                  }, "".concat(index, "-").concat(subIndex));
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                  value: skillGroup.main,
-                  children: skillGroup.main
-                })
-              }, index);
-            })]
+            onChange: function onChange(value) {
+              return setBookingDetails(function (prev) {
+                return _objectSpread(_objectSpread({}, prev), {}, {
+                  service_type: value,
+                  sub_skill: ''
+                });
+              });
+            },
+            placeholder: "Select a service",
+            required: true
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), bookingDetails.service_type && getAvailableSubSkills().length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Sub Skills"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            options: getAvailableSubSkills(),
+            value: bookingDetails.sub_skill,
+            onChange: function onChange(value) {
+              return setBookingDetails(function (prev) {
+                return _objectSpread(_objectSpread({}, prev), {}, {
+                  sub_skill: value
+                });
+              });
+            },
+            placeholder: "Select a sub-skill"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
             children: "Work Type"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             type: "text",
             name: "work_type",
             value: bookingDetails.work_type,
@@ -200624,12 +200694,12 @@ var BookModal = function BookModal(_ref) {
             readOnly: true,
             disabled: true
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
             children: "Book In"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             type: "datetime-local",
             name: "book_in",
             value: bookingDetails.book_in,
@@ -200637,15 +200707,15 @@ var BookModal = function BookModal(_ref) {
             className: "booking-form-input",
             min: minDate,
             required: true
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
             children: "Please select a time at least 1 hour from now"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
             children: "Book End "
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             type: "datetime-local",
             name: "book_end",
             value: bookingDetails.book_end,
@@ -200658,74 +200728,60 @@ var BookModal = function BookModal(_ref) {
             min: bookingDetails.book_in || minDate,
             required: true
           })]
-        }), !availabilityStatus.isAvailable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), !availabilityStatus.isAvailable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "availability-warning",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "warning-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "warning-icon",
-              children: "\u26A0\uFE0F"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "warning-title",
-              children: "Worker Not Available"
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_2__.IoWarningOutline, {
+              style: {
+                color: '#ffc107',
+                marginRight: '18px',
+                marginTop: '8px',
+                fontSize: '30px'
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "rs-message-body",
+              children: "Worker not free \u2014 1 job scheduled."
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-            className: "warning-message",
-            children: availabilityStatus.conflictMessage
-          }), availabilityStatus.conflictingJobs.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "conflicting-jobs",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
-              children: "Conflicting Jobs:"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
-              children: availabilityStatus.conflictingJobs.map(function (job, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-                    children: job.jobTitle
-                  }), " - ", job.employer, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("small", {
-                    children: ["Work Period: ", new Date(job.workStart).toLocaleDateString(), " to ", new Date(job.workEnd).toLocaleDateString()]
-                  })]
-                }, index);
-              })
-            })]
-          })]
-        }), bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          })
+        }), bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "booking-form-field",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
               className: "booking-form-label",
               children: "Time In"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
               type: "time",
               name: "time_in",
               value: bookingDetails.time_in,
               onChange: handleChange,
               className: "booking-form-input",
               placeholder: "Select start time"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
               children: "Auto-populated: Book In time + 1 hour (or set custom time)"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "booking-form-field",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
               className: "booking-form-label",
               children: "Time Out"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
               type: "time",
               name: "time_out",
               value: bookingDetails.time_out,
               onChange: handleChange,
               className: "booking-form-input",
               placeholder: "Select end time"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
               children: "Auto-populated: Time In + working hours (or set custom time)"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
             children: "Description"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("textarea", {
             name: "description",
             value: bookingDetails.description,
             onChange: handleChange,
@@ -200733,12 +200789,12 @@ var BookModal = function BookModal(_ref) {
             placeholder: "Describe the work or service you need",
             required: true
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
             children: getSalaryInfo().label
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             type: "number",
             name: "daily_rate",
             value: bookingDetails.daily_rate,
@@ -200748,84 +200804,84 @@ var BookModal = function BookModal(_ref) {
             min: "0",
             step: "0.01",
             required: true
-          }), getSalaryInfo().description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+          }), getSalaryInfo().description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
             children: getSalaryInfo().description
           })]
-        }), bookingDetails.daily_rate && bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), bookingDetails.daily_rate && bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
             children: "Salary Calculation Preview"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "salary-calculation-preview",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                 className: "calculation-label",
                 children: "Daily Rate:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                 className: "calculation-value",
                 children: ["\u20B1", calculateSalary().dailyRate]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                 className: "calculation-label",
                 children: "Hours Per Day:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                 className: "calculation-value",
                 children: [calculateSalary().hoursPerDay, " hours"]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                 className: "calculation-label",
                 children: "Working Days:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                 className: "calculation-value",
                 children: [calculateSalary().workingDays, " days"]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                 className: "calculation-label",
                 children: "Total Hours:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                 className: "calculation-value",
                 children: [calculateSalary().totalHours, " hours"]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                 className: "calculation-label",
                 children: "Hourly Rate:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                 className: "calculation-value",
                 children: ["\u20B1", calculateSalary().hourlyRate, "/hour"]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "calculation-row total-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
                 className: "calculation-label",
                 children: "Total Salary:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
                 className: "calculation-value",
                 children: ["\u20B1", calculateSalary().totalAmount]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
                 children: calculateSalary().explanation
               })
             })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "booking-modal-actions",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
           className: "booking-btn booking-btn-cancel",
           onClick: onClose,
           children: "Cancel"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
           className: "booking-btn booking-btn-submit",
           onClick: handleSubmit,
           disabled: !bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in) || !availabilityStatus.isAvailable,
@@ -200890,7 +200946,17 @@ var Profile = function Profile(_ref) {
   var initialServiceType = _ref.initialServiceType;
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)(),
     workerId = _useParams.workerId;
-  console.log('Profile component mounted with workerId:', workerId);
+  var resolvedWorkerId = function () {
+    // If route param is not a valid id (e.g., 'profile'), fallback to current user id
+    if (!workerId || isNaN(Number(workerId))) {
+      var _user$user;
+      var storedUser = localStorage.getItem("user");
+      var user = storedUser ? JSON.parse(storedUser) : null;
+      return (user === null || user === void 0 || (_user$user = user.user) === null || _user$user === void 0 ? void 0 : _user$user.id) || (user === null || user === void 0 ? void 0 : user.id) || null;
+    }
+    return workerId;
+  }();
+  console.log('Profile component mounted with workerId:', workerId, 'resolved:', resolvedWorkerId);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('OVERVIEW'),
     _useState2 = _slicedToArray(_useState, 2),
     activeTab = _useState2[0],
@@ -201067,9 +201133,9 @@ var Profile = function Profile(_ref) {
                 Accept: "application/json"
               };
               _context.p = 2;
-              console.log('Making API call to:', "http://127.0.0.1:8000/api/workers/".concat(workerId));
+              console.log('Making API call to:', "http://127.0.0.1:8000/api/workers/".concat(resolvedWorkerId));
               _context.n = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/".concat(workerId), {
+              return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/".concat(resolvedWorkerId), {
                 headers: headers,
                 timeout: 10000
               });
@@ -201222,7 +201288,7 @@ var Profile = function Profile(_ref) {
             _context2.p = 0;
             setReviewsLoading(true);
             _context2.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/reviews/worker/".concat(workerId), {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/reviews/worker/".concat(resolvedWorkerId), {
               headers: {
                 Accept: "application/json"
               }
@@ -201421,7 +201487,9 @@ var Profile = function Profile(_ref) {
               description: details.description,
               book_in: formatDateTime(details.book_in),
               book_end: formatDateTime(details.book_end),
-              hourly_rate: parseFloat(worker.hourlyRate) || 0
+              time_in: details.time_in || null,
+              time_out: details.time_out || null,
+              daily_rate: parseFloat(details.daily_rate)
             };
             console.log('Sending booking data:', bookingData);
             _context4.n = 4;
@@ -229912,6 +229980,25 @@ var JobDetailModal = function JobDetailModal(_ref) {
                   children: formatDateTime(job.application_deadline)
                 })]
               })]
+            }), (job.work_start || job.work_end) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  children: "Work Start"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "read-only-field",
+                  children: formatDateTime(job.work_start)
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  children: "Work End"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "read-only-field",
+                  children: formatDateTime(job.work_end)
+                })]
+              })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
@@ -233047,14 +233134,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _modalpostjob__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modalpostjob */ "./resources/js/components/profilesettings/modalpostjob.js");
-/* harmony import */ var _JobApplicationsModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./JobApplicationsModal */ "./resources/js/components/profilesettings/JobApplicationsModal.js");
-/* harmony import */ var _JobDetailModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./JobDetailModal */ "./resources/js/components/profilesettings/JobDetailModal.js");
-/* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _modalpostjob__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modalpostjob */ "./resources/js/components/profilesettings/modalpostjob.js");
+/* harmony import */ var _JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./JobApplicationsModal */ "./resources/js/components/profilesettings/JobApplicationsModal.js");
+/* harmony import */ var _JobDetailModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./JobDetailModal */ "./resources/js/components/profilesettings/JobDetailModal.js");
+/* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -233130,12 +233216,12 @@ var MyPostJob = function MyPostJob() {
               _context.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Please log in to view job posts");
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please log in to view job posts");
             return _context.a(2);
           case 1:
             _context.p = 1;
             _context.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].post('http://127.0.0.1:8000/api/jobposts/check-expired', {}, {
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/api/jobposts/check-expired', {}, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
@@ -233151,7 +233237,7 @@ var MyPostJob = function MyPostJob() {
           case 4:
             userData = JSON.parse(localStorage.getItem("user") || '{}');
             _context.n = 5;
-            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("http://127.0.0.1:8000/api/jobposts?profile_id=".concat(userData.id, "&show_archived=true"), {
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/jobposts?profile_id=".concat(userData.id, "&show_archived=true"), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
@@ -233162,7 +233248,7 @@ var MyPostJob = function MyPostJob() {
             if (response.data.job_posts) {
               setJobs(response.data.job_posts.data || []);
             } else {
-              antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch job posts");
+              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch job posts");
             }
             _context.n = 7;
             break;
@@ -233170,7 +233256,7 @@ var MyPostJob = function MyPostJob() {
             _context.p = 6;
             _t2 = _context.v;
             console.error("Error fetching job posts:", ((_error$response = _t2.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t2.message);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch job posts");
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch job posts");
           case 7:
             _context.p = 7;
             setLoading(false);
@@ -233231,7 +233317,7 @@ var MyPostJob = function MyPostJob() {
               break;
             }
             _context2.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].put("http://127.0.0.1:8000/api/jobposts/".concat(editingJob.id), jobPayload, {
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("http://127.0.0.1:8000/api/jobposts/".concat(editingJob.id), jobPayload, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json",
@@ -233240,12 +233326,12 @@ var MyPostJob = function MyPostJob() {
             });
           case 1:
             response = _context2.v;
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Job post updated successfully");
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Job post updated successfully");
             _context2.n = 4;
             break;
           case 2:
             _context2.n = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].post('http://127.0.0.1:8000/api/jobposts', jobPayload, {
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/api/jobposts', jobPayload, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json",
@@ -233254,7 +233340,7 @@ var MyPostJob = function MyPostJob() {
             });
           case 3:
             response = _context2.v;
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Job post created successfully");
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Job post created successfully");
           case 4:
             if (response.data) {
               fetchJobs(); // Refresh the jobs list
@@ -233267,7 +233353,7 @@ var MyPostJob = function MyPostJob() {
             _context2.p = 5;
             _t3 = _context2.v;
             console.error("Error submitting job:", ((_error$response2 = _t3.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t3.message);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to submit job post");
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to submit job post");
           case 6:
             return _context2.a(2);
         }
@@ -233291,184 +233377,133 @@ var MyPostJob = function MyPostJob() {
     handleEditJob(jobId);
   };
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "my-post-job-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
           children: "Loading job posts..."
         })
       })
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "my-post-job-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       className: "post-job-header",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
         className: "post-job-title",
         children: "My Post Job"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
         className: "add-post-job-btn",
         onClick: handleAddJob,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
           className: "btn-icon"
         }), "Add Post Job"]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "jobs-list",
       children: jobs.length > 0 ? jobs.map(function (job) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "job-card ".concat(job.archived ? 'expired' : ''),
           onClick: function onClick() {
             return handleCardClick(job);
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "job-card-header",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-actions",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "view-applicants-btn",
                 onClick: function onClick(e) {
                   return handleViewApplicants(job, e);
                 },
                 title: "View Applicants",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUserFriends, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUserFriends, {
                   className: "action-icon"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "edit-job-btn",
                 onClick: function onClick(e) {
                   return handleEditClick(job.id, e);
                 },
                 title: "Edit Job",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaRegEdit, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaRegEdit, {
                   className: "action-icon"
                 })
-              }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "expired-badge",
                 children: "EXPIRED"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "job-content",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
               className: "job-title",
               children: job.job_title || "Job Post #".concat(job.id)
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-metadata",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                 className: "job-salary",
                 children: ["\u20B1", job.salary.toLocaleString(), "/", job.salary_type === 'per_hour' ? 'hour' : 'month']
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                 className: "posted-date",
                 children: ["Posted on ", new Date(job.created_at).toLocaleDateString()]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-description",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
                 className: "description-title",
                 children: "Job Overview/Description"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                 className: "description-text",
-                children: job.description
+                children: job.description && job.description.length > 200 ? "".concat(job.description.substring(0, 200), "...") : job.description
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-skills",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
                 className: "skills-title",
                 children: "Skills Required"
               }), job.skills && job.skills.length > 0 ? job.skills.map(function (skill, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                   className: "skill-tag",
                   children: [skill.name, " (", skill.experience, ")"]
                 }, index);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                 className: "skill-tag",
                 children: "No specific skills required"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-              className: "application-period",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
-                className: "period-title",
-                children: "Application Period"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                className: "period-dates",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                  className: "date-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdDateRange, {
-                    className: "date-icon"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
-                    className: "date-text",
-                    children: ["Start: ", new Date(job.application_start).toLocaleDateString('en-US', {
-                      timeZone: 'UTC'
-                    })]
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                  className: "date-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdDateRange, {
-                    className: "date-icon"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
-                    className: "date-text",
-                    children: ["Deadline: ", new Date(job.application_deadline).toLocaleDateString('en-US', {
-                      timeZone: 'UTC'
-                    })]
-                  })]
-                }), job.work_start && job.work_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                    className: "date-item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdDateRange, {
-                      className: "date-icon"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
-                      className: "date-text",
-                      children: ["Work Start: ", new Date(job.work_start).toLocaleDateString('en-US', {
-                        timeZone: 'UTC'
-                      })]
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-                    className: "date-item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdDateRange, {
-                      className: "date-icon"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
-                      className: "date-text",
-                      children: ["Work End: ", new Date(job.work_end).toLocaleDateString('en-US', {
-                        timeZone: 'UTC'
-                      })]
-                    })]
-                  })]
-                })]
               })]
             })]
           })]
         }, job.id);
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "empty-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
             src: "/images/mybooking.svg",
             alt: "No Job Posts"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
           className: "empty-title",
           children: "No Job Posts Yet"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
           className: "empty-description",
           children: "Create your first job post to start hiring workers."
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_modalpostjob__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_modalpostjob__WEBPACK_IMPORTED_MODULE_4__["default"], {
       onClose: handleCloseModal,
       onSubmit: handleSubmitJob,
       editingJob: editingJob
-    }), isApplicationsModalOpen && selectedJobForApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_JobApplicationsModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), isApplicationsModalOpen && selectedJobForApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
       jobPostId: selectedJobForApplications.id,
       jobTitle: selectedJobForApplications.job_title,
       onClose: function onClose() {
         setIsApplicationsModalOpen(false);
         setSelectedJobForApplications(null);
       }
-    }), isDetailModalOpen && selectedJobForDetail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_JobDetailModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }), isDetailModalOpen && selectedJobForDetail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_JobDetailModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
       job: selectedJobForDetail,
       onClose: function onClose() {
         setIsDetailModalOpen(false);

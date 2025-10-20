@@ -209,7 +209,7 @@
   // Availability Warning Styles
   .availability-warning {
     background: #fef2f2;
-    border: 1px solid #fecaca;
+    border: 1px solid #e1ec68;
     border-radius: 8px;
     padding: 12px;
     margin: 8px 0;
@@ -224,11 +224,7 @@
         font-size: 16px;
       }
 
-      .warning-title {
-        font-weight: 600;
-        color: #dc2626;
-        font-size: 14px;
-      }
+      
     }
 
     .warning-message {
@@ -268,6 +264,12 @@
         }
       }
     }
+  }
+
+  .rs-message-body {
+    text-align: left !important;
+    margin-top: 8px;
+    font-size: 14px;
   }
 
   @media (max-width: 600px) {
