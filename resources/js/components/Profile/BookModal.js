@@ -604,7 +604,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
         <h2 className="booking-modal-title">Planning to hire {worker.name}</h2>
         <div className="booking-modal-form-content">
           <div className="booking-form-field">
-            <label className="booking-form-label">Service Type</label>
+            <label className="booking-form-label" htmlFor="service_type">Service Type</label>
             <CustomDropdown
               options={getAvailableServiceTypes()}
               value={bookingDetails.service_type}
@@ -616,7 +616,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
           
           {bookingDetails.service_type && getAvailableSubSkills().length > 0 && (
             <div className="booking-form-field">
-              <label className="booking-form-label">Sub Skills</label>
+              <label className="booking-form-label" htmlFor="sub_skill">Sub Skills</label>
               <CustomDropdown
                 options={getAvailableSubSkills()}
                 value={bookingDetails.sub_skill}
@@ -626,9 +626,10 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
             </div>
           )}
           <div className="booking-form-field">
-            <label className="booking-form-label">Work Type</label>
+            <label className="booking-form-label" htmlFor="work_type">Work Type</label>
             <input
               type="text"
+              id="work_type"
               name="work_type"
               value={bookingDetails.work_type}
               className="booking-form-input booking-form-input-disabled"
@@ -637,9 +638,10 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
             />
           </div>
           <div className="booking-form-field">
-            <label className="booking-form-label">Book In</label>
+            <label className="booking-form-label" htmlFor="book_in">Book In</label>
             <input
               type="datetime-local"
+              id="book_in"
               name="book_in"
               value={bookingDetails.book_in}
               onChange={handleChange}
@@ -652,9 +654,10 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
             </small>
           </div>
           <div className="booking-form-field">
-            <label className="booking-form-label">Book End </label>
+            <label className="booking-form-label" htmlFor="book_end">Book End </label>
             <input
               type="datetime-local"
+              id="book_end"
               name="book_end"
               value={bookingDetails.book_end}
               onChange={(e) => {
@@ -684,9 +687,10 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
           {bookingDetails.book_in && bookingDetails.book_end && (
             <>
               <div className="booking-form-field">
-                <label className="booking-form-label">Time In</label>
+                <label className="booking-form-label" htmlFor="time_in">Time In</label>
                 <input
                   type="time"
+                  id="time_in"
                   name="time_in"
                   value={bookingDetails.time_in}
                   onChange={handleChange}
@@ -699,9 +703,10 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
               </div>
               
               <div className="booking-form-field">
-                <label className="booking-form-label">Time Out</label>
+                <label className="booking-form-label" htmlFor="time_out">Time Out</label>
                 <input
                   type="time"
+                  id="time_out"
                   name="time_out"
                   value={bookingDetails.time_out}
                   onChange={handleChange}
@@ -715,8 +720,9 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
             </>
           )}
           <div className="booking-form-field">
-            <label className="booking-form-label">Description</label>
+            <label className="booking-form-label" htmlFor="description">Description</label>
             <textarea
+              id="description"
               name="description"
               value={bookingDetails.description}
               onChange={handleChange}
@@ -726,9 +732,10 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
             />
           </div>
           <div className="booking-form-field">
-            <label className="booking-form-label">{getSalaryInfo().label}</label>
+            <label className="booking-form-label" htmlFor="daily_rate">{getSalaryInfo().label}</label>
             <input
               type="number"
+              id="daily_rate"
               name="daily_rate"
               value={bookingDetails.daily_rate}
               onChange={handleChange}

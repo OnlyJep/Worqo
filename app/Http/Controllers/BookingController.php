@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\BookingRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -107,6 +108,16 @@ class BookingController extends Controller
             'total_amount' => $totalAmount,
             'status' => 'pending'
         ]);
+
+        // Log the booking creation
+        if ($authUser) {
+            $booking->logAction('created', $authUser->id, 'Booking request created', [
+                'service_type' => $request->service_type,
+                'work_type' => $request->work_type,
+                'daily_rate' => $request->daily_rate,
+                'total_amount' => $totalAmount
+            ]);
+        }
 
         // Send notification to worker about new booking
         if ($authUser) {
@@ -240,6 +251,13 @@ class BookingController extends Controller
         $oldStatus = $booking->status;
         $booking->update([
             'status' => $request->status
+        ]);
+
+        // Log the status update
+        $booking->logAction($request->status, $authUser->id, "Booking status changed from {$oldStatus} to {$request->status}", [
+            'old_status' => $oldStatus,
+            'new_status' => $request->status,
+            'service_type' => $booking->service_type
         ]);
 
         // Send notification to employer about status change
@@ -386,7 +404,15 @@ class BookingController extends Controller
             ], 400);
         }
 
+        $oldStatus = $booking->status;
         $booking->update(['status' => 'cancelled']);
+
+        // Log the cancellation
+        $booking->logAction('cancelled', $authUser->id, "Booking cancelled by employer", [
+            'old_status' => $oldStatus,
+            'service_type' => $booking->service_type,
+            'cancelled_by' => 'employer'
+        ]);
 
         return response()->json([
             'success' => true,

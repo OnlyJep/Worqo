@@ -1,338 +1,623 @@
-// Booking Request Card Styles
-.booking-request-card {
+.booking-request-container {
   background: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  position: relative;
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-  }
-}
-
-// Checkbox for bulk selection
-.booking-request-checkbox {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 10;
-
-  .booking-checkbox {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    accent-color: #3b82f6;
-  }
-}
-
-// Worker info section
-.booking-request-worker-info {
   display: flex;
-  gap: 16px;
-  margin-left: 40px; // Space for checkbox
-}
+  flex-direction: column;
+  gap: 20px;
 
-.worker-profile {
-  flex-shrink: 0;
+  .booking-request-header {
+    margin-bottom: 20px;
 
-  .worker-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #e5e7eb;
-  }
-}
-
-.worker-details {
-  flex: 1;
-  min-width: 0;
-
-  .worker-name-row {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important; // For opposite sides
-    margin-bottom: 4px;
-    width: 100%;
-  }
-
-  .worker-name {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1f2937;
-    margin: 0;
-    flex-shrink: 0;
-  }
-
-  .booking-status {
-    font-size: 14px;
-    color: #374151;
-    margin-left: auto;
-    margin-right: -90px; // Move 3x to the left
-
-    .status-text {
-      font-weight: 600;
+    .booking-request-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
     }
   }
 
-  .worker-badges {
-    margin-bottom: 8px;
+  .booking-request-navigation {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 
-    .verified-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: #f0f9ff;
-      color: #0369a1;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 12px;
+    .booking-request-tab-container {
+      display: flex;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .booking-request-tab {
+      background: none;
+      border: none;
+      padding: 12px 20px;
+      font-size: 14px;
       font-weight: 500;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      min-width: fit-content;
+      pointer-events: auto;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: 100%;
 
-      .verified-icon {
-        font-size: 14px;
+      &:hover {
+        color: #374151;
+        background-color: #f8fafc;
+      }
+
+      &:active {
+        transform: translateY(1px);
+        background-color: #e5e7eb;
+      }
+
+      &.active {
+        color: #1d4ed8;
+        border-bottom-color: #1d4ed8;
+        background-color: #eff6ff;
+        font-weight: 600;
       }
     }
   }
 
-  .booking-salary {
-    font-size: 16px;
-    font-weight: 600;
-    color: #059669;
-    margin-bottom: 8px;
-  }
-
-  .booking-dates {
-    margin-bottom: 12px;
-
-    p {
-      margin: 2px 0;
-      font-size: 14px;
-      color: #6b7280;
-    }
-  }
-
-  .booking-description {
-    p {
-      margin: 0;
-      font-size: 14px;
-      color: #374151;
-      line-height: 1.5;
-    }
-  }
-}
-
-// Actions section
-.booking-request-actions {
-  margin-top: 200px; // Moved down 2x
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-
-  button {
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
-  }
-
-  // View Transaction Button (Outline style)
-  .view-transaction-btn {
-    background: transparent;
-    color: #374151;
-    border: 2px solid #d1d5db;
-
-    &:hover {
-      background: #f9fafb;
-      border-color: #9ca3af;
-    }
-  }
-
-  // Accept Button (Outline style)
-  .accept-btn {
-    background: transparent;
-    color: #059669;
-    border: 2px solid #10b981;
-
-    &:hover {
-      background: #ecfdf5;
-      border-color: #059669;
-    }
-  }
-
-  // Decline Button (Outline style)
-  .decline-btn {
-    background: transparent;
-    color: #dc2626;
-    border: 2px solid #ef4444;
-
-    &:hover {
-      background: #fef2f2;
-      border-color: #dc2626;
-    }
-  }
-
-  // Cancel Booking Button (Outline style)
-  .cancel-booking-btn {
-    background: transparent;
-    color: #dc2626;
-    border: 2px solid #ef4444;
-
-    &:hover {
-      background: #fef2f2;
-      border-color: #dc2626;
-    }
-  }
-
-  // Complete Button (Outline style)
-  .complete-btn {
-    background: transparent;
-    color: #2563eb;
-    border: 2px solid #3b82f6;
-
-    &:hover {
-      background: #eff6ff;
-      border-color: #2563eb;
-    }
-  }
-
-  // Give Feedback Button (Outline style)
-  .give-feedback-btn {
-    background: transparent;
-    color: #7c3aed;
-    border: 2px solid #8b5cf6;
-
-    &:hover {
-      background: #faf5ff;
-      border-color: #7c3aed;
-    }
-  }
-
-  // Status text for declined/cancelled
-  span {
-    font-size: 14px;
-    font-weight: 500;
-    color: #6b7280;
-    padding: 8px 16px;
-    background: #f3f4f6;
-    border-radius: 6px;
-    border: 1px solid #d1d5db;
-  }
-}
-
-// Responsive Design
-@media (max-width: 768px) {
-  .booking-request-card {
-    padding: 16px;
-  }
-
-  .booking-request-checkbox {
-    top: 16px;
-    left: 16px;
-  }
-
-  .booking-request-worker-info {
-    margin-left: 36px;
-    gap: 12px;
-  }
-
-  .worker-profile .worker-avatar {
-    width: 50px;
-    height: 50px;
-  }
-
-  .worker-details {
-    .worker-name {
-      font-size: 16px;
-    }
-
-    .booking-status {
-      font-size: 12px;
-      margin-right: -60px; // Adjusted for mobile
-    }
-
-    .booking-salary {
-      font-size: 14px;
-    }
-
-    .booking-dates p {
-      font-size: 12px;
-    }
-
-    .booking-description p {
-      font-size: 12px;
-    }
-  }
-
-  .booking-request-actions {
-    margin-top: 144px; // Moved down 2x for mobile
-    gap: 8px;
-
-    button {
-      padding: 6px 12px;
-      font-size: 12px;
-    }
-
-    span {
-      padding: 6px 12px;
-      font-size: 12px;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .booking-request-card {
-    padding: 12px;
-  }
-
-  .booking-request-worker-info {
-    flex-direction: column;
-    margin-left: 32px;
-    gap: 8px;
-  }
-
-  .worker-profile {
-    align-self: flex-start;
-  }
-
-  .worker-details {
-    .worker-name-row {
-      flex-direction: column;
-      align-items: flex-start !important;
-      gap: 4px;
-    }
-
-    .booking-status {
-      margin-right: 0;
-      margin-left: 0;
-    }
-  }
-
-  .booking-request-actions {
-    margin-top: 120px;
+  .booking-request-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    min-height: 300px;
+    margin-top: -15px; // Consistent spacing for all tabs
 
-    button {
-      flex: 1;
-      min-width: 0;
+    .booking-request-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+      .booking-request-card {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        // Top Section - Worker Info, Status, and Amount
+        .booking-request-top-section {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          .booking-request-worker-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            flex: 1;
+
+            .booking-request-worker-profile {
+              .booking-request-worker-avatar {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+            }
+
+            .booking-request-worker-details {
+              .booking-request-worker-name {
+                font-size: 18px;
+                font-weight: 700;
+                color: #1f2937;
+                margin: 0 0 4px 0;
+              }
+
+              .booking-request-worker-profession {
+                font-size: 14px;
+                color: #6b7280;
+                margin: 0 0 8px 0;
+              }
+
+              .booking-request-worker-badges {
+                display: flex;
+                gap: 8px;
+
+                .booking-request-verified-badge {
+                  display: flex;
+                  align-items: center;
+                  gap: 4px;
+                  background: #f3f4f6;
+                  color: #374151;
+                  padding: 4px 8px;
+                  border-radius: 12px;
+                  font-size: 12px;
+                  font-weight: 500;
+
+                  .booking-request-verified-icon {
+                    color: #059669;
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
+
+          .booking-request-status-amount {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            .booking-request-status-badge {
+              .booking-request-status-text {
+                padding: 6px 12px;
+                border-radius: 16px;
+                font-size: 12px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                white-space: nowrap;
+              }
+            }
+          }
+        }
+
+        // Middle Section - Dates and Description
+        .booking-request-middle-section {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          .booking-request-dates {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 12px;
+            background: #f9fafb;
+
+            .booking-request-date-item {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              flex: 1;
+
+              .booking-request-date-label {
+                font-size: 14px;
+                font-weight: 700;
+                color: black;
+                margin-bottom: 4px;
+              }
+
+              .booking-request-date-value {
+                font-size: 14px;
+                font-weight: 600;
+                color: #374151;
+              }
+            }
+          }
+
+          .booking-request-description {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .booking-request-description-label {
+              font-size: 14px;
+              font-weight: 700;
+              color: black;
+              margin-bottom: 4px;
+            }
+
+            .booking-request-description-text {
+              font-size: 14px;
+              font-weight: 400;
+              color: #374151;
+              line-height: 1.5;
+            }
+          }
+
+          .booking-request-salary {
+            font-size: 18px;
+            font-weight: 700;
+            color: black;
+            padding: 4px 6px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background: #f9fafb;
+            text-align: center;
+            margin-top: 8px;
+      
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        // Bottom Section - Action Buttons
+        .booking-request-actions {
+          display: flex;
+          gap: 12px;
+          justify-content: center;
+
+          .booking-request-view-transaction-btn {
+            background: white;
+            color: #1A2A44;
+            border: 1px solid #1A2A44;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 33px;
+            width: 215px;
+
+            &:hover {
+              background: #f9fafb;
+              border-color: #9ca3af;
+            }
+
+            // When it's the only button, make it same width as salary
+            
+
+            // When there are 2 buttons, make it 262.2px
+            
+          }
+
+          .booking-request-cancel-booking-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 33px;
+            width: 215px;
+
+            &:hover {
+              background: #dc2626;
+            }
+          }
+
+        .booking-request-rate-booking-btn {
+          background: transparent;
+          color: #000000;
+          border: 2px solid #001E40;
+          width: 175px;
+          height: 33px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: #001E40;
+            color: white;
+          }
+        }
+
+        .booking-request-give-feedback-btn {
+          background: transparent;
+          color: #000000;
+          border: 2px solid #001E40;
+          width: 215px;
+          height: 33px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: #001E40;
+            color: white;
+          }
+        }
+
+        .booking-request-accept-btn {
+          background: transparent;
+          color: #000000;
+          border: 2px solid #4CAF50;
+          width: 215px;
+          height: 33px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: #4CAF50;
+            color: white;
+          }
+        }
+
+        .booking-request-decline-btn {
+          background: transparent;
+          color: #000000;
+          border: 2px solid #f44336;
+          width: 175px;
+          height: 33px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: #f44336;
+            color: white;
+          }
+        }
+
+        .booking-request-complete-btn {
+          background: transparent;
+          color: #000000;
+          border: 2px solid #2196F3;
+          width: 215px;
+          height: 33px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: #2196F3;
+            color: white;
+          }
+        }
+
+        .booking-request-status-only {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px 16px;
+
+          .booking-request-declined-text {
+            color: #dc2626;
+            font-size: 14px;
+            font-weight: 600;
+          }
+
+          .booking-request-cancelled-text {
+            color: #888888;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .booking-request-empty-state {
+      text-align: center;
+      padding: 40px 20px;
+
+      .booking-request-empty-icon {
+        margin-bottom: 20px;
+        
+        img {
+          width: 120px;
+          height: 120px;
+          object-fit: contain;
+        }
+      }
+
+      .booking-request-empty-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .booking-request-container {
+    padding: 20px;
+
+    .booking-request-header {
+      .booking-request-title {
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+
+    .booking-request-navigation {
+      gap: 0;
+      margin-bottom: 20px;
+
+      .booking-request-tab-container {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .booking-request-tab {
+        padding: 10px 16px;
+        font-size: 13px;
+        min-width: 100px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .booking-request-content {
+      min-height: 300px;
+      margin-top: -15px; // Consistent spacing for all navigation tabs on mobile
+
+      .booking-request-card {
+        padding: 20px;
+        gap: 16px;
+
+        .booking-request-top-section {
+          flex-direction: column;
+          gap: 16px;
+
+          .booking-request-worker-info {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+
+            .booking-request-worker-profile {
+              .booking-request-worker-avatar {
+                width: 80px;
+                height: 80px;
+              }
+            }
+
+            .booking-request-worker-details {
+              .booking-request-worker-badges {
+                justify-content: center;
+              }
+            }
+          }
+
+          .booking-request-status-amount {
+            align-items: center;
+
+            .booking-request-status-badge {
+              .booking-request-status-text {
+                font-size: 14px;
+                padding: 8px 16px;
+              }
+            }
+          }
+        }
+
+        .booking-request-middle-section {
+          gap: 12px;
+
+          .booking-request-dates {
+            flex-direction: column;
+            gap: 12px;
+
+            .booking-request-date-item {
+              .booking-request-date-label {
+                font-size: 15px;
+              }
+
+              .booking-request-date-value {
+                font-size: 15px;
+              }
+            }
+          }
+
+          .booking-request-description {
+            text-align: center;
+
+            .booking-request-description-label {
+              font-size: 15px;
+            }
+
+            .booking-request-description-text {
+              font-size: 15px;
+            }
+          }
+
+          .booking-request-salary {
+            font-size: 16px;
+            margin-top: 12px;
+            text-align: center;
+            width: 100%;
+            height: 36px;
+            padding: 4px 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        .booking-request-actions {
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 16px;
+          
+          .booking-request-view-transaction-btn,
+          .booking-request-cancel-booking-btn,
+          .booking-request-rate-booking-btn,
+          .booking-request-give-feedback-btn,
+          .booking-request-accept-btn,
+          .booking-request-decline-btn,
+          .booking-request-complete-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            width: 100%;
+            max-width: 215px;
+          }
+        }
+      }
+
+      .booking-request-empty-state {
+        padding: 20px 10px;
+
+        .booking-request-empty-icon {
+          margin-bottom: 15px;
+          
+          img {
+            width: 80px;
+            height: 80px;
+          }
+        }
+
+        .booking-request-empty-title {
+          font-size: 20px;
+        }
+      }
     }
   }
 }
