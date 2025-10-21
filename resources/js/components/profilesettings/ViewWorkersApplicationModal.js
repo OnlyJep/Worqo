@@ -57,6 +57,15 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
   };
 
   const handleViewProfile = (application) => {
+    // Check if current user is a worker trying to view another worker's profile
+    const userData = JSON.parse(localStorage.getItem("user") || '{}');
+    const currentUser = userData.user || userData;
+    
+    if (currentUser?.role_id === 1) {
+      alert("Workers cannot view other worker profiles. Please switch to employer role to hire workers.");
+      return;
+    }
+    
     // Debug: Log the application data to see the structure
     console.log('Application data:', application);
     console.log('Worker data:', application.worker);

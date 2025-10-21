@@ -265,8 +265,16 @@ const Browse = () => {
       
     } catch (error) {
       console.error("Error fetching workers data:", error.response?.data || error.message);
-      setError("Failed to load workers. Please try again later.");
-      message.error("Failed to load workers.");
+      
+      // Handle role-based access denial
+      if (error.response?.status === 403) {
+        setError(error.response.data.message || "Access denied. Workers cannot browse other worker profiles. Please switch to employer role to hire workers.");
+        message.error(error.response.data.message || "Access denied. Switch to employer role to browse workers.");
+      } else {
+        setError("Failed to load workers. Please try again later.");
+        message.error("Failed to load workers.");
+      }
+      
       setFilteredWorkers([]);
     } finally {
       setLoading(false);

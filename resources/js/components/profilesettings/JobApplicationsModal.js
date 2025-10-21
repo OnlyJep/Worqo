@@ -96,6 +96,15 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
   };
 
   const handleViewProfile = (workerId) => {
+    // Check if current user is a worker trying to view another worker's profile
+    const userData = JSON.parse(localStorage.getItem("user") || '{}');
+    const currentUser = userData.user || userData;
+    
+    if (currentUser?.role_id === 1) {
+      alert("Workers cannot view other worker profiles. Please switch to employer role to hire workers.");
+      return;
+    }
+    
     window.open(`/profile/${workerId}`, '_blank');
   };
 

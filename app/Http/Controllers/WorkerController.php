@@ -23,6 +23,27 @@ class WorkerController extends Controller
     public function index(Request $request): JsonResponse
     {
         try {
+            // Check if the requesting user is authenticated and get their role
+            $authToken = $request->header('Authorization');
+            $requestingUser = null;
+            
+            if ($authToken) {
+                $token = str_replace('Bearer ', '', $authToken);
+                $tokenData = \Laravel\Passport\Token::where('id', $token)->first();
+                if ($tokenData) {
+                    $requestingUser = User::find($tokenData->user_id);
+                }
+            }
+            
+            // Check if requesting user is a worker trying to browse other workers
+            if ($requestingUser && $requestingUser->role_id == 1) {
+                return response()->json([
+                    'error' => 'Access denied',
+                    'message' => 'Workers cannot browse other worker profiles. Please switch to employer role to hire workers.',
+                    'requires_role_switch' => true
+                ], 403);
+            }
+            
             $search = $request->query('search', '');
             $page = $request->query('page', 1);
             $limit = $request->query('limit', 10);
@@ -257,6 +278,18 @@ class WorkerController extends Controller
     public function show($id, Request $request): JsonResponse
     {
         try {
+            // Check if the requesting user is authenticated and get their role
+            $authToken = $request->header('Authorization');
+            $requestingUser = null;
+            
+            if ($authToken) {
+                $token = str_replace('Bearer ', '', $authToken);
+                $tokenData = \Laravel\Passport\Token::where('id', $token)->first();
+                if ($tokenData) {
+                    $requestingUser = User::find($tokenData->user_id);
+                }
+            }
+            
             // First try to find user with role_id 1 or 2 (workers and employers with worker profiles)
             $user = User::with(['profile', 'worker'])
                 ->whereIn('role_id', [1, 2])
@@ -272,6 +305,15 @@ class WorkerController extends Controller
             // If still not found, throw 404
             if (!$user) {
                 throw new \Exception("User not found or not a worker");
+            }
+            
+            // Check if requesting user is a worker trying to view another worker's profile
+            if ($requestingUser && $requestingUser->role_id == 1 && $requestingUser->id != $id) {
+                return response()->json([
+                    'error' => 'Access denied',
+                    'message' => 'Workers cannot view other worker profiles. Please switch to employer role to hire workers.',
+                    'requires_role_switch' => true
+                ], 403);
             }
 
             if (!$user->profile) {

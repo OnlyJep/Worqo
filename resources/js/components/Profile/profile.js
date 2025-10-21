@@ -101,6 +101,14 @@ const Profile = ({ initialServiceType }) => {
           workerData = response.data;
           console.log('API response received:', workerData);
         } catch (apiError) {
+          // Handle role-based access denial
+          if (apiError.response?.status === 403) {
+            if (isMounted) {
+              setError(apiError.response.data.message || "Access denied. Workers cannot view other worker profiles.");
+              setLoading(false);
+            }
+            return;
+          }
           // If the API call fails, it means the user is not a worker
           if (apiError.response?.status === 404) {
             if (isMounted) {
@@ -109,7 +117,7 @@ const Profile = ({ initialServiceType }) => {
             }
             return;
           }
-          throw apiError; // Re-throw if it's not a 404 error
+          throw apiError; // Re-throw if it's not a 404 or 403 error
         }
 
         if (!isMounted) return;
@@ -474,9 +482,27 @@ const Profile = ({ initialServiceType }) => {
               <p className="profile-status">{worker.status === "ACTIVE NOW" ? "Available now" : worker.status}</p>
             </div>
             <p className="profile-location">{worker.location}</p>
-            <button className="profile-hire-button" onClick={handleHireNowClick}>
-              HIRE NOW
-            </button>
+            {/* Only show HIRE NOW button for employers or if viewing own profile */}
+            {(() => {
+              const userData = JSON.parse(localStorage.getItem("user") || '{}');
+              const currentUser = userData.user || userData;
+              const isEmployer = currentUser?.role_id === 2;
+              const isOwnProfile = currentUser?.id === parseInt(resolvedWorkerId);
+              
+              if (isEmployer || isOwnProfile) {
+                return (
+                  <button className="profile-hire-button" onClick={handleHireNowClick}>
+                    HIRE NOW
+                  </button>
+                );
+              } else {
+                return (
+                  <div className="profile-hire-disabled">
+                    <p>Switch to employer role to hire workers</p>
+                  </div>
+                );
+              }
+            })()}
           </div>
           <div className="profile-rank-display-section">
             {workerRank ? (
