@@ -24,10 +24,7 @@ class BookingRequest extends Model
         'description',
         'daily_rate',
         'total_amount',
-        'working_days',
-        'total_hours',
-        'hourly_rate',
-        'salary_explanation'
+        'status',
     ];
 
     protected $casts = [
@@ -38,7 +35,6 @@ class BookingRequest extends Model
         'daily_rate' => 'decimal:2',
         'total_amount' => 'decimal:2',
         'total_hours' => 'decimal:2',
-        'hourly_rate' => 'decimal:2',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];
@@ -118,10 +114,55 @@ class BookingRequest extends Model
             'description' => $bookModalData['description'] ?? null,
             'daily_rate' => $bookModalData['daily_rate'] ?? null,
             'total_amount' => $bookModalData['total_salary'] ?? null,
-            'working_days' => $bookModalData['working_days'] ?? null,
-            'total_hours' => $bookModalData['total_hours'] ?? null,
-            'hourly_rate' => $bookModalData['hourly_rate'] ?? null,
-            'salary_explanation' => $bookModalData['salary_explanation'] ?? null
+            'status' => 'pending', // Default status
         ]);
+    }
+
+    /**
+     * Scope to filter by status.
+     */
+    public function scopeByStatus($query, string $status)
+    {
+        return $query->where('status', $status);
+    }
+
+    /**
+     * Scope to filter by pending status.
+     */
+    public function scopePending($query)
+    {
+        return $query->where('status', 'pending');
+    }
+
+    /**
+     * Scope to filter by accepted status.
+     */
+    public function scopeAccepted($query)
+    {
+        return $query->where('status', 'accepted');
+    }
+
+    /**
+     * Scope to filter by declined status.
+     */
+    public function scopeDeclined($query)
+    {
+        return $query->where('status', 'declined');
+    }
+
+    /**
+     * Scope to filter by cancelled status.
+     */
+    public function scopeCancelled($query)
+    {
+        return $query->where('status', 'cancelled');
+    }
+
+    /**
+     * Scope to filter by completed status.
+     */
+    public function scopeCompleted($query)
+    {
+        return $query->where('status', 'completed');
     }
 }

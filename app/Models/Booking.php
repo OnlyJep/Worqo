@@ -15,6 +15,7 @@ class Booking extends Model
         'employer_id',
         'worker_id',
         'service_type',
+        'sub_skill',
         'work_type',
         'description',
         'book_in',
@@ -83,7 +84,7 @@ class Booking extends Model
         return $this->bookingRequests()->create([
             'user_id' => $userId,
             'service_type' => $this->service_type,
-            'sub_skill' => null, // Not available in current booking structure
+            'sub_skill' => $this->sub_skill, // Now available in booking structure
             'work_type' => $this->work_type,
             'book_in' => $this->book_in,
             'book_end' => $this->book_end,
@@ -92,10 +93,7 @@ class Booking extends Model
             'description' => $this->description,
             'daily_rate' => $this->daily_rate,
             'total_amount' => $this->total_amount,
-            'working_days' => null, // Will be calculated if needed
-            'total_hours' => null, // Will be calculated if needed
-            'hourly_rate' => null, // Will be calculated if needed
-            'salary_explanation' => "Action: {$action} - {$notes}" // Store action info in explanation
+            'status' => $action === 'created' ? 'pending' : $action
         ]);
     }
 }

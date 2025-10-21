@@ -71186,6 +71186,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/ConfirmationModal.scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/ConfirmationModal.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  padding: 4px 0;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  margin-bottom: 0;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 1px solid #E6F2EF;\n  padding-top: 8px;\n  margin-top: 8px;\n  font-weight: 600;\n  font-size: 16px;\n  color: #0a2a40;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #6b7280;\n  font-size: 14px;\n  font-weight: 500;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: right;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  margin-top: 8px;\n  display: block;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n  padding-top: 16px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 10px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  font-family: \"Inter\", sans-serif;\n  border: none;\n  min-width: 100px;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f3f4f6;\n  color: #6b7280;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: white;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover {\n  background: #0d3550;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(10, 42, 64, 0.3);\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n@media (max-width: 768px) {\n  .profile-confirmation-modal {\n    padding: 20px;\n    max-width: 95%;\n  }\n  .profile-confirmation-modal h2 {\n    font-size: 20px;\n  }\n  .profile-confirmation-modal .profile-confirmation-modal-buttons {\n    flex-direction: column;\n  }\n  .profile-confirmation-modal .profile-confirmation-modal-buttons .profile-confirmation-cancel-button,\n  .profile-confirmation-modal .profile-confirmation-modal-buttons .profile-confirmation-submit-button {\n    width: 100%;\n  }\n}\n@media (max-width: 480px) {\n  .profile-confirmation-modal {\n    padding: 15px;\n  }\n  .profile-confirmation-modal h2 {\n    font-size: 18px;\n  }\n  .profile-confirmation-modal .profile-confirmation-modal-content .profile-confirmation-form-group {\n    margin-bottom: 15px;\n  }\n  .profile-confirmation-modal .profile-confirmation-modal-content .profile-confirmation-form-group label {\n    font-size: 13px;\n  }\n  .profile-confirmation-modal .profile-confirmation-modal-content .profile-confirmation-form-group input, .profile-confirmation-modal .profile-confirmation-modal-content .profile-confirmation-form-group textarea {\n    padding: 10px;\n    font-size: 13px;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/Headerz.scss":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/Headerz.scss ***!
@@ -71306,6 +71330,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".service-page {\n  display: flex;\n  flex-direction: column;\n  margin-top: 50px;\n}\n\n.service-content {\n  background: linear-gradient(to bottom, #7A8CA0, #FFFFFF);\n  padding-bottom: 40px;\n}\n\n.service-container {\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 0 1.5rem;\n}\n\n.service-intro {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  min-height: 50vh;\n  padding: 80px 10px 20px;\n  text-align: center;\n}\n\n.service-headline {\n  font-size: 2.5rem;\n  font-weight: 700;\n  color: #ffffff;\n  margin-bottom: 1rem;\n  line-height: 1.3;\n}\n\n.service-subtitle {\n  font-size: 1rem;\n  color: #ffffff;\n  margin-bottom: 2rem;\n  font-weight: 400;\n  line-height: 1.5;\n  max-width: 700px;\n}\n\n.hero-search {\n  width: 100%;\n  max-width: 800px;\n  margin: 2rem auto 0;\n}\n\n.search-container {\n  display: flex;\n  background: #FFFFFF;\n  border-radius: 30px;\n  overflow: hidden;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);\n  border: 1px solid #d9e0e6;\n  height: 56px;\n}\n\n.search-input {\n  flex: 1;\n  border: none;\n  padding: 0 1.5rem;\n  font-size: 1.1rem;\n  outline: none;\n  color: #2c3e50;\n  height: 100%;\n}\n\n.search-input::-moz-placeholder {\n  color: #8fa1b3;\n}\n\n.search-input::placeholder {\n  color: #8fa1b3;\n}\n\n.search-button {\n  background-color: #001E40;\n  border: none;\n  color: #ffffff;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n  width: 64px;\n  height: 100%;\n  border-radius: 0 30px 30px 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.search-button img {\n  filter: brightness(0) invert(1);\n  width: 24px;\n  height: 24px;\n}\n\n.search-button:hover {\n  background-color: #000f22;\n}\n\n.section-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin: 3rem 0 2rem;\n  padding: 0 1.5rem;\n}\n\n.section-title {\n  font-size: 2rem;\n  font-weight: 800;\n  color: #0a0a0a;\n}\n\n.filter-control {\n  display: flex;\n  align-items: center;\n}\n\n.collar-select {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  background: #fff;\n  border: 1px solid #0a2a44;\n  color: #0a2a44;\n  padding: 0.75rem 3rem 0.75rem 1.25rem; /* Adjusted for caret size */\n  border-radius: 12px;\n  box-shadow: 0 2px 8px rgba(10, 42, 68, 0.12);\n  font-weight: 600;\n  font-size: 1rem;\n  background-image: url('data:image/svg+xml;utf8,<svg width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 1L6 6L11 1\" stroke=\"#0a2a44\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>');\n  background-repeat: no-repeat;\n  background-position: right 1rem center;\n  background-size: 12px 8px; /* Matches fa-caret-down size */\n  cursor: pointer;\n  transition: all 0.3s ease; /* Smooth transition for rotation */\n}\n\n.collar-select:focus {\n  outline: none;\n  box-shadow: 0 0 0 3px rgba(10, 42, 68, 0.2);\n  background-image: url('data:image/svg+xml;utf8,<svg width=\"12\" height=\"8\" viewBox=\"0 0 12 8\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 7L6 2L11 7\" stroke=\"#0a2a44\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>'); /* Upward caret */\n}\n\n.services-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  gap: 1.5rem;\n  margin-bottom: 2rem;\n}\n\n.service-card {\n  background: #fff;\n  border-radius: 16px;\n  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);\n  border: 2px solid #0a2a44;\n  transition: all 0.3s ease;\n  display: flex;\n  flex-direction: column;\n  min-height: 360px;\n}\n\n.service-card:hover {\n  transform: translateY(-5px);\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);\n}\n\n.card-image {\n  width: 100%;\n  height: 180px;\n  overflow: hidden;\n}\n\n.card-image img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n\n.service-card h3 {\n  font-size: 1.4rem;\n  font-weight: 700;\n  color: #12263a;\n  margin: 1rem 1.5rem 0.5rem;\n}\n\n.service-card p {\n  color: #52606d;\n  line-height: 1.5;\n  font-size: 0.95rem;\n  margin: 0 1.5rem 1rem;\n  flex: 1;\n}\n\n.service-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 0 1.5rem 1rem;\n  color: #0a2a44;\n  font-weight: 700;\n}\n\n.service-badge img.badge-icon {\n  width: 20px;\n  height: 20px;\n}\n\n.service-badge .badge-text {\n  font-size: 0.95rem;\n}\n\n.service-cta-btn {\n  margin: 0 1.5rem 1.5rem;\n  background: #06223b;\n  color: #fff;\n  border: none;\n  padding: 0.85rem;\n  border-radius: 9999px;\n  font-weight: 700;\n  cursor: pointer;\n  width: calc(100% - 3rem);\n  transition: background-color 0.3s ease;\n}\n\n.service-cta-btn:hover {\n  background: #000f22;\n}\n\n.show-more-wrap {\n  display: flex;\n  justify-content: center;\n  margin: 3rem 0 4rem;\n}\n\n.show-more-btn {\n  background: #001E40;\n  color: #fff;\n  font-weight: 700;\n  border: none;\n  border-radius: 24px;\n  padding: 0.85rem 2rem;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);\n  cursor: pointer;\n  font-size: 1rem;\n  transition: all 0.3s ease;\n}\n\n.show-more-btn:hover:not(:disabled) {\n  background: #000f22;\n  transform: translateY(-2px);\n}\n\n.show-more-btn:disabled {\n  background: #95a5a6;\n  cursor: not-allowed;\n}\n\n@media (max-width: 992px) {\n  .services-grid {\n    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n  }\n}\n@media (max-width: 768px) {\n  .service-container {\n    padding: 0 1rem;\n  }\n  .service-headline {\n    font-size: 2rem;\n  }\n  .service-subtitle {\n    font-size: 0.9rem;\n  }\n  .hero-search {\n    width: 90%;\n  }\n  .search-container {\n    height: 48px;\n  }\n  .search-input {\n    font-size: 1rem;\n  }\n  .search-button {\n    width: 48px;\n  }\n  .section-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1rem;\n    margin: 2rem 0 1.5rem;\n  }\n  .section-title {\n    font-size: 1.6rem;\n  }\n  .collar-select {\n    width: 100%;\n    max-width: 200px;\n  }\n}\n@media (max-width: 480px) {\n  .services-grid {\n    grid-template-columns: 1fr;\n  }\n  .service-card h3 {\n    font-size: 1.3rem;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/SuccessModal.scss":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/SuccessModal.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".profile-success-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n}\n\n.profile-success-modal {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  max-width: 400px;\n  width: 90%;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n.profile-success-modal h2 {\n  margin: 0 0 20px 0;\n  color: #333;\n  font-size: 24px;\n  font-weight: 600;\n  text-align: center;\n}\n.profile-success-modal .profile-success-modal-content {\n  margin-bottom: 25px;\n}\n.profile-success-modal .profile-success-modal-content .profile-success-form-group {\n  text-align: center;\n}\n.profile-success-modal .profile-success-modal-content .profile-success-form-group p {\n  color: #666;\n  font-size: 16px;\n  line-height: 1.6;\n  margin: 0;\n}\n.profile-success-modal .profile-success-modal-buttons {\n  display: flex;\n  justify-content: center;\n}\n.profile-success-modal .profile-success-modal-buttons .profile-success-submit-button {\n  padding: 12px 24px;\n  border: none;\n  background: #1E90FF;\n  color: white;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 600;\n  transition: all 0.3s ease;\n}\n.profile-success-modal .profile-success-modal-buttons .profile-success-submit-button:hover {\n  background: #104E8B;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);\n}\n\n@media (max-width: 768px) {\n  .profile-success-modal {\n    padding: 20px;\n    max-width: 95%;\n  }\n  .profile-success-modal h2 {\n    font-size: 20px;\n  }\n  .profile-success-modal .profile-success-modal-content .profile-success-form-group p {\n    font-size: 15px;\n  }\n}\n@media (max-width: 480px) {\n  .profile-success-modal {\n    padding: 15px;\n  }\n  .profile-success-modal h2 {\n    font-size: 18px;\n  }\n  .profile-success-modal .profile-success-modal-content .profile-success-form-group p {\n    font-size: 14px;\n  }\n  .profile-success-modal .profile-success-modal-buttons .profile-success-submit-button {\n    padding: 10px 20px;\n    font-size: 14px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72336,7 +72384,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.worker-profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.worker-profile-page .worker-profile-header {\n  position: relative;\n  width: 100%;\n}\n.worker-profile-page .worker-profile-header .worker-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.worker-profile-page .worker-profile-header .worker-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.worker-profile-page .worker-profile-header .worker-profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.worker-profile-page .worker-profile-header .worker-profile-photo-wrapper .worker-profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.worker-profile-page .worker-profile-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-name-container {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-name-container h2 {\n  margin: 0;\n  font-size: 1.8rem;\n  font-weight: 600;\n  color: #333;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-badges-container {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.75rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-verified-badge svg {\n  flex-shrink: 0;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-status-dot {\n  width: 8px;\n  height: 8px;\n  background-color: #1E90FF;\n  border-radius: 50%;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-status {\n  font-size: 14px;\n  margin: 5px 0;\n  color: #1E90FF;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-hire-button {\n  background: #1E90FF;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 12px 24px;\n  font-size: 16px;\n  margin: 15px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  min-width: 350px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-hire-button:hover {\n  background: #104E8B;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section {\n  margin: 15px 0;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-info .worker-rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-info .worker-points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-bar-container .worker-progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-bar-container .worker-progress-bar-fill.worker-rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-bar-container .worker-progress-bar-fill.worker-rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-bar-container .worker-progress-bar-fill.worker-rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-bar-container .worker-progress-bar-fill.worker-rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-bar-container .worker-progress-bar-fill.worker-rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-display .worker-rank-progress .worker-progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-rank-display-section .worker-rank-loading {\n  text-align: center;\n  color: #666;\n  font-style: italic;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-stats {\n  margin: 25px 0;\n  background: #f9fafb;\n  padding: 20px;\n  border-radius: 12px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  min-width: 350px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-stats .worker-stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding: 12px 0;\n  border-bottom: 1px solid #eee;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-stats .worker-stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-stats .worker-stat-item .worker-stat-label {\n  font-size: 18px;\n  color: #2d3748;\n  font-weight: 600;\n}\n.worker-profile-page .worker-profile-container .worker-profile-left .worker-stats .worker-stat-item .worker-stat-number {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1E90FF;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  height: calc(100vh - 320px);\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tabs {\n  display: flex;\n  border-bottom: 1px solid #eee;\n  background: #f9fafb;\n  padding: 0 10px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tabs .worker-tab {\n  padding: 10px 15px;\n  background: none;\n  border: none;\n  cursor: pointer;\n  font-size: 14px;\n  text-transform: uppercase;\n  color: #666;\n  border-radius: 4px 4px 0 0;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tabs .worker-tab.active {\n  color: #1E90FF;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  background: #fff;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tabs .worker-tab:hover {\n  background: #e6f0fa;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content {\n  flex: 1;\n  padding: 20px;\n  background: #fff;\n  border-radius: 0 8px 8px 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview h4,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials h4,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview p,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials p,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews p {\n  color: #4a5568;\n  line-height: 1.7;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-row,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials .worker-skills-row,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 15px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-row .worker-chip,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials .worker-skills-row .worker-chip,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-skills-row .worker-chip {\n  background: #e6f0fa;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1E90FF;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview ul,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials ul,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews ul {\n  list-style: disc;\n  padding-left: 20px;\n  margin-bottom: 15px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview ul li,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials ul li,\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews ul li {\n  color: #4a5568;\n  margin-bottom: 8px;\n  line-height: 1.6;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview p {\n  color: #555;\n  line-height: 1.7;\n  margin-bottom: 25px;\n  font-size: 16px;\n  background: #f8f9fa;\n  padding: 15px;\n  border-radius: 8px;\n  border-left: 4px solid #1E90FF;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section {\n  margin-bottom: 30px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category {\n  margin-bottom: 25px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category h5 {\n  margin-bottom: 15px;\n  color: #1E90FF;\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item {\n  background: linear-gradient(135deg, #f8f9fa, #ffffff);\n  border: 1px solid #e9ecef;\n  border-radius: 12px;\n  padding: 20px;\n  margin-bottom: 15px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: all 0.3s ease;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item .worker-skill-header {\n  margin-bottom: 12px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item .worker-skill-name-with-rank {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item .worker-skill-name-with-rank .worker-skill-rank-icon {\n  width: 32px;\n  height: 32px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 6px;\n  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);\n  border: 2px solid #fff;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item .worker-skill-name-with-rank .worker-skill-name {\n  font-weight: 600;\n  color: #333;\n  font-size: 1.1rem;\n  line-height: 1.4;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item .worker-skill-name-with-rank .worker-skill-name .worker-sub-skills {\n  color: #666;\n  font-weight: 400;\n  font-size: 14px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item .worker-skill-details {\n  display: flex;\n  gap: 25px;\n  font-size: 14px;\n  flex-wrap: wrap;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item .worker-skill-details .worker-experience {\n  color: #666;\n  background: #e9ecef;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview .worker-skills-section .worker-skills-category .worker-skill-item .worker-skill-details .worker-hourly-rate {\n  color: #1E90FF;\n  font-weight: 600;\n  background: #e3f2fd;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials .worker-credentials-photos {\n  margin-top: 20px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials .worker-credentials-photos h5 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials .worker-credentials-photos .worker-credential-photo {\n  margin-bottom: 10px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials .worker-credentials-photos .worker-credential-photo a {\n  color: #1E90FF;\n  text-decoration: none;\n  font-weight: 500;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials .worker-credentials-photos .worker-credential-photo a:hover {\n  text-decoration: underline;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-header h4 {\n  margin: 0;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-header .worker-reviews-summary .worker-average-rating {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-header .worker-reviews-summary .worker-average-rating .worker-rating-number {\n  font-size: 24px;\n  font-weight: 600;\n  color: #2d3748;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-header .worker-reviews-summary .worker-average-rating .worker-stars {\n  display: flex;\n  gap: 2px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-header .worker-reviews-summary .worker-average-rating .worker-stars .worker-star {\n  color: #cbd5e0;\n  font-size: 18px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-header .worker-reviews-summary .worker-average-rating .worker-stars .worker-star.filled {\n  color: #f59e0b;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-header .worker-reviews-summary .worker-average-rating .worker-total-reviews {\n  color: #718096;\n  font-size: 14px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item {\n  border-bottom: 1px solid #eee;\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header .worker-reviewer-info {\n  display: flex;\n  gap: 12px;\n  align-items: center;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header .worker-reviewer-info .worker-reviewer-avatar {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header .worker-reviewer-info .worker-reviewer-details {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header .worker-reviewer-info .worker-reviewer-details .worker-reviewer-name {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 15px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header .worker-reviewer-info .worker-reviewer-details .worker-review-rating {\n  display: flex;\n  gap: 2px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header .worker-reviewer-info .worker-reviewer-details .worker-review-rating .worker-star {\n  color: #cbd5e0;\n  font-size: 14px;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header .worker-reviewer-info .worker-reviewer-details .worker-review-rating .worker-star.filled {\n  color: #f59e0b;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-header .worker-review-date {\n  color: #718096;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews .worker-reviews-list .worker-review-item .worker-review-comment {\n  color: #4a5568;\n  line-height: 1.6;\n  margin-left: 60px;\n  font-size: 14px;\n}\n\n.subscription-modal {\n  max-width: 600px;\n  width: 90%;\n}\n.subscription-modal .modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 16px;\n}\n.subscription-modal .subscription-plans {\n  display: flex;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.subscription-modal .subscription-plans .plan-card {\n  flex: 1;\n  border: 2px solid #e0e0e0;\n  border-radius: 12px;\n  padding: 20px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.subscription-modal .subscription-plans .plan-card:hover {\n  border-color: #1E90FF;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 20px rgba(30, 144, 255, 0.1);\n}\n.subscription-modal .subscription-plans .plan-card.selected {\n  border-color: #1E90FF;\n  background: linear-gradient(135deg, #1E90FF, #4169E1);\n  color: white;\n}\n.subscription-modal .subscription-plans .plan-card.selected .price {\n  color: white;\n}\n.subscription-modal .subscription-plans .plan-card.selected .features li {\n  color: rgba(255, 255, 255, 0.9);\n}\n.subscription-modal .subscription-plans .plan-card h3 {\n  margin: 0 0 15px 0;\n  font-size: 18px;\n  font-weight: 600;\n}\n.subscription-modal .subscription-plans .plan-card .price {\n  margin-bottom: 20px;\n}\n.subscription-modal .subscription-plans .plan-card .price .currency {\n  font-size: 20px;\n  font-weight: 600;\n}\n.subscription-modal .subscription-plans .plan-card .price .amount {\n  font-size: 32px;\n  font-weight: 700;\n  margin: 0 5px;\n}\n.subscription-modal .subscription-plans .plan-card .price .period {\n  font-size: 16px;\n  color: #666;\n}\n.subscription-modal .subscription-plans .plan-card .features {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.subscription-modal .subscription-plans .plan-card .features li {\n  padding: 5px 0;\n  color: #666;\n  position: relative;\n  padding-left: 20px;\n}\n.subscription-modal .subscription-plans .plan-card .features li:before {\n  content: \"✓\";\n  position: absolute;\n  left: 0;\n  color: #1E90FF;\n  font-weight: bold;\n}\n.subscription-modal .subscription-plans .plan-card .savings-badge {\n  position: absolute;\n  top: -10px;\n  right: -10px;\n  background: #FF6B6B;\n  color: white;\n  padding: 5px 10px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.subscription-modal .payment-methods {\n  margin-bottom: 30px;\n}\n.subscription-modal .payment-methods h4 {\n  margin-bottom: 15px;\n  text-align: center;\n  color: #333;\n}\n.subscription-modal .payment-methods .payment-options {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 10px;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  padding: 12px 20px;\n  border: 2px solid #e0e0e0;\n  border-radius: 8px;\n  background: white;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  font-weight: 500;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn:hover {\n  border-color: #1E90FF;\n  background: #f8f9ff;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn .payment-icon {\n  font-size: 18px;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn.gcash:hover {\n  border-color: #0070f3;\n  background: #f0f8ff;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn.debit:hover {\n  border-color: #28a745;\n  background: #f0fff4;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn.credit:hover {\n  border-color: #ffc107;\n  background: #fffdf0;\n}\n.subscription-modal .payment-methods .payment-options .payment-btn.paypal:hover {\n  border-color: #0070ba;\n  background: #f0f8ff;\n}\n\n.blurred-contact {\n  display: inline-block;\n  margin-left: 8px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(30, 144, 255, 0.05));\n  border: 2px dashed #1E90FF;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n  min-width: 120px;\n  text-align: center;\n}\n.blurred-contact:hover {\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0.1));\n  border-color: #0070f3;\n  transform: scale(1.05);\n}\n.blurred-contact:active {\n  transform: scale(0.95);\n}\n\n.upgrade-hint {\n  color: #1E90FF;\n  font-size: 12px;\n  font-weight: 500;\n  margin-left: 8px;\n  background: #e3f2fd;\n  padding: 2px 6px;\n  border-radius: 4px;\n  border: 1px solid #1E90FF;\n}\n\n.login-modal {\n  max-width: 500px;\n  width: 90%;\n}\n.login-modal .modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 1rem;\n}\n.login-modal .login-options {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.login-modal .login-option {\n  text-align: center;\n  padding: 20px;\n  border: 2px solid #f0f0f0;\n  border-radius: 12px;\n  background: #fafafa;\n  transition: all 0.3s ease;\n}\n.login-modal .login-option:hover {\n  border-color: #007bff;\n  background: #f8f9ff;\n}\n.login-modal .login-option h3 {\n  margin: 0 0 8px 0;\n  color: #333;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.login-modal .login-option p {\n  margin: 0 0 15px 0;\n  color: #666;\n  font-size: 0.9rem;\n  line-height: 1.4;\n}\n.login-modal .login-divider {\n  text-align: center;\n  position: relative;\n  margin: 10px 0;\n}\n.login-modal .login-divider::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 1px;\n  background: #ddd;\n}\n.login-modal .login-divider span {\n  background: #fff;\n  padding: 0 15px;\n  color: #999;\n  font-size: 0.9rem;\n  font-weight: 500;\n}\n.login-modal .login-btn {\n  width: 100%;\n  padding: 12px 24px;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.login-modal .login-btn.signin-btn {\n  background: #007bff;\n  color: white;\n}\n.login-modal .login-btn.signin-btn:hover {\n  background: #0056b3;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);\n}\n.login-modal .login-btn.signup-btn {\n  background: #28a745;\n  color: white;\n}\n.login-modal .login-btn.signup-btn:hover {\n  background: #1e7e34;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);\n}\n\n@media (max-width: 768px) {\n  .worker-profile-page .worker-profile-container {\n    flex-direction: column;\n    padding: 0 20px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-left {\n    padding-right: 0;\n    margin-bottom: 20px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-right {\n    padding-left: 0;\n    height: auto;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview h4,\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials h4,\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews h4 {\n    font-size: 16px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview p,\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials p,\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews p {\n    font-size: 14px;\n  }\n  .worker-profile-page .worker-profile-header .worker-profile-photo-wrapper {\n    left: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .worker-profile-page .worker-profile-container {\n    padding: 0 15px;\n    margin-top: 60px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-left .worker-profile-info .worker-hire-button {\n    min-width: 100%;\n    padding: 10px 16px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-left .worker-stats {\n    padding: 12px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content {\n    padding: 12px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview h4,\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials h4,\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews h4 {\n    font-size: 14px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-overview p,\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-credentials p,\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-reviews p {\n    font-size: 14px;\n  }\n  .worker-profile-page .worker-profile-container .worker-profile-right .worker-tab-content .worker-skills-row .worker-chip {\n    font-size: 12px;\n    padding: 4px 8px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.profile-page .profile-header {\n  position: relative;\n  width: 100%;\n}\n.profile-page .profile-header .profile-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.profile-page .profile-header .profile-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-header .profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.profile-page .profile-header .profile-photo-wrapper .profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.profile-page .profile-container .profile-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.profile-page .profile-container .profile-left .profile-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-name-container {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-name-container h2 {\n  margin: 0;\n  font-size: 1.8rem;\n  font-weight: 600;\n  color: #333;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-badges-container {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.75rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge svg {\n  flex-shrink: 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-dot {\n  width: 8px;\n  height: 8px;\n  background-color: #1E90FF;\n  border-radius: 50%;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status {\n  font-size: 14px;\n  margin: 5px 0;\n  color: #1E90FF;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-button {\n  background: #1E90FF;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 12px 24px;\n  font-size: 16px;\n  margin: 15px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  min-width: 350px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-button:hover {\n  background: #104E8B;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section {\n  margin: 15px 0;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info .profile-rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info .profile-points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-loading {\n  text-align: center;\n  color: #666;\n  font-style: italic;\n}\n.profile-page .profile-container .profile-left .profile-stats {\n  margin: 25px 0;\n  background: #f9fafb;\n  padding: 20px;\n  border-radius: 12px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  min-width: 350px;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding: 12px 0;\n  border-bottom: 1px solid #eee;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item .profile-stat-label {\n  font-size: 18px;\n  color: #2d3748;\n  font-weight: 600;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item .profile-stat-number {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1E90FF;\n}\n.profile-page .profile-container .profile-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  height: calc(100vh - 320px);\n}\n.profile-page .profile-container .profile-right .profile-tabs {\n  display: flex;\n  border-bottom: 1px solid #eee;\n  background: #f9fafb;\n  padding: 0 10px;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab {\n  padding: 10px 15px;\n  background: none;\n  border: none;\n  cursor: pointer;\n  font-size: 14px;\n  text-transform: uppercase;\n  color: #666;\n  border-radius: 4px 4px 0 0;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab.active {\n  color: #1E90FF;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  background: #fff;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab:hover {\n  background: #e6f0fa;\n}\n.profile-page .profile-container .profile-right .profile-tab-content {\n  flex: 1;\n  padding: 20px;\n  background: #fff;\n  border-radius: 0 8px 8px 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n  color: #4a5568;\n  line-height: 1.7;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-row,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-skills-row,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-row .profile-chip,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-skills-row .profile-chip,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-skills-row .profile-chip {\n  background: #e6f0fa;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1E90FF;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview ul,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials ul,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews ul {\n  list-style: disc;\n  padding-left: 20px;\n  margin-bottom: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview ul li,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials ul li,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews ul li {\n  color: #4a5568;\n  margin-bottom: 8px;\n  line-height: 1.6;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview p {\n  color: #555;\n  line-height: 1.7;\n  margin-bottom: 25px;\n  font-size: 16px;\n  background: #f8f9fa;\n  padding: 15px;\n  border-radius: 8px;\n  border-left: 4px solid #1E90FF;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section {\n  margin-bottom: 30px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category {\n  margin-bottom: 25px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category h5 {\n  margin-bottom: 15px;\n  color: #1E90FF;\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item {\n  background: linear-gradient(135deg, #f8f9fa, #ffffff);\n  border: 1px solid #e9ecef;\n  border-radius: 12px;\n  padding: 20px;\n  margin-bottom: 15px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: all 0.3s ease;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-header {\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-rank-icon {\n  width: 32px;\n  height: 32px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 6px;\n  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);\n  border: 2px solid #fff;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-name {\n  font-weight: 600;\n  color: #333;\n  font-size: 1.1rem;\n  line-height: 1.4;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-name .profile-sub-skills {\n  color: #666;\n  font-weight: 400;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details {\n  display: flex;\n  gap: 25px;\n  font-size: 14px;\n  flex-wrap: wrap;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details .profile-experience {\n  color: #666;\n  background: #e9ecef;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details .profile-hourly-rate {\n  color: #1E90FF;\n  font-weight: 600;\n  background: #e3f2fd;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos {\n  margin-top: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos h5 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo {\n  margin-bottom: 10px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo a {\n  color: #1E90FF;\n  text-decoration: none;\n  font-weight: 500;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo a:hover {\n  text-decoration: underline;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header h4 {\n  margin: 0;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-rating-number {\n  font-size: 24px;\n  font-weight: 600;\n  color: #2d3748;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars {\n  display: flex;\n  gap: 2px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars .profile-star {\n  color: #cbd5e0;\n  font-size: 18px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars .profile-star.filled {\n  color: #f59e0b;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-total-reviews {\n  color: #718096;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item {\n  border-bottom: 1px solid #eee;\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info {\n  display: flex;\n  gap: 12px;\n  align-items: center;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-avatar {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-reviewer-name {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating {\n  display: flex;\n  gap: 2px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating .profile-star {\n  color: #cbd5e0;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating .profile-star.filled {\n  color: #f59e0b;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-review-date {\n  color: #718096;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-comment {\n  color: #4a5568;\n  line-height: 1.6;\n  margin-left: 60px;\n  font-size: 14px;\n}\n\n.blurred-contact {\n  display: inline-block;\n  margin-left: 8px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(30, 144, 255, 0.05));\n  border: 2px dashed #1E90FF;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n  min-width: 120px;\n  text-align: center;\n}\n.blurred-contact:hover {\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0.1));\n  border-color: #0070f3;\n  transform: scale(1.05);\n}\n.blurred-contact:active {\n  transform: scale(0.95);\n}\n\n.upgrade-hint {\n  color: #1E90FF;\n  font-size: 12px;\n  font-weight: 500;\n  margin-left: 8px;\n  background: #e3f2fd;\n  padding: 2px 6px;\n  border-radius: 4px;\n  border: 1px solid #1E90FF;\n}\n\n.profile-login-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n}\n\n.profile-login-modal {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  max-width: 500px;\n  width: 90%;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n.profile-login-modal .profile-login-modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 1rem;\n}\n.profile-login-modal .profile-login-options {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.profile-login-modal .profile-login-option {\n  text-align: center;\n  padding: 20px;\n  border: 2px solid #f0f0f0;\n  border-radius: 12px;\n  background: #fafafa;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-option:hover {\n  border-color: #007bff;\n  background: #f8f9ff;\n}\n.profile-login-modal .profile-login-option h3 {\n  margin: 0 0 8px 0;\n  color: #333;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.profile-login-modal .profile-login-option p {\n  margin: 0 0 15px 0;\n  color: #666;\n  font-size: 0.9rem;\n  line-height: 1.4;\n}\n.profile-login-modal .profile-login-divider {\n  text-align: center;\n  position: relative;\n  margin: 10px 0;\n}\n.profile-login-modal .profile-login-divider::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 1px;\n  background: #ddd;\n}\n.profile-login-modal .profile-login-divider span {\n  background: #fff;\n  padding: 0 15px;\n  color: #999;\n  font-size: 0.9rem;\n  font-weight: 500;\n}\n.profile-login-modal .profile-login-btn {\n  width: 100%;\n  padding: 12px 24px;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-btn.profile-signin-btn {\n  background: #007bff;\n  color: white;\n}\n.profile-login-modal .profile-login-btn.profile-signin-btn:hover {\n  background: #0056b3;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);\n}\n.profile-login-modal .profile-login-btn.profile-signup-btn {\n  background: #28a745;\n  color: white;\n}\n.profile-login-modal .profile-login-btn.profile-signup-btn:hover {\n  background: #1e7e34;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);\n}\n.profile-login-modal .profile-login-modal-buttons {\n  display: flex;\n  justify-content: center;\n}\n.profile-login-modal .profile-login-modal-buttons .profile-login-cancel-button {\n  padding: 12px 24px;\n  border: 2px solid #e0e0e0;\n  background: white;\n  color: #666;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 600;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-modal-buttons .profile-login-cancel-button:hover {\n  background: #f5f5f5;\n  border-color: #ccc;\n}\n\n@media (max-width: 768px) {\n  .profile-page .profile-container {\n    flex-direction: column;\n    padding: 0 20px;\n  }\n  .profile-page .profile-container .profile-left {\n    padding-right: 0;\n    margin-bottom: 20px;\n  }\n  .profile-page .profile-container .profile-right {\n    padding-left: 0;\n    height: auto;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n    font-size: 16px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n    font-size: 14px;\n  }\n  .profile-page .profile-header .profile-photo-wrapper {\n    left: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .profile-page .profile-container {\n    padding: 0 15px;\n    margin-top: 60px;\n  }\n  .profile-page .profile-container .profile-left .profile-info .profile-hire-button {\n    min-width: 100%;\n    padding: 10px 16px;\n  }\n  .profile-page .profile-container .profile-left .profile-stats {\n    padding: 12px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content {\n    padding: 12px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n    font-size: 14px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n    font-size: 14px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-skills-row .profile-chip {\n    font-size: 12px;\n    padding: 4px 8px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72360,7 +72408,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".booking-request-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.booking-request-container .booking-request-header {\n  margin-bottom: 20px;\n}\n.booking-request-container .booking-request-header .booking-request-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.booking-request-container .booking-request-navigation {\n  display: flex;\n  gap: 30px;\n  border-bottom: 1px solid #e5e7eb;\n  margin-bottom: 30px;\n  overflow-x: auto;\n  /* Hide scrollbar for Chrome, Safari and Opera */\n  /* Hide scrollbar for IE, Edge and Firefox */\n  -ms-overflow-style: none; /* IE and Edge */\n  scrollbar-width: none; /* Firefox */\n}\n.booking-request-container .booking-request-navigation::-webkit-scrollbar {\n  display: none;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab-container {\n  display: flex;\n  flex-shrink: 0;\n  position: relative;\n  z-index: 1;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab {\n  background: none;\n  border: none;\n  padding: 12px 20px;\n  font-size: 14px;\n  font-weight: 500;\n  color: #6b7280;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border-bottom: 2px solid transparent;\n  white-space: nowrap;\n  min-width: -moz-fit-content;\n  min-width: fit-content;\n  pointer-events: auto;\n  user-select: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  position: relative;\n  z-index: 2;\n  display: block;\n  width: 100%;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab:hover {\n  color: #374151;\n  background-color: #f8fafc;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab:active {\n  transform: translateY(1px);\n  background-color: #e5e7eb;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab.active {\n  color: #1d4ed8;\n  border-bottom-color: #1d4ed8;\n  background-color: #eff6ff;\n  font-weight: 600;\n}\n.booking-request-container .booking-request-content {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 300px;\n  margin-top: -15px;\n}\n.booking-request-container .booking-request-content .booking-request-list {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.booking-request-container .booking-request-content .booking-request-card {\n  background: white;\n  border-radius: 12px;\n  padding: 24px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info {\n  display: flex;\n  align-items: flex-start;\n  gap: 16px;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-profile .booking-request-worker-avatar {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-name {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 4px 0;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-profession {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0 0 8px 0;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-badges {\n  display: flex;\n  gap: 8px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-badges .booking-request-verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: #f3f4f6;\n  color: #374151;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-badges .booking-request-verified-badge .booking-request-verified-icon {\n  color: #059669;\n  font-size: 14px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-status-amount {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-status-amount .booking-request-status-badge .booking-request-status-text {\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 600;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  white-space: nowrap;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates {\n  display: flex;\n  justify-content: space-between;\n  gap: 20px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  padding: 12px;\n  background: #f9fafb;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item .booking-request-date-label {\n  font-size: 14px;\n  font-weight: 700;\n  color: black;\n  margin-bottom: 4px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item .booking-request-date-value {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description .booking-request-description-label {\n  font-size: 14px;\n  font-weight: 700;\n  color: black;\n  margin-bottom: 4px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description .booking-request-description-text {\n  font-size: 14px;\n  font-weight: 400;\n  color: #374151;\n  line-height: 1.5;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-salary {\n  font-size: 18px;\n  font-weight: 700;\n  color: black;\n  padding: 4px 6px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #f9fafb;\n  text-align: center;\n  margin-top: 8px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: center;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-view-transaction-btn {\n  background: white;\n  color: #1A2A44;\n  border: 1px solid #1A2A44;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 33px;\n  width: 215px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-view-transaction-btn:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-cancel-booking-btn {\n  background: #ef4444;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 33px;\n  width: 215px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-cancel-booking-btn:hover {\n  background: #dc2626;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-rate-booking-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #001E40;\n  width: 175px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-rate-booking-btn:hover {\n  background: #001E40;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-give-feedback-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #001E40;\n  width: 215px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-give-feedback-btn:hover {\n  background: #001E40;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-accept-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #4CAF50;\n  width: 215px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-accept-btn:hover {\n  background: #4CAF50;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-decline-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #f44336;\n  width: 175px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-decline-btn:hover {\n  background: #f44336;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-complete-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #2196F3;\n  width: 215px;\n  height: 33px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-complete-btn:hover {\n  background: #2196F3;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-status-only {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 8px 16px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-status-only .booking-request-declined-text {\n  color: #dc2626;\n  font-size: 14px;\n  font-weight: 600;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-status-only .booking-request-cancelled-text {\n  color: #888888;\n  font-size: 14px;\n  font-weight: 600;\n}\n.booking-request-container .booking-request-content .booking-request-empty-state {\n  text-align: center;\n  padding: 40px 20px;\n}\n.booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-icon {\n  margin-bottom: 20px;\n}\n.booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-icon img {\n  width: 120px;\n  height: 120px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n\n@media (max-width: 768px) {\n  .booking-request-container {\n    padding: 20px;\n  }\n  .booking-request-container .booking-request-header .booking-request-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .booking-request-container .booking-request-navigation {\n    gap: 0;\n    margin-bottom: 20px;\n  }\n  .booking-request-container .booking-request-navigation .booking-request-tab-container {\n    flex: 1;\n    min-width: 0;\n  }\n  .booking-request-container .booking-request-navigation .booking-request-tab {\n    padding: 10px 16px;\n    font-size: 13px;\n    min-width: 100px;\n    width: 100%;\n    text-align: center;\n  }\n  .booking-request-container .booking-request-content {\n    min-height: 300px;\n    margin-top: -15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card {\n    padding: 20px;\n    gap: 16px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section {\n    flex-direction: column;\n    gap: 16px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info {\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    gap: 12px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-profile .booking-request-worker-avatar {\n    width: 80px;\n    height: 80px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-badges {\n    justify-content: center;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-status-amount {\n    align-items: center;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-status-amount .booking-request-status-badge .booking-request-status-text {\n    font-size: 14px;\n    padding: 8px 16px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section {\n    gap: 12px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates {\n    flex-direction: column;\n    gap: 12px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item .booking-request-date-label {\n    font-size: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item .booking-request-date-value {\n    font-size: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description {\n    text-align: center;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description .booking-request-description-label {\n    font-size: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description .booking-request-description-text {\n    font-size: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-salary {\n    font-size: 16px;\n    margin-top: 12px;\n    text-align: center;\n    width: 100%;\n    height: 36px;\n    padding: 4px 6px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions {\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 16px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-view-transaction-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-cancel-booking-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-rate-booking-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-give-feedback-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-accept-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-decline-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-complete-btn {\n    padding: 10px 20px;\n    font-size: 14px;\n    width: 100%;\n    max-width: 215px;\n  }\n  .booking-request-container .booking-request-content .booking-request-empty-state {\n    padding: 20px 10px;\n  }\n  .booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-icon {\n    margin-bottom: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-icon img {\n    width: 80px;\n    height: 80px;\n  }\n  .booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-title {\n    font-size: 20px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-request-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.booking-request-container .booking-request-header {\n  margin-bottom: 20px;\n}\n.booking-request-container .booking-request-header .booking-request-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.booking-request-container .booking-request-navigation {\n  display: flex;\n  gap: 30px;\n  border-bottom: 1px solid #e5e7eb;\n  margin-bottom: 30px;\n  overflow-x: auto;\n  /* Hide scrollbar for Chrome, Safari and Opera */\n  /* Hide scrollbar for IE, Edge and Firefox */\n  -ms-overflow-style: none; /* IE and Edge */\n  scrollbar-width: none; /* Firefox */\n}\n.booking-request-container .booking-request-navigation::-webkit-scrollbar {\n  display: none;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab-container {\n  display: flex;\n  flex-shrink: 0;\n  position: relative;\n  z-index: 1;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab {\n  background: none;\n  border: none;\n  padding: 12px 20px;\n  font-size: 14px;\n  font-weight: 500;\n  color: #6b7280;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border-bottom: 2px solid transparent;\n  white-space: nowrap;\n  min-width: -moz-fit-content;\n  min-width: fit-content;\n  pointer-events: auto;\n  user-select: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  position: relative;\n  z-index: 2;\n  display: block;\n  width: 100%;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab:hover {\n  color: #374151;\n  background-color: #f8fafc;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab:active {\n  transform: translateY(1px);\n  background-color: #e5e7eb;\n}\n.booking-request-container .booking-request-navigation .booking-request-tab.active {\n  color: #1d4ed8;\n  border-bottom-color: #1d4ed8;\n  background-color: #eff6ff;\n  font-weight: 600;\n}\n.booking-request-container .booking-request-content {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 300px;\n  margin-top: -15px;\n}\n.booking-request-container .booking-request-content .booking-request-list {\n  width: 100%;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n}\n.booking-request-container .booking-request-content .booking-request-card {\n  background: white;\n  border-radius: 12px;\n  padding: 24px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  height: -moz-fit-content;\n  height: fit-content;\n  min-height: 400px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info {\n  display: flex;\n  align-items: flex-start;\n  gap: 16px;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-profile .booking-request-worker-avatar {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-profile:hover .booking-request-worker-avatar {\n  transform: scale(1.05);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-name {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 4px 0;\n  transition: color 0.2s ease;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-name:hover {\n  color: #4a5463;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-profession {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0 0 8px 0;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-profession .booking-request-sub-skill {\n  color: #9ca3af;\n  font-weight: 500;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-badges {\n  display: flex;\n  gap: 8px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-badges .booking-request-verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: #f3f4f6;\n  color: #374151;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-badges .booking-request-verified-badge .booking-request-verified-icon {\n  color: #059669;\n  font-size: 14px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-status-amount {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-status-amount .booking-request-status-badge .booking-request-status-text {\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 600;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  white-space: nowrap;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates {\n  display: flex;\n  justify-content: space-between;\n  gap: 20px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  padding: 12px;\n  background: #f9fafb;\n  width: 100%;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item .booking-request-date-label {\n  font-size: 14px;\n  font-weight: 700;\n  color: black;\n  margin-bottom: 4px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item .booking-request-date-value {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  width: 100%;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description .booking-request-description-label {\n  font-size: 14px;\n  font-weight: 700;\n  color: black;\n  margin-bottom: 4px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description .booking-request-description-text {\n  font-size: 14px;\n  font-weight: 400;\n  color: #374151;\n  line-height: 1.5;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-salary {\n  font-size: 18px;\n  font-weight: 700;\n  color: black;\n  padding: 4px 6px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #f9fafb;\n  text-align: center;\n  margin-top: 8px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions {\n  display: flex;\n  gap: 6px;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions:has(.booking-request-view-transaction-btn:nth-child(3)) {\n  gap: 4px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions:has(.booking-request-view-transaction-btn:nth-child(3)) .booking-request-view-transaction-btn,\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions:has(.booking-request-view-transaction-btn:nth-child(3)) .booking-request-accept-btn,\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions:has(.booking-request-view-transaction-btn:nth-child(3)) .booking-request-decline-btn {\n  min-width: 70px;\n  font-size: 10px;\n  padding: 4px 8px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-view-transaction-btn {\n  background: white;\n  color: #1A2A44;\n  border: 1px solid #1A2A44;\n  padding: 6px 12px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 30px;\n  min-width: 100px;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-view-transaction-btn:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-cancel-booking-btn {\n  background: #ef4444;\n  color: white;\n  border: none;\n  padding: 6px 12px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 30px;\n  min-width: 100px;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-cancel-booking-btn:hover {\n  background: #dc2626;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-rate-booking-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #001E40;\n  min-width: 80px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-rate-booking-btn:hover {\n  background: #001E40;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-give-feedback-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #001E40;\n  min-width: 100px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-give-feedback-btn:hover {\n  background: #001E40;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-accept-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #4CAF50;\n  min-width: 80px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-accept-btn:hover {\n  background: #4CAF50;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-decline-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #f44336;\n  min-width: 80px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-decline-btn:hover {\n  background: #f44336;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-complete-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #2196F3;\n  min-width: 120px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-complete-btn:hover {\n  background: #2196F3;\n  color: white;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-status-only {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 8px 16px;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-status-only .booking-request-declined-text {\n  color: #dc2626;\n  font-size: 14px;\n  font-weight: 600;\n}\n.booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-status-only .booking-request-cancelled-text {\n  color: #888888;\n  font-size: 14px;\n  font-weight: 600;\n}\n.booking-request-container .booking-request-content .booking-request-empty-state {\n  text-align: center;\n  padding: 40px 20px;\n}\n.booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-icon {\n  margin-bottom: 20px;\n}\n.booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-icon img {\n  width: 120px;\n  height: 120px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n\n@media (max-width: 1024px) {\n  .booking-request-container .booking-request-content .booking-request-list {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n@media (max-width: 768px) {\n  .booking-request-container {\n    padding: 20px;\n  }\n  .booking-request-container .booking-request-header .booking-request-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .booking-request-container .booking-request-navigation {\n    gap: 0;\n    margin-bottom: 20px;\n  }\n  .booking-request-container .booking-request-navigation .booking-request-tab-container {\n    flex: 1;\n    min-width: 0;\n  }\n  .booking-request-container .booking-request-navigation .booking-request-tab {\n    padding: 10px 16px;\n    font-size: 13px;\n    min-width: 100px;\n    width: 100%;\n    text-align: center;\n  }\n  .booking-request-container .booking-request-content {\n    min-height: 300px;\n    margin-top: -15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-list {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card {\n    padding: 20px;\n    gap: 16px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section {\n    flex-direction: column;\n    gap: 16px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info {\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    gap: 12px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-profile .booking-request-worker-avatar {\n    width: 80px;\n    height: 80px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-worker-info .booking-request-worker-details .booking-request-worker-badges {\n    justify-content: center;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-status-amount {\n    align-items: center;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-top-section .booking-request-status-amount .booking-request-status-badge .booking-request-status-text {\n    font-size: 14px;\n    padding: 8px 16px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section {\n    gap: 12px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates {\n    flex-direction: column;\n    gap: 12px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item .booking-request-date-label {\n    font-size: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-dates .booking-request-date-item .booking-request-date-value {\n    font-size: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description {\n    text-align: center;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description .booking-request-description-label {\n    font-size: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-description .booking-request-description-text {\n    font-size: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-middle-section .booking-request-salary {\n    font-size: 16px;\n    margin-top: 12px;\n    text-align: center;\n    width: 100%;\n    height: 36px;\n    padding: 4px 6px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions {\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions:has(.booking-request-view-transaction-btn:nth-child(3)) {\n    gap: 4px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions:has(.booking-request-view-transaction-btn:nth-child(3)) .booking-request-view-transaction-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions:has(.booking-request-view-transaction-btn:nth-child(3)) .booking-request-accept-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions:has(.booking-request-view-transaction-btn:nth-child(3)) .booking-request-decline-btn {\n    padding: 6px 8px;\n    font-size: 11px;\n    height: 30px;\n    min-width: 80px;\n    flex: 1;\n    max-width: 120px;\n  }\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-view-transaction-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-cancel-booking-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-rate-booking-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-give-feedback-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-accept-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-decline-btn,\n  .booking-request-container .booking-request-content .booking-request-card .booking-request-actions .booking-request-complete-btn {\n    padding: 8px 12px;\n    font-size: 12px;\n    height: 32px;\n    min-width: 90px;\n    flex: 1;\n    max-width: 150px;\n  }\n  .booking-request-container .booking-request-content .booking-request-empty-state {\n    padding: 20px 10px;\n  }\n  .booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-icon {\n    margin-bottom: 15px;\n  }\n  .booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-icon img {\n    width: 80px;\n    height: 80px;\n  }\n  .booking-request-container .booking-request-content .booking-request-empty-state .booking-request-empty-title {\n    font-size: 20px;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/EditMyBooking.scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/EditMyBooking.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.booking-modal-container {\n  background: white;\n  border-radius: 12px;\n  padding: 32px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  overflow-y: auto;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n}\n\n.booking-modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 24px 0;\n  text-align: center;\n}\n\n.booking-modal-form-content {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 32px;\n}\n\n.booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.booking-form-label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0;\n}\n\n.booking-form-input {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  transition: border-color 0.2s ease;\n}\n.booking-form-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-input.booking-form-input-disabled {\n  background: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.booking-form-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-input::placeholder {\n  color: #9ca3af;\n}\n\n.booking-form-textarea {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  min-height: 100px;\n  resize: vertical;\n  font-family: inherit;\n  transition: border-color 0.2s ease;\n}\n.booking-form-textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-textarea::placeholder {\n  color: #9ca3af;\n}\n\n.availability-warning {\n  background: #fef3cd;\n  border: 1px solid #fde68a;\n  border-radius: 8px;\n  padding: 16px;\n  margin: 8px 0;\n}\n.availability-warning .warning-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 12px;\n}\n.availability-warning .warning-header .rs-message-body {\n  color: #92400e;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.4;\n}\n\n.salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  font-size: 14px;\n}\n.salary-calculation-preview .calculation-row.total-row {\n  border-top: 1px solid #e2e8f0;\n  padding-top: 8px;\n  margin-top: 8px;\n  font-weight: 600;\n  font-size: 16px;\n}\n.salary-calculation-preview .calculation-row .calculation-label {\n  color: #64748b;\n  font-weight: 500;\n}\n.salary-calculation-preview .calculation-row .calculation-value {\n  color: #1e293b;\n  font-weight: 600;\n}\n.salary-calculation-preview small {\n  color: #64748b;\n  font-size: 12px;\n  margin-top: 8px;\n  display: block;\n}\n\n.booking-modal-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  padding-top: 24px;\n  border-top: 1px solid #e5e7eb;\n}\n\n.booking-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-btn.booking-btn-cancel {\n  background: #f3f4f6;\n  color: #374151;\n  border: 2px solid #e5e7eb;\n}\n.booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #d1d5db;\n}\n.booking-btn.booking-btn-submit {\n  background: #3b82f6;\n  color: white;\n}\n.booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #2563eb;\n}\n.booking-btn.booking-btn-submit:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n}\n\n@media (max-width: 768px) {\n  .booking-modal-overlay {\n    padding: 10px;\n  }\n  .booking-modal-container {\n    padding: 24px;\n    max-height: 95vh;\n  }\n  .booking-modal-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n  .booking-modal-form-content {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-form-input,\n  .booking-form-textarea {\n    padding: 10px 12px;\n    font-size: 12px;\n  }\n  .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n    padding-top: 20px;\n  }\n  .booking-btn {\n    padding: 10px 20px;\n    font-size: 12px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72535,6 +72607,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".my-address-container {\n  background:
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/mybookings.scss":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/mybookings.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".my-bookings-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-bookings-container .bookings-header {\n  margin-bottom: 20px;\n}\n.my-bookings-container .bookings-header .bookings-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-bookings-container .bookings-navigation {\n  display: flex;\n  gap: 30px;\n  border-bottom: 1px solid #e5e7eb;\n  margin-bottom: 30px;\n  overflow-x: auto;\n  /* Hide scrollbar for Chrome, Safari and Opera */\n  /* Hide scrollbar for IE, Edge and Firefox */\n  -ms-overflow-style: none; /* IE and Edge */\n  scrollbar-width: none; /* Firefox */\n}\n.my-bookings-container .bookings-navigation::-webkit-scrollbar {\n  display: none;\n}\n.my-bookings-container .bookings-navigation .booking-tab-container {\n  display: flex;\n  flex-shrink: 0;\n  position: relative;\n  z-index: 1;\n}\n.my-bookings-container .bookings-navigation .booking-tab {\n  background: none;\n  border: none;\n  padding: 12px 20px;\n  font-size: 14px;\n  font-weight: 500;\n  color: #6b7280;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border-bottom: 2px solid transparent;\n  white-space: nowrap;\n  min-width: -moz-fit-content;\n  min-width: fit-content;\n  pointer-events: auto;\n  user-select: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  position: relative;\n  z-index: 2;\n  display: block;\n  width: 100%;\n}\n.my-bookings-container .bookings-navigation .booking-tab:hover {\n  color: #374151;\n  background-color: #f8fafc;\n}\n.my-bookings-container .bookings-navigation .booking-tab:active {\n  transform: translateY(1px);\n  background-color: #e5e7eb;\n}\n.my-bookings-container .bookings-navigation .booking-tab.active {\n  color: #1d4ed8;\n  border-bottom-color: #1d4ed8;\n  background-color: #eff6ff;\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 300px;\n  margin-top: -15px;\n}\n.my-bookings-container .bookings-content .bookings-list {\n  width: 100%;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n}\n.my-bookings-container .bookings-content .booking-card {\n  background: white;\n  border-radius: 12px;\n  padding: 24px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  height: -moz-fit-content;\n  height: fit-content;\n  min-height: 400px;\n  position: relative;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info {\n  display: flex;\n  align-items: flex-start;\n  gap: 16px;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-profile .booking-worker-avatar {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-profile:hover .booking-worker-avatar {\n  transform: scale(1.05);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-name-container {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 4px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-name {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n  transition: color 0.2s ease;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-name:hover {\n  color: #4a5463;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-profession {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0 0 8px 0;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-profession .booking-sub-skill {\n  color: #9ca3af;\n  font-weight: 500;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-badges {\n  display: flex;\n  gap: 8px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-badges .booking-verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: #f3f4f6;\n  color: #374151;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-badges .booking-verified-badge .booking-verified-icon {\n  color: #059669;\n  font-size: 14px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-status-amount {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  gap: 8px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-top-section .booking-status-amount .booking-status-badge .booking-status-text {\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 600;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  white-space: nowrap;\n}\n.my-bookings-container .bookings-content .booking-card .booking-edit-container {\n  display: flex;\n  align-items: center;\n  margin-left: auto;\n}\n.my-bookings-container .bookings-content .booking-card .booking-edit-container .booking-edit-btn {\n  background: none;\n  border: none;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: darkblue;\n  padding: 0;\n  width: auto;\n  height: auto;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-dates {\n  display: flex;\n  justify-content: space-between;\n  gap: 20px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  padding: 12px;\n  background: #f9fafb;\n  width: 100%;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-dates .booking-date-item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-dates .booking-date-item .booking-date-label {\n  font-size: 14px;\n  font-weight: 700;\n  color: black;\n  margin-bottom: 4px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-dates .booking-date-item .booking-date-value {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-description {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  width: 100%;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-description .booking-description-label {\n  font-size: 14px;\n  font-weight: 700;\n  color: black;\n  margin-bottom: 4px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-description .booking-description-text {\n  font-size: 14px;\n  font-weight: 400;\n  color: #374151;\n  line-height: 1.5;\n}\n.my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-salary {\n  font-size: 18px;\n  font-weight: 700;\n  color: black;\n  padding: 4px 6px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #f9fafb;\n  text-align: center;\n  margin-top: 8px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions {\n  display: flex;\n  gap: 6px;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions:has(.booking-view-transaction-btn:nth-child(3)) {\n  gap: 4px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions:has(.booking-view-transaction-btn:nth-child(3)) .booking-view-transaction-btn,\n.my-bookings-container .bookings-content .booking-card .booking-actions:has(.booking-view-transaction-btn:nth-child(3)) .booking-accept-btn,\n.my-bookings-container .bookings-content .booking-card .booking-actions:has(.booking-view-transaction-btn:nth-child(3)) .booking-decline-btn {\n  min-width: 70px;\n  font-size: 10px;\n  padding: 4px 8px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-view-transaction-btn {\n  background: white;\n  color: #1A2A44;\n  border: 1px solid #1A2A44;\n  padding: 6px 12px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 30px;\n  min-width: 100px;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-view-transaction-btn:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-cancel-booking-btn {\n  background: #ef4444;\n  color: white;\n  border: none;\n  padding: 6px 12px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 30px;\n  min-width: 100px;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-cancel-booking-btn:hover {\n  background: #dc2626;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-rate-booking-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #001E40;\n  min-width: 80px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-rate-booking-btn:hover {\n  background: #001E40;\n  color: white;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-give-feedback-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #001E40;\n  min-width: 100px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-give-feedback-btn:hover {\n  background: #001E40;\n  color: white;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-accept-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #4CAF50;\n  min-width: 80px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-accept-btn:hover {\n  background: #4CAF50;\n  color: white;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-decline-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #f44336;\n  min-width: 80px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-decline-btn:hover {\n  background: #f44336;\n  color: white;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-complete-btn {\n  background: transparent;\n  color: #000000;\n  border: 2px solid #2196F3;\n  min-width: 120px;\n  height: 30px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex: 1;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-complete-btn:hover {\n  background: #2196F3;\n  color: white;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-status-only {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 8px 16px;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-status-only .booking-declined-text {\n  color: #dc2626;\n  font-size: 14px;\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content .booking-card .booking-actions .booking-status-only .booking-cancelled-text {\n  color: #888888;\n  font-size: 14px;\n  font-weight: 600;\n}\n.my-bookings-container .bookings-content .booking-empty-state {\n  text-align: center;\n  padding: 40px 20px;\n}\n.my-bookings-container .bookings-content .booking-empty-state .booking-empty-icon {\n  margin-bottom: 20px;\n}\n.my-bookings-container .bookings-content .booking-empty-state .booking-empty-icon img {\n  width: 120px;\n  height: 120px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.my-bookings-container .bookings-content .booking-empty-state .booking-empty-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n\n@media (max-width: 1024px) {\n  .my-bookings-container .bookings-content .bookings-list {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n@media (max-width: 768px) {\n  .my-bookings-container {\n    padding: 20px;\n  }\n  .my-bookings-container .bookings-header .bookings-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-bookings-container .bookings-navigation {\n    gap: 0;\n    margin-bottom: 20px;\n  }\n  .my-bookings-container .bookings-navigation .booking-tab-container {\n    flex: 1;\n    min-width: 0;\n  }\n  .my-bookings-container .bookings-navigation .booking-tab {\n    padding: 10px 16px;\n    font-size: 13px;\n    min-width: 100px;\n    width: 100%;\n    text-align: center;\n  }\n  .my-bookings-container .bookings-content {\n    min-height: 300px;\n    margin-top: -15px;\n  }\n  .my-bookings-container .bookings-content .bookings-list {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n  .my-bookings-container .bookings-content .booking-card {\n    padding: 20px;\n    gap: 16px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-top-section {\n    flex-direction: column;\n    gap: 16px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info {\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    gap: 12px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-profile .booking-worker-avatar {\n    width: 80px;\n    height: 80px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-top-section .booking-worker-info .booking-worker-details .booking-worker-badges {\n    justify-content: center;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-top-section .booking-status-amount {\n    align-items: center;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-top-section .booking-status-amount .booking-status-badge .booking-status-text {\n    font-size: 14px;\n    padding: 8px 16px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-middle-section {\n    gap: 12px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-dates {\n    flex-direction: column;\n    gap: 12px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-dates .booking-date-item .booking-date-label {\n    font-size: 15px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-dates .booking-date-item .booking-date-value {\n    font-size: 15px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-description {\n    text-align: center;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-description .booking-description-label {\n    font-size: 15px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-description .booking-description-text {\n    font-size: 15px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-middle-section .booking-salary {\n    font-size: 16px;\n    margin-top: 12px;\n    text-align: center;\n    width: 100%;\n    height: 36px;\n    padding: 4px 6px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-actions {\n    justify-content: center;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-actions:has(.booking-view-transaction-btn:nth-child(3)) {\n    gap: 4px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-actions:has(.booking-view-transaction-btn:nth-child(3)) .booking-view-transaction-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions:has(.booking-view-transaction-btn:nth-child(3)) .booking-accept-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions:has(.booking-view-transaction-btn:nth-child(3)) .booking-decline-btn {\n    padding: 6px 8px;\n    font-size: 11px;\n    height: 30px;\n    min-width: 80px;\n    flex: 1;\n    max-width: 120px;\n  }\n  .my-bookings-container .bookings-content .booking-card .booking-actions .booking-view-transaction-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .booking-cancel-booking-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .booking-rate-booking-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .booking-give-feedback-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .booking-accept-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .booking-decline-btn,\n  .my-bookings-container .bookings-content .booking-card .booking-actions .booking-complete-btn {\n    padding: 8px 12px;\n    font-size: 12px;\n    height: 32px;\n    min-width: 90px;\n    flex: 1;\n    max-width: 150px;\n  }\n  .my-bookings-container .bookings-content .booking-empty-state {\n    padding: 20px 10px;\n  }\n  .my-bookings-container .bookings-content .booking-empty-state .booking-empty-icon {\n    margin-bottom: 15px;\n  }\n  .my-bookings-container .bookings-content .booking-empty-state .booking-empty-icon img {\n    width: 80px;\n    height: 80px;\n  }\n  .my-bookings-container .bookings-content .booking-empty-state .booking-empty-title {\n    font-size: 20px;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/myjobs.scss":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/myjobs.scss ***!
@@ -72672,7 +72768,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".transaction-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.transaction-modal {\n  background: white;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 600px;\n  max-height: 80vh;\n  overflow-y: auto;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n\n.transaction-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e0e0e0;\n}\n.transaction-modal-header h2 {\n  margin: 0;\n  color: #333;\n  font-size: 1.5rem;\n  font-weight: 600;\n}\n.transaction-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #666;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: all 0.2s ease;\n}\n.transaction-modal-header .close-btn:hover {\n  background-color: #f5f5f5;\n  color: #333;\n}\n\n.transaction-modal-content {\n  padding: 24px;\n}\n\n.transaction-section {\n  margin-bottom: 24px;\n}\n.transaction-section:last-child {\n  margin-bottom: 0;\n}\n.transaction-section h3 {\n  margin: 0 0 16px 0;\n  color: #333;\n  font-size: 1.1rem;\n  font-weight: 600;\n  border-bottom: 2px solid #f0f0f0;\n  padding-bottom: 8px;\n  position: relative;\n}\n.transaction-section h3::after {\n  content: \"\";\n  position: absolute;\n  bottom: -2px;\n  left: 0;\n  width: 30px;\n  height: 2px;\n  background-color: #007bff;\n}\n\n.detail-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  padding: 8px 0;\n  border-bottom: 1px solid #f5f5f5;\n}\n.detail-row:last-child {\n  border-bottom: none;\n}\n.detail-row .label {\n  font-weight: 500;\n  color: #666;\n  min-width: 140px;\n  flex-shrink: 0;\n}\n.detail-row .value {\n  color: #333;\n  text-align: right;\n  flex: 1;\n  word-break: break-word;\n  line-height: 1.4;\n}\n.detail-row .value.description-value {\n  text-align: left;\n  padding-left: 8px;\n}\n.detail-row.total-row {\n  background-color: #f8f9fa;\n  padding: 12px;\n  border-radius: 8px;\n  border: 2px solid #e9ecef;\n  margin-top: 8px;\n}\n.detail-row.total-row .label {\n  font-weight: 600;\n  color: #333;\n}\n.detail-row.total-row .total-amount {\n  font-weight: 700;\n  font-size: 1.1rem;\n  color: #28a745;\n}\n\n.status-pending {\n  color: #ffa500;\n  font-weight: 600;\n}\n\n.status-accepted {\n  color: #4CAF50;\n  font-weight: 600;\n}\n\n.status-completed {\n  color: #2196F3;\n  font-weight: 600;\n}\n\n.status-declined {\n  color: #f44336;\n  font-weight: 600;\n}\n\n.status-cancelled {\n  color: #9e9e9e;\n  font-weight: 600;\n}\n\n.notes-content {\n  background-color: #f8f9fa;\n  padding: 12px;\n  border-radius: 8px;\n  border-left: 4px solid #007bff;\n}\n.notes-content p {\n  margin: 0;\n  color: #333;\n  line-height: 1.5;\n}\n\n.star {\n  color: #ddd;\n  font-size: 1.2rem;\n}\n.star.filled {\n  color: #ffc107;\n}\n\n.transaction-modal-footer {\n  padding: 20px 24px;\n  border-top: 1px solid #e0e0e0;\n  display: flex;\n  justify-content: flex-end;\n}\n.transaction-modal-footer .close-button {\n  color: white;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n.transaction-modal-footer .close-button:hover {\n  background-color: #5a6268;\n  transform: translateY(-1px);\n}\n\n.transaction-details {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  background-color: #fafafa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n\n.detail-row:hover {\n  background-color: rgba(0, 123, 255, 0.05);\n  border-radius: 4px;\n  padding: 8px 4px;\n  margin: 0 -4px;\n}\n\n@media (max-width: 768px) {\n  .transaction-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .transaction-modal-header,\n  .transaction-modal-content,\n  .transaction-modal-footer {\n    padding: 16px;\n  }\n  .transaction-details {\n    padding: 12px;\n  }\n  .detail-row {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 4px;\n  }\n  .detail-row .label {\n    min-width: auto;\n    font-weight: 600;\n    color: #333;\n  }\n  .detail-row .value {\n    text-align: left;\n    padding-left: 0;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".transaction-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.transaction-modal {\n  background: white;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 600px;\n  max-height: 80vh;\n  overflow-y: auto;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n\n.transaction-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e0e0e0;\n}\n.transaction-modal-header h2 {\n  margin: 0;\n  color: #333;\n  font-size: 1.5rem;\n  font-weight: 600;\n}\n.transaction-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: white;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n}\n\n.transaction-modal-content {\n  padding: 24px;\n}\n\n.transaction-section {\n  margin-bottom: 24px;\n}\n.transaction-section:last-child {\n  margin-bottom: 0;\n}\n.transaction-section h3 {\n  margin: 0 0 16px 0;\n  color: #333;\n  font-size: 1.1rem;\n  font-weight: 600;\n  border-bottom: 2px solid #f0f0f0;\n  padding-bottom: 8px;\n  position: relative;\n}\n.transaction-section h3::after {\n  content: \"\";\n  position: absolute;\n  bottom: -2px;\n  left: 0;\n  width: 30px;\n  height: 2px;\n  background-color: #1A2A44;\n}\n\n.detail-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  padding: 8px 0;\n  border-bottom: 1px solid #f5f5f5;\n}\n.detail-row:last-child {\n  border-bottom: none;\n}\n.detail-row .label {\n  font-weight: 500;\n  color: #666;\n  min-width: 140px;\n  flex-shrink: 0;\n}\n.detail-row .value {\n  color: #333;\n  text-align: justify;\n  flex: 1;\n  word-break: break-word;\n  line-height: 1.4;\n}\n.detail-row .value.description-value {\n  text-align: justify;\n  padding-left: 8px;\n}\n.detail-row.total-row {\n  background-color: #f8f9fa;\n  padding: 12px;\n  border-radius: 8px;\n  border: 2px solid #e9ecef;\n  margin-top: 8px;\n}\n.detail-row.total-row .label {\n  font-weight: 600;\n  color: #333;\n}\n.detail-row.total-row .total-amount {\n  font-weight: 700;\n  font-size: 1.1rem;\n  color: #28a745;\n}\n\n.status-pending {\n  color: #ffa500;\n  font-weight: 600;\n}\n\n.status-accepted {\n  color: #4CAF50;\n  font-weight: 600;\n}\n\n.status-completed {\n  color: #2196F3;\n  font-weight: 600;\n}\n\n.status-declined {\n  color: #f44336;\n  font-weight: 600;\n}\n\n.status-cancelled {\n  color: #9e9e9e;\n  font-weight: 600;\n}\n\n.notes-content {\n  background-color: #f8f9fa;\n  padding: 12px;\n  border-radius: 8px;\n  border-left: 4px solid #007bff;\n}\n.notes-content p {\n  margin: 0;\n  color: #333;\n  line-height: 1.5;\n}\n\n.star {\n  color: #ddd;\n  font-size: 1.2rem;\n}\n.star.filled {\n  color: #ffc107;\n}\n\n.transaction-modal-footer {\n  padding: 20px 24px;\n  border-top: 1px solid #e0e0e0;\n  display: flex;\n  justify-content: flex-end;\n}\n.transaction-modal-footer .close-button {\n  background: #1A2A44;\n  color: white;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.transaction-details {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  background-color: #fafafa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n\n.detail-row:hover {\n  background-color: rgba(0, 123, 255, 0.05);\n  border-radius: 4px;\n  padding: 8px 4px;\n  margin: 0 -4px;\n}\n\n@media (max-width: 768px) {\n  .transaction-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .transaction-modal-header,\n  .transaction-modal-content,\n  .transaction-modal-footer {\n    padding: 16px;\n  }\n  .transaction-details {\n    padding: 12px;\n  }\n  .detail-row {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 4px;\n  }\n  .detail-row .label {\n    min-width: auto;\n    font-weight: 600;\n    color: #333;\n  }\n  .detail-row .value {\n    text-align: justify;\n    padding-left: 0;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -201742,11 +201838,23 @@ var BookModal = function BookModal(_ref) {
     }
 
     // Prepare validated details for submission
+    var salaryCalculation = calculateSalary();
+    console.log('Salary calculation result:', salaryCalculation);
+
+    // Validate that calculation is valid
+    if (salaryCalculation.workingDays === 0 || salaryCalculation.totalHours === 0) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please ensure all booking details are filled correctly");
+      return;
+    }
+
+    // Validate that sub_skill is included if service_type is selected
+    if (bookingDetails.service_type && !bookingDetails.sub_skill) {
+      console.warn('Sub-skill is empty for service type:', bookingDetails.service_type);
+    }
     var validatedDetails = _objectSpread(_objectSpread({}, bookingDetails), {}, {
       daily_rate: parseFloat(bookingDetails.daily_rate),
-      total_salary: calculateSalary().totalAmount // Add total salary calculation
+      total_salary: salaryCalculation.totalAmount
     });
-    console.log('Submitting booking details:', validatedDetails);
     onSubmit(validatedDetails); // Pass details to parent for further processing
   };
 
@@ -201830,31 +201938,38 @@ var BookModal = function BookModal(_ref) {
             onChange: function onChange(value) {
               return setBookingDetails(function (prev) {
                 return _objectSpread(_objectSpread({}, prev), {}, {
-                  service_type: value,
-                  sub_skill: ''
+                  service_type: value
                 });
               });
             },
             placeholder: "Select a service",
             required: true
           })]
-        }), bookingDetails.service_type && getAvailableSubSkills().length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        }), bookingDetails.service_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
             htmlFor: "sub_skill",
             children: "Sub Skills"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          }), getAvailableSubSkills().length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
             options: getAvailableSubSkills(),
             value: bookingDetails.sub_skill,
             onChange: function onChange(value) {
-              return setBookingDetails(function (prev) {
+              setBookingDetails(function (prev) {
                 return _objectSpread(_objectSpread({}, prev), {}, {
                   sub_skill: value
                 });
               });
             },
             placeholder: "Select a sub-skill"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "text",
+            id: "sub_skill",
+            name: "sub_skill",
+            value: bookingDetails.sub_skill,
+            onChange: handleChange,
+            className: "booking-form-input",
+            placeholder: "Enter sub-skill (optional)"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
@@ -202084,6 +202199,260 @@ var BookModal = function BookModal(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Profile/ConfirmationModal.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/Profile/ConfirmationModal.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _sass_components_ConfirmationModal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../sass/components/ConfirmationModal.scss */ "./resources/sass/components/ConfirmationModal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var ConfirmationModal = function ConfirmationModal(_ref) {
+  var isOpen = _ref.isOpen,
+    onClose = _ref.onClose,
+    onConfirm = _ref.onConfirm,
+    onBack = _ref.onBack,
+    worker = _ref.worker,
+    bookingDetails = _ref.bookingDetails,
+    calculateSalary = _ref.calculateSalary;
+  if (!isOpen) return null;
+
+  // Early return if required data is missing
+  if (!worker || !bookingDetails || !calculateSalary) {
+    console.error('ConfirmationModal: Missing required props');
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "booking-modal-overlay",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "booking-modal-container",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "booking-modal-title",
+          children: "Error Loading Confirmation"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: "Missing required data. Please try again."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          onClick: onBack,
+          children: "Back"
+        })]
+      })
+    });
+  }
+
+  // Safe calculation function
+  var safeCalculateSalary = function safeCalculateSalary() {
+    try {
+      return calculateSalary(bookingDetails);
+    } catch (error) {
+      console.error('Error in calculateSalary:', error);
+      return {
+        dailyRate: 0,
+        totalAmount: 0,
+        workingDays: 0,
+        totalHours: 0,
+        hoursPerDay: 0,
+        hourlyRate: '0.00',
+        explanation: 'Error calculating salary'
+      };
+    }
+  };
+  var formatDate = function formatDate(dateString) {
+    if (!dateString) return 'Not specified';
+    return new Date(dateString).toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "booking-modal-overlay",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "booking-modal-container",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        className: "booking-modal-title",
+        children: "Review Booking Details"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "booking-modal-form-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Worker"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: (worker === null || worker === void 0 ? void 0 : worker.name) || 'Unknown Worker',
+            className: "booking-form-input booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Service Type"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: (bookingDetails === null || bookingDetails === void 0 ? void 0 : bookingDetails.service_type) || 'Not specified',
+            className: "booking-form-input booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Sub Skills"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: (bookingDetails === null || bookingDetails === void 0 ? void 0 : bookingDetails.sub_skill) || 'Not specified',
+            className: "booking-form-input booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Work Type"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: (bookingDetails === null || bookingDetails === void 0 ? void 0 : bookingDetails.work_type) || 'Not specified',
+            className: "booking-form-input booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Book In"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: formatDate(bookingDetails === null || bookingDetails === void 0 ? void 0 : bookingDetails.book_in),
+            className: "booking-form-input booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Book End"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: formatDate(bookingDetails === null || bookingDetails === void 0 ? void 0 : bookingDetails.book_end),
+            className: "booking-form-input booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Description"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+            value: (bookingDetails === null || bookingDetails === void 0 ? void 0 : bookingDetails.description) || 'No description provided',
+            className: "booking-form-textarea booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Daily Rate"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: "\u20B1".concat((bookingDetails === null || bookingDetails === void 0 ? void 0 : bookingDetails.daily_rate) || '0.00'),
+            className: "booking-form-input booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "booking-modal-actions",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "booking-btn booking-btn-cancel",
+          onClick: onBack,
+          children: "Back"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "booking-btn booking-btn-submit",
+          onClick: onConfirm,
+          children: "Confirm Booking"
+        })]
+      })]
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ConfirmationModal);
+
+/***/ }),
+
+/***/ "./resources/js/components/Profile/SuccessModal.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Profile/SuccessModal.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _sass_components_SuccessModal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../sass/components/SuccessModal.scss */ "./resources/sass/components/SuccessModal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var SuccessModal = function SuccessModal(_ref) {
+  var isOpen = _ref.isOpen,
+    onClose = _ref.onClose;
+  if (!isOpen) return null;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "profile-success-modal-overlay",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "profile-success-modal",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        children: "\uD83C\uDF89 Booking Successful!"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "profile-success-modal-content",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "profile-success-form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            children: "Your booking request has been sent successfully!"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            children: "The worker will be notified and can accept or decline your request."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+              children: "Status:"
+            }), " Pending approval"]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "profile-success-modal-buttons",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "profile-success-submit-button",
+          onClick: onClose,
+          children: "Close"
+        })
+      })]
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SuccessModal);
+
+/***/ }),
+
 /***/ "./resources/js/components/Profile/profile.js":
 /*!****************************************************!*\
   !*** ./resources/js/components/Profile/profile.js ***!
@@ -202103,9 +202472,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _resources_sass_img_pfp_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../resources/sass/img/pfp.svg */ "./resources/sass/img/pfp.svg");
 /* harmony import */ var _resources_sass_img_coverphoto_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../resources/sass/img/coverphoto.svg */ "./resources/sass/img/coverphoto.svg");
 /* harmony import */ var _BookModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./BookModal */ "./resources/js/components/Profile/BookModal.js");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ConfirmationModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ConfirmationModal */ "./resources/js/components/Profile/ConfirmationModal.js");
+/* harmony import */ var _SuccessModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./SuccessModal */ "./resources/js/components/Profile/SuccessModal.js");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
@@ -202120,6 +202491,8 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
 
 
 
@@ -202180,44 +202553,36 @@ var Profile = function Profile(_ref) {
     setError = _useState14[1];
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState16 = _slicedToArray(_useState15, 2),
-    isSubscriptionModalOpen = _useState16[0],
-    setIsSubscriptionModalOpen = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    isLoginModalOpen = _useState16[0],
+    setIsLoginModalOpen = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState18 = _slicedToArray(_useState17, 2),
-    selectedPlan = _useState18[0],
-    setSelectedPlan = _useState18[1];
+    reviews = _useState18[0],
+    setReviews = _useState18[1];
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState20 = _slicedToArray(_useState19, 2),
-    isLoginModalOpen = _useState20[0],
-    setIsLoginModalOpen = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    reviewsLoading = _useState20[0],
+    setReviewsLoading = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState22 = _slicedToArray(_useState21, 2),
-    reviews = _useState22[0],
-    setReviews = _useState22[1];
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    averageRating = _useState22[0],
+    setAverageRating = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState24 = _slicedToArray(_useState23, 2),
-    reviewsLoading = _useState24[0],
-    setReviewsLoading = _useState24[1];
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    totalReviews = _useState24[0],
+    setTotalReviews = _useState24[1];
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState26 = _slicedToArray(_useState25, 2),
-    averageRating = _useState26[0],
-    setAverageRating = _useState26[1];
+    workerRank = _useState26[0],
+    setWorkerRank = _useState26[1];
   var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState28 = _slicedToArray(_useState27, 2),
-    totalReviews = _useState28[0],
-    setTotalReviews = _useState28[1];
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    totalPoints = _useState28[0],
+    setTotalPoints = _useState28[1];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState30 = _slicedToArray(_useState29, 2),
-    workerRank = _useState30[0],
-    setWorkerRank = _useState30[1];
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-    _useState32 = _slicedToArray(_useState31, 2),
-    totalPoints = _useState32[0],
-    setTotalPoints = _useState32[1];
-  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-    _useState34 = _slicedToArray(_useState33, 2),
-    progressPercent = _useState34[0],
-    setProgressPercent = _useState34[1];
+    progressPercent = _useState30[0],
+    setProgressPercent = _useState30[1];
 
   // Helper function to get rank based on experience
   var getRankByExperience = function getRankByExperience(experience) {
@@ -202248,35 +202613,6 @@ var Profile = function Profile(_ref) {
           image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg'
         };
     }
-  };
-
-  // Subscription plans
-  var subscriptionPlans = {
-    monthly: {
-      name: "Monthly Plan",
-      price: 299,
-      period: "month",
-      features: ["View contact information", "Access to worker profiles", "Priority support"]
-    },
-    yearly: {
-      name: "Yearly Plan",
-      price: 2999,
-      period: "year",
-      features: ["View contact information", "Access to worker profiles", "Priority support", "Save 17%"]
-    }
-  };
-  var handleContactClick = function handleContactClick() {
-    setIsSubscriptionModalOpen(true);
-  };
-  var handlePlanSelect = function handlePlanSelect(planType) {
-    setSelectedPlan(planType);
-  };
-  var handlePayment = function handlePayment(paymentMethod) {
-    // Handle payment logic here
-    console.log("Processing ".concat(paymentMethod, " payment for ").concat(selectedPlan, " plan"));
-    antd__WEBPACK_IMPORTED_MODULE_9__["default"].success("Payment processed successfully! You now have access to contact information.");
-    setIsSubscriptionModalOpen(false);
-    setSelectedPlan(null);
   };
 
   // Check if user is logged in
@@ -202441,7 +202777,7 @@ var Profile = function Profile(_ref) {
               console.error("Error fetching worker data:", ((_error$response = _t2.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t2.message);
               if (isMounted) {
                 setError("Failed to load worker profile. Please try again later.");
-                antd__WEBPACK_IMPORTED_MODULE_9__["default"].error("Failed to load worker profile.");
+                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Failed to load worker profile.");
               }
             case 10:
               _context.p = 10;
@@ -202630,8 +202966,14 @@ var Profile = function Profile(_ref) {
   var handleTabClick = function handleTabClick(tab) {
     setActiveTab(tab);
   };
-  var handleBookingSubmit = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(details) {
+  var handleBookingSubmit = function handleBookingSubmit(details) {
+    // Just show confirmation modal - don't submit to backend yet
+    setBookingDetails(details);
+    setIsBookingModalOpen(false);
+    setIsConfirmationModalOpen(true);
+  };
+  var handleConfirmBooking = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
       var _JSON$parse, authToken, currentUserId, formatDateTime, bookingData, response, _error$response2, _error$response3, _error$response$data, errors, errorMessages, _error$response$data2, _error$response4, errorMessage, _t5;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
@@ -202642,7 +202984,7 @@ var Profile = function Profile(_ref) {
               _context4.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_9__["default"].error("Please log in to book this worker");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Please log in to book this worker");
             setIsLoginModalOpen(true);
             return _context4.a(2);
           case 1:
@@ -202652,14 +202994,14 @@ var Profile = function Profile(_ref) {
               _context4.n = 2;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_9__["default"].error("You cannot book yourself");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("You cannot book yourself");
             return _context4.a(2);
           case 2:
             if (!(!worker || !worker.id)) {
               _context4.n = 3;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_9__["default"].error("Worker information is missing. Please refresh the page and try again.");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Worker information is missing. Please refresh the page and try again.");
             return _context4.a(2);
           case 3:
             // Convert datetime-local format to proper date format for backend
@@ -202671,16 +203013,17 @@ var Profile = function Profile(_ref) {
             };
             bookingData = {
               worker_id: worker.id,
-              service_type: details.service_type,
-              work_type: details.work_type,
-              description: details.description,
-              book_in: formatDateTime(details.book_in),
-              book_end: formatDateTime(details.book_end),
-              time_in: details.time_in || null,
-              time_out: details.time_out || null,
-              daily_rate: parseFloat(details.daily_rate)
+              service_type: bookingDetails.service_type,
+              sub_skill: bookingDetails.sub_skill || null,
+              work_type: bookingDetails.work_type,
+              description: bookingDetails.description,
+              book_in: formatDateTime(bookingDetails.book_in),
+              book_end: formatDateTime(bookingDetails.book_end),
+              time_in: bookingDetails.time_in || null,
+              time_out: bookingDetails.time_out || null,
+              daily_rate: parseFloat(bookingDetails.daily_rate),
+              total_salary: parseFloat(bookingDetails.total_salary) || null
             };
-            console.log('Sending booking data:', bookingData);
             _context4.n = 4;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post('http://127.0.0.1:8000/api/bookings', bookingData, {
               headers: {
@@ -202692,12 +203035,11 @@ var Profile = function Profile(_ref) {
           case 4:
             response = _context4.v;
             if (response.data.success) {
-              antd__WEBPACK_IMPORTED_MODULE_9__["default"].success("Booking request sent successfully!");
-              setBookingDetails(details);
-              setIsBookingModalOpen(false);
-              setIsConfirmationModalOpen(true);
+              antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Booking request sent successfully!");
+              setIsConfirmationModalOpen(false);
+              setIsSuccessModalOpen(true);
             } else {
-              antd__WEBPACK_IMPORTED_MODULE_9__["default"].error(response.data.message || "Failed to send booking request");
+              antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(response.data.message || "Failed to send booking request");
             }
             _context4.n = 6;
             break;
@@ -202710,304 +203052,300 @@ var Profile = function Profile(_ref) {
               errors = (_error$response$data = _t5.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.errors;
               if (errors) {
                 errorMessages = Object.values(errors).flat();
-                antd__WEBPACK_IMPORTED_MODULE_9__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
+                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
               } else {
-                antd__WEBPACK_IMPORTED_MODULE_9__["default"].error(((_error$response$data2 = _t5.response.data) === null || _error$response$data2 === void 0 ? void 0 : _error$response$data2.message) || "Validation failed");
+                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response$data2 = _t5.response.data) === null || _error$response$data2 === void 0 ? void 0 : _error$response$data2.message) || "Validation failed");
               }
             } else {
               errorMessage = ((_error$response4 = _t5.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.message) || "Failed to send booking request";
-              antd__WEBPACK_IMPORTED_MODULE_9__["default"].error(errorMessage);
+              antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(errorMessage);
             }
           case 6:
             return _context4.a(2);
         }
       }, _callee4, null, [[0, 5]]);
     }));
-    return function handleBookingSubmit(_x2) {
+    return function handleConfirmBooking() {
       return _ref5.apply(this, arguments);
     };
   }();
-  var handleConfirmBooking = function handleConfirmBooking() {
-    setIsConfirmationModalOpen(false);
-    setIsSuccessModalOpen(true);
-  };
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "worker-profile-page",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      className: "profile-page",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "profile-loading-container",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__["default"], {})
       })]
     });
   }
   if (error || !worker) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "worker-profile-page",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "error-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-          className: "error-message",
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      className: "profile-page",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "profile-error-container",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+          className: "profile-error-message",
           children: error || "Worker not found"
         })
       })]
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-    className: "worker-profile-page",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "worker-profile-header",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "worker-cover-photo",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+    className: "profile-page",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      className: "profile-header",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "profile-cover-photo",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
           src: _resources_sass_img_coverphoto_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
           alt: "Cover"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "worker-profile-photo-wrapper",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "profile-photo-wrapper",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
           src: worker.profile_img ? "http://127.0.0.1:8000/storage/".concat(worker.profile_img) : _resources_sass_img_pfp_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
           alt: "Profile",
-          className: "worker-profile-photo"
+          className: "profile-photo"
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      className: "worker-profile-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "worker-profile-left",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "worker-profile-info",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-name-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      className: "profile-container",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        className: "profile-left",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "profile-info",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-name-container",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
               children: worker.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "worker-badges-container",
-              children: (worker.verified === true || worker.verified === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "worker-verified-badge",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "profile-badges-container",
+              children: (worker.verified === true || worker.verified === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "profile-verified-badge",
                 title: "Verified Worker",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("svg", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("svg", {
                   width: "16",
                   height: "16",
                   viewBox: "0 0 24 24",
                   fill: "none",
                   xmlns: "http://www.w3.org/2000/svg",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
                     d: "M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z",
                     fill: "#4CAF50"
                   })
                 })
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-status-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "worker-status-dot"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-              className: "worker-status",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-status-container",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              className: "profile-status-dot"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+              className: "profile-status",
               children: worker.status === "ACTIVE NOW" ? "Available now" : worker.status
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-            className: "worker-location",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+            className: "profile-location",
             children: worker.location
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "worker-hire-button",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+            className: "profile-hire-button",
             onClick: handleHireNowClick,
             children: "HIRE NOW"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "worker-rank-display-section",
-          children: workerRank ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-rank-display",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "profile-rank-display-section",
+          children: workerRank ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-rank-display",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
               src: "http://127.0.0.1:8000/storage/".concat(workerRank.image),
               alt: "".concat(workerRank.name, " Rank"),
-              className: "worker-rank-badge",
+              className: "profile-rank-badge",
               title: "".concat(workerRank.name, " Rank - ").concat(totalPoints.toLocaleString(), " points")
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "worker-rank-progress",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                className: "worker-progress-info",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                  className: "worker-rank-name",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "profile-rank-progress",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "profile-progress-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                  className: "profile-rank-name",
                   children: workerRank.name
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                  className: "worker-points-text",
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                  className: "profile-points-text",
                   children: [totalPoints.toLocaleString(), " pts"]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "worker-progress-bar-container",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                  className: "worker-progress-bar-fill worker-rank-".concat(workerRank.name.toLowerCase()),
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "profile-progress-bar-container",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "profile-progress-bar-fill profile-rank-".concat(workerRank.name.toLowerCase()),
                   style: {
                     width: "".concat(progressPercent, "%")
                   }
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "worker-progress-label",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                className: "profile-progress-label",
                 children: workerRank.max_points ? "".concat(totalPoints.toLocaleString(), " / ").concat(workerRank.max_points.toLocaleString()) : "".concat(totalPoints.toLocaleString(), " pts")
               })]
             })]
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            className: "worker-rank-display",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "worker-rank-loading",
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "profile-rank-display",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "profile-rank-loading",
               children: "Loading rank..."
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "worker-stats",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-stat-item",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "worker-stat-label",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "profile-stats",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-stat-item",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              className: "profile-stat-label",
               children: "Work Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "worker-stat-number",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              className: "profile-stat-number",
               children: worker.work_type || 'Part-time'
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-stat-item",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "worker-stat-label",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-stat-item",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              className: "profile-stat-label",
               children: "Preferred Working Days"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "worker-stat-number",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              className: "profile-stat-number",
               children: Array.isArray(worker.preferred_working_days) && worker.preferred_working_days.length > 0 ? worker.preferred_working_days.join(', ').replace(/\b\w/g, function (l) {
                 return l.toUpperCase();
               }) : 'Not specified'
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-stat-item",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-              className: "worker-stat-label",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-stat-item",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              className: "profile-stat-label",
               children: "Hours/Day"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-              className: "worker-stat-number",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+              className: "profile-stat-number",
               children: [worker.hours_per_day || 4, " hrs"]
             })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "worker-profile-right",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "worker-tabs",
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        className: "profile-right",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "profile-tabs",
           children: ['OVERVIEW', 'CREDENTIALS', 'REVIEWS'].map(function (tab) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-              className: "worker-tab ".concat(activeTab === tab ? 'active' : ''),
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+              className: "profile-tab ".concat(activeTab === tab ? 'active' : ''),
               onClick: function onClick() {
                 return handleTabClick(tab);
               },
               children: tab
             }, tab);
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "worker-tab-content",
-          children: [activeTab === 'OVERVIEW' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-overview",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "profile-tab-content",
+          children: [activeTab === 'OVERVIEW' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-overview",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
               children: "About"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
               children: worker.description || "No bio available"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
               children: "Skills"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "worker-skills-section",
-              children: [worker.primary_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                className: "worker-skills-category",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h5", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "profile-skills-section",
+              children: [worker.primary_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "profile-skills-category",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h5", {
                   children: "Primary Skills"
                 }), worker.primary_skills.map(function (skill, index) {
                   var skillRank = getRankByExperience(skill.experience);
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                    className: "worker-skill-item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                      className: "worker-skill-header",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                        className: "worker-skill-name-with-rank",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                    className: "profile-skill-item",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                      className: "profile-skill-header",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                        className: "profile-skill-name-with-rank",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
                           src: "http://127.0.0.1:8000/storage/".concat(skillRank.image),
                           alt: "".concat(skillRank.name, " Rank"),
-                          className: "worker-skill-rank-icon"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                          className: "worker-skill-name",
-                          children: [skill.skill_name, skill.sub_skills && skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                            className: "worker-sub-skills",
+                          className: "profile-skill-rank-icon"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                          className: "profile-skill-name",
+                          children: [skill.skill_name, skill.sub_skills && skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                            className: "profile-sub-skills",
                             children: [" - ", skill.sub_skills.join(', ')]
                           })]
                         })]
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                      className: "worker-skill-details",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                        className: "worker-experience",
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                      className: "profile-skill-details",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                        className: "profile-experience",
                         children: ["Experience: ", skill.experience]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                        className: "worker-hourly-rate",
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                        className: "profile-hourly-rate",
                         children: ["\u20B1", skill.hourly_rate, "/hour"]
                       })]
                     })]
                   }, index);
                 })]
-              }), worker.additional_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                className: "worker-skills-category",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h5", {
+              }), worker.additional_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "profile-skills-category",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h5", {
                   children: "Additional Skills"
                 }), worker.additional_skills.map(function (skill, index) {
                   var skillRank = getRankByExperience(skill.experience);
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                    className: "worker-skill-item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                      className: "worker-skill-header",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                        className: "worker-skill-name-with-rank",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                    className: "profile-skill-item",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                      className: "profile-skill-header",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                        className: "profile-skill-name-with-rank",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
                           src: "http://127.0.0.1:8000/storage/".concat(skillRank.image),
                           alt: "".concat(skillRank.name, " Rank"),
-                          className: "worker-skill-rank-icon"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                          className: "worker-skill-name",
-                          children: [skill.skill_name, skill.sub_skills && skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                            className: "worker-sub-skills",
+                          className: "profile-skill-rank-icon"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                          className: "profile-skill-name",
+                          children: [skill.skill_name, skill.sub_skills && skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                            className: "profile-sub-skills",
                             children: [" - ", skill.sub_skills.join(', ')]
                           })]
                         })]
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                      className: "worker-skill-details",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                        className: "worker-experience",
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                      className: "profile-skill-details",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                        className: "profile-experience",
                         children: ["Experience: ", skill.experience]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                        className: "worker-hourly-rate",
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                        className: "profile-hourly-rate",
                         children: ["\u20B1", skill.hourly_rate, "/hour"]
                       })]
                     })]
                   }, index);
                 })]
-              }), worker.primary_skills.length === 0 && worker.additional_skills.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+              }), worker.primary_skills.length === 0 && worker.additional_skills.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
                 children: "No skills available"
               })]
             })]
-          }), activeTab === 'CREDENTIALS' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-credentials",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
+          }), activeTab === 'CREDENTIALS' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-credentials",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
               children: "Credentials"
-            }), worker.credentials.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("ul", {
+            }), worker.credentials.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("ul", {
               children: worker.credentials.map(function (credential, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("li", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("li", {
                   children: credential
                 }, index);
               })
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
               children: "No credentials available"
-            }), worker.credentials_photo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "worker-credentials-photos",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h5", {
+            }), worker.credentials_photo.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "profile-credentials-photos",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h5", {
                 children: "Credential Documents"
               }), worker.credentials_photo.map(function (photo, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                  className: "worker-credential-photo",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "profile-credential-photo",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("a", {
                     href: "http://127.0.0.1:8000/storage/".concat(photo),
                     target: "_blank",
                     rel: "noopener noreferrer",
@@ -203016,82 +203354,82 @@ var Profile = function Profile(_ref) {
                 }, index);
               })]
             })]
-          }), activeTab === 'REVIEWS' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "worker-reviews",
-            children: [totalReviews > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "worker-reviews-header",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "worker-reviews-summary",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                  className: "worker-average-rating",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                    className: "worker-rating-number",
+          }), activeTab === 'REVIEWS' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-reviews",
+            children: [totalReviews > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "profile-reviews-header",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "profile-reviews-summary",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "profile-average-rating",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                    className: "profile-rating-number",
                     children: averageRating.toFixed(1)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                    className: "worker-stars",
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "profile-stars",
                     children: [1, 2, 3, 4, 5].map(function (star) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                        className: star <= Math.round(averageRating) ? 'worker-star filled' : 'worker-star',
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                        className: star <= Math.round(averageRating) ? 'profile-star filled' : 'profile-star',
                         children: "\u2605"
                       }, star);
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                    className: "worker-total-reviews",
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    className: "profile-total-reviews",
                     children: ["(", totalReviews, " ", totalReviews === 1 ? 'review' : 'reviews', ")"]
                   })]
                 })
               })
-            }), reviewsLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+            }), reviewsLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
               children: "Loading reviews..."
-            }) : reviews.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "worker-reviews-list",
+            }) : reviews.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+              className: "profile-reviews-list",
               children: reviews.map(function (review) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                  className: "worker-review-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                    className: "worker-review-header",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                      className: "worker-reviewer-info",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "profile-review-item",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                    className: "profile-review-header",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                      className: "profile-reviewer-info",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
                         src: review.reviewer.profile_img ? "http://127.0.0.1:8000/storage/".concat(review.reviewer.profile_img) : _resources_sass_img_pfp_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
                         alt: review.reviewer.name,
-                        className: "worker-reviewer-avatar"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                        className: "worker-reviewer-details",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                          className: "worker-reviewer-name",
+                        className: "profile-reviewer-avatar"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                        className: "profile-reviewer-details",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                          className: "profile-reviewer-name",
                           children: review.reviewer.name
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                          className: "worker-review-rating",
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                          className: "profile-review-rating",
                           children: [1, 2, 3, 4, 5].map(function (star) {
-                            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                              className: star <= review.rating ? 'worker-star filled' : 'worker-star',
+                            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                              className: star <= review.rating ? 'profile-star filled' : 'profile-star',
                               children: "\u2605"
                             }, star);
                           })
                         })]
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                      className: "worker-review-date",
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                      className: "profile-review-date",
                       children: new Date(review.created_at).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'short',
                         day: 'numeric'
                       })
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-                    className: "worker-review-comment",
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+                    className: "profile-review-comment",
                     children: review.comment
                   })]
                 }, review.id);
               })
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
               children: "No reviews available yet."
             })]
           })]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_BookModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_BookModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
       worker: worker,
       isOpen: isBookingModalOpen,
       onClose: function onClose() {
@@ -203100,265 +203438,43 @@ var Profile = function Profile(_ref) {
       onSubmit: function onSubmit(details) {
         return handleBookingSubmit(details);
       }
-    }), isConfirmationModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "adminmodal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "adminmodal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
-          children: "Planning Summary"
-        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "adminmodal-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              children: "Worker"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-              type: "text",
-              value: worker.name,
-              readOnly: true,
-              disabled: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              children: "Service Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-              type: "text",
-              value: bookingDetails.service_type,
-              readOnly: true,
-              disabled: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              children: "Work Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-              type: "text",
-              value: bookingDetails.work_type,
-              readOnly: true,
-              disabled: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              children: "Book In"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-              type: "text",
-              value: bookingDetails.book_in,
-              readOnly: true,
-              disabled: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              children: "Book End"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-              type: "text",
-              value: bookingDetails.book_end,
-              readOnly: true,
-              disabled: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              children: "Description"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("textarea", {
-              value: bookingDetails.description,
-              readOnly: true,
-              disabled: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              children: "Estimated Cost"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              children: ["Hours: ", bookingDetails ? calculateSalary(bookingDetails).hours : '0', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("br", {}), "Total: \u20B1", bookingDetails ? calculateSalary(bookingDetails).total : '0.00']
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "adminmodal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "cancel-button",
-            onClick: function onClick() {
-              return setIsConfirmationModalOpen(false);
-            },
-            children: "Cancel"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "submit-button",
-            onClick: handleConfirmBooking,
-            children: "Confirm Booking"
-          })]
-        })]
-      })
-    }), isSuccessModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "adminmodal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "adminmodal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
-          children: "Booking Successful"
-        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "adminmodal-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            className: "form-group",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-              children: "Thank you for booking this applicant. Please note that the status is currently pending."
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "adminmodal-buttons",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "submit-button",
-            onClick: function onClick() {
-              return setIsSuccessModalOpen(false);
-            },
-            children: "Close"
-          })
-        })]
-      })
-    }), isSubscriptionModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "adminmodal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "adminmodal subscription-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
-          children: "Upgrade to Premium"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-          className: "modal-subtitle",
-          children: "Unlock contact information and premium features"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "subscription-plans",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "plan-card ".concat(selectedPlan === 'monthly' ? 'selected' : ''),
-            onClick: function onClick() {
-              return handlePlanSelect('monthly');
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
-              children: subscriptionPlans.monthly.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "price",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "currency",
-                children: "\u20B1"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "amount",
-                children: subscriptionPlans.monthly.price
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                className: "period",
-                children: ["/", subscriptionPlans.monthly.period]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("ul", {
-              className: "features",
-              children: subscriptionPlans.monthly.features.map(function (feature, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("li", {
-                  children: feature
-                }, index);
-              })
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "plan-card ".concat(selectedPlan === 'yearly' ? 'selected' : ''),
-            onClick: function onClick() {
-              return handlePlanSelect('yearly');
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
-              children: subscriptionPlans.yearly.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "price",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "currency",
-                children: "\u20B1"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "amount",
-                children: subscriptionPlans.yearly.price
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
-                className: "period",
-                children: ["/", subscriptionPlans.yearly.period]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("ul", {
-              className: "features",
-              children: subscriptionPlans.yearly.features.map(function (feature, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("li", {
-                  children: feature
-                }, index);
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "savings-badge",
-              children: "Save 17%"
-            })]
-          })]
-        }), selectedPlan && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "payment-methods",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h4", {
-            children: "Choose Payment Method"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "payment-options",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
-              className: "payment-btn gcash",
-              onClick: function onClick() {
-                return handlePayment('GCash');
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "payment-icon",
-                children: "\uD83D\uDCB3"
-              }), "GCash"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
-              className: "payment-btn debit",
-              onClick: function onClick() {
-                return handlePayment('Debit Card');
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "payment-icon",
-                children: "\uD83D\uDCB3"
-              }), "Debit Card"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
-              className: "payment-btn credit",
-              onClick: function onClick() {
-                return handlePayment('Credit Card');
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "payment-icon",
-                children: "\uD83D\uDCB3"
-              }), "Credit Card"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
-              className: "payment-btn paypal",
-              onClick: function onClick() {
-                return handlePayment('PayPal');
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "payment-icon",
-                children: "\uD83D\uDCB3"
-              }), "PayPal"]
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "adminmodal-buttons",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "cancel-button",
-            onClick: function onClick() {
-              setIsSubscriptionModalOpen(false);
-              setSelectedPlan(null);
-            },
-            children: "Cancel"
-          })
-        })]
-      })
-    }), isLoginModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "adminmodal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-        className: "adminmodal login-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_ConfirmationModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      isOpen: isConfirmationModalOpen,
+      onClose: function onClose() {
+        return setIsConfirmationModalOpen(false);
+      },
+      onConfirm: handleConfirmBooking,
+      onBack: function onBack() {
+        setIsConfirmationModalOpen(false);
+        setIsBookingModalOpen(true);
+      },
+      worker: worker,
+      bookingDetails: bookingDetails,
+      calculateSalary: calculateSalary
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_SuccessModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      isOpen: isSuccessModalOpen,
+      onClose: function onClose() {
+        return setIsSuccessModalOpen(false);
+      }
+    }), isLoginModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "profile-login-modal-overlay",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        className: "profile-login-modal",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
           children: "Sign In Required"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-          className: "modal-subtitle",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+          className: "profile-login-modal-subtitle",
           children: "You need to be logged in to book this worker"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "login-options",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "login-option",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "profile-login-options",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-login-option",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
               children: "Already have an account?"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
               children: "Sign in to your existing account to book this worker"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-              className: "login-btn signin-btn",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+              className: "profile-login-btn profile-signin-btn",
               onClick: function onClick() {
                 setIsLoginModalOpen(false);
                 // Navigate to login page or open login modal
@@ -203366,19 +203482,19 @@ var Profile = function Profile(_ref) {
               },
               children: "Sign In"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            className: "login-divider",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "profile-login-divider",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               children: "OR"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "login-option",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "profile-login-option",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
               children: "New to Worqo?"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
               children: "Create a new account to start booking workers"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-              className: "login-btn signup-btn",
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+              className: "profile-login-btn profile-signup-btn",
               onClick: function onClick() {
                 setIsLoginModalOpen(false);
                 // Navigate to signup page or open signup modal
@@ -203387,10 +203503,10 @@ var Profile = function Profile(_ref) {
               children: "Sign Up"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "adminmodal-buttons",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-            className: "cancel-button",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "profile-login-modal-buttons",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+            className: "profile-login-cancel-button",
             onClick: function onClick() {
               return setIsLoginModalOpen(false);
             },
@@ -203400,20 +203516,91 @@ var Profile = function Profile(_ref) {
       })
     })]
   });
+
+  // Calculate actual hours based on time in/out
+  // removed by dead control flow
+{ var calculateActualHours; }
+
+  // Calculate working days based on work type and collar type
+  // removed by dead control flow
+{ var calculateWorkingDays; }
+
+  // Calculate full-time working days (Monday to Friday)
+  // removed by dead control flow
+{ var calculateFullTimeWorkingDays; }
+
+  // Calculate preferred working days for part-time workers
+  // removed by dead control flow
+{ var calculatePreferredWorkingDays; }
+
+  // Determine if worker is blue-collar based on their skills
+  // removed by dead control flow
+{ var isBlueCollarWorker; }
   function calculateSalary(details) {
-    if (!details.book_in || !details.book_end) return {
-      total: 0,
-      hours: 0
-    };
-    var start = new Date(details.book_in);
-    var end = new Date(details.book_end);
-    var diffTime = Math.abs(end - start);
-    var diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-    var hourlyRate = worker.hourlyRate;
-    var total = hourlyRate * diffHours;
+    if (!details || !details.book_in || !details.book_end || !details.daily_rate) {
+      return {
+        dailyRate: 0,
+        totalAmount: 0,
+        workingDays: 0,
+        totalHours: 0,
+        hoursPerDay: 0,
+        hourlyRate: 0,
+        explanation: 'Please fill in booking dates and daily rate'
+      };
+    }
+    var startDate = new Date(details.book_in);
+    var endDate = new Date(details.book_end);
+
+    // Calculate working days based on work type
+    var workingDays = 0;
+    var hoursPerDay = 0;
+    var totalHours = 0;
+    var explanation = '';
+
+    // Calculate actual hours per day if time in/out is provided
+    var actualHoursPerDay = calculateActualHours(details);
+    switch (details.work_type) {
+      case 'full-time':
+        // Full-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 8 hours per day
+        workingDays = calculateFullTimeWorkingDays(startDate, endDate);
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
+        totalHours = workingDays * hoursPerDay;
+        var fullTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        explanation = "Full-time: ".concat(hoursPerDay, " hours/day, ").concat(fullTimeDays, ". Total: ").concat(workingDays, " working days");
+        break;
+      case 'part-time':
+        // Part-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 6 hours per day
+        workingDays = calculatePreferredWorkingDays(startDate, endDate);
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 6; // Use actual hours or default 6
+        totalHours = workingDays * hoursPerDay;
+        var partTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        var weeklyHours = isBlueCollarWorker() ? '36 hours/week' : '30 hours/week';
+        explanation = "Part-time: ".concat(hoursPerDay, " hours/day, ").concat(partTimeDays, " (").concat(weeklyHours, "). Total: ").concat(workingDays, " working days");
+        break;
+      case 'one-time':
+        // One-time: Fixed project payment, hours depend on employer's needs
+        workingDays = 1;
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
+        totalHours = hoursPerDay;
+        explanation = "One-time project: ".concat(hoursPerDay, " hours (adjustable by employer)");
+        break;
+      default:
+        workingDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8;
+        totalHours = workingDays * hoursPerDay;
+        explanation = "Standard calculation: ".concat(workingDays, " working days");
+    }
+    var dailyRate = parseFloat(details.daily_rate);
+    var totalAmount = dailyRate * workingDays;
+    var hourlyRate = hoursPerDay > 0 ? dailyRate / hoursPerDay : 0;
     return {
-      total: total.toFixed(2),
-      hours: diffHours
+      dailyRate: dailyRate,
+      totalAmount: totalAmount,
+      workingDays: workingDays,
+      totalHours: totalHours,
+      hoursPerDay: hoursPerDay,
+      hourlyRate: hourlyRate.toFixed(2),
+      explanation: explanation
     };
   }
 };
@@ -230528,10 +230715,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/io */ "./node_modules/react-icons/io/index.mjs");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _modalfeedback__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modalfeedback */ "./resources/js/components/profilesettings/modalfeedback.js");
-/* harmony import */ var _TransactionModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TransactionModal */ "./resources/js/components/profilesettings/TransactionModal.js");
-/* harmony import */ var _sass_components_profilesettings_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../sass/components/profilesettings/BookingRequest.scss */ "./resources/sass/components/profilesettings/BookingRequest.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _modalfeedback__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modalfeedback */ "./resources/js/components/profilesettings/modalfeedback.js");
+/* harmony import */ var _TransactionModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./TransactionModal */ "./resources/js/components/profilesettings/TransactionModal.js");
+/* harmony import */ var _sass_components_profilesettings_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../sass/components/profilesettings/BookingRequest.scss */ "./resources/sass/components/profilesettings/BookingRequest.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -230553,8 +230741,10 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
 var BookingRequest = function BookingRequest() {
   var _selectedWorker$worke;
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('all'),
     _useState2 = _slicedToArray(_useState, 2),
     activeTab = _useState2[0],
@@ -230612,7 +230802,7 @@ var BookingRequest = function BookingRequest() {
     switch (status.toLowerCase()) {
       case 'pending':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
             size: 14
           }),
           backgroundColor: '#ffa500',
@@ -230620,7 +230810,7 @@ var BookingRequest = function BookingRequest() {
         };
       case 'accepted':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_3__.IoMdCheckmarkCircleOutline, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_3__.IoMdCheckmarkCircleOutline, {
             size: 14
           }),
           backgroundColor: '#4CAF50',
@@ -230628,7 +230818,7 @@ var BookingRequest = function BookingRequest() {
         };
       case 'completed':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineVerified, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineVerified, {
             size: 14
           }),
           backgroundColor: '#2196F3',
@@ -230636,7 +230826,7 @@ var BookingRequest = function BookingRequest() {
         };
       case 'declined':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
             size: 14
           }),
           backgroundColor: '#f44336',
@@ -230644,7 +230834,7 @@ var BookingRequest = function BookingRequest() {
         };
       case 'cancelled':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
             size: 14
           }),
           backgroundColor: '#9e9e9e',
@@ -230652,7 +230842,7 @@ var BookingRequest = function BookingRequest() {
         };
       default:
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
             size: 14
           }),
           backgroundColor: '#9e9e9e',
@@ -230890,31 +231080,36 @@ var BookingRequest = function BookingRequest() {
       return _ref4.apply(this, arguments);
     };
   }();
+  var handleProfileClick = function handleProfileClick(personData) {
+    if (personData && personData.id) {
+      navigate("/profile/".concat(personData.id));
+    }
+  };
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "booking-request-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
           children: "Loading bookings..."
         })
       })
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     className: "booking-request-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "booking-request-header",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
         className: "booking-request-title",
         children: userRole === 1 ? 'Booking Requests' : 'My Bookings'
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "booking-request-navigation",
       children: bookingCategories.map(function (category) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "booking-request-tab-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             type: "button",
             className: "booking-request-tab ".concat(activeTab === category.id ? 'active' : ''),
             onClick: function onClick(e) {
@@ -230929,50 +231124,71 @@ var BookingRequest = function BookingRequest() {
           })
         }, category.id);
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "booking-request-content",
-      children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "booking-request-list",
         children: filteredBookings.map(function (booking) {
-          var _booking$worker, _booking$worker2, _booking$worker3, _booking$worker4;
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          var isEmployerView = userRole === 2;
+          var personData = isEmployerView ? booking.worker : booking.employer;
+          var personProfile = personData === null || personData === void 0 ? void 0 : personData.profile;
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "booking-request-card",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "booking-request-top-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                 className: "booking-request-worker-info",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                   className: "booking-request-worker-profile",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: (_booking$worker = booking.worker) !== null && _booking$worker !== void 0 && (_booking$worker = _booking$worker.profile) !== null && _booking$worker !== void 0 && _booking$worker.profile_img ? "http://127.0.0.1:8000/storage/".concat(booking.worker.profile.profile_img) : '/images/default-avatar.svg',
-                    alt: (_booking$worker2 = booking.worker) !== null && _booking$worker2 !== void 0 && _booking$worker2.profile ? "".concat(booking.worker.profile.first_name, " ").concat(booking.worker.profile.last_name) : 'Worker',
+                  onClick: function onClick(e) {
+                    e.stopPropagation();
+                    handleProfileClick(personData);
+                  },
+                  style: {
+                    cursor: 'pointer'
+                  },
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+                    src: personProfile !== null && personProfile !== void 0 && personProfile.profile_img ? "http://127.0.0.1:8000/storage/".concat(personProfile.profile_img) : '/images/default-avatar.svg',
+                    alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'User',
                     className: "booking-request-worker-avatar"
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                   className: "booking-request-worker-details",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
                     className: "booking-request-worker-name",
-                    children: (_booking$worker3 = booking.worker) !== null && _booking$worker3 !== void 0 && _booking$worker3.profile ? "".concat(booking.worker.profile.first_name, " ").concat(booking.worker.profile.last_name) : 'Unknown Worker'
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleProfileClick(personData);
+                    },
+                    style: {
+                      cursor: 'pointer'
+                    },
+                    children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'Unknown User'
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
                     className: "booking-request-worker-profession",
-                    children: booking.service_type
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                    children: isEmployerView ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+                      children: [booking.service_type, booking.sub_skill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
+                        className: "booking-request-sub-skill",
+                        children: [" - ", booking.sub_skill]
+                      })]
+                    }) : 'Employer'
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                     className: "booking-request-worker-badges",
-                    children: ((_booking$worker4 = booking.worker) === null || _booking$worker4 === void 0 ? void 0 : _booking$worker4.verified) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                    children: (personData === null || personData === void 0 ? void 0 : personData.verified) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                       className: "booking-request-verified-badge",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdVerified, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdVerified, {
                         className: "booking-request-verified-icon"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                         children: "Verified"
                       })]
                     })
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                 className: "booking-request-status-amount",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                   className: "booking-request-status-badge",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
                     className: "booking-request-status-text",
                     style: {
                       backgroundColor: getStatusIcon(booking.status).backgroundColor,
@@ -230982,16 +231198,16 @@ var BookingRequest = function BookingRequest() {
                   })
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "booking-request-middle-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                 className: "booking-request-dates",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                   className: "booking-request-date-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                     className: "booking-request-date-label",
                     children: "Start Date"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                     className: "booking-request-date-value",
                     children: new Date(booking.book_in).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -230999,12 +231215,12 @@ var BookingRequest = function BookingRequest() {
                       day: 'numeric'
                     })
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                   className: "booking-request-date-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                     className: "booking-request-date-label",
                     children: "End Date"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                     className: "booking-request-date-value",
                     children: new Date(booking.book_end).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -231013,54 +231229,54 @@ var BookingRequest = function BookingRequest() {
                     })
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                 className: "booking-request-description",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                   className: "booking-request-description-label",
                   children: "Description"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                   className: "booking-request-description-text",
-                  children: booking.description
+                  children: booking.description && booking.description.length > 50 ? "".concat(booking.description.substring(0, 50), "...") : booking.description
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                 className: "booking-request-salary",
                 children: ["\u20B1", booking.total_amount]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "booking-request-actions",
-              children: [userRole === 2 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
-                    className: "booking-request-booking-request-view-transaction-btn",
-                    onClick: function onClick(e) {
-                      e.stopPropagation();
-                      handleViewTransaction(booking);
-                    },
-                    children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
-                    className: "booking-request-booking-request-cancel-booking-btn",
-                    onClick: function onClick(e) {
-                      e.stopPropagation();
-                      handleCancelBooking(booking.id);
-                    },
-                    children: "Cancel Booking"
-                  })]
-                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
-                  className: "booking-request-view-transaction-btn",
-                  onClick: function onClick(e) {
-                    e.stopPropagation();
-                    handleViewTransaction(booking);
-                  },
-                  children: "View Transaction"
-                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              children: [isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                     className: "booking-request-view-transaction-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
                       handleViewTransaction(booking);
                     },
                     children: "View Transaction"
-                  }), !booking.has_review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                    className: "booking-request-cancel-booking-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleCancelBooking(booking.id);
+                    },
+                    children: "Cancel Booking"
+                  })]
+                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                  className: "booking-request-view-transaction-btn",
+                  onClick: function onClick(e) {
+                    e.stopPropagation();
+                    handleViewTransaction(booking);
+                  },
+                  children: "View Transaction"
+                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                    className: "booking-request-view-transaction-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleViewTransaction(booking);
+                    },
+                    children: "View Transaction"
+                  }), !booking.has_review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                     className: "booking-request-give-feedback-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
@@ -231069,23 +231285,23 @@ var BookingRequest = function BookingRequest() {
                     children: "Give Feedback"
                   })]
                 })]
-              }), userRole === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              }), !isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                     className: "booking-request-view-transaction-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
                       handleViewTransaction(booking);
                     },
                     children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                     className: "booking-request-accept-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
                       handleStatusUpdate(booking.id, 'accepted');
                     },
                     children: "Accept"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                     className: "booking-request-decline-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
@@ -231093,15 +231309,15 @@ var BookingRequest = function BookingRequest() {
                     },
                     children: "Decline"
                   })]
-                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                     className: "booking-request-view-transaction-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
                       handleViewTransaction(booking);
                     },
                     children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                     className: "booking-request-complete-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
@@ -231109,7 +231325,7 @@ var BookingRequest = function BookingRequest() {
                     },
                     children: "Mark as Completed"
                   })]
-                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                   className: "booking-request-view-transaction-btn",
                   onClick: function onClick(e) {
                     e.stopPropagation();
@@ -231121,24 +231337,24 @@ var BookingRequest = function BookingRequest() {
             })]
           }, booking.id);
         })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "booking-request-empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "booking-request-empty-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
             src: "/images/mybooking.svg",
             alt: "No Bookings"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
           className: "booking-request-empty-title",
           children: "No Bookings Yet"
         })]
       })
-    }), isFeedbackModalOpen && selectedWorker && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_modalfeedback__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), isFeedbackModalOpen && selectedWorker && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_modalfeedback__WEBPACK_IMPORTED_MODULE_7__["default"], {
       onClose: handleCloseFeedbackModal,
       onSubmit: handleSubmitFeedback,
       workerName: (_selectedWorker$worke = selectedWorker.worker) !== null && _selectedWorker$worke !== void 0 && _selectedWorker$worke.profile ? "".concat(selectedWorker.worker.profile.first_name, " ").concat(selectedWorker.worker.profile.last_name) : 'Worker'
-    }), isTransactionModalOpen && selectedBooking && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_TransactionModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }), isTransactionModalOpen && selectedBooking && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_TransactionModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
       isOpen: isTransactionModalOpen,
       onClose: handleCloseTransactionModal,
       booking: selectedBooking
@@ -231224,6 +231440,934 @@ var CancelJobApplicationModal = function CancelJobApplicationModal(_ref) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CancelJobApplicationModal);
+
+/***/ }),
+
+/***/ "./resources/js/components/profilesettings/EditMyBooking.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/profilesettings/EditMyBooking.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/CustomDropdown */ "./resources/js/components/common/CustomDropdown.js");
+/* harmony import */ var _sass_components_profilesettings_EditMyBooking_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/EditMyBooking.scss */ "./resources/sass/components/profilesettings/EditMyBooking.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+
+
+
+
+
+var EditMyBooking = function EditMyBooking(_ref) {
+  var isOpen = _ref.isOpen,
+    onClose = _ref.onClose,
+    onSubmit = _ref.onSubmit,
+    booking = _ref.booking;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      service_type: '',
+      sub_skill: '',
+      work_type: '',
+      book_in: '',
+      book_end: '',
+      time_in: '',
+      time_out: '',
+      description: '',
+      daily_rate: ''
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    bookingDetails = _useState2[0],
+    setBookingDetails = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState4 = _slicedToArray(_useState3, 2),
+    worker = _useState4[0],
+    setWorker = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      isAvailable: true,
+      conflictMessage: '',
+      conflictingJobs: []
+    }),
+    _useState6 = _slicedToArray(_useState5, 2),
+    availabilityStatus = _useState6[0],
+    setAvailabilityStatus = _useState6[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (isOpen && booking) {
+      var _booking$worker, _booking$worker2, _booking$worker3;
+      // Initialize form with booking data
+      setBookingDetails({
+        service_type: booking.service_type || '',
+        sub_skill: booking.sub_skill || '',
+        work_type: booking.work_type || '',
+        book_in: booking.book_in ? new Date(booking.book_in).toISOString().slice(0, 16) : '',
+        book_end: booking.book_end ? new Date(booking.book_end).toISOString().slice(0, 16) : '',
+        time_in: booking.time_in || '',
+        time_out: booking.time_out || '',
+        description: booking.description || '',
+        daily_rate: booking.daily_rate || ''
+      });
+
+      // Set worker data for dropdowns
+      setWorker({
+        id: booking.worker_id,
+        name: (_booking$worker = booking.worker) !== null && _booking$worker !== void 0 && _booking$worker.profile ? "".concat(booking.worker.profile.first_name, " ").concat(booking.worker.profile.last_name) : 'Worker',
+        work_type: booking.work_type,
+        primary_skills: ((_booking$worker2 = booking.worker) === null || _booking$worker2 === void 0 ? void 0 : _booking$worker2.primary_skills) || [],
+        additional_skills: ((_booking$worker3 = booking.worker) === null || _booking$worker3 === void 0 ? void 0 : _booking$worker3.additional_skills) || []
+      });
+      setAvailabilityStatus({
+        isAvailable: true,
+        conflictMessage: '',
+        conflictingJobs: []
+      });
+    }
+  }, [isOpen, booking]);
+
+  // Check worker availability when booking dates change
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (bookingDetails.book_in && bookingDetails.book_end && worker !== null && worker !== void 0 && worker.id) {
+      checkWorkerAvailability();
+    }
+  }, [bookingDetails.book_in, bookingDetails.book_end, worker === null || worker === void 0 ? void 0 : worker.id]);
+  var handleChange = function handleChange(e) {
+    var _e$target = e.target,
+      name = _e$target.name,
+      value = _e$target.value;
+
+    // Auto-populate time_in and time_out when book_in or book_end changes
+    if (name === 'book_in' || name === 'book_end') {
+      setBookingDetails(function (prev) {
+        var updated = _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+
+        // Extract time from book_in and book_end
+        if (updated.book_in && updated.book_end) {
+          var startTime = new Date(updated.book_in);
+          var endTime = new Date(updated.book_end);
+
+          // Get start time (from book_in) and add 1 hour for time_in
+          var startHour = startTime.getHours();
+          var startMinute = startTime.getMinutes();
+
+          // Time In: Start time + 1 hour
+          var timeInHour = startHour + 1;
+          var timeInMinute = startMinute;
+
+          // Handle hour overflow for time_in (if > 23)
+          if (timeInHour >= 24) {
+            timeInHour = timeInHour - 24;
+          }
+
+          // Set default hours per day based on work type
+          var hoursPerDay = 8; // Default
+          switch (updated.work_type) {
+            case 'full-time':
+              hoursPerDay = 8; // 8 hours per day (40 hours/week)
+              break;
+            case 'part-time':
+              hoursPerDay = 6; // 6 hours per day (30 hours/week)
+              break;
+            case 'one-time':
+              hoursPerDay = 8; // 8 hours for one-time jobs
+              break;
+          }
+
+          // Time Out: Time In + working hours
+          var timeOutHour = timeInHour + hoursPerDay;
+          var timeOutMinute = timeInMinute;
+
+          // Handle hour overflow for time_out (if > 23)
+          if (timeOutHour >= 24) {
+            timeOutHour = timeOutHour - 24;
+          }
+
+          // Format times
+          var timeInStr = "".concat(timeInHour.toString().padStart(2, '0'), ":").concat(timeInMinute.toString().padStart(2, '0'));
+          var timeOutStr = "".concat(timeOutHour.toString().padStart(2, '0'), ":").concat(timeOutMinute.toString().padStart(2, '0'));
+
+          // Auto-populate time fields
+          updated.time_in = timeInStr;
+          updated.time_out = timeOutStr;
+        }
+        return updated;
+      });
+    } else {
+      setBookingDetails(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+      });
+    }
+  };
+  var calculateDuration = function calculateDuration(startDate, endDate) {
+    if (!startDate || !endDate) return {
+      hours: 0,
+      days: 0
+    };
+    var start = new Date(startDate);
+    var end = new Date(endDate);
+    var diffTime = Math.abs(end - start);
+    var diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
+
+    // Calculate working days based on work type
+    var workingDays = 0;
+    switch (bookingDetails.work_type) {
+      case 'full-time':
+        workingDays = calculateFullTimeWorkingDays(start, end);
+        break;
+      case 'part-time':
+        workingDays = calculateFullTimeWorkingDays(start, end); // Same as full-time but different hours
+        break;
+      case 'one-time':
+        workingDays = 1;
+        break;
+      default:
+        workingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    }
+    return {
+      hours: diffHours,
+      days: workingDays
+    };
+  };
+
+  // Calculate actual working hours based on time in/out
+  var calculateActualHours = function calculateActualHours() {
+    var time_in = bookingDetails.time_in,
+      time_out = bookingDetails.time_out;
+    if (!time_in || !time_out) {
+      return 0;
+    }
+    var _time_in$split$map = time_in.split(':').map(Number),
+      _time_in$split$map2 = _slicedToArray(_time_in$split$map, 2),
+      startHour = _time_in$split$map2[0],
+      startMinute = _time_in$split$map2[1];
+    var _time_out$split$map = time_out.split(':').map(Number),
+      _time_out$split$map2 = _slicedToArray(_time_out$split$map, 2),
+      endHour = _time_out$split$map2[0],
+      endMinute = _time_out$split$map2[1];
+    var startTime = startHour * 60 + startMinute; // Convert to minutes
+    var endTime = endHour * 60 + endMinute; // Convert to minutes
+
+    var diffMinutes = endTime - startTime;
+
+    // Handle overnight shifts (if end time is before start time)
+    if (diffMinutes < 0) {
+      diffMinutes += 24 * 60; // Add 24 hours
+    }
+    return diffMinutes / 60; // Convert back to hours
+  };
+  var calculateSalary = function calculateSalary() {
+    var book_in = bookingDetails.book_in,
+      book_end = bookingDetails.book_end,
+      daily_rate = bookingDetails.daily_rate,
+      work_type = bookingDetails.work_type,
+      time_in = bookingDetails.time_in,
+      time_out = bookingDetails.time_out;
+    if (!book_in || !book_end || !daily_rate) {
+      return {
+        dailyRate: 0,
+        totalAmount: 0,
+        workingDays: 0,
+        totalHours: 0,
+        hourlyRate: 0,
+        explanation: 'Please fill in booking dates and daily rate'
+      };
+    }
+    var startDate = new Date(book_in);
+    var endDate = new Date(book_end);
+
+    // Calculate working days based on work type
+    var workingDays = 0;
+    var hoursPerDay = 0;
+    var totalHours = 0;
+    var explanation = '';
+
+    // Calculate actual hours per day if time in/out is provided
+    var actualHoursPerDay = calculateActualHours();
+    switch (work_type) {
+      case 'full-time':
+        // Full-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 8 hours per day
+        workingDays = calculateFullTimeWorkingDays(startDate, endDate);
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
+        totalHours = workingDays * hoursPerDay;
+        var fullTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        explanation = "Full-time: ".concat(hoursPerDay, " hours/day, ").concat(fullTimeDays, ". Total: ").concat(workingDays, " working days");
+        break;
+      case 'part-time':
+        // Part-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 6 hours per day
+        workingDays = calculatePreferredWorkingDays(startDate, endDate);
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 6; // Use actual hours or default 6
+        totalHours = workingDays * hoursPerDay;
+        var partTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        var weeklyHours = isBlueCollarWorker() ? '36 hours/week' : '30 hours/week';
+        explanation = "Part-time: ".concat(hoursPerDay, " hours/day, ").concat(partTimeDays, " (").concat(weeklyHours, "). Total: ").concat(workingDays, " working days");
+        break;
+      case 'one-time':
+        // One-time: Fixed project payment, hours depend on employer's needs
+        workingDays = 1;
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
+        totalHours = hoursPerDay;
+        explanation = "One-time project: ".concat(hoursPerDay, " hours (adjustable by employer)");
+        break;
+      default:
+        workingDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8;
+        totalHours = workingDays * hoursPerDay;
+        explanation = "Standard calculation: ".concat(workingDays, " working days");
+    }
+    var dailyRate = parseFloat(daily_rate);
+    var totalAmount = dailyRate * workingDays;
+    var hourlyRate = hoursPerDay > 0 ? dailyRate / hoursPerDay : 0;
+    return {
+      dailyRate: dailyRate,
+      totalAmount: totalAmount,
+      workingDays: workingDays,
+      totalHours: totalHours,
+      hoursPerDay: hoursPerDay,
+      hourlyRate: hourlyRate.toFixed(2),
+      explanation: explanation
+    };
+  };
+
+  // Calculate working days based on work type and collar type
+  var calculateWorkingDays = function calculateWorkingDays(startDate, endDate, workType) {
+    var workingDaysCount = 0;
+
+    // Reset time to midnight to avoid time comparison issues
+    var currentDate = new Date(startDate);
+    currentDate.setHours(0, 0, 0, 0);
+    var end = new Date(endDate);
+    end.setHours(0, 0, 0, 0);
+
+    // Add 1 day to end date to include the end date itself
+    end.setDate(end.getDate() + 1);
+    while (currentDate < end) {
+      var dayOfWeek = currentDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+      // Determine working days based on work type and collar type
+      if (workType === 'one-time') {
+        // One-time jobs: count all days
+        workingDaysCount++;
+      } else if (isBlueCollarWorker()) {
+        // Blue-collar workers: work Monday-Saturday (6 days per week)
+        if (dayOfWeek >= 1 && dayOfWeek <= 6) {
+          // Monday to Saturday
+          workingDaysCount++;
+        }
+      } else {
+        // White-collar/Pink-collar workers: work Monday-Friday (5 days per week)
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+          // Monday to Friday
+          workingDaysCount++;
+        }
+      }
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return workingDaysCount;
+  };
+
+  // Calculate full-time working days (Monday to Friday)
+  var calculateFullTimeWorkingDays = function calculateFullTimeWorkingDays(startDate, endDate) {
+    return calculateWorkingDays(startDate, endDate, 'full-time');
+  };
+
+  // Calculate preferred working days for part-time workers
+  var calculatePreferredWorkingDays = function calculatePreferredWorkingDays(startDate, endDate) {
+    return calculateWorkingDays(startDate, endDate, 'part-time');
+  };
+
+  // Determine if worker is blue-collar based on their skills
+  var isBlueCollarWorker = function isBlueCollarWorker() {
+    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) return false;
+    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
+
+    // Blue-collar skill names (manual labor, construction, maintenance, etc.)
+    var blueCollarSkills = ['plumbing', 'electrical', 'carpentry', 'welding', 'masonry', 'painting', 'construction', 'maintenance', 'mechanical', 'automotive', 'gardening', 'landscaping', 'housekeeping', 'cleaning', 'security', 'machine operation', 'appliance repair', 'hvac', 'roofing', 'flooring', 'tiling', 'concrete work', 'excavation', 'heavy machinery', 'forklift', 'crane', 'welding', 'fabrication', 'pipe fitting', 'drain cleaning', 'leak repair', 'fixture installation', 'system maintenance', 'equipment repair', 'preventive maintenance', 'building maintenance', 'hvac maintenance', 'plumbing maintenance', 'electrical maintenance', 'carpentry repairs', 'painting touch-ups', 'safety inspections', 'janitorial', 'sanitization', 'deep cleaning', 'window cleaning', 'carpet cleaning', 'laundry service', 'organization', 'eco-friendly cleaning', 'plant care', 'lawn maintenance', 'tree trimming', 'garden design', 'irrigation systems', 'pest control', 'fertilizing', 'pruning', 'landscape installation', 'seasonal cleanup', 'building security', 'event security', 'retail security', 'residential security', 'crowd control', 'patrol services', 'access control', 'emergency response', 'surveillance', 'safety protocols', 'tailor', 'dressmaker', 'barber', 'hairdresser', 'cook', 'chef', 'baker', 'driver', 'delivery', 'transportation'];
+    return allSkills.some(function (skill) {
+      var _skill$skill_name;
+      var skillName = ((_skill$skill_name = skill.skill_name) === null || _skill$skill_name === void 0 ? void 0 : _skill$skill_name.toLowerCase()) || '';
+      return blueCollarSkills.some(function (blueCollarSkill) {
+        return skillName.includes(blueCollarSkill) || blueCollarSkill.includes(skillName);
+      });
+    });
+  };
+
+  // Check worker availability for the selected dates
+  var checkWorkerAvailability = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var _jobPostsResponse$dat, book_in, book_end, response, acceptedJobs, jobPostsResponse, jobPosts, requestedStart, requestedEnd, conflictingJobs, _iterator, _step, _job$job_post, _job$job_post2, job, jobStart, jobEnd, _job$job_post$profile, _job$job_post$profile2, _iterator2, _step2, jobPost, _jobStart, _jobEnd, _jobPost$profile, _jobPost$profile2, hiredCount, scheduledCount, conflictMessage, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            _context.p = 0;
+            book_in = bookingDetails.book_in, book_end = bookingDetails.book_end;
+            if (!(!book_in || !book_end || !(worker !== null && worker !== void 0 && worker.id))) {
+              _context.n = 1;
+              break;
+            }
+            setAvailabilityStatus({
+              isAvailable: true,
+              conflictMessage: '',
+              conflictingJobs: []
+            });
+            return _context.a(2);
+          case 1:
+            _context.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/job-applications/worker/".concat(worker.id, "?status=accepted"));
+          case 2:
+            response = _context.v;
+            acceptedJobs = response.data || []; // Also get all job posts with work schedules to check for conflicts
+            _context.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/jobposts?worker_id=".concat(worker.id, "&include_work_schedule=true"));
+          case 3:
+            jobPostsResponse = _context.v;
+            jobPosts = ((_jobPostsResponse$dat = jobPostsResponse.data) === null || _jobPostsResponse$dat === void 0 || (_jobPostsResponse$dat = _jobPostsResponse$dat.job_posts) === null || _jobPostsResponse$dat === void 0 ? void 0 : _jobPostsResponse$dat.data) || []; // Check for date conflicts
+            requestedStart = new Date(book_in);
+            requestedEnd = new Date(book_end);
+            conflictingJobs = []; // Check conflicts with accepted job applications
+            _iterator = _createForOfIteratorHelper(acceptedJobs);
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                job = _step.value;
+                if ((_job$job_post = job.job_post) !== null && _job$job_post !== void 0 && _job$job_post.work_start && (_job$job_post2 = job.job_post) !== null && _job$job_post2 !== void 0 && _job$job_post2.work_end) {
+                  jobStart = new Date(job.job_post.work_start);
+                  jobEnd = new Date(job.job_post.work_end); // Check if there's any overlap between the requested dates and job dates
+                  if (requestedStart >= jobStart && requestedStart <= jobEnd || requestedEnd >= jobStart && requestedEnd <= jobEnd || requestedStart <= jobStart && requestedEnd >= jobEnd) {
+                    conflictingJobs.push({
+                      jobTitle: job.job_post.job_title,
+                      workStart: job.job_post.work_start,
+                      workEnd: job.job_post.work_end,
+                      employer: ((_job$job_post$profile = job.job_post.profile) === null || _job$job_post$profile === void 0 ? void 0 : _job$job_post$profile.first_name) + ' ' + ((_job$job_post$profile2 = job.job_post.profile) === null || _job$job_post$profile2 === void 0 ? void 0 : _job$job_post$profile2.last_name),
+                      type: 'hired'
+                    });
+                  }
+                }
+              }
+
+              // Check conflicts with job posts that have fixed work schedules
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+            _iterator2 = _createForOfIteratorHelper(jobPosts);
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                jobPost = _step2.value;
+                if (jobPost.work_start && jobPost.work_end) {
+                  _jobStart = new Date(jobPost.work_start);
+                  _jobEnd = new Date(jobPost.work_end); // Check if there's any overlap between the requested dates and job post work schedule
+                  if (requestedStart >= _jobStart && requestedStart <= _jobEnd || requestedEnd >= _jobStart && requestedEnd <= _jobEnd || requestedStart <= _jobStart && requestedEnd >= _jobEnd) {
+                    conflictingJobs.push({
+                      jobTitle: jobPost.job_title,
+                      workStart: jobPost.work_start,
+                      workEnd: jobPost.work_end,
+                      employer: ((_jobPost$profile = jobPost.profile) === null || _jobPost$profile === void 0 ? void 0 : _jobPost$profile.first_name) + ' ' + ((_jobPost$profile2 = jobPost.profile) === null || _jobPost$profile2 === void 0 ? void 0 : _jobPost$profile2.last_name),
+                      type: 'scheduled'
+                    });
+                  }
+                }
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+            if (conflictingJobs.length > 0) {
+              hiredCount = conflictingJobs.filter(function (job) {
+                return job.type === 'hired';
+              }).length;
+              scheduledCount = conflictingJobs.filter(function (job) {
+                return job.type === 'scheduled';
+              }).length;
+              conflictMessage = 'Worker is not available during the selected period. ';
+              if (hiredCount > 0 && scheduledCount > 0) {
+                conflictMessage += "They are already hired for ".concat(hiredCount, " job(s) and have ").concat(scheduledCount, " scheduled job(s) during this time.");
+              } else if (hiredCount > 0) {
+                conflictMessage += "They are already hired for ".concat(hiredCount, " job(s) during this time.");
+              } else {
+                conflictMessage += "They have ".concat(scheduledCount, " scheduled job(s) during this time.");
+              }
+              setAvailabilityStatus({
+                isAvailable: false,
+                conflictMessage: conflictMessage,
+                conflictingJobs: conflictingJobs
+              });
+            } else {
+              setAvailabilityStatus({
+                isAvailable: true,
+                conflictMessage: '',
+                conflictingJobs: []
+              });
+            }
+            _context.n = 5;
+            break;
+          case 4:
+            _context.p = 4;
+            _t = _context.v;
+            console.error('Error checking worker availability:', _t);
+            // On error, assume worker is available to avoid blocking legitimate bookings
+            setAvailabilityStatus({
+              isAvailable: true,
+              conflictMessage: '',
+              conflictingJobs: []
+            });
+          case 5:
+            return _context.a(2);
+        }
+      }, _callee, null, [[0, 4]]);
+    }));
+    return function checkWorkerAvailability() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var getSalaryInfo = function getSalaryInfo() {
+    var workType = bookingDetails.work_type;
+    var isBlueCollar = isBlueCollarWorker();
+    switch (workType) {
+      case 'part-time':
+        var partTimeDays = isBlueCollar ? 'Monday-Saturday' : 'Monday-Friday';
+        var partTimeWeeklyHours = isBlueCollar ? '36 hours/week' : '30 hours/week';
+        return {
+          label: 'Daily Rate (Part-time)',
+          placeholder: 'Enter daily rate amount',
+          description: "6 hours per day, ".concat(partTimeDays, " (").concat(partTimeWeeklyHours, ")")
+        };
+      case 'full-time':
+        var fullTimeDays = isBlueCollar ? 'Monday-Saturday' : 'Monday-Friday';
+        var fullTimeWeeklyHours = isBlueCollar ? '48 hours/week' : '40 hours/week';
+        return {
+          label: 'Daily Rate (Full-time)',
+          placeholder: 'Enter daily rate amount',
+          description: "8 hours per day, ".concat(fullTimeDays, " (").concat(fullTimeWeeklyHours, ")")
+        };
+      case 'one-time':
+        return {
+          label: 'Project Rate (One-time)',
+          placeholder: 'Enter project rate amount',
+          description: 'One-time project payment (or set custom hours below)'
+        };
+      default:
+        return {
+          label: 'Daily Rate',
+          placeholder: 'Enter daily rate amount',
+          description: ''
+        };
+    }
+  };
+  var handleSubmit = function handleSubmit() {
+    // Validate required fields before submitting
+    if (!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all required fields");
+      return;
+    }
+
+    // Validate daily rate amount
+    if (!bookingDetails.daily_rate || parseFloat(bookingDetails.daily_rate) <= 0) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please enter a valid daily rate amount");
+      return;
+    }
+
+    // Validate date range
+    if (bookingDetails.book_end <= bookingDetails.book_in) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("End date must be after start date");
+      return;
+    }
+
+    // Check worker availability
+    if (!availabilityStatus.isAvailable) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error(availabilityStatus.conflictMessage);
+      return;
+    }
+
+    // Prepare validated details for submission
+    var salaryCalculation = calculateSalary();
+    console.log('Salary calculation result:', salaryCalculation);
+
+    // Validate that calculation is valid
+    if (salaryCalculation.workingDays === 0 || salaryCalculation.totalHours === 0) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please ensure all booking details are filled correctly");
+      return;
+    }
+
+    // Validate that sub_skill is included if service_type is selected
+    if (bookingDetails.service_type && !bookingDetails.sub_skill) {
+      console.warn('Sub-skill is empty for service type:', bookingDetails.service_type);
+    }
+    var validatedDetails = _objectSpread(_objectSpread({}, bookingDetails), {}, {
+      daily_rate: parseFloat(bookingDetails.daily_rate),
+      total_salary: salaryCalculation.totalAmount
+    });
+    console.log('Submitting updated booking details:', validatedDetails);
+    onSubmit(validatedDetails);
+  };
+
+  // Get available service types (main skills only)
+  var getAvailableServiceTypes = function getAvailableServiceTypes() {
+    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) return [];
+    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
+
+    // Create options array for CustomDropdown with unique main skills
+    var skillNames = new Set();
+    var options = [];
+    allSkills.forEach(function (skill) {
+      var mainSkill = skill.skill_name;
+      if (!skillNames.has(mainSkill)) {
+        skillNames.add(mainSkill);
+        options.push({
+          value: mainSkill,
+          label: mainSkill
+        });
+      }
+    });
+    return options;
+  };
+
+  // Get sub-skills for selected service type
+  var getAvailableSubSkills = function getAvailableSubSkills() {
+    if (!bookingDetails.service_type) return [];
+    var allSkills = [].concat(_toConsumableArray((worker === null || worker === void 0 ? void 0 : worker.primary_skills) || []), _toConsumableArray((worker === null || worker === void 0 ? void 0 : worker.additional_skills) || []));
+    var options = [];
+    allSkills.forEach(function (skill) {
+      if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
+        skill.sub_skills.forEach(function (subSkill) {
+          options.push({
+            value: subSkill,
+            label: subSkill
+          });
+        });
+      }
+    });
+    return options;
+  };
+
+  // Date validation: Ensure book_end is not before book_in
+  // Set minimum date to 1 hour from now to avoid timezone issues
+  var now = new Date();
+  now.setHours(now.getHours() + 1); // Add 1 hour buffer
+  var minDate = now.toISOString().slice(0, 16); // Current datetime + 1 hour
+
+  // Additional validation for book_in to be at least 1 hour in the future
+  var validateBookInTime = function validateBookInTime(bookInTime) {
+    if (!bookInTime) return true;
+    var selectedTime = new Date(bookInTime);
+    var currentTime = new Date();
+    var oneHourFromNow = new Date(currentTime.getTime() + 60 * 60 * 1000); // Add 1 hour in milliseconds
+    return selectedTime >= oneHourFromNow;
+  };
+  var isValidEndDate = function isValidEndDate(endDate) {
+    var start = new Date(bookingDetails.book_in);
+    var end = new Date(endDate);
+    return end >= start;
+  };
+  if (!isOpen) return null;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    className: "booking-modal-overlay",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "booking-modal-container",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h2", {
+        className: "booking-modal-title",
+        children: ["Edit Booking for ", worker === null || worker === void 0 ? void 0 : worker.name]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "booking-modal-form-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            htmlFor: "service_type",
+            children: "Service Type"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            options: getAvailableServiceTypes(),
+            value: bookingDetails.service_type,
+            onChange: function onChange(value) {
+              return setBookingDetails(function (prev) {
+                return _objectSpread(_objectSpread({}, prev), {}, {
+                  service_type: value,
+                  sub_skill: ''
+                });
+              });
+            },
+            placeholder: "Select a service",
+            required: true
+          })]
+        }), bookingDetails.service_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            htmlFor: "sub_skill",
+            children: "Sub Skills"
+          }), getAvailableSubSkills().length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            options: getAvailableSubSkills(),
+            value: bookingDetails.sub_skill,
+            onChange: function onChange(value) {
+              setBookingDetails(function (prev) {
+                return _objectSpread(_objectSpread({}, prev), {}, {
+                  sub_skill: value
+                });
+              });
+            },
+            placeholder: "Select a sub-skill"
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "text",
+            id: "sub_skill",
+            name: "sub_skill",
+            value: bookingDetails.sub_skill,
+            onChange: handleChange,
+            className: "booking-form-input",
+            placeholder: "Enter sub-skill (optional)"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            htmlFor: "work_type",
+            children: "Work Type"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "text",
+            id: "work_type",
+            name: "work_type",
+            value: bookingDetails.work_type,
+            className: "booking-form-input booking-form-input-disabled",
+            readOnly: true,
+            disabled: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            htmlFor: "book_in",
+            children: "Book In"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "datetime-local",
+            id: "book_in",
+            name: "book_in",
+            value: bookingDetails.book_in,
+            onChange: handleChange,
+            className: "booking-form-input",
+            min: minDate,
+            required: true
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
+            children: "Please select a time at least 1 hour from now"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            htmlFor: "book_end",
+            children: "Book End"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "datetime-local",
+            id: "book_end",
+            name: "book_end",
+            value: bookingDetails.book_end,
+            onChange: function onChange(e) {
+              if (isValidEndDate(e.target.value)) {
+                handleChange(e);
+              }
+            },
+            className: "booking-form-input",
+            min: bookingDetails.book_in || minDate,
+            required: true
+          })]
+        }), !availabilityStatus.isAvailable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "availability-warning",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "warning-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_2__.IoWarningOutline, {
+              style: {
+                color: '#ffc107',
+                marginRight: '18px',
+                marginTop: '8px',
+                fontSize: '30px'
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "rs-message-body",
+              children: "Worker not free \u2014 1 job scheduled."
+            })]
+          })
+        }), bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "booking-form-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+              className: "booking-form-label",
+              htmlFor: "time_in",
+              children: "Time In"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              type: "time",
+              id: "time_in",
+              name: "time_in",
+              value: bookingDetails.time_in,
+              onChange: handleChange,
+              className: "booking-form-input",
+              placeholder: "Select start time"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
+              children: "Auto-populated: Book In time + 1 hour (or set custom time)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "booking-form-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+              className: "booking-form-label",
+              htmlFor: "time_out",
+              children: "Time Out"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              type: "time",
+              id: "time_out",
+              name: "time_out",
+              value: bookingDetails.time_out,
+              onChange: handleChange,
+              className: "booking-form-input",
+              placeholder: "Select end time"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
+              children: "Auto-populated: Time In + working hours (or set custom time)"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            htmlFor: "description",
+            children: "Description"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("textarea", {
+            id: "description",
+            name: "description",
+            value: bookingDetails.description,
+            onChange: handleChange,
+            className: "booking-form-textarea",
+            placeholder: "Describe the work or service you need",
+            required: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            htmlFor: "daily_rate",
+            children: getSalaryInfo().label
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "number",
+            id: "daily_rate",
+            name: "daily_rate",
+            value: bookingDetails.daily_rate,
+            onChange: handleChange,
+            className: "booking-form-input",
+            placeholder: getSalaryInfo().placeholder,
+            min: "0",
+            step: "0.01",
+            required: true
+          }), getSalaryInfo().description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
+            children: getSalaryInfo().description
+          })]
+        }), bookingDetails.daily_rate && bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
+            children: "Salary Calculation Preview"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "salary-calculation-preview",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "calculation-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "calculation-label",
+                children: "Daily Rate:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                className: "calculation-value",
+                children: ["\u20B1", calculateSalary().dailyRate]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "calculation-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "calculation-label",
+                children: "Hours Per Day:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                className: "calculation-value",
+                children: [calculateSalary().hoursPerDay, " hours"]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "calculation-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "calculation-label",
+                children: "Working Days:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                className: "calculation-value",
+                children: [calculateSalary().workingDays, " days"]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "calculation-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "calculation-label",
+                children: "Total Hours:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                className: "calculation-value",
+                children: [calculateSalary().totalHours, " hours"]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "calculation-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "calculation-label",
+                children: "Hourly Rate:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                className: "calculation-value",
+                children: ["\u20B1", calculateSalary().hourlyRate, "/hour"]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "calculation-row total-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                className: "calculation-label",
+                children: "Total Salary:"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                className: "calculation-value",
+                children: ["\u20B1", calculateSalary().totalAmount]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
+                children: calculateSalary().explanation
+              })
+            })]
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "booking-modal-actions",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          className: "booking-btn booking-btn-cancel",
+          onClick: onClose,
+          children: "Cancel"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          className: "booking-btn booking-btn-submit",
+          onClick: handleSubmit,
+          disabled: !bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in) || !availabilityStatus.isAvailable,
+          children: "Update Booking"
+        })]
+      })]
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditMyBooking);
 
 /***/ }),
 
@@ -231974,14 +233118,14 @@ var TransactionModal = function TransactionModal(_ref) {
                 className: "value",
                 children: booking.service_type
               })]
-            }), booking.sub_skill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "detail-row",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                 className: "label",
                 children: "Sub Skills:"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                 className: "value",
-                children: booking.sub_skill
+                children: booking.sub_skill && booking.sub_skill.trim() !== '' ? booking.sub_skill : 'Not specified'
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "detail-row",
@@ -232060,7 +233204,7 @@ var TransactionModal = function TransactionModal(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "transaction-section",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-            children: "Financial Details"
+            children: "Salary Calculation Preview"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "transaction-details",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -233991,6 +235135,752 @@ var MyAddress = function MyAddress() {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyAddress);
+
+/***/ }),
+
+/***/ "./resources/js/components/profilesettings/mybookings.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/profilesettings/mybookings.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
+/* harmony import */ var react_icons_ci__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/ci */ "./node_modules/react-icons/ci/index.mjs");
+/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/io */ "./node_modules/react-icons/io/index.mjs");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _modalfeedback__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modalfeedback */ "./resources/js/components/profilesettings/modalfeedback.js");
+/* harmony import */ var _TransactionModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./TransactionModal */ "./resources/js/components/profilesettings/TransactionModal.js");
+/* harmony import */ var _EditMyBooking__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./EditMyBooking */ "./resources/js/components/profilesettings/EditMyBooking.js");
+/* harmony import */ var _sass_components_profilesettings_mybookings_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mybookings.scss */ "./resources/sass/components/profilesettings/mybookings.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var MyBookings = function MyBookings() {
+  var _selectedWorker$worke;
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useNavigate)();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('all'),
+    _useState2 = _slicedToArray(_useState, 2),
+    activeTab = _useState2[0],
+    setActiveTab = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    isFeedbackModalOpen = _useState4[0],
+    setIsFeedbackModalOpen = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    isTransactionModalOpen = _useState6[0],
+    setIsTransactionModalOpen = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState8 = _slicedToArray(_useState7, 2),
+    isEditModalOpen = _useState8[0],
+    setIsEditModalOpen = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState0 = _slicedToArray(_useState9, 2),
+    selectedWorker = _useState0[0],
+    setSelectedWorker = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState10 = _slicedToArray(_useState1, 2),
+    selectedBooking = _useState10[0],
+    setSelectedBooking = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState12 = _slicedToArray(_useState11, 2),
+    bookings = _useState12[0],
+    setBookings = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState14 = _slicedToArray(_useState13, 2),
+    loading = _useState14[0],
+    setLoading = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState16 = _slicedToArray(_useState15, 2),
+    userRole = _useState16[0],
+    setUserRole = _useState16[1];
+  var bookingCategories = [{
+    id: 'all',
+    label: 'All Bookings'
+  }, {
+    id: 'pending',
+    label: 'Pending'
+  }, {
+    id: 'declined',
+    label: 'Declined'
+  }, {
+    id: 'accepted',
+    label: 'Accepted'
+  }, {
+    id: 'cancelled',
+    label: 'Cancelled'
+  }, {
+    id: 'completed',
+    label: 'Completed'
+  }];
+
+  // Helper function to get status icon and styling
+  var getStatusIcon = function getStatusIcon(status) {
+    switch (status.toLowerCase()) {
+      case 'pending':
+        return {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
+            size: 14
+          }),
+          backgroundColor: '#ffa500',
+          color: 'white'
+        };
+      case 'accepted':
+        return {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_3__.IoMdCheckmarkCircleOutline, {
+            size: 14
+          }),
+          backgroundColor: '#4CAF50',
+          color: 'white'
+        };
+      case 'completed':
+        return {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineVerified, {
+            size: 14
+          }),
+          backgroundColor: '#2196F3',
+          color: 'white'
+        };
+      case 'declined':
+        return {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
+            size: 14
+          }),
+          backgroundColor: '#f44336',
+          color: 'white'
+        };
+      case 'cancelled':
+        return {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
+            size: 14
+          }),
+          backgroundColor: '#9e9e9e',
+          color: 'white'
+        };
+      default:
+        return {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
+            size: 14
+          }),
+          backgroundColor: '#9e9e9e',
+          color: 'white'
+        };
+    }
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // Get user role from localStorage
+    var userData = JSON.parse(localStorage.getItem("user") || '{}');
+    setUserRole(userData.role_id);
+    fetchBookings();
+  }, []);
+  var fetchBookings = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var authToken, userData, endpoint, response, sortedBookings, _error$response, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            _context.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Please log in to view bookings");
+            return _context.a(2);
+          case 1:
+            // Determine API endpoint based on user role
+            userData = JSON.parse(localStorage.getItem("user") || '{}');
+            endpoint = userData.role_id === 1 ? 'worker' : 'employer';
+            _context.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].get("http://127.0.0.1:8000/api/bookings/".concat(endpoint, "?user_id=").concat(userData.id), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
+            });
+          case 2:
+            response = _context.v;
+            if (response.data.success) {
+              // Sort bookings: Pending first, then Accepted, Completed, Declined, Cancelled
+              sortedBookings = response.data.bookings.sort(function (a, b) {
+                var statusOrder = {
+                  'pending': 1,
+                  'accepted': 2,
+                  'completed': 3,
+                  'declined': 4,
+                  'cancelled': 5
+                };
+                return statusOrder[a.status] - statusOrder[b.status];
+              });
+              console.log('Fetched bookings for role_id', userData.role_id, ':', sortedBookings);
+              setBookings(sortedBookings);
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to fetch bookings");
+            }
+            _context.n = 4;
+            break;
+          case 3:
+            _context.p = 3;
+            _t = _context.v;
+            console.error("Error fetching bookings:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to fetch bookings");
+          case 4:
+            _context.p = 4;
+            setLoading(false);
+            return _context.f(4);
+          case 5:
+            return _context.a(2);
+        }
+      }, _callee, null, [[0, 3, 4, 5]]);
+    }));
+    return function fetchBookings() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  var handleCancelBooking = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(bookingId) {
+      var authToken, response, _error$response2, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            _context2.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            _context2.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].patch("http://127.0.0.1:8000/api/bookings/".concat(bookingId, "/cancel"), {}, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
+            });
+          case 1:
+            response = _context2.v;
+            if (response.data.success) {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].success("Booking cancelled successfully");
+              fetchBookings();
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || "Failed to cancel booking");
+            }
+            _context2.n = 3;
+            break;
+          case 2:
+            _context2.p = 2;
+            _t2 = _context2.v;
+            console.error("Error cancelling booking:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to cancel booking");
+          case 3:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[0, 2]]);
+    }));
+    return function handleCancelBooking(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var handleStatusUpdate = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(bookingId, status) {
+      var authToken, response, _error$response3, _t3;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
+          case 0:
+            _context3.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            _context3.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].put("http://127.0.0.1:8000/api/bookings/".concat(bookingId, "/status"), {
+              status: status
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 1:
+            response = _context3.v;
+            if (response.data.success) {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].success("Booking ".concat(status, " successfully"));
+              fetchBookings();
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || "Failed to ".concat(status, " booking"));
+            }
+            _context3.n = 3;
+            break;
+          case 2:
+            _context3.p = 2;
+            _t3 = _context3.v;
+            console.error("Error updating booking status:", ((_error$response3 = _t3.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t3.message);
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to ".concat(status, " booking"));
+          case 3:
+            return _context3.a(2);
+        }
+      }, _callee3, null, [[0, 2]]);
+    }));
+    return function handleStatusUpdate(_x2, _x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  // Filter bookings based on active tab
+  var getFilteredBookings = function getFilteredBookings() {
+    if (activeTab === 'all') {
+      return bookings;
+    }
+    return bookings.filter(function (booking) {
+      return booking.status.toLowerCase() === activeTab;
+    });
+  };
+  var filteredBookings = getFilteredBookings();
+  var handleTabClick = function handleTabClick(tabId) {
+    console.log('Tab clicked:', tabId); // Debug log
+    console.log('Current active tab before:', activeTab); // Debug log
+    setActiveTab(tabId);
+    console.log('Setting active tab to:', tabId); // Debug log
+  };
+  var handleGiveFeedback = function handleGiveFeedback(booking) {
+    setSelectedWorker(booking);
+    setIsFeedbackModalOpen(true);
+  };
+  var handleCloseFeedbackModal = function handleCloseFeedbackModal() {
+    setIsFeedbackModalOpen(false);
+    setSelectedWorker(null);
+  };
+  var handleViewTransaction = function handleViewTransaction(booking) {
+    console.log('Opening transaction modal for booking:', booking);
+    setSelectedBooking(booking);
+    setIsTransactionModalOpen(true);
+  };
+  var handleCloseTransactionModal = function handleCloseTransactionModal() {
+    setIsTransactionModalOpen(false);
+    setSelectedBooking(null);
+  };
+  var handleSubmitFeedback = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(feedbackData) {
+      var authToken, response, _error$response4, _t4;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
+          case 0:
+            _context4.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            _context4.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].post("http://127.0.0.1:8000/api/bookings/".concat(selectedWorker.id, "/review"), {
+              rating: feedbackData.rating,
+              comment: feedbackData.feedback
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 1:
+            response = _context4.v;
+            if (response.data.success) {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].success("Review submitted successfully");
+              setIsFeedbackModalOpen(false);
+              setSelectedWorker(null);
+              fetchBookings();
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || "Failed to submit review");
+            }
+            _context4.n = 3;
+            break;
+          case 2:
+            _context4.p = 2;
+            _t4 = _context4.v;
+            console.error("Error submitting review:", ((_error$response4 = _t4.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t4.message);
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to submit review");
+          case 3:
+            return _context4.a(2);
+        }
+      }, _callee4, null, [[0, 2]]);
+    }));
+    return function handleSubmitFeedback(_x4) {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+  var handleProfileClick = function handleProfileClick(personData) {
+    if (personData && personData.id) {
+      navigate("/profile/".concat(personData.id));
+    }
+  };
+  var handleEditBooking = function handleEditBooking(booking) {
+    setSelectedBooking(booking);
+    setIsEditModalOpen(true);
+  };
+  var handleCloseEditModal = function handleCloseEditModal() {
+    setIsEditModalOpen(false);
+    setSelectedBooking(null);
+  };
+  var handleUpdateBooking = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(updatedDetails) {
+      var authToken, response, _error$response5, _t5;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
+          case 0:
+            _context5.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            _context5.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].put("http://127.0.0.1:8000/api/bookings/".concat(selectedBooking.id), updatedDetails, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 1:
+            response = _context5.v;
+            if (response.data.success) {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].success("Booking updated successfully");
+              setIsEditModalOpen(false);
+              setSelectedBooking(null);
+              fetchBookings();
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || "Failed to update booking");
+            }
+            _context5.n = 3;
+            break;
+          case 2:
+            _context5.p = 2;
+            _t5 = _context5.v;
+            console.error("Error updating booking:", ((_error$response5 = _t5.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t5.message);
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to update booking");
+          case 3:
+            return _context5.a(2);
+        }
+      }, _callee5, null, [[0, 2]]);
+    }));
+    return function handleUpdateBooking(_x5) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+  if (loading) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "my-bookings-container",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "loading-container",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+          children: "Loading bookings..."
+        })
+      })
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+    className: "my-bookings-container",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "bookings-header",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
+        className: "bookings-title",
+        children: userRole === 1 ? 'Booking Requests' : 'My Bookings'
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "bookings-navigation",
+      children: bookingCategories.map(function (category) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "booking-tab-container",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+            type: "button",
+            className: "booking-tab ".concat(activeTab === category.id ? 'active' : ''),
+            onClick: function onClick(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              handleTabClick(category.id);
+            },
+            onMouseDown: function onMouseDown(e) {
+              return e.preventDefault();
+            },
+            children: category.label
+          })
+        }, category.id);
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "bookings-content",
+      children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        className: "bookings-list",
+        children: filteredBookings.map(function (booking) {
+          var isEmployerView = userRole === 2;
+          var personData = isEmployerView ? booking.worker : booking.employer;
+          var personProfile = personData === null || personData === void 0 ? void 0 : personData.profile;
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "booking-card",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "booking-top-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "booking-worker-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "booking-worker-profile",
+                  onClick: function onClick(e) {
+                    e.stopPropagation();
+                    handleProfileClick(personData);
+                  },
+                  style: {
+                    cursor: 'pointer'
+                  },
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                    src: personProfile !== null && personProfile !== void 0 && personProfile.profile_img ? "http://127.0.0.1:8000/storage/".concat(personProfile.profile_img) : '/images/default-avatar.svg',
+                    alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'User',
+                    className: "booking-worker-avatar"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "booking-worker-details",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                    className: "booking-worker-name-container",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
+                      className: "booking-worker-name",
+                      onClick: function onClick(e) {
+                        e.stopPropagation();
+                        handleProfileClick(personData);
+                      },
+                      style: {
+                        cursor: 'pointer'
+                      },
+                      children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'Unknown User'
+                    }), isEmployerView && booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                      className: "booking-edit-container",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                        className: "booking-edit-btn",
+                        onClick: function onClick(e) {
+                          e.stopPropagation();
+                          handleEditBooking(booking);
+                        },
+                        title: "Edit booking",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaRegEdit, {
+                          size: 20
+                        })
+                      })
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+                    className: "booking-worker-profession",
+                    children: isEmployerView ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                      children: [booking.service_type, booking.sub_skill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                        className: "booking-sub-skill",
+                        children: [" - ", booking.sub_skill]
+                      })]
+                    }) : 'Employer'
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-worker-badges",
+                    children: (personData === null || personData === void 0 ? void 0 : personData.verified) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                      className: "booking-verified-badge",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdVerified, {
+                        className: "booking-verified-icon"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                        children: "Verified"
+                      })]
+                    })
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "booking-status-amount",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "booking-status-badge",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                    className: "booking-status-text",
+                    style: {
+                      backgroundColor: getStatusIcon(booking.status).backgroundColor,
+                      color: getStatusIcon(booking.status).color
+                    },
+                    children: [getStatusIcon(booking.status).icon, booking.status.charAt(0).toUpperCase() + booking.status.slice(1)]
+                  })
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "booking-middle-section",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "booking-dates",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "booking-date-item",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-date-label",
+                    children: "Start Date"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-date-value",
+                    children: new Date(booking.book_in).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "booking-date-item",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-date-label",
+                    children: "End Date"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-date-value",
+                    children: new Date(booking.book_end).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "booking-description",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "booking-description-label",
+                  children: "Description"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "booking-description-text",
+                  children: booking.description && booking.description.length > 50 ? "".concat(booking.description.substring(0, 50), "...") : booking.description
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "booking-salary",
+                children: ["\u20B1", booking.total_amount]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "booking-actions",
+              children: [isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-view-transaction-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleViewTransaction(booking);
+                    },
+                    children: "View Transaction"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-cancel-booking-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleCancelBooking(booking.id);
+                    },
+                    children: "Cancel Booking"
+                  })]
+                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                  className: "booking-view-transaction-btn",
+                  onClick: function onClick(e) {
+                    e.stopPropagation();
+                    handleViewTransaction(booking);
+                  },
+                  children: "View Transaction"
+                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-view-transaction-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleViewTransaction(booking);
+                    },
+                    children: "View Transaction"
+                  }), !booking.has_review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-give-feedback-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleGiveFeedback(booking);
+                    },
+                    children: "Give Feedback"
+                  })]
+                })]
+              }), !isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-view-transaction-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleViewTransaction(booking);
+                    },
+                    children: "View Transaction"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-accept-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleStatusUpdate(booking.id, 'accepted');
+                    },
+                    children: "Accept"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-decline-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleStatusUpdate(booking.id, 'declined');
+                    },
+                    children: "Decline"
+                  })]
+                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-view-transaction-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleViewTransaction(booking);
+                    },
+                    children: "View Transaction"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                    className: "booking-complete-btn",
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleStatusUpdate(booking.id, 'completed');
+                    },
+                    children: "Mark as Completed"
+                  })]
+                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                  className: "booking-view-transaction-btn",
+                  onClick: function onClick(e) {
+                    e.stopPropagation();
+                    handleViewTransaction(booking);
+                  },
+                  children: "View Transaction"
+                })]
+              })]
+            })]
+          }, booking.id);
+        })
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        className: "booking-empty-state",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          className: "booking-empty-icon",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+            src: "/images/mybooking.svg",
+            alt: "No Bookings"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
+          className: "booking-empty-title",
+          children: "No Bookings Yet"
+        })]
+      })
+    }), isFeedbackModalOpen && selectedWorker && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_modalfeedback__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      onClose: handleCloseFeedbackModal,
+      onSubmit: handleSubmitFeedback,
+      workerName: (_selectedWorker$worke = selectedWorker.worker) !== null && _selectedWorker$worke !== void 0 && _selectedWorker$worke.profile ? "".concat(selectedWorker.worker.profile.first_name, " ").concat(selectedWorker.worker.profile.last_name) : 'Worker'
+    }), isTransactionModalOpen && selectedBooking && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_TransactionModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      isOpen: isTransactionModalOpen,
+      onClose: handleCloseTransactionModal,
+      booking: selectedBooking
+    }), isEditModalOpen && selectedBooking && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_EditMyBooking__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      isOpen: isEditModalOpen,
+      onClose: handleCloseEditModal,
+      onSubmit: handleUpdateBooking,
+      booking: selectedBooking
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyBookings);
 
 /***/ }),
 
@@ -238038,16 +239928,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mypostjob__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./mypostjob */ "./resources/js/components/profilesettings/mypostjob.js");
 /* harmony import */ var _myjobs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./myjobs */ "./resources/js/components/profilesettings/myjobs.js");
 /* harmony import */ var _BookingRequest__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./BookingRequest */ "./resources/js/components/profilesettings/BookingRequest.js");
-/* harmony import */ var _HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../HeaderContent/Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
-/* harmony import */ var _sass_components_profilesettings_profilesettingsidebar_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../sass/components/profilesettings/profilesettingsidebar.scss */ "./resources/sass/components/profilesettings/profilesettingsidebar.scss");
-/* harmony import */ var _sass_components_profilesettings_myprofile_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myprofile.scss */ "./resources/sass/components/profilesettings/myprofile.scss");
-/* harmony import */ var _sass_components_profilesettings_myaddress_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myaddress.scss */ "./resources/sass/components/profilesettings/myaddress.scss");
-/* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
-/* harmony import */ var _sass_components_profilesettings_myjobs_scss__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myjobs.scss */ "./resources/sass/components/profilesettings/myjobs.scss");
-/* harmony import */ var _sass_components_profilesettings_profilesettings_scss__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../sass/components/profilesettings/profilesettings.scss */ "./resources/sass/components/profilesettings/profilesettings.scss");
-/* harmony import */ var _sass_components_profilesettings_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../sass/components/profilesettings/BookingRequest.scss */ "./resources/sass/components/profilesettings/BookingRequest.scss");
-/* harmony import */ var _sass_components_Headerz_scss__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../../../sass/components/Headerz.scss */ "./resources/sass/components/Headerz.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _mybookings__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./mybookings */ "./resources/js/components/profilesettings/mybookings.js");
+/* harmony import */ var _HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../HeaderContent/Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
+/* harmony import */ var _sass_components_profilesettings_profilesettingsidebar_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../sass/components/profilesettings/profilesettingsidebar.scss */ "./resources/sass/components/profilesettings/profilesettingsidebar.scss");
+/* harmony import */ var _sass_components_profilesettings_myprofile_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myprofile.scss */ "./resources/sass/components/profilesettings/myprofile.scss");
+/* harmony import */ var _sass_components_profilesettings_myaddress_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myaddress.scss */ "./resources/sass/components/profilesettings/myaddress.scss");
+/* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
+/* harmony import */ var _sass_components_profilesettings_myjobs_scss__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myjobs.scss */ "./resources/sass/components/profilesettings/myjobs.scss");
+/* harmony import */ var _sass_components_profilesettings_profilesettings_scss__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../sass/components/profilesettings/profilesettings.scss */ "./resources/sass/components/profilesettings/profilesettings.scss");
+/* harmony import */ var _sass_components_profilesettings_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../sass/components/profilesettings/BookingRequest.scss */ "./resources/sass/components/profilesettings/BookingRequest.scss");
+/* harmony import */ var _sass_components_profilesettings_mybookings_scss__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mybookings.scss */ "./resources/sass/components/profilesettings/mybookings.scss");
+/* harmony import */ var _sass_components_Headerz_scss__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../../../sass/components/Headerz.scss */ "./resources/sass/components/Headerz.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
 
 
 
@@ -238067,28 +239967,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProfileSettings = function ProfileSettings() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState2 = _slicedToArray(_useState, 2),
+    userRole = _useState2[0],
+    setUserRole = _useState2[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // Get user role from localStorage
+    var userData = JSON.parse(localStorage.getItem("user") || '{}');
+    setUserRole(userData.role_id);
+  }, []);
+
+  // Determine which bookings component to use based on user role
+  var BookingsComponent = userRole === 1 ? _BookingRequest__WEBPACK_IMPORTED_MODULE_7__["default"] : _mybookings__WEBPACK_IMPORTED_MODULE_8__["default"];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
     className: "profile-settings-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_9__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)("div", {
       className: "profile-settings-layout",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_profilesettingsidebar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_profilesettingsidebar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)("div", {
         className: "profile-settings-content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Routes, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Routes, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
             path: "/",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_myprofile__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_myprofile__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
             path: "/addresses",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_myaddress__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_myaddress__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
             path: "/bookings",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_BookingRequest__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(BookingsComponent, {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
             path: "/my-jobs",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_myjobs__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_myjobs__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
             path: "/post-job",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_mypostjob__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_mypostjob__WEBPACK_IMPORTED_MODULE_5__["default"], {})
           })]
         })
       })]
@@ -238873,6 +240785,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./resources/sass/components/ConfirmationModal.scss":
+/*!**********************************************************!*\
+  !*** ./resources/sass/components/ConfirmationModal.scss ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ConfirmationModal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./ConfirmationModal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/ConfirmationModal.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ConfirmationModal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ConfirmationModal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./resources/sass/components/Headerz.scss":
 /*!************************************************!*\
   !*** ./resources/sass/components/Headerz.scss ***!
@@ -239020,6 +240962,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_Service_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/SuccessModal.scss":
+/*!*****************************************************!*\
+  !*** ./resources/sass/components/SuccessModal.scss ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_SuccessModal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./SuccessModal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/SuccessModal.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_SuccessModal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_SuccessModal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -240283,6 +242255,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./resources/sass/components/profilesettings/EditMyBooking.scss":
+/*!**********************************************************************!*\
+  !*** ./resources/sass/components/profilesettings/EditMyBooking.scss ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_EditMyBooking_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./EditMyBooking.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/EditMyBooking.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_EditMyBooking_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_EditMyBooking_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./resources/sass/components/profilesettings/canceljobapplicationmodal.scss":
 /*!**********************************************************************************!*\
   !*** ./resources/sass/components/profilesettings/canceljobapplicationmodal.scss ***!
@@ -240490,6 +242492,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_myaddress_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/profilesettings/mybookings.scss":
+/*!*******************************************************************!*\
+  !*** ./resources/sass/components/profilesettings/mybookings.scss ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_mybookings_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./mybookings.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/mybookings.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_mybookings_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_mybookings_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

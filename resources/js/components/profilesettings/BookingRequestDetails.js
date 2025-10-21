@@ -40,7 +40,14 @@ const BookingRequestDetails = ({
                 {personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'Unknown User'}
               </h3>
               <p className="worker-profession">
-                {isEmployerView ? booking.service_type : 'Employer'}
+                {isEmployerView ? (
+                  <>
+                    {booking.service_type}
+                    {booking.sub_skill && (
+                      <span className="booking-sub-skill"> - {booking.sub_skill}</span>
+                    )}
+                  </>
+                ) : 'Employer'}
               </p>
             </div>
             <div className="booking-salary">

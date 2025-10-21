@@ -5,6 +5,7 @@ import '../../../sass/components/profilesettings/transactionmodal.scss';
 const TransactionModal = ({ isOpen, onClose, booking }) => {
   if (!isOpen || !booking) return null;
 
+
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleString('en-US', {
       year: 'numeric',
@@ -41,12 +42,15 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
                 <span className="label">Service Type:</span>
                 <span className="value">{booking.service_type}</span>
               </div>
-              {booking.sub_skill && (
-                <div className="detail-row">
-                  <span className="label">Sub Skills:</span>
-                  <span className="value">{booking.sub_skill}</span>
-                </div>
-              )}
+              <div className="detail-row">
+                <span className="label">Sub Skills:</span>
+                <span className="value">
+                  {booking.sub_skill && booking.sub_skill.trim() !== '' 
+                    ? booking.sub_skill 
+                    : 'Not specified'
+                  }
+                </span>
+              </div>
               <div className="detail-row">
                 <span className="label">Work Type:</span>
                 <span className="value">{booking.work_type}</span>
@@ -89,7 +93,7 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
           </div>
 
           <div className="transaction-section">
-            <h3>Financial Details</h3>
+            <h3>Salary Calculation Preview</h3>
             <div className="transaction-details">
               <div className="detail-row">
                 <span className="label">Daily Rate:</span>

@@ -6,6 +6,8 @@ import Headerz from "../HeaderContent/Headerz";
 import profilePhoto from '../../../../resources/sass/img/pfp.svg';
 import coverPhoto from '../../../../resources/sass/img/coverphoto.svg';
 import BookModal from './BookModal';
+import ConfirmationModal from './ConfirmationModal';
+import SuccessModal from './SuccessModal';
 import Loader from "../LoaderContent/loader";
 import { message } from 'antd';
 
@@ -29,8 +31,6 @@ const Profile = ({ initialServiceType }) => {
   const [worker, setWorker] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [reviews, setReviews] = useState([]);
   const [reviewsLoading, setReviewsLoading] = useState(false);
@@ -56,37 +56,6 @@ const Profile = ({ initialServiceType }) => {
     }
   };
 
-  // Subscription plans
-  const subscriptionPlans = {
-    monthly: {
-      name: "Monthly Plan",
-      price: 299,
-      period: "month",
-      features: ["View contact information", "Access to worker profiles", "Priority support"]
-    },
-    yearly: {
-      name: "Yearly Plan", 
-      price: 2999,
-      period: "year",
-      features: ["View contact information", "Access to worker profiles", "Priority support", "Save 17%"]
-    }
-  };
-
-  const handleContactClick = () => {
-    setIsSubscriptionModalOpen(true);
-  };
-
-  const handlePlanSelect = (planType) => {
-    setSelectedPlan(planType);
-  };
-
-  const handlePayment = (paymentMethod) => {
-    // Handle payment logic here
-    console.log(`Processing ${paymentMethod} payment for ${selectedPlan} plan`);
-    message.success(`Payment processed successfully! You now have access to contact information.`);
-    setIsSubscriptionModalOpen(false);
-    setSelectedPlan(null);
-  };
 
   // Check if user is logged in
   const isLoggedIn = () => {
@@ -359,7 +328,14 @@ const Profile = ({ initialServiceType }) => {
     setActiveTab(tab);
   };
 
-  const handleBookingSubmit = async (details) => {
+  const handleBookingSubmit = (details) => {
+    // Just show confirmation modal - don't submit to backend yet
+    setBookingDetails(details);
+    setIsBookingModalOpen(false);
+    setIsConfirmationModalOpen(true);
+  };
+
+  const handleConfirmBooking = async () => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
@@ -391,17 +367,17 @@ const Profile = ({ initialServiceType }) => {
 
       const bookingData = {
         worker_id: worker.id,
-        service_type: details.service_type,
-        work_type: details.work_type,
-        description: details.description,
-        book_in: formatDateTime(details.book_in),
-        book_end: formatDateTime(details.book_end),
-        time_in: details.time_in || null,
-        time_out: details.time_out || null,
-        daily_rate: parseFloat(details.daily_rate)
+        service_type: bookingDetails.service_type,
+        sub_skill: bookingDetails.sub_skill || null,
+        work_type: bookingDetails.work_type,
+        description: bookingDetails.description,
+        book_in: formatDateTime(bookingDetails.book_in),
+        book_end: formatDateTime(bookingDetails.book_end),
+        time_in: bookingDetails.time_in || null,
+        time_out: bookingDetails.time_out || null,
+        daily_rate: parseFloat(bookingDetails.daily_rate),
+        total_salary: parseFloat(bookingDetails.total_salary) || null,
       };
-
-      console.log('Sending booking data:', bookingData);
 
       const response = await axios.post('http://127.0.0.1:8000/api/bookings', bookingData, {
         headers: {
@@ -413,9 +389,8 @@ const Profile = ({ initialServiceType }) => {
 
       if (response.data.success) {
         message.success("Booking request sent successfully!");
-        setBookingDetails(details);
-        setIsBookingModalOpen(false);
-        setIsConfirmationModalOpen(true);
+        setIsConfirmationModalOpen(false);
+        setIsSuccessModalOpen(true);
       } else {
         message.error(response.data.message || "Failed to send booking request");
       }
@@ -438,16 +413,11 @@ const Profile = ({ initialServiceType }) => {
     }
   };
 
-  const handleConfirmBooking = () => {
-    setIsConfirmationModalOpen(false);
-    setIsSuccessModalOpen(true);
-  };
-
   if (loading) {
     return (
-      <div className="worker-profile-page">
+      <div className="profile-page">
         <Headerz />
-        <div className="loading-container">
+        <div className="profile-loading-container">
           <Loader />
         </div>
       </div>
@@ -456,42 +426,42 @@ const Profile = ({ initialServiceType }) => {
 
   if (error || !worker) {
     return (
-      <div className="worker-profile-page">
+      <div className="profile-page">
         <Headerz />
-        <div className="error-container">
-          <p className="error-message">{error || "Worker not found"}</p>
+        <div className="profile-error-container">
+          <p className="profile-error-message">{error || "Worker not found"}</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="worker-profile-page">
+    <div className="profile-page">
       <Headerz />
-      <div className="worker-profile-header">
-        <div className="worker-cover-photo">
+      <div className="profile-header">
+        <div className="profile-cover-photo">
           <img src={coverPhoto} alt="Cover" />
         </div>
-        <div className="worker-profile-photo-wrapper">
+        <div className="profile-photo-wrapper">
           <img 
             src={worker.profile_img 
               ? `http://127.0.0.1:8000/storage/${worker.profile_img}` 
               : profilePhoto
             } 
             alt="Profile" 
-            className="worker-profile-photo" 
+            className="profile-photo" 
           />
         </div>
       </div>
 
-      <div className="worker-profile-container">
-        <div className="worker-profile-left">
-          <div className="worker-profile-info">
-            <div className="worker-name-container">
+      <div className="profile-container">
+        <div className="profile-left">
+          <div className="profile-info">
+            <div className="profile-name-container">
               <h2>{worker.name}</h2>
-               <div className="worker-badges-container">
+               <div className="profile-badges-container">
                  {(worker.verified === true || worker.verified === 1) && (
-                   <div className="worker-verified-badge" title="Verified Worker">
+                   <div className="profile-verified-badge" title="Verified Worker">
                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                        <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="#4CAF50"/>
                      </svg>
@@ -499,36 +469,36 @@ const Profile = ({ initialServiceType }) => {
                  )}
                </div>
             </div>
-            <div className="worker-status-container">
-              <span className="worker-status-dot"></span>
-              <p className="worker-status">{worker.status === "ACTIVE NOW" ? "Available now" : worker.status}</p>
+            <div className="profile-status-container">
+              <span className="profile-status-dot"></span>
+              <p className="profile-status">{worker.status === "ACTIVE NOW" ? "Available now" : worker.status}</p>
             </div>
-            <p className="worker-location">{worker.location}</p>
-            <button className="worker-hire-button" onClick={handleHireNowClick}>
+            <p className="profile-location">{worker.location}</p>
+            <button className="profile-hire-button" onClick={handleHireNowClick}>
               HIRE NOW
             </button>
           </div>
-          <div className="worker-rank-display-section">
+          <div className="profile-rank-display-section">
             {workerRank ? (
-              <div className="worker-rank-display">
+              <div className="profile-rank-display">
                 <img 
                   src={`http://127.0.0.1:8000/storage/${workerRank.image}`}
                   alt={`${workerRank.name} Rank`}
-                  className="worker-rank-badge"
+                  className="profile-rank-badge"
                   title={`${workerRank.name} Rank - ${totalPoints.toLocaleString()} points`}
                 />
-                <div className="worker-rank-progress">
-                  <div className="worker-progress-info">
-                    <span className="worker-rank-name">{workerRank.name}</span>
-                    <span className="worker-points-text">{totalPoints.toLocaleString()} pts</span>
+                <div className="profile-rank-progress">
+                  <div className="profile-progress-info">
+                    <span className="profile-rank-name">{workerRank.name}</span>
+                    <span className="profile-points-text">{totalPoints.toLocaleString()} pts</span>
                   </div>
-                  <div className="worker-progress-bar-container">
+                  <div className="profile-progress-bar-container">
                     <div 
-                      className={`worker-progress-bar-fill worker-rank-${workerRank.name.toLowerCase()}`}
+                      className={`profile-progress-bar-fill profile-rank-${workerRank.name.toLowerCase()}`}
                       style={{ width: `${progressPercent}%` }}
                     ></div>
                   </div>
-                  <span className="worker-progress-label">
+                  <span className="profile-progress-label">
                     {workerRank.max_points 
                       ? `${totalPoints.toLocaleString()} / ${workerRank.max_points.toLocaleString()}`
                       : `${totalPoints.toLocaleString()} pts`
@@ -537,76 +507,76 @@ const Profile = ({ initialServiceType }) => {
                 </div>
               </div>
             ) : (
-              <div className="worker-rank-display">
-                <div className="worker-rank-loading">Loading rank...</div>
+              <div className="profile-rank-display">
+                <div className="profile-rank-loading">Loading rank...</div>
               </div>
             )}
           </div>
-          <div className="worker-stats">
-            <div className="worker-stat-item">
-              <span className="worker-stat-label">Work Type</span>
-              <span className="worker-stat-number">{worker.work_type || 'Part-time'}</span>
+          <div className="profile-stats">
+            <div className="profile-stat-item">
+              <span className="profile-stat-label">Work Type</span>
+              <span className="profile-stat-number">{worker.work_type || 'Part-time'}</span>
             </div>
-            <div className="worker-stat-item">
-              <span className="worker-stat-label">Preferred Working Days</span>
-              <span className="worker-stat-number">
+            <div className="profile-stat-item">
+              <span className="profile-stat-label">Preferred Working Days</span>
+              <span className="profile-stat-number">
                 {Array.isArray(worker.preferred_working_days) && worker.preferred_working_days.length > 0 
                   ? worker.preferred_working_days.join(', ').replace(/\b\w/g, l => l.toUpperCase())
                   : 'Not specified'
                 }
               </span>
             </div>
-            <div className="worker-stat-item">
-              <span className="worker-stat-label">Hours/Day</span>
-              <span className="worker-stat-number">{worker.hours_per_day || 4} hrs</span>
+            <div className="profile-stat-item">
+              <span className="profile-stat-label">Hours/Day</span>
+              <span className="profile-stat-number">{worker.hours_per_day || 4} hrs</span>
               </div>
             </div>
         </div>
 
-        <div className="worker-profile-right">
-          <div className="worker-tabs">
+        <div className="profile-right">
+          <div className="profile-tabs">
             {['OVERVIEW', 'CREDENTIALS', 'REVIEWS'].map((tab) => (
               <button
                 key={tab}
-                className={`worker-tab ${activeTab === tab ? 'active' : ''}`}
+                className={`profile-tab ${activeTab === tab ? 'active' : ''}`}
                 onClick={() => handleTabClick(tab)}
               >
                 {tab}
               </button>
             ))}
           </div>
-          <div className="worker-tab-content">
+          <div className="profile-tab-content">
             {activeTab === 'OVERVIEW' && (
-              <div className="worker-overview">
+              <div className="profile-overview">
                 <h4>About</h4>
                 <p>{worker.description || "No bio available"}</p>
                 <h4>Skills</h4>
-                <div className="worker-skills-section">
+                <div className="profile-skills-section">
                   {worker.primary_skills.length > 0 && (
-                    <div className="worker-skills-category">
+                    <div className="profile-skills-category">
                       <h5>Primary Skills</h5>
                       {worker.primary_skills.map((skill, index) => {
                         const skillRank = getRankByExperience(skill.experience);
                         return (
-                          <div key={index} className="worker-skill-item">
-                            <div className="worker-skill-header">
-                              <div className="worker-skill-name-with-rank">
+                          <div key={index} className="profile-skill-item">
+                            <div className="profile-skill-header">
+                              <div className="profile-skill-name-with-rank">
                                 <img 
                                   src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
                                   alt={`${skillRank.name} Rank`}
-                                  className="worker-skill-rank-icon"
+                                  className="profile-skill-rank-icon"
                                 />
-                                <span className="worker-skill-name">
+                                <span className="profile-skill-name">
                                   {skill.skill_name}
                                   {skill.sub_skills && skill.sub_skills.length > 0 && (
-                                    <span className="worker-sub-skills"> - {skill.sub_skills.join(', ')}</span>
+                                    <span className="profile-sub-skills"> - {skill.sub_skills.join(', ')}</span>
                                   )}
                                 </span>
                               </div>
                             </div>
-                            <div className="worker-skill-details">
-                              <span className="worker-experience">Experience: {skill.experience}</span>
-                              <span className="worker-hourly-rate">₱{skill.hourly_rate}/hour</span>
+                            <div className="profile-skill-details">
+                              <span className="profile-experience">Experience: {skill.experience}</span>
+                              <span className="profile-hourly-rate">₱{skill.hourly_rate}/hour</span>
                             </div>
                           </div>
                         );
@@ -615,30 +585,30 @@ const Profile = ({ initialServiceType }) => {
                   )}
                   
                   {worker.additional_skills.length > 0 && (
-                    <div className="worker-skills-category">
+                    <div className="profile-skills-category">
                       <h5>Additional Skills</h5>
                       {worker.additional_skills.map((skill, index) => {
                         const skillRank = getRankByExperience(skill.experience);
                         return (
-                          <div key={index} className="worker-skill-item">
-                            <div className="worker-skill-header">
-                              <div className="worker-skill-name-with-rank">
+                          <div key={index} className="profile-skill-item">
+                            <div className="profile-skill-header">
+                              <div className="profile-skill-name-with-rank">
                                 <img 
                                   src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
                                   alt={`${skillRank.name} Rank`}
-                                  className="worker-skill-rank-icon"
+                                  className="profile-skill-rank-icon"
                                 />
-                                <span className="worker-skill-name">
+                                <span className="profile-skill-name">
                                   {skill.skill_name}
                                   {skill.sub_skills && skill.sub_skills.length > 0 && (
-                                    <span className="worker-sub-skills"> - {skill.sub_skills.join(', ')}</span>
+                                    <span className="profile-sub-skills"> - {skill.sub_skills.join(', ')}</span>
                                   )}
                                 </span>
                               </div>
                             </div>
-                            <div className="worker-skill-details">
-                              <span className="worker-experience">Experience: {skill.experience}</span>
-                              <span className="worker-hourly-rate">₱{skill.hourly_rate}/hour</span>
+                            <div className="profile-skill-details">
+                              <span className="profile-experience">Experience: {skill.experience}</span>
+                              <span className="profile-hourly-rate">₱{skill.hourly_rate}/hour</span>
                             </div>
                           </div>
                         );
@@ -653,7 +623,7 @@ const Profile = ({ initialServiceType }) => {
               </div>
             )}
             {activeTab === 'CREDENTIALS' && (
-              <div className="worker-credentials">
+              <div className="profile-credentials">
                 <h4>Credentials</h4>
                 {worker.credentials.length > 0 ? (
                 <ul>
@@ -665,10 +635,10 @@ const Profile = ({ initialServiceType }) => {
                   <p>No credentials available</p>
                 )}
                 {worker.credentials_photo.length > 0 && (
-                  <div className="worker-credentials-photos">
+                  <div className="profile-credentials-photos">
                     <h5>Credential Documents</h5>
                     {worker.credentials_photo.map((photo, index) => (
-                      <div key={index} className="worker-credential-photo">
+                      <div key={index} className="profile-credential-photo">
                         <a 
                           href={`http://127.0.0.1:8000/storage/${photo}`} 
                           target="_blank" 
@@ -683,20 +653,20 @@ const Profile = ({ initialServiceType }) => {
               </div>
             )}
             {activeTab === 'REVIEWS' && (
-              <div className="worker-reviews">
+              <div className="profile-reviews">
                 {totalReviews > 0 && (
-                  <div className="worker-reviews-header">
-                    <div className="worker-reviews-summary">
-                      <div className="worker-average-rating">
-                        <span className="worker-rating-number">{averageRating.toFixed(1)}</span>
-                        <div className="worker-stars">
+                  <div className="profile-reviews-header">
+                    <div className="profile-reviews-summary">
+                      <div className="profile-average-rating">
+                        <span className="profile-rating-number">{averageRating.toFixed(1)}</span>
+                        <div className="profile-stars">
                           {[1, 2, 3, 4, 5].map((star) => (
-                            <span key={star} className={star <= Math.round(averageRating) ? 'worker-star filled' : 'worker-star'}>
+                            <span key={star} className={star <= Math.round(averageRating) ? 'profile-star filled' : 'profile-star'}>
                               ★
                             </span>
                           ))}
                         </div>
-                        <span className="worker-total-reviews">({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})</span>
+                        <span className="profile-total-reviews">({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})</span>
                       </div>
                     </div>
                   </div>
@@ -705,31 +675,31 @@ const Profile = ({ initialServiceType }) => {
                 {reviewsLoading ? (
                   <p>Loading reviews...</p>
                 ) : reviews.length > 0 ? (
-                  <div className="worker-reviews-list">
+                  <div className="profile-reviews-list">
                     {reviews.map((review) => (
-                      <div key={review.id} className="worker-review-item">
-                        <div className="worker-review-header">
-                          <div className="worker-reviewer-info">
+                      <div key={review.id} className="profile-review-item">
+                        <div className="profile-review-header">
+                          <div className="profile-reviewer-info">
                             <img 
                               src={review.reviewer.profile_img 
                                 ? `http://127.0.0.1:8000/storage/${review.reviewer.profile_img}` 
                                 : profilePhoto
                               } 
                               alt={review.reviewer.name}
-                              className="worker-reviewer-avatar"
+                              className="profile-reviewer-avatar"
                             />
-                            <div className="worker-reviewer-details">
-                              <span className="worker-reviewer-name">{review.reviewer.name}</span>
-                              <div className="worker-review-rating">
+                            <div className="profile-reviewer-details">
+                              <span className="profile-reviewer-name">{review.reviewer.name}</span>
+                              <div className="profile-review-rating">
                                 {[1, 2, 3, 4, 5].map((star) => (
-                                  <span key={star} className={star <= review.rating ? 'worker-star filled' : 'worker-star'}>
+                                  <span key={star} className={star <= review.rating ? 'profile-star filled' : 'profile-star'}>
                                     ★
                                   </span>
                                 ))}
                               </div>
                             </div>
                           </div>
-                          <span className="worker-review-date">
+                          <span className="profile-review-date">
                             {new Date(review.created_at).toLocaleDateString('en-US', { 
                               year: 'numeric', 
                               month: 'short', 
@@ -737,7 +707,7 @@ const Profile = ({ initialServiceType }) => {
                             })}
                           </span>
                         </div>
-                        <p className="worker-review-comment">{review.comment}</p>
+                        <p className="profile-review-comment">{review.comment}</p>
                       </div>
                     ))}
                   </div>
@@ -757,183 +727,38 @@ const Profile = ({ initialServiceType }) => {
         onSubmit={(details) => handleBookingSubmit(details)}
       />
 
-      {/* Confirmation Modal */}
-      {isConfirmationModalOpen && (
-        <div className="adminmodal-overlay">
-          <div className="adminmodal">
-            <h2>Planning Summary</h2> {/* Removed X button */}
-            <div className="adminmodal-content">
-              <div className="form-group">
-                <label>Worker</label>
-                <input type="text" value={worker.name} readOnly disabled />
-              </div>
-              <div className="form-group">
-                <label>Service Type</label>
-                <input type="text" value={bookingDetails.service_type} readOnly disabled />
-              </div>
-              <div className="form-group">
-                <label>Work Type</label>
-                <input type="text" value={bookingDetails.work_type} readOnly disabled />
-              </div>
-              <div className="form-group">
-                <label>Book In</label>
-                <input type="text" value={bookingDetails.book_in} readOnly disabled />
-              </div>
-              <div className="form-group">
-                <label>Book End</label>
-                <input type="text" value={bookingDetails.book_end} readOnly disabled />
-              </div>
-              <div className="form-group">
-                <label>Description</label>
-                <textarea value={bookingDetails.description} readOnly disabled />
-              </div>
-              <div className="form-group">
-                <label>Estimated Cost</label>
-                <div>
-                  Hours: {bookingDetails ? calculateSalary(bookingDetails).hours : '0'}<br />
-                  Total: ₱{bookingDetails ? calculateSalary(bookingDetails).total : '0.00'}
-                </div>
-              </div>
-            </div>
-            <div className="adminmodal-buttons">
-              <button className="cancel-button" onClick={() => setIsConfirmationModalOpen(false)}>
-                Cancel
-              </button>
-              <button className="submit-button" onClick={handleConfirmBooking}>
-                Confirm Booking
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ConfirmationModal
+        isOpen={isConfirmationModalOpen}
+        onClose={() => setIsConfirmationModalOpen(false)}
+        onConfirm={handleConfirmBooking}
+        onBack={() => {
+          setIsConfirmationModalOpen(false);
+          setIsBookingModalOpen(true);
+        }}
+        worker={worker}
+        bookingDetails={bookingDetails}
+        calculateSalary={calculateSalary}
+      />
 
-      {/* Success Modal */}
-      {isSuccessModalOpen && (
-        <div className="adminmodal-overlay">
-          <div className="adminmodal">
-            <h2>Booking Successful</h2> {/* Removed X button */}
-            <div className="adminmodal-content">
-              <div className="form-group">
-                <p>Thank you for booking this applicant. Please note that the status is currently pending.</p>
-              </div>
-            </div>
-            <div className="adminmodal-buttons">
-              <button className="submit-button" onClick={() => setIsSuccessModalOpen(false)}>
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <SuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+      />
 
-      {/* Subscription Modal */}
-      {isSubscriptionModalOpen && (
-        <div className="adminmodal-overlay">
-          <div className="adminmodal subscription-modal">
-            <h2>Upgrade to Premium</h2>
-            <p className="modal-subtitle">Unlock contact information and premium features</p>
-            
-            <div className="subscription-plans">
-              <div 
-                className={`plan-card ${selectedPlan === 'monthly' ? 'selected' : ''}`}
-                onClick={() => handlePlanSelect('monthly')}
-              >
-                <h3>{subscriptionPlans.monthly.name}</h3>
-                <div className="price">
-                  <span className="currency">₱</span>
-                  <span className="amount">{subscriptionPlans.monthly.price}</span>
-                  <span className="period">/{subscriptionPlans.monthly.period}</span>
-                </div>
-                <ul className="features">
-                  {subscriptionPlans.monthly.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div 
-                className={`plan-card ${selectedPlan === 'yearly' ? 'selected' : ''}`}
-                onClick={() => handlePlanSelect('yearly')}
-              >
-                <h3>{subscriptionPlans.yearly.name}</h3>
-                <div className="price">
-                  <span className="currency">₱</span>
-                  <span className="amount">{subscriptionPlans.yearly.price}</span>
-                  <span className="period">/{subscriptionPlans.yearly.period}</span>
-                </div>
-                <ul className="features">
-                  {subscriptionPlans.yearly.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-                <div className="savings-badge">Save 17%</div>
-              </div>
-            </div>
-
-            {selectedPlan && (
-              <div className="payment-methods">
-                <h4>Choose Payment Method</h4>
-                <div className="payment-options">
-                  <button 
-                    className="payment-btn gcash"
-                    onClick={() => handlePayment('GCash')}
-                  >
-                    <span className="payment-icon">💳</span>
-                    GCash
-                  </button>
-                  <button 
-                    className="payment-btn debit"
-                    onClick={() => handlePayment('Debit Card')}
-                  >
-                    <span className="payment-icon">💳</span>
-                    Debit Card
-                  </button>
-                  <button 
-                    className="payment-btn credit"
-                    onClick={() => handlePayment('Credit Card')}
-                  >
-                    <span className="payment-icon">💳</span>
-                    Credit Card
-                  </button>
-                  <button 
-                    className="payment-btn paypal"
-                    onClick={() => handlePayment('PayPal')}
-                  >
-                    <span className="payment-icon">💳</span>
-                    PayPal
-                  </button>
-                </div>
-              </div>
-            )}
-
-            <div className="adminmodal-buttons">
-              <button 
-                className="cancel-button" 
-                onClick={() => {
-                  setIsSubscriptionModalOpen(false);
-                  setSelectedPlan(null);
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Login Modal */}
       {isLoginModalOpen && (
-        <div className="adminmodal-overlay">
-          <div className="adminmodal login-modal">
+        <div className="profile-login-modal-overlay">
+          <div className="profile-login-modal">
             <h2>Sign In Required</h2>
-            <p className="modal-subtitle">You need to be logged in to book this worker</p>
+            <p className="profile-login-modal-subtitle">You need to be logged in to book this worker</p>
             
-            <div className="login-options">
-              <div className="login-option">
+            <div className="profile-login-options">
+              <div className="profile-login-option">
                 <h3>Already have an account?</h3>
                 <p>Sign in to your existing account to book this worker</p>
                 <button 
-                  className="login-btn signin-btn"
+                  className="profile-login-btn profile-signin-btn"
                   onClick={() => {
                     setIsLoginModalOpen(false);
                     // Navigate to login page or open login modal
@@ -944,15 +769,15 @@ const Profile = ({ initialServiceType }) => {
                 </button>
               </div>
               
-              <div className="login-divider">
+              <div className="profile-login-divider">
                 <span>OR</span>
               </div>
               
-              <div className="login-option">
+              <div className="profile-login-option">
                 <h3>New to Worqo?</h3>
                 <p>Create a new account to start booking workers</p>
                 <button 
-                  className="login-btn signup-btn"
+                  className="profile-login-btn profile-signup-btn"
                   onClick={() => {
                     setIsLoginModalOpen(false);
                     // Navigate to signup page or open signup modal
@@ -964,9 +789,9 @@ const Profile = ({ initialServiceType }) => {
               </div>
             </div>
 
-            <div className="adminmodal-buttons">
+            <div className="profile-login-modal-buttons">
               <button 
-                className="cancel-button" 
+                className="profile-login-cancel-button" 
                 onClick={() => setIsLoginModalOpen(false)}
               >
                 Cancel
@@ -978,15 +803,191 @@ const Profile = ({ initialServiceType }) => {
     </div>
   );
 
+  // Calculate actual hours based on time in/out
+  const calculateActualHours = (details) => {
+    const { time_in, time_out } = details;
+    
+    if (!time_in || !time_out) {
+      return 0;
+    }
+    
+    const [startHour, startMinute] = time_in.split(':').map(Number);
+    const [endHour, endMinute] = time_out.split(':').map(Number);
+    
+    const startTime = startHour * 60 + startMinute; // Convert to minutes
+    const endTime = endHour * 60 + endMinute; // Convert to minutes
+    
+    let diffMinutes = endTime - startTime;
+    
+    // Handle overnight shifts (if end time is before start time)
+    if (diffMinutes < 0) {
+      diffMinutes += 24 * 60; // Add 24 hours
+    }
+    
+    return diffMinutes / 60; // Convert back to hours
+  };
+
+  // Calculate working days based on work type and collar type
+  const calculateWorkingDays = (startDate, endDate, workType) => {
+    let workingDaysCount = 0;
+    
+    // Reset time to midnight to avoid time comparison issues
+    const currentDate = new Date(startDate);
+    currentDate.setHours(0, 0, 0, 0);
+    
+    const end = new Date(endDate);
+    end.setHours(0, 0, 0, 0);
+    
+    // Add 1 day to end date to include the end date itself
+    end.setDate(end.getDate() + 1);
+    
+    while (currentDate < end) {
+      const dayOfWeek = currentDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+      
+      // Determine working days based on work type and collar type
+      if (workType === 'one-time') {
+        // One-time jobs: count all days
+        workingDaysCount++;
+      } else if (isBlueCollarWorker()) {
+        // Blue-collar workers: work Monday-Saturday (6 days per week)
+        if (dayOfWeek >= 1 && dayOfWeek <= 6) { // Monday to Saturday
+          workingDaysCount++;
+        }
+      } else {
+        // White-collar/Pink-collar workers: work Monday-Friday (5 days per week)
+        if (dayOfWeek >= 1 && dayOfWeek <= 5) { // Monday to Friday
+          workingDaysCount++;
+        }
+      }
+      
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    
+    return workingDaysCount;
+  };
+
+  // Calculate full-time working days (Monday to Friday)
+  const calculateFullTimeWorkingDays = (startDate, endDate) => {
+    return calculateWorkingDays(startDate, endDate, 'full-time');
+  };
+
+  // Calculate preferred working days for part-time workers
+  const calculatePreferredWorkingDays = (startDate, endDate) => {
+    return calculateWorkingDays(startDate, endDate, 'part-time');
+  };
+
+  // Determine if worker is blue-collar based on their skills
+  const isBlueCollarWorker = () => {
+    if (!worker?.primary_skills && !worker?.additional_skills) return false;
+    
+    const allSkills = [
+      ...(worker.primary_skills || []),
+      ...(worker.additional_skills || [])
+    ];
+    
+    // Blue-collar skill names (manual labor, construction, maintenance, etc.)
+    const blueCollarSkills = [
+      'plumbing', 'electrical', 'carpentry', 'welding', 'masonry', 'painting',
+      'construction', 'maintenance', 'mechanical', 'automotive', 'gardening',
+      'landscaping', 'housekeeping', 'cleaning', 'security', 'machine operation',
+      'appliance repair', 'hvac', 'roofing', 'flooring', 'tiling', 'concrete work',
+      'excavation', 'heavy machinery', 'forklift', 'crane', 'welding', 'fabrication',
+      'pipe fitting', 'drain cleaning', 'leak repair', 'fixture installation',
+      'system maintenance', 'equipment repair', 'preventive maintenance',
+      'building maintenance', 'hvac maintenance', 'plumbing maintenance',
+      'electrical maintenance', 'carpentry repairs', 'painting touch-ups',
+      'safety inspections', 'janitorial', 'sanitization', 'deep cleaning',
+      'window cleaning', 'carpet cleaning', 'laundry service', 'organization',
+      'eco-friendly cleaning', 'plant care', 'lawn maintenance', 'tree trimming',
+      'garden design', 'irrigation systems', 'pest control', 'fertilizing',
+      'pruning', 'landscape installation', 'seasonal cleanup', 'building security',
+      'event security', 'retail security', 'residential security', 'crowd control',
+      'patrol services', 'access control', 'emergency response', 'surveillance',
+      'safety protocols', 'tailor', 'dressmaker', 'barber', 'hairdresser',
+      'cook', 'chef', 'baker', 'driver', 'delivery', 'transportation'
+    ];
+    
+    return allSkills.some(skill => {
+      const skillName = skill.skill_name?.toLowerCase() || '';
+      return blueCollarSkills.some(blueCollarSkill => 
+        skillName.includes(blueCollarSkill) || blueCollarSkill.includes(skillName)
+      );
+    });
+  };
+
   function calculateSalary(details) {
-    if (!details.book_in || !details.book_end) return { total: 0, hours: 0 };
-    const start = new Date(details.book_in);
-    const end = new Date(details.book_end);
-    const diffTime = Math.abs(end - start);
-    const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-    const hourlyRate = worker.hourlyRate;
-    const total = hourlyRate * diffHours;
-    return { total: total.toFixed(2), hours: diffHours };
+    if (!details || !details.book_in || !details.book_end || !details.daily_rate) {
+      return { 
+        dailyRate: 0,
+        totalAmount: 0, 
+        workingDays: 0, 
+        totalHours: 0,
+        hoursPerDay: 0,
+        hourlyRate: 0,
+        explanation: 'Please fill in booking dates and daily rate'
+      };
+    }
+
+    const startDate = new Date(details.book_in);
+    const endDate = new Date(details.book_end);
+    
+    // Calculate working days based on work type
+    let workingDays = 0;
+    let hoursPerDay = 0;
+    let totalHours = 0;
+    let explanation = '';
+
+    // Calculate actual hours per day if time in/out is provided
+    const actualHoursPerDay = calculateActualHours(details);
+
+    switch (details.work_type) {
+      case 'full-time':
+        // Full-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 8 hours per day
+        workingDays = calculateFullTimeWorkingDays(startDate, endDate);
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
+        totalHours = workingDays * hoursPerDay;
+        const fullTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        explanation = `Full-time: ${hoursPerDay} hours/day, ${fullTimeDays}. Total: ${workingDays} working days`;
+        break;
+        
+      case 'part-time':
+        // Part-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 6 hours per day
+        workingDays = calculatePreferredWorkingDays(startDate, endDate);
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 6; // Use actual hours or default 6
+        totalHours = workingDays * hoursPerDay;
+        const partTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        const weeklyHours = isBlueCollarWorker() ? '36 hours/week' : '30 hours/week';
+        explanation = `Part-time: ${hoursPerDay} hours/day, ${partTimeDays} (${weeklyHours}). Total: ${workingDays} working days`;
+        break;
+        
+      case 'one-time':
+        // One-time: Fixed project payment, hours depend on employer's needs
+        workingDays = 1;
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
+        totalHours = hoursPerDay;
+        explanation = `One-time project: ${hoursPerDay} hours (adjustable by employer)`;
+        break;
+        
+      default:
+        workingDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8;
+        totalHours = workingDays * hoursPerDay;
+        explanation = `Standard calculation: ${workingDays} working days`;
+    }
+
+    const dailyRate = parseFloat(details.daily_rate);
+    const totalAmount = dailyRate * workingDays;
+    const hourlyRate = hoursPerDay > 0 ? dailyRate / hoursPerDay : 0;
+    
+    return {
+      dailyRate: dailyRate,
+      totalAmount: totalAmount,
+      workingDays: workingDays,
+      totalHours: totalHours,
+      hoursPerDay: hoursPerDay,
+      hourlyRate: hourlyRate.toFixed(2),
+      explanation: explanation
+    };
   }
 };
 

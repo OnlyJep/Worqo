@@ -515,13 +515,26 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
     }
 
     // Prepare validated details for submission
+    const salaryCalculation = calculateSalary();
+    console.log('Salary calculation result:', salaryCalculation);
+    
+    // Validate that calculation is valid
+    if (salaryCalculation.workingDays === 0 || salaryCalculation.totalHours === 0) {
+      message.error("Please ensure all booking details are filled correctly");
+      return;
+    }
+    
+    // Validate that sub_skill is included if service_type is selected
+    if (bookingDetails.service_type && !bookingDetails.sub_skill) {
+      console.warn('Sub-skill is empty for service type:', bookingDetails.service_type);
+    }
+    
     const validatedDetails = {
       ...bookingDetails,
       daily_rate: parseFloat(bookingDetails.daily_rate),
-      total_salary: calculateSalary().totalAmount // Add total salary calculation
+      total_salary: salaryCalculation.totalAmount,
     };
 
-    console.log('Submitting booking details:', validatedDetails);
     onSubmit(validatedDetails); // Pass details to parent for further processing
   };
 
@@ -608,21 +621,35 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
             <CustomDropdown
               options={getAvailableServiceTypes()}
               value={bookingDetails.service_type}
-              onChange={(value) => setBookingDetails(prev => ({ ...prev, service_type: value, sub_skill: '' }))}
+              onChange={(value) => setBookingDetails(prev => ({ ...prev, service_type: value }))}
               placeholder="Select a service"
               required
             />
           </div>
           
-          {bookingDetails.service_type && getAvailableSubSkills().length > 0 && (
+          {bookingDetails.service_type && (
             <div className="booking-form-field">
               <label className="booking-form-label" htmlFor="sub_skill">Sub Skills</label>
-              <CustomDropdown
-                options={getAvailableSubSkills()}
-                value={bookingDetails.sub_skill}
-                onChange={(value) => setBookingDetails(prev => ({ ...prev, sub_skill: value }))}
-                placeholder="Select a sub-skill"
-              />
+              {getAvailableSubSkills().length > 0 ? (
+                <CustomDropdown
+                  options={getAvailableSubSkills()}
+                  value={bookingDetails.sub_skill}
+                onChange={(value) => {
+                  setBookingDetails(prev => ({ ...prev, sub_skill: value }));
+                }}
+                  placeholder="Select a sub-skill"
+                />
+              ) : (
+                <input
+                  type="text"
+                  id="sub_skill"
+                  name="sub_skill"
+                  value={bookingDetails.sub_skill}
+                  onChange={handleChange}
+                  className="booking-form-input"
+                  placeholder="Enter sub-skill (optional)"
+                />
+              )}
             </div>
           )}
           <div className="booking-form-field">

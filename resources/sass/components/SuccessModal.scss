@@ -1,0 +1,112 @@
+// Profile Success Modal Styles
+.profile-success-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.profile-success-modal {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  h2 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .profile-success-modal-content {
+    margin-bottom: 25px;
+
+    .profile-success-form-group {
+      text-align: center;
+
+      p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+  }
+
+  .profile-success-modal-buttons {
+    display: flex;
+    justify-content: center;
+
+    .profile-success-submit-button {
+      padding: 12px 24px;
+      border: none;
+      background: #1E90FF;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #104E8B;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+      }
+    }
+  }
+}
+
+// Responsive design for success modal
+@media (max-width: 768px) {
+  .profile-success-modal {
+    padding: 20px;
+    max-width: 95%;
+    
+    h2 {
+      font-size: 20px;
+    }
+    
+    .profile-success-modal-content {
+      .profile-success-form-group {
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-success-modal {
+    padding: 15px;
+    
+    h2 {
+      font-size: 18px;
+    }
+    
+    .profile-success-modal-content {
+      .profile-success-form-group {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+    
+    .profile-success-modal-buttons {
+      .profile-success-submit-button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  }
+}

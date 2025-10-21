@@ -24,6 +24,7 @@ class BookingController extends Controller
         $validator = Validator::make($request->all(), [
             'worker_id' => 'required|exists:users,id',
             'service_type' => 'required|string|max:255',
+            'sub_skill' => 'nullable|string|max:255',
             'work_type' => 'required|string|max:255',
             'description' => 'required|string',
             'book_in' => 'required|date',
@@ -31,6 +32,7 @@ class BookingController extends Controller
             'time_in' => 'nullable|string',
             'time_out' => 'nullable|string',
             'daily_rate' => 'required|numeric|min:0',
+            'total_salary' => 'nullable|numeric|min:0',
         ]);
 
         // Custom validation for book_in to be in the future
@@ -88,16 +90,17 @@ class BookingController extends Controller
             ], 400);
         }
 
-        // Calculate total amount based on daily rate
+        // Calculate total amount based on daily rate (use provided total_salary if available)
         $bookIn = Carbon::parse($request->book_in);
         $bookEnd = Carbon::parse($request->book_end);
         $days = $bookIn->diffInDays($bookEnd) + 1; // +1 to include both start and end days
-        $totalAmount = $days * $request->daily_rate;
+        $totalAmount = $request->total_salary ?? ($days * $request->daily_rate);
 
         $booking = Booking::create([
             'employer_id' => $authUser ? $authUser->id : null,
             'worker_id' => $request->worker_id,
             'service_type' => $request->service_type,
+            'sub_skill' => $request->sub_skill,
             'work_type' => $request->work_type,
             'description' => $request->description,
             'book_in' => $request->book_in,
@@ -108,15 +111,24 @@ class BookingController extends Controller
             'total_amount' => $totalAmount,
             'status' => 'pending'
         ]);
-
-        // Log the booking creation
+        
+        // Create BookingRequest record with BookModal data
         if ($authUser) {
-            $booking->logAction('created', $authUser->id, 'Booking request created', [
+            $bookModalData = [
                 'service_type' => $request->service_type,
+                'sub_skill' => $request->sub_skill,
                 'work_type' => $request->work_type,
+                'book_in' => $request->book_in,
+                'book_end' => $request->book_end,
+                'time_in' => $request->time_in,
+                'time_out' => $request->time_out,
+                'description' => $request->description,
                 'daily_rate' => $request->daily_rate,
-                'total_amount' => $totalAmount
-            ]);
+                'total_salary' => $totalAmount,
+            ];
+            
+            \Log::info('Creating BookingRequest with data:', $bookModalData);
+            $bookingRequest = BookingRequest::createFromBookModal($bookModalData, $authUser->id, $booking->id);
         }
 
         // Send notification to worker about new booking

@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { MdVerified } from 'react-icons/md';
+import { CiClock2 } from 'react-icons/ci';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import { MdOutlineVerified, MdOutlineCancel } from 'react-icons/md';
+import { FaRegEdit } from 'react-icons/fa';
 import { message } from 'antd';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import ModalFeedback from './modalfeedback';
 import TransactionModal from './TransactionModal';
+import EditMyBooking from './EditMyBooking';
 import '../../../sass/components/profilesettings/mybookings.scss';
 
 const MyBookings = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('all');
   const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
   const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedWorker, setSelectedWorker] = useState(null);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [bookings, setBookings] = useState([]);
@@ -24,6 +32,48 @@ const MyBookings = () => {
     { id: 'cancelled', label: 'Cancelled' },
     { id: 'completed', label: 'Completed' }
   ];
+
+  // Helper function to get status icon and styling
+  const getStatusIcon = (status) => {
+    switch (status.toLowerCase()) {
+      case 'pending':
+        return {
+          icon: <CiClock2 size={14} />,
+          backgroundColor: '#ffa500',
+          color: 'white'
+        };
+      case 'accepted':
+        return {
+          icon: <IoMdCheckmarkCircleOutline size={14} />,
+          backgroundColor: '#4CAF50',
+          color: 'white'
+        };
+      case 'completed':
+        return {
+          icon: <MdOutlineVerified size={14} />,
+          backgroundColor: '#2196F3',
+          color: 'white'
+        };
+      case 'declined':
+        return {
+          icon: <MdOutlineCancel size={14} />,
+          backgroundColor: '#f44336',
+          color: 'white'
+        };
+      case 'cancelled':
+        return {
+          icon: <MdOutlineCancel size={14} />,
+          backgroundColor: '#9e9e9e',
+          color: 'white'
+        };
+      default:
+        return {
+          icon: <CiClock2 size={14} />,
+          backgroundColor: '#9e9e9e',
+          color: 'white'
+        };
+    }
+  };
 
   useEffect(() => {
     // Get user role from localStorage
@@ -185,6 +235,47 @@ const MyBookings = () => {
     }
   };
 
+  const handleProfileClick = (personData) => {
+    if (personData && personData.id) {
+      navigate(`/profile/${personData.id}`);
+    }
+  };
+
+  const handleEditBooking = (booking) => {
+    setSelectedBooking(booking);
+    setIsEditModalOpen(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+    setSelectedBooking(null);
+  };
+
+  const handleUpdateBooking = async (updatedDetails) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${selectedBooking.id}`, updatedDetails, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (response.data.success) {
+        message.success("Booking updated successfully");
+        setIsEditModalOpen(false);
+        setSelectedBooking(null);
+        fetchBookings();
+      } else {
+        message.error(response.data.message || "Failed to update booking");
+      }
+    } catch (error) {
+      console.error("Error updating booking:", error.response?.data || error.message);
+      message.error("Failed to update booking");
+    }
+  };
+
   if (loading) {
     return (
       <div className="my-bookings-container">
@@ -225,176 +316,279 @@ const MyBookings = () => {
       <div className="bookings-content">
         {filteredBookings.length > 0 ? (
           <div className="bookings-list">
-            {filteredBookings.map((booking) => (
-              <div key={booking.id} className="booking-card">
-                <div className="booking-worker-info">
-                  <div className="worker-profile">
-                    <img 
-                      src={booking.worker?.profile?.profile_img 
-                        ? `http://127.0.0.1:8000/storage/${booking.worker.profile.profile_img}` 
-                        : '/images/default-avatar.svg'
-                      } 
-                      alt={booking.worker?.profile ? `${booking.worker.profile.first_name} ${booking.worker.profile.last_name}` : 'Worker'} 
-                      className="worker-avatar" 
-                    />
-                  </div>
-                  <div className="worker-details">
-                    <h3 className="worker-name">
-                      {booking.worker?.profile ? `${booking.worker.profile.first_name} ${booking.worker.profile.last_name}` : 'Unknown Worker'}
-                    </h3>
-                    <p className="worker-profession">
-                      {booking.service_type}
-                    </p>
-                    <div className="worker-badges">
-                      {booking.worker?.verified && (
-                        <div className="verified-badge">
-                          <MdVerified className="verified-icon" />
-                          <span>Verified</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="booking-status">
-                      <span>Status : </span>
-                      <span className="status-text" style={{ 
-                        color: booking.status === 'pending' ? '#ffa500' :
-                               booking.status === 'accepted' ? '#4CAF50' :
-                               booking.status === 'completed' ? '#2196F3' :
-                               booking.status === 'declined' ? '#f44336' :
-                               '#9e9e9e'
-                      }}>
-                        {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="booking-salary">
-                  Total: ₱{booking.total_amount}
-                </div>
+            {filteredBookings.map((booking) => {
+              const isEmployerView = userRole === 2;
+              const personData = isEmployerView ? booking.worker : booking.employer;
+              const personProfile = personData?.profile;
 
-                <div className="booking-dates">
-                  <p>Start: {new Date(booking.book_in).toLocaleString()}</p>
-                  <p>End: {new Date(booking.book_end).toLocaleString()}</p>
-                </div>
-
-                <div className="booking-description">
-                  <p><strong>Description:</strong> {booking.description}</p>
-                </div>
-
-                <div className="booking-actions">
-                  {/* Employer Actions */}
-                  {userRole === 2 && (
-                    <>
-                      {booking.status === 'pending' && (
-                        <>
-                          <button 
-                            className="view-transaction-btn"
-                            onClick={() => handleViewTransaction(booking)}
-                          >
-                            View Transaction
-                          </button>
-                          <button 
-                            className="cancel-booking-btn"
-                            onClick={() => handleCancelBooking(booking.id)}
-                          >
-                            Cancel Booking
-                          </button>
-                        </>
-                      )}
-                      
-                      {booking.status === 'accepted' && (
-                        <button 
-                          className="view-transaction-btn"
-                          onClick={() => handleViewTransaction(booking)}
-                        >
-                          View Transaction
-                        </button>
-                      )}
-                      
-                      {booking.status === 'completed' && (
-                        <>
-                          <button 
-                            className="view-transaction-btn"
-                            onClick={() => handleViewTransaction(booking)}
-                          >
-                            View Transaction
-                          </button>
-                          {!booking.has_review && (
-                            <button 
-                              className="give-feedback-btn"
-                              onClick={() => handleGiveFeedback(booking)}
-                            >
-                              Give Feedback
-                            </button>
+              return (
+                <div key={booking.id} className="booking-card">
+                  {/* Top Section - Worker Info, Status, and Amount */}
+                  <div className="booking-top-section">
+                    <div className="booking-worker-info">
+                      <div 
+                        className="booking-worker-profile"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleProfileClick(personData);
+                        }}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <img 
+                          src={personProfile?.profile_img 
+                            ? `http://127.0.0.1:8000/storage/${personProfile.profile_img}` 
+                            : '/images/default-avatar.svg'
+                          } 
+                          alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'User'} 
+                          className="booking-worker-avatar" 
+                        />
+                      </div>
+                          <div className="booking-worker-details">
+                            <div className="booking-worker-name-container">
+                              <h3 
+                                className="booking-worker-name"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleProfileClick(personData);
+                                }}
+                                style={{ cursor: 'pointer' }}
+                              >
+                                {personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'Unknown User'}
+                              </h3>
+                              {/* Edit button - positioned beside worker name */}
+                              {isEmployerView && booking.status === 'pending' && (
+                                <div className="booking-edit-container">
+                                  <button 
+                                    className="booking-edit-btn"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      handleEditBooking(booking);
+                                    }}
+                                    title="Edit booking"
+                                  >
+                                    <FaRegEdit size={20} />
+                                  </button>
+                                </div>
+                              )}
+                            </div>
+                        <p className="booking-worker-profession">
+                          {isEmployerView ? (
+                            <>
+                              {booking.service_type}
+                              {booking.sub_skill && (
+                                <span className="booking-sub-skill"> - {booking.sub_skill}</span>
+                              )}
+                            </>
+                          ) : 'Employer'}
+                        </p>
+                        <div className="booking-worker-badges">
+                          {personData?.verified && (
+                            <div className="booking-verified-badge">
+                              <MdVerified className="booking-verified-icon" />
+                              <span>Verified</span>
+                            </div>
                           )}
-                        </>
-                      )}
-                    </>
-                  )}
-                  
-                  {/* Worker Actions */}
-                  {userRole === 1 && (
-                    <>
-                      {booking.status === 'pending' && (
-                        <>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="booking-status-amount">
+                      <div className="booking-status-badge">
+                        <span className="booking-status-text" style={{ 
+                          backgroundColor: getStatusIcon(booking.status).backgroundColor,
+                          color: getStatusIcon(booking.status).color
+                        }}>
+                          {getStatusIcon(booking.status).icon}
+                          {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  {/* Middle Section - Dates and Description */}
+                  <div className="booking-middle-section">
+                    <div className="booking-dates">
+                      <div className="booking-date-item">
+                        <div className="booking-date-label">Start Date</div>
+                        <div className="booking-date-value">{new Date(booking.book_in).toLocaleDateString('en-US', { 
+                          year: 'numeric', 
+                          month: 'short', 
+                          day: 'numeric' 
+                        })}</div>
+                      </div>
+                      <div className="booking-date-item">
+                        <div className="booking-date-label">End Date</div>
+                        <div className="booking-date-value">{new Date(booking.book_end).toLocaleDateString('en-US', { 
+                          year: 'numeric', 
+                          month: 'short', 
+                          day: 'numeric' 
+                        })}</div>
+                      </div>
+                    </div>
+                    <div className="booking-description">
+                      <div className="booking-description-label">Description</div>
+                      <div className="booking-description-text">
+                        {booking.description && booking.description.length > 50 
+                          ? `${booking.description.substring(0, 50)}...` 
+                          : booking.description
+                        }
+                      </div>
+                    </div>
+                    <div className="booking-salary">
+                      ₱{booking.total_amount}
+                    </div>
+                  </div>
+
+                  {/* Bottom Section - Action Buttons */}
+                  <div className="booking-actions">
+                    {/* Employer Actions */}
+                    {isEmployerView && (
+                      <>
+                        {booking.status === 'pending' && (
+                          <>
+                            <button 
+                              className="booking-view-transaction-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleViewTransaction(booking);
+                              }}
+                            >
+                              View Transaction
+                            </button>
+                            <button 
+                              className="booking-cancel-booking-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleCancelBooking(booking.id);
+                              }}
+                            >
+                              Cancel Booking
+                            </button>
+                          </>
+                        )}
+                        
+                        {booking.status === 'accepted' && (
                           <button 
-                            className="view-transaction-btn"
-                            onClick={() => handleViewTransaction(booking)}
+                            className="booking-view-transaction-btn"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleViewTransaction(booking);
+                            }}
                           >
                             View Transaction
                           </button>
+                        )}
+                        
+                        {booking.status === 'completed' && (
+                          <>
+                            <button 
+                              className="booking-view-transaction-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleViewTransaction(booking);
+                              }}
+                            >
+                              View Transaction
+                            </button>
+                            {!booking.has_review && (
+                              <button 
+                                className="booking-give-feedback-btn"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  handleGiveFeedback(booking);
+                                }}
+                              >
+                                Give Feedback
+                              </button>
+                            )}
+                          </>
+                        )}
+                      </>
+                    )}
+                    
+                    {/* Worker Actions */}
+                    {!isEmployerView && (
+                      <>
+                        {booking.status === 'pending' && (
+                          <>
+                            <button 
+                              className="booking-view-transaction-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleViewTransaction(booking);
+                              }}
+                            >
+                              View Transaction
+                            </button>
+                            <button 
+                              className="booking-accept-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleStatusUpdate(booking.id, 'accepted');
+                              }}
+                            >
+                              Accept
+                            </button>
+                            <button 
+                              className="booking-decline-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleStatusUpdate(booking.id, 'declined');
+                              }}
+                            >
+                              Decline
+                            </button>
+                          </>
+                        )}
+                        
+                        {booking.status === 'accepted' && (
+                          <>
+                            <button 
+                              className="booking-view-transaction-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleViewTransaction(booking);
+                              }}
+                            >
+                              View Transaction
+                            </button>
+                            <button 
+                              className="booking-complete-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleStatusUpdate(booking.id, 'completed');
+                              }}
+                            >
+                              Mark as Completed
+                            </button>
+                          </>
+                        )}
+                        
+                        {booking.status === 'completed' && (
                           <button 
-                            className="accept-btn"
-                            onClick={() => handleStatusUpdate(booking.id, 'accepted')}
-                          >
-                            Accept
-                          </button>
-                          <button 
-                            className="decline-btn"
-                            onClick={() => handleStatusUpdate(booking.id, 'declined')}
-                          >
-                            Decline
-                          </button>
-                        </>
-                      )}
-                      
-                      {booking.status === 'accepted' && (
-                        <>
-                          <button 
-                            className="view-transaction-btn"
-                            onClick={() => handleViewTransaction(booking)}
+                            className="booking-view-transaction-btn"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleViewTransaction(booking);
+                            }}
                           >
                             View Transaction
                           </button>
-                          <button 
-                            className="complete-btn"
-                            onClick={() => handleStatusUpdate(booking.id, 'completed')}
-                          >
-                            Mark as Completed
-                          </button>
-                        </>
-                      )}
-                      
-                      {booking.status === 'completed' && (
-                        <button 
-                          className="view-transaction-btn"
-                          onClick={() => handleViewTransaction(booking)}
-                        >
-                          View Transaction
-                        </button>
-                      )}
-                    </>
-                  )}
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         ) : (
-          <div className="empty-state">
-            <div className="empty-icon">
+          <div className="booking-empty-state">
+            <div className="booking-empty-icon">
               <img src="/images/mybooking.svg" alt="No Bookings" />
             </div>
-            <h3 className="empty-title">No Bookings Yet</h3>
+            <h3 className="booking-empty-title">No Bookings Yet</h3>
           </div>
         )}
       </div>
@@ -413,6 +607,16 @@ const MyBookings = () => {
         <TransactionModal
           isOpen={isTransactionModalOpen}
           onClose={handleCloseTransactionModal}
+          booking={selectedBooking}
+        />
+      )}
+
+      {/* Edit Booking Modal */}
+      {isEditModalOpen && selectedBooking && (
+        <EditMyBooking
+          isOpen={isEditModalOpen}
+          onClose={handleCloseEditModal}
+          onSubmit={handleUpdateBooking}
           booking={selectedBooking}
         />
       )}

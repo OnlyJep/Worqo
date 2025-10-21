@@ -1,0 +1,241 @@
+// Confirmation Modal Styles - Using BookModal structure
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: auto;
+}
+
+.booking-modal-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .booking-modal-title {
+    margin: 0 0 16px;
+    font-size: 22px;
+    color: #0a2a40; // Dark blue theme matching the app
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .booking-modal-form-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .booking-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      .booking-form-label {
+        font-weight: 500;
+        color: #0b0d0f; // Dark text matching theme
+        font-size: 13px;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .booking-form-input,
+      .booking-form-select,
+      .booking-form-textarea {
+        padding: 8px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        background: #f9fafb;
+        font-family: 'Inter', sans-serif;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+          border-color: #0a2a40; // Dark blue theme
+          box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);
+          outline: none;
+        }
+
+        &.booking-form-input-disabled {
+          background: #e5e7eb;
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+      }
+
+      .booking-form-textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+
+      .booking-form-hint {
+        color: #6b7280;
+        font-size: 12px;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .salary-calculation-preview {
+        background: #f8fafc;
+        border: 1px solid #E6F2EF;
+        border-radius: 8px;
+        padding: 16px;
+        margin-top: 8px;
+
+        .calculation-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+          padding: 4px 0;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          &.total-row {
+            border-top: 1px solid #E6F2EF;
+            padding-top: 8px;
+            margin-top: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #0a2a40;
+          }
+
+          .calculation-label {
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: 500;
+          }
+
+          .calculation-value {
+            color: #0a2a40;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: right;
+          }
+        }
+
+        small {
+          color: #6b7280;
+          font-size: 12px;
+          font-style: italic;
+          margin-top: 8px;
+          display: block;
+        }
+      }
+    }
+  }
+
+  .booking-modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+
+    .booking-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      min-width: 100px;
+
+      &.booking-btn-cancel {
+        background: #f3f4f6;
+        color: #6b7280;
+        border: 1px solid #d1d5db;
+
+        &:hover {
+          background: #e5e7eb;
+          border-color: #9ca3af;
+        }
+      }
+
+      &.booking-btn-submit {
+        background: #0a2a40;
+        color: white;
+
+        &:hover {
+          background: #0d3550;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(10, 42, 64, 0.3);
+        }
+
+        &:disabled {
+          background: #9ca3af;
+          cursor: not-allowed;
+          transform: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+// Responsive design for confirmation modal
+@media (max-width: 768px) {
+  .profile-confirmation-modal {
+    padding: 20px;
+    max-width: 95%;
+    
+    h2 {
+      font-size: 20px;
+    }
+    
+    .profile-confirmation-modal-buttons {
+      flex-direction: column;
+      
+      .profile-confirmation-cancel-button,
+      .profile-confirmation-submit-button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-confirmation-modal {
+    padding: 15px;
+    
+    h2 {
+      font-size: 18px;
+    }
+    
+    .profile-confirmation-modal-content {
+      .profile-confirmation-form-group {
+        margin-bottom: 15px;
+        
+        label {
+          font-size: 13px;
+        }
+        
+        input, textarea {
+          padding: 10px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
