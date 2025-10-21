@@ -236366,7 +236366,6 @@ var MyJobs = function MyJobs() {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyJobs);
-B;
 
 /***/ }),
 
