@@ -26,6 +26,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\SearchController;
 
 // AUTHENTICATION ROUTES
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -195,6 +196,12 @@ Route::get('/messages/conversations', [MessageController::class, 'conversations'
 Route::get('/messages/thread/{otherUserId}', [MessageController::class, 'thread']);
 Route::post('/messages/send', [MessageController::class, 'send']);
 // (Removed duplicate auth:api notifications block to avoid 401)
+
+// SEARCH ROUTES
+Route::get('/search/jobs', [SearchController::class, 'searchJobs'])->name('search.jobs');
+Route::get('/search/workers', [SearchController::class, 'searchWorkers'])->name('search.workers');
+Route::get('/search/skills/popular', [SearchController::class, 'getPopularSkills'])->name('search.skills.popular');
+Route::get('/search/suggestions', [SearchController::class, 'getSearchSuggestions'])->name('search.suggestions');
 
 // PASSWORD ROUTES
 Route::middleware('auth:api')->group(function () {

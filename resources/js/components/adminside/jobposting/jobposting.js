@@ -114,13 +114,13 @@ const JobPostTable = () => {
       );
       setError(null);
     } catch (error) {
-      console.error("Error fetching job posts:", {
+      console.error("Error fetching post jobs:", {
         message: error.message,
         response: error.response?.data,
         status: error.response?.status,
       });
-      message.error("Failed to load job posts. Please try again.");
-      setError("Failed to load job posts. Please try again.");
+      message.error("Failed to load post jobs. Please try again.");
+      setError("Failed to load post jobs. Please try again.");
     }
   };
 
@@ -130,15 +130,21 @@ const JobPostTable = () => {
 
   const filteredPosts = jobPosts.filter((post) => {
     if (!post) return false;
-    const companyName = companies[post.company_id]?.company_name?.toLowerCase() || "";
-    const ownerName = getProfileName(post.profile)?.toLowerCase() || "";
-    const skills = Array.isArray(post.skills_formatted)
-      ? post.skills_formatted.join(" ").toLowerCase()
+    const jobTitle = post.job_title?.toLowerCase() || "";
+    const skills = Array.isArray(post.skills)
+      ? post.skills.join(" ").toLowerCase()
       : "";
+    const description = post.description?.toLowerCase() || "";
+    const city = post.city?.toLowerCase() || "";
+    const province = post.province?.toLowerCase() || "";
+    const country = post.country?.toLowerCase() || "";
     const matchesSearch =
-      companyName.includes(searchTerm.toLowerCase()) ||
-      ownerName.includes(searchTerm.toLowerCase()) ||
-      skills.includes(searchTerm.toLowerCase());
+      jobTitle.includes(searchTerm.toLowerCase()) ||
+      skills.includes(searchTerm.toLowerCase()) ||
+      description.includes(searchTerm.toLowerCase()) ||
+      city.includes(searchTerm.toLowerCase()) ||
+      province.includes(searchTerm.toLowerCase()) ||
+      country.includes(searchTerm.toLowerCase());
     return matchesSearch;
   });
 
@@ -200,7 +206,7 @@ const JobPostTable = () => {
 
   const handleBulkAction = async (action) => {
     if (selectedPosts.length === 0) {
-      message.warning("No job posts selected.");
+      message.warning("No post jobs selected.");
       return;
     }
     try {
@@ -208,13 +214,13 @@ const JobPostTable = () => {
         ids: selectedPosts,
         archived: action === "archive",
       });
-      message.success(`Selected job posts ${action === "archive" ? "archived" : "restored"} successfully`);
+      message.success(`Selected post jobs ${action === "archive" ? "archived" : "restored"} successfully`);
       setSelectedPosts([]);
       fetchJobPosts(); // Refresh data after bulk action
     } catch (error) {
       console.error(`Error performing bulk ${action}:`, error);
-      message.error(error.response?.data?.message || `Failed to ${action} job posts.`);
-      setError(error.response?.data?.message || `Failed to ${action} job posts.`);
+      message.error(error.response?.data?.message || `Failed to ${action} post jobs.`);
+      setError(error.response?.data?.message || `Failed to ${action} post jobs.`);
     }
   };
 
@@ -335,11 +341,11 @@ const JobPostTable = () => {
 
   return (
     <div className="app">
-      <AdminSidebar activeItem="Job Posts" />
+      <AdminSidebar activeItem="post jobs" />
       <TopNavbar />
       <div className="jobposttable-dashboard">
         <div className="jobposttable-content">
-          <h2>{showArchived ? "Archived Job Posts" : "Job Posts"}</h2>
+          <h2>{showArchived ? "Archived post jobs" : "Post Jobs"}</h2>
           {error && <div className="error-message">{error}</div>}
           <div className="jobposttable-header">
             <div className="left-actions">
@@ -348,7 +354,7 @@ const JobPostTable = () => {
                 <input
                   type="text"
                   className="search-input"
-                  placeholder="Search Job Posts"
+                  placeholder="Search by job title, skills, description, location..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -391,10 +397,27 @@ const JobPostTable = () => {
                         Actions
                       </div>
                     </th>
-                    <th>Company</th>
-                    <th>Owner</th>
+                    <th>ID</th>
+                    <th>Profile ID</th>
+                    <th>Job Title</th>
                     <th>Skills</th>
+                    <th>Skill Experiences</th>
                     <th>Description</th>
+                    <th>Salary</th>
+                    <th>Salary Type</th>
+                    <th>Job Type</th>
+                    <th>Hiring Type</th>
+                    <th>Team Size</th>
+                    <th>Work Start</th>
+                    <th>Work End</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>Province</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                    <th>Application Start</th>
+                    <th>Application Deadline</th>
+                    <th>Archived</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                   </tr>
@@ -432,36 +455,44 @@ const JobPostTable = () => {
                             />
                           </div>
                         </td>
-                        <td className="company-cell">{companies[post.company_id]?.company_name || "N/A"}</td>
-                        <td className="owner-cell">{getProfileName(post.profile)}</td>
+                        <td>{post.id || "N/A"}</td>
+                        <td>{post.profile_id || "N/A"}</td>
+                        <td>{post.job_title || "N/A"}</td>
                         <td className="skills-cell">
-                          {Array.isArray(post.skills_formatted) && post.skills_formatted.length > 0 ? (
-                            post.skills_formatted.map((skill, index) => {
-                              // Extract rank from skill string (e.g., "Virtual Assistant - Gold")
-                              const rank = skill.includes(' - ') ? skill.split(' - ')[1] : 'Default';
-                              return (
-                                <span 
-                                  key={index} 
-                                  className="skill-badge"
-                                  data-rank={rank}
-                                  title={skill}
-                                >
-                                  {skill || "N/A"}
-                                </span>
-                              );
-                            })
+                          {Array.isArray(post.skills) && post.skills.length > 0 ? (
+                            post.skills.map((skill, index) => (
+                              <span key={index} className="skill-badge">
+                                {skill || "N/A"}
+                              </span>
+                            ))
                           ) : (
                             "N/A"
                           )}
                         </td>
+                        <td>{post.skill_experiences || "N/A"}</td>
                         <td className="description-cell">{post.description || "N/A"}</td>
+                        <td>{post.salary || "N/A"}</td>
+                        <td>{post.salary_type || "N/A"}</td>
+                        <td>{post.job_type || "N/A"}</td>
+                        <td>{post.hiring_type || "N/A"}</td>
+                        <td>{post.team_size || "N/A"}</td>
+                        <td>{formatDate(post.work_start)}</td>
+                        <td>{formatDate(post.work_end)}</td>
+                        <td>{post.street || "N/A"}</td>
+                        <td>{post.city || "N/A"}</td>
+                        <td>{post.province || "N/A"}</td>
+                        <td>{post.postal_code || "N/A"}</td>
+                        <td>{post.country || "N/A"}</td>
+                        <td>{formatDate(post.application_start)}</td>
+                        <td>{formatDate(post.application_deadline)}</td>
+                        <td>{post.archived ? "Yes" : "No"}</td>
                         <td>{formatDate(post.created_at)}</td>
                         <td>{formatDate(post.updated_at)}</td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="7">No {showArchived ? "archived" : "active"} job posts found</td>
+                      <td colSpan="26">No {showArchived ? "archived" : "active"} post jobs found</td>
                     </tr>
                   )}
                 </tbody>

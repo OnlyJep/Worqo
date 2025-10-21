@@ -25,6 +25,7 @@ const experienceOptions = [
   { value: "1-2-years", label: "1 to 2 years" },
   { value: "2-5-years", label: "2 to 5 years" },
   { value: "5-10-years", label: "5 to 10 years" },
+  { value: "+-10-years", label: "+10 years" },
 ];
 
 const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes, skills }) => {
@@ -53,12 +54,13 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       is_reviewed: "",
   });
   const [errors, setErrors] = useState({});
+  const preferredDaysRef = useRef(null);
   const [apiError, setApiError] = useState("");
   const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null });
-  const [selectedSkill, setSelectedSkill] = useState(null);
-  const [showSkillModal, setShowSkillModal] = useState(false);
-  const [selectedSubSkills, setSelectedSubSkills] = useState([]);
   const [availableSubSkills, setAvailableSubSkills] = useState([]);
+  const [newSkill, setNewSkill] = useState({ skill_id: "", sub_skills: [], experience: "" });
+  const [showSubSkillsDropdown, setShowSubSkillsDropdown] = useState(false);
+  const [showExperienceDropdown, setShowExperienceDropdown] = useState(false);
   const [searchTermPrimary, setSearchTermPrimary] = useState("");
   const [searchTermAdditional, setSearchTermAdditional] = useState("");
   const [filteredSkillsPrimary, setFilteredSkillsPrimary] = useState([]);
@@ -67,8 +69,11 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
   const credentialFileRef = useRef(null);
   const abortControllerRef = useRef(new AbortController());
   const isMountedRef = useRef(true);
+  // Preferred working days native select (no external ref needed)
 
-  // Fetch skills from the API
+  // Use skills from props or fetch from API
+  const [skillsState, setSkillsState] = useState(skills || []);
+  
   const fetchSkills = async () => {
     if (!isMountedRef.current) return;
     try {
@@ -80,6 +85,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         sub_skills: Array.isArray(skill.sub_skills) ? skill.sub_skills : [],
       }));
       if (isMountedRef.current) {
+        setSkillsState(fetchedSkills);
         setFilteredSkillsPrimary(fetchedSkills);
         setFilteredSkillsAdditional(fetchedSkills);
       }
@@ -95,6 +101,13 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     isMountedRef.current = true;
     abortControllerRef.current = new AbortController();
     fetchSkills();
+    
+    // Initialize filtered skills with props if available
+    if (skills && skills.length > 0) {
+      setSkillsState(skills);
+      setFilteredSkillsPrimary(skills);
+      setFilteredSkillsAdditional(skills);
+    }
 
     if (isEdit && initialData) {
       // Handle skills_id structure - it can be an object with primary_skills and additional_skills
@@ -187,17 +200,17 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
   useEffect(() => {
     if (!isMountedRef.current) return;
     if (searchTermPrimary.trim() === "") {
-      setFilteredSkillsPrimary(skills || []);
+      setFilteredSkillsPrimary(skillsState || []);
     } else {
       const searchLower = searchTermPrimary.toLowerCase().trim();
-      const filtered = (skills || []).filter((skill) => skill.name.toLowerCase().includes(searchLower));
+      const filtered = (skillsState || []).filter((skill) => skill.name.toLowerCase().includes(searchLower));
       setFilteredSkillsPrimary(filtered);
     }
-  }, [searchTermPrimary, skills]);
+  }, [searchTermPrimary, skillsState]);
 
   useEffect(() => {
     if (!isMountedRef.current) return;
-    let skillsToFilter = skills || [];
+    let skillsToFilter = skillsState || [];
     if (formData.skills_id[0]?.skill_id) {
       skillsToFilter = skillsToFilter.filter((s) => String(s.id) !== formData.skills_id[0].skill_id);
     }
@@ -208,11 +221,14 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       const filtered = skillsToFilter.filter((skill) => skill.name.toLowerCase().includes(searchLower));
       setFilteredSkillsAdditional(filtered);
     }
-  }, [searchTermAdditional, skills, formData.skills_id]);
+  }, [searchTermAdditional, skillsState, formData.skills_id]);
+
+  // Close preferred working days dropdown when clicking outside
+  // removed outside click handler (no custom dropdown anymore)
 
   const handlePrimarySkillSelect = (value) => {
     if (!isMountedRef.current) return;
-    const skill = skills.find((s) => String(s.id) === value);
+    const skill = skillsState.find((s) => String(s.id) === value);
     if (!skill) {
       if (isMountedRef.current) {
         setErrors((prev) => ({ ...prev, skills_id: "Invalid skill selected. Please try again." }));
@@ -226,132 +242,125 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       return;
     }
     if (isMountedRef.current) {
-      setSelectedSkill({
-        ...skill,
-        experience: '0-11-months',
-        hourly_rate: ''
+      setNewSkill({
+        skill_id: value,
+        skill_name: skill.name,
+        sub_skills: [],
+        experience: ""
       });
       setAvailableSubSkills(skill.sub_skills || []);
-      setSelectedSubSkills([]);
-      setShowSkillModal(true);
+      setShowSubSkillsDropdown(true);
+      setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+    }
+  };
+
+  const handleSubSkillsSelect = (values) => {
+    if (!isMountedRef.current) return;
+      if (isMountedRef.current) {
+      setNewSkill(prev => ({ ...prev, sub_skills: values }));
+      setShowSubSkillsDropdown(false);
+      setShowExperienceDropdown(true);
+      setErrors((prev) => ({ ...prev, sub_skills: "" }));
+    }
+  };
+
+  const handleExperienceSelect = (value) => {
+    if (!isMountedRef.current) return;
+    console.log('Experience selected:', value);
+      if (isMountedRef.current) {
+      setNewSkill(prev => {
+        const updated = { ...prev, experience: value };
+        console.log('Updated skill with experience:', updated);
+        // Call addSkillToForm with the updated skill
+        setTimeout(() => {
+          addSkillToFormWithSkill(updated);
+        }, 0);
+        return updated;
+      });
+      setShowExperienceDropdown(false);
+    }
+  };
+
+  const addSkillToForm = () => {
+    if (!isMountedRef.current) return;
+    console.log('Adding skill to form:', newSkill);
+    if (isMountedRef.current) {
+      setFormData((prev) => {
+        const isPrimaryEmpty = !prev.skills_id[0] || prev.skills_id[0].skill_id === "";
+        const updatedSkills = isPrimaryEmpty ? [newSkill, ...prev.skills_id.slice(1)] : [...prev.skills_id, newSkill];
+        console.log('Updated skills array:', updatedSkills);
+          return {
+            ...prev,
+          skills_id: updatedSkills,
+        };
+      });
+      setNewSkill({ skill_id: "", sub_skills: [], experience: "" });
+      setAvailableSubSkills([]);
+      setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+    }
+  };
+
+  const addSkillToFormWithSkill = (skillToAdd) => {
+    if (!isMountedRef.current) return;
+    console.log('Adding skill to form with skill:', skillToAdd);
+    if (isMountedRef.current) {
+      setFormData((prev) => {
+          const isPrimaryEmpty = !prev.skills_id[0] || prev.skills_id[0].skill_id === "";
+        const updatedSkills = isPrimaryEmpty ? [skillToAdd, ...prev.skills_id.slice(1)] : [...prev.skills_id, skillToAdd];
+        console.log('Updated skills array with experience:', updatedSkills);
+          return {
+            ...prev,
+          skills_id: updatedSkills,
+          };
+      });
+      setNewSkill({ skill_id: "", sub_skills: [], experience: "" });
+      setAvailableSubSkills([]);
+      setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+    }
+  };
+
+  const cancelSkillSelection = () => {
+    if (!isMountedRef.current) return;
+    if (isMountedRef.current) {
+      setNewSkill({ skill_id: "", sub_skills: [], experience: "" });
+      setShowSubSkillsDropdown(false);
+      setShowExperienceDropdown(false);
+      setAvailableSubSkills([]);
       setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
     }
   };
 
   const handleAdditionalSkillsSelect = (values) => {
     if (!isMountedRef.current) return;
-    const newSkillIds = values.filter((id) => !formData.skills_id.some((skill) => skill.skill_id === id));
-    if (newSkillIds.length === 0) {
+    
+    // Get currently selected additional skills
+    const currentAdditionalSkills = formData.skills_id.slice(1).map(skill => skill.skill_id);
+    
+    // Find the newly added skill (if any)
+    const newSkillId = values.find(id => !currentAdditionalSkills.includes(id));
+    
+    if (newSkillId) {
+      const skill = skillsState.find((s) => String(s.id) === newSkillId);
+      if (!skill) {
       if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, skills_id: "All selected skills are already added or invalid." }));
+          setErrors((prev) => ({ ...prev, skills_id: "Invalid skill selected. Please try again." }));
       }
       return;
     }
-    const newSkills = newSkillIds.map((id) => skills.find((s) => String(s.id) === id)).filter(Boolean);
-    if (newSkills.length > 0) {
-      if (isMountedRef.current) {
-        setSelectedSkill({
-          ...newSkills[0],
-          experience: '0-11-months',
-          hourly_rate: ''
+    if (isMountedRef.current) {
+        setNewSkill({
+          skill_id: newSkillId,
+          skill_name: skill.name,
+          sub_skills: [],
+          experience: ""
         });
-        setAvailableSubSkills(newSkills[0].sub_skills || []);
-        setSelectedSubSkills([]);
-        setShowSkillModal(true);
-        setErrors((prev) => ({ ...prev, skills_id: "" }));
-      }
-    } else {
-      if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, skills_id: "Invalid additional skills selected." }));
+        setAvailableSubSkills(skill.sub_skills || []);
+        setShowSubSkillsDropdown(true);
+        setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
       }
     }
   };
 
-  const handleAddSubSkill = (subSkill) => {
-    if (!isMountedRef.current) return;
-    if (selectedSubSkills.includes(subSkill)) {
-      if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, sub_skills: "This sub-skill is already selected." }));
-      }
-      return;
-    }
-    if (isMountedRef.current) {
-      setSelectedSubSkills((prev) => [...prev, subSkill]);
-      setAvailableSubSkills((prev) => prev.filter((s) => s !== subSkill));
-      setErrors((prev) => ({ ...prev, sub_skills: "" }));
-    }
-  };
-
-  const handleRemoveSubSkill = (subSkill) => {
-    if (!isMountedRef.current) return;
-    if (isMountedRef.current) {
-      setSelectedSubSkills((prev) => prev.filter((s) => s !== subSkill));
-      setAvailableSubSkills((prev) => [...prev, subSkill].sort());
-    }
-  };
-
-  const handleSaveSkill = () => {
-    if (!isMountedRef.current || !selectedSkill) return;
-    if (selectedSkill.sub_skills.length > 0 && selectedSubSkills.length === 0) {
-      if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, sub_skills: "Please select at least one sub-skill." }));
-      }
-      return;
-    }
-    const newSkill = {
-      skill_id: String(selectedSkill.id),
-      skill_name: selectedSkill.name,
-      sub_skills: selectedSubSkills,
-      experience: selectedSkill.experience || '0-11-months',
-      hourly_rate: selectedSkill.hourly_rate || '',
-    };
-    if (isMountedRef.current) {
-      setFormData((prev) => {
-        const isPrimary = prev.skills_id[0]?.skill_id === newSkill.skill_id;
-        const skillIndex = prev.skills_id.findIndex((s) => s.skill_id === newSkill.skill_id);
-        if (isPrimary) {
-          // Update primary skill at index 0
-          return {
-            ...prev,
-            skills_id: [newSkill, ...prev.skills_id.slice(1)],
-          };
-        } else if (skillIndex !== -1) {
-          // Update additional skill in place
-          return {
-            ...prev,
-            skills_id: [
-              ...prev.skills_id.slice(0, skillIndex),
-              newSkill,
-              ...prev.skills_id.slice(skillIndex + 1),
-            ],
-          };
-        } else {
-          // Add new skill (primary if no primary exists, otherwise additional)
-          const isPrimaryEmpty = !prev.skills_id[0] || prev.skills_id[0].skill_id === "";
-          return {
-            ...prev,
-            skills_id: isPrimaryEmpty ? [newSkill, ...prev.skills_id.slice(1)] : [...prev.skills_id, newSkill],
-          };
-        }
-      });
-      setShowSkillModal(false);
-      setSelectedSkill(null);
-      setAvailableSubSkills([]);
-      setSelectedSubSkills([]);
-      setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
-      setApiError("");
-    }
-  };
-
-  const handleModalClose = () => {
-    if (!isMountedRef.current) return;
-    if (isMountedRef.current) {
-      setShowSkillModal(false);
-      setSelectedSkill(null);
-      setAvailableSubSkills([]);
-      setSelectedSubSkills([]);
-    }
-  };
 
   const handleInputChange = (e, field) => {
     if (!isMountedRef.current) return;
@@ -388,7 +397,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
             newData.hours_per_day = 8;
           } else if (value === "part-time") {
             newData.hours_per_day = 4;
-          } else if (value === "one-time-job") {
+          } else if (value === "one-time") {
             newData.hours_per_day = 1;
           }
         }
@@ -501,8 +510,14 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     } else if (formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
       newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit.";
     }
-    if (!formData.gender_id) newErrors.gender_id = "Gender is required.";
+    // Gender is optional - removed required validation
     if (!formData.work_type) newErrors.work_type = "Work type is required.";
+    
+    // Validate hours per day
+    if (!formData.hours_per_day || formData.hours_per_day < 1 || formData.hours_per_day > 24) {
+      newErrors.hours_per_day = "Hours per day must be between 1 and 24.";
+    }
+    
     if (formData.contact_number && !/^\+?[\d\s-]{7,20}$/.test(formData.contact_number)) {
       newErrors.contact_number = "Contact number must be 7-20 digits, spaces, or hyphens.";
     }
@@ -526,7 +541,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     submitData.append("gender_id", formData.gender_id || "");
     submitData.append("work_type", formData.work_type || "");
     submitData.append("hours_per_day", formData.hours_per_day || "");
-    submitData.append("preferred_working_hours", JSON.stringify(formData.preferred_working_hours || []));
+    submitData.append("preferred_working_days", JSON.stringify(formData.preferred_working_hours || []));
     submitData.append("bio", formData.bio || "");
     submitData.append("role_id", formData.role_id);
     submitData.append("skills_id", JSON.stringify(formData.skills_id || []));
@@ -586,7 +601,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
 
   const isGendersLoaded = Array.isArray(genders);
   const isSuffixesLoaded = Array.isArray(suffixes);
-  const isSkillsLoaded = Array.isArray(skills);
+  const isSkillsLoaded = Array.isArray(skillsState) && skillsState.length > 0;
   const isImageFile = (path) => /\.(jpg|jpeg|png)$/i.test(path);
 
   const skillMenu = (skill) => ({
@@ -596,7 +611,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         label: "Edit",
         onClick: () => {
           if (!isMountedRef.current) return;
-          const foundSkill = skills.find((s) => String(s.id) === String(skill.skill_id));
+          const foundSkill = skillsState.find((s) => String(s.id) === String(skill.skill_id));
           if (foundSkill) {
             setSelectedSkill({
               ...foundSkill,
@@ -636,7 +651,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         ) : (
           <form className="worker-modal-form" onSubmit={handleSubmit}>
             <div className="worker-modal-content">
-              <div className="form-section">
+              <div className="form-section worker-modal-form-personal-info">
                 <h3>Personal Information</h3>
                 <div className="form-row">
                   <div className="form-group">
@@ -717,7 +732,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="gender_id">Gender <span className="required">*</span></label>
+                    <label htmlFor="gender_id">Gender</label>
                     <select
                       id="gender_id"
                       value={formData.gender_id || ""}
@@ -782,7 +797,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                   </div>
                 </div>
               </div>
-              <div className="form-section">
+              <div className="form-section worker-modal-form-work-info">
                 <h3>Work Details</h3>
                 <div className="form-row">
                   <div className="form-group">
@@ -797,7 +812,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                       <option value="">Select Work Type</option>
                       <option value="part-time">Part Time</option>
                       <option value="full-time">Full Time</option>
-                      <option value="one-time-job">One Time Job</option>
+                      <option value="one-time">One Time </option>
                     </select>
                     {errors.work_type && <span className="error">{errors.work_type}</span>}
                   </div>
@@ -806,6 +821,69 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                     <select id="role_id" value={formData.role_id} disabled className="credential-dropdown">
                       <option value="1">Worker</option>
                     </select>
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="hours_per_day">Hours Per Day</label>
+                    <input
+                      id="hours_per_day"
+                      type="number"
+                      value={formData.hours_per_day}
+                      onChange={(e) => {
+                        const value = parseInt(e.target.value);
+                        if (value >= 1 && value <= 24) {
+                          handleInputChange(e, "hours_per_day");
+                        } else if (e.target.value === '') {
+                          handleInputChange(e, "hours_per_day");
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const value = parseInt(e.target.value);
+                        if (value < 1 || value > 24) {
+                          setErrors(prev => ({
+                            ...prev,
+                            hours_per_day: "Hours per day must be between 1 and 24."
+                          }));
+                        } else {
+                          setErrors(prev => {
+                            const newErrors = { ...prev };
+                            delete newErrors.hours_per_day;
+                            return newErrors;
+                          });
+                        }
+                      }}
+                      min="1"
+                      max="24"
+                      step="1"
+                      disabled={formData.work_type === 'full-time'}
+                    />
+                    {formData.work_type === 'full-time' && (
+                      <span className="help-text">Full-time automatically set to 8 hours per day</span>
+                    )}
+                    {errors.hours_per_day && <span className="error">{errors.hours_per_day}</span>}
+                  </div>
+                  <div className="form-group preferred-working-days worker-modal-form-work-info">
+                    <label htmlFor="preferred_working_days">Preferred Working Days</label>
+                    <Select
+                      id="preferred_working_days"
+                      mode="multiple"
+                      placeholder="Select Preferred Working Days"
+                      value={formData.preferred_working_hours || []}
+                      onChange={(values) => handleInputChange(values, "preferred_working_hours")}
+                      className="preferred-working-days-dropdown"
+                      showSearch={false}
+                      styles={{ popup: { root: { zIndex: 3000 } } }}
+                    >
+                      <Option value="monday">Monday</Option>
+                      <Option value="tuesday">Tuesday</Option>
+                      <Option value="wednesday">Wednesday</Option>
+                      <Option value="thursday">Thursday</Option>
+                      <Option value="friday">Friday</Option>
+                      <Option value="saturday">Saturday</Option>
+                      <Option value="sunday">Sunday</Option>
+                    </Select>
+                    {errors.preferred_working_hours && <span className="error">{errors.preferred_working_hours}</span>}
                   </div>
                 </div>
                 <div className="form-row">
@@ -825,51 +903,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="hours_per_day">Hours Per Day</label>
-                    <input
-                      id="hours_per_day"
-                      type="number"
-                      value={formData.hours_per_day}
-                      onChange={(e) => handleInputChange(e, "hours_per_day")}
-                      min="1"
-                      max="24"
-                      disabled={formData.work_type === 'full-time'}
-                    />
-                    {formData.work_type === 'full-time' && (
-                      <span className="help-text">Full-time automatically set to 8 hours per day</span>
-                    )}
-                    {errors.hours_per_day && <span className="error">{errors.hours_per_day}</span>}
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>Preferred Working Hours</label>
-                    <div className="working-hours-container">
-                      {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map(day => {
-                        const isChecked = formData.preferred_working_hours && formData.preferred_working_hours.includes(day);
-                        return (
-                          <label key={day} className="day-checkbox">
-                            <input
-                              type="checkbox"
-                              checked={isChecked}
-                              onChange={(e) => {
-                                const currentHours = formData.preferred_working_hours || [];
-                                const newHours = e.target.checked
-                                  ? [...currentHours, day]
-                                  : currentHours.filter(h => h !== day);
-                                handleInputChange(newHours, "preferred_working_hours");
-                              }}
-                            />
-                            <span>{day.charAt(0).toUpperCase() + day.slice(1)}</span>
-                          </label>
-                        );
-                      })}
-                    </div>
-                    {errors.preferred_working_hours && <span className="error">{errors.preferred_working_hours}</span>}
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="form-group">
                     <label htmlFor="bio">Bio</label>
                     <textarea
                       id="bio"
@@ -884,20 +917,43 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                   </div>
                 </div>
               </div>
-              <div className="form-section">
+              <div className="form-section worker-modal-form-skills-info">
                 <h3>Skills</h3>
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="primary_skill">Primary Skill <span className="required">*</span></label>
                     <Select
-                      showSearch
-                      placeholder="Search and select primary skill"
-                      onSearch={setSearchTermPrimary}
+                      id="primary_skill"
+                      placeholder={filteredSkillsPrimary.length === 0 ? "Loading skills..." : "Select primary skill"}
                       onChange={handlePrimarySkillSelect}
-                      className="credential-dropdown"
-                      optionFilterProp="children"
+                      showSearch={false}
                       required
                       value={formData.skills_id[0]?.skill_id || undefined}
+                      className="primary-skill-select"
+                      loading={filteredSkillsPrimary.length === 0}
+                      notFoundContent={filteredSkillsPrimary.length === 0 ? "No skills available" : "No skills found"}
+                      styles={{
+                        popup: {
+                          root: {
+                            zIndex: 3000
+                          }
+                        }
+                      }}
+                      getPopupContainer={(trigger) => trigger.parentElement}
+                      onOpenChange={(open) => {
+                        if (open) {
+                          // Force dropdown to be visible
+                          setTimeout(() => {
+                            const dropdown = document.querySelector('.primary-skill-select .ant-select-dropdown');
+                            if (dropdown) {
+                              dropdown.classList.remove('ant-select-dropdown-hidden');
+                              dropdown.style.pointerEvents = 'auto';
+                              dropdown.style.visibility = 'visible';
+                              dropdown.style.display = 'block';
+                            }
+                          }, 10);
+                        }
+                      }}
                     >
                       {filteredSkillsPrimary.map((skill) => (
                         <Option key={skill.id} value={String(skill.id)}>
@@ -907,7 +963,125 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                     </Select>
                     {errors.skills_id && <span className="error">{errors.skills_id}</span>}
                   </div>
+                  <div className="form-group">
+                    <label htmlFor="additional_skills">Additional Skills</label>
+                    <Select
+                      id="additional_skills"
+                      mode="multiple"
+                      placeholder="Select additional skills"
+                      onChange={handleAdditionalSkillsSelect}
+                      showSearch={false}
+                      value={formData.skills_id.slice(1).map((skill) => skill.skill_id)}
+                      className="additional-skills-select"
+                      loading={filteredSkillsAdditional.length === 0}
+                      notFoundContent={filteredSkillsAdditional.length === 0 ? "No skills available" : "No skills found"}
+                      styles={{
+                        popup: {
+                          root: {
+                            zIndex: 3000
+                          }
+                        }
+                      }}
+                      getPopupContainer={(trigger) => trigger.parentElement}
+                      onOpenChange={(open) => {
+                        if (open) {
+                          // Force dropdown to be visible
+                          setTimeout(() => {
+                            const dropdown = document.querySelector('.additional-skills-select .ant-select-dropdown');
+                            if (dropdown) {
+                              dropdown.classList.remove('ant-select-dropdown-hidden');
+                              dropdown.style.pointerEvents = 'auto';
+                              dropdown.style.visibility = 'visible';
+                              dropdown.style.display = 'block';
+                            }
+                          }, 10);
+                        }
+                      }}
+                    >
+                      {filteredSkillsAdditional.map((skill) => (
+                        <Option key={skill.id} value={String(skill.id)}>
+                          {skill.name}
+                        </Option>
+                      ))}
+                    </Select>
+                  </div>
                 </div>
+
+                {/* New Step-by-Step Skill Selection */}
+                {newSkill.skill_id && (
+                  <div className="skill-selection-flow">
+                    <div className="skill-selection-step">                     
+                      {showSubSkillsDropdown && availableSubSkills.length > 0 && (
+                        <div className="form-group skill-sub-skills-step">
+                          <label htmlFor="sub_skills">Sub-Skills</label>
+                          <Select
+                            id="sub_skills"
+                            mode="multiple"
+                            placeholder="Select sub-skills"
+                            value={newSkill.sub_skills || []}
+                            onChange={handleSubSkillsSelect}
+                            showSearch={false}
+                            className="skill-sub-skills-flow-select"
+                            styles={{
+                              popup: {
+                                root: {
+                                  zIndex: 3000
+                                }
+                              }
+                            }}
+                            getPopupContainer={(trigger) => trigger.parentElement}
+                          >
+                            {availableSubSkills.map((subSkill) => (
+                              <Option key={subSkill} value={subSkill}>
+                                {subSkill}
+                              </Option>
+                            ))}
+                          </Select>
+                          {errors.sub_skills && <span className="error">{errors.sub_skills}</span>}
+                        </div>
+                      )}
+
+                      {showExperienceDropdown && (
+                        <div className="form-group skill-experience-step">
+                          <label htmlFor="experience">Experience Level <span className="required">*</span></label>
+                          <Select
+                            id="experience"
+                            placeholder="Select experience level"
+                            value={newSkill.experience || undefined}
+                            onChange={handleExperienceSelect}
+                            showSearch={false}
+                            className="skill-experience-flow-select"
+                            styles={{
+                              popup: {
+                                root: {
+                                  zIndex: 3000
+                                }
+                              }
+                            }}
+                            getPopupContainer={(trigger) => trigger.parentElement}
+                          >
+                            {experienceOptions.map((option) => (
+                              <Option key={option.value} value={option.value}>
+                                {option.label}
+                              </Option>
+                            ))}
+                          </Select>
+                          {errors.experience && <span className="error">{errors.experience}</span>}
+                        </div>
+                      )}
+
+                      <div className="skill-selection-actions">
+                        <button 
+                          type="button" 
+                          className="cancel-skill-btn"
+                          onClick={cancelSkillSelection}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 {formData.skills_id[0]?.skill_id && (
                   <div className="selected-skills">
                     <h4>Selected Primary Skill</h4>
@@ -941,27 +1115,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                     </Dropdown>
                   </div>
                 )}
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="additional_skills">Additional Skills</label>
-                    <Select
-                      mode="multiple"
-                      showSearch
-                      placeholder="Search and select additional skills"
-                      onSearch={setSearchTermAdditional}
-                      onChange={handleAdditionalSkillsSelect}
-                      className="credential-dropdown"
-                      optionFilterProp="children"
-                      value={formData.skills_id.slice(1).map((skill) => skill.skill_id)}
-                    >
-                      {filteredSkillsAdditional.map((skill) => (
-                        <Option key={skill.id} value={String(skill.id)}>
-                          {skill.name}
-                        </Option>
-                      ))}
-                    </Select>
-                  </div>
-                </div>
                 {formData.skills_id.slice(1).length > 0 && (
                   <div className="selected-skills">
                     <h4>Selected Additional Skills</h4>
@@ -1001,31 +1154,89 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
               <div className="form-section">
                 <h3>Profile Picture</h3>
                 <div className="form-group">
-                  <label htmlFor="profile_img">Profile Picture</label>
+                  <div className="profile-upload-container">
+                    <div 
+                      className="profile-upload-dropzone"
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        e.currentTarget.classList.add('drag-over');
+                      }}
+                      onDragLeave={(e) => {
+                        e.currentTarget.classList.remove('drag-over');
+                      }}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        e.currentTarget.classList.remove('drag-over');
+                        const files = e.dataTransfer.files;
+                        if (files.length > 0) {
+                          handleInputChange({ target: { files: [files[0]] } }, "profile_img");
+                        }
+                      }}
+                    >
+                      {formData.profile_img ? (
+                        <div className="profile-img-preview-inside">
+                          <div className="preview-image-container">
+                            {typeof formData.profile_img === "string" ? (
+                              <img src={`http://127.0.0.1:8000/storage/${formData.profile_img}`} alt="Profile Preview" />
+                            ) : (
+                              <img src={URL.createObjectURL(formData.profile_img)} alt="Profile Preview" />
+                            )}
+                          </div>
+                          <div className="preview-actions">
+                            <button 
+                              type="button" 
+                              className="change-image-button"
+                              onClick={() => document.getElementById('profile_img').click()}
+                            >
+                              Change Image
+                            </button>
+                            <button 
+                              type="button" 
+                              className="remove-image-button"
+                              onClick={removeProfileImg}
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="upload-content">
+                          <div className="upload-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <button 
+                            type="button" 
+                            className="browse-button"
+                            onClick={() => document.getElementById('profile_img').click()}
+                          >
+                            Browse
+                          </button>
+                          <p className="drop-text">drop a file here</p>
+                          <p className="file-types">*File supported .png, .jpg & .webp</p>
+                        </div>
+                      )}
                   <input
                     id="profile_img"
                     type="file"
                     accept="image/jpeg,image/png,image/jpg"
                     onChange={(e) => handleInputChange(e, "profile_img")}
                     ref={profileImgRef}
-                  />
-                  {formData.profile_img && (
-                    <div className="profile-img-preview">
-                      {typeof formData.profile_img === "string" ? (
-                        <img src={`http://127.0.0.1:8000/storage/${formData.profile_img}`} alt="Profile Preview" />
-                      ) : (
-                        <img src={URL.createObjectURL(formData.profile_img)} alt="Profile Preview" />
-                      )}
-                      <button type="button" onClick={removeProfileImg}>Remove</button>
+                        style={{ display: 'none' }}
+                      />
                     </div>
-                  )}
+                  </div>
                   {errors.profile_img && <span className="error">{errors.profile_img}</span>}
                 </div>
               </div>
-              <div className="form-section">
+              <div className="form-section worker-modal-form-credentials-info">
                 <h3>Credentials</h3>
                 <div className="form-group">
-                  <label>Add Credential</label>
                   <div className="credential-section">
                     <select
                       value={newCredential.credentials_name}
@@ -1090,115 +1301,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
           </form>
         )}
 
-        {showSkillModal && selectedSkill && (
-          <div className="skill-details-modal-overlay">
-            <div className="skill-details-modal">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h3>{selectedSkill.name}</h3>
-                  <IconX size={20} className="close-icon" onClick={handleModalClose} />
-                </div>
-                <div className="modal-body">
-                  <div className="skill-details-section">
-                    <div className="experience-container">
-                      <label className="experience-label">Experience Level <span className="required">(Required)</span></label>
-                      <Select
-                        value={selectedSkill.experience || '0-11-months'}
-                        onChange={(value) => setSelectedSkill(prev => ({ ...prev, experience: value }))}
-                        style={{ width: '100%', marginBottom: '15px' }}
-                        className="experience-select"
-                      >
-                        {experienceOptions.map(option => (
-                          <Option key={option.value} value={option.value}>
-                            {option.label}
-                          </Option>
-                        ))}
-                      </Select>
-                    </div>
-
-                    <div className="skill-hourly-rate-container">
-                      <label className="skill-rate-label">Hourly Rate for this Skill (PHP)</label>
-                      <input
-                        type="number"
-                        value={selectedSkill.hourly_rate || ''}
-                        onChange={(e) => setSelectedSkill(prev => ({ ...prev, hourly_rate: e.target.value }))}
-                        placeholder="e.g., 500"
-                        min="0"
-                        step="10"
-                        className="skill-hourly-rate-input"
-                      />
-                      <p className="skill-rate-note">Set a specific rate for this skill (optional)</p>
-                    </div>
-                  </div>
-
-                  {selectedSkill.sub_skills.length > 0 ? (
-                    <div className="sub-skills-section">
-                      <label className="sub-skills-label">
-                        Sub-Skills <span className="required">(Required)</span>
-                      </label>
-                      <p className="sub-skills-instruction">Select sub-skills by moving them between the lists below.</p>
-                      <div className="sub-skills-container">
-                        <div className="available-sub-skills">
-                          <h4>Available Sub-Skills</h4>
-                          {availableSubSkills.length > 0 ? (
-                            <ul className="sub-skills-list">
-                              {availableSubSkills.map((subSkill) => (
-                                <li key={subSkill} className="sub-skill-item">
-                                  <span className="sub-skill-text">{subSkill}</span>
-                                  <button
-                                    className="add-sub-skill-btn"
-                                    onClick={() => handleAddSubSkill(subSkill)}
-                                    aria-label={`Add ${subSkill} to selected sub-skills`}
-                                  >
-                                    <IconPlus size={16} />
-                                  </button>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <p className="no-sub-skills">No available sub-skills</p>
-                          )}
-                        </div>
-                        <div className="selected-sub-skills">
-                          <h4>Selected Sub-Skills</h4>
-                          {selectedSubSkills.length > 0 ? (
-                            <ul className="sub-skills-list">
-                              {selectedSubSkills.map((subSkill) => (
-                                <li key={subSkill} className="sub-skill-item">
-                                  <span className="sub-skill-text">{subSkill}</span>
-                                  <button
-                                    className="remove-sub-skill-btn"
-                                    onClick={() => handleRemoveSubSkill(subSkill)}
-                                    aria-label={`Remove ${subSkill} from selected sub-skills`}
-                                  >
-                                    <IconMinus size={16} />
-                                  </button>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <p className="no-sub-skills">No sub-skills selected</p>
-                          )}
-                        </div>
-                      </div>
-                      {errors.sub_skills && <span className="error">{errors.sub_skills}</span>}
-                    </div>
-                  ) : (
-                    <p className="no-sub-skills">This skill has no sub-skills. Click Save to continue.</p>
-                  )}
-                </div>
-                <div className="modal-footer">
-                  <button className="cancel-btn" onClick={handleModalClose}>
-                    Cancel
-                  </button>
-                  <button className="save-btn" onClick={handleSaveSkill}>
-                    Save
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

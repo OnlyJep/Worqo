@@ -1486,10 +1486,10 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                         
                         // Auto-set hours per day and working days based on work type
                                 if (option.value === 'full-time') {
-                          setHoursPerDay(168); // 168 hours per week (28 hours per day for 6 days)
+                          setHoursPerDay(8); // 8 hours per day for full-time
                           setPreferredWorkingHours(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']);
                         } else if (option.value === 'part-time') {
-                          setHoursPerDay(8);
+                          setHoursPerDay(4);
                           // Reset working days for part-time to allow fresh selection
                           setPreferredWorkingHours([]);
                         } else if (option.value === 'one-time') {
@@ -1509,27 +1509,27 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
                   <div className="form-group">
                     <label className="form-label">
-                      {workType === 'full-time' ? 'Hours Per Week' : 
+                      {workType === 'full-time' ? 'Hours Per Day' : 
                        workType === 'part-time' ? 'Hours Per Day' : 
-                       'Hours (Custom)'}
+                       'Hours Per Day'}
                     </label>
                     <Input
                       type="number"
                       value={hoursPerDay}
                       onChange={(e) => setHoursPerDay(parseInt(e.target.value) || 1)}
                       min="1"
-                      max={workType === 'full-time' ? '168' : workType === 'part-time' ? '34' : '23'}
+                      max={workType === 'full-time' ? '8' : workType === 'part-time' ? '8' : '24'}
                       className="form-input"
                       disabled={workType === 'full-time'}
                     />
                     {workType === 'full-time' && (
-                      <span className="form-help">Full-time automatically set to 168 hours per week (Monday-Saturday)</span>
+                      <span className="form-help">Full-time automatically set to 8 hours per day (Monday-Saturday)</span>
                     )}
                     {workType === 'part-time' && (
-                      <span className="form-help">Part-time: 8 hours per day (1-34 hours, flexible days)</span>
+                      <span className="form-help">Part-time: 4 hours per day (1-8 hours, flexible days)</span>
                     )}
                     {workType === 'one-time' && (
-                      <span className="form-help">One-time: Set your preferred hours (1-23 hours, flexible days)</span>
+                      <span className="form-help">One-time: Set your preferred hours (1-24 hours, flexible days)</span>
                     )}
                   </div>
                 </div>

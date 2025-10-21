@@ -276,7 +276,7 @@ const WorkerList = () => {
 
         signal,
 
-        timeout: 5000,
+        timeout: 15000,
 
       });
 
@@ -318,7 +318,7 @@ const WorkerList = () => {
 
         signal,
 
-        timeout: 5000,
+        timeout: 15000,
 
       });
 
@@ -360,7 +360,7 @@ const WorkerList = () => {
 
         signal,
 
-        timeout: 5000,
+        timeout: 15000,
 
       });
 
@@ -528,7 +528,7 @@ const WorkerList = () => {
 
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
-          timeout: 5000,
+          timeout: 15000,
 
         }
 
@@ -596,7 +596,7 @@ const WorkerList = () => {
 
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
-          timeout: 5000,
+          timeout: 15000,
 
         }
 
@@ -672,7 +672,7 @@ const WorkerList = () => {
 
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
-          timeout: 5000,
+          timeout: 15000,
 
         }
 
@@ -1190,7 +1190,7 @@ const WorkerList = () => {
 
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
 
-        timeout: 5000,
+        timeout: 15000,
 
       });
 
@@ -1862,7 +1862,7 @@ const WorkerList = () => {
 
           <div className="workerlist-header">
 
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="search-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="search-icon">
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.35-4.35"></path>
             </svg>
@@ -2044,8 +2044,6 @@ const WorkerList = () => {
 
                   <th>Hours/Day</th>
 
-                  <th>Monthly Salary</th>
-
                   <th>Skills</th>
 
                   <th>Credentials</th>
@@ -2070,7 +2068,7 @@ const WorkerList = () => {
 
                   <tr>
 
-                    <td colSpan="13" className="loading-row">Loading workers...</td>
+                    <td colSpan="12" className="loading-row">Loading workers...</td>
 
                   </tr>
 
@@ -2300,10 +2298,6 @@ const WorkerList = () => {
 
                         </td>
 
-                        <td>
-                          N/A
-                        </td>
-
                         <td className="skills-cell">{getDetailedSkillNames(worker.worker?.skills_id)}</td>
 
                         <td className="credentials-cell">
@@ -2388,7 +2382,7 @@ const WorkerList = () => {
 
                   <tr>
 
-                    <td colSpan="13">No {showArchived ? "archived" : "active"} workers found</td>
+                    <td colSpan="12">No {showArchived ? "archived" : "active"} workers found</td>
 
                   </tr>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 	import './../../../sass/components/findjob.scss';
 import Headerz from "../HeaderContent/Headerz";
@@ -16,6 +16,7 @@ const FindJob = () => {
 	const [filteredJobs, setFilteredJobs] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const sortOptions = ["Featured", "Newest", "Price: High-Low", "Price: Low-High"];
 
@@ -60,6 +61,15 @@ const FindJob = () => {
 		}
 	};
 
+	// Handle URL search parameters
+	useEffect(() => {
+		const urlParams = new URLSearchParams(location.search);
+		const searchParam = urlParams.get('search');
+		if (searchParam) {
+			setSearchTerm(searchParam);
+		}
+	}, [location.search]);
+
 	useEffect(() => {
 		let isMounted = true;
 		
@@ -71,26 +81,40 @@ const FindJob = () => {
 				const userData = JSON.parse(localStorage.getItem("user") || '{}');
 				const currentUserId = userData.user?.id || userData.id;
 				
-				const response = await axios.get('/api/jobposts?archived=false');
-				console.log('API Response:', response.data); // Debug log
+				// Use search API if search term is provided
+				const urlParams = new URLSearchParams(location.search);
+				const searchParam = urlParams.get('search');
 				
-				// Handle the nested structure: response.data.job_posts.data
-				const jobsData = response.data.job_posts?.data || response.data.data || response.data;
-				console.log('Jobs Data:', jobsData); // Debug log
-				
-				const jobsArray = Array.isArray(jobsData) ? jobsData : [];
-				console.log('Jobs Array:', jobsArray); // Debug log
-				
-				// Filter out current user's job posts
-				const filteredJobsArray = currentUserId 
-					? jobsArray.filter(job => job.profile_id !== currentUserId)
-					: jobsArray;
-				
-				console.log('Filtered Jobs (excluding own):', filteredJobsArray.length, 'out of', jobsArray.length);
-				
-				if (isMounted) {
-					setJobs(filteredJobsArray);
-					setFilteredJobs(filteredJobsArray);
+				let response;
+				if (searchParam) {
+					response = await axios.get(`/api/search/jobs?q=${encodeURIComponent(searchParam)}`);
+					const jobsData = response.data.jobs || [];
+					if (isMounted) {
+						setJobs(jobsData);
+						setFilteredJobs(jobsData);
+					}
+				} else {
+					response = await axios.get('/api/jobposts?archived=false');
+					console.log('API Response:', response.data); // Debug log
+					
+					// Handle the nested structure: response.data.job_posts.data
+					const jobsData = response.data.job_posts?.data || response.data.data || response.data;
+					console.log('Jobs Data:', jobsData); // Debug log
+					
+					const jobsArray = Array.isArray(jobsData) ? jobsData : [];
+					console.log('Jobs Array:', jobsArray); // Debug log
+					
+					// Filter out current user's job posts
+					const filteredJobsArray = currentUserId 
+						? jobsArray.filter(job => job.profile_id !== currentUserId)
+						: jobsArray;
+					
+					console.log('Filtered Jobs (excluding own):', filteredJobsArray.length, 'out of', jobsArray.length);
+					
+					if (isMounted) {
+						setJobs(filteredJobsArray);
+						setFilteredJobs(filteredJobsArray);
+					}
 				}
 			} catch (error) {
 				console.error('Error fetching jobs:', error);
@@ -110,7 +134,7 @@ const FindJob = () => {
 		return () => {
 			isMounted = false;
 		};
-	}, []);
+	}, [location.search]);
 
 	useEffect(() => {
 		if (Array.isArray(jobs)) {

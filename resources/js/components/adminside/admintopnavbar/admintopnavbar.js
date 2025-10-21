@@ -197,12 +197,10 @@ const Admintopnavbar = () => {
   };
 
   const handleImageError = () => {
-    console.log("Image failed to load, setting error state");
     setImageError(true);
   };
 
   const handleImageLoad = () => {
-    console.log("Image loaded successfully");
     setImageError(false);
   };
 
@@ -211,7 +209,7 @@ const Admintopnavbar = () => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       const userData = JSON.parse(storedUser);
-      console.log("Refreshing user data:", userData);
+      // Refreshing user data
       setUser(userData);
       setImageError(false);
       setImageRefreshKey(prev => prev + 1); // Force image refresh
@@ -221,11 +219,9 @@ const Admintopnavbar = () => {
   // Function to get image URL with cache busting
   const getImageUrl = (profileImg) => {
     if (!profileImg) {
-      console.log("No profile image found, using default");
       return "/default-profile.png";
     }
     const imageUrl = `http://127.0.0.1:8000/storage/${profileImg}?v=${imageRefreshKey}`;
-    console.log("Generated image URL:", imageUrl);
     return imageUrl;
   };
 

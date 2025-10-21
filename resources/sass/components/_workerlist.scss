@@ -151,17 +151,17 @@ body {
         }
 
         .archive-all-button {
-          background: #D81B60;
+          background: #1A2A44;
           color: #FFFFFF;
-          border-color: #D81B60;
+          border-color: #1A2A44;
 
           .button-icon {
             color: #FFFFFF;
           }
 
           &:hover {
-            background: darken(#D81B60, 10%);
-            border-color: darken(#D81B60, 10%);
+            background: darken(#1A2A44, 10%);
+            border-color: darken(#1A2A44, 10%);
             transform: translateY(-2px);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           }
@@ -261,24 +261,27 @@ body {
        width: 100%;
        border-radius: 8px;
        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+       overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
 
        table {
          width: 100%;
-         min-width: 100%;
+         min-width: 3000px; // Expanded for more columns
          border-collapse: collapse;
-         table-layout: fixed;
+         table-layout: auto;
 
         th {
-          padding: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 6px);
-          text-align: center;
+          padding: 10px;
+          text-align: left;
           border-bottom: 1px solid #EEEEEE;
           color: #FFFFFF;
-          font-size: clamp(10px, 2.5vw, 12px);
+          font-size: 16px;
           background: #1A2A44;
           font-weight: 600;
           position: sticky;
           top: 0;
           z-index: 10;
+          height: 50px;
 
           .header-actions-icon {
             display: flex;
@@ -299,16 +302,17 @@ body {
         }
 
         td {
-          padding: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 6px);
-          text-align: center;
+          padding: 10px;
+          text-align: left;
           border-bottom: 1px solid #EEEEEE;
           color: #333333;
-          font-size: clamp(10px, 2.5vw, 12px);
+          font-size: 15px;
           background: #FFFFFF;
           vertical-align: middle;
           white-space: normal;
           overflow: hidden;
           text-overflow: ellipsis;
+          height: 40px;
 
           &.fullname-cell,
           &.email-cell,
@@ -319,6 +323,37 @@ body {
             word-wrap: break-word;
             overflow-wrap: break-word;
             hyphens: auto;
+          }
+
+          // Enhanced text handling for expanded columns
+          &:nth-child(7), // Full Name
+          &:nth-child(8), // Email
+          &:nth-child(9), // Skills
+          &:nth-child(10) { // Credentials
+            white-space: normal;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: left;
+          }
+
+          // Left align for all data columns
+          &:nth-child(1), // Actions
+          &:nth-child(2), // ID
+          &:nth-child(3), // Profile ID
+          &:nth-child(4), // Role
+          &:nth-child(5), // Status
+          &:nth-child(6), // Is Reviewed
+          &:nth-child(11), // Experience
+          &:nth-child(12), // Additional columns
+          &:nth-child(13),
+          &:nth-child(14),
+          &:nth-child(15),
+          &:nth-child(16),
+          &:nth-child(17),
+          &:nth-child(18),
+          &:nth-child(19),
+          &:nth-child(20) {
+            text-align: left;
           }
         }
 
@@ -332,7 +367,7 @@ body {
 
         .action-icons {
           display: flex;
-          gap: clamp(8px, 2vw, 10px);
+          gap: 16px;
           align-items: center;
           justify-content: center;
 
@@ -354,26 +389,26 @@ body {
           }
 
           .delete-icon {
-            color: #D81B60;
+            color: #1A2A44;
 
             &:hover {
-              color: #A71D2A;
+              color: #1A2A44;
             }
           }
 
           .accept-icon {
-            color: #28A745;
+            color: #1A2A44;
 
             &:hover {
-              color: #218838;
+              color: #1A2A44;
             }
           }
 
           .decline-icon {
-            color: #DC3545;
+            color: #1A2A44;
 
             &:hover {
-              color: #C82333;
+              color: #1A2A44;
             }
           }
         }
@@ -381,8 +416,8 @@ body {
         .credential-item {
           display: flex;
           align-items: center;
-          gap: 8px;
-          margin-bottom: 4px;
+          gap: 16px;
+          margin-bottom: 12px;
 
           .credential-link {
             background: none;
@@ -399,60 +434,159 @@ body {
           }
         }
 
+        // Actions column
         th:nth-child(1),
         td:nth-child(1) {
-          width: 7%;
+          width: 150px;
+          min-width: 150px;
         }
 
+        // ID column
         th:nth-child(2),
         td:nth-child(2) {
-          width: 4%;
+          width: 100px;
+          min-width: 100px;
         }
 
+        // Profile ID column
         th:nth-child(3),
         td:nth-child(3) {
-          width: 9%;
+          width: 120px;
+          min-width: 120px;
         }
 
+        // Role column
         th:nth-child(4),
         td:nth-child(4) {
-          width: 5%;
+          width: 120px;
+          min-width: 120px;
         }
 
+        // Status column
         th:nth-child(5),
         td:nth-child(5) {
-          width: 5%;
+          width: 140px;
+          min-width: 140px;
         }
 
+        // Is Reviewed column
         th:nth-child(6),
         td:nth-child(6) {
-          width: 5%;
+          width: 140px;
+          min-width: 140px;
         }
 
+        // Full Name column
         th:nth-child(7),
         td:nth-child(7) {
-          width: 20%;
+          width: 250px;
+          min-width: 250px;
         }
 
+        // Email column
         th:nth-child(8),
         td:nth-child(8) {
-          width: 12%;
+          width: 250px;
+          min-width: 250px;
         }
 
+        // Skills column
         th:nth-child(9),
         td:nth-child(9) {
-          width: 15%;
+          width: 400px;
+          min-width: 400px;
         }
 
+        // Credentials column
         th:nth-child(10),
         td:nth-child(10) {
-          width: 7%;
+          width: 220px;
+          min-width: 220px;
         }
 
-        /* New Experience column */
+        // Experience column
         th:nth-child(11),
         td:nth-child(11) {
-          width: 11%;
+          width: 180px;
+          min-width: 180px;
+        }
+
+        // Additional columns for future expansion
+        th:nth-child(12),
+        td:nth-child(12) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        th:nth-child(13),
+        td:nth-child(13) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        th:nth-child(14),
+        td:nth-child(14) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        th:nth-child(15),
+        td:nth-child(15) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        th:nth-child(16),
+        td:nth-child(16) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        th:nth-child(17),
+        td:nth-child(17) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        th:nth-child(18),
+        td:nth-child(18) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        th:nth-child(19),
+        td:nth-child(19) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        th:nth-child(20),
+        td:nth-child(20) {
+          width: 150px;
+          min-width: 150px;
+        }
+
+        // Responsive design for expanded table
+        @media (max-width: 768px) {
+          table {
+            min-width: 1800px; // Reduced for tablet
+          }
+
+          th, td {
+            padding: clamp(4px, 1vw, 6px) clamp(2px, 0.5vw, 4px);
+            font-size: clamp(9px, 2vw, 11px);
+          }
+        }
+
+        @media (max-width: 480px) {
+          table {
+            min-width: 2000px; // Full width for mobile scrolling
+          }
+
+          th, td {
+            padding: clamp(3px, 0.8vw, 5px) clamp(1px, 0.3vw, 3px);
+            font-size: clamp(8px, 1.8vw, 10px);
+          }
         }
       }
     }
@@ -481,24 +615,24 @@ body {
       
       &.accepted {
         background: #f6ffed;
-        color: #52c41a;
-        border-color: #b7eb8f;
+        color: #1A2A44;
+        border-color: #1a2a447d;
         
         &:hover {
-          background: #d9f7be;
-          border-color: #95de64;
-          color: #389e0d;
+          background: #1a2a4477;
+          border-color: #1A2A44;
+          color: #1A2A44;
         }
       }
       &.declined {
         background: #fff2f0;
-        color: #ff4d4f;
+        color: #1A2A44;
         border-color: #ffccc7;
         
         &:hover {
           background: #ffece6;
-          border-color: #ffa39e;
-          color: #d9363e;
+          border-color: #1a2a4449;
+          color: #1A2A44;
         }
       }
       &.pending {
@@ -538,13 +672,13 @@ body {
       
       &.exp-bronze {
         background: #fff7e6;
-        color: #d48806;
-        border-color: #ffd591;
+        color: #1A2A44;
+        border-color: #1a2a44b4;
         
         &:hover {
-          background: #fff1b8;
-          border-color: #ffa940;
-          color: #ad6800;
+          background: #1a2a44b9;
+          border-color: #1A2A44;
+          color: #1A2A44;
         }
       }
       &.exp-silver {
@@ -560,13 +694,13 @@ body {
       }
       &.exp-gold {
         background: #fff7e6;
-        color: #d48806;
-        border-color: #ffd591;
+        color: #1A2A44;
+        border-color: #1A2A44;
         
         &:hover {
           background: #fff1b8;
-          border-color: #ffa940;
-          color: #ad6800;
+          border-color: #1A2A44;
+          color: #1A2A44;
         }
       }
       &.exp-none {
@@ -665,9 +799,10 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  z-index: 1000;
+  z-index: 2000;
+  padding-right: 200px;
 }
 
 .confirm-modal {
@@ -699,7 +834,7 @@ body {
 
     .confirm-button {
       padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
-      background: #D81B60;
+      background: #1A2A44;
       color: #FFFFFF;
       border: none;
       border-radius: 5px;
@@ -708,23 +843,23 @@ body {
       font-size: clamp(12px, 3vw, 14px);
 
       &.accept {
-        background: #28A745;
+        background: #10B981;
 
         &:hover {
-          background: darken(#28A745, 10%);
+          background: #059669;
         }
       }
 
       &.decline {
-        background: #DC3545;
+        background: #1A2A44;
 
         &:hover {
-          background: darken(#DC3545, 10%);
+          background: darken(#1A2A44, 10%);
         }
       }
 
       &:hover {
-        background: darken(#D81B60, 10%);
+        background: darken(#1A2A44, 10%);
         transform: translateY(-2px);
       }
     }
