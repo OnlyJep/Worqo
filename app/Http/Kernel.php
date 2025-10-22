@@ -27,7 +27,6 @@ class Kernel extends HttpKernel
 
         'api' => [
             \Fruitcake\Cors\HandleCors::class, // Add CORS here for API routes
-            \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\UpdateUserActivity::class, // Add user activity tracking

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaCaretDown, FaUserCog, FaSignOutAlt } from 'react-icons/fa';
+import { FaUserCog, FaSignOutAlt } from 'react-icons/fa';
+import { IoMdArrowDropdown } from 'react-icons/io';
 import { IconBell, IconMenu2, IconMessageCircle } from '@tabler/icons-react';
 import axios from 'axios';
 import './../../../sass/components/Headerz.scss';
@@ -15,6 +16,7 @@ const Headerz = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [isSwitching, setIsSwitching] = useState(false);
+  const [targetRole, setTargetRole] = useState('');
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
@@ -152,10 +154,46 @@ const Headerz = () => {
 
   // Navigation functions
   const goToHome = () => navigate('/');
-  const goToServices = () => navigate('/services');
+  const goToServices = () => {
+    if (!isLoggedIn) {
+      alert('Please login to access services');
+      navigate('/login');
+      return;
+    }
+    if (user?.role_id === 1) {
+      alert('Workers cannot access services. Please switch to Employer account.');
+      return;
+    }
+    navigate('/services');
+  };
+  
   const goToAbout = () => navigate('/about');
-  const goToFindJobs = () => navigate('/find-jobs');
-  const goToPostJobs = () => navigate('/post-jobs');
+  
+  const goToFindJobs = () => {
+    if (!isLoggedIn) {
+      alert('Please login to find jobs');
+      navigate('/login');
+      return;
+    }
+    if (user?.role_id === 2) {
+      alert('Employers cannot find jobs. Please switch to Worker account.');
+      return;
+    }
+    navigate('/find-jobs');
+  };
+  
+  const goToPostJobs = () => {
+    if (!isLoggedIn) {
+      alert('Please login to post jobs');
+      navigate('/login');
+      return;
+    }
+    if (user?.role_id === 1) {
+      alert('Workers cannot post jobs. Please switch to Employer account.');
+      return;
+    }
+    navigate('/profile-settings/post-job');
+  };
   const goToNotifications = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -242,11 +280,14 @@ const Headerz = () => {
   const handleSwitchAccount = async () => {
     if (!user) return;
     
+    const newRoleId = user.role_id === 1 ? 2 : 1;
+    const targetRoleName = newRoleId === 1 ? 'Worker' : 'Employer';
+    
+    setTargetRole(targetRoleName);
     setIsSwitching(true);
     setIsDropdownOpen(false);
     
     try {
-      const newRoleId = user.role_id === 1 ? 2 : 1;
       const authToken = localStorage.getItem('auth_token');
       
       // Call backend API to update role in database
@@ -399,7 +440,7 @@ const Headerz = () => {
         <div className="switching-overlay">
           <div className="switching-content">
             <div className="switching-spinner"></div>
-            <h3>Switching to {user?.role_id === 1 ? 'Employer' : 'Worker'}...</h3>
+            <h3>Switching to {targetRole}...</h3>
             <p>Please wait while we update your account</p>
           </div>
         </div>
@@ -430,7 +471,6 @@ const Headerz = () => {
             <span onClick={goToPostJobs}>Post Jobs</span>
           )}
           {/* Additional navigation items */}
-          <span onClick={() => navigate('/contact')}>Contact</span>
         </nav>
 
         {/* Right Side: Icons and Login/Profile */}
@@ -463,7 +503,7 @@ const Headerz = () => {
                 className={`dropdown-toggle ${isDropdownOpen ? 'open' : ''}`}
                 onClick={toggleDropdown}
               >
-                <FaCaretDown className="dropdown-icon" />
+                <IoMdArrowDropdown className="dropdown-icon" style={{ color: 'white' }} />
                 {isDropdownOpen && (
                   <div className="dropdown-menu">
                     <ul>

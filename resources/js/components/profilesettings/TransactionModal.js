@@ -41,6 +41,12 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
                 <span className="label">Service Type:</span>
                 <span className="value">{booking.service_type}</span>
               </div>
+              {booking.sub_skill && (
+                <div className="detail-row">
+                  <span className="label">Sub Skills:</span>
+                  <span className="value">{booking.sub_skill}</span>
+                </div>
+              )}
               <div className="detail-row">
                 <span className="label">Work Type:</span>
                 <span className="value">{booking.work_type}</span>
@@ -52,13 +58,25 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
                 </span>
               </div>
               <div className="detail-row">
-                <span className="label">Start Date:</span>
+                <span className="label">Book In:</span>
                 <span className="value">{formatDate(booking.book_in)}</span>
               </div>
               <div className="detail-row">
-                <span className="label">End Date:</span>
+                <span className="label">Book End:</span>
                 <span className="value">{formatDate(booking.book_end)}</span>
               </div>
+              {booking.time_in && (
+                <div className="detail-row">
+                  <span className="label">Time In:</span>
+                  <span className="value">{booking.time_in}</span>
+                </div>
+              )}
+              {booking.time_out && (
+                <div className="detail-row">
+                  <span className="label">Time Out:</span>
+                  <span className="value">{booking.time_out}</span>
+                </div>
+              )}
               <div className="detail-row">
                 <span className="label">Duration:</span>
                 <span className="value">{duration} hours</span>
@@ -74,13 +92,19 @@ const TransactionModal = ({ isOpen, onClose, booking }) => {
             <h3>Financial Details</h3>
             <div className="transaction-details">
               <div className="detail-row">
-                <span className="label">Hourly Rate:</span>
-                <span className="value">₱{booking.hourly_rate}</span>
+                <span className="label">Daily Rate:</span>
+                <span className="value">₱{booking.daily_rate || booking.total_amount}</span>
               </div>
               <div className="detail-row">
                 <span className="label">Total Hours:</span>
                 <span className="value">{duration} hours</span>
               </div>
+              {booking.work_type && (
+                <div className="detail-row">
+                  <span className="label">Work Type:</span>
+                  <span className="value">{booking.work_type}</span>
+                </div>
+              )}
               <div className="detail-row total-row">
                 <span className="label">Total Amount:</span>
                 <span className="value total-amount">₱{booking.total_amount}</span>

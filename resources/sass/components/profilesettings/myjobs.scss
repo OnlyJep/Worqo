@@ -1,4 +1,4 @@
-.my-jobs-container {
+.myjobs-container {
   background: white;
   border-radius: 8px;
   padding: 30px;
@@ -7,13 +7,13 @@
   flex-direction: column;
   gap: 20px;
 
-  .post-job-header {
+  .myjobs-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 
-    .post-job-title {
+    .myjobs-title {
       font-size: 28px;
       font-weight: 700;
       color: #1f2937;
@@ -21,7 +21,7 @@
     }
   }
 
-  .loading-container {
+  .myjobs-loading-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,11 +35,11 @@
     }
   }
 
-  .empty-state {
+  .myjobs-empty-state {
     text-align: center;
     padding: 40px 20px;
 
-    .empty-icon {
+    .myjobs-empty-icon {
       margin-bottom: 20px;
       
       img {
@@ -49,35 +49,35 @@
       }
     }
 
-    .empty-title {
+    .myjobs-empty-title {
       font-size: 24px;
       font-weight: 700;
       color: #1f2937;
       margin: 0 0 8px 0;
     }
 
-    .empty-description {
+    .myjobs-empty-description {
       font-size: 16px;
       color: #6b7280;
       margin: 0;
     }
   }
 
-  .bookings-navigation {
+  .myjobs-navigation {
     display: flex;
     gap: 30px;
     border-bottom: 1px solid #e5e7eb;
     margin-bottom: 30px;
     overflow-x: auto;
 
-    .booking-tab-container {
+    .myjobs-tab-container {
       display: flex;
       flex-shrink: 0;
       position: relative;
       z-index: 1;
     }
 
-    .booking-tab {
+    .myjobs-tab {
       background: none;
       border: none;
       padding: 12px 20px;
@@ -118,13 +118,13 @@
     }
   }
 
-  .jobs-list {
+  .myjobs-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
 
-  .job-card {
+  .myjobs-card {
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
@@ -140,10 +140,9 @@
 
     &.expired {
       background: #f8f9fa;
-      border-color: #dc3545;
       opacity: 0.8;
 
-      .expired-badge {
+      .myjobs-expired-badge {
         background: #dc3545;
         color: white;
         padding: 4px 8px;
@@ -156,13 +155,13 @@
       }
     }
     
-    .job-card-header {
+    .myjobs-card-header {
       position: absolute;
       top: 20px;
       right: 20px;
       z-index: 1;
 
-      .job-actions {
+      .myjobs-card-actions {
         display: flex;
         align-items: center;
         gap: 8px;
@@ -195,108 +194,49 @@
       }
     }
 
-    .job-content {
-      .job-title {
-        font-size: 24px;
-        font-weight: 700;
-        color: #1f2937;
-        margin: 0 0 8px 0;
-        line-height: 1.2;
+    .myjobs-content {
+      .myjobs-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .myjobs-job-title {
+          font-size: 24px;
+          font-weight: 700;
+          color: #1f2937;
+          margin: 0;
+          line-height: 1.2;
+        }
+
+        .myjobs-posted-date {
+          font-size: 14px;
+          color: #6b7280;
+          font-weight: 400;
+        }
       }
 
-      .job-metadata {
+      .myjobs-metadata {
         display: flex;
         flex-direction: column;
         gap: 6px;
         margin-bottom: 16px;
 
-        .posted-date {
-          font-size: 14px;
-          color: #6b7280;
-          font-weight: 400;
-        }
-
-        .job-salary {
+        .myjobs-salary {
           font-size: 16px;
           color: #374151;
           font-weight: 500;
         }
       }
 
-      .job-description {
-        margin-bottom: 20px;
-
-        .description-title {
-          font-size: 16px;
-          font-weight: 400;
-          color: #374151;
-          margin: 0 0 8px 0;
-        }
-
-        .description-text {
-          font-size: 14px;
-          color: #6b7280;
-          line-height: 1.5;
-          margin: 0;
-        }
-      }
-
-      .job-skills {
-        margin-bottom: 20px;
-
-        .skills-title {
-          font-size: 16px;
-          font-weight: 400;
-          color: #374151;
-          margin: 0 0 12px 0;
-        }
-
-        .skill-tag {
-          background: #f9fafb;
-          color: #374151;
-          padding: 6px 12px;
-          border-radius: 16px;
-          font-size: 14px;
-          font-weight: 400;
-          border: 1px solid #e5e7eb;
-          display: inline-block;
-          margin-right: 8px;
-          margin-bottom: 8px;
-
-          &.status-for_interview {
-            background: #dbeafe;
-            color: #2563eb;
-            border-color: #93c5fd;
-          }
-
-          &.status-accepted {
-            background: #d1fae5;
-            color: #059669;
-            border-color: #6ee7b7;
-          }
-
-          &.status-declined {
-            background: #fee2e2;
-            color: #dc2626;
-            border-color: #fca5a5;
-          }
-
-          &.status-fired {
-            background: #fef3c7;
-            color: #d97706;
-            border-color: #fcd34d;
-          }
-        }
-      }
-
-      .job-info-grid {
+      .myjobs-info-grid {
         display: flex;
         flex-direction: column;
         gap: 0;
         margin-top: 16px;
         border-top: 1px solid #e5e7eb;
 
-        .info-item {
+        .myjobs-info-item {
           display: flex;
           align-items: center;
           gap: 12px;
@@ -307,7 +247,7 @@
             border-bottom: none;
           }
 
-          .info-label {
+          .myjobs-info-label {
             font-weight: 600;
             color: #374151;
             min-width: 80px;
@@ -315,13 +255,13 @@
             flex-shrink: 0;
           }
 
-          .info-value {
+          .myjobs-info-value {
             color: #6b7280;
             font-size: 14px;
             flex: 1;
             line-height: 1.4;
 
-            .resume-link {
+            .myjobs-resume-link {
               color: #1890ff;
               text-decoration: none;
               font-weight: 500;
@@ -339,68 +279,49 @@
             }
           }
 
-          .status-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 1px solid;
-
-            &.status-for_interview {
-              background: #e6f7ff;
-              color: #1890ff;
-              border-color: #91d5ff;
-            }
-
-            &.status-accepted {
-              background: #f6ffed;
-              color: #52c41a;
-              border-color: #b7eb8f;
-            }
-
-            &.status-declined {
-              background: #fff2f0;
-              color: #ff4d4f;
-              border-color: #ffccc7;
-            }
-
-            &.status-fired {
-              background: #fff7e6;
-              color: #fa8c16;
-              border-color: #ffd591;
-            }
-          }
-
-          &.cover-letter-item {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-
-            .info-label {
-              min-width: auto;
-              margin-bottom: 0;
-            }
-
-            .info-value {
-              background: #f8f9fa;
-              padding: 12px;
-              border-radius: 6px;
-              border-left: 3px solid #3b82f6;
-              font-style: italic;
-              line-height: 1.5;
-              width: 100%;
-              margin-left: 0;
-            }
-          }
-
-          &.resume-item {
-            .info-value {
+          &.myjobs-resume-item {
+            .myjobs-info-value {
               display: flex;
               align-items: center;
             }
+          }
+
+          &.myjobs-work-period-item {
+            .myjobs-info-value {
+              color: #059669;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      .myjobs-cancel-section {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: flex-end;
+
+        .myjobs-cancel-btn {
+          background: white;
+          color: #374151;
+          border: 1px solid #d1d5db;
+          padding: 8px 16px;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+
+          &:active {
+            transform: translateY(0);
           }
         }
       }
@@ -673,30 +594,30 @@
 
 // Responsive design
 @media (max-width: 768px) {
-  .my-jobs-container {
+  .myjobs-container {
     padding: 20px;
 
-    .post-job-header {
+    .myjobs-header {
       flex-direction: column;
       align-items: stretch;
       gap: 16px;
 
-      .post-job-title {
+      .myjobs-title {
         font-size: 24px;
         text-align: center;
       }
     }
 
-    .bookings-navigation {
+    .myjobs-navigation {
       gap: 0;
       margin-bottom: 20px;
 
-      .booking-tab-container {
+      .myjobs-tab-container {
         flex: 1;
         min-width: 0;
       }
 
-      .booking-tab {
+      .myjobs-tab {
         padding: 10px 16px;
         font-size: 13px;
         min-width: 100px;
@@ -705,31 +626,34 @@
       }
     }
 
-    .job-card {
+    .myjobs-card {
       padding: 20px;
 
-      .job-card-header {
+      .myjobs-card-header {
         position: static;
         margin-bottom: 16px;
         display: flex;
         justify-content: flex-end;
       }
 
-      .job-content {
-        .job-title {
-          font-size: 20px;
+      .myjobs-content {
+        .myjobs-title-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+
+          .myjobs-job-title {
+            font-size: 20px;
+          }
+
+          .myjobs-posted-date {
+            align-self: flex-end;
+          }
         }
 
-        .job-metadata {
+        .myjobs-metadata {
           flex-direction: column;
           gap: 8px;
-        }
-
-        .job-skills {
-          .skill-tag {
-            font-size: 11px;
-            padding: 4px 8px;
-          }
         }
       }
     }

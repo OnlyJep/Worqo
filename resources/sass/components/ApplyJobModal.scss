@@ -1,4 +1,4 @@
-.adminmodal-overlay {
+.applyjobmodal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@
   overflow: auto;
 }
 
-.adminmodal {
+.applyjobmodal {
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
@@ -24,16 +24,76 @@
   flex-direction: column;
   overflow: hidden;
 
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e7eb;
+
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #1A2A44;
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .view-applications-btn {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+
+        &:hover {
+          background-color: #2563eb;
+        }
+      }
+
+      .close-btn {
+        background: #6b7280;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 16px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background-color: #4b5563;
+        }
+      }
+    }
+  }
+
   h2 {
     margin: 0 0 16px;
     font-size: 22px;
-    color: #1E90FF; // Blue theme
+    color: #1A2A44; // Updated color
     text-align: center;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
   }
 
-  .adminmodal-content {
+  .applyjobmodal-content {
     flex: 1;
     overflow-y: auto;
     padding-right: 8px;
@@ -71,7 +131,7 @@
       input,
       textarea {
         padding: 8px;
-        border: 1px solid #d1d5db;
+        border: 1px solid #1A2A44; // Updated color
         border-radius: 8px;
         font-size: 14px;
         width: 100%;
@@ -81,8 +141,8 @@
         transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
         &:focus {
-          border-color: #1E90FF; // Blue theme
-          box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
+          border-color: #1A2A44; // Updated color
+          box-shadow: 0 0 0 2px rgba(26, 42, 68, 0.2);
           outline: none;
         }
 
@@ -100,7 +160,7 @@
     }
   }
 
-  .adminmodal-buttons {
+  .applyjobmodal-buttons {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
@@ -109,7 +169,7 @@
     border-top: 1px solid #e5e7eb;
 
     .submit-button {
-      background: #1E90FF; // Blue theme
+      background: #1A2A44; // Updated color
       color: #ffffff;
       border: none;
       padding: 8px 20px;
@@ -121,14 +181,14 @@
       transition: background 0.2s ease;
 
       &:hover {
-        background: #104E8B; // Darker blue
+        background: #0F1A2E; // Darker shade
       }
     }
 
     .cancel-button {
       background: #f3f4f6;
       color: #374151;
-      border: 1px solid #d1d5db;
+      border: 1px solid #1A2A44; // Updated color
       padding: 8px 20px;
       border-radius: 8px;
       cursor: pointer;
@@ -143,18 +203,22 @@
     }
   }
 
-  .adminmodal-content::-webkit-scrollbar {
-    width: 6px;
+  .applyjobmodal-content::-webkit-scrollbar {
+    width: 0px; // Hide scrollbar
+    background: transparent;
   }
 
-  .adminmodal-content::-webkit-scrollbar-track {
-    background: #f1f5f9;
-    border-radius: 8px;
+  .applyjobmodal-content::-webkit-scrollbar-track {
+    background: transparent;
   }
 
-  .adminmodal-content::-webkit-scrollbar-thumb {
-    background: #9ca3af;
-    border-radius: 8px;
+  .applyjobmodal-content::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  // Hide scrollbar for Firefox
+  .applyjobmodal-content {
+    scrollbar-width: none;
   }
 
   @media (max-width: 600px) {
@@ -168,7 +232,7 @@
       font-size: 20px;
     }
 
-    .adminmodal-content {
+    .applyjobmodal-content {
       gap: 10px;
     }
 
@@ -186,7 +250,7 @@
       }
     }
 
-    .adminmodal-buttons {
+    .applyjobmodal-buttons {
       flex-direction: column;
       gap: 8px;
 
@@ -201,13 +265,17 @@
   .notification {
     position: fixed;
     top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
     color: #fff;
     font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    min-width: 200px;
 
     &.error {
       background-color: #dc3545;
@@ -238,14 +306,35 @@
     }
 
     .profile-details {
-      p {
-        margin: 4px 0;
-        font-size: 14px;
-        color: #6b7280;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
 
-        strong {
-          color: #374151;
-          font-weight: 500;
+      .profile-image-section {
+        flex-shrink: 0;
+
+        .profile-image {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid #e5e7eb;
+          transition: none; // Prevent blinking
+        }
+      }
+
+      .profile-text-details {
+        flex: 1;
+
+        p {
+          margin: 4px 0;
+          font-size: 14px;
+          color: #6b7280;
+
+          strong {
+            color: #374151;
+            font-weight: 500;
+          }
         }
       }
     }

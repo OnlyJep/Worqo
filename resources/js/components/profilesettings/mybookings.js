@@ -225,66 +225,62 @@ const MyBookings = () => {
       <div className="bookings-content">
         {filteredBookings.length > 0 ? (
           <div className="bookings-list">
-            {filteredBookings.map((booking) => {
-              // Determine if this is employer or worker view
-              const isEmployerView = userRole === 2;
-              const personData = isEmployerView ? booking.worker : booking.employer;
-              const personProfile = personData?.profile;
-              
-              console.log(`Rendering booking ${booking.id} for ${isEmployerView ? 'employer' : 'worker'} with status: ${booking.status}`);
-              
-              return (
-                <div key={booking.id} className="booking-card">
-                  <div className="booking-worker-info">
-                    <div className="worker-profile">
-                      <img 
-                        src={personProfile?.profile_img 
-                          ? `http://127.0.0.1:8000/storage/${personProfile.profile_img}` 
-                          : '/images/default-avatar.svg'
-                        } 
-                        alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'User'} 
-                        className="worker-avatar" 
-                      />
+            {filteredBookings.map((booking) => (
+              <div key={booking.id} className="booking-card">
+                <div className="booking-worker-info">
+                  <div className="worker-profile">
+                    <img 
+                      src={booking.worker?.profile?.profile_img 
+                        ? `http://127.0.0.1:8000/storage/${booking.worker.profile.profile_img}` 
+                        : '/images/default-avatar.svg'
+                      } 
+                      alt={booking.worker?.profile ? `${booking.worker.profile.first_name} ${booking.worker.profile.last_name}` : 'Worker'} 
+                      className="worker-avatar" 
+                    />
+                  </div>
+                  <div className="worker-details">
+                    <h3 className="worker-name">
+                      {booking.worker?.profile ? `${booking.worker.profile.first_name} ${booking.worker.profile.last_name}` : 'Unknown Worker'}
+                    </h3>
+                    <p className="worker-profession">
+                      {booking.service_type}
+                    </p>
+                    <div className="worker-badges">
+                      {booking.worker?.verified && (
+                        <div className="verified-badge">
+                          <MdVerified className="verified-icon" />
+                          <span>Verified</span>
+                        </div>
+                      )}
                     </div>
-                    <div className="worker-details">
-                      <h3 className="worker-name">
-                        {personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'Unknown User'}
-                      </h3>
-                      <p className="worker-profession">
-                        {isEmployerView ? booking.service_type : 'Employer'}
-                      </p>
-                      <div className="worker-badges">
-                        {personData?.verified && (
-                          <div className="verified-badge">
-                            <MdVerified className="verified-icon" />
-                            <span>Verified</span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="booking-status">
-                        <span>Status : </span>
-                        <span className="status-text" style={{ 
-                          color: booking.status === 'pending' ? '#ffa500' :
-                                 booking.status === 'accepted' ? '#4CAF50' :
-                                 booking.status === 'completed' ? '#2196F3' :
-                                 booking.status === 'declined' ? '#f44336' :
-                                 '#9e9e9e'
-                        }}>
-                          {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
-                        </span>
-                      </div>
-                      <div className="booking-salary">
-                        Total: ₱{booking.total_amount}
-                      </div>
-                      <div className="booking-dates">
-                        <p>Start: {new Date(booking.book_in).toLocaleString()}</p>
-                        <p>End: {new Date(booking.book_end).toLocaleString()}</p>
-                      </div>
-                      <div className="booking-description">
-                        <p><strong>Description:</strong> {booking.description}</p>
-                      </div>
+                    <div className="booking-status">
+                      <span>Status : </span>
+                      <span className="status-text" style={{ 
+                        color: booking.status === 'pending' ? '#ffa500' :
+                               booking.status === 'accepted' ? '#4CAF50' :
+                               booking.status === 'completed' ? '#2196F3' :
+                               booking.status === 'declined' ? '#f44336' :
+                               '#9e9e9e'
+                      }}>
+                        {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                      </span>
                     </div>
                   </div>
+                </div>
+                
+                <div className="booking-salary">
+                  Total: ₱{booking.total_amount}
+                </div>
+
+                <div className="booking-dates">
+                  <p>Start: {new Date(booking.book_in).toLocaleString()}</p>
+                  <p>End: {new Date(booking.book_end).toLocaleString()}</p>
+                </div>
+
+                <div className="booking-description">
+                  <p><strong>Description:</strong> {booking.description}</p>
+                </div>
+
                 <div className="booking-actions">
                   {/* Message Button */}
                   <button 
@@ -301,7 +297,7 @@ const MyBookings = () => {
                   </button>
                   
                   {/* Employer Actions */}
-                  {isEmployerView && (
+                  {userRole === 2 && (
                     <>
                       {booking.status === 'pending' && (
                         <>
@@ -347,19 +343,11 @@ const MyBookings = () => {
                           )}
                         </>
                       )}
-                      
-                      {(booking.status === 'declined' || booking.status === 'cancelled') && (
-                        <div className="status-only">
-                          <span className={`${booking.status}-text`}>
-                            {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
-                          </span>
-                        </div>
-                      )}
                     </>
                   )}
                   
                   {/* Worker Actions */}
-                  {!isEmployerView && (
+                  {userRole === 1 && (
                     <>
                       {booking.status === 'pending' && (
                         <>
@@ -409,20 +397,11 @@ const MyBookings = () => {
                           View Transaction
                         </button>
                       )}
-                      
-                      {(booking.status === 'declined' || booking.status === 'cancelled') && (
-                        <div className="status-only">
-                          <span className={`${booking.status}-text`}>
-                            {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
-                          </span>
-                        </div>
-                      )}
                     </>
                   )}
                 </div>
-                </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         ) : (
           <div className="empty-state">

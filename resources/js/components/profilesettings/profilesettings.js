@@ -3,17 +3,17 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import ProfileSettingsSidebar from './profilesettingsidebar';
 import MyProfile from './myprofile';
 import MyAddress from './myaddress';
-import MyBookings from './mybookings';
 import MyPostJob from './mypostjob';
 import MyJobs from './myjobs';
+import BookingRequest from './BookingRequest';
 import Headerz from '../HeaderContent/Headerz';
 import '../../../sass/components/profilesettings/profilesettingsidebar.scss';
 import '../../../sass/components/profilesettings/myprofile.scss';
 import '../../../sass/components/profilesettings/myaddress.scss';
-import '../../../sass/components/profilesettings/mybookings.scss';
 import '../../../sass/components/profilesettings/mypostjob.scss';
 import '../../../sass/components/profilesettings/myjobs.scss';
 import '../../../sass/components/profilesettings/profilesettings.scss';
+import '../../../sass/components/profilesettings/BookingRequest.scss';
 import './../../../sass/components/Headerz.scss';
 
 const ProfileSettings = () => {
@@ -26,7 +26,7 @@ const ProfileSettings = () => {
           <Routes>
             <Route path="/" element={<MyProfile />} />
             <Route path="/addresses" element={<MyAddress />} />
-            <Route path="/bookings" element={<MyBookings />} />
+            <Route path="/bookings" element={<BookingRequest />} />
             <Route path="/my-jobs" element={<MyJobs />} />
             <Route path="/post-job" element={<MyPostJob />} />
           </Routes>

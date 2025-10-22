@@ -256,8 +256,17 @@ class AdminUserController extends Controller
     public function update(Request $request, $id): JsonResponse
     {
         try {
-            $user = User::findOrFail($id);
-            $profile = Profile::where('user_id', $id)->firstOrFail();
+            $user = User::find($id);
+            if (!$user) {
+                Log::warning('User not found for update:', ['user_id' => $id]);
+                return response()->json(['messages' => ['general' => 'User not found']], 404);
+            }
+            
+            $profile = Profile::where('user_id', $id)->first();
+            if (!$profile) {
+                Log::warning('Profile not found for user:', ['user_id' => $id]);
+                return response()->json(['messages' => ['general' => 'User profile not found']], 404);
+            }
 
             $validator = Validator::make($request->all(), [
                 'first_name' => 'required|string|max:255',

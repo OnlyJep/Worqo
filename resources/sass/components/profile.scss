@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-.profile-page {
+.worker-profile-page {
   font-family: 'Inter', sans-serif;
   width: 100vw;
   min-height: 100vh;
@@ -10,11 +10,11 @@
   flex-direction: column;
   overflow-x: hidden;
 
-  .profile-header {
+  .worker-profile-header {
     position: relative;
     width: 100%;
 
-    .cover-photo {
+    .worker-cover-photo {
       width: 100%;
       height: 250px;
       background: #1E90FF; // Blue theme
@@ -26,13 +26,13 @@
       }
     }
 
-    .profile-photo-wrapper {
+    .worker-profile-photo-wrapper {
       position: absolute;
       bottom: -60px;
       left: 40px;
       z-index: 2;
 
-      .profile-photo {
+      .worker-profile-photo {
         width: 120px;
         height: 120px;
         border-radius: 50%;
@@ -43,7 +43,7 @@
     }
   }
 
-  .profile-container {
+  .worker-profile-container {
     display: flex;
     flex: 1;
     width: 100%;
@@ -52,7 +52,7 @@
     box-sizing: border-box;
     min-height: calc(100vh - 320px);
 
-    .profile-left {
+    .worker-profile-left {
       flex: 1;
       padding-right: 20px;
       background: transparent;
@@ -60,23 +60,60 @@
       height: auto;
       overflow: visible;
 
-      .profile-info {
+      .worker-profile-info {
         text-align: left;
         margin-top: 20px;
 
-        h2 {
-          font-size: 20px;
-          margin: 5px 0;
-          color: #000000; // Black for name
+        .worker-name-container {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #333;
+          }
         }
 
-        .status-container {
+        .worker-badges-container {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
+        .worker-verified-badge {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          background: #e8f5e8;
+          color: #2e7d32;
+          padding: 4px 8px;
+          border-radius: 12px;
+          font-size: 0.75rem;
+          font-weight: 500;
+          border: 1px solid #4caf50;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: #c8e6c9;
+            transform: translateY(-1px);
+          }
+
+          svg {
+            flex-shrink: 0;
+          }
+        }
+
+        .worker-status-container {
           display: flex;
           align-items: center;
           gap: 5px;
         }
 
-        .status-dot {
+        .worker-status-dot {
           width: 8px;
           height: 8px;
           border-radius: 50%;
@@ -90,7 +127,7 @@
           }
         }
 
-        .status {
+        .worker-status {
           font-size: 14px;
           margin: 5px 0;
           
@@ -103,21 +140,21 @@
           }
         }
 
-        .location {
+        .worker-location {
           font-size: 14px;
           color: #666;
           margin: 5px 0;
         }
 
-        .edit-profile {
+        .worker-hire-button {
           background: #1E90FF; // Blue theme
           border: none;
           color: #fff;
           border-radius: 20px;
           cursor: pointer;
-          padding: 8px 16px;
-          font-size: 14px;
-          margin: 10px 0;
+          padding: 12px 24px;
+          font-size: 16px;
+          margin: 15px 0;
           text-transform: uppercase;
           display: flex;
           align-items: center;
@@ -177,19 +214,121 @@
         }
       }
 
-      .stats {
-        margin: 20px 0;
+      .worker-rank-display-section {
+        margin: 15px 0;
+        padding: 12px;
         background: #f9fafb;
-        padding: 15px;
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
-        .stat-item {
+        .worker-rank-display {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          .worker-rank-badge {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            flex-shrink: 0;
+            background: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+          }
+
+          .worker-rank-progress {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+
+            .worker-progress-info {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .worker-rank-name {
+                font-size: 15px;
+                font-weight: 600;
+                color: #333;
+              }
+
+              .worker-points-text {
+                font-size: 13px;
+                font-weight: 600;
+                color: #666;
+              }
+            }
+
+            .worker-progress-bar-container {
+              width: 100%;
+              height: 10px;
+              background: #e0e0e0;
+              border-radius: 10px;
+              overflow: hidden;
+              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+
+              .worker-progress-bar-fill {
+                height: 100%;
+                border-radius: 10px;
+                transition: width 0.3s ease;
+
+                // Bronze - brown
+                &.worker-rank-bronze {
+                  background: linear-gradient(90deg, #8b4513, #a0522d);
+                }
+
+                // Silver - gray/silver
+                &.worker-rank-silver {
+                  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);
+                }
+
+                // Gold - gold
+                &.worker-rank-gold {
+                  background: linear-gradient(90deg, #ffd700, #ffed4e);
+                }
+
+                // Platinum - metallic
+                &.worker-rank-platinum {
+                  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);
+                }
+
+                // Diamond - light blue metallic
+                &.worker-rank-diamond {
+                  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);
+                }
+              }
+            }
+
+            .worker-progress-label {
+              font-size: 11px;
+              color: #888;
+              text-align: right;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .worker-rank-loading {
+          text-align: center;
+          color: #666;
+          font-style: italic;
+        }
+      }
+
+      .worker-stats {
+        margin: 25px 0;
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        min-width: 350px;
+
+        .worker-stat-item {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 12px;
-          padding: 8px 0;
+          margin-bottom: 15px;
+          padding: 12px 0;
           border-bottom: 1px solid #eee;
 
           &:last-child {
@@ -197,84 +336,34 @@
             margin-bottom: 0;
           }
 
-          .stat-label {
-            font-size: 16px;
+          .worker-stat-label {
+            font-size: 18px;
             color: #2d3748;
-            font-weight: 500;
-          }
-
-          .stat-number {
-            font-size: 16px;
             font-weight: 600;
-            color: #000000;
-          }
-        }
-      }
-
-      .social-links {
-        margin: 20px 0;
-        width: 88%;
-
-        h4 {
-          font-size: 12px;
-          color: #666;
-          text-transform: uppercase;
-          margin-bottom: 10px;
-        }
-
-        .social-links-container {
-          background: #f9fafb;
-          border: 1px solid #e0e0e0;
-          border-radius: 8px;
-          padding: 10px 15px;
-        }
-
-        .social-icon {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin: 8px 0;
-          font-size: 14px;
-
-          .social-media-icon {
-            width: 20px;
-            height: 20px;
           }
 
-          span {
-            flex-grow: 1;
-            color: #2d3748;
+          .worker-stat-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E90FF;
           }
         }
-      }
-
-      .member-since {
-        font-size: 12px;
-        color: #666;
-        text-transform: uppercase;
-        margin: 15px 0;
-      }
-
-      .report {
-        color: #666;
-        font-size: 14px;
-        cursor: pointer;
       }
     }
 
-    .profile-right {
+    .worker-profile-right {
       flex: 3;
       display: flex;
       flex-direction: column;
       height: calc(100vh - 320px);
 
-      .tabs {
+      .worker-tabs {
         display: flex;
         border-bottom: 1px solid #eee;
         background: #f9fafb;
         padding: 0 10px;
 
-        .tab {
+        .worker-tab {
           padding: 10px 15px;
           background: none;
           border: none;
@@ -297,16 +386,16 @@
         }
       }
 
-      .tab-content {
+      .worker-tab-content {
         flex: 1;
         padding: 20px;
         background: #fff;
         border-radius: 0 8px 8px 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-        .overview,
-        .credentials,
-        .reviews {
+        .worker-overview,
+        .worker-credentials,
+        .worker-reviews {
           h4 {
             font-size: 20px;
             margin-bottom: 20px;
@@ -323,13 +412,13 @@
             font-size: 16px;
           }
 
-          .skills-row {
+          .worker-skills-row {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 15px;
 
-            .chip {
+            .worker-chip {
               background: #e6f0fa;
               padding: 6px 12px;
               border-radius: 16px;
@@ -353,7 +442,7 @@
         }
 
         // Enhanced Overview Styles
-        .overview {
+        .worker-overview {
           h4 {
             font-size: 20px;
             margin-bottom: 20px;
@@ -374,10 +463,10 @@
             border-left: 4px solid #1E90FF;
           }
 
-          .skills-section {
+          .worker-skills-section {
             margin-bottom: 30px;
             
-            .skills-category {
+            .worker-skills-category {
               margin-bottom: 25px;
               
               h5 {
@@ -389,7 +478,7 @@
                 letter-spacing: 0.5px;
               }
               
-              .skill-item {
+              .worker-skill-item {
                 background: linear-gradient(135deg, #f8f9fa, #ffffff);
                 border: 1px solid #e9ecef;
                 border-radius: 12px;
@@ -403,33 +492,54 @@
                   box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);
                 }
                 
-                .skill-name {
-                  font-weight: 600;
-                  color: #333;
-                  margin-bottom: 10px;
-                  font-size: 16px;
-                  
-                  .sub-skills {
-                    color: #666;
-                    font-weight: 400;
-                    font-size: 14px;
+                .worker-skill-header {
+                  margin-bottom: 12px;
+                }
+
+                .worker-skill-name-with-rank {
+                  display: flex;
+                  align-items: center;
+                  gap: 12px;
+                  margin-bottom: 12px;
+
+                  .worker-skill-rank-icon {
+                    width: 32px;
+                    height: 32px;
+                    object-fit: contain;
+                    flex-shrink: 0;
+                    border-radius: 6px;
+                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+                    border: 2px solid #fff;
+                  }
+
+                  .worker-skill-name {
+                    font-weight: 600;
+                    color: #333;
+                    font-size: 1.1rem;
+                    line-height: 1.4;
+
+                    .worker-sub-skills {
+                      color: #666;
+                      font-weight: 400;
+                      font-size: 14px;
+                    }
                   }
                 }
                 
-                .skill-details {
+                .worker-skill-details {
                   display: flex;
                   gap: 25px;
                   font-size: 14px;
                   flex-wrap: wrap;
                   
-                  .experience {
+                  .worker-experience {
                     color: #666;
                     background: #e9ecef;
                     padding: 4px 8px;
                     border-radius: 4px;
                   }
                   
-                  .hourly-rate {
+                  .worker-hourly-rate {
                     color: #1E90FF;
                     font-weight: 600;
                     background: #e3f2fd;
@@ -440,39 +550,37 @@
               }
             }
           }
-          
-          .contact-info {
-            background: linear-gradient(135deg, #f8f9fa, #ffffff);
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            
-            p {
-              margin-bottom: 15px;
-              display: flex;
-              align-items: center;
+        }
+
+        .worker-credentials {
+          .worker-credentials-photos {
+            margin-top: 20px;
+
+            h5 {
               font-size: 16px;
-              background: none;
-              border: none;
-              padding: 0;
-              
-              &:last-child {
-                margin-bottom: 0;
-              }
-              
-              strong {
-                color: #333;
-                font-weight: 600;
-                min-width: 80px;
-                margin-right: 10px;
+              margin-bottom: 15px;
+              color: #2d3748;
+              font-weight: 600;
+            }
+
+            .worker-credential-photo {
+              margin-bottom: 10px;
+
+              a {
+                color: #1E90FF;
+                text-decoration: none;
+                font-weight: 500;
+
+                &:hover {
+                  text-decoration: underline;
+                }
               }
             }
           }
         }
 
-        .reviews {
-          .reviews-header {
+        .worker-reviews {
+          .worker-reviews-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -482,23 +590,23 @@
               margin: 0;
             }
 
-            .reviews-summary {
-              .average-rating {
+            .worker-reviews-summary {
+              .worker-average-rating {
                 display: flex;
                 align-items: center;
                 gap: 10px;
 
-                .rating-number {
+                .worker-rating-number {
                   font-size: 24px;
                   font-weight: 600;
                   color: #2d3748;
                 }
 
-                .stars {
+                .worker-stars {
                   display: flex;
                   gap: 2px;
 
-                  .star {
+                  .worker-star {
                     color: #cbd5e0;
                     font-size: 18px;
 
@@ -508,7 +616,7 @@
                   }
                 }
 
-                .total-reviews {
+                .worker-total-reviews {
                   color: #718096;
                   font-size: 14px;
                 }
@@ -516,8 +624,8 @@
             }
           }
 
-          .reviews-list {
-            .review-item {
+          .worker-reviews-list {
+            .worker-review-item {
               border-bottom: 1px solid #eee;
               padding-bottom: 20px;
               margin-bottom: 20px;
@@ -527,40 +635,40 @@
                 margin-bottom: 0;
               }
 
-              .review-header {
+              .worker-review-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
                 margin-bottom: 12px;
 
-                .reviewer-info {
+                .worker-reviewer-info {
                   display: flex;
                   gap: 12px;
                   align-items: center;
 
-                  .reviewer-avatar {
+                  .worker-reviewer-avatar {
                     width: 48px;
                     height: 48px;
                     border-radius: 50%;
                     object-fit: cover;
                   }
 
-                  .reviewer-details {
+                  .worker-reviewer-details {
                     display: flex;
                     flex-direction: column;
                     gap: 4px;
 
-                    .reviewer-name {
+                    .worker-reviewer-name {
                       font-weight: 600;
                       color: #2d3748;
                       font-size: 15px;
                     }
 
-                    .review-rating {
+                    .worker-review-rating {
                       display: flex;
                       gap: 2px;
 
-                      .star {
+                      .worker-star {
                         color: #cbd5e0;
                         font-size: 14px;
 
@@ -572,14 +680,14 @@
                   }
                 }
 
-                .review-date {
+                .worker-review-date {
                   color: #718096;
                   font-size: 13px;
                   white-space: nowrap;
                 }
               }
 
-              .review-comment {
+              .worker-review-comment {
                 color: #4a5568;
                 line-height: 1.6;
                 margin-left: 60px;
@@ -795,233 +903,6 @@
   border: 1px solid #1E90FF;
 }
 
-// Badge styles for name container
-.name-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  h2 {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #333;
-  }
-}
-
-.rank-display-section {
-  margin: 15px 0;
-  padding: 12px;
-  background: #f9fafb;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-
-  .rank-display {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    .worker-rank-badge {
-      width: 45px;
-      height: 45px;
-      object-fit: contain;
-      flex-shrink: 0;
-      background: transparent;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
-    }
-
-    .rank-progress {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      flex: 1;
-
-      .progress-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .rank-name {
-          font-size: 15px;
-          font-weight: 600;
-          color: #333;
-        }
-
-        .points-text {
-          font-size: 13px;
-          font-weight: 600;
-          color: #666;
-        }
-      }
-
-      .progress-bar-container {
-        width: 100%;
-        height: 10px;
-        background: #e0e0e0;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-
-        .progress-bar-fill {
-          height: 100%;
-          border-radius: 10px;
-          transition: width 0.3s ease;
-
-          // Bronze - brown
-          &.rank-bronze {
-            background: linear-gradient(90deg, #8b4513, #a0522d);
-          }
-
-          // Silver - gray/silver
-          &.rank-silver {
-            background: linear-gradient(90deg, #c0c0c0, #d3d3d3);
-          }
-
-          // Gold - gold
-          &.rank-gold {
-            background: linear-gradient(90deg, #ffd700, #ffed4e);
-          }
-
-          // Platinum - metallic
-          &.rank-platinum {
-            background: linear-gradient(90deg, #e5e4e2, #bcc6cc);
-          }
-
-          // Diamond - light blue metallic
-          &.rank-diamond {
-            background: linear-gradient(90deg, #b9f2ff, #4fc3f7);
-          }
-        }
-      }
-
-      .progress-label {
-        font-size: 11px;
-        color: #888;
-        text-align: right;
-        font-weight: 500;
-      }
-    }
-  }
-}
-
-.badges-container {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.verified-badge {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: #e8f5e8;
-  color: #2e7d32;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border: 1px solid #4caf50;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: #c8e6c9;
-    transform: translateY(-1px);
-  }
-
-  svg {
-    flex-shrink: 0;
-  }
-}
-
-.rank-badge {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: linear-gradient(135deg, #ffd700, #ffed4e);
-  color: #8b4513;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border: 1px solid #ffb300;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
-
-  &:hover {
-    background: linear-gradient(135deg, #ffed4e, #ffd700);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);
-  }
-
-  .rank-icon {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
-    flex-shrink: 0;
-  }
-}
-
-// Rank-specific badge colors
-.rank-badge {
-  &[title*="Bronze"] {
-    background: linear-gradient(135deg, #cd7f32, #daa520);
-    color: #fff;
-    border-color: #b8860b;
-    box-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);
-  }
-
-  &[title*="Silver"] {
-    background: linear-gradient(135deg, #c0c0c0, #e5e5e5);
-    color: #333;
-    border-color: #999;
-    box-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);
-  }
-
-  &[title*="Gold"] {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
-    color: #8b4513;
-    border-color: #ffb300;
-    box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
-  }
-
-  &[title*="Diamond"] {
-    background: linear-gradient(135deg, #b9f2ff, #e6f7ff);
-    color: #0066cc;
-    border-color: #4fc3f7;
-    box-shadow: 0 2px 4px rgba(185, 242, 255, 0.3);
-  }
-}
-
-// Skill-specific rank badge styles
-.skill-name-with-rank {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-
-  .skill-rank-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    flex-shrink: 0;
-    border-radius: 6px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    border: 2px solid #fff;
-  }
-
-  .skill-name {
-    font-weight: 600;
-    color: #333;
-    font-size: 1.1rem;
-    line-height: 1.4;
-  }
-}
-
-.skill-header {
-  margin-bottom: 12px;
-}
-
 // Login Modal Styles
 .login-modal {
   max-width: 500px;
@@ -1122,6 +1003,93 @@
         background: #1e7e34;
         transform: translateY(-1px);
         box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .worker-profile-page {
+    .worker-profile-container {
+      flex-direction: column;
+      padding: 0 20px;
+
+      .worker-profile-left {
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .worker-profile-right {
+        padding-left: 0;
+        height: auto;
+
+        .worker-tab-content {
+          .worker-overview,
+          .worker-credentials,
+          .worker-reviews {
+            h4 {
+              font-size: 16px;
+            }
+
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+
+    .worker-profile-header {
+      .worker-profile-photo-wrapper {
+        left: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .worker-profile-page {
+    .worker-profile-container {
+      padding: 0 15px;
+      margin-top: 60px;
+
+      .worker-profile-left {
+        .worker-profile-info {
+          .worker-hire-button {
+            min-width: 100%;
+            padding: 10px 16px;
+          }
+        }
+
+        .worker-stats {
+          padding: 12px;
+        }
+      }
+
+      .worker-profile-right {
+        .worker-tab-content {
+          padding: 12px;
+
+          .worker-overview,
+          .worker-credentials,
+          .worker-reviews {
+            h4 {
+              font-size: 14px;
+            }
+
+            p {
+              font-size: 14px;
+            }
+          }
+
+          .worker-skills-row {
+            .worker-chip {
+              font-size: 12px;
+              padding: 4px 8px;
+            }
+          }
+        }
       }
     }
   }

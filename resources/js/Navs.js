@@ -9,7 +9,14 @@ export default function Navs() {
           <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
-          <Link to="/profile">Profile</Link>
+          {(() => {
+            const storedUser = localStorage.getItem("user");
+            const user = storedUser ? JSON.parse(storedUser) : null;
+            const userId = user?.user?.id || user?.id;
+            return (
+              <Link to={userId ? `/profile/${userId}` : "/login"}>Profile</Link>
+            );
+          })()}
         </li>
         <li>
           <Link to="/adminlist">Admin List</Link>

@@ -462,14 +462,42 @@ const JobPostTable = () => {
                           {Array.isArray(post.skills) && post.skills.length > 0 ? (
                             post.skills.map((skill, index) => (
                               <span key={index} className="skill-badge">
-                                {skill || "N/A"}
+                                {typeof skill === 'object' ? 
+                                  (skill.name || skill.skill_name || JSON.stringify(skill)) : 
+                                  (skill || "N/A")
+                                }
                               </span>
                             ))
                           ) : (
                             "N/A"
                           )}
                         </td>
-                        <td>{post.skill_experiences || "N/A"}</td>
+                        <td className="skill-experiences-cell">
+                          {post.skill_experiences ? (
+                            typeof post.skill_experiences === 'object' ? (
+                              Array.isArray(post.skill_experiences) ? (
+                                post.skill_experiences.map((exp, index) => (
+                                  <span key={index} className="experience-badge">
+                                    {typeof exp === 'object' ? 
+                                      `${exp.name || exp.skill_name || 'Unknown'} - ${exp.experience || 'N/A'}` : 
+                                      exp
+                                    }
+                                  </span>
+                                ))
+                              ) : (
+                                Object.entries(post.skill_experiences).map(([key, value], index) => (
+                                  <span key={index} className="experience-badge">
+                                    {key}: {value}
+                                  </span>
+                                ))
+                              )
+                            ) : (
+                              post.skill_experiences
+                            )
+                          ) : (
+                            "N/A"
+                          )}
+                        </td>
                         <td className="description-cell">{post.description || "N/A"}</td>
                         <td>{post.salary || "N/A"}</td>
                         <td>{post.salary_type || "N/A"}</td>

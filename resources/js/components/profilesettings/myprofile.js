@@ -51,7 +51,6 @@ const MyProfile = () => {
   const [workPreferences, setWorkPreferences] = useState({
     workType: '',
     hoursPerDay: '',
-    monthlySalary: '',
     preferredWorkingDays: [],
     bio: ''
   });
@@ -106,20 +105,56 @@ const MyProfile = () => {
 
   // Load user data on component mount
   useEffect(() => {
-    loadUserData();
+    let isMounted = true;
     
-    // Fetch genders and suffixes
-    fetchGenders();
-    fetchSuffixes();
+    const loadData = async () => {
+      try {
+        await loadUserData();
+        
+        // Fetch genders and suffixes
+        await Promise.all([
+          fetchGenders(),
+          fetchSuffixes()
+        ]);
+      } catch (error) {
+        if (isMounted) {
+          console.error('Error loading initial data:', error);
+        }
+      }
+    };
+    
+    loadData();
+    
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Fetch rank and reviews when user is loaded
   useEffect(() => {
+    let isMounted = true;
+    
     if (user?.id && user?.role_id === 1) {
-      fetchWorkerReviews(user.id);
-      fetchWorkerProfile(user.id);
-      fetchAvailableSkills();
+      const fetchData = async () => {
+        try {
+          await Promise.all([
+            fetchWorkerReviews(user.id),
+            fetchWorkerProfile(user.id),
+            fetchAvailableSkills()
+          ]);
+        } catch (error) {
+          if (isMounted) {
+            console.error('Error fetching worker data:', error);
+          }
+        }
+      };
+      
+      fetchData();
     }
+    
+    return () => {
+      isMounted = false;
+    };
   }, [user]);
 
   // Handle clicking outside dropdown
@@ -389,9 +424,9 @@ const MyProfile = () => {
         setWorkPreferences({
           workType: workerData.work_type || '',
           hoursPerDay: workerData.hours_per_day || '',
-          preferredWorkingDays: Array.isArray(workerData.preferred_working_hours) 
-            ? workerData.preferred_working_hours 
-            : (workerData.preferred_working_hours ? JSON.parse(workerData.preferred_working_hours) : []),
+          preferredWorkingDays: Array.isArray(workerData.preferred_working_days) 
+            ? workerData.preferred_working_days
+            : (workerData.preferred_working_days ? JSON.parse(workerData.preferred_working_days) : []),
           bio: workerData.bio || ''
         });
         
@@ -434,15 +469,18 @@ const MyProfile = () => {
           const creds = workerData.credentials_name
             .map((name, index) => {
               const photo = workerData.credentials_photo?.[index];
-              console.log(`Credential ${index}: name="${name}", photo="${photo}"`);
+              const doc = workerData.credentials_doc?.[index];
+              console.log(`Credential ${index}: name="${name}", photo="${photo}", doc="${doc}"`);
               return {
                 credentials_name: name,
-                credentials_photo: photo || null
+                credentials_photo: photo || null,
+                credentials_doc: doc || null
               };
             })
             .filter(cred => cred.credentials_name && cred.credentials_name.trim() !== ''); // Filter out empty/null credentials
           console.log('Setting credentials from backend:', creds);
           console.log('Raw credentials_photo from backend:', workerData.credentials_photo);
+          console.log('Raw credentials_doc from backend:', workerData.credentials_doc);
           setWorkerCredentials(creds);
         } else {
           console.log('No credentials found in backend data');
@@ -1251,6 +1289,15 @@ const MyProfile = () => {
           setIsEditingProfile(false);
         }
       } else {
+        // Handle 404 - User not found (stale data)
+        if (response.status === 404) {
+          console.error("User not found - clearing stale data");
+          const { clearStaleUserData } = await import('../../utils/profileImageUtils.js');
+          clearStaleUserData();
+          message.error("Your session has expired. Please log in again.");
+          return;
+        }
+        
         try {
           const errorData = await response.json();
           message.error(`Failed to update profile: ${errorData.message || 'Please try again.'}`);
@@ -1368,7 +1415,7 @@ const MyProfile = () => {
         body: JSON.stringify({
           work_type: workPreferences.workType,
           hours_per_day: workPreferences.hoursPerDay,
-          preferred_working_hours: JSON.stringify(workPreferences.preferredWorkingDays),
+          preferred_working_days: JSON.stringify(workPreferences.preferredWorkingDays),
           bio: workPreferences.bio
         })
       });
@@ -1773,26 +1820,9 @@ const MyProfile = () => {
               </div>
             </div>
 
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="monthlySalary" className="label-up">Expected Monthly Salary</label>
-                <input
-                  type="number"
-                  id="monthlySalary"
-                  name="monthlySalary"
-                  value={workPreferences.monthlySalary}
-                  onChange={handleWorkPreferencesChange}
-                  disabled={!isEditingWorkPreferences}
-                  className={isEditingWorkPreferences ? 'editing' : ''}
-                  placeholder="e.g., 15000"
-                  min="0"
-                  step="100"
-                />
-              </div>
-            </div>
 
             <div className="form-group full-width">
-              <label htmlFor="preferredWorkingDays" className="label-up">Preferred Working Days</label>
+              <label className="label-up">Preferred Working Days</label>
               <div className="working-days-container">
                 {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map(day => (
                   <label key={day} className={`day-checkbox ${!isEditingWorkPreferences ? 'disabled' : ''}`}>

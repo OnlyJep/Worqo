@@ -1291,7 +1291,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     submitData.append('profile_id', profileId);
     submitData.append('work_type', workType);
     submitData.append('hours_per_day', hoursPerDay);
-    submitData.append('preferred_working_hours', JSON.stringify(preferredWorkingHours));
+    submitData.append('preferred_working_days', JSON.stringify(preferredWorkingHours));
     submitData.append('bio', bio);
 
     // Add primary skills

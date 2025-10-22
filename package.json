@@ -46,6 +46,7 @@
         "react-router-dom": "^6.30.0",
         "react-slick": "^0.30.3",
         "rollup": "^4.34.8",
+        "rsuite": "^5.83.3",
         "slick-carousel": "^1.8.1",
         "tabler-icons-react": "^1.56.0",
         "tesseract.js": "^6.0.1"

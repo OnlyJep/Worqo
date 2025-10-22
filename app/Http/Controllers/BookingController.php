@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\BookingRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -27,7 +28,9 @@ class BookingController extends Controller
             'description' => 'required|string',
             'book_in' => 'required|date',
             'book_end' => 'required|date|after:book_in',
-            'hourly_rate' => 'required|numeric|min:0',
+            'time_in' => 'nullable|string',
+            'time_out' => 'nullable|string',
+            'daily_rate' => 'required|numeric|min:0',
         ]);
 
         // Custom validation for book_in to be in the future
@@ -72,11 +75,24 @@ class BookingController extends Controller
             ], 400);
         }
 
-        // Calculate total amount
+        // Check if there's already a pending booking between this employer and worker
+        $existingBooking = Booking::where('employer_id', $authUser ? $authUser->id : null)
+            ->where('worker_id', $request->worker_id)
+            ->whereIn('status', ['pending', 'accepted'])
+            ->first();
+
+        if ($existingBooking) {
+            return response()->json([
+                'success' => false,
+                'message' => 'You already have a pending or accepted booking with this worker'
+            ], 400);
+        }
+
+        // Calculate total amount based on daily rate
         $bookIn = Carbon::parse($request->book_in);
         $bookEnd = Carbon::parse($request->book_end);
-        $hours = $bookIn->diffInHours($bookEnd);
-        $totalAmount = $hours * $request->hourly_rate;
+        $days = $bookIn->diffInDays($bookEnd) + 1; // +1 to include both start and end days
+        $totalAmount = $days * $request->daily_rate;
 
         $booking = Booking::create([
             'employer_id' => $authUser ? $authUser->id : null,
@@ -86,10 +102,22 @@ class BookingController extends Controller
             'description' => $request->description,
             'book_in' => $request->book_in,
             'book_end' => $request->book_end,
-            'hourly_rate' => $request->hourly_rate,
+            'time_in' => $request->time_in,
+            'time_out' => $request->time_out,
+            'daily_rate' => $request->daily_rate,
             'total_amount' => $totalAmount,
             'status' => 'pending'
         ]);
+
+        // Log the booking creation
+        if ($authUser) {
+            $booking->logAction('created', $authUser->id, 'Booking request created', [
+                'service_type' => $request->service_type,
+                'work_type' => $request->work_type,
+                'daily_rate' => $request->daily_rate,
+                'total_amount' => $totalAmount
+            ]);
+        }
 
         // Send notification to worker about new booking
         if ($authUser) {
@@ -223,6 +251,13 @@ class BookingController extends Controller
         $oldStatus = $booking->status;
         $booking->update([
             'status' => $request->status
+        ]);
+
+        // Log the status update
+        $booking->logAction($request->status, $authUser->id, "Booking status changed from {$oldStatus} to {$request->status}", [
+            'old_status' => $oldStatus,
+            'new_status' => $request->status,
+            'service_type' => $booking->service_type
         ]);
 
         // Send notification to employer about status change
@@ -379,7 +414,15 @@ class BookingController extends Controller
             ], 400);
         }
 
+        $oldStatus = $booking->status;
         $booking->update(['status' => 'cancelled']);
+
+        // Log the cancellation
+        $booking->logAction('cancelled', $authUser->id, "Booking cancelled by employer", [
+            'old_status' => $oldStatus,
+            'service_type' => $booking->service_type,
+            'cancelled_by' => 'employer'
+        ]);
 
         return response()->json([
             'success' => true,

@@ -2166,8 +2166,6 @@ const WorkerList = () => {
 
                                       size={16}
 
-                                      className="accept-icon"
-
                                       title="Accept Worker"
 
                                       onClick={() => handleReviewClick(worker, 'accept')}
@@ -2177,8 +2175,6 @@ const WorkerList = () => {
                                     <FaTimes
 
                                       size={16}
-
-                                      className="decline-icon"
 
                                       title="Decline Worker"
 
@@ -2318,7 +2314,8 @@ const WorkerList = () => {
 
                                   >
 
-                                    {isImageFile(cred.credentials_photo || cred.credentials_doc)
+                                    {(cred.credentials_photo && isImageFile(cred.credentials_photo)) || 
+                                     (cred.credentials_doc && isImageFile(cred.credentials_doc))
 
                                       ? "View Image"
 
@@ -2484,7 +2481,8 @@ const WorkerList = () => {
 
             <h3>{previewCredential.credentials_name}</h3>
 
-            {isImageFile(previewCredential.credentials_photo || previewCredential.credentials_doc) ? (
+            {(previewCredential.credentials_photo && isImageFile(previewCredential.credentials_photo)) || 
+             (previewCredential.credentials_doc && isImageFile(previewCredential.credentials_doc)) ? (
 
               <img
 

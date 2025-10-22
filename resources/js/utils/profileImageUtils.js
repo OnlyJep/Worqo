@@ -66,3 +66,49 @@ export const handleProfileImageUploadSuccess = (response, currentUser) => {
   }
   return currentUser;
 };
+
+/**
+ * Validate if the current user data is valid by checking with the API
+ * @param {Object} user - Current user object
+ * @returns {Promise<boolean>} True if user is valid, false otherwise
+ */
+export const validateUserData = async (user) => {
+  if (!user || !user.id) {
+    return false;
+  }
+  
+  try {
+    const token = localStorage.getItem("auth_token");
+    if (!token) {
+      return false;
+    }
+    
+    const response = await fetch(`http://127.0.0.1:8000/api/users/${user.id}`, {
+      method: "GET",
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json'
+      }
+    });
+    
+    return response.ok;
+  } catch (error) {
+    console.error("Error validating user data:", error);
+    return false;
+  }
+};
+
+/**
+ * Clear stale user data and redirect to login
+ */
+export const clearStaleUserData = () => {
+  console.log("Clearing stale user data and redirecting to login");
+  localStorage.removeItem("auth_token");
+  localStorage.removeItem("user");
+  // Dispatch event to notify other components
+  window.dispatchEvent(new CustomEvent('userLoggedOut'));
+  // Redirect to login
+  setTimeout(() => {
+    window.location.href = "/login";
+  }, 1000);
+};

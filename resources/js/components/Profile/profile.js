@@ -12,6 +12,16 @@ import { message } from 'antd';
 const Profile = ({ initialServiceType }) => {
   const { workerId } = useParams();
   const location = useLocation();
+  const resolvedWorkerId = (() => {
+    // If route param is not a valid id (e.g., 'profile'), fallback to current user id
+    if (!workerId || isNaN(Number(workerId))) {
+      const storedUser = localStorage.getItem("user");
+      const user = storedUser ? JSON.parse(storedUser) : null;
+      return user?.user?.id || user?.id || null;
+    }
+    return workerId;
+  })();
+  console.log('Profile component mounted with workerId:', workerId, 'resolved:', resolvedWorkerId);
   const [activeTab, setActiveTab] = useState('OVERVIEW');
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
@@ -88,14 +98,30 @@ const Profile = ({ initialServiceType }) => {
   // Handle Hire Now button click
   const handleHireNowClick = () => {
     if (!isLoggedIn()) {
-      setIsLoginModalOpen(true);
-    } else {
-      setIsBookingModalOpen(true);
+      alert('Please login to hire workers');
+      window.location.href = '/login';
+      return;
     }
+    
+    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+    const currentUser = userData.user || userData;
+    
+    if (currentUser.role_id === 1) {
+      alert('Workers cannot hire other workers. Please switch to Employer account.');
+      return;
+    }
+    
+    setIsBookingModalOpen(true);
   };
 
   // Handle Message button click
   const handleMessageClick = () => {
+    if (!isLoggedIn()) {
+      alert('Please login to send messages');
+      window.location.href = '/login';
+      return;
+    }
+    
     // Store the target user ID in localStorage
     localStorage.setItem('message_target_user_id', worker.id);
     // Navigate to messages page
@@ -104,8 +130,11 @@ const Profile = ({ initialServiceType }) => {
 
   // Fetch worker data from API
   useEffect(() => {
+    let isMounted = true;
+    
     const fetchWorkerData = async () => {
       try {
+        if (!isMounted) return;
         setLoading(true);
         setError(null);
         const authToken = localStorage.getItem("auth_token");
@@ -120,20 +149,26 @@ const Profile = ({ initialServiceType }) => {
 
         let workerData;
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/workers/${workerId}`, {
+          console.log('Making API call to:', `http://127.0.0.1:8000/api/workers/${resolvedWorkerId}`);
+          const response = await axios.get(`http://127.0.0.1:8000/api/workers/${resolvedWorkerId}`, {
             headers,
             timeout: 10000,
           });
           workerData = response.data;
+          console.log('API response received:', workerData);
         } catch (apiError) {
           // If the API call fails, it means the user is not a worker
           if (apiError.response?.status === 404) {
-            setError("This user is not a worker. Only worker profiles can be viewed here.");
-            setLoading(false);
+            if (isMounted) {
+              setError("This user is not a worker. Only worker profiles can be viewed here.");
+              setLoading(false);
+            }
             return;
           }
           throw apiError; // Re-throw if it's not a 404 error
         }
+
+        if (!isMounted) return;
 
         console.log("Raw worker data from API:", workerData);
         console.log("Profile data:", workerData.profile);
@@ -147,8 +182,10 @@ const Profile = ({ initialServiceType }) => {
         
         // Check if the target user is a worker (has worker data)
         if (!workerData.worker) {
-          setError("This user is not a worker. Only worker profiles can be viewed here.");
-          setLoading(false);
+          if (isMounted) {
+            setError("This user is not a worker. Only worker profiles can be viewed here.");
+            setLoading(false);
+          }
           return;
         }
         
@@ -216,16 +253,25 @@ const Profile = ({ initialServiceType }) => {
           // Add verified and rank information
           verified: workerData.worker?.verified === true || workerData.worker?.verified === 1,
           rank: workerData.worker?.rank || null,
+          preferred_working_days: Array.isArray(workerData.worker?.preferred_working_days) 
+            ? workerData.worker.preferred_working_days 
+            : [],
         };
 
         console.log("Formatted worker data:", formattedWorker);
-        setWorker(formattedWorker);
+        if (isMounted) {
+          setWorker(formattedWorker);
+        }
       } catch (error) {
         console.error("Error fetching worker data:", error.response?.data || error.message);
-        setError("Failed to load worker profile. Please try again later.");
-        message.error("Failed to load worker profile.");
+        if (isMounted) {
+          setError("Failed to load worker profile. Please try again later.");
+          message.error("Failed to load worker profile.");
+        }
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
 
@@ -233,13 +279,17 @@ const Profile = ({ initialServiceType }) => {
       fetchWorkerData();
       fetchWorkerReviews();
     }
+
+    return () => {
+      isMounted = false;
+    };
   }, [workerId]);
 
   // Fetch worker reviews
   const fetchWorkerReviews = async () => {
     try {
       setReviewsLoading(true);
-      const response = await axios.get(`http://127.0.0.1:8000/api/reviews/worker/${workerId}`, {
+      const response = await axios.get(`http://127.0.0.1:8000/api/reviews/worker/${resolvedWorkerId}`, {
         headers: { Accept: "application/json" }
       });
 
@@ -372,7 +422,9 @@ const Profile = ({ initialServiceType }) => {
         description: details.description,
         book_in: formatDateTime(details.book_in),
         book_end: formatDateTime(details.book_end),
-        hourly_rate: parseFloat(worker.hourlyRate) || 0
+        time_in: details.time_in || null,
+        time_out: details.time_out || null,
+        daily_rate: parseFloat(details.daily_rate)
       };
 
       console.log('Sending booking data:', bookingData);
@@ -419,7 +471,7 @@ const Profile = ({ initialServiceType }) => {
 
   if (loading) {
     return (
-      <div className="profile-page">
+      <div className="worker-profile-page">
         <Headerz />
         <div className="loading-container">
           <Loader />
@@ -430,7 +482,7 @@ const Profile = ({ initialServiceType }) => {
 
   if (error || !worker) {
     return (
-      <div className="profile-page">
+      <div className="worker-profile-page">
         <Headerz />
         <div className="error-container">
           <p className="error-message">{error || "Worker not found"}</p>
@@ -445,32 +497,32 @@ const Profile = ({ initialServiceType }) => {
   const serviceType = searchParams.get('service') || initialServiceType;
 
   return (
-    <div className="profile-page">
+    <div className="worker-profile-page">
       <Headerz />
-      <div className="profile-header">
-        <div className="cover-photo">
+      <div className="worker-profile-header">
+        <div className="worker-cover-photo">
           <img src={coverPhoto} alt="Cover" />
         </div>
-        <div className="profile-photo-wrapper">
+        <div className="worker-profile-photo-wrapper">
           <img 
             src={worker.profile_img 
               ? `http://127.0.0.1:8000/storage/${worker.profile_img}` 
               : profilePhoto
             } 
             alt="Profile" 
-            className="profile-photo" 
+            className="worker-profile-photo" 
           />
         </div>
       </div>
 
-      <div className="profile-container">
-        <div className="profile-left">
-          <div className="profile-info">
-            <div className="name-container">
+      <div className="worker-profile-container">
+        <div className="worker-profile-left">
+          <div className="worker-profile-info">
+            <div className="worker-name-container">
               <h2>{worker.name}</h2>
-               <div className="badges-container">
+               <div className="worker-badges-container">
                  {(worker.verified === true || worker.verified === 1) && (
-                   <div className="verified-badge" title="Verified Worker">
+                   <div className="worker-verified-badge" title="Verified Worker">
                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                        <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="#4CAF50"/>
                      </svg>
@@ -478,14 +530,14 @@ const Profile = ({ initialServiceType }) => {
                  )}
                </div>
             </div>
-            <div className="status-container">
-              <span className={`status-dot ${worker.is_online ? 'online' : 'offline'}`}></span>
-              <p className="status">{worker.last_active_text || (worker.is_online ? "Online" : "Offline")}</p>
+            <div className="worker-status-container">
+              <span className={`worker-status-dot ${worker.is_online ? 'online' : 'offline'}`}></span>
+              <p className="worker-status">{worker.last_active_text || (worker.is_online ? "Online" : "Offline")}</p>
             </div>
-            <p className="location">{worker.location}</p>
+            <p className="worker-location">{worker.location}</p>
             <div className="profile-actions">
               {hasServiceParam && (
-                <button className="edit-profile" onClick={handleHireNowClick}>
+                <button className="worker-hire-button" onClick={handleHireNowClick}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="white"/>
                   </svg>
@@ -500,27 +552,27 @@ const Profile = ({ initialServiceType }) => {
               </button>
             </div>
           </div>
-          <div className="rank-display-section">
+          <div className="worker-rank-display-section">
             {workerRank ? (
-              <div className="rank-display">
+              <div className="worker-rank-display">
                 <img 
                   src={`http://127.0.0.1:8000/storage/${workerRank.image}`}
                   alt={`${workerRank.name} Rank`}
                   className="worker-rank-badge"
                   title={`${workerRank.name} Rank - ${totalPoints.toLocaleString()} points`}
                 />
-                <div className="rank-progress">
-                  <div className="progress-info">
-                    <span className="rank-name">{workerRank.name}</span>
-                    <span className="points-text">{totalPoints.toLocaleString()} pts</span>
+                <div className="worker-rank-progress">
+                  <div className="worker-progress-info">
+                    <span className="worker-rank-name">{workerRank.name}</span>
+                    <span className="worker-points-text">{totalPoints.toLocaleString()} pts</span>
                   </div>
-                  <div className="progress-bar-container">
+                  <div className="worker-progress-bar-container">
                     <div 
-                      className={`progress-bar-fill rank-${workerRank.name.toLowerCase()}`}
+                      className={`worker-progress-bar-fill worker-rank-${workerRank.name.toLowerCase()}`}
                       style={{ width: `${progressPercent}%` }}
                     ></div>
                   </div>
-                  <span className="progress-label">
+                  <span className="worker-progress-label">
                     {workerRank.max_points 
                       ? `${totalPoints.toLocaleString()} / ${workerRank.max_points.toLocaleString()}`
                       : `${totalPoints.toLocaleString()} pts`
@@ -529,71 +581,76 @@ const Profile = ({ initialServiceType }) => {
                 </div>
               </div>
             ) : (
-              <div className="rank-display">
-                <div className="rank-loading">Loading rank...</div>
+              <div className="worker-rank-display">
+                <div className="worker-rank-loading">Loading rank...</div>
               </div>
             )}
           </div>
-          <div className="stats">
-            <div className="stat-item">
-              <span className="stat-label">Work Type</span>
-              <span className="stat-number">{worker.work_type || 'Part-time'}</span>
+          <div className="worker-stats">
+            <div className="worker-stat-item">
+              <span className="worker-stat-label">Work Type</span>
+              <span className="worker-stat-number">{worker.work_type || 'Part-time'}</span>
             </div>
-            <div className="stat-item">
-              <span className="stat-label">Hourly Rate</span>
-              <span className="stat-number">₱{worker.hourlyRate}/hr</span>
+            <div className="worker-stat-item">
+              <span className="worker-stat-label">Preferred Working Days</span>
+              <span className="worker-stat-number">
+                {Array.isArray(worker.preferred_working_days) && worker.preferred_working_days.length > 0 
+                  ? worker.preferred_working_days.join(', ').replace(/\b\w/g, l => l.toUpperCase())
+                  : 'Not specified'
+                }
+              </span>
             </div>
-            <div className="stat-item">
-              <span className="stat-label">Hours/Day</span>
-              <span className="stat-number">{worker.hours_per_day || 4} hrs</span>
+            <div className="worker-stat-item">
+              <span className="worker-stat-label">Hours/Day</span>
+              <span className="worker-stat-number">{worker.hours_per_day || 4} hrs</span>
               </div>
             </div>
         </div>
 
-        <div className="profile-right">
-          <div className="tabs">
+        <div className="worker-profile-right">
+          <div className="worker-tabs">
             {['OVERVIEW', 'CREDENTIALS', 'REVIEWS'].map((tab) => (
               <button
                 key={tab}
-                className={`tab ${activeTab === tab ? 'active' : ''}`}
+                className={`worker-tab ${activeTab === tab ? 'active' : ''}`}
                 onClick={() => handleTabClick(tab)}
               >
                 {tab}
               </button>
             ))}
           </div>
-          <div className="tab-content">
+          <div className="worker-tab-content">
             {activeTab === 'OVERVIEW' && (
-              <div className="overview">
+              <div className="worker-overview">
                 <h4>About</h4>
                 <p>{worker.description || "No bio available"}</p>
                 <h4>Skills</h4>
-                <div className="skills-section">
+                <div className="worker-skills-section">
                   {worker.primary_skills.length > 0 && (
-                    <div className="skills-category">
+                    <div className="worker-skills-category">
                       <h5>Primary Skills</h5>
                       {worker.primary_skills.map((skill, index) => {
                         const skillRank = getRankByExperience(skill.experience);
                         return (
-                          <div key={index} className="skill-item">
-                            <div className="skill-header">
-                              <div className="skill-name-with-rank">
+                          <div key={index} className="worker-skill-item">
+                            <div className="worker-skill-header">
+                              <div className="worker-skill-name-with-rank">
                                 <img 
                                   src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
                                   alt={`${skillRank.name} Rank`}
-                                  className="skill-rank-icon"
+                                  className="worker-skill-rank-icon"
                                 />
-                                <span className="skill-name">
+                                <span className="worker-skill-name">
                                   {skill.skill_name}
                                   {skill.sub_skills && skill.sub_skills.length > 0 && (
-                                    <span className="sub-skills"> - {skill.sub_skills.join(', ')}</span>
+                                    <span className="worker-sub-skills"> - {skill.sub_skills.join(', ')}</span>
                                   )}
                                 </span>
                               </div>
                             </div>
-                            <div className="skill-details">
-                              <span className="experience">Experience: {skill.experience}</span>
-                              <span className="hourly-rate">₱{skill.hourly_rate}/hour</span>
+                            <div className="worker-skill-details">
+                              <span className="worker-experience">Experience: {skill.experience}</span>
+                              <span className="worker-hourly-rate">₱{skill.hourly_rate}/hour</span>
                             </div>
                           </div>
                         );
@@ -602,30 +659,30 @@ const Profile = ({ initialServiceType }) => {
                   )}
                   
                   {worker.additional_skills.length > 0 && (
-                    <div className="skills-category">
+                    <div className="worker-skills-category">
                       <h5>Additional Skills</h5>
                       {worker.additional_skills.map((skill, index) => {
                         const skillRank = getRankByExperience(skill.experience);
                         return (
-                          <div key={index} className="skill-item">
-                            <div className="skill-header">
-                              <div className="skill-name-with-rank">
+                          <div key={index} className="worker-skill-item">
+                            <div className="worker-skill-header">
+                              <div className="worker-skill-name-with-rank">
                                 <img 
                                   src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
                                   alt={`${skillRank.name} Rank`}
-                                  className="skill-rank-icon"
+                                  className="worker-skill-rank-icon"
                                 />
-                                <span className="skill-name">
+                                <span className="worker-skill-name">
                                   {skill.skill_name}
                                   {skill.sub_skills && skill.sub_skills.length > 0 && (
-                                    <span className="sub-skills"> - {skill.sub_skills.join(', ')}</span>
+                                    <span className="worker-sub-skills"> - {skill.sub_skills.join(', ')}</span>
                                   )}
                                 </span>
                               </div>
                             </div>
-                            <div className="skill-details">
-                              <span className="experience">Experience: {skill.experience}</span>
-                              <span className="hourly-rate">₱{skill.hourly_rate}/hour</span>
+                            <div className="worker-skill-details">
+                              <span className="worker-experience">Experience: {skill.experience}</span>
+                              <span className="worker-hourly-rate">₱{skill.hourly_rate}/hour</span>
                             </div>
                           </div>
                         );
@@ -640,7 +697,7 @@ const Profile = ({ initialServiceType }) => {
               </div>
             )}
             {activeTab === 'CREDENTIALS' && (
-              <div className="credentials">
+              <div className="worker-credentials">
                 <h4>Credentials</h4>
                 {worker.credentials.length > 0 ? (
                 <ul>
@@ -652,10 +709,10 @@ const Profile = ({ initialServiceType }) => {
                   <p>No credentials available</p>
                 )}
                 {worker.credentials_photo.length > 0 && (
-                  <div className="credentials-photos">
+                  <div className="worker-credentials-photos">
                     <h5>Credential Documents</h5>
                     {worker.credentials_photo.map((photo, index) => (
-                      <div key={index} className="credential-photo">
+                      <div key={index} className="worker-credential-photo">
                         <a 
                           href={`http://127.0.0.1:8000/storage/${photo}`} 
                           target="_blank" 
@@ -670,20 +727,20 @@ const Profile = ({ initialServiceType }) => {
               </div>
             )}
             {activeTab === 'REVIEWS' && (
-              <div className="reviews">
+              <div className="worker-reviews">
                 {totalReviews > 0 && (
-                  <div className="reviews-header">
-                    <div className="reviews-summary">
-                      <div className="average-rating">
-                        <span className="rating-number">{averageRating.toFixed(1)}</span>
-                        <div className="stars">
+                  <div className="worker-reviews-header">
+                    <div className="worker-reviews-summary">
+                      <div className="worker-average-rating">
+                        <span className="worker-rating-number">{averageRating.toFixed(1)}</span>
+                        <div className="worker-stars">
                           {[1, 2, 3, 4, 5].map((star) => (
-                            <span key={star} className={star <= Math.round(averageRating) ? 'star filled' : 'star'}>
+                            <span key={star} className={star <= Math.round(averageRating) ? 'worker-star filled' : 'worker-star'}>
                               ★
                             </span>
                           ))}
                         </div>
-                        <span className="total-reviews">({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})</span>
+                        <span className="worker-total-reviews">({totalReviews} {totalReviews === 1 ? 'review' : 'reviews'})</span>
                       </div>
                     </div>
                   </div>
@@ -692,31 +749,31 @@ const Profile = ({ initialServiceType }) => {
                 {reviewsLoading ? (
                   <p>Loading reviews...</p>
                 ) : reviews.length > 0 ? (
-                  <div className="reviews-list">
+                  <div className="worker-reviews-list">
                     {reviews.map((review) => (
-                      <div key={review.id} className="review-item">
-                        <div className="review-header">
-                          <div className="reviewer-info">
+                      <div key={review.id} className="worker-review-item">
+                        <div className="worker-review-header">
+                          <div className="worker-reviewer-info">
                             <img 
                               src={review.reviewer.profile_img 
                                 ? `http://127.0.0.1:8000/storage/${review.reviewer.profile_img}` 
                                 : profilePhoto
                               } 
                               alt={review.reviewer.name}
-                              className="reviewer-avatar"
+                              className="worker-reviewer-avatar"
                             />
-                            <div className="reviewer-details">
-                              <span className="reviewer-name">{review.reviewer.name}</span>
-                              <div className="review-rating">
+                            <div className="worker-reviewer-details">
+                              <span className="worker-reviewer-name">{review.reviewer.name}</span>
+                              <div className="worker-review-rating">
                                 {[1, 2, 3, 4, 5].map((star) => (
-                                  <span key={star} className={star <= review.rating ? 'star filled' : 'star'}>
+                                  <span key={star} className={star <= review.rating ? 'worker-star filled' : 'worker-star'}>
                                     ★
                                   </span>
                                 ))}
                               </div>
                             </div>
                           </div>
-                          <span className="review-date">
+                          <span className="worker-review-date">
                             {new Date(review.created_at).toLocaleDateString('en-US', { 
                               year: 'numeric', 
                               month: 'short', 
@@ -724,7 +781,7 @@ const Profile = ({ initialServiceType }) => {
                             })}
                           </span>
                         </div>
-                        <p className="review-comment">{review.comment}</p>
+                        <p className="worker-review-comment">{review.comment}</p>
                       </div>
                     ))}
                   </div>

@@ -11,13 +11,22 @@ return new class extends Migration
         Schema::create('employers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('profile_id')->unique(); // link to profiles table
-            $table->string('company_name');
-            $table->string('company_phone')->nullable();
-            $table->string('company_email')->nullable();
-            $table->string('company_address')->nullable();
+            $table->string('first_name');
+            $table->string('middle_name')->nullable();
+            $table->string('last_name');
+            $table->unsignedBigInteger('suffix_id')->nullable();
+            $table->string('contact_number')->nullable();
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('country')->nullable();
+            $table->unsignedBigInteger('gender_id');
             $table->timestamps();
 
             $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
+            $table->foreign('suffix_id')->references('id')->on('suffixes')->onDelete('set null');
+            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('restrict');
         });
     }
 

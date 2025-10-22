@@ -95,6 +95,19 @@
          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
          position: relative; // Added for absolute positioning of salary
 
+         // For worker bookings, only move actions to opposite side
+         &.worker-booking-card {
+           .booking-actions {
+             order: -1; // Move actions to the left side
+             margin-top: 0;
+             margin-bottom: 60px;
+           }
+           
+           .booking-worker-info {
+             order: 1; // Keep worker info on the right side
+           }
+         }
+
          .booking-worker-info {
            display: flex;
            align-items: center;
@@ -211,10 +224,10 @@
 
        .booking-actions {
          display: flex;
-         gap: 12px;
-         justify-content: flex-end;
-         margin-top: 20px;
-         flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-end;
+        margin-top: 20px;
+        flex-wrap: wrap;
 
          .message-btn {
            background: #4CAF50;
@@ -235,11 +248,12 @@
              background: #45a049;
            }
          }
+         margin-top: 60px;
 
          .view-transaction-btn {
-           background: #001E40;
-           color: white;
-           border: none;
+           background: transparent;
+           color: #000000;
+           border: 2px solid #001E40;
            width: 110px;
            height: 33px;
            border-radius: 6px;
@@ -252,14 +266,15 @@
            justify-content: center;
 
            &:hover {
-             background: #002a5c;
+             background: #001E40;
+             color: white;
            }
          }
 
          .cancel-booking-btn {
-           background: white;
-           color: #374151;
-           border: 1px solid #d1d5db;
+           background: transparent;
+           color: #000000;
+           border: 2px solid #d1d5db;
            width: 100px;
            height: 33px;
            border-radius: 6px;
@@ -272,15 +287,15 @@
            justify-content: center;
 
            &:hover {
-             background: #f9fafb;
-             border-color: #9ca3af;
+             background: #d1d5db;
+             color: white;
            }
          }
 
          .rate-booking-btn {
-           background: #001E40;
-           color: white;
-           border: none;
+           background: transparent;
+           color: #000000;
+           border: 2px solid #001E40;
            width: 100px;
            height: 33px;
            border-radius: 6px;
@@ -293,14 +308,15 @@
            justify-content: center;
 
            &:hover {
-             background: #15803d;
+             background: #001E40;
+             color: white;
            }
          }
 
          .give-feedback-btn {
-           background: #001E40;
-           color: white;
-           border: none;
+           background: transparent;
+           color: #000000;
+           border: 2px solid #001E40;
            width: 100px;
            height: 33px;
            border-radius: 6px;
@@ -313,14 +329,15 @@
            justify-content: center;
 
            &:hover {
-             background: #002a5c;
+             background: #001E40;
+             color: white;
            }
          }
 
          .accept-btn {
-           background: #4CAF50;
-           color: white;
-           border: none;
+           background: transparent;
+           color: #000000;
+           border: 2px solid #4CAF50;
            width: 100px;
            height: 33px;
            border-radius: 6px;
@@ -333,14 +350,15 @@
            justify-content: center;
 
            &:hover {
-             background: #45a049;
+             background: #4CAF50;
+             color: white;
            }
          }
 
          .decline-btn {
-           background: #f44336;
-           color: white;
-           border: none;
+           background: transparent;
+           color: #000000;
+           border: 2px solid #f44336;
            width: 100px;
            height: 33px;
            border-radius: 6px;
@@ -353,14 +371,15 @@
            justify-content: center;
 
            &:hover {
-             background: #da190b;
+             background: #f44336;
+             color: white;
            }
          }
 
          .complete-btn {
-           background: #2196F3;
-           color: white;
-           border: none;
+           background: transparent;
+           color: #000000;
+           border: 2px solid #2196F3;
            width: 140px;
            height: 33px;
            border-radius: 6px;
@@ -373,7 +392,8 @@
            justify-content: center;
 
            &:hover {
-             background: #1976D2;
+             background: #2196F3;
+             color: white;
            }
          }
 
@@ -482,7 +502,7 @@
          .booking-actions {
            justify-content: center;
            flex-wrap: wrap;
-           margin-top: 24px; // Consistent button spacing on mobile
+           margin-top: 72px; // Consistent button spacing on mobile (24px × 3)
            
            .view-transaction-btn,
            .cancel-booking-btn,

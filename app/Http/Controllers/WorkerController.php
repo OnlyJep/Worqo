@@ -443,8 +443,8 @@ class WorkerController extends Controller
                 return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
-            // Parse preferred_working_hours if it's a JSON string
-            $preferredWorkingHours = $request->preferred_working_hours;
+            // Parse preferred_working_days if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_days;
             if (is_string($preferredWorkingHours)) {
                 $preferredWorkingHours = json_decode($preferredWorkingHours, true);
             }
@@ -454,7 +454,7 @@ class WorkerController extends Controller
             }
 
             $validator = Validator::make(
-                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_hours' => $preferredWorkingHours]),
+                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_days' => $preferredWorkingHours]),
                 [
                     'first_name' => 'required|string|max:255',
                     'middlename' => 'nullable|string|max:255',
@@ -469,6 +469,8 @@ class WorkerController extends Controller
                     'hours_per_day' => 'nullable|integer|min:1|max:24',
                     'preferred_working_hours' => 'nullable|array',
                     'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+                    'preferred_working_days' => 'nullable|array',
+                    'preferred_working_days.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
                     'bio' => 'nullable|string|max:1000',
                     'skills_id' => 'required|array|min:1',
                     'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
@@ -537,21 +539,63 @@ class WorkerController extends Controller
 
             $profile = Profile::create($profileData);
 
+            Log::info("Credentials data received", [
+                'has_credentials' => $request->has('credentials'),
+                'credentials_data' => $request->input('credentials'),
+                'all_files' => $request->allFiles()
+            ]);
+            
             $credentials_name = [];
+            $credentials_photo = [];
+            $credentials_doc = [];
             if ($request->has('credentials') && is_array($request->credentials)) {
-                foreach ($request->credentials as $credential) {
+                foreach ($request->credentials as $index => $credential) {
                     if (
                         isset($credential['credentials_name']) &&
                         !empty($credential['credentials_name']) &&
                         !empty($credential['credentials_name'])
                     ) {
                         $credentials_name[] = $credential['credentials_name'];
+                        
+                        // Handle file upload and determine if it's photo or document
+                        if ($request->hasFile("credentials.{$index}.credentials_photo")) {
+                            $file = $request->file("credentials.{$index}.credentials_photo");
+                            $fileExtension = strtolower($file->getClientOriginalExtension());
+                            $mimeType = $file->getMimeType();
+                            
+                            Log::info("Processing credential file", [
+                                'index' => $index,
+                                'original_name' => $file->getClientOriginalName(),
+                                'extension' => $fileExtension,
+                                'mime_type' => $mimeType,
+                                'size' => $file->getSize()
+                            ]);
+                            
+                            // Check if it's an image file
+                            if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif', 'webp']) || 
+                                str_starts_with($mimeType, 'image/')) {
+                                // Store as photo
+                                $photoPath = $file->store('credentials/photos', 'public');
+                                $credentials_photo[] = $photoPath;
+                                $credentials_doc[] = null;
+                                Log::info("Stored as photo", ['path' => $photoPath]);
+                            } else {
+                                // Store as document
+                                $docPath = $file->store('credentials/documents', 'public');
+                                $credentials_doc[] = $docPath;
+                                $credentials_photo[] = null;
+                                Log::info("Stored as document", ['path' => $docPath]);
+                            }
+                        } else {
+                            $credentials_photo[] = null;
+                            $credentials_doc[] = null;
+                        }
                     }
                 }
             }
 
-            // Parse preferred_working_hours if it's a JSON string
-            $preferredWorkingHours = $request->preferred_working_hours;
+            // Parse preferred_working_days if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_days;
             if (is_string($preferredWorkingHours)) {
                 $preferredWorkingHours = json_decode($preferredWorkingHours, true);
             }
@@ -564,16 +608,25 @@ class WorkerController extends Controller
                 $preferredWorkingHours = [];
             }
 
+            Log::info("Final credentials data before worker creation", [
+                'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
+                'credentials_doc' => $credentials_doc
+            ]);
+
             $worker = Worker::create([
                 'profile_id' => $profile->id,
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'preferred_working_hours' => $preferredWorkingHours,
+                'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
+                'credentials_doc' => $credentials_doc,
                 'archived' => false,
-                'is_reviewed' => null,
+                'is_reviewed' => $request->is_reviewed,
             ]);
 
             Log::info('Worker created', [
@@ -642,8 +695,8 @@ class WorkerController extends Controller
                 return response()->json(['errors' => ['skills_id' => ['The skills id must be an array.']]], 400);
             }
 
-            // Parse preferred_working_hours if it's a JSON string
-            $preferredWorkingHours = $request->preferred_working_hours;
+            // Parse preferred_working_days if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_days;
             if (is_string($preferredWorkingHours)) {
                 $preferredWorkingHours = json_decode($preferredWorkingHours, true);
             }
@@ -653,7 +706,7 @@ class WorkerController extends Controller
             }
 
             $validator = Validator::make(
-                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_hours' => $preferredWorkingHours]),
+                array_merge($request->all(), ['skills_id' => $skillsId, 'preferred_working_days' => $preferredWorkingHours]),
                 [
                     'first_name' => 'required|string|max:255',
                     'middlename' => 'nullable|string|max:255',
@@ -668,6 +721,8 @@ class WorkerController extends Controller
                     'hours_per_day' => 'nullable|integer|min:1|max:24',
                     'preferred_working_hours' => 'nullable|array',
                     'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+                    'preferred_working_days' => 'nullable|array',
+                    'preferred_working_days.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
                     'bio' => 'nullable|string|max:1000',
                     'skills_id' => 'required|array|min:1',
                     'skills_id.*.skill_id' => 'required|integer|exists:skills,id',
@@ -757,6 +812,7 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'preferred_working_hours' => $preferredWorkingHours,
+                'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
@@ -768,6 +824,7 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'preferred_working_hours' => $preferredWorkingHours,
+                'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
@@ -1765,6 +1822,7 @@ class WorkerController extends Controller
                 'work_type' => $user->worker->work_type,
                 'hours_per_day' => $user->worker->hours_per_day,
                 'preferred_working_hours' => $user->worker->preferred_working_hours,
+                'preferred_working_days' => $user->worker->preferred_working_days,
                 'bio' => $user->worker->bio,
                 'skills_id' => $structuredSkillsId,
                 'credentials_name' => $credentialsName,
@@ -1797,6 +1855,7 @@ class WorkerController extends Controller
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
                 'preferred_working_hours' => 'nullable|string',
                 'bio' => 'nullable|string|max:1000',
+                'preferred_working_days' => 'nullable|string',
                 'skills_id' => 'required|array',
                 'skills_id.primary_skills' => 'required|array|min:1',
                 'skills_id.primary_skills.*.skill_id' => 'required|integer|exists:skills,id',
@@ -1878,8 +1937,8 @@ class WorkerController extends Controller
                 return response()->json(['error' => 'Cannot have more than 15 skills'], 400);
             }
 
-            // Parse preferred_working_hours if it's a JSON string
-            $preferredWorkingHours = $request->preferred_working_hours;
+            // Parse preferred_working_days if it's a JSON string
+            $preferredWorkingHours = $request->preferred_working_days;
             if (is_string($preferredWorkingHours)) {
                 $preferredWorkingHours = json_decode($preferredWorkingHours, true);
             }
@@ -1922,6 +1981,7 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'preferred_working_hours' => $preferredWorkingHours,
+                'preferred_working_days' => $preferredWorkingHours,
                 'skills_id' => $skillsId, // Keep the original structure with primary_skills and additional_skills
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
@@ -2071,6 +2131,7 @@ class WorkerController extends Controller
                 'work_type' => 'nullable|string|max:255',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
                 'preferred_working_hours' => 'nullable|string',
+                'preferred_working_days' => 'nullable|string',
                 'bio' => 'nullable|string|max:1000',
             ]);
 
@@ -2085,8 +2146,8 @@ class WorkerController extends Controller
                 $updateData['hours_per_day'] = $request->input('hours_per_day');
             }
             
-            if ($request->has('preferred_working_hours')) {
-                $updateData['preferred_working_hours'] = $request->input('preferred_working_hours');
+            if ($request->has('preferred_working_days')) {
+                $updateData['preferred_working_days'] = $request->input('preferred_working_days');
             }
             
             if ($request->has('bio')) {

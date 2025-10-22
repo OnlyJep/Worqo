@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaUserFriends, FaRegEdit, FaPlus } from 'react-icons/fa';
+import { MdDateRange } from 'react-icons/md';
 import { message } from 'antd';
 import axios from 'axios';
 import ModalPostJob from './modalpostjob';
@@ -89,16 +90,32 @@ const MyPostJob = () => {
       const authToken = localStorage.getItem("auth_token");
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
       
+      // Get the correct user ID from the nested structure
+      const currentUser = userData.user || userData;
+      const profileId = currentUser.id || currentUser.profile_id;
+      
+      // Map salary types to backend expected values
+      const salaryTypeMap = {
+        'hourly': 'per_hour',
+        'daily': 'per_hour', // Map daily to per_hour for now
+        'weekly': 'per_hour', // Map weekly to per_hour for now
+        'monthly': 'per_month',
+        'project': 'per_hour' // Map project to per_hour for now
+      };
+
       const jobPayload = {
-        profile_id: userData.id,
+        profile_id: profileId,
         job_title: jobData.jobTitle,
         skills: jobData.skills,
         skill_experiences: jobData.skillExperiences,
         description: jobData.jobDescription,
         salary: parseFloat(jobData.salary),
-        salary_type: jobData.salaryType,
+        salary_type: salaryTypeMap[jobData.salaryType] || 'per_hour',
         job_type: jobData.typeOfEmployment,
         hiring_type: jobData.hiringType,
+        team_size: jobData.teamSize,
+        work_start: jobData.workStart || null,
+        work_end: jobData.workEnd || null,
         application_start: jobData.applicationStart,
         application_deadline: jobData.applicationDeadline
       };
@@ -212,7 +229,11 @@ const MyPostJob = () => {
 
                 <div className="job-description">
                   <h4 className="description-title">Job Overview/Description</h4>
-                  <p className="description-text">{job.description}</p>
+                  <p className="description-text">
+                    {job.description && job.description.length > 200 
+                      ? `${job.description.substring(0, 200)}...` 
+                      : job.description}
+                  </p>
                 </div>
 
                 <div className="job-skills">

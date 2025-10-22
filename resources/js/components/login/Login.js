@@ -211,13 +211,10 @@ const Login = () => {
                   />
                   Remember me
                 </label>
-                <Link to="/forgot-password" className="forgot-password">
-                  Forgot Password?
-                </Link>
               </div>
 
               <button type="submit" className="login-submit-btn" disabled={isLoading}>
-                {isLoading ? 'Logging in...' : 'Login'}
+                {isLoading ? 'Signing in...' : 'Login'}
               </button>
             </form>
 

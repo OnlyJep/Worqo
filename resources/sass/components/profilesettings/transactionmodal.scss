@@ -75,14 +75,20 @@
     font-weight: 600;
     border-bottom: 2px solid #f0f0f0;
     padding-bottom: 8px;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #007bff;
+    }
   }
 }
 
-.transaction-details {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
 
 .detail-row {
   display: flex;
@@ -98,7 +104,7 @@
   .label {
     font-weight: 500;
     color: #666;
-    min-width: 120px;
+    min-width: 140px;
     flex-shrink: 0;
   }
   
@@ -107,6 +113,13 @@
     text-align: right;
     flex: 1;
     word-break: break-word;
+    line-height: 1.4;
+    
+    // For description field, align text to left
+    &.description-value {
+      text-align: left;
+      padding-left: 8px;
+    }
   }
   
   &.total-row {
@@ -183,7 +196,6 @@
   justify-content: flex-end;
   
   .close-button {
-    background-color: #6c757d;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -200,6 +212,26 @@
   }
 }
 
+// Additional styling for better visual hierarchy
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #e9ecef;
+}
+
+.detail-row {
+  &:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+    border-radius: 4px;
+    padding: 8px 4px;
+    margin: 0 -4px;
+  }
+}
+
 // Responsive design
 @media (max-width: 768px) {
   .transaction-modal {
@@ -213,6 +245,10 @@
     padding: 16px;
   }
   
+  .transaction-details {
+    padding: 12px;
+  }
+  
   .detail-row {
     flex-direction: column;
     align-items: flex-start;
@@ -220,10 +256,13 @@
     
     .label {
       min-width: auto;
+      font-weight: 600;
+      color: #333;
     }
     
     .value {
       text-align: left;
+      padding-left: 0;
     }
   }
 }
