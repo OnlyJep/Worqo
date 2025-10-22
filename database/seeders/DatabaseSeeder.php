@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             SuffixSeeder::class,
             SkillSeeder::class,
+            RankSeeder::class,
         ]);
     }
 }

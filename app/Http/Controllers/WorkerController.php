@@ -1481,6 +1481,12 @@ class WorkerController extends Controller
         // Get active ranks (archived = false)
         $ranks = Rank::where('archived', false)->orderBy('min_points', 'asc')->get();
 
+        // If no ranks exist, return null to avoid errors
+        if ($ranks->isEmpty()) {
+            Log::warning('No ranks available in database');
+            return null;
+        }
+
         // Determine rank based on experience
         $selectedRank = null;
         foreach ($ranks as $rank) {
@@ -1492,6 +1498,11 @@ class WorkerController extends Controller
         // If no rank found, assign Bronze as default
         if (!$selectedRank) {
             $selectedRank = $ranks->where('name', 'Bronze')->first();
+        }
+
+        // If still no rank (Bronze doesn't exist), use the first available rank
+        if (!$selectedRank && $ranks->isNotEmpty()) {
+            $selectedRank = $ranks->first();
         }
 
         return $selectedRank;
