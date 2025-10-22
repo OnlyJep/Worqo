@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FaBriefcase, FaCalendar, FaMapMarkerAlt, FaDollarSign, FaClock, FaUser } from 'react-icons/fa';
+import { FaBriefcase, FaCalendar, FaMapMarkerAlt, FaDollarSign, FaClock, FaUser, FaRegEdit } from 'react-icons/fa';
 import { MdVerified } from 'react-icons/md';
 import { message } from 'antd';
 import axios from 'axios';
 import CancelJobApplicationModal from './CancelJobApplicationModal';
+import EditMyJob from './EditMyJob';
 import '../../../sass/components/profilesettings/myjobs.scss';
 
 const MyJobs = () => {
@@ -11,6 +12,7 @@ const MyJobs = () => {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('all');
   const [cancelModal, setCancelModal] = useState({ isOpen: false, applicationId: null, jobTitle: '' });
+  const [editModal, setEditModal] = useState({ isOpen: false, application: null });
 
   const applicationCategories = [
     { id: 'all', label: 'All Applications' },
@@ -130,6 +132,28 @@ const MyJobs = () => {
     }
   };
 
+  const openEditModal = (application) => {
+    setEditModal({
+      isOpen: true,
+      application: application
+    });
+  };
+
+  const closeEditModal = () => {
+    setEditModal({
+      isOpen: false,
+      application: null
+    });
+  };
+
+  const handleEditSubmit = (formData) => {
+    // Handle edit submission
+    console.log('Edit submitted:', formData);
+    closeEditModal();
+    // Optionally refresh applications
+    fetchMyApplications();
+  };
+
 
 
   // Filter applications based on active tab
@@ -186,123 +210,91 @@ const MyJobs = () => {
 
       <div className="myjobs-list">
         {filteredApplications.length > 0 ? (
-          filteredApplications.map((application) => {
-            console.log('Application:', application);
-            console.log('Application job_post:', application.job_post);
-            
-            const jobDetails = application.job_post;
-            const employerProfile = jobDetails?.profile;
-            
-            console.log('Job Details:', jobDetails);
-            console.log('Job Title:', jobDetails?.job_title);
-            console.log('Employer Profile:', employerProfile);
-            
-            // Check if job_post data is available
-            if (!application.job_post) {
-              console.error('No job_post data found for application:', application.id);
-              return (
-                <div key={application.id} className="job-card">
-                  <div className="job-content">
-                    <h3 className="job-title">Loading job details...</h3>
-                  </div>
-                </div>
-              );
-            }
-
-            return (
-              <div key={application.id} className={`myjobs-card ${application.status === 'declined' ? 'expired' : ''}`}>
-                <div className="myjobs-card-header">
-                  <div className="myjobs-card-actions">
-                  </div>
-                </div>
-
-                <div className="myjobs-content">
-                  <div className="myjobs-title-row">
-                    <h3 className="myjobs-job-title">{jobDetails?.job_title || 'Job Title Not Available'}</h3>
-                    <span className="myjobs-posted-date">Applied on {formatDate(application.created_at)}</span>
-                  </div>
-                  
-                  <div className="myjobs-metadata">
-                    <span className="myjobs-salary">₱{jobDetails?.salary?.toLocaleString() || 'N/A'}/{jobDetails?.salary_type === 'per_hour' ? 'hour' : 'month'}</span>
-                  </div>
-
-                  <div className="myjobs-info-grid">
-                    <div className="myjobs-info-item">
-                      <span className="myjobs-info-label">Employer:</span>
-                      <span className="myjobs-info-value">
-                        {employerProfile ? 
-                          `${employerProfile.first_name} ${employerProfile.middlename || ''} ${employerProfile.last_name}`.trim() : 
-                          'Unknown Employer'
-                        }
-                      </span>
-                    </div>
-
-                    <div className="myjobs-info-item">
-                      <span className="myjobs-info-label">Status:</span>
-                      <span 
-                        className="myjobs-info-value"
-                        style={{
-                          color: application.status === 'declined' ? '#dc3545' :
-                                 application.status === 'accepted' ? '#059669' :
-                                 application.status === 'for_interview' ? '#1890ff' : '#6b7280'
-                        }}
-                      >
-                        {application.status === 'for_interview' ? 'For Interview' :
-                         application.status === 'accepted' ? 'Hired' :
-                         application.status.charAt(0).toUpperCase() + application.status.slice(1)}
-                      </span>
-                    </div>
-
-                    {application.resume_path && (
-                      <div className="myjobs-info-item myjobs-resume-item">
-                        <span className="myjobs-info-label">Resume/CV:</span>
-                        <span className="myjobs-info-value">
-                          <a 
-                            href={`http://127.0.0.1:8000/storage/${application.resume_path}`} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="myjobs-resume-link"
-                          >
-                            View Resume
-                          </a>
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Work Period Information */}
-                    {jobDetails?.work_start && jobDetails?.work_end && (
-                      <div className="myjobs-info-item myjobs-work-period-item">
-                        <span className="myjobs-info-label">Work Period:</span>
-                        <span className="myjobs-info-value">
-                          {new Date(jobDetails.work_start).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'short', 
-                            day: 'numeric' 
-                          })} - {new Date(jobDetails.work_end).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'short', 
-                            day: 'numeric' 
-                          })}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  {application.status === 'for_interview' && (
-                    <div className="myjobs-cancel-section">
-                      <button 
-                        className="myjobs-cancel-btn"
-                        onClick={() => openCancelModal(application.id, jobDetails?.job_title)}
-                      >
-                        Cancel Application
-                      </button>
-                    </div>
-                  )}
-
+          filteredApplications.map((application) => (
+            <div key={application.id} className={`myjobs-card ${application.status === 'declined' ? 'expired' : ''}`}>
+              <div className="myjobs-card-header">
+                <div className="myjobs-card-actions">
+                  {/* Actions here */}
                 </div>
               </div>
-            );
-          })
+              <div className="myjobs-content">
+                <div className="myjobs-title-row">
+                  <h3 className="myjobs-job-title">
+                    {application.job_post?.job_title || 'Job Title Not Available'}
+                    {application.status === 'for_interview' && (
+                      <FaRegEdit 
+                        className="edit-icon" 
+                        style={{ marginLeft: '8px', color: '#6b7280', cursor: 'pointer', fontSize: '22px' }} 
+                        onClick={() => openEditModal(application)}
+                      />
+                    )}
+                  </h3>
+                  <span className="myjobs-posted-date">Applied on {formatDate(application.created_at)}</span>
+                </div>
+                
+                <div className="myjobs-metadata">
+                  <span className="myjobs-salary">₱{application.job_post?.salary?.toLocaleString() || 'N/A'}/{application.job_post?.salary_type === 'per_hour' ? 'hour' : 'month'}</span>
+                  <span 
+                    className="myjobs-status"
+                    style={{
+                      color: application.status === 'declined' ? '#dc3545' :
+                             application.status === 'accepted' ? '#059669' :
+                             application.status === 'for_interview' ? '#1890ff' : '#6b7280'
+                    }}
+                  >
+                    {application.status === 'for_interview' ? 'For Interview' :
+                     application.status === 'accepted' ? 'Hired' :
+                     application.status.charAt(0).toUpperCase() + application.status.slice(1)}
+                  </span>
+                </div>
+
+                <div className="myjobs-info-grid">
+                  <div className="myjobs-info-item">
+                    <span className="myjobs-info-label">Employer:</span>
+                    <span className="myjobs-info-value">
+                      {application.job_post?.profile ? 
+                        `${application.job_post.profile.first_name} ${application.job_post.profile.middlename || ''} ${application.job_post.profile.last_name}`.trim() : 
+                        'Unknown Employer'
+                      }
+                    </span>
+                  </div>
+                  {application.resume_path && (
+                    <div className="myjobs-info-item myjobs-resume-item">
+                      <span className="myjobs-info-label">Resume/CV:</span>
+                      <span className="myjobs-info-value">
+                        <a 
+                          href={`http://127.0.0.1:8000/storage/${application.resume_path}`} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="myjobs-resume-link"
+                        >
+                          View Resume
+                        </a>
+                      </span>
+                    </div>
+                  )}
+                  {application.cover_letter && (
+                    <div className="myjobs-info-item myjobs-cover-letter-item">
+                      <span className="myjobs-info-label">Cover Letter:</span>
+                      <span className="myjobs-info-value myjobs-cover-letter">
+                        {application.cover_letter}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                {application.status === 'for_interview' && (
+                  <div className="myjobs-cancel-section">
+                    <button 
+                      className="myjobs-cancel-btn"
+                      onClick={() => openCancelModal(application.id, application.job_post?.job_title)}
+                    >
+                      Cancel Application
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))
         ) : (
           <div className="myjobs-empty-state">
             <div className="myjobs-empty-icon">
@@ -319,6 +311,13 @@ const MyJobs = () => {
         onClose={closeCancelModal}
         onConfirm={confirmCancelApplication}
         jobTitle={cancelModal.jobTitle}
+      />
+
+      <EditMyJob
+        isOpen={editModal.isOpen}
+        onClose={closeEditModal}
+        onSubmit={handleEditSubmit}
+        application={editModal.application}
       />
 
     </div>

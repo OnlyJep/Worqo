@@ -158,6 +158,99 @@ class JobApplicationController extends Controller
     }
 
     /**
+     * Update application (cover letter and resume)
+     */
+    public function updateApplication(Request $request, $applicationId)
+    {
+        // Log all incoming data for debugging
+        \Log::info('UpdateApplication Debug', [
+            'application_id' => $applicationId,
+            'request_all' => $request->all(),
+            'request_input_cover_letter' => $request->input('cover_letter'),
+            'request_has_cover_letter' => $request->has('cover_letter'),
+            'request_filled_cover_letter' => $request->filled('cover_letter'),
+            'cover_letter_length' => strlen($request->input('cover_letter', '')),
+            'has_file' => $request->hasFile('resume'),
+            'content_type' => $request->header('Content-Type'),
+            'method' => $request->method()
+        ]);
+
+        $validator = Validator::make($request->all(), [
+            'cover_letter' => 'required|string|min:1',
+            'resume' => 'nullable|file|mimes:pdf,doc,docx|max:10240', // 10MB max
+        ]);
+
+        if ($validator->fails()) {
+            \Log::error('Validation failed', [
+                'errors' => $validator->errors()->toArray(),
+                'request_data' => $request->all()
+            ]);
+            return response()->json([
+                'message' => 'Validation failed',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        try {
+            $application = JobApplication::findOrFail($applicationId);
+            
+            \Log::info('Found application', [
+                'application' => $application->toArray(),
+                'fillable_fields' => $application->getFillable(),
+                'table_columns' => \Schema::getColumnListing('job_applications')
+            ]);
+            
+            // Update cover letter
+            $application->cover_letter = $request->cover_letter;
+
+            // Handle resume upload if provided
+            if ($request->hasFile('resume')) {
+                // Delete old resume if exists
+                if ($application->resume_path) {
+                    $oldResumePath = storage_path('app/public/' . $application->resume_path);
+                    if (file_exists($oldResumePath)) {
+                        unlink($oldResumePath);
+                    }
+                }
+
+                // Upload new resume
+                $resumeDir = storage_path('app/public/resumes');
+                if (!file_exists($resumeDir)) {
+                    mkdir($resumeDir, 0755, true);
+                }
+                $application->resume_path = $request->file('resume')->store('resumes', 'public');
+            }
+
+            \Log::info('About to save application', [
+                'cover_letter' => $application->cover_letter,
+                'resume_path' => $application->resume_path ?? 'no change'
+            ]);
+
+            $application->save();
+
+            \Log::info('Application saved successfully');
+
+            $application->load(['worker' => function ($query) {
+                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
+                      ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+            }]);
+
+            return response()->json($application);
+            
+        } catch (\Exception $e) {
+            \Log::error('Error updating application', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'message' => 'Failed to update application',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
      * Update application status (accept/decline)
      */
     public function updateApplicationStatus(Request $request, $applicationId)
@@ -188,7 +281,7 @@ class JobApplicationController extends Controller
     {
         $applications = JobApplication::where('worker_id', $workerId)
             ->with(['jobPost' => function ($query) {
-                $query->select('id', 'profile_id', 'job_title', 'description', 'salary', 'salary_type', 'job_type', 'application_start', 'application_deadline', 'skills')
+                $query->select('id', 'profile_id', 'job_title', 'description', 'salary', 'salary_type', 'job_type', 'application_start', 'application_deadline', 'work_start', 'work_end', 'skills')
                       ->with(['profile' => function ($profileQuery) {
                           $profileQuery->select('id', 'first_name', 'middlename', 'last_name', 'suffix_id')
                                        ->with(['suffix' => function ($suffixQuery) {
