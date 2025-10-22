@@ -56,6 +56,25 @@
       font-size: 14px;
     }
 
+    input[type="file"] {
+      background: #1A2A44;
+      color: #fff;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      
+      &::file-selector-button {
+        background: transparent;
+        color: #fff;
+        border: none;
+        padding: 0;
+        margin-right: 8px;
+        cursor: pointer;
+      }
+    }
+
     input:disabled {
       background: #e5e7eb;
       cursor: not-allowed;

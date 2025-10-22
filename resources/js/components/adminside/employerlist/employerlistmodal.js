@@ -3,10 +3,6 @@ import "./../../../../sass/components/employermodal.scss";
 
 const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes }) => {
   const [formData, setFormData] = useState({
-    company_name: "",
-    company_phone: "",
-    company_email: "",
-    company_address: "",
     username: "",
     email: "",
     password: "",
@@ -33,10 +29,6 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
   useEffect(() => {
     if (isEdit && initialData) {
       setFormData({
-        company_name: initialData.company_name || "",
-        company_phone: initialData.company_phone || "",
-        company_email: initialData.company_email || "",
-        company_address: initialData.company_address || "",
         username: initialData.username || "",
         email: initialData.email || "",
         password: "",
@@ -69,7 +61,7 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
   const handleInputChange = (e, field) => {
     const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
 
-    if ((field === "company_phone" || field === "contact_number") && value) {
+    if (field === "contact_number" && value) {
       if (!/^\d*$/.test(value)) return;
     }
 
@@ -94,20 +86,12 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.company_name) newErrors.company_name = "Company name is required";
-    if (!formData.company_email) newErrors.company_email = "Company email is required";
-    if (!formData.email) newErrors.email = "User email is required";
+    if (!formData.email) newErrors.email = "Email is required";
     if (!formData.first_name) newErrors.first_name = "First name is required";
     if (!formData.last_name) newErrors.last_name = "Last name is required";
     if (!isEdit && !formData.password) newErrors.password = "Password is required";
-    if (formData.company_email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.company_email)) {
-      newErrors.company_email = "Invalid company email format";
-    }
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid user email format";
-    }
-    if (formData.company_phone && !/^\d{10,15}$/.test(formData.company_phone)) {
-      newErrors.company_phone = "Company phone must be 10-15 digits";
+      newErrors.email = "Invalid email format";
     }
     if (formData.contact_number && !/^\d{10,15}$/.test(formData.contact_number)) {
       newErrors.contact_number = "Contact number must be 10-15 digits";
@@ -122,15 +106,11 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
 
     const submitData = new FormData();
     // Always include required fields
-    submitData.append("company_name", formData.company_name || "");
-    submitData.append("company_email", formData.company_email || "");
     submitData.append("email", formData.email || "");
     submitData.append("first_name", formData.first_name || "");
     submitData.append("last_name", formData.last_name || "");
 
     // Include optional fields if they have values
-    if (formData.company_phone) submitData.append("company_phone", formData.company_phone);
-    if (formData.company_address) submitData.append("company_address", formData.company_address);
     if (formData.username) submitData.append("username", formData.username);
     if (formData.password && (isEdit ? formData.password : true)) submitData.append("password", formData.password);
     if (formData.middlename !== null && formData.middlename !== "") submitData.append("middlename", formData.middlename);
@@ -186,49 +166,6 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
           </div>
         )}
         <form className="employermodal-content" onSubmit={handleSubmit}>
-          <div className="form-row">
-            <div className="form-group">
-              <label>Company Name</label>
-              <input
-                type="text"
-                value={formData.company_name}
-                onChange={(e) => handleInputChange(e, "company_name")}
-                required
-              />
-              {errors.company_name && <span className="error">{errors.company_name}</span>}
-            </div>
-            <div className="form-group">
-              <label>Company Phone</label>
-              <input
-                type="tel"
-                value={formData.company_phone}
-                onChange={(e) => handleInputChange(e, "company_phone")}
-                placeholder="1234567890"
-              />
-              {errors.company_phone && <span className="error">{errors.company_phone}</span>}
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="form-group">
-              <label>Company Email</label>
-              <input
-                type="email"
-                value={formData.company_email}
-                onChange={(e) => handleInputChange(e, "company_email")}
-                required
-              />
-              {errors.company_email && <span className="error">{errors.company_email}</span>}
-            </div>
-            <div className="form-group">
-              <label>Company Address</label>
-              <input
-                type="text"
-                value={formData.company_address}
-                onChange={(e) => handleInputChange(e, "company_address")}
-              />
-              {errors.company_address && <span className="error">{errors.company_address}</span>}
-            </div>
-          </div>
           <div className="form-row">
             <div className="form-group">
               <label>First Name</label>

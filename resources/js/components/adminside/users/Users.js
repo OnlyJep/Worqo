@@ -452,16 +452,13 @@ const UsersList = () => {
           <h2>{showArchived ? "Archived Users" : "Users List"}</h2>
           <div className="userlist-header">
             <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search Users"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search Users"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="right-actions">
               {selectedUsers.length > 0 && (

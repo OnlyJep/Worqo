@@ -454,16 +454,13 @@ const CompanyList = () => {
           {error && <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>{error}</div>}
           <div className="companylist-header">
             <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search Skills"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search Skills"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="right-actions">
               {selectedSkills.length > 0 && (

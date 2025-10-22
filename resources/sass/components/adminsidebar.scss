@@ -42,6 +42,26 @@
     font-size: 16px;
   }
 
+  .sidebar-content {
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+  }
+
   ul {
     list-style: none;
     padding: 0;

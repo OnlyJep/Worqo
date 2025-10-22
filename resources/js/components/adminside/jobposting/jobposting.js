@@ -81,11 +81,11 @@ const JobPostTable = () => {
       setJobPosts(Array.isArray(response.data.job_posts.data) ? response.data.job_posts.data : []);
       setPagination(response.data.pagination || { current_page: 1, total_pages: 1, total_items: 0 });
 
-      const companiesResponse = await axios.get("http://127.0.0.1:8000/api/companies");
+      const companiesResponse = await axios.get("http://127.0.0.1:8000/api/employers");
       const profilesResponse = await axios.get("http://127.0.0.1:8000/api/users");
 
-      const companiesData = Array.isArray(companiesResponse.data.companies)
-        ? companiesResponse.data.companies
+      const companiesData = Array.isArray(companiesResponse.data)
+        ? companiesResponse.data
         : [];
       const profilesData = Array.isArray(profilesResponse.data.data)
         ? profilesResponse.data.data
@@ -94,14 +94,23 @@ const JobPostTable = () => {
         : [];
 
       setCompanies(
-        companiesData.reduce((acc, company) => {
-          if (company.id && company.company_name) {
-            try {
-              company.parsed_profile_ids = JSON.parse(company.profile_id || "[]").map(String);
-            } catch (e) {
-              company.parsed_profile_ids = [];
-            }
-            acc[company.id] = company;
+        companiesData.reduce((acc, employer) => {
+          if (employer.id) {
+            // Create a company-like structure from employer data
+            const companyData = {
+              id: employer.id,
+              company_name: employer.profile?.first_name + ' ' + employer.profile?.last_name || 'N/A',
+              profile_id: employer.profile?.id || null,
+              street: employer.profile?.street || 'N/A',
+              contact_number: employer.profile?.contact_number || 'N/A',
+              city: employer.profile?.city || 'N/A',
+              province: employer.profile?.province || 'N/A',
+              postal_code: employer.profile?.postal_code || 'N/A',
+              country: employer.profile?.country || 'N/A',
+              archived: employer.archived || false,
+              parsed_profile_ids: [employer.profile?.id?.toString()].filter(Boolean)
+            };
+            acc[employer.id] = companyData;
           }
           return acc;
         }, {})
@@ -349,16 +358,13 @@ const JobPostTable = () => {
           {error && <div className="error-message">{error}</div>}
           <div className="jobposttable-header">
             <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search by job title, skills, description, location..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search by job title, skills, description, location..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="right-actions">
               {selectedPosts.length > 0 && (
@@ -474,26 +480,47 @@ const JobPostTable = () => {
                         </td>
                         <td className="skill-experiences-cell">
                           {post.skill_experiences ? (
-                            typeof post.skill_experiences === 'object' ? (
-                              Array.isArray(post.skill_experiences) ? (
-                                post.skill_experiences.map((exp, index) => (
-                                  <span key={index} className="experience-badge">
-                                    {typeof exp === 'object' ? 
-                                      `${exp.name || exp.skill_name || 'Unknown'} - ${exp.experience || 'N/A'}` : 
-                                      exp
+                            (() => {
+                              if (typeof post.skill_experiences === 'object') {
+                                if (Array.isArray(post.skill_experiences)) {
+                                  return post.skill_experiences.map((exp, index) => {
+                                    if (typeof exp === 'object') {
+                                      const skillName = exp.name || exp.skill_name || 'Unknown';
+                                      const subSkills = exp.sub_skills || exp.sub_skill || 'N/A';
+                                      const experience = exp.experience || exp.experience_years || 'N/A';
+                                      
+                                      return (
+                                        <div key={index} style={{ marginBottom: '4px', fontSize: '12px', textAlign: 'left' }}>
+                                          <div style={{ fontWeight: 'bold' }}>{skillName}</div>
+                                          <div>sub-skill: {subSkills}</div>
+                                          <div>experience: {experience}</div>
+                                        </div>
+                                      );
+                                    } else {
+                                      return (
+                                        <div key={index} style={{ marginBottom: '4px', fontSize: '12px', textAlign: 'left' }}>
+                                          {exp}
+                                        </div>
+                                      );
                                     }
-                                  </span>
-                                ))
-                              ) : (
-                                Object.entries(post.skill_experiences).map(([key, value], index) => (
-                                  <span key={index} className="experience-badge">
-                                    {key}: {value}
-                                  </span>
-                                ))
-                              )
-                            ) : (
-                              post.skill_experiences
-                            )
+                                  });
+                                } else {
+                                  return Object.entries(post.skill_experiences).map(([key, value], index) => (
+                                    <div key={index} style={{ marginBottom: '4px', fontSize: '12px', textAlign: 'left' }}>
+                                      <div style={{ fontWeight: 'bold' }}>{key}</div>
+                                      <div>sub-skill: N/A</div>
+                                      <div>experience: {value}</div>
+                                    </div>
+                                  ));
+                                }
+                              } else {
+                                return (
+                                  <div style={{ fontSize: '12px', textAlign: 'left' }}>
+                                    {post.skill_experiences}
+                                  </div>
+                                );
+                              }
+                            })()
                           ) : (
                             "N/A"
                           )}

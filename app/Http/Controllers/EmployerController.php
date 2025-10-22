@@ -26,10 +26,15 @@ class EmployerController extends Controller
                     Employer::updateOrCreate(
                         ['profile_id' => $user->profile->id],
                         [
-                            'company_name'    => 'N/A',
-                            'company_phone'   => null,
-                            'company_email'   => $user->email,
-                            'company_address' => 'N/A',
+                            'user_id' => $user->id,
+                            'full_name' => $user->profile->first_name . ' ' . $user->profile->last_name,
+                            'gender_id' => $user->profile->gender_id,
+                            'suffix_id' => $user->profile->suffix_id,
+                            'street' => $user->profile->street ?? 'N/A',
+                            'city' => $user->profile->city ?? 'N/A',
+                            'province' => $user->profile->province ?? 'N/A',
+                            'postal_code' => $user->profile->postal_code ?? 'N/A',
+                            'country' => $user->profile->country ?? 'N/A',
                         ]
                     );
                 }
@@ -42,7 +47,7 @@ class EmployerController extends Controller
 
             return response()->json($employers);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to fetch employers'], 500);
+            return response()->json(['error' => 'Failed to fetch employers: ' . $e->getMessage()], 500);
         }
     }
 
@@ -60,10 +65,15 @@ class EmployerController extends Controller
                     Employer::updateOrCreate(
                         ['profile_id' => $user->profile->id],
                         [
-                            'company_name'    => 'N/A',
-                            'company_phone'   => null,
-                            'company_email'   => $user->email,
-                            'company_address' => 'N/A',
+                            'user_id' => $user->id,
+                            'full_name' => $user->profile->first_name . ' ' . $user->profile->last_name,
+                            'gender_id' => $user->profile->gender_id,
+                            'suffix_id' => $user->profile->suffix_id,
+                            'street' => $user->profile->street ?? 'N/A',
+                            'city' => $user->profile->city ?? 'N/A',
+                            'province' => $user->profile->province ?? 'N/A',
+                            'postal_code' => $user->profile->postal_code ?? 'N/A',
+                            'country' => $user->profile->country ?? 'N/A',
                         ]
                     );
                 }
@@ -76,7 +86,7 @@ class EmployerController extends Controller
 
             return response()->json($employers);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to fetch archived employers'], 500);
+            return response()->json(['error' => 'Failed to fetch archived employers: ' . $e->getMessage()], 500);
         }
     }
 
@@ -90,10 +100,15 @@ class EmployerController extends Controller
                 Employer::updateOrCreate(
                     ['profile_id' => $employer->profile->id],
                     [
-                        'company_name'    => 'N/A',
-                        'company_phone'   => null,
-                        'company_email'   => $employer->email,
-                        'company_address' => 'N/A',
+                        'user_id' => $employer->id,
+                        'full_name' => $employer->profile->first_name . ' ' . $employer->profile->last_name,
+                        'gender_id' => $employer->profile->gender_id,
+                        'suffix_id' => $employer->profile->suffix_id,
+                        'street' => $employer->profile->street ?? 'N/A',
+                        'city' => $employer->profile->city ?? 'N/A',
+                        'province' => $employer->profile->province ?? 'N/A',
+                        'postal_code' => $employer->profile->postal_code ?? 'N/A',
+                        'country' => $employer->profile->country ?? 'N/A',
                     ]
                 );
                 $employer = User::with(['profile', 'employer'])->findOrFail($id);
@@ -101,7 +116,7 @@ class EmployerController extends Controller
 
             return response()->json($employer);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Employer not found'], 404);
+            return response()->json(['error' => 'Employer not found: ' . $e->getMessage()], 404);
         }
     }
 
@@ -110,10 +125,6 @@ class EmployerController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'company_name'   => 'required|string|max:255',
-                'company_email'  => 'required|email|max:255',
-                'company_phone'  => 'nullable|string|regex:/^\d{10,15}$/',
-                'company_address' => 'nullable|string|max:255',
                 'email'          => 'required|email|unique:users,email',
                 'password'       => 'required|min:6',
                 'first_name'     => 'required|string|max:255',
@@ -157,10 +168,15 @@ class EmployerController extends Controller
 
             $employer = Employer::create([
                 'profile_id'      => $profile->id,
-                'company_name'    => $request->company_name,
-                'company_phone'   => $request->company_phone,
-                'company_email'   => $request->company_email,
-                'company_address' => $request->company_address,
+                'user_id'         => $user->id,
+                'full_name'       => $request->first_name . ' ' . $request->last_name,
+                'gender_id'       => $request->gender_id,
+                'suffix_id'       => $request->suffix_id,
+                'street'          => $request->street,
+                'city'            => $request->city ?? 'Butuan City',
+                'province'        => $request->province ?? 'Agusan Del Norte',
+                'postal_code'     => $request->postal_code ?? '8600',
+                'country'         => $request->country ?? 'Philippines',
             ]);
 
             return response()->json([
@@ -168,7 +184,7 @@ class EmployerController extends Controller
                 'employer' => $user->load(['profile', 'employer'])
             ], 201);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to create employer'], 500);
+            return response()->json(['error' => 'Failed to create employer: ' . $e->getMessage()], 500);
         }
     }
 
@@ -179,10 +195,6 @@ class EmployerController extends Controller
             $user = User::findOrFail($id);
 
             $validator = Validator::make($request->all(), [
-                'company_name'   => 'required|string|max:255',
-                'company_email'  => ['required', 'email', 'max:255', Rule::unique('employers', 'company_email')->ignore($user->employer->id)],
-                'company_phone'  => 'nullable|string|regex:/^\d{10,15}$/',
-                'company_address' => 'nullable|string|max:255',
                 'email'          => ['required', 'email', Rule::unique('users', 'email')->ignore($user->id)],
                 'password'       => 'nullable|min:6',
                 'first_name'     => 'required|string|max:255',
@@ -224,10 +236,15 @@ class EmployerController extends Controller
             $employer = Employer::updateOrCreate(
                 ['profile_id' => $user->profile->id],
                 [
-                    'company_name'    => $request->company_name,
-                    'company_phone'   => $request->company_phone,
-                    'company_email'   => $request->company_email,
-                    'company_address' => $request->company_address,
+                    'user_id'     => $user->id,
+                    'full_name'   => $request->first_name . ' ' . $request->last_name,
+                    'gender_id'   => $request->gender_id,
+                    'suffix_id'   => $request->suffix_id,
+                    'street'      => $request->street,
+                    'city'        => $request->city ?? $user->profile->city,
+                    'province'    => $request->province ?? $user->profile->province,
+                    'postal_code' => $request->postal_code ?? $user->profile->postal_code,
+                    'country'     => $request->country ?? $user->profile->country,
                 ]
             );
 
@@ -250,7 +267,7 @@ class EmployerController extends Controller
 
             return response()->json(['message' => 'Employer archived successfully']);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to archive employer'], 500);
+            return response()->json(['error' => 'Failed to archive employer: ' . $e->getMessage()], 500);
         }
     }
 
@@ -264,7 +281,7 @@ class EmployerController extends Controller
 
             return response()->json(['message' => 'Employer restored successfully']);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to restore employer'], 500);
+            return response()->json(['error' => 'Failed to restore employer: ' . $e->getMessage()], 500);
         }
     }
 }

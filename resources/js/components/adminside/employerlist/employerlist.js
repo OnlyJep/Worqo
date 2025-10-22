@@ -393,11 +393,9 @@ const EmployerList = () => {
                       Actions
                     </div>
                   </th>
-                  <th>ID</th>
                   <th>Profile Image</th>
                   <th>Full Name</th>
                   <th>Email</th>
-                  <th>Role</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -435,7 +433,6 @@ const EmployerList = () => {
                           />
                         </div>
                       </td>
-                      <td data-label="ID">{employer.id}</td>
                       <td data-label="Profile Image">
                         {employer.profile?.profile_img ? (
                           <img 
@@ -462,14 +459,13 @@ const EmployerList = () => {
                       </td>
                       <td data-label="Full Name" className="owner-cell">{getFullName({ ...employer.profile, suffixes })}</td>
                       <td data-label="Email">{employer.email || "N/A"}</td>
-                      <td data-label="Role">Employer</td>
                       <td data-label="Created At">{formatDate(employer.created_at)}</td>
                       <td data-label="Updated At">{formatDate(employer.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="8">No {showArchived ? "archived" : "active"} employers found</td>
+                    <td colSpan="6">No {showArchived ? "archived" : "active"} employers found</td>
                   </tr>
                 )}
               </tbody>

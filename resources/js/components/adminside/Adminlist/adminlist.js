@@ -401,16 +401,13 @@ const AdminList = () => {
           <h2>{showArchived ? "Archived Admins" : "Admins List"}</h2>
           <div className="adminlist-header">
             <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search Admins"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search Admins"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="right-actions">
               {selectedAdmins.length > 0 && (

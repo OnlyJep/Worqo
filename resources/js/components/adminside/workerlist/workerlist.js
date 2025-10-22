@@ -2294,7 +2294,16 @@ const WorkerList = () => {
 
                         </td>
 
-                        <td className="skills-cell">{getDetailedSkillNames(worker.worker?.skills_id)}</td>
+                        <td className="skills-cell">
+                          {(() => {
+                            const skillsText = getDetailedSkillNames(worker.worker?.skills_id);
+                            const words = skillsText.split(' ');
+                            if (words.length > 30) {
+                              return words.slice(0, 30).join(' ') + '...';
+                            }
+                            return skillsText;
+                          })()}
+                        </td>
 
                         <td className="credentials-cell">
 
