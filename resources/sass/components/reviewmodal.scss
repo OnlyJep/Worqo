@@ -4,53 +4,50 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  overflow: auto;
+  z-index: 2000;
 }
 
 .reviewmodal {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 8px;
+  padding: 24px;
   width: 100%;
-  max-width: 500px;
-  max-height: 600px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
+  max-height: 90vh;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
   h2 {
-    margin: 0 0 16px;
-    font-size: 22px;
-    color: #1a202c;
     text-align: center;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
   }
 
   .reviewmodal-content {
     flex: 1;
     overflow-y: auto;
-    padding-right: 8px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 10px;
 
       &.name-row {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        @media (max-width: 400px) {
+        gap: 16px;
+        @media (max-width: 600px) {
           grid-template-columns: 1fr;
         }
       }
@@ -58,39 +55,33 @@
       .name-field {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 10px;
       }
 
       label {
+        font-size: 14px;
         font-weight: 500;
-        color: #2d3748;
-        font-size: 13px;
-        font-family: 'Inter', sans-serif;
+        color: #1f2937;
       }
 
       input,
       select,
       textarea {
-        padding: 8px;
+        padding: 10px;
         border: 1px solid #d1d5db;
-        border-radius: 8px;
+        border-radius: 6px;
+        background: #ffffff;
         font-size: 14px;
-        width: 100%;
-        box-sizing: border-box;
-        background: #f9fafb;
-        font-family: 'Inter', sans-serif;
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
         &:focus {
-          border-color: #3b82f6;
-          box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
           outline: none;
+          border-color: #1A2A44;
+          box-shadow: 0 0 0 3px rgba(26, 42, 68, 0.1);
         }
 
         &:disabled {
           background: #e5e7eb;
           cursor: not-allowed;
-          opacity: 0.7;
         }
       }
 
@@ -148,10 +139,10 @@
       }
 
       .error {
-        color: #ef4444;
-        font-size: 12px;
-        margin-top: 2px;
-        font-family: 'Inter', sans-serif;
+        color: #1A2A44;
+        font-size: 13px;
+        margin-top: 6px;
+        display: block;
       }
     }
   }
@@ -159,39 +150,34 @@
   .reviewmodal-buttons {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
-    margin-top: 12px;
-    padding-top: 12px;
+    gap: 12px;
+    padding-top: 16px;
     border-top: 1px solid #e5e7eb;
 
-    .submit-button {
-      background: #3b82f6;
-      color: #ffffff;
+    .submit-button,
+    .cancel-button {
+      padding: 10px 20px;
+      border-radius: 6px;
       border: none;
-      padding: 8px 20px;
-      border-radius: 8px;
-      cursor: pointer;
       font-size: 14px;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s ease;
+      cursor: pointer;
+      min-width: 120px;
+      transition: background-color 0.2s;
+    }
+
+    .submit-button {
+      background: #1A2A44;
+      color: #ffffff;
 
       &:hover {
-        background: #2563eb;
+        background: #1A2A44;
       }
     }
 
     .cancel-button {
       background: #f3f4f6;
-      color: #374151;
+      color: #1f2937;
       border: 1px solid #d1d5db;
-      padding: 8px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.2s ease;
 
       &:hover {
         background: #e5e7eb;
@@ -200,73 +186,47 @@
   }
 
   .reviewmodal-content::-webkit-scrollbar {
-    width: 6px;
+    width: 0px;
+    background: transparent;
   }
 
   .reviewmodal-content::-webkit-scrollbar-track {
-    background: #f1f5f9;
-    border-radius: 8px;
+    background: transparent;
   }
 
   .reviewmodal-content::-webkit-scrollbar-thumb {
-    background: #9ca3af;
-    border-radius: 8px;
+    background: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .reviewmodal {
+      max-width: 90vw;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
   }
 
   @media (max-width: 600px) {
     .reviewmodal {
-      width: 90%;
-      max-height: 80vh;
+      max-width: 95vw;
       padding: 16px;
     }
 
-    h2 {
-      font-size: 20px;
-    }
-
-    .reviewmodal-content {
-      gap: 10px;
+    .form-section {
+      padding: 12px;
     }
 
     .form-group {
-      gap: 4px;
-
       label {
-        font-size: 12px;
+        font-size: 13px;
       }
 
       input,
       select,
       textarea {
-        font-size: 13px;
-        padding: 6px;
-      }
-
-      .star-rating {
-        font-size: 20px;
-      }
-
-      .profile-img-preview {
-        flex-direction: column;
-        align-items: flex-start;
-
-        .preview-img {
-          max-height: 100px;
-        }
-
-        .remove-img-button {
-          padding: 5px 10px;
-          font-size: 11px;
-        }
-      }
-    }
-
-    .reviewmodal-buttons {
-      flex-direction: column;
-      gap: 8px;
-
-      .submit-button,
-      .cancel-button {
         padding: 8px;
         font-size: 13px;
       }

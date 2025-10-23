@@ -200,7 +200,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
   const [errors, setErrors] = useState({});
   const preferredDaysRef = useRef(null);
   const [apiError, setApiError] = useState("");
-  const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null });
+  const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null, credentials_doc: null });
   const [availableSubSkills, setAvailableSubSkills] = useState([]);
   const [newSkill, setNewSkill] = useState({ skill_id: "", sub_skills: [], experience: "" });
   const [showSubSkillsDropdown, setShowSubSkillsDropdown] = useState(false);
@@ -324,6 +324,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       }
     }
   };
+
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -837,6 +838,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
   const handleNewCredentialChange = (e, field) => {
     if (!isMountedRef.current) return;
     const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
+    
     if (field === "credentials_photo" && value) {
       if (
         ![
@@ -850,7 +852,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         if (isMountedRef.current) {
           setErrors((prev) => ({
             ...prev,
-            new_credential_photo: "Credential must be PDF, Word, JPG, or PNG.",
+            new_credential_photo: "Credential photo must be PDF, Word, JPG, or PNG.",
           }));
         }
         return;
@@ -859,15 +861,48 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         if (isMountedRef.current) {
           setErrors((prev) => ({
             ...prev,
-            new_credential_photo: "Credential file must not exceed 2 MB.",
+            new_credential_photo: "Credential photo must not exceed 2 MB.",
           }));
         }
         return;
       }
     }
+    
+    if (field === "credentials_doc" && value) {
+      if (
+        ![
+          "application/pdf",
+          "application/msword",
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        ].includes(value.type)
+      ) {
+        if (isMountedRef.current) {
+          setErrors((prev) => ({
+            ...prev,
+            new_credential_doc: "Credential document must be PDF or Word document.",
+          }));
+        }
+        return;
+      }
+      if (value.size > 2048 * 1024) {
+        if (isMountedRef.current) {
+          setErrors((prev) => ({
+            ...prev,
+            new_credential_doc: "Credential document must not exceed 2 MB.",
+          }));
+        }
+        return;
+      }
+    }
+    
     if (isMountedRef.current) {
       setNewCredential((prev) => ({ ...prev, [field]: value }));
-      setErrors((prev) => ({ ...prev, new_credential_name: "", new_credential_photo: "" }));
+      setErrors((prev) => ({ 
+        ...prev, 
+        new_credential_name: "", 
+        new_credential_photo: "",
+        new_credential_doc: ""
+      }));
     }
   };
 
@@ -879,9 +914,9 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       }
       return;
     }
-    if (!newCredential.credentials_photo) {
+    if (!newCredential.credentials_photo && !newCredential.credentials_doc) {
       if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, new_credential_photo: "Please upload a credential file." }));
+        setErrors((prev) => ({ ...prev, new_credential_photo: "Please upload a credential file (photo or document)." }));
       }
       return;
     }
@@ -890,8 +925,13 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         ...prev,
         credentials: [...prev.credentials, newCredential],
       }));
-      setNewCredential({ credentials_name: "", credentials_photo: null });
-      setErrors((prev) => ({ ...prev, new_credential_name: "", new_credential_photo: "" }));
+      setNewCredential({ credentials_name: "", credentials_photo: null, credentials_doc: null });
+      setErrors((prev) => ({ 
+        ...prev, 
+        new_credential_name: "", 
+        new_credential_photo: "",
+        new_credential_doc: ""
+      }));
       if (credentialFileRef.current) {
         credentialFileRef.current.value = "";
       }
@@ -908,6 +948,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       setErrors((prev) => ({ ...prev, credentials: "" }));
     }
   };
+
 
   const removeProfileImg = () => {
     if (!isMountedRef.current) return;
@@ -998,6 +1039,9 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         submitData.append(`credentials[${index}][credentials_name]`, cred.credentials_name);
         if (cred.credentials_photo instanceof File) {
           submitData.append(`credentials[${index}][credentials_photo]`, cred.credentials_photo);
+        }
+        if (cred.credentials_doc instanceof File) {
+          submitData.append(`credentials[${index}][credentials_doc]`, cred.credentials_doc);
         }
       });
     }
@@ -1892,112 +1936,209 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                     
                     {newCredential.credentials_name && (
                       <div className="credential-upload-side">
-                        <label htmlFor="credential_file">Upload Credential File</label>
-                        <div 
-                          className="credential-upload-dropzone"
-                          onDragOver={(e) => {
-                            e.preventDefault();
-                            e.currentTarget.classList.add('drag-over');
-                          }}
-                          onDragLeave={(e) => {
-                            e.currentTarget.classList.remove('drag-over');
-                          }}
-                          onDrop={(e) => {
-                            e.preventDefault();
-                            e.currentTarget.classList.remove('drag-over');
-                            const files = e.dataTransfer.files;
-                            if (files.length > 0) {
-                              handleNewCredentialChange({ target: { files: [files[0]] } }, "credentials_photo");
-                            }
-                          }}
-                        >
-                          {newCredential.credentials_photo ? (
-                            <div className="credential-file-preview">
-                              <div className="preview-file-container">
-                                {newCredential.credentials_photo instanceof File ? (
-                                  <>
-                                    {newCredential.credentials_photo.type.startsWith('image/') ? (
-                                      <img src={URL.createObjectURL(newCredential.credentials_photo)} alt="Credential Preview" />
+                        <div className="credential-upload-options">
+                          <div className="credential-upload-option">
+                            <label htmlFor="credential_photo">Upload Credential Photo</label>
+                            <div 
+                              className="credential-upload-dropzone"
+                              onDragOver={(e) => {
+                                e.preventDefault();
+                                e.currentTarget.classList.add('drag-over');
+                              }}
+                              onDragLeave={(e) => {
+                                e.currentTarget.classList.remove('drag-over');
+                              }}
+                              onDrop={(e) => {
+                                e.preventDefault();
+                                e.currentTarget.classList.remove('drag-over');
+                                const files = e.dataTransfer.files;
+                                if (files.length > 0) {
+                                  handleNewCredentialChange({ target: { files: [files[0]] } }, "credentials_photo");
+                                }
+                              }}
+                            >
+                              {newCredential.credentials_photo ? (
+                                <div className="credential-file-preview">
+                                  <div className="preview-file-container">
+                                    {newCredential.credentials_photo instanceof File ? (
+                                      <>
+                                        {newCredential.credentials_photo.type.startsWith('image/') ? (
+                                          <img src={URL.createObjectURL(newCredential.credentials_photo)} alt="Credential Preview" />
+                                        ) : (
+                                          <div className="file-icon">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                          </div>
+                                        )}
+                                        <div className="file-info">
+                                          <span className="file-name">{newCredential.credentials_photo.name}</span>
+                                          <span className="file-size">{(newCredential.credentials_photo.size / 1024 / 1024).toFixed(2)} MB</span>
+                                        </div>
+                                      </>
                                     ) : (
-                                      <div className="file-icon">
-                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                          <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                          <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                          <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                          <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                        </svg>
+                                      <div className="file-info">
+                                        <span className="file-name">{newCredential.credentials_photo}</span>
                                       </div>
                                     )}
-                                    <div className="file-info">
-                                      <span className="file-name">{newCredential.credentials_photo.name}</span>
-                                      <span className="file-size">{(newCredential.credentials_photo.size / 1024 / 1024).toFixed(2)} MB</span>
-                                    </div>
-                                  </>
-                                ) : (
-                                  <div className="file-info">
-                                    <span className="file-name">{newCredential.credentials_photo}</span>
                                   </div>
-                                )}
-                              </div>
-                              <div className="preview-actions">
-                                <button 
-                                  type="button" 
-                                  className="change-file-button"
-                                  onClick={() => document.getElementById('credential_file').click()}
-                                >
-                                  Change File
-                                </button>
-                                <button 
-                                  type="button" 
-                                  className="remove-file-button"
-                                  onClick={() => {
-                                    setNewCredential(prev => ({ ...prev, credentials_photo: null }));
-                                    if (credentialFileRef.current) {
-                                      credentialFileRef.current.value = "";
-                                    }
-                                  }}
-                                >
-                                  Remove
-                                </button>
-                              </div>
+                                  <div className="preview-actions">
+                                    <button 
+                                      type="button" 
+                                      className="change-file-button"
+                                      onClick={() => document.getElementById('credential_photo').click()}
+                                    >
+                                      Change Photo
+                                    </button>
+                                    <button 
+                                      type="button" 
+                                      className="remove-file-button"
+                                      onClick={() => {
+                                        setNewCredential(prev => ({ ...prev, credentials_photo: null }));
+                                      }}
+                                    >
+                                      Remove
+                                    </button>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="upload-content">
+                                  <div className="upload-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                  </div>
+                                  <button 
+                                    type="button" 
+                                    className="browse-button"
+                                    onClick={() => document.getElementById('credential_photo').click()}
+                                  >
+                                    Browse Photos
+                                  </button>
+                                  <p className="drop-text">or drop a photo here</p>
+                                  <p className="file-types">*File supported .jpg, .png, .pdf</p>
+                                </div>
+                              )}
+                              <input
+                                id="credential_photo"
+                                type="file"
+                                accept=".jpg,.png,.pdf"
+                                onChange={(e) => handleNewCredentialChange(e, "credentials_photo")}
+                                style={{ display: 'none' }}
+                              />
                             </div>
-                          ) : (
-                            <div className="upload-content">
-                              <div className="upload-icon">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                  <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                  <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                  <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                  <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                              </div>
-                              <button 
-                                type="button" 
-                                className="browse-button"
-                                onClick={() => document.getElementById('credential_file').click()}
-                              >
-                                Browse Files
-                              </button>
-                              <p className="drop-text">or drop a file here</p>
-                              <p className="file-types">*File supported .pdf, .doc, .docx, .jpg, .png</p>
+                            {errors.new_credential_photo && <span className="error">{errors.new_credential_photo}</span>}
+                          </div>
+
+                          <div className="credential-upload-option">
+                            <label htmlFor="credential_doc">Upload Credential Document</label>
+                            <div 
+                              className="credential-upload-dropzone"
+                              onDragOver={(e) => {
+                                e.preventDefault();
+                                e.currentTarget.classList.add('drag-over');
+                              }}
+                              onDragLeave={(e) => {
+                                e.currentTarget.classList.remove('drag-over');
+                              }}
+                              onDrop={(e) => {
+                                e.preventDefault();
+                                e.currentTarget.classList.remove('drag-over');
+                                const files = e.dataTransfer.files;
+                                if (files.length > 0) {
+                                  handleNewCredentialChange({ target: { files: [files[0]] } }, "credentials_doc");
+                                }
+                              }}
+                            >
+                              {newCredential.credentials_doc ? (
+                                <div className="credential-file-preview">
+                                  <div className="preview-file-container">
+                                    {newCredential.credentials_doc instanceof File ? (
+                                      <>
+                                        <div className="file-icon">
+                                          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                          </svg>
+                                        </div>
+                                        <div className="file-info">
+                                          <span className="file-name">{newCredential.credentials_doc.name}</span>
+                                          <span className="file-size">{(newCredential.credentials_doc.size / 1024 / 1024).toFixed(2)} MB</span>
+                                        </div>
+                                      </>
+                                    ) : (
+                                      <div className="file-info">
+                                        <span className="file-name">{newCredential.credentials_doc}</span>
+                                      </div>
+                                    )}
+                                  </div>
+                                  <div className="preview-actions">
+                                    <button 
+                                      type="button" 
+                                      className="change-file-button"
+                                      onClick={() => document.getElementById('credential_doc').click()}
+                                    >
+                                      Change Document
+                                    </button>
+                                    <button 
+                                      type="button" 
+                                      className="remove-file-button"
+                                      onClick={() => {
+                                        setNewCredential(prev => ({ ...prev, credentials_doc: null }));
+                                      }}
+                                    >
+                                      Remove
+                                    </button>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="upload-content">
+                                  <div className="upload-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                  </div>
+                                  <button 
+                                    type="button" 
+                                    className="browse-button"
+                                    onClick={() => document.getElementById('credential_doc').click()}
+                                  >
+                                    Browse Documents
+                                  </button>
+                                  <p className="drop-text">or drop a document here</p>
+                                  <p className="file-types">*File supported .pdf, .doc, .docx</p>
+                                </div>
+                              )}
+                              <input
+                                id="credential_doc"
+                                type="file"
+                                accept=".pdf,.doc,.docx"
+                                onChange={(e) => handleNewCredentialChange(e, "credentials_doc")}
+                                style={{ display: 'none' }}
+                              />
                             </div>
-                          )}
-                        <input
-                          id="credential_file"
-                          type="file"
-                          accept=".pdf,.doc,.docx,.jpg,.png"
-                          onChange={(e) => handleNewCredentialChange(e, "credentials_photo")}
-                          ref={credentialFileRef}
-                            style={{ display: 'none' }}
-                        />
+                            {errors.new_credential_doc && <span className="error">{errors.new_credential_doc}</span>}
+                          </div>
                         </div>
-                        {errors.new_credential_photo && <span className="error">{errors.new_credential_photo}</span>}
                       </div>
                     )}
                     
-                    {newCredential.credentials_name && newCredential.credentials_photo && (
+                    {newCredential.credentials_name && (newCredential.credentials_photo || newCredential.credentials_doc) && (
                       <div className="add-credential-section">
                       <button 
                         type="button" 
@@ -2027,36 +2168,62 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                                 </button>
                               </div>
                               <div className="credential-file-display">
-                                  {/* Check if we have a photo file */}
-                                  {typeof cred.credentials_photo === "string" && cred.credentials_photo ? (
-                                    <img
-                                      src={`http://127.0.0.1:8000/storage/${cred.credentials_photo}`}
-                                      alt={cred.credentials_name}
-                                      className="credential-image"
-                                    />
-                                  ) : typeof cred.credentials_doc === "string" && cred.credentials_doc ? (
-                                    /* Check if we have a document file */
-                                    <div className="credential-file-link">
-                                      <a href={`http://127.0.0.1:8000/storage/${cred.credentials_doc}`} download>
-                                        {cred.credentials_doc.split("/").pop()}
-                                      </a>
+                                  {/* Display photo if available */}
+                                  {cred.credentials_photo && (
+                                    <div className="credential-photo">
+                                      <h5>Photo:</h5>
+                                      {typeof cred.credentials_photo === "string" && cred.credentials_photo ? (
+                                        <img
+                                          src={`http://127.0.0.1:8000/storage/${cred.credentials_photo}`}
+                                          alt={cred.credentials_name}
+                                          className="credential-image"
+                                        />
+                                      ) : cred.credentials_photo instanceof File ? (
+                                        cred.credentials_photo.type.startsWith('image/') ? (
+                                          <img
+                                            src={URL.createObjectURL(cred.credentials_photo)}
+                                            alt={cred.credentials_name}
+                                            className="credential-image"
+                                          />
+                                        ) : (
+                                          <div className="credential-file-info">
+                                            {cred.credentials_photo.name}
+                                          </div>
+                                        )
+                                      ) : (
+                                        <div className="credential-file-info">
+                                          {cred.credentials_photo}
+                                        </div>
+                                      )}
                                     </div>
-                                  ) : cred.credentials_photo instanceof File ? (
-                                    /* Handle new file uploads */
-                                    cred.credentials_photo.type.startsWith('image/') ? (
-                                      <img
-                                        src={URL.createObjectURL(cred.credentials_photo)}
-                                        alt={cred.credentials_name}
-                                        className="credential-image"
-                                      />
-                                    ) : (
-                                      <div className="credential-file-info">
-                                        {cred.credentials_photo.name}
-                                      </div>
-                                    )
-                                  ) : (
+                                  )}
+                                  
+                                  {/* Display document if available */}
+                                  {cred.credentials_doc && (
+                                    <div className="credential-doc">
+                                      <h5>Document:</h5>
+                                      {typeof cred.credentials_doc === "string" && cred.credentials_doc ? (
+                                        <div className="credential-file-link">
+                                          <a href={`http://127.0.0.1:8000/storage/${cred.credentials_doc}`} download>
+                                            {cred.credentials_doc.split("/").pop()}
+                                          </a>
+                                        </div>
+                                      ) : cred.credentials_doc instanceof File ? (
+                                        <div className="credential-file-info">
+                                          {cred.credentials_doc.name}
+                                        </div>
+                                      ) : (
+                                        <div className="credential-file-info">
+                                          {cred.credentials_doc}
+                                        </div>
+                                      )}
+                                    </div>
+                                  )}
+                                  
+                                  {/* Show message if no files */}
+                                  {!cred.credentials_photo && !cred.credentials_doc && (
                                     <div className="credential-file-info">
-                                      No file selected
+                                      No files selected
                                     </div>
                                   )}
                                 </div>

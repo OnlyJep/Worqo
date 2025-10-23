@@ -480,6 +480,9 @@ class WorkerController extends Controller
                     'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                     'credentials' => 'nullable|array',
                     'credentials.*.credentials_name' => 'required|string|max:255',
+                    'credentials.*.credentials_photo' => 'nullable|file|mimes:jpeg,png,jpg,pdf,doc,docx|max:2048',
+                    'credentials.*.credentials_doc' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+                    'is_reviewed' => 'nullable|string|in:TO BE REVIEWED,ACCEPTED,DECLINED',
                 ]
             );
 
@@ -732,6 +735,9 @@ class WorkerController extends Controller
                     'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                     'credentials' => 'nullable|array',
                     'credentials.*.credentials_name' => 'required|string|max:255',
+                    'credentials.*.credentials_photo' => 'nullable|file|mimes:jpeg,png,jpg,pdf,doc,docx|max:2048',
+                    'credentials.*.credentials_doc' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+                    'is_reviewed' => 'nullable|string|in:TO BE REVIEWED,ACCEPTED,DECLINED',
                 ]
             );
 
@@ -808,6 +814,34 @@ class WorkerController extends Controller
 
             }
 
+            // Handle credentials_photo and credentials_doc arrays
+            $credentials_photo = [];
+            $credentials_doc = [];
+            
+            if ($request->has('credentials') && is_array($request->credentials)) {
+                foreach ($request->credentials as $index => $credential) {
+                    if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
+                        // Handle credentials_photo file upload
+                        if ($request->hasFile("credentials.{$index}.credentials_photo")) {
+                            $photoFile = $request->file("credentials.{$index}.credentials_photo");
+                            $photoPath = $photoFile->store('credentials/photos', 'public');
+                            $credentials_photo[] = $photoPath;
+                        } else {
+                            $credentials_photo[] = null;
+                        }
+                        
+                        // Handle credentials_doc file upload
+                        if ($request->hasFile("credentials.{$index}.credentials_doc")) {
+                            $docFile = $request->file("credentials.{$index}.credentials_doc");
+                            $docPath = $docFile->store('credentials/documents', 'public');
+                            $credentials_doc[] = $docPath;
+                        } else {
+                            $credentials_doc[] = null;
+                        }
+                    }
+                }
+            }
+
             $user->worker->update([
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
@@ -816,6 +850,9 @@ class WorkerController extends Controller
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
+                'credentials_doc' => $credentials_doc,
+                'is_reviewed' => $request->input('is_reviewed', $user->worker->is_reviewed),
                 'archived' => $user->archived,
             ]);
 

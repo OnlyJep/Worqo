@@ -71872,7 +71872,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_admin_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sidebar-wrapper {\n  position: relative;\n  z-index: 1001;\n}\n\n.sidebar {\n  width: 250px;\n  height: 100vh;\n  background: linear-gradient(to bottom, #000000, #164F58);\n  color: white;\n  padding: 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  transition: transform 0.3s ease-in-out;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 20px;\n  position: relative;\n}\n.sidebar .sidebar-header:before {\n  content: \"\";\n  display: block;\n  width: 500px;\n  height: 80px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: contain;\n}\n.sidebar h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.sidebar .sidebar-content {\n  height: calc(100vh - 120px);\n  overflow-y: auto;\n  overflow-x: hidden;\n  padding-right: 5px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 0px;\n  background: transparent;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background: transparent;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background: transparent;\n}\n.sidebar ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.sidebar li {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 15px;\n  cursor: pointer;\n  color: #ccc;\n  transition: 0.3s;\n  border-radius: 10px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n}\n.sidebar li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar li.active {\n  background: #2A6A72;\n  color: white;\n}\n.sidebar li .icon {\n  font-size: 16px;\n}\n.sidebar .admin-settings-header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  padding: 10px 15px;\n  width: 100%;\n  box-sizing: border-box;\n  color: white;\n  font-size: 12px;\n  text-transform: uppercase;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 700;\n}\n.sidebar .admin-settings-list {\n  width: 100%;\n  padding-left: 0;\n}\n.sidebar .admin-settings-list li {\n  padding: 10px 15px;\n  color: white;\n  border-radius: 8px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 10px;\n  font-size: 14px;\n}\n.sidebar .admin-settings-list li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar .admin-settings-list li .icon {\n  font-size: 16px;\n}\n.sidebar .separator {\n  border: none;\n  height: 1px;\n  background: #ffffff;\n  margin: 15px 0;\n}\n@media (max-width: 768px) {\n  .sidebar {\n    transform: translateX(-100%);\n  }\n  .sidebar.expanded {\n    transform: translateX(0);\n  }\n}\n@media (min-width: 769px) {\n  .sidebar {\n    transform: translateX(0);\n  }\n}\n\n.sidebar-toggle {\n  background: #1b2e61;\n  color: white;\n  border: none;\n  padding: 10px;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: left 0.3s ease-in-out, opacity 0.3s ease;\n}\n.sidebar-toggle.outside {\n  background: #164F58;\n  position: fixed;\n  top: 10px;\n  left: 20px;\n  z-index: 1002;\n  opacity: 1;\n}\n.sidebar-toggle.inside {\n  background: #164F58;\n  position: static;\n  opacity: 1;\n}\n.sidebar-toggle .toggle-icon {\n  transition: transform 0.3s ease, opacity 0.2s ease;\n  display: block;\n}\n.sidebar-toggle .toggle-icon.rotate {\n  transform: rotate(90deg);\n}\n.sidebar-toggle:hover .toggle-icon {\n  opacity: 0.8;\n}\n@media (min-width: 769px) {\n  .sidebar-toggle {\n    display: none;\n  }\n}\n\n.overlay {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 1000;\n}\n@media (max-width: 768px) {\n  .overlay.active {\n    display: block;\n  }\n}\n\n.main-container {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n}\n@media (max-width: 768px) {\n  .main-container {\n    flex-direction: column;\n  }\n}\n\n.content {\n  margin-left: 250px;\n  padding: 80px 20px 20px;\n  transition: margin-left 0.3s ease-in-out;\n  min-height: 100vh;\n  box-sizing: border-box;\n  width: 100%;\n}\n@media (max-width: 768px) {\n  .content {\n    margin-left: 0;\n    padding-top: 70px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sidebar-wrapper {\n  position: relative;\n  z-index: 1001;\n}\n\n.sidebar {\n  width: 250px;\n  height: 100vh;\n  background: linear-gradient(to bottom, #000000, #164F58);\n  color: white;\n  padding: 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  transition: transform 0.3s ease-in-out;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 20px;\n  position: relative;\n}\n.sidebar .sidebar-header:before {\n  content: \"\";\n  display: block;\n  width: 500px;\n  height: 80px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: contain;\n}\n.sidebar h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.sidebar .sidebar-content {\n  height: calc(100vh - 120px);\n  overflow-y: auto;\n  overflow-x: hidden;\n  padding-right: 8px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 6px;\n  background: transparent;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background: rgba(255, 255, 255, 0.1);\n  border-radius: 3px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background: rgba(255, 255, 255, 0.3);\n  border-radius: 3px;\n  -webkit-transition: background 0.2s ease;\n  transition: background 0.2s ease;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background: rgba(255, 255, 255, 0.5);\n}\n.sidebar ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.sidebar li {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 15px;\n  cursor: pointer;\n  color: #ccc;\n  transition: 0.3s;\n  border-radius: 10px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n}\n.sidebar li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar li.active {\n  background: #2A6A72;\n  color: white;\n}\n.sidebar li .icon {\n  font-size: 16px;\n}\n.sidebar .admin-settings-header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  padding: 10px 15px;\n  width: 100%;\n  box-sizing: border-box;\n  color: white;\n  font-size: 12px;\n  text-transform: uppercase;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 700;\n}\n.sidebar .admin-settings-list {\n  width: 100%;\n  padding-left: 0;\n}\n.sidebar .admin-settings-list li {\n  padding: 10px 15px;\n  color: white;\n  border-radius: 8px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 10px;\n  font-size: 14px;\n}\n.sidebar .admin-settings-list li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar .admin-settings-list li .icon {\n  font-size: 16px;\n}\n.sidebar .separator {\n  border: none;\n  height: 1px;\n  background: #ffffff;\n  margin: 15px 0;\n}\n@media (max-width: 768px) {\n  .sidebar {\n    transform: translateX(-100%);\n  }\n  .sidebar.expanded {\n    transform: translateX(0);\n  }\n}\n@media (min-width: 769px) {\n  .sidebar {\n    transform: translateX(0);\n  }\n}\n\n.sidebar-toggle {\n  background: #1b2e61;\n  color: white;\n  border: none;\n  padding: 10px;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: left 0.3s ease-in-out, opacity 0.3s ease;\n}\n.sidebar-toggle.outside {\n  background: #164F58;\n  position: fixed;\n  top: 10px;\n  left: 20px;\n  z-index: 1002;\n  opacity: 1;\n}\n.sidebar-toggle.inside {\n  background: #164F58;\n  position: static;\n  opacity: 1;\n}\n.sidebar-toggle .toggle-icon {\n  transition: transform 0.3s ease, opacity 0.2s ease;\n  display: block;\n}\n.sidebar-toggle .toggle-icon.rotate {\n  transform: rotate(90deg);\n}\n.sidebar-toggle:hover .toggle-icon {\n  opacity: 0.8;\n}\n@media (min-width: 769px) {\n  .sidebar-toggle {\n    display: none;\n  }\n}\n\n.overlay {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 1000;\n}\n@media (max-width: 768px) {\n  .overlay.active {\n    display: block;\n  }\n}\n\n.main-container {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n}\n@media (max-width: 768px) {\n  .main-container {\n    flex-direction: column;\n  }\n}\n\n.content {\n  margin-left: 250px;\n  padding: 80px 20px 20px;\n  transition: margin-left 0.3s ease-in-out;\n  min-height: 100vh;\n  box-sizing: border-box;\n  width: 100%;\n}\n@media (max-width: 768px) {\n  .content {\n    margin-left: 0;\n    padding-top: 70px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72667,7 +72667,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".reviewmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.reviewmodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.reviewmodal h2 {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.reviewmodal .reviewmodal-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.reviewmodal .reviewmodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.reviewmodal .reviewmodal-content .form-group.name-row {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 12px;\n}\n@media (max-width: 400px) {\n  .reviewmodal .reviewmodal-content .form-group.name-row {\n    grid-template-columns: 1fr;\n  }\n}\n.reviewmodal .reviewmodal-content .form-group .name-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.reviewmodal .reviewmodal-content .form-group label {\n  font-weight: 500;\n  color: #2d3748;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.reviewmodal .reviewmodal-content .form-group input,\n.reviewmodal .reviewmodal-content .form-group select,\n.reviewmodal .reviewmodal-content .form-group textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.reviewmodal .reviewmodal-content .form-group input:focus,\n.reviewmodal .reviewmodal-content .form-group select:focus,\n.reviewmodal .reviewmodal-content .form-group textarea:focus {\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);\n  outline: none;\n}\n.reviewmodal .reviewmodal-content .form-group input:disabled,\n.reviewmodal .reviewmodal-content .form-group select:disabled,\n.reviewmodal .reviewmodal-content .form-group textarea:disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.reviewmodal .reviewmodal-content .form-group textarea {\n  height: 100px;\n  resize: vertical;\n}\n.reviewmodal .reviewmodal-content .form-group .star-rating {\n  display: flex;\n  gap: 5px;\n  font-size: 25px;\n  cursor: pointer;\n}\n.reviewmodal .reviewmodal-content .form-group .star-rating .star {\n  color: #e4e5e9;\n  transition: color 0.2s;\n}\n.reviewmodal .reviewmodal-content .form-group .star-rating .star.filled {\n  color: #ffc107;\n}\n.reviewmodal .reviewmodal-content .form-group .profile-img-preview {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-top: 8px;\n}\n.reviewmodal .reviewmodal-content .form-group .profile-img-preview .preview-img {\n  max-width: 100%;\n  max-height: 120px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n  border: 1px solid #d1d5db;\n}\n.reviewmodal .reviewmodal-content .form-group .profile-img-preview .remove-img-button {\n  background: #ef4444;\n  color: #ffffff;\n  border: none;\n  padding: 6px 12px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 12px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.reviewmodal .reviewmodal-content .form-group .profile-img-preview .remove-img-button:hover {\n  background: #dc2626;\n}\n.reviewmodal .reviewmodal-content .form-group .error {\n  color: #ef4444;\n  font-size: 12px;\n  margin-top: 2px;\n  font-family: \"Inter\", sans-serif;\n}\n.reviewmodal .reviewmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.reviewmodal .reviewmodal-buttons .submit-button {\n  background: #3b82f6;\n  color: #ffffff;\n  border: none;\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.reviewmodal .reviewmodal-buttons .submit-button:hover {\n  background: #2563eb;\n}\n.reviewmodal .reviewmodal-buttons .cancel-button {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.reviewmodal .reviewmodal-buttons .cancel-button:hover {\n  background: #e5e7eb;\n}\n.reviewmodal .reviewmodal-content::-webkit-scrollbar {\n  width: 6px;\n}\n.reviewmodal .reviewmodal-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.reviewmodal .reviewmodal-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n@media (max-width: 600px) {\n  .reviewmodal .reviewmodal {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .reviewmodal h2 {\n    font-size: 20px;\n  }\n  .reviewmodal .reviewmodal-content {\n    gap: 10px;\n  }\n  .reviewmodal .form-group {\n    gap: 4px;\n  }\n  .reviewmodal .form-group label {\n    font-size: 12px;\n  }\n  .reviewmodal .form-group input,\n  .reviewmodal .form-group select,\n  .reviewmodal .form-group textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .reviewmodal .form-group .star-rating {\n    font-size: 20px;\n  }\n  .reviewmodal .form-group .profile-img-preview {\n    flex-direction: column;\n    align-items: flex-start;\n  }\n  .reviewmodal .form-group .profile-img-preview .preview-img {\n    max-height: 100px;\n  }\n  .reviewmodal .form-group .profile-img-preview .remove-img-button {\n    padding: 5px 10px;\n    font-size: 11px;\n  }\n  .reviewmodal .reviewmodal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .reviewmodal .reviewmodal-buttons .submit-button,\n  .reviewmodal .reviewmodal-buttons .cancel-button {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".reviewmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2000;\n}\n\n.reviewmodal {\n  background: #ffffff;\n  border-radius: 8px;\n  padding: 24px;\n  width: 100%;\n  max-width: 700px;\n  max-height: 90vh;\n  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.reviewmodal h2 {\n  text-align: center;\n  margin-bottom: 24px;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.reviewmodal .reviewmodal-content {\n  flex: 1;\n  overflow-y: auto;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.reviewmodal .reviewmodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.reviewmodal .reviewmodal-content .form-group.name-row {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 16px;\n}\n@media (max-width: 600px) {\n  .reviewmodal .reviewmodal-content .form-group.name-row {\n    grid-template-columns: 1fr;\n  }\n}\n.reviewmodal .reviewmodal-content .form-group .name-field {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.reviewmodal .reviewmodal-content .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #1f2937;\n}\n.reviewmodal .reviewmodal-content .form-group input,\n.reviewmodal .reviewmodal-content .form-group select,\n.reviewmodal .reviewmodal-content .form-group textarea {\n  padding: 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  background: #ffffff;\n  font-size: 14px;\n}\n.reviewmodal .reviewmodal-content .form-group input:focus,\n.reviewmodal .reviewmodal-content .form-group select:focus,\n.reviewmodal .reviewmodal-content .form-group textarea:focus {\n  outline: none;\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 3px rgba(26, 42, 68, 0.1);\n}\n.reviewmodal .reviewmodal-content .form-group input:disabled,\n.reviewmodal .reviewmodal-content .form-group select:disabled,\n.reviewmodal .reviewmodal-content .form-group textarea:disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n}\n.reviewmodal .reviewmodal-content .form-group textarea {\n  height: 100px;\n  resize: vertical;\n}\n.reviewmodal .reviewmodal-content .form-group .star-rating {\n  display: flex;\n  gap: 5px;\n  font-size: 25px;\n  cursor: pointer;\n}\n.reviewmodal .reviewmodal-content .form-group .star-rating .star {\n  color: #e4e5e9;\n  transition: color 0.2s;\n}\n.reviewmodal .reviewmodal-content .form-group .star-rating .star.filled {\n  color: #ffc107;\n}\n.reviewmodal .reviewmodal-content .form-group .profile-img-preview {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-top: 8px;\n}\n.reviewmodal .reviewmodal-content .form-group .profile-img-preview .preview-img {\n  max-width: 100%;\n  max-height: 120px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n  border: 1px solid #d1d5db;\n}\n.reviewmodal .reviewmodal-content .form-group .profile-img-preview .remove-img-button {\n  background: #ef4444;\n  color: #ffffff;\n  border: none;\n  padding: 6px 12px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 12px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.reviewmodal .reviewmodal-content .form-group .profile-img-preview .remove-img-button:hover {\n  background: #dc2626;\n}\n.reviewmodal .reviewmodal-content .form-group .error {\n  color: #1A2A44;\n  font-size: 13px;\n  margin-top: 6px;\n  display: block;\n}\n.reviewmodal .reviewmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  padding-top: 16px;\n  border-top: 1px solid #e5e7eb;\n}\n.reviewmodal .reviewmodal-buttons .submit-button,\n.reviewmodal .reviewmodal-buttons .cancel-button {\n  padding: 10px 20px;\n  border-radius: 6px;\n  border: none;\n  font-size: 14px;\n  cursor: pointer;\n  min-width: 120px;\n  transition: background-color 0.2s;\n}\n.reviewmodal .reviewmodal-buttons .submit-button {\n  background: #1A2A44;\n  color: #ffffff;\n}\n.reviewmodal .reviewmodal-buttons .submit-button:hover {\n  background: #1A2A44;\n}\n.reviewmodal .reviewmodal-buttons .cancel-button {\n  background: #f3f4f6;\n  color: #1f2937;\n  border: 1px solid #d1d5db;\n}\n.reviewmodal .reviewmodal-buttons .cancel-button:hover {\n  background: #e5e7eb;\n}\n.reviewmodal .reviewmodal-content::-webkit-scrollbar {\n  width: 0px;\n  background: transparent;\n}\n.reviewmodal .reviewmodal-content::-webkit-scrollbar-track {\n  background: transparent;\n}\n.reviewmodal .reviewmodal-content::-webkit-scrollbar-thumb {\n  background: transparent;\n}\n@media (max-width: 768px) {\n  .reviewmodal .reviewmodal {\n    max-width: 90vw;\n    padding: 20px;\n  }\n  .reviewmodal h2 {\n    font-size: 22px;\n  }\n}\n@media (max-width: 600px) {\n  .reviewmodal .reviewmodal {\n    max-width: 95vw;\n    padding: 16px;\n  }\n  .reviewmodal .form-section {\n    padding: 12px;\n  }\n  .reviewmodal .form-group label {\n    font-size: 13px;\n  }\n  .reviewmodal .form-group input,\n  .reviewmodal .form-group select,\n  .reviewmodal .form-group textarea {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -212158,7 +212158,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-var API_BASE_URL = "http://127.0.0.1:8000/api";
+var API_BASE_URL = "/api";
 var formatDate = function formatDate(dateString) {
   if (!dateString) return "N/A";
   var date = new Date(dateString);
@@ -212542,6 +212542,10 @@ var ReviewsTable = function ReviewsTable() {
   var handleAddNewClick = function handleAddNewClick() {
     if (!dataLoaded) {
       setError("Please wait until user data is loaded.");
+      return;
+    }
+    if (employers.length === 0 || workers.length === 0) {
+      setError("No users available for review. Please ensure there are both employers and workers in the system.");
       return;
     }
     console.log("Add New clicked, opening modal");
@@ -212976,14 +212980,10 @@ var ReviewModal = function ReviewModal(_ref) {
     _useState6 = _slicedToArray(_useState5, 2),
     errors = _useState6[0],
     setErrors = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState8 = _slicedToArray(_useState7, 2),
-    loading = _useState8[0],
-    setLoading = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState0 = _slicedToArray(_useState9, 2),
-    submitError = _useState0[0],
-    setSubmitError = _useState0[1];
+    submitError = _useState8[0],
+    setSubmitError = _useState8[1];
   var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   // Initialize form data for edit mode
@@ -213031,7 +213031,7 @@ var ReviewModal = function ReviewModal(_ref) {
   };
   var handleUserChange = function handleUserChange(e) {
     var selectedId = e.target.value;
-    var selectedUser = employers.find(function (user) {
+    var selectedUser = allUsers.find(function (user) {
       return user.id === parseInt(selectedId);
     }) || {
       id: "",
@@ -213065,7 +213065,7 @@ var ReviewModal = function ReviewModal(_ref) {
   };
   var handleReviewedUserChange = function handleReviewedUserChange(e) {
     var selectedId = e.target.value;
-    var selectedUser = workers.find(function (user) {
+    var selectedUser = allUsers.find(function (user) {
       return user.id === parseInt(selectedId);
     }) || {
       id: "",
@@ -213116,16 +213116,16 @@ var ReviewModal = function ReviewModal(_ref) {
     if (!formData.user.id) newErrors.user = "Reviewer is required";
     if (!formData.reviewedUser.id) newErrors.reviewedUser = "Reviewed user is required";
     if (formData.rating === 0) newErrors.rating = "Rating is required";
-    if (formData.comment.length > 1000) newErrors.comment = "Comment cannot exceed 1000 characters";
-    if (formData.user.role_id === 2 && formData.reviewedUser.role_id !== 1) {
-      newErrors.reviewedUser = "Employers can only review workers";
+    if (formData.comment && formData.comment.length > 1000) newErrors.comment = "Comment cannot exceed 1000 characters";
+    if (formData.user.id === formData.reviewedUser.id) {
+      newErrors.reviewedUser = "Cannot review yourself";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(e) {
-      var payload, url, _error$response, validationErrors, _error$response2, _t;
+      var payload, url, _error$response, _error$response2, _error$response3, validationErrors, _error$response4, _error$response5, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -213137,15 +213137,14 @@ var ReviewModal = function ReviewModal(_ref) {
             return _context.a(2);
           case 1:
             setSubmitError(null);
-            setLoading(true);
             _context.p = 2;
             payload = {
               user_id: parseInt(formData.user.id),
               reviewed_user_id: parseInt(formData.reviewedUser.id),
               rating: formData.rating,
-              comment: formData.comment
+              comment: formData.comment.trim() || null
             };
-            url = isEdit ? "http://127.0.0.1:8000/api/reviews/".concat(initialData.id) : "http://127.0.0.1:8000/api/reviews"; // Fixed URL typo
+            url = isEdit ? "/api/reviews/".concat(initialData.id) : "/api/reviews";
             _context.n = 3;
             return (0,axios__WEBPACK_IMPORTED_MODULE_2__["default"])({
               method: isEdit ? "PUT" : "POST",
@@ -213157,6 +213156,8 @@ var ReviewModal = function ReviewModal(_ref) {
               signal: abortControllerRef.current.signal
             });
           case 3:
+            // Show success alert
+            alert(isEdit ? "Review updated successfully!" : "Review added successfully!");
             _context.n = 4;
             return onRefresh();
           case 4:
@@ -213177,32 +213178,30 @@ var ReviewModal = function ReviewModal(_ref) {
                   }, {}));
                 });
                 setSubmitError("Please correct the errors in the form.");
+              } else if (((_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 409) {
+                setSubmitError("A review already exists for this user combination.");
+              } else if (((_error$response3 = _t.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 403) {
+                setSubmitError("You are not authorized to perform this action.");
               } else {
-                setSubmitError("Failed to submit review. Please try again.");
-                console.error("Submit error:", ((_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t);
+                setSubmitError(((_error$response4 = _t.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.error) || "Failed to submit review. Please try again.");
+                console.error("Submit error:", ((_error$response5 = _t.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t);
               }
             }
           case 6:
-            _context.p = 6;
-            setLoading(false);
-            return _context.f(6);
-          case 7:
             return _context.a(2);
         }
-      }, _callee, null, [[2, 5, 6, 7]]);
+      }, _callee, null, [[2, 5]]);
     }));
     return function handleSubmit(_x) {
       return _ref2.apply(this, arguments);
     };
   }();
 
-  // Filter workers to only include those with role_id: 1
-  var filteredWorkers = workers.filter(function (worker) {
-    return worker.role_id === 1;
-  });
+  // Use all workers and employers without role filtering
+  var allUsers = [].concat(_toConsumableArray(employers || []), _toConsumableArray(workers || []));
 
   // Check if workers and employers are arrays
-  var isWorkersLoaded = Array.isArray(filteredWorkers);
+  var isWorkersLoaded = Array.isArray(workers);
   var isEmployersLoaded = Array.isArray(employers);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "reviewmodal-overlay",
@@ -213213,9 +213212,7 @@ var ReviewModal = function ReviewModal(_ref) {
       }), submitError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "error",
         children: submitError
-      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        children: "Loading..."
-      }) : !isWorkersLoaded || !isEmployersLoaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), !isWorkersLoaded || !isEmployersLoaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         children: "Error: User data not loaded. Please try again later."
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "reviewmodal-content",
@@ -213223,7 +213220,7 @@ var ReviewModal = function ReviewModal(_ref) {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             htmlFor: "user",
-            children: "Reviewer (Employer)"
+            children: "Reviewer"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
             id: "user",
             value: formData.user.id,
@@ -213232,11 +213229,11 @@ var ReviewModal = function ReviewModal(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
               value: "",
               children: "Select Reviewer"
-            }), employers.map(function (emp) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("option", {
-                value: emp.id,
-                children: [getFullName(emp), " (Employer)"]
-              }, emp.id);
+            }), allUsers.map(function (user) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: user.id,
+                children: getFullName(user)
+              }, user.id);
             })]
           }), errors.user && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "error",
@@ -213246,7 +213243,7 @@ var ReviewModal = function ReviewModal(_ref) {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             htmlFor: "reviewedUser",
-            children: "Reviewed User (Worker)"
+            children: "Reviewed User"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
             id: "reviewedUser",
             value: formData.reviewedUser.id,
@@ -213256,11 +213253,11 @@ var ReviewModal = function ReviewModal(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
               value: "",
               children: "Select Reviewed User"
-            }), filteredWorkers.map(function (worker) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("option", {
-                value: worker.id,
-                children: [getFullName(worker), " (Worker)"]
-              }, worker.id);
+            }), allUsers.map(function (user) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: user.id,
+                children: getFullName(user)
+              }, user.id);
             })]
           }), errors.reviewedUser && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "error",
@@ -213324,12 +213321,11 @@ var ReviewModal = function ReviewModal(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "submit-button",
           onClick: handleSubmit,
-          disabled: loading || !isWorkersLoaded || !isEmployersLoaded,
+          disabled: !isWorkersLoaded || !isEmployersLoaded,
           children: isEdit ? "Update" : "Create"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "cancel-button",
           onClick: onClose,
-          disabled: loading,
           children: "Cancel"
         })]
       })]
@@ -231128,7 +231124,8 @@ var WorkerModal = function WorkerModal(_ref2) {
     setApiError = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       credentials_name: "",
-      credentials_photo: null
+      credentials_photo: null,
+      credentials_doc: null
     }),
     _useState8 = _slicedToArray(_useState7, 2),
     newCredential = _useState8[0],
@@ -231927,7 +231924,7 @@ var WorkerModal = function WorkerModal(_ref2) {
         if (isMountedRef.current) {
           setErrors(function (prev) {
             return _objectSpread(_objectSpread({}, prev), {}, {
-              new_credential_photo: "Credential must be PDF, Word, JPG, or PNG."
+              new_credential_photo: "Credential photo must be PDF, Word, JPG, or PNG."
             });
           });
         }
@@ -231937,7 +231934,29 @@ var WorkerModal = function WorkerModal(_ref2) {
         if (isMountedRef.current) {
           setErrors(function (prev) {
             return _objectSpread(_objectSpread({}, prev), {}, {
-              new_credential_photo: "Credential file must not exceed 2 MB."
+              new_credential_photo: "Credential photo must not exceed 2 MB."
+            });
+          });
+        }
+        return;
+      }
+    }
+    if (field === "credentials_doc" && value) {
+      if (!["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"].includes(value.type)) {
+        if (isMountedRef.current) {
+          setErrors(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              new_credential_doc: "Credential document must be PDF or Word document."
+            });
+          });
+        }
+        return;
+      }
+      if (value.size > 2048 * 1024) {
+        if (isMountedRef.current) {
+          setErrors(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              new_credential_doc: "Credential document must not exceed 2 MB."
             });
           });
         }
@@ -231951,7 +231970,8 @@ var WorkerModal = function WorkerModal(_ref2) {
       setErrors(function (prev) {
         return _objectSpread(_objectSpread({}, prev), {}, {
           new_credential_name: "",
-          new_credential_photo: ""
+          new_credential_photo: "",
+          new_credential_doc: ""
         });
       });
     }
@@ -231968,11 +231988,11 @@ var WorkerModal = function WorkerModal(_ref2) {
       }
       return;
     }
-    if (!newCredential.credentials_photo) {
+    if (!newCredential.credentials_photo && !newCredential.credentials_doc) {
       if (isMountedRef.current) {
         setErrors(function (prev) {
           return _objectSpread(_objectSpread({}, prev), {}, {
-            new_credential_photo: "Please upload a credential file."
+            new_credential_photo: "Please upload a credential file (photo or document)."
           });
         });
       }
@@ -231986,12 +232006,14 @@ var WorkerModal = function WorkerModal(_ref2) {
       });
       setNewCredential({
         credentials_name: "",
-        credentials_photo: null
+        credentials_photo: null,
+        credentials_doc: null
       });
       setErrors(function (prev) {
         return _objectSpread(_objectSpread({}, prev), {}, {
           new_credential_name: "",
-          new_credential_photo: ""
+          new_credential_photo: "",
+          new_credential_doc: ""
         });
       });
       if (credentialFileRef.current) {
@@ -232117,6 +232139,9 @@ var WorkerModal = function WorkerModal(_ref2) {
                 submitData.append("credentials[".concat(index, "][credentials_name]"), cred.credentials_name);
                 if (cred.credentials_photo instanceof File) {
                   submitData.append("credentials[".concat(index, "][credentials_photo]"), cred.credentials_photo);
+                }
+                if (cred.credentials_doc instanceof File) {
+                  submitData.append("credentials[".concat(index, "][credentials_doc]"), cred.credentials_doc);
                 }
               });
             }
@@ -233354,42 +233379,127 @@ var WorkerModal = function WorkerModal(_ref2) {
                     className: "error",
                     children: errors.new_credential_name
                   })]
-                }), newCredential.credentials_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                }), newCredential.credentials_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                   className: "credential-upload-side",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
-                    htmlFor: "credential_file",
-                    children: "Upload Credential File"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "credential-upload-dropzone",
-                    onDragOver: function onDragOver(e) {
-                      e.preventDefault();
-                      e.currentTarget.classList.add('drag-over');
-                    },
-                    onDragLeave: function onDragLeave(e) {
-                      e.currentTarget.classList.remove('drag-over');
-                    },
-                    onDrop: function onDrop(e) {
-                      e.preventDefault();
-                      e.currentTarget.classList.remove('drag-over');
-                      var files = e.dataTransfer.files;
-                      if (files.length > 0) {
-                        handleNewCredentialChange({
-                          target: {
-                            files: [files[0]]
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                    className: "credential-upload-options",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                      className: "credential-upload-option",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+                        htmlFor: "credential_photo",
+                        children: "Upload Credential Photo"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                        className: "credential-upload-dropzone",
+                        onDragOver: function onDragOver(e) {
+                          e.preventDefault();
+                          e.currentTarget.classList.add('drag-over');
+                        },
+                        onDragLeave: function onDragLeave(e) {
+                          e.currentTarget.classList.remove('drag-over');
+                        },
+                        onDrop: function onDrop(e) {
+                          e.preventDefault();
+                          e.currentTarget.classList.remove('drag-over');
+                          var files = e.dataTransfer.files;
+                          if (files.length > 0) {
+                            handleNewCredentialChange({
+                              target: {
+                                files: [files[0]]
+                              }
+                            }, "credentials_photo");
                           }
-                        }, "credentials_photo");
-                      }
-                    },
-                    children: [newCredential.credentials_photo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      className: "credential-file-preview",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "preview-file-container",
-                        children: newCredential.credentials_photo instanceof File ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-                          children: [newCredential.credentials_photo.type.startsWith('image/') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-                            src: URL.createObjectURL(newCredential.credentials_photo),
-                            alt: "Credential Preview"
-                          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                            className: "file-icon",
+                        },
+                        children: [newCredential.credentials_photo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                          className: "credential-file-preview",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                            className: "preview-file-container",
+                            children: newCredential.credentials_photo instanceof File ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+                              children: [newCredential.credentials_photo.type.startsWith('image/') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                                src: URL.createObjectURL(newCredential.credentials_photo),
+                                alt: "Credential Preview"
+                              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                                className: "file-icon",
+                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
+                                  width: "48",
+                                  height: "48",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M14 2V8H20",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M16 13H8",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M16 17H8",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M10 9H8",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  })]
+                                })
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                                className: "file-info",
+                                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                                  className: "file-name",
+                                  children: newCredential.credentials_photo.name
+                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+                                  className: "file-size",
+                                  children: [(newCredential.credentials_photo.size / 1024 / 1024).toFixed(2), " MB"]
+                                })]
+                              })]
+                            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                              className: "file-info",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                                className: "file-name",
+                                children: newCredential.credentials_photo
+                              })
+                            })
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                            className: "preview-actions",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                              type: "button",
+                              className: "change-file-button",
+                              onClick: function onClick() {
+                                return document.getElementById('credential_photo').click();
+                              },
+                              children: "Change Photo"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                              type: "button",
+                              className: "remove-file-button",
+                              onClick: function onClick() {
+                                setNewCredential(function (prev) {
+                                  return _objectSpread(_objectSpread({}, prev), {}, {
+                                    credentials_photo: null
+                                  });
+                                });
+                              },
+                              children: "Remove"
+                            })]
+                          })]
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                          className: "upload-content",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                            className: "upload-icon",
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
                               width: "48",
                               height: "48",
@@ -233428,121 +233538,219 @@ var WorkerModal = function WorkerModal(_ref2) {
                                 strokeLinejoin: "round"
                               })]
                             })
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                            type: "button",
+                            className: "browse-button",
+                            onClick: function onClick() {
+                              return document.getElementById('credential_photo').click();
+                            },
+                            children: "Browse Photos"
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                            className: "drop-text",
+                            children: "or drop a photo here"
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                            className: "file-types",
+                            children: "*File supported .jpg, .png, .pdf"
+                          })]
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          id: "credential_photo",
+                          type: "file",
+                          accept: ".jpg,.png,.pdf",
+                          onChange: function onChange(e) {
+                            return handleNewCredentialChange(e, "credentials_photo");
+                          },
+                          style: {
+                            display: 'none'
+                          }
+                        })]
+                      }), errors.new_credential_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                        className: "error",
+                        children: errors.new_credential_photo
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                      className: "credential-upload-option",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+                        htmlFor: "credential_doc",
+                        children: "Upload Credential Document"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                        className: "credential-upload-dropzone",
+                        onDragOver: function onDragOver(e) {
+                          e.preventDefault();
+                          e.currentTarget.classList.add('drag-over');
+                        },
+                        onDragLeave: function onDragLeave(e) {
+                          e.currentTarget.classList.remove('drag-over');
+                        },
+                        onDrop: function onDrop(e) {
+                          e.preventDefault();
+                          e.currentTarget.classList.remove('drag-over');
+                          var files = e.dataTransfer.files;
+                          if (files.length > 0) {
+                            handleNewCredentialChange({
+                              target: {
+                                files: [files[0]]
+                              }
+                            }, "credentials_doc");
+                          }
+                        },
+                        children: [newCredential.credentials_doc ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                          className: "credential-file-preview",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                            className: "preview-file-container",
+                            children: newCredential.credentials_doc instanceof File ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                                className: "file-icon",
+                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
+                                  width: "48",
+                                  height: "48",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M14 2V8H20",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M16 13H8",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M16 17H8",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                    d: "M10 9H8",
+                                    stroke: "#1A2A44",
+                                    strokeWidth: "2",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round"
+                                  })]
+                                })
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                                className: "file-info",
+                                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                                  className: "file-name",
+                                  children: newCredential.credentials_doc.name
+                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+                                  className: "file-size",
+                                  children: [(newCredential.credentials_doc.size / 1024 / 1024).toFixed(2), " MB"]
+                                })]
+                              })]
+                            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                              className: "file-info",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                                className: "file-name",
+                                children: newCredential.credentials_doc
+                              })
+                            })
                           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                            className: "file-info",
-                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                              className: "file-name",
-                              children: newCredential.credentials_photo.name
-                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
-                              className: "file-size",
-                              children: [(newCredential.credentials_photo.size / 1024 / 1024).toFixed(2), " MB"]
+                            className: "preview-actions",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                              type: "button",
+                              className: "change-file-button",
+                              onClick: function onClick() {
+                                return document.getElementById('credential_doc').click();
+                              },
+                              children: "Change Document"
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                              type: "button",
+                              className: "remove-file-button",
+                              onClick: function onClick() {
+                                setNewCredential(function (prev) {
+                                  return _objectSpread(_objectSpread({}, prev), {}, {
+                                    credentials_doc: null
+                                  });
+                                });
+                              },
+                              children: "Remove"
                             })]
                           })]
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                          className: "file-info",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                            className: "file-name",
-                            children: newCredential.credentials_photo
-                          })
-                        })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                        className: "preview-actions",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                          type: "button",
-                          className: "change-file-button",
-                          onClick: function onClick() {
-                            return document.getElementById('credential_file').click();
-                          },
-                          children: "Change File"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                          type: "button",
-                          className: "remove-file-button",
-                          onClick: function onClick() {
-                            setNewCredential(function (prev) {
-                              return _objectSpread(_objectSpread({}, prev), {}, {
-                                credentials_photo: null
-                              });
-                            });
-                            if (credentialFileRef.current) {
-                              credentialFileRef.current.value = "";
-                            }
-                          },
-                          children: "Remove"
-                        })]
-                      })]
-                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                      className: "upload-content",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                        className: "upload-icon",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
-                          width: "48",
-                          height: "48",
-                          viewBox: "0 0 24 24",
-                          fill: "none",
-                          xmlns: "http://www.w3.org/2000/svg",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
-                            d: "M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z",
-                            stroke: "#1A2A44",
-                            strokeWidth: "2",
-                            strokeLinecap: "round",
-                            strokeLinejoin: "round"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
-                            d: "M14 2V8H20",
-                            stroke: "#1A2A44",
-                            strokeWidth: "2",
-                            strokeLinecap: "round",
-                            strokeLinejoin: "round"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
-                            d: "M16 13H8",
-                            stroke: "#1A2A44",
-                            strokeWidth: "2",
-                            strokeLinecap: "round",
-                            strokeLinejoin: "round"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
-                            d: "M16 17H8",
-                            stroke: "#1A2A44",
-                            strokeWidth: "2",
-                            strokeLinecap: "round",
-                            strokeLinejoin: "round"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
-                            d: "M10 9H8",
-                            stroke: "#1A2A44",
-                            strokeWidth: "2",
-                            strokeLinecap: "round",
-                            strokeLinejoin: "round"
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                          className: "upload-content",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                            className: "upload-icon",
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
+                              width: "48",
+                              height: "48",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              xmlns: "http://www.w3.org/2000/svg",
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                d: "M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z",
+                                stroke: "#1A2A44",
+                                strokeWidth: "2",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round"
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                d: "M14 2V8H20",
+                                stroke: "#1A2A44",
+                                strokeWidth: "2",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round"
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                d: "M16 13H8",
+                                stroke: "#1A2A44",
+                                strokeWidth: "2",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round"
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                d: "M16 17H8",
+                                stroke: "#1A2A44",
+                                strokeWidth: "2",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round"
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+                                d: "M10 9H8",
+                                stroke: "#1A2A44",
+                                strokeWidth: "2",
+                                strokeLinecap: "round",
+                                strokeLinejoin: "round"
+                              })]
+                            })
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                            type: "button",
+                            className: "browse-button",
+                            onClick: function onClick() {
+                              return document.getElementById('credential_doc').click();
+                            },
+                            children: "Browse Documents"
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                            className: "drop-text",
+                            children: "or drop a document here"
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                            className: "file-types",
+                            children: "*File supported .pdf, .doc, .docx"
                           })]
-                        })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                        type: "button",
-                        className: "browse-button",
-                        onClick: function onClick() {
-                          return document.getElementById('credential_file').click();
-                        },
-                        children: "Browse Files"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-                        className: "drop-text",
-                        children: "or drop a file here"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-                        className: "file-types",
-                        children: "*File supported .pdf, .doc, .docx, .jpg, .png"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+                          id: "credential_doc",
+                          type: "file",
+                          accept: ".pdf,.doc,.docx",
+                          onChange: function onChange(e) {
+                            return handleNewCredentialChange(e, "credentials_doc");
+                          },
+                          style: {
+                            display: 'none'
+                          }
+                        })]
+                      }), errors.new_credential_doc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                        className: "error",
+                        children: errors.new_credential_doc
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                      id: "credential_file",
-                      type: "file",
-                      accept: ".pdf,.doc,.docx,.jpg,.png",
-                      onChange: function onChange(e) {
-                        return handleNewCredentialChange(e, "credentials_photo");
-                      },
-                      ref: credentialFileRef,
-                      style: {
-                        display: 'none'
-                      }
                     })]
-                  }), errors.new_credential_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                    className: "error",
-                    children: errors.new_credential_photo
-                  })]
-                }), newCredential.credentials_name && newCredential.credentials_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  })
+                }), newCredential.credentials_name && (newCredential.credentials_photo || newCredential.credentials_doc) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                   className: "add-credential-section",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
                     type: "button",
@@ -233576,34 +233784,49 @@ var WorkerModal = function WorkerModal(_ref2) {
                               size: 20
                             })
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                           className: "credential-file-display",
-                          children: typeof cred.credentials_photo === "string" && cred.credentials_photo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-                            src: "http://127.0.0.1:8000/storage/".concat(cred.credentials_photo),
-                            alt: cred.credentials_name,
-                            className: "credential-image"
-                          }) : typeof cred.credentials_doc === "string" && cred.credentials_doc ?
-                          /*#__PURE__*/
-                          /* Check if we have a document file */
-                          (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                            className: "credential-file-link",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-                              href: "http://127.0.0.1:8000/storage/".concat(cred.credentials_doc),
-                              download: true,
-                              children: cred.credentials_doc.split("/").pop()
-                            })
-                          }) : cred.credentials_photo instanceof File ? (/* Handle new file uploads */
-                          cred.credentials_photo.type.startsWith('image/') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-                            src: URL.createObjectURL(cred.credentials_photo),
-                            alt: cred.credentials_name,
-                            className: "credential-image"
-                          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                          children: [cred.credentials_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                            className: "credential-photo",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h5", {
+                              children: "Photo:"
+                            }), typeof cred.credentials_photo === "string" && cred.credentials_photo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                              src: "http://127.0.0.1:8000/storage/".concat(cred.credentials_photo),
+                              alt: cred.credentials_name,
+                              className: "credential-image"
+                            }) : cred.credentials_photo instanceof File ? cred.credentials_photo.type.startsWith('image/') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                              src: URL.createObjectURL(cred.credentials_photo),
+                              alt: cred.credentials_name,
+                              className: "credential-image"
+                            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                              className: "credential-file-info",
+                              children: cred.credentials_photo.name
+                            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                              className: "credential-file-info",
+                              children: cred.credentials_photo
+                            })]
+                          }), cred.credentials_doc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                            className: "credential-doc",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h5", {
+                              children: "Document:"
+                            }), typeof cred.credentials_doc === "string" && cred.credentials_doc ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                              className: "credential-file-link",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+                                href: "http://127.0.0.1:8000/storage/".concat(cred.credentials_doc),
+                                download: true,
+                                children: cred.credentials_doc.split("/").pop()
+                              })
+                            }) : cred.credentials_doc instanceof File ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                              className: "credential-file-info",
+                              children: cred.credentials_doc.name
+                            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                              className: "credential-file-info",
+                              children: cred.credentials_doc
+                            })]
+                          }), !cred.credentials_photo && !cred.credentials_doc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                             className: "credential-file-info",
-                            children: cred.credentials_photo.name
-                          })) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                            className: "credential-file-info",
-                            children: "No file selected"
-                          })
+                            children: "No files selected"
+                          })]
                         })]
                       }, "credential-".concat(index));
                     })

@@ -12,7 +12,6 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
   });
   const [hoverRating, setHoverRating] = useState(0);
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const abortControllerRef = useRef(null);
 
@@ -59,7 +58,7 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
 
   const handleUserChange = (e) => {
     const selectedId = e.target.value;
-    const selectedUser = employers.find((user) => user.id === parseInt(selectedId)) || {
+    const selectedUser = allUsers.find((user) => user.id === parseInt(selectedId)) || {
       id: "",
       role_id: null,
       first_name: "",
@@ -79,7 +78,7 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
 
   const handleReviewedUserChange = (e) => {
     const selectedId = e.target.value;
-    const selectedUser = workers.find((user) => user.id === parseInt(selectedId)) || {
+    const selectedUser = allUsers.find((user) => user.id === parseInt(selectedId)) || {
       id: "",
       role_id: null,
       first_name: "",
@@ -111,9 +110,9 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
     if (!formData.user.id) newErrors.user = "Reviewer is required";
     if (!formData.reviewedUser.id) newErrors.reviewedUser = "Reviewed user is required";
     if (formData.rating === 0) newErrors.rating = "Rating is required";
-    if (formData.comment.length > 1000) newErrors.comment = "Comment cannot exceed 1000 characters";
-    if (formData.user.role_id === 2 && formData.reviewedUser.role_id !== 1) {
-      newErrors.reviewedUser = "Employers can only review workers";
+    if (formData.comment && formData.comment.length > 1000) newErrors.comment = "Comment cannot exceed 1000 characters";
+    if (formData.user.id === formData.reviewedUser.id) {
+      newErrors.reviewedUser = "Cannot review yourself";
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -123,18 +122,17 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
     e.preventDefault();
     if (!validateForm()) return;
     setSubmitError(null);
-    setLoading(true);
 
     try {
       const payload = {
         user_id: parseInt(formData.user.id),
         reviewed_user_id: parseInt(formData.reviewedUser.id),
         rating: formData.rating,
-        comment: formData.comment,
+        comment: formData.comment.trim() || null,
       };
       const url = isEdit
-        ? `http://127.0.0.1:8000/api/reviews/${initialData.id}`
-        : `http://127.0.0.1:8000/api/reviews`; // Fixed URL typo
+        ? `/api/reviews/${initialData.id}`
+        : `/api/reviews`;
       await axios({
         method: isEdit ? "PUT" : "POST",
         url,
@@ -142,6 +140,10 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
         headers: { "Content-Type": "application/json" },
         signal: abortControllerRef.current.signal,
       });
+      
+      // Show success alert
+      alert(isEdit ? "Review updated successfully!" : "Review added successfully!");
+      
       await onRefresh();
       onClose();
     } catch (error) {
@@ -158,21 +160,23 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
             }), {}),
           }));
           setSubmitError("Please correct the errors in the form.");
+        } else if (error.response?.status === 409) {
+          setSubmitError("A review already exists for this user combination.");
+        } else if (error.response?.status === 403) {
+          setSubmitError("You are not authorized to perform this action.");
         } else {
-          setSubmitError("Failed to submit review. Please try again.");
+          setSubmitError(error.response?.data?.error || "Failed to submit review. Please try again.");
           console.error("Submit error:", error.response?.data || error);
         }
       }
-    } finally {
-      setLoading(false);
     }
   };
 
-  // Filter workers to only include those with role_id: 1
-  const filteredWorkers = workers.filter((worker) => worker.role_id === 1);
+  // Use all workers and employers without role filtering
+  const allUsers = [...(employers || []), ...(workers || [])];
 
   // Check if workers and employers are arrays
-  const isWorkersLoaded = Array.isArray(filteredWorkers);
+  const isWorkersLoaded = Array.isArray(workers);
   const isEmployersLoaded = Array.isArray(employers);
 
   return (
@@ -180,26 +184,24 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
       <div className="reviewmodal">
         <h2>{isEdit ? "Edit Review" : "Add New Review"}</h2>
         {submitError && <div className="error">{submitError}</div>}
-        {loading ? (
-          <div>Loading...</div>
-        ) : !isWorkersLoaded || !isEmployersLoaded ? (
+        {!isWorkersLoaded || !isEmployersLoaded ? (
           <div>Error: User data not loaded. Please try again later.</div>
         ) : (
           <div className="reviewmodal-content">
             <div className="form-group">
-              <label htmlFor="user">Reviewer (Employer)</label>
+              <label htmlFor="user">Reviewer</label>
               <select id="user" value={formData.user.id} onChange={handleUserChange} required>
                 <option value="">Select Reviewer</option>
-                {employers.map((emp) => (
-                  <option key={emp.id} value={emp.id}>
-                    {getFullName(emp)} (Employer)
+                {allUsers.map((user) => (
+                  <option key={user.id} value={user.id}>
+                    {getFullName(user)}
                   </option>
                 ))}
               </select>
               {errors.user && <span className="error">{errors.user}</span>}
             </div>
             <div className="form-group">
-              <label htmlFor="reviewedUser">Reviewed User (Worker)</label>
+              <label htmlFor="reviewedUser">Reviewed User</label>
               <select
                 id="reviewedUser"
                 value={formData.reviewedUser.id}
@@ -208,9 +210,9 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
                 disabled={!formData.user.id}
               >
                 <option value="">Select Reviewed User</option>
-                {filteredWorkers.map((worker) => (
-                  <option key={worker.id} value={worker.id}>
-                    {getFullName(worker)} (Worker)
+                {allUsers.map((user) => (
+                  <option key={user.id} value={user.id}>
+                    {getFullName(user)}
                   </option>
                 ))}
               </select>
@@ -259,11 +261,11 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
           <button
             className="submit-button"
             onClick={handleSubmit}
-            disabled={loading || !isWorkersLoaded || !isEmployersLoaded}
+            disabled={!isWorkersLoaded || !isEmployersLoaded}
           >
             {isEdit ? "Update" : "Create"}
           </button>
-          <button className="cancel-button" onClick={onClose} disabled={loading}>
+          <button className="cancel-button" onClick={onClose}>
             Cancel
           </button>
         </div>

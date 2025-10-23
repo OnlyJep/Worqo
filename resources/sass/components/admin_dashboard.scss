@@ -35,6 +35,7 @@
     width: calc(100vw - 100px); // Adjust width to account for sidebar
   }
 
+
   &.sidebar-collapsed {
     margin-left: 0; // Move fully left when sidebar is collapsed
     width: 88vw; // Full viewport width when sidebar is collapsed
