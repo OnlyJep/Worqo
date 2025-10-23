@@ -995,5 +995,53 @@
       }
     }
   }
+
+  // Skills Modal Button Styling
+  .adminmodal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 20px 24px;
+    border-top: 1px solid #e5e7eb;
+    background: #f8f9fa;
+
+    button {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid;
+      min-width: 120px;
+      font-family: 'Inter', sans-serif;
+
+      &:first-child {
+        background: #ffffff;
+        color: #374151;
+        border-color: #d1d5db;
+
+        &:hover {
+          background: #f9fafb;
+          border-color: #9ca3af;
+          transform: translateY(-1px);
+        }
+      }
+
+      &:last-child {
+        background: #1A2A44;
+        color: #ffffff;
+        border-color: #1A2A44;
+
+        &:hover {
+          background: #0f1419;
+          border-color: #0f1419;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);
+        }
+      }
+    }
+  }
 }
   

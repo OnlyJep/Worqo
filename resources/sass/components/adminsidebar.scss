@@ -42,6 +42,33 @@
     font-size: 16px;
   }
 
+  .sidebar-content {
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+    
+    &::-webkit-scrollbar {
+      width: 6px;
+      background: transparent;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+      transition: background 0.2s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
   ul {
     list-style: none;
     padding: 0;

@@ -16,6 +16,7 @@ class User extends Authenticatable
         'password',
         'role_id',
         'archived',
+        'last_activity',
     ];
 
     protected $hidden = [
@@ -26,6 +27,7 @@ class User extends Authenticatable
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
+        'last_activity' => 'datetime',
         // Remove 'archived' => 'boolean' to treat archived as integer (1 or 0)
     ];
 
@@ -77,5 +79,12 @@ class User extends Authenticatable
     public function workerBookings()
     {
         return $this->hasMany(Booking::class, 'worker_id', 'id');
+    }
+
+    // Update last activity timestamp
+    public function updateLastActivity()
+    {
+        $this->last_activity = now();
+        $this->save();
     }
 }

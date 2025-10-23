@@ -149,7 +149,22 @@ const Admintopnavbar = () => {
       } else {
         console.error("Logout failed: ", response.status, response.statusText);
         // Proceed with logout even if API call fails
+        // Preserve profile completion flags before clearing localStorage
+        const profileCompleteFlags = {};
+        const keys = Object.keys(localStorage);
+        keys.forEach(key => {
+          if (key.includes('isProfileComplete_') || key.includes('skillsStepCompleted_')) {
+            profileCompleteFlags[key] = localStorage.getItem(key);
+          }
+        });
+        
         localStorage.clear();
+        
+        // Restore profile completion flags
+        Object.keys(profileCompleteFlags).forEach(key => {
+          localStorage.setItem(key, profileCompleteFlags[key]);
+        });
+        
         setUser(null);
         setIsDropdownOpen(false);
         navigate("/", { replace: true });
@@ -157,7 +172,22 @@ const Admintopnavbar = () => {
     } catch (error) {
       console.error("Logout error:", error.message);
       // Proceed with logout even if there's an error
+      // Preserve profile completion flags before clearing localStorage
+      const profileCompleteFlags = {};
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => {
+        if (key.includes('isProfileComplete_') || key.includes('skillsStepCompleted_')) {
+          profileCompleteFlags[key] = localStorage.getItem(key);
+        }
+      });
+      
       localStorage.clear();
+      
+      // Restore profile completion flags
+      Object.keys(profileCompleteFlags).forEach(key => {
+        localStorage.setItem(key, profileCompleteFlags[key]);
+      });
+      
       setUser(null);
       setIsDropdownOpen(false);
       navigate("/", { replace: true });
@@ -167,12 +197,10 @@ const Admintopnavbar = () => {
   };
 
   const handleImageError = () => {
-    console.log("Image failed to load, setting error state");
     setImageError(true);
   };
 
   const handleImageLoad = () => {
-    console.log("Image loaded successfully");
     setImageError(false);
   };
 
@@ -181,7 +209,7 @@ const Admintopnavbar = () => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       const userData = JSON.parse(storedUser);
-      console.log("Refreshing user data:", userData);
+      // Refreshing user data
       setUser(userData);
       setImageError(false);
       setImageRefreshKey(prev => prev + 1); // Force image refresh
@@ -191,11 +219,9 @@ const Admintopnavbar = () => {
   // Function to get image URL with cache busting
   const getImageUrl = (profileImg) => {
     if (!profileImg) {
-      console.log("No profile image found, using default");
       return "/default-profile.png";
     }
     const imageUrl = `http://127.0.0.1:8000/storage/${profileImg}?v=${imageRefreshKey}`;
-    console.log("Generated image URL:", imageUrl);
     return imageUrl;
   };
 

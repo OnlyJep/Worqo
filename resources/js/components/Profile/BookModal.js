@@ -6,9 +6,9 @@ import axios from 'axios';
 import CustomDropdown from '../common/CustomDropdown';
 import './../../../sass/components/BookModal.scss';
 
-const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
+const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
   const [bookingDetails, setBookingDetails] = useState({
-    service_type: '',
+    service_type: serviceType || '',
     sub_skill: '',
     work_type: worker?.work_type || 'part-time',
     book_in: '',
@@ -28,7 +28,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
   useEffect(() => {
     if (!isOpen) {
       setBookingDetails({
-        service_type: '',
+        service_type: serviceType || '',
         sub_skill: '',
         work_type: worker?.work_type || 'part-time',
         book_in: '',
@@ -44,7 +44,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
         conflictingJobs: []
       });
     }
-  }, [isOpen, worker]);
+  }, [isOpen, worker, serviceType]);
 
   // Check worker availability when booking dates change
   useEffect(() => {
@@ -552,6 +552,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
     const oneHourFromNow = new Date(currentTime.getTime() + (60 * 60 * 1000)); // Add 1 hour in milliseconds
     return selectedTime >= oneHourFromNow;
   };
+  
   const isValidEndDate = (endDate) => {
     const start = new Date(bookingDetails.book_in);
     const end = new Date(endDate);
@@ -694,7 +695,6 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit }) => {
               }}
               className="booking-form-input"
               min={bookingDetails.book_in || minDate}
-              required
             />
           </div>
 

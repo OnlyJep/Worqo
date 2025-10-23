@@ -349,16 +349,13 @@ const EmployerList = () => {
           {error && <div className="error">{error}</div>}
           <div className="employerlist-header">
             <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search Employers"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search Employers"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="right-actions">
               {selectedEmployers.length > 0 && (
@@ -396,11 +393,9 @@ const EmployerList = () => {
                       Actions
                     </div>
                   </th>
-                  <th>Company Name</th>
-                  <th>Owner</th>
+                  <th>Profile Image</th>
+                  <th>Full Name</th>
                   <th>Email</th>
-                  <th>Phone</th>
-                  <th>Address</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -438,18 +433,39 @@ const EmployerList = () => {
                           />
                         </div>
                       </td>
-                      <td data-label="Company Name" className="company-name-cell">{employer.employer?.company_name || "N/A"}</td>
-                      <td data-label="Owner" className="owner-cell">{getFullName({ ...employer.profile, suffixes })}</td>
+                      <td data-label="Profile Image">
+                        {employer.profile?.profile_img ? (
+                          <img 
+                            src={`http://127.0.0.1:8000/storage/${employer.profile.profile_img}`} 
+                            alt="Profile" 
+                            style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
+                          />
+                        ) : (
+                          <div style={{ 
+                            width: '40px', 
+                            height: '40px', 
+                            borderRadius: '50%', 
+                            backgroundColor: '#E5E7EB', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+                            color: '#6B7280',
+                            fontSize: '14px',
+                            fontWeight: '600'
+                          }}>
+                            {employer.profile?.first_name?.charAt(0) || 'N'}
+                          </div>
+                        )}
+                      </td>
+                      <td data-label="Full Name" className="owner-cell">{getFullName({ ...employer.profile, suffixes })}</td>
                       <td data-label="Email">{employer.email || "N/A"}</td>
-                      <td data-label="Phone">{employer.profile?.contact_number || "N/A"}</td>
-                      <td data-label="Address">{employer.employer?.company_address || "N/A"}</td>
                       <td data-label="Created At">{formatDate(employer.created_at)}</td>
                       <td data-label="Updated At">{formatDate(employer.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="8">No {showArchived ? "archived" : "active"} employers found</td>
+                    <td colSpan="6">No {showArchived ? "archived" : "active"} employers found</td>
                   </tr>
                 )}
               </tbody>

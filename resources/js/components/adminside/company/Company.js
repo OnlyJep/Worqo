@@ -68,18 +68,16 @@ const getWorkerNames = (workerIds = [], workers = []) => {
 };
 
 const CompanyList = () => {
-  const [companies, setCompanies] = useState([]);
+  const [skills, setSkills] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
-  const [selectedCompanies, setSelectedCompanies] = useState([]);
+  const [selectedSkills, setSelectedSkills] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [companyToArchive, setCompanyToArchive] = useState(null);
+  const [skillToArchive, setSkillToArchive] = useState(null);
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1, totalItems: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [companyToEdit, setCompanyToEdit] = useState(null);
-  const [employers, setEmployers] = useState([]);
-  const [workers, setWorkers] = useState([]);
+  const [skillToEdit, setSkillToEdit] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -90,11 +88,7 @@ const CompanyList = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        await Promise.all([
-          fetchCompanies(pagination.currentPage, showArchived, controller.signal),
-          fetchEmployers(controller.signal),
-          fetchWorkers(controller.signal),
-        ]);
+        await fetchSkills(controller.signal);
         setDataLoaded(true);
       } catch (err) {
         if (err.name === "AbortError") return;
@@ -106,109 +100,62 @@ const CompanyList = () => {
     };
     fetchData();
     return () => controller.abort();
-  }, [pagination.currentPage, showArchived, searchTerm]);
+  }, [showArchived, searchTerm]);
 
-  const fetchCompanies = async (page = 1, archived = false, signal) => {
+  const fetchSkills = async (signal) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
-        throw new Error("Please log in to view companies.");
+        throw new Error("Please log in to view skills.");
       }
-      const response = await axios.get(`http://127.0.0.1:8000/api/companies${archived ? '/archived' : ''}`, {
+      const endpoint = showArchived ? '/api/skills/archived' : '/api/skills';
+      const response = await axios.get(`http://127.0.0.1:8000${endpoint}`, {
         headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-        params: { page, limit: 5, search: searchTerm },
         signal,
         timeout: 10000,
       });
-      setCompanies(response.data.companies || []);
-      setPagination({
-        currentPage: response.data.pagination.currentPage,
-        totalPages: response.data.pagination.totalPages,
-        totalItems: response.data.pagination.totalItems,
-      });
+      setSkills(response.data || []);
       setError("");
     } catch (err) {
       if (err.name === "AbortError") return;
-      setError(err.response?.data?.error || "Failed to fetch companies.");
-      console.error("Fetch companies error:", err.response?.data || err.message);
+      setError(err.response?.data?.error || "Failed to fetch skills.");
+      console.error("Fetch skills error:", err.response?.data || err.message);
     }
   };
 
-  const fetchEmployers = async (signal) => {
-    try {
-      const authToken = localStorage.getItem("auth_token");
-      if (!authToken) {
-        throw new Error("No auth token found. Please log in.");
-      }
-      const response = await axios.get("http://127.0.0.1:8000/api/employers", {
-        headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-        signal,
-        timeout: 5000,
-      });
-      const employersData = Array.isArray(response.data) ? response.data : response.data.employers || [];
-      setEmployers(employersData);
-      console.log("Fetched employers:", employersData);
-    } catch (err) {
-      if (err.name === "AbortError") return;
-      console.error("Error fetching employers:", err);
-      setError("Failed to fetch employers. Please try again.");
-    }
-  };
 
-  const fetchWorkers = async (signal) => {
-    try {
-      const authToken = localStorage.getItem("auth_token");
-      if (!authToken) {
-        throw new Error("No auth token found. Please log in.");
-      }
-      const response = await axios.get("http://127.0.0.1:8000/api/workers", {
-        headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-        signal,
-        timeout: 5000,
-      });
-      const workersData = Array.isArray(response.data.workers) ? response.data.workers : [];
-      setWorkers(workersData);
-      console.log("Fetched workers:", workersData);
-    } catch (err) {
-      if (err.name === "AbortError") return;
-      console.error("Error fetching workers:", err);
-      setError("Failed to fetch workers. Please try again.");
-    }
-  };
-
-  const toggleSelectCompany = (companyId) => {
-    setSelectedCompanies((prev) =>
-      prev.includes(companyId)
-        ? prev.filter((id) => id !== companyId)
-        : [...prev, companyId]
+  const toggleSelectSkill = (skillId) => {
+    setSelectedSkills((prev) =>
+      prev.includes(skillId)
+        ? prev.filter((id) => id !== skillId)
+        : [...prev, skillId]
     );
   };
 
   const toggleSelectAll = () => {
-    if (selectedCompanies.length === companies.length) {
-      setSelectedCompanies([]);
+    if (selectedSkills.length === skills.length) {
+      setSelectedSkills([]);
     } else {
-      setSelectedCompanies(companies.map((company) => company.id));
+      setSelectedSkills(skills.map((skill) => skill.id));
     }
   };
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
-    setPagination({ ...pagination, currentPage: 1 });
-    setSelectedCompanies([]);
+    setSelectedSkills([]);
   };
 
-  const handleArchiveClick = (company) => {
-    if (company.archived) {
-      message.error("Company is already archived.");
+  const handleArchiveClick = (skill) => {
+    if (skill.archived) {
+      message.error("Skill is already archived.");
       return;
     }
-    setCompanyToArchive(company);
+    setSkillToArchive(skill);
     setIsConfirmModalOpen(true);
   };
 
   const handleArchiveConfirm = async () => {
-    if (!companyToArchive) return;
+    if (!skillToArchive) return;
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
@@ -216,7 +163,7 @@ const CompanyList = () => {
       }
       setLoading(true);
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/companies/${companyToArchive.id}/archive`,
+        `http://127.0.0.1:8000/api/skills/${skillToArchive.id}/archive`,
         { archived: true },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -224,24 +171,24 @@ const CompanyList = () => {
         }
       );
       if (response.status === 200) {
-        await fetchCompanies(pagination.currentPage, showArchived, new AbortController().signal);
+        await fetchSkills(new AbortController().signal);
         setIsConfirmModalOpen(false);
-        setCompanyToArchive(null);
-        message.success(`Company "${companyToArchive.company_name}" archived successfully!`);
+        setSkillToArchive(null);
+        message.success(`Skill "${skillToArchive.name}" archived successfully!`);
       }
     } catch (err) {
       if (err.name === "AbortError") return;
-      setError(err.response?.data?.error || "Failed to archive company.");
+      setError(err.response?.data?.error || "Failed to archive skill.");
       console.error("Archive error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleRestoreCompany = async (companyId) => {
-    const company = companies.find((c) => c.id === companyId);
-    if (!company?.archived) {
-      message.error("Company is already restored.");
+  const handleRestoreSkill = async (skillId) => {
+    const skill = skills.find((s) => s.id === skillId);
+    if (!skill?.archived) {
+      message.error("Skill is already restored.");
       return;
     }
     try {
@@ -251,7 +198,7 @@ const CompanyList = () => {
       }
       setLoading(true);
       const response = await axios.patch(
-        `http://127.0.0.1:8000/api/companies/${companyId}/archive`,
+        `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
         { archived: false },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -259,12 +206,12 @@ const CompanyList = () => {
         }
       );
       if (response.status === 200) {
-        await fetchCompanies(pagination.currentPage, showArchived, new AbortController().signal);
-        message.success(`Company "${company.company_name}" restored successfully!`);
+        await fetchSkills(new AbortController().signal);
+        message.success(`Skill "${skill.name}" restored successfully!`);
       }
     } catch (err) {
       if (err.name === "AbortError") return;
-      setError(err.response?.data?.error || "Failed to restore company.");
+      setError(err.response?.data?.error || "Failed to restore skill.");
       console.error("Restore error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
@@ -272,8 +219,8 @@ const CompanyList = () => {
   };
 
   const handleBulkAction = async (action) => {
-    if (selectedCompanies.length === 0) {
-      message.error("Please select at least one company.");
+    if (selectedSkills.length === 0) {
+      message.error("Please select at least one skill.");
       return;
     }
     try {
@@ -281,31 +228,32 @@ const CompanyList = () => {
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      const validCompanyIds = selectedCompanies.filter((id) => {
-        const company = companies.find((c) => c.id === id);
-        return action === "archive" ? !company?.archived : company?.archived;
+      const validSkillIds = selectedSkills.filter((id) => {
+        const skill = skills.find((s) => s.id === id);
+        return action === "archive" ? !skill?.archived : skill?.archived;
       });
-      if (validCompanyIds.length === 0) {
-        message.error(`All selected companies are already ${action === "archive" ? "archived" : "restored"}.`);
+      if (validSkillIds.length === 0) {
+        message.error(`All selected skills are already ${action === "archive" ? "archived" : "restored"}.`);
         return;
       }
       setLoading(true);
-      const response = await axios.post(
-        `http://127.0.0.1:8000/api/companies/bulk-archive`,
-        { company_ids: validCompanyIds, archived: action === "archive" },
-        {
-          headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-          timeout: 10000,
-        }
-      );
-      if (response.status === 200) {
-        await fetchCompanies(pagination.currentPage, showArchived, new AbortController().signal);
-        setSelectedCompanies([]);
-        message.success(`${validCompanyIds.length} companies ${action === "archive" ? "archived" : "restored"} successfully!`);
+      // For now, we'll handle each skill individually since there's no bulk endpoint
+      for (const skillId of validSkillIds) {
+        await axios.patch(
+          `http://127.0.0.1:8000/api/skills/${skillId}/archive`,
+          { archived: action === "archive" },
+          {
+            headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
+            timeout: 5000,
+          }
+        );
       }
+      await fetchSkills(new AbortController().signal);
+      setSelectedSkills([]);
+      message.success(`${validSkillIds.length} skills ${action === "archive" ? "archived" : "restored"} successfully!`);
     } catch (err) {
       if (err.name === "AbortError") return;
-      setError(err.response?.data?.error || `Failed to ${action} companies. Please try again.`);
+      setError(err.response?.data?.error || `Failed to ${action} skills. Please try again.`);
       console.error("Bulk action error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
@@ -314,28 +262,21 @@ const CompanyList = () => {
 
   const handleAddNewClick = async () => {
     if (!dataLoaded) {
-      message.error("Please wait until employer and worker data is loaded.");
+      message.error("Please wait until data is loaded.");
       return;
     }
     setIsEditMode(false);
-    setCompanyToEdit({
-      company_name: "",
-      employer_id: "",
-      worker_ids: [],
-      street: "",
-      contact_number: "",
-      city: "",
-      province: "",
-      postal_code: "",
-      country: "",
+    setSkillToEdit({
+      name: "",
+      sub_skills: [],
     });
     setIsModalOpen(true);
     setError("");
   };
 
-  const handleEditClick = async (company) => {
+  const handleEditClick = async (skill) => {
     if (!dataLoaded) {
-      message.error("Please wait until employer and worker data is loaded.");
+      message.error("Please wait until data is loaded.");
       return;
     }
     try {
@@ -344,30 +285,18 @@ const CompanyList = () => {
         throw new Error("No auth token found. Please log in.");
       }
       setLoading(true);
-      const response = await axios.get(`http://127.0.0.1:8000/api/companies/${company.id}`, {
-        headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-        timeout: 5000,
-      });
-      setCompanyToEdit({
-        id: response.data.company.id,
-        company_name: response.data.company.company_name || "Unnamed Company",
-        employer_id: response.data.company.employer_id ? String(response.data.company.employer_id) : "",
-        worker_ids: Array.isArray(response.data.company.worker_ids) ? response.data.company.worker_ids.map(String) : [],
-        workers: response.data.company.workers || [],
-        street: response.data.company.street || "",
-        contact_number: response.data.company.contact_number || "",
-        city: response.data.company.city || "",
-        province: response.data.company.province || "",
-        postal_code: response.data.company.postal_code || "",
-        country: response.data.company.country || "",
+      setSkillToEdit({
+        id: skill.id,
+        name: skill.name || "",
+        sub_skills: skill.sub_skills || [],
       });
       setIsEditMode(true);
       setIsModalOpen(true);
       setError("");
     } catch (err) {
       if (err.name === "AbortError") return;
-      setError(err.response?.data?.error || "Failed to fetch company details.");
-      console.error("Fetch company details error:", err.response?.data || err.message);
+      setError(err.response?.data?.error || "Failed to fetch skill details.");
+      console.error("Fetch skill details error:", err.response?.data || err.message);
     } finally {
       setLoading(false);
     }
@@ -376,30 +305,30 @@ const CompanyList = () => {
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
-    setCompanyToEdit(null);
+    setSkillToEdit(null);
     setError("");
   };
 
-  const handleCompanyAdd = async (formData, signal) => {
+  const handleSkillAdd = async (formData, signal) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
       setLoading(true);
-      const response = await axios.post("http://127.0.0.1:8000/api/companies", formData, {
+      const response = await axios.post("http://127.0.0.1:8000/api/skills", formData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
         timeout: 10000,
         signal,
       });
       if (response.status === 201) {
-        await fetchCompanies(pagination.currentPage, showArchived, new AbortController().signal);
+        await fetchSkills(new AbortController().signal);
         setIsModalOpen(false);
-        message.success("Company added successfully!");
+        message.success("Skill added successfully!");
         return response.data;
       }
     } catch (err) {
@@ -407,30 +336,30 @@ const CompanyList = () => {
         console.log("Add request was aborted");
         return;
       }
-      console.error("Error adding company:", err.response?.data || err.message);
+      console.error("Error adding skill:", err.response?.data || err.message);
       throw err;
     } finally {
       setLoading(false);
     }
   };
 
-  const handleCompanyUpdate = async (formData, signal) => {
+  const handleSkillUpdate = async (formData, signal) => {
     try {
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
         throw new Error("No auth token found. Please log in.");
       }
-      if (!companyToEdit?.id) {
-        throw new Error("No company ID provided for update.");
+      if (!skillToEdit?.id) {
+        throw new Error("No skill ID provided for update.");
       }
       setLoading(true);
-      const response = await axios.post(
-        `http://127.0.0.1:8000/api/companies/${companyToEdit.id}?_method=PUT`,
+      const response = await axios.put(
+        `http://127.0.0.1:8000/api/skills/${skillToEdit.id}`,
         formData,
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
             Accept: "application/json",
           },
           timeout: 10000,
@@ -438,11 +367,11 @@ const CompanyList = () => {
         }
       );
       if (response.status === 200) {
-        await fetchCompanies(pagination.currentPage, showArchived, new AbortController().signal);
+        await fetchSkills(new AbortController().signal);
         setIsModalOpen(false);
         setIsEditMode(false);
-        setCompanyToEdit(null);
-        message.success("Company updated successfully!");
+        setSkillToEdit(null);
+        message.success("Skill updated successfully!");
         return response.data;
       }
     } catch (err) {
@@ -450,7 +379,7 @@ const CompanyList = () => {
         console.log("Update request was aborted");
         return;
       }
-      console.error("Error updating company:", err.response?.data || err.message);
+      console.error("Error updating skill:", err.response?.data || err.message);
       throw err;
     } finally {
       setLoading(false);
@@ -521,23 +450,20 @@ const CompanyList = () => {
       <TopNavbar />
       <div className="companylist-dashboard">
         <div className="companylist-content">
-          <h2>{showArchived ? "Archived Companies" : "Company List"}</h2>
+          <h2>{showArchived ? "Archived Skills" : "Jobs"}</h2>
           {error && <div className="error-message" style={{ color: "red", marginBottom: "10px" }}>{error}</div>}
           <div className="companylist-header">
             <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search Companies"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search Skills"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="right-actions">
-              {selectedCompanies.length > 0 && (
+              {selectedSkills.length > 0 && (
                 <button
                   className="header-button archive-all-button"
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
@@ -563,7 +489,7 @@ const CompanyList = () => {
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedCompanies.length === companies.length && companies.length > 0 ? (
+                        {selectedSkills.length === skills.length && skills.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -572,11 +498,9 @@ const CompanyList = () => {
                       Actions
                     </div>
                   </th>
-                  <th>Company Name</th>
-                  <th>Employer</th>
-                  <th>Hired Workers</th>
-                  <th>Street</th>
-                  <th>Contact Number</th>
+                  <th>Skill</th>
+                  <th>Sub-Skills</th>
+                  <th>Collar</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
@@ -584,18 +508,18 @@ const CompanyList = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="8" className="loading-row">Loading companies...</td>
+                    <td colSpan="6" className="loading-row">Loading skills...</td>
                   </tr>
-                ) : companies.length > 0 ? (
-                  companies.map((company) => (
-                    <tr key={company.id}>
+                ) : skills.length > 0 ? (
+                  skills.map((skill) => (
+                    <tr key={skill.id}>
                       <td>
                         <div className="action-icons">
                           <span
-                            onClick={() => toggleSelectCompany(company.id)}
+                            onClick={() => toggleSelectSkill(skill.id)}
                             style={{ cursor: "pointer" }}
                           >
-                            {selectedCompanies.includes(company.id) ? (
+                            {selectedSkills.includes(skill.id) ? (
                               <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
                               <FaSquare className="checkbox-icon" size={16} />
@@ -605,34 +529,36 @@ const CompanyList = () => {
                             <FaCheckCircle
                               size={16}
                               className="restore-icon"
-                              onClick={() => handleRestoreCompany(company.id)}
+                              onClick={() => handleRestoreSkill(skill.id)}
                             />
                           ) : (
                             <FaTrash
                               size={16}
                               className="delete-icon"
-                              onClick={() => handleArchiveClick(company)}
+                              onClick={() => handleArchiveClick(skill)}
                             />
                           )}
                           <FaEdit
                             size={16}
                             className="edit-icon"
-                            onClick={() => handleEditClick(company)}
+                            onClick={() => handleEditClick(skill)}
                           />
                         </div>
                       </td>
-                      <td>{company.company_name || "N/A"}</td>
-                      <td>{getEmployerName(company, employers)}</td>
-                      <td>{getWorkerNames(company.worker_ids, workers)}</td>
-                      <td>{company.street || "N/A"}</td>
-                      <td>{company.contact_number || "N/A"}</td>
-                      <td>{formatDate(company.created_at)}</td>
-                      <td>{formatDate(company.updated_at)}</td>
+                      <td>{skill.name || "N/A"}</td>
+                      <td>{Array.isArray(skill.sub_skills) && skill.sub_skills.length > 0 ? 
+                        (skill.sub_skills.length > 3 ? 
+                          skill.sub_skills.slice(0, 3).join(", ") + "..." : 
+                          skill.sub_skills.join(", ")
+                        ) : "N/A"}</td>
+                      <td>N/A</td>
+                      <td>{formatDate(skill.created_at)}</td>
+                      <td>{formatDate(skill.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="8">No {showArchived ? "archived" : "active"} companies found</td>
+                    <td colSpan="6">No {showArchived ? "archived" : "active"} skills found</td>
                   </tr>
                 )}
               </tbody>
@@ -660,7 +586,7 @@ const CompanyList = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{companyToArchive?.company_name || 'Unnamed Company'}"?</p>
+            <p>Do you want to archive "{skillToArchive?.name || 'Unnamed Skill'}"?</p>
             <div className="confirm-modal-buttons">
               <button className="cancel-button" onClick={() => setIsConfirmModalOpen(false)}>
                 Cancel
@@ -675,11 +601,9 @@ const CompanyList = () => {
       {isModalOpen && (
         <CompanyModal
           onClose={handleModalClose}
-          onSubmit={isEditMode ? handleCompanyUpdate : handleCompanyAdd}
+          onSubmit={isEditMode ? handleSkillUpdate : handleSkillAdd}
           isEdit={isEditMode}
-          initialData={companyToEdit}
-          employers={employers}
-          workers={workers}
+          initialData={skillToEdit}
         />
       )}
     </div>

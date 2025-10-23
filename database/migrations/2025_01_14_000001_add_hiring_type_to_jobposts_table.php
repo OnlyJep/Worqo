@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('jobposts', function (Blueprint $table) {
-            $table->enum('hiring_type', ['individual', 'team'])->default('individual')->after('job_type');
-        });
+        if (Schema::hasTable('jobposts') && !Schema::hasColumn('jobposts', 'hiring_type')) {
+            Schema::table('jobposts', function (Blueprint $table) {
+                $table->enum('hiring_type', ['individual', 'team'])->default('individual')->after('job_type');
+            });
+        }
     }
 
     /**
@@ -21,9 +23,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('jobposts', function (Blueprint $table) {
-            $table->dropColumn('hiring_type');
-        });
+        if (Schema::hasTable('jobposts') && Schema::hasColumn('jobposts', 'hiring_type')) {
+            Schema::table('jobposts', function (Blueprint $table) {
+                $table->dropColumn('hiring_type');
+            });
+        }
     }
 };
 

@@ -16,8 +16,25 @@ const Headerz = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [isSwitching, setIsSwitching] = useState(false);
+  const [targetRole, setTargetRole] = useState('');
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
+
+  // Function to update user status display
+  const updateUserStatus = async () => {
+    if (!user) return;
+    
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/users/${user.id}/status`);
+      if (response.ok) {
+        const userData = await response.json();
+        setUser(userData);
+        localStorage.setItem('user', JSON.stringify(userData));
+      }
+    } catch (error) {
+      console.error('Error updating user status:', error);
+    }
+  };
 
   // Check authentication status on mount
   useEffect(() => {
@@ -47,52 +64,34 @@ const Headerz = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Poll for unread notifications count every 30 seconds
+  // Poll for unread notifications count and user status every 30 seconds
   useEffect(() => {
     if (!isLoggedIn) return;
 
     const interval = setInterval(() => {
       fetchUnreadCount();
+      updateUserStatus();
     }, 30000); // 30 seconds
 
     return () => clearInterval(interval);
-  }, [isLoggedIn]);
+  }, [isLoggedIn, user]);
 
   // Fetch unread notification count
   const fetchUnreadCount = async () => {
     try {
-      const token = localStorage.getItem('auth_token');
       const storedUser = localStorage.getItem('user');
-      
-      if (!token || !storedUser) {
-        console.log('No token or user found, skipping unread count fetch');
-        return;
-      }
+      if (!storedUser) return;
+      const userData = JSON.parse(storedUser);
+      const userId = userData?.id || userData?.user?.id;
+      if (!userId) return;
 
-      const response = await axios.get('http://127.0.0.1:8000/api/notifications/unread-count', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Accept': 'application/json'
-        }
-      });
+      const response = await axios.get(`http://127.0.0.1:8000/api/notifications/unread-count?user_id=${userId}`);
 
       if (response.data.success) {
         setUnreadCount(response.data.unread_count || 0);
       }
     } catch (error) {
-      // Only log error if it's not a 401 (unauthorized) error
-      if (error.response?.status !== 401) {
-        console.error('Error fetching unread count:', error);
-      }
-      // If 401, user might need to re-authenticate
-      if (error.response?.status === 401) {
-        console.log('User not authenticated, clearing auth state');
-        localStorage.removeItem('auth_token');
-        localStorage.removeItem('user');
-        setIsLoggedIn(false);
-        setUser(null);
-        setUnreadCount(0);
-      }
+      console.error('Error fetching unread count:', error);
     }
   };
 
@@ -122,6 +121,29 @@ const Headerz = () => {
     };
   }, []);
 
+  // Listen for special notification links
+  useEffect(() => {
+    const handleNotificationLink = (event) => {
+      const { url, targetRoleId } = event.detail;
+      if (url) {
+        if (url.includes('/profile-settings/bookings') && targetRoleId) {
+          goToBookings(targetRoleId);
+        } else {
+          setIsLoading(true);
+          setTimeout(() => {
+            navigate(url);
+            setIsLoading(false);
+          }, 800);
+        }
+      }
+    };
+
+    window.addEventListener('notificationLinkClicked', handleNotificationLink);
+    return () => {
+      window.removeEventListener('notificationLinkClicked', handleNotificationLink);
+    };
+  }, [user]);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -132,14 +154,108 @@ const Headerz = () => {
 
   // Navigation functions
   const goToHome = () => navigate('/');
-  const goToServices = () => navigate('/services');
+  const goToServices = () => {
+    if (!isLoggedIn) {
+      alert('Please login to access services');
+      navigate('/login');
+      return;
+    }
+    if (user?.role_id === 1) {
+      alert('Workers cannot access services. Please switch to Employer account.');
+      return;
+    }
+    navigate('/services');
+  };
+  
   const goToAbout = () => navigate('/about');
-  const goToFindJobs = () => navigate('/find-jobs');
-  const goToPostJobs = () => navigate('/post-jobs');
+  
+  const goToFindJobs = () => {
+    if (!isLoggedIn) {
+      alert('Please login to find jobs');
+      navigate('/login');
+      return;
+    }
+    if (user?.role_id === 2) {
+      alert('Employers cannot find jobs. Please switch to Worker account.');
+      return;
+    }
+    navigate('/find-jobs');
+  };
+  
+  const goToPostJobs = () => {
+    if (!isLoggedIn) {
+      alert('Please login to post jobs');
+      navigate('/login');
+      return;
+    }
+    if (user?.role_id === 1) {
+      alert('Workers cannot post jobs. Please switch to Employer account.');
+      return;
+    }
+    navigate('/profile-settings/post-job');
+  };
   const goToNotifications = () => {
     setIsLoading(true);
     setTimeout(() => {
       navigate('/notifications');
+      setIsLoading(false);
+    }, 800);
+  };
+
+  const goToBookings = async (targetRoleId = null) => {
+    if (!user) return;
+    
+    setIsLoading(true);
+    
+    // If a target role is specified and it's different from current role, switch roles
+    if (targetRoleId && user.role_id !== targetRoleId) {
+      try {
+        const authToken = localStorage.getItem('auth_token');
+        
+        // Call backend API to update role in database
+        const response = await fetch('http://127.0.0.1:8000/api/users/switch-role', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            user_id: user.id,
+            role_id: targetRoleId
+          })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          
+          if (data.success) {
+            // Update localStorage with the new user data from backend
+            const updatedUser = {
+              ...user,
+              role_id: data.user.role_id,
+              role_name: data.user.role_name
+            };
+            
+            localStorage.setItem('user', JSON.stringify(updatedUser));
+            setUser(updatedUser);
+            
+            // Navigate to bookings after a short delay to allow state update
+            setTimeout(() => {
+              navigate('/profile-settings/bookings');
+              setIsLoading(false);
+            }, 1000);
+            return;
+          }
+        }
+      } catch (error) {
+        console.error('Role switch error:', error);
+      }
+    }
+    
+    // If no role switch needed or failed, navigate directly
+    setTimeout(() => {
+      navigate('/profile-settings/bookings');
       setIsLoading(false);
     }, 800);
   };
@@ -164,11 +280,14 @@ const Headerz = () => {
   const handleSwitchAccount = async () => {
     if (!user) return;
     
+    const newRoleId = user.role_id === 1 ? 2 : 1;
+    const targetRoleName = newRoleId === 1 ? 'Worker' : 'Employer';
+    
+    setTargetRole(targetRoleName);
     setIsSwitching(true);
     setIsDropdownOpen(false);
     
     try {
-      const newRoleId = user.role_id === 1 ? 2 : 1;
       const authToken = localStorage.getItem('auth_token');
       
       // Call backend API to update role in database
@@ -240,6 +359,19 @@ const Headerz = () => {
           'Content-Type': 'application/json',
         },
       });
+      
+      // Update user status to offline before clearing localStorage
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        const userData = JSON.parse(storedUser);
+        const updatedUser = {
+          ...userData,
+          is_online: false,
+          last_active_text: 'Offline'
+        };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+      }
+      
       if (response.ok) {
         localStorage.clear();
         setIsLoggedIn(false);
@@ -248,7 +380,22 @@ const Headerz = () => {
         navigate('/', { replace: true });
       } else {
         console.error('Logout failed:', response.status, response.statusText);
+        // Preserve profile completion flags before clearing localStorage
+        const profileCompleteFlags = {};
+        const keys = Object.keys(localStorage);
+        keys.forEach(key => {
+          if (key.includes('isProfileComplete_') || key.includes('skillsStepCompleted_')) {
+            profileCompleteFlags[key] = localStorage.getItem(key);
+          }
+        });
+        
         localStorage.clear();
+        
+        // Restore profile completion flags
+        Object.keys(profileCompleteFlags).forEach(key => {
+          localStorage.setItem(key, profileCompleteFlags[key]);
+        });
+        
         setIsLoggedIn(false);
         setUser(null);
         setIsDropdownOpen(false);
@@ -256,7 +403,22 @@ const Headerz = () => {
       }
     } catch (error) {
       console.error('Logout error:', error.message);
+      // Preserve profile completion flags before clearing localStorage
+      const profileCompleteFlags = {};
+      const keys = Object.keys(localStorage);
+      keys.forEach(key => {
+        if (key.includes('isProfileComplete_') || key.includes('skillsStepCompleted_')) {
+          profileCompleteFlags[key] = localStorage.getItem(key);
+        }
+      });
+      
       localStorage.clear();
+      
+      // Restore profile completion flags
+      Object.keys(profileCompleteFlags).forEach(key => {
+        localStorage.setItem(key, profileCompleteFlags[key]);
+      });
+      
       setIsLoggedIn(false);
       setUser(null);
       setIsDropdownOpen(false);
@@ -278,7 +440,7 @@ const Headerz = () => {
         <div className="switching-overlay">
           <div className="switching-content">
             <div className="switching-spinner"></div>
-            <h3>Switching to {user?.role_id === 1 ? 'Employer' : 'Worker'}...</h3>
+            <h3>Switching to {targetRole}...</h3>
             <p>Please wait while we update your account</p>
           </div>
         </div>
@@ -309,7 +471,6 @@ const Headerz = () => {
             <span onClick={goToPostJobs}>Post Jobs</span>
           )}
           {/* Additional navigation items */}
-          <span onClick={() => navigate('/contact')}>Contact</span>
         </nav>
 
         {/* Right Side: Icons and Login/Profile */}
@@ -333,7 +494,7 @@ const Headerz = () => {
           {isLoggedIn ? (
             <div className="profile" ref={dropdownRef}>
               <img
-                src={imageError || !user?.profile_img ? 'img/defaultpfp.jpg' : `http://127.0.0.1:8000/storage/${user.profile_img}`}
+                src={imageError || !user?.profile_img ? 'images/defpfp.svg' : (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}`)}
                 alt="Profile"
                 className="profile-icon"
                 onError={handleImageError}
@@ -365,6 +526,7 @@ const Headerz = () => {
               Login/Signup
             </button>
           )}
+
         </div>
       </div>
     </header>

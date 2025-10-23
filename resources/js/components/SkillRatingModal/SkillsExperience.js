@@ -3,7 +3,7 @@ import { IconX, IconChevronDown, IconPlus, IconMinus } from '@tabler/icons-react
 import { message } from 'antd';
 import '../../../sass/components/_skillsexperience.scss';
 
-const SkillsExperience = ({ 
+const SkillsExperience = ({
   userSkills,
   setUserSkills,
   availableSkills,
@@ -49,8 +49,113 @@ const SkillsExperience = ({
   additionalSkillsDropdownRef,
   fetchSkills,
   handleNextStep,
-  handlePreviousStep
+  handlePreviousStep,
+  userProfile, // Add userProfile prop
+  setUserProfile // Add setUserProfile prop
 }) => {
+  // Check if address is complete
+  const isAddressComplete = userProfile?.profile?.street && userProfile?.profile?.contact_number;
+  
+  // Check if skills form is completed (has at least one primary skill)
+  const isSkillsFormCompleted = userSkills?.primary_skills && userSkills.primary_skills.length > 0;
+  
+  // State to track if we've already sent the review request
+  const [reviewStatusRequested, setReviewStatusRequested] = useState(false);
+  
+  // State for available sub-skills dropdown
+  const [isAvailableSubSkillsDropdownOpen, setIsAvailableSubSkillsDropdownOpen] = useState(false);
+  const availableSubSkillsDropdownRef = useRef(null);
+  
+  // Effect to handle clicking outside the available sub-skills dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (availableSubSkillsDropdownRef.current && 
+          !availableSubSkillsDropdownRef.current.contains(event.target) &&
+          !event.target.closest('.available-sub-skills-dropdown-menu')) {
+        console.log('Clicking outside dropdown, closing...');
+        setIsAvailableSubSkillsDropdownOpen(false);
+      }
+    };
+
+    if (isAvailableSubSkillsDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isAvailableSubSkillsDropdownOpen]);
+  
+  // Effect to update review status when skills form is completed
+  useEffect(() => {
+    const updateReviewStatus = async () => {
+      // Only proceed if:
+      // 1. User is a worker (role_id === 1)
+      // 2. Skills form is completed (has primary skills)
+      // 3. Address is complete
+      // 4. We haven't already sent the request
+      // 5. User has a worker profile
+      // 6. Worker profile is not already in review status
+      if (
+        userProfile?.role_id === 1 && 
+        isSkillsFormCompleted && 
+        isAddressComplete && 
+        !reviewStatusRequested && 
+        userProfile?.worker?.id &&
+        (!userProfile?.worker?.is_reviewed || userProfile?.worker?.is_reviewed === '0' || userProfile?.worker?.is_reviewed === '')
+      ) {
+        try {
+          const token = localStorage.getItem('auth_token');
+          const userId = userProfile?.id;
+          
+          // Check current review status
+          const currentReviewStatus = userProfile?.worker?.is_reviewed;
+          
+          // Only update if not already "TO BE REVIEWED", "ACCEPTED", or "DECLINED"
+          if (!currentReviewStatus || (currentReviewStatus !== 'TO BE REVIEWED' && currentReviewStatus !== 'ACCEPTED' && currentReviewStatus !== 'DECLINED')) {
+            const response = await fetch(`http://127.0.0.1:8000/api/workers/${userId}/review`, {
+              method: 'PATCH',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                'X-User-Id': userId
+              },
+              body: JSON.stringify({
+                is_reviewed: 'TO BE REVIEWED'
+              })
+            });
+            
+            if (response.ok) {
+              // Update local state to reflect the change
+              const updatedProfile = {
+                ...userProfile,
+                worker: {
+                  ...userProfile.worker,
+                  is_reviewed: 'TO BE REVIEWED'
+                }
+              };
+              setUserProfile(updatedProfile);
+              setReviewStatusRequested(true);
+              console.log('Worker profile set to TO BE REVIEWED');
+            } else {
+              const errorData = await response.json();
+              console.error('Failed to update worker review status:', errorData);
+              message.error('Failed to submit profile for review. Please try again.');
+            }
+          } else {
+            // Mark as requested if already in the correct state
+            setReviewStatusRequested(true);
+          }
+        } catch (error) {
+          console.error('Error updating worker review status:', error);
+          message.error('Network error. Please check your connection and try again.');
+        }
+      }
+    };
+    
+    updateReviewStatus();
+  }, [isSkillsFormCompleted, isAddressComplete, userProfile, reviewStatusRequested, setUserProfile]);
+  
   return (
     <div className="skills-experience-container">
       <div className="step-header">
@@ -63,22 +168,23 @@ const SkillsExperience = ({
           <div className="skill-group">
             <label className="form-label">Primary Skill <span className="required">*</span></label>
             <div className={`custom-dropdown ${isWorkTypeDropdownOpen ? 'dropdown-open' : ''}`} ref={workTypeDropdownRef}>
-              <div 
+              <div
                 className="dropdown-trigger"
                 onClick={async (e) => {
                   e.preventDefault();
                   e.stopPropagation();
                   console.log('Primary skills dropdown clicked, current state:', isWorkTypeDropdownOpen);
-                  
+                 
                   try {
                     // Always fetch skills to ensure fresh data
                     console.log('Fetching skills from database...');
                     await fetchSkills();
-                    
+                   
                     // Toggle dropdown after skills are fetched
                     setIsWorkTypeDropdownOpen(!isWorkTypeDropdownOpen);
                   } catch (error) {
                     console.error('Error fetching skills:', error);
+                    message.error('Failed to load skills. Please try again.');
                     // Still toggle dropdown even if fetch fails
                     setIsWorkTypeDropdownOpen(!isWorkTypeDropdownOpen);
                   }
@@ -88,16 +194,17 @@ const SkillsExperience = ({
                     e.preventDefault();
                     e.stopPropagation();
                     console.log('Primary skills dropdown activated via keyboard');
-                    
+                   
                     try {
                       // Always fetch skills to ensure fresh data
                       console.log('Fetching skills from database...');
                       await fetchSkills();
-                      
+                     
                       // Toggle dropdown after skills are fetched
                       setIsWorkTypeDropdownOpen(!isWorkTypeDropdownOpen);
                     } catch (error) {
                       console.error('Error fetching skills:', error);
+                      message.error('Failed to load skills. Please try again.');
                       // Still toggle dropdown even if fetch fails
                       setIsWorkTypeDropdownOpen(!isWorkTypeDropdownOpen);
                     }
@@ -116,8 +223,8 @@ const SkillsExperience = ({
                   Select Primary Skills
                 </span>
                 <span className={`dropdown-arrow ${isWorkTypeDropdownOpen ? 'open' : ''}`}>
-                  <IconChevronDown 
-                    size={16} 
+                  <IconChevronDown
+                    size={16}
                     className="chevron-icon"
                     style={{
                       transform: isWorkTypeDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -136,7 +243,7 @@ const SkillsExperience = ({
                         return filteredSkillsPrimary.map(skill => {
                         const isSelected = userSkills.primary_skills?.some(primarySkill => parseInt(primarySkill.skill_id) === skill.id);
                         const isAdditional = userSkills.additional_skills?.some(additionalSkill => parseInt(additionalSkill.skill_id) === skill.id);
-                        
+                       
                         return (
                           <div
                             key={skill.id}
@@ -186,14 +293,14 @@ const SkillsExperience = ({
                 </div>
               )}
             </div>
-            
+           
             {(userSkills.primary_skills?.length || 0) > 0 && (
               <div className="selected-skills">
                 {(userSkills.primary_skills || []).map(skill => (
                   <div key={skill.skill_id} className="skill-card primary-skill" onClick={() => handleSkillItemClick(skill, 'edit')}>
                       <div className="skill-header">
                         <span className="skill-name">{skill.skill_name}</span>
-                      <button 
+                      <button
                         className="remove-skill-btn"
                         onClick={(e) => {
                           e.stopPropagation();
@@ -224,25 +331,27 @@ const SkillsExperience = ({
             )}
           </div>
 
+
           <div className="skill-group">
             <label className="form-label">Additional Skills</label>
             <div className={`custom-dropdown ${isAdditionalSkillsDropdownOpen ? 'dropdown-open' : ''}`} ref={additionalSkillsDropdownRef}>
-              <div 
+              <div
                 className="dropdown-trigger"
                 onClick={async (e) => {
                   e.preventDefault();
                   e.stopPropagation();
                   console.log('Additional skills dropdown clicked, current state:', isAdditionalSkillsDropdownOpen);
-                  
+                 
                   try {
                     // Always fetch skills to ensure fresh data
                     console.log('Fetching skills from database...');
                     await fetchSkills();
-                    
+                   
                     // Toggle dropdown after skills are fetched
                     setIsAdditionalSkillsDropdownOpen(!isAdditionalSkillsDropdownOpen);
                   } catch (error) {
                     console.error('Error fetching skills:', error);
+                    message.error('Failed to load skills. Please try again.');
                     // Still toggle dropdown even if fetch fails
                     setIsAdditionalSkillsDropdownOpen(!isAdditionalSkillsDropdownOpen);
                   }
@@ -252,16 +361,17 @@ const SkillsExperience = ({
                     e.preventDefault();
                     e.stopPropagation();
                     console.log('Additional skills dropdown activated via keyboard');
-                    
+                   
                     try {
                       // Always fetch skills to ensure fresh data
                       console.log('Fetching skills from database...');
                       await fetchSkills();
-                      
+                     
                       // Toggle dropdown after skills are fetched
                       setIsAdditionalSkillsDropdownOpen(!isAdditionalSkillsDropdownOpen);
                     } catch (error) {
                       console.error('Error fetching skills:', error);
+                      message.error('Failed to load skills. Please try again.');
                       // Still toggle dropdown even if fetch fails
                       setIsAdditionalSkillsDropdownOpen(!isAdditionalSkillsDropdownOpen);
                     }
@@ -280,8 +390,8 @@ const SkillsExperience = ({
                   Select Additional Skills
                 </span>
                 <span className={`dropdown-arrow ${isAdditionalSkillsDropdownOpen ? 'open' : ''}`}>
-                  <IconChevronDown 
-                    size={16} 
+                  <IconChevronDown
+                    size={16}
                     className="chevron-icon"
                     style={{
                       transform: isAdditionalSkillsDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -300,7 +410,7 @@ const SkillsExperience = ({
                         return filteredSkillsAdditional.map(skill => {
                         const isSelected = userSkills.additional_skills?.some(userSkill => parseInt(userSkill.skill_id) === skill.id);
                         const isPrimary = userSkills.primary_skills?.some(primarySkill => parseInt(primarySkill.skill_id) === skill.id);
-                        
+                       
                         return (
                           <div
                             key={skill.id}
@@ -346,14 +456,14 @@ const SkillsExperience = ({
                 </div>
               )}
             </div>
-            
+           
             {userSkills.additional_skills.length > 0 && (
               <div className="selected-skills">
                 {userSkills.additional_skills.map(skill => (
                   <div key={skill.skill_id} className="skill-card additional-skill" onClick={() => handleSkillItemClick(skill, 'edit')}>
                       <div className="skill-header">
                         <span className="skill-name">{skill.skill_name}</span>
-                      <button 
+                      <button
                         className="remove-skill-btn"
                         onClick={(e) => {
                           e.stopPropagation();
@@ -386,21 +496,23 @@ const SkillsExperience = ({
         </div>
       </div>
 
+
       {showSkillModal && selectedSkill && (
         <div className="skill-details-modal">
           <div className="modal-overlay" onClick={() => setShowSkillModal(false)}></div>
           <div className="modal-content">
-            <div className="modal-header">
-              <h3>{selectedSkill.skill_name || selectedSkill.name}</h3>
-              <button className="close-btn" onClick={handleModalClose}>
-                <IconX size={20} />
-              </button>
-            </div>
             <div className="modal-body">
+              <div className="modal-header-inline">
+                <h3>{selectedSkill.skill_name || selectedSkill.name}</h3>
+                <button className="close-btn" onClick={handleModalClose}>
+                  <IconX size={20} />
+                </button>
+              </div>
+
               <div className="experience-section">
                 <label className="form-label">Experience Level <span className="required">*</span></label>
                 <p className="section-description">Select your experience level with this skill.</p>
-                <select 
+                <select
                   className="experience-select"
                   value={selectedSkill.experience || '0-11-months'}
                   onChange={(e) => {
@@ -423,35 +535,83 @@ const SkillsExperience = ({
                 <label className="form-label">Select Sub-Skills</label>
                 <p className="section-description">Choose the specific sub-skills that apply to your expertise.</p>
                 <div className="sub-skills-container">
-                  <div className="sub-skills-column">
-                    <h4 className="column-title">Available Sub-Skills</h4>
-                    {availableSubSkills.length > 0 ? (
-                      <div className="sub-skills-list">
-                        {availableSubSkills.map(subSkill => (
-                          <div key={subSkill} className="sub-skill-item">
-                            <span className="sub-skill-text">{subSkill}</span>
-                            <button
-                              className="btn btn-sm btn-outline"
-                              onClick={() => handleAddSubSkill(subSkill)}
-                              aria-label={`Add ${subSkill} to selected sub-skills`}
-                            >
-                              <IconPlus size={16} />
-                            </button>
-                          </div>
-                        ))}
+                  <div className="available-sub-skills-dropdown-menu">
+                    <div className={`custom-dropdown ${isAvailableSubSkillsDropdownOpen ? 'dropdown-open' : ''}`} ref={availableSubSkillsDropdownRef}>
+                      <div 
+                        className="dropdown-trigger"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log('Available sub-skills dropdown clicked, current state:', isAvailableSubSkillsDropdownOpen);
+                          console.log('Available sub-skills:', availableSubSkills);
+                          console.log('Available sub-skills length:', availableSubSkills.length);
+                          setIsAvailableSubSkillsDropdownOpen(!isAvailableSubSkillsDropdownOpen);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            console.log('Available sub-skills dropdown activated via keyboard');
+                            setIsAvailableSubSkillsDropdownOpen(!isAvailableSubSkillsDropdownOpen);
+                          } else if (e.key === 'Escape') {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setIsAvailableSubSkillsDropdownOpen(false);
+                          }
+                        }}
+                        tabIndex={0}
+                        role="button"
+                        aria-expanded={isAvailableSubSkillsDropdownOpen}
+                        aria-haspopup="listbox"
+                      >
+                        <span className="dropdown-value">
+                          Select Available Sub-Skills
+                        </span>
+                        <span className={`dropdown-arrow ${isAvailableSubSkillsDropdownOpen ? 'open' : ''}`}>
+                          <IconChevronDown
+                            size={16}
+                            className="chevron-icon"
+                            style={{
+                              transform: isAvailableSubSkillsDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                              transition: 'transform 0.3s ease'
+                            }}
+                          />
+                        </span>
                       </div>
-                    ) : (
-                      <div className="empty-state">
-                        <span className="empty-text">No available sub-skills</span>
+                      {isAvailableSubSkillsDropdownOpen && (
+                        <div className="dropdown-menu" style={{ display: 'block', position: 'absolute', zIndex: 1000 }}>
+                        <div className="dropdown-items">
+                          {availableSubSkills.length > 0 ? (
+                            availableSubSkills.map(subSkill => (
+                              <div 
+                                key={subSkill} 
+                                className="dropdown-item"
+                                onClick={() => {
+                                  handleAddSubSkill(subSkill);
+                                  setIsAvailableSubSkillsDropdownOpen(false);
+                                }}
+                                style={{ cursor: 'pointer' }}
+                              >
+                                <span className="item-text">{subSkill}</span>
+                              </div>
+                            ))
+                          ) : (
+                            <div className="dropdown-item disabled">
+                              <span className="item-text">No available sub-skills</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    )}
+                      )}
+                    </div>
                   </div>
-                  <div className="sub-skills-column">
-                    <h4 className="column-title">Selected Sub-Skills</h4>
+                  
+                  <div className="selected-sub-skills-section">
+                    <h4 className="section-title">Selected Sub-Skills</h4>
                     {selectedSubSkills.length > 0 ? (
-                      <div className="sub-skills-list">
+                      <div className="selected-sub-skills-list">
                         {selectedSubSkills.map(subSkill => (
-                          <div key={subSkill} className="sub-skill-item selected">
+                          <div key={subSkill} className="selected-sub-skill-item">
                             <span className="sub-skill-text">{subSkill}</span>
                             <button
                               className="btn btn-sm btn-outline"
@@ -471,10 +631,11 @@ const SkillsExperience = ({
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="modal-footer">
-              <button className="btn btn-secondary" onClick={() => setShowSkillModal(false)}>Cancel</button>
-              <button className="btn btn-primary" onClick={handleSaveSkill}>Add Skill</button>
+
+              <div className="modal-actions">
+                <button className="btn btn-secondary" onClick={() => setShowSkillModal(false)}>Cancel</button>
+                <button className="btn btn-primary" onClick={handleSaveSkill}>Add Skill</button>
+              </div>
             </div>
           </div>
         </div>

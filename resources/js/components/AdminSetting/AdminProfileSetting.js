@@ -403,6 +403,15 @@ const AdminProfileSetting = () => {
           setIsEditingProfile(false);
         }
       } else {
+        // Handle 404 - User not found (stale data)
+        if (response.status === 404) {
+          console.error("User not found - clearing stale data");
+          const { clearStaleUserData } = await import('../../utils/profileImageUtils.js');
+          clearStaleUserData();
+          message.error("Your session has expired. Please log in again.");
+          return;
+        }
+        
         try {
           const errorData = await response.json();
           message.error(`Failed to update profile: ${errorData.message || 'Please try again.'}`);
@@ -830,3 +839,5 @@ const AdminProfileSetting = () => {
 };
 
 export default AdminProfileSetting;
+
+

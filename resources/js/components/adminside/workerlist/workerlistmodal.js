@@ -1,10 +1,109 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Select, Dropdown, Menu } from "antd";
 import { IconX, IconChevronDown, IconPlus, IconMinus } from "@tabler/icons-react";
+import { TiDeleteOutline } from "react-icons/ti";
 import "./../../../../sass/components/workermodal.scss";
 import axios from "axios";
 
 const { Option } = Select;
+
+// Custom Select wrapper to handle cleanup
+const SafeSelect = ({ children, ...props }) => {
+  const selectRef = useRef(null);
+  const isMountedRef = useRef(true);
+  const timeoutRefs = useRef([]);
+  
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+      
+      // Clear all timeouts
+      timeoutRefs.current.forEach(timeoutId => {
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+      });
+      timeoutRefs.current = [];
+      
+      // Force cleanup when component unmounts
+      try {
+        // Clean up any ResizeObserver instances
+        if (window.ResizeObserver) {
+          const observers = document.querySelectorAll('[data-resize-observer]');
+          observers.forEach(observer => {
+            if (observer._resizeObserver) {
+              observer._resizeObserver.disconnect();
+            }
+          });
+        }
+        
+        // Force close any open dropdowns
+        const dropdowns = document.querySelectorAll('.ant-select-dropdown');
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.add('ant-select-dropdown-hidden');
+          dropdown.style.pointerEvents = 'none';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.display = 'none';
+        });
+        
+        // Clean up select components
+        const selectComponents = document.querySelectorAll('.ant-select');
+        selectComponents.forEach(select => {
+          const trigger = select.querySelector('.ant-select-selector');
+          if (trigger) {
+            trigger.classList.remove('ant-select-focused');
+            trigger.classList.remove('ant-select-open');
+          }
+        });
+      } catch (error) {
+        console.warn('SafeSelect: Error in cleanup:', error);
+      }
+    };
+  }, []);
+  
+  return (
+    <Select
+      ref={selectRef}
+      {...props}
+      onOpenChange={(open) => {
+        if (!isMountedRef.current) return;
+        
+        try {
+          if (!open) {
+            // Force close when dropdown is hidden
+            const timeoutId = setTimeout(() => {
+              if (isMountedRef.current) {
+                try {
+                  const dropdown = document.querySelector('.ant-select-dropdown');
+                  if (dropdown) {
+                    dropdown.classList.add('ant-select-dropdown-hidden');
+                    dropdown.style.pointerEvents = 'none';
+                    dropdown.style.visibility = 'hidden';
+                    dropdown.style.display = 'none';
+                  }
+                } catch (error) {
+                  console.warn('SafeSelect: Error closing dropdown:', error);
+                }
+              }
+            }, 10);
+            
+            // Store timeout for cleanup
+            timeoutRefs.current.push(timeoutId);
+          }
+          
+          if (props.onOpenChange) {
+            props.onOpenChange(open);
+          }
+        } catch (error) {
+          console.warn('SafeSelect: Error in onOpenChange:', error);
+        }
+      }}
+    >
+      {children}
+    </Select>
+  );
+};
 
 const credentialOptions = [
   { value: "Resume/CV", label: "Resume / Curriculum Vitae (CV)" },
@@ -25,7 +124,53 @@ const experienceOptions = [
   { value: "1-2-years", label: "1 to 2 years" },
   { value: "2-5-years", label: "2 to 5 years" },
   { value: "5-10-years", label: "5 to 10 years" },
+  { value: "+-10-years", label: "+10 years" },
 ];
+
+// Function to format working days in a structured way
+const formatWorkingDays = (days) => {
+  if (!days || days.length === 0) return '';
+  
+  const dayOrder = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+  const dayNames = {
+    'monday': 'Monday',
+    'tuesday': 'Tuesday', 
+    'wednesday': 'Wednesday',
+    'thursday': 'Thursday',
+    'friday': 'Friday',
+    'saturday': 'Saturday',
+    'sunday': 'Sunday'
+  };
+  
+  // Sort days according to the week order (Monday first)
+  const sortedDays = days
+    .map(day => day.toLowerCase())
+    .sort((a, b) => dayOrder.indexOf(a) - dayOrder.indexOf(b));
+  
+  if (sortedDays.length === 0) return '';
+  if (sortedDays.length === 1) return dayNames[sortedDays[0]];
+  
+  // Group consecutive days
+  const ranges = [];
+  let start = 0;
+  
+  for (let i = 1; i <= sortedDays.length; i++) {
+    if (i === sortedDays.length || dayOrder.indexOf(sortedDays[i]) !== dayOrder.indexOf(sortedDays[i-1]) + 1) {
+      if (i - start === 1) {
+        // Single day
+        ranges.push(dayNames[sortedDays[start]]);
+      } else {
+        // Range of days
+        const startDay = dayNames[sortedDays[start]];
+        const endDay = dayNames[sortedDays[i-1]];
+        ranges.push(`${startDay}-${endDay}`);
+      }
+      start = i;
+    }
+  }
+  
+  return ranges.join(', ');
+};
 
 const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes, skills }) => {
   const [formData, setFormData] = useState({
@@ -45,7 +190,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     profile_img: null,
     work_type: "",
     hours_per_day: 4,
-    monthly_salary: "",
     preferred_working_hours: [],
     bio: "",
       skills_id: [],
@@ -54,12 +198,14 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       is_reviewed: "",
   });
   const [errors, setErrors] = useState({});
+  const preferredDaysRef = useRef(null);
   const [apiError, setApiError] = useState("");
-  const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null });
-  const [selectedSkill, setSelectedSkill] = useState(null);
-  const [showSkillModal, setShowSkillModal] = useState(false);
-  const [selectedSubSkills, setSelectedSubSkills] = useState([]);
+  const [newCredential, setNewCredential] = useState({ credentials_name: "", credentials_photo: null, credentials_doc: null });
   const [availableSubSkills, setAvailableSubSkills] = useState([]);
+  const [newSkill, setNewSkill] = useState({ skill_id: "", sub_skills: [], experience: "" });
+  const [showSubSkillsDropdown, setShowSubSkillsDropdown] = useState(false);
+  const [showExperienceDropdown, setShowExperienceDropdown] = useState(false);
+  const [forceCloseAdditionalDropdown, setForceCloseAdditionalDropdown] = useState(false);
   const [searchTermPrimary, setSearchTermPrimary] = useState("");
   const [searchTermAdditional, setSearchTermAdditional] = useState("");
   const [filteredSkillsPrimary, setFilteredSkillsPrimary] = useState([]);
@@ -68,8 +214,94 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
   const credentialFileRef = useRef(null);
   const abortControllerRef = useRef(new AbortController());
   const isMountedRef = useRef(true);
+  const timeoutRefs = useRef([]);
+  const selectRefs = useRef({});
+  // Preferred working days native select (no external ref needed)
 
-  // Fetch skills from the API
+  // Force close all dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMountedRef.current) {
+        // Check if click is outside any select dropdown
+        const isClickOnSelect = event.target.closest('.ant-select') || 
+                                event.target.closest('.ant-select-dropdown') ||
+                                event.target.closest('.ant-select-item');
+        
+        if (!isClickOnSelect) {
+          // Force close all dropdowns
+          const dropdowns = document.querySelectorAll('.ant-select-dropdown');
+          dropdowns.forEach(dropdown => {
+            dropdown.classList.add('ant-select-dropdown-hidden');
+            dropdown.style.pointerEvents = 'none';
+            dropdown.style.visibility = 'hidden';
+            dropdown.style.display = 'none';
+          });
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Additional cleanup for Ant Design components
+  useEffect(() => {
+    return () => {
+      // Force cleanup of all Ant Design components
+      if (isMountedRef.current) {
+        isMountedRef.current = false;
+      }
+      
+      // Remove all Ant Design dropdowns and overlays
+      const antdElements = document.querySelectorAll('.ant-select-dropdown, .ant-dropdown, .ant-tooltip, .ant-popover');
+      antdElements.forEach(element => {
+        if (element.parentNode) {
+          element.parentNode.removeChild(element);
+        }
+      });
+      
+      // Clear any remaining ResizeObserver instances
+      if (window.ResizeObserver) {
+        const observers = document.querySelectorAll('[data-resize-observer]');
+        observers.forEach(observer => {
+          if (observer._resizeObserver) {
+            observer._resizeObserver.disconnect();
+          }
+        });
+      }
+    };
+  }, []);
+
+  // Specific cleanup for experience dropdown to prevent memory leaks
+  useEffect(() => {
+    return () => {
+      // Clean up experience dropdown specifically
+      const experienceDropdown = document.querySelector('.skill-experience-flow-select .ant-select-dropdown');
+      if (experienceDropdown) {
+        experienceDropdown.classList.add('ant-select-dropdown-hidden');
+        experienceDropdown.style.pointerEvents = 'none';
+        experienceDropdown.style.visibility = 'hidden';
+        experienceDropdown.style.display = 'none';
+      }
+      
+      // Clean up any ResizeObserver instances related to experience dropdown
+      if (window.ResizeObserver) {
+        const experienceSelect = document.querySelector('.skill-experience-flow-select');
+        if (experienceSelect) {
+          const observer = experienceSelect._resizeObserver;
+          if (observer) {
+            observer.disconnect();
+          }
+        }
+      }
+    };
+  }, [showExperienceDropdown]);
+
+  // Use skills from props or fetch from API
+  const [skillsState, setSkillsState] = useState(skills || []);
+  
   const fetchSkills = async () => {
     if (!isMountedRef.current) return;
     try {
@@ -81,6 +313,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         sub_skills: Array.isArray(skill.sub_skills) ? skill.sub_skills : [],
       }));
       if (isMountedRef.current) {
+        setSkillsState(fetchedSkills);
         setFilteredSkillsPrimary(fetchedSkills);
         setFilteredSkillsAdditional(fetchedSkills);
       }
@@ -92,10 +325,18 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     }
   };
 
+
   useEffect(() => {
     isMountedRef.current = true;
     abortControllerRef.current = new AbortController();
     fetchSkills();
+    
+    // Initialize filtered skills with props if available
+    if (skills && skills.length > 0) {
+      setSkillsState(skills);
+      setFilteredSkillsPrimary(skills);
+      setFilteredSkillsAdditional(skills);
+    }
 
     if (isEdit && initialData) {
       // Handle skills_id structure - it can be an object with primary_skills and additional_skills
@@ -159,7 +400,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
           profile_img: initialData.profile?.profile_img || null,
           work_type: initialData.worker?.work_type || "",
           hours_per_day: initialData.worker?.hours_per_day || 4,
-          monthly_salary: initialData.worker?.monthly_salary || "",
           preferred_working_hours: preferredWorkingHours,
           bio: initialData.worker?.bio || "",
           skills_id: initialSkills,
@@ -183,23 +423,60 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     return () => {
       isMountedRef.current = false;
       abortControllerRef.current.abort();
+      // Clear all timeouts
+      timeoutRefs.current.forEach(timeoutId => clearTimeout(timeoutId));
+      timeoutRefs.current = [];
+      
+      // Force close all dropdowns on unmount
+      const dropdowns = document.querySelectorAll('.ant-select-dropdown');
+      dropdowns.forEach(dropdown => {
+        dropdown.classList.add('ant-select-dropdown-hidden');
+        dropdown.style.pointerEvents = 'none';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.display = 'none';
+      });
+      
+      // Force cleanup of all Ant Design Select components
+      const selectComponents = document.querySelectorAll('.ant-select');
+      selectComponents.forEach(select => {
+        // Force close any open dropdowns
+        const trigger = select.querySelector('.ant-select-selector');
+        if (trigger) {
+          trigger.classList.remove('ant-select-focused');
+          trigger.classList.remove('ant-select-open');
+        }
+        
+        // Remove any event listeners
+        const clonedSelect = select.cloneNode(true);
+        select.parentNode.replaceChild(clonedSelect, select);
+      });
+      
+      // Clear any remaining observers
+      if (window.ResizeObserver) {
+        const observers = document.querySelectorAll('[data-resize-observer]');
+        observers.forEach(observer => {
+          if (observer._resizeObserver) {
+            observer._resizeObserver.disconnect();
+          }
+        });
+      }
     };
-  }, [isEdit, initialData]);
+  }, [isEdit, initialData, skills]);
 
   useEffect(() => {
     if (!isMountedRef.current) return;
     if (searchTermPrimary.trim() === "") {
-      setFilteredSkillsPrimary(skills || []);
+      setFilteredSkillsPrimary(skillsState || []);
     } else {
       const searchLower = searchTermPrimary.toLowerCase().trim();
-      const filtered = (skills || []).filter((skill) => skill.name.toLowerCase().includes(searchLower));
+      const filtered = (skillsState || []).filter((skill) => skill.name.toLowerCase().includes(searchLower));
       setFilteredSkillsPrimary(filtered);
     }
-  }, [searchTermPrimary, skills]);
+  }, [searchTermPrimary, skillsState]);
 
   useEffect(() => {
     if (!isMountedRef.current) return;
-    let skillsToFilter = skills || [];
+    let skillsToFilter = skillsState || [];
     if (formData.skills_id[0]?.skill_id) {
       skillsToFilter = skillsToFilter.filter((s) => String(s.id) !== formData.skills_id[0].skill_id);
     }
@@ -210,150 +487,301 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       const filtered = skillsToFilter.filter((skill) => skill.name.toLowerCase().includes(searchLower));
       setFilteredSkillsAdditional(filtered);
     }
-  }, [searchTermAdditional, skills, formData.skills_id]);
+  }, [searchTermAdditional, skillsState, formData.skills_id]);
+
+  // Close preferred working days dropdown when clicking outside
+  // removed outside click handler (no custom dropdown anymore)
 
   const handlePrimarySkillSelect = (value) => {
     if (!isMountedRef.current) return;
-    const skill = skills.find((s) => String(s.id) === value);
+    
+    // If value is null/undefined, clear the primary skill
+    if (!value) {
+      if (isMountedRef.current) {
+        setFormData((prev) => ({
+          ...prev,
+          skills_id: prev.skills_id.slice(1) // Remove the first skill (primary) and keep additional skills
+        }));
+        setNewSkill({ skill_id: "", sub_skills: [], experience: "" });
+        setAvailableSubSkills([]);
+        setShowSubSkillsDropdown(false);
+        setShowExperienceDropdown(false);
+        setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+      }
+      return;
+    }
+    
+    const skill = skillsState.find((s) => String(s.id) === value);
     if (!skill) {
       if (isMountedRef.current) {
         setErrors((prev) => ({ ...prev, skills_id: "Invalid skill selected. Please try again." }));
       }
       return;
     }
-    if (formData.skills_id.some((existing) => existing.skill_id === value)) {
+    
+    // Check if this skill is already selected as additional skill
+    const isAlreadyAdditional = formData.skills_id.slice(1).some((existing) => existing.skill_id === value);
+    if (isAlreadyAdditional) {
       if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, skills_id: "This skill has already been added." }));
+        setErrors((prev) => ({ ...prev, skills_id: "This skill is already selected as an additional skill. Please remove it first." }));
       }
       return;
     }
+    
     if (isMountedRef.current) {
-      setSelectedSkill({
-        ...skill,
-        experience: '0-11-months',
-        hourly_rate: ''
+      setNewSkill({
+        skill_id: value,
+        skill_name: skill.name,
+        sub_skills: [],
+        experience: ""
       });
       setAvailableSubSkills(skill.sub_skills || []);
-      setSelectedSubSkills([]);
-      setShowSkillModal(true);
+      setShowSubSkillsDropdown(true);
+      setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+    }
+  };
+
+  const handleSubSkillsSelect = (values) => {
+    if (!isMountedRef.current) return;
+      if (isMountedRef.current) {
+      setNewSkill(prev => ({ ...prev, sub_skills: values }));
+      setShowSubSkillsDropdown(false);
+      setShowExperienceDropdown(true);
+      setErrors((prev) => ({ ...prev, sub_skills: "" }));
+    }
+  };
+
+  const handleExperienceSelect = (value) => {
+    if (!isMountedRef.current) return;
+    console.log('Experience selected:', value);
+    
+      if (isMountedRef.current) {
+      setNewSkill(prev => {
+        const updated = { ...prev, experience: value };
+        console.log('Updated skill with experience:', updated);
+        
+        // Use requestAnimationFrame to ensure DOM updates are complete
+        if (isMountedRef.current) {
+          const timeoutId = setTimeout(() => {
+            if (isMountedRef.current) {
+          addSkillToFormWithSkill(updated);
+            }
+        }, 0);
+          timeoutRefs.current.push(timeoutId);
+        }
+        return updated;
+      });
+      
+      // Close experience dropdown after selection
+      if (isMountedRef.current) {
+      setShowExperienceDropdown(false);
+      }
+    }
+  };
+
+  const addSkillToForm = () => {
+    if (!isMountedRef.current) return;
+    console.log('Adding skill to form:', newSkill);
+    if (isMountedRef.current) {
+      setFormData((prev) => {
+        // For primary skill, always replace the first skill (index 0)
+        const updatedSkills = [newSkill, ...prev.skills_id.slice(1)];
+        console.log('Updated skills array:', updatedSkills);
+          return {
+            ...prev,
+          skills_id: updatedSkills,
+        };
+      });
+      setNewSkill({ skill_id: "", sub_skills: [], experience: "" });
+      setAvailableSubSkills([]);
+      setShowSubSkillsDropdown(false);
+      setShowExperienceDropdown(false);
+      setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+    }
+  };
+
+  const addSkillToFormWithSkill = (skillToAdd) => {
+    if (!isMountedRef.current) return;
+    console.log('Adding skill to form with skill:', skillToAdd);
+    if (isMountedRef.current) {
+      setFormData((prev) => {
+        // Check if this is a primary skill (no existing primary) or additional skill
+        const hasPrimarySkill = prev.skills_id[0]?.skill_id;
+        const isPrimarySkill = !hasPrimarySkill || prev.skills_id[0].skill_id === skillToAdd.skill_id;
+        
+        if (isPrimarySkill) {
+          // For primary skill, always replace the first skill (index 0)
+          const updatedSkills = [skillToAdd, ...prev.skills_id.slice(1)];
+          console.log('Updated skills array with primary skill:', updatedSkills);
+          return {
+            ...prev,
+          skills_id: updatedSkills,
+          };
+        } else {
+          // For additional skill, update existing or add new
+          const existingIndex = prev.skills_id.findIndex(skill => skill.skill_id === skillToAdd.skill_id);
+          let updatedSkills;
+          
+          if (existingIndex > 0) {
+            // Update existing additional skill
+            updatedSkills = [...prev.skills_id];
+            updatedSkills[existingIndex] = skillToAdd;
+            console.log('Updated existing additional skill:', updatedSkills);
+          } else {
+            // Add new additional skill
+            updatedSkills = [...prev.skills_id, skillToAdd];
+            console.log('Added new additional skill:', updatedSkills);
+          }
+          
+          return {
+            ...prev,
+            skills_id: updatedSkills,
+          };
+        }
+      });
+      setNewSkill({ skill_id: "", sub_skills: [], experience: "" });
+      setAvailableSubSkills([]);
+      setShowSubSkillsDropdown(false);
+      setShowExperienceDropdown(false);
+      setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+    }
+  };
+
+  const cancelSkillSelection = () => {
+    if (!isMountedRef.current) return;
+    if (isMountedRef.current) {
+      setNewSkill({ skill_id: "", sub_skills: [], experience: "" });
+      setShowSubSkillsDropdown(false);
+      setShowExperienceDropdown(false);
+      setAvailableSubSkills([]);
       setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
     }
   };
 
   const handleAdditionalSkillsSelect = (values) => {
     if (!isMountedRef.current) return;
-    const newSkillIds = values.filter((id) => !formData.skills_id.some((skill) => skill.skill_id === id));
-    if (newSkillIds.length === 0) {
-      if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, skills_id: "All selected skills are already added or invalid." }));
-      }
-      return;
-    }
-    const newSkills = newSkillIds.map((id) => skills.find((s) => String(s.id) === id)).filter(Boolean);
-    if (newSkills.length > 0) {
-      if (isMountedRef.current) {
-        setSelectedSkill({
-          ...newSkills[0],
-          experience: '0-11-months',
-          hourly_rate: ''
-        });
-        setAvailableSubSkills(newSkills[0].sub_skills || []);
-        setSelectedSubSkills([]);
-        setShowSkillModal(true);
-        setErrors((prev) => ({ ...prev, skills_id: "" }));
-      }
-    } else {
-      if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, skills_id: "Invalid additional skills selected." }));
-      }
-    }
-  };
-
-  const handleAddSubSkill = (subSkill) => {
-    if (!isMountedRef.current) return;
-    if (selectedSubSkills.includes(subSkill)) {
-      if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, sub_skills: "This sub-skill is already selected." }));
-      }
-      return;
-    }
-    if (isMountedRef.current) {
-      setSelectedSubSkills((prev) => [...prev, subSkill]);
-      setAvailableSubSkills((prev) => prev.filter((s) => s !== subSkill));
-      setErrors((prev) => ({ ...prev, sub_skills: "" }));
-    }
-  };
-
-  const handleRemoveSubSkill = (subSkill) => {
-    if (!isMountedRef.current) return;
-    if (isMountedRef.current) {
-      setSelectedSubSkills((prev) => prev.filter((s) => s !== subSkill));
-      setAvailableSubSkills((prev) => [...prev, subSkill].sort());
-    }
-  };
-
-  const handleSaveSkill = () => {
-    if (!isMountedRef.current || !selectedSkill) return;
-    if (selectedSkill.sub_skills.length > 0 && selectedSubSkills.length === 0) {
-      if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, sub_skills: "Please select at least one sub-skill." }));
-      }
-      return;
-    }
-    const newSkill = {
-      skill_id: String(selectedSkill.id),
-      skill_name: selectedSkill.name,
-      sub_skills: selectedSubSkills,
-      experience: selectedSkill.experience || '0-11-months',
-      hourly_rate: selectedSkill.hourly_rate || '',
-    };
-    if (isMountedRef.current) {
-      setFormData((prev) => {
-        const isPrimary = prev.skills_id[0]?.skill_id === newSkill.skill_id;
-        const skillIndex = prev.skills_id.findIndex((s) => s.skill_id === newSkill.skill_id);
-        if (isPrimary) {
-          // Update primary skill at index 0
-          return {
-            ...prev,
-            skills_id: [newSkill, ...prev.skills_id.slice(1)],
-          };
-        } else if (skillIndex !== -1) {
-          // Update additional skill in place
-          return {
-            ...prev,
-            skills_id: [
-              ...prev.skills_id.slice(0, skillIndex),
-              newSkill,
-              ...prev.skills_id.slice(skillIndex + 1),
-            ],
-          };
-        } else {
-          // Add new skill (primary if no primary exists, otherwise additional)
-          const isPrimaryEmpty = !prev.skills_id[0] || prev.skills_id[0].skill_id === "";
-          return {
-            ...prev,
-            skills_id: isPrimaryEmpty ? [newSkill, ...prev.skills_id.slice(1)] : [...prev.skills_id, newSkill],
-          };
+    
+    // Get currently selected additional skills
+    const currentAdditionalSkills = formData.skills_id.slice(1).map(skill => skill.skill_id);
+    
+    // Find the newly added skill (if any)
+    const newSkillId = values.find(id => !currentAdditionalSkills.includes(id));
+    
+    if (newSkillId) {
+      // Check if this skill is already selected as primary skill
+      const isPrimarySkill = formData.skills_id[0]?.skill_id === newSkillId;
+      if (isPrimarySkill) {
+        if (isMountedRef.current) {
+          setErrors((prev) => ({ ...prev, skills_id: "This skill is already selected as the primary skill." }));
         }
-      });
-      setShowSkillModal(false);
-      setSelectedSkill(null);
-      setAvailableSubSkills([]);
-      setSelectedSubSkills([]);
-      setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
-      setApiError("");
+        return;
+      }
+      
+      const skill = skillsState.find((s) => String(s.id) === newSkillId);
+      if (!skill) {
+      if (isMountedRef.current) {
+          setErrors((prev) => ({ ...prev, skills_id: "Invalid skill selected. Please try again." }));
+      }
+      return;
+    }
+    if (isMountedRef.current) {
+        setNewSkill({
+          skill_id: newSkillId,
+          skill_name: skill.name,
+          sub_skills: [],
+          experience: ""
+        });
+        setAvailableSubSkills(skill.sub_skills || []);
+        setShowSubSkillsDropdown(true);
+        setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+      }
     }
   };
 
-  const handleModalClose = () => {
+  // New function to handle multiple additional skills selection
+  const handleMultipleAdditionalSkillsSelect = (values) => {
     if (!isMountedRef.current) return;
-    if (isMountedRef.current) {
-      setShowSkillModal(false);
-      setSelectedSkill(null);
-      setAvailableSubSkills([]);
-      setSelectedSubSkills([]);
+    
+    // Get currently selected additional skills
+    const currentAdditionalSkills = formData.skills_id.slice(1).map(skill => skill.skill_id);
+    
+    // Find all newly added skills
+    const newSkillIds = values.filter(id => !currentAdditionalSkills.includes(id));
+    
+    if (newSkillIds.length > 0) {
+      // Check if any of the new skills are already selected as primary skill
+      const isAnyPrimarySkill = newSkillIds.some(id => formData.skills_id[0]?.skill_id === id);
+      if (isAnyPrimarySkill) {
+        if (isMountedRef.current) {
+          setErrors((prev) => ({ ...prev, skills_id: "One or more skills are already selected as the primary skill." }));
+        }
+        return;
+      }
+      
+      // Add all new skills to the form data immediately
+      const newSkills = newSkillIds.map(skillId => {
+        const skill = skillsState.find((s) => String(s.id) === skillId);
+        return {
+          skill_id: skillId,
+          skill_name: skill?.name || 'Unknown Skill',
+          sub_skills: [],
+          experience: "0-11-months" // Default experience
+        };
+      });
+      
+      if (isMountedRef.current) {
+        setFormData((prev) => {
+          const updatedSkills = [...prev.skills_id.slice(0, 1), ...prev.skills_id.slice(1), ...newSkills];
+          console.log('Recording additional skills:', newSkills);
+          console.log('Updated skills array:', updatedSkills);
+          return {
+            ...prev,
+            skills_id: updatedSkills
+          };
+        });
+        
+        // Force close the additional skills dropdown immediately
+        setForceCloseAdditionalDropdown(true);
+        const timeoutId = setTimeout(() => {
+          if (isMountedRef.current) {
+            setForceCloseAdditionalDropdown(false);
+            const dropdown = document.querySelector('.additional-skills-select .ant-select-dropdown');
+            if (dropdown) {
+              dropdown.classList.add('ant-select-dropdown-hidden');
+              dropdown.style.pointerEvents = 'none';
+              dropdown.style.visibility = 'hidden';
+              dropdown.style.display = 'none';
+            }
+          }
+        }, 50);
+        timeoutRefs.current.push(timeoutId);
+        
+        // Process the first new skill for detailed sub-skills and experience selection
+        const firstNewSkillId = newSkillIds[0];
+        const skill = skillsState.find((s) => String(s.id) === firstNewSkillId);
+        if (skill) {
+          setNewSkill({
+            skill_id: firstNewSkillId,
+            skill_name: skill.name,
+            sub_skills: [],
+            experience: ""
+          });
+          setAvailableSubSkills(skill.sub_skills || []);
+          
+          // Show sub-skills dropdown after a short delay
+          const showSubSkillsTimeout = setTimeout(() => {
+            if (isMountedRef.current) {
+              setShowSubSkillsDropdown(true);
+            }
+          }, 100);
+          timeoutRefs.current.push(showSubSkillsTimeout);
+        }
+        
+        setErrors((prev) => ({ ...prev, skills_id: "", sub_skills: "" }));
+      }
     }
   };
+
 
   const handleInputChange = (e, field) => {
     if (!isMountedRef.current) return;
@@ -384,14 +812,19 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       setFormData((prev) => {
         const newData = { ...prev, [field]: value };
         
-        // Auto-set hours per day based on work type
+        // Auto-set hours per day and preferred working days based on work type
         if (field === "work_type") {
           if (value === "full-time") {
             newData.hours_per_day = 8;
+            newData.preferred_working_hours = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
           } else if (value === "part-time") {
             newData.hours_per_day = 4;
-          } else if (value === "one-time-job") {
+            // Clear preferred working days for part-time to let user choose
+            newData.preferred_working_hours = [];
+          } else if (value === "one-time") {
             newData.hours_per_day = 1;
+            // Clear preferred working days for one-time to let user choose
+            newData.preferred_working_hours = [];
           }
         }
         
@@ -405,6 +838,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
   const handleNewCredentialChange = (e, field) => {
     if (!isMountedRef.current) return;
     const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
+    
     if (field === "credentials_photo" && value) {
       if (
         ![
@@ -418,7 +852,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         if (isMountedRef.current) {
           setErrors((prev) => ({
             ...prev,
-            new_credential_photo: "Credential must be PDF, Word, JPG, or PNG.",
+            new_credential_photo: "Credential photo must be PDF, Word, JPG, or PNG.",
           }));
         }
         return;
@@ -427,15 +861,48 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         if (isMountedRef.current) {
           setErrors((prev) => ({
             ...prev,
-            new_credential_photo: "Credential file must not exceed 2 MB.",
+            new_credential_photo: "Credential photo must not exceed 2 MB.",
           }));
         }
         return;
       }
     }
+    
+    if (field === "credentials_doc" && value) {
+      if (
+        ![
+          "application/pdf",
+          "application/msword",
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        ].includes(value.type)
+      ) {
+        if (isMountedRef.current) {
+          setErrors((prev) => ({
+            ...prev,
+            new_credential_doc: "Credential document must be PDF or Word document.",
+          }));
+        }
+        return;
+      }
+      if (value.size > 2048 * 1024) {
+        if (isMountedRef.current) {
+          setErrors((prev) => ({
+            ...prev,
+            new_credential_doc: "Credential document must not exceed 2 MB.",
+          }));
+        }
+        return;
+      }
+    }
+    
     if (isMountedRef.current) {
       setNewCredential((prev) => ({ ...prev, [field]: value }));
-      setErrors((prev) => ({ ...prev, new_credential_name: "", new_credential_photo: "" }));
+      setErrors((prev) => ({ 
+        ...prev, 
+        new_credential_name: "", 
+        new_credential_photo: "",
+        new_credential_doc: ""
+      }));
     }
   };
 
@@ -447,9 +914,9 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       }
       return;
     }
-    if (!newCredential.credentials_photo) {
+    if (!newCredential.credentials_photo && !newCredential.credentials_doc) {
       if (isMountedRef.current) {
-        setErrors((prev) => ({ ...prev, new_credential_photo: "Please upload a credential file." }));
+        setErrors((prev) => ({ ...prev, new_credential_photo: "Please upload a credential file (photo or document)." }));
       }
       return;
     }
@@ -458,8 +925,13 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         ...prev,
         credentials: [...prev.credentials, newCredential],
       }));
-      setNewCredential({ credentials_name: "", credentials_photo: null });
-      setErrors((prev) => ({ ...prev, new_credential_name: "", new_credential_photo: "" }));
+      setNewCredential({ credentials_name: "", credentials_photo: null, credentials_doc: null });
+      setErrors((prev) => ({ 
+        ...prev, 
+        new_credential_name: "", 
+        new_credential_photo: "",
+        new_credential_doc: ""
+      }));
       if (credentialFileRef.current) {
         credentialFileRef.current.value = "";
       }
@@ -476,6 +948,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       setErrors((prev) => ({ ...prev, credentials: "" }));
     }
   };
+
 
   const removeProfileImg = () => {
     if (!isMountedRef.current) return;
@@ -503,8 +976,14 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     } else if (formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
       newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit.";
     }
-    if (!formData.gender_id) newErrors.gender_id = "Gender is required.";
+    // Gender is optional - removed required validation
     if (!formData.work_type) newErrors.work_type = "Work type is required.";
+    
+    // Validate hours per day
+    if (!formData.hours_per_day || formData.hours_per_day < 1 || formData.hours_per_day > 24) {
+      newErrors.hours_per_day = "Hours per day must be between 1 and 24.";
+    }
+    
     if (formData.contact_number && !/^\+?[\d\s-]{7,20}$/.test(formData.contact_number)) {
       newErrors.contact_number = "Contact number must be 7-20 digits, spaces, or hyphens.";
     }
@@ -528,12 +1007,11 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     submitData.append("gender_id", formData.gender_id || "");
     submitData.append("work_type", formData.work_type || "");
     submitData.append("hours_per_day", formData.hours_per_day || "");
-    submitData.append("monthly_salary", formData.monthly_salary || "");
-    submitData.append("preferred_working_hours", JSON.stringify(formData.preferred_working_hours || []));
+    submitData.append("preferred_working_days", JSON.stringify(formData.preferred_working_hours || []));
     submitData.append("bio", formData.bio || "");
     submitData.append("role_id", formData.role_id);
     submitData.append("skills_id", JSON.stringify(formData.skills_id || []));
-    submitData.append("is_reviewed", formData.is_reviewed || "");
+    submitData.append("is_reviewed", formData.is_reviewed || "TO BE REVIEWED");
     if (isEdit) {
       submitData.append("_method", "PUT");
     }
@@ -562,6 +1040,9 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         if (cred.credentials_photo instanceof File) {
           submitData.append(`credentials[${index}][credentials_photo]`, cred.credentials_photo);
         }
+        if (cred.credentials_doc instanceof File) {
+          submitData.append(`credentials[${index}][credentials_doc]`, cred.credentials_doc);
+        }
       });
     }
 
@@ -589,7 +1070,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
 
   const isGendersLoaded = Array.isArray(genders);
   const isSuffixesLoaded = Array.isArray(suffixes);
-  const isSkillsLoaded = Array.isArray(skills);
+  const isSkillsLoaded = Array.isArray(skillsState) && skillsState.length > 0;
   const isImageFile = (path) => /\.(jpg|jpeg|png)$/i.test(path);
 
   const skillMenu = (skill) => ({
@@ -599,7 +1080,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         label: "Edit",
         onClick: () => {
           if (!isMountedRef.current) return;
-          const foundSkill = skills.find((s) => String(s.id) === String(skill.skill_id));
+          const foundSkill = skillsState.find((s) => String(s.id) === String(skill.skill_id));
           if (foundSkill) {
             setSelectedSkill({
               ...foundSkill,
@@ -639,7 +1120,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         ) : (
           <form className="worker-modal-form" onSubmit={handleSubmit}>
             <div className="worker-modal-content">
-              <div className="form-section">
+              <div className="form-section worker-modal-form-personal-info">
                 <h3>Personal Information</h3>
                 <div className="form-row">
                   <div className="form-group">
@@ -720,7 +1201,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="gender_id">Gender <span className="required">*</span></label>
+                    <label htmlFor="gender_id">Gender</label>
                     <select
                       id="gender_id"
                       value={formData.gender_id || ""}
@@ -785,7 +1266,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                   </div>
                 </div>
               </div>
-              <div className="form-section">
+              <div className="form-section worker-modal-form-work-info">
                 <h3>Work Details</h3>
                 <div className="form-row">
                   <div className="form-group">
@@ -800,7 +1281,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                       <option value="">Select Work Type</option>
                       <option value="part-time">Part Time</option>
                       <option value="full-time">Full Time</option>
-                      <option value="one-time-job">One Time Job</option>
+                      <option value="one-time">One Time </option>
                     </select>
                     {errors.work_type && <span className="error">{errors.work_type}</span>}
                   </div>
@@ -809,6 +1290,131 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                     <select id="role_id" value={formData.role_id} disabled className="credential-dropdown">
                       <option value="1">Worker</option>
                     </select>
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="hours_per_day">Hours Per Day</label>
+                    <input
+                      id="hours_per_day"
+                      type="number"
+                      value={formData.hours_per_day}
+                      onChange={(e) => {
+                        const value = parseInt(e.target.value);
+                        if (value >= 1 && value <= 24) {
+                          handleInputChange(e, "hours_per_day");
+                        } else if (e.target.value === '') {
+                          handleInputChange(e, "hours_per_day");
+                        }
+                      }}
+                      onBlur={(e) => {
+                        const value = parseInt(e.target.value);
+                        if (value < 1 || value > 24) {
+                          setErrors(prev => ({
+                            ...prev,
+                            hours_per_day: "Hours per day must be between 1 and 24."
+                          }));
+                        } else {
+                          setErrors(prev => {
+                            const newErrors = { ...prev };
+                            delete newErrors.hours_per_day;
+                            return newErrors;
+                          });
+                        }
+                      }}
+                      min="1"
+                      max="24"
+                      step="1"
+                      disabled={formData.work_type === 'full-time'}
+                    />
+                    {formData.work_type === 'full-time' && (
+                      <span className="help-text">Full-time automatically set to 8 hours per day</span>
+                    )}
+                    {errors.hours_per_day && <span className="error">{errors.hours_per_day}</span>}
+                  </div>
+                  <div className="form-group preferred-working-days worker-modal-form-work-info">
+                    <label htmlFor="preferred_working_days">Preferred Working Days</label>
+                     <SafeSelect
+                      id="preferred_working_days"
+                      mode="multiple"
+                      placeholder="Select Preferred Working Days"
+                      value={formData.preferred_working_hours || []}
+                      onChange={(values) => handleInputChange(values, "preferred_working_hours")}
+                      className="preferred-working-days-dropdown"
+                      showSearch={false}
+                       allowClear={false}
+                       disabled={false}
+                       open={undefined}
+                       styles={{ 
+                         popup: { root: { zIndex: 3000 } },
+                         selector: { cursor: 'pointer' }
+                       }}
+                       onOpenChange={(open) => {
+                         if (isMountedRef.current) {
+                           if (open) {
+                             // Ensure dropdown is visible and clickable
+                             const timeoutId = setTimeout(() => {
+                               if (isMountedRef.current) {
+                                 const dropdown = document.querySelector('.preferred-working-days-dropdown .ant-select-dropdown');
+                                 if (dropdown) {
+                                   dropdown.classList.remove('ant-select-dropdown-hidden');
+                                   dropdown.style.pointerEvents = 'auto';
+                                   dropdown.style.visibility = 'visible';
+                                   dropdown.style.display = 'block';
+                                   dropdown.style.zIndex = '3000';
+                                 }
+                               }
+                             }, 10);
+                             timeoutRefs.current.push(timeoutId);
+                           } else {
+                             // Ensure dropdown is properly hidden when closing
+                             const timeoutId = setTimeout(() => {
+                               if (isMountedRef.current) {
+                                 const dropdown = document.querySelector('.preferred-working-days-dropdown .ant-select-dropdown');
+                                 if (dropdown) {
+                                   dropdown.classList.add('ant-select-dropdown-hidden');
+                                   dropdown.style.pointerEvents = 'none';
+                                   dropdown.style.visibility = 'hidden';
+                                   dropdown.style.display = 'none';
+                                 }
+                               }
+                             }, 10);
+                             timeoutRefs.current.push(timeoutId);
+                           }
+                         }
+                       }}
+                       tagRender={(props) => {
+                         const { label, closable, onClose } = props;
+                         return (
+                           <span className="ant-select-selection-item">
+                             {label}
+                             {closable && (
+                               <span className="ant-select-selection-item-remove" onClick={onClose}>
+                                 ×
+                               </span>
+                             )}
+                           </span>
+                         );
+                       }}
+                       maxTagCount="responsive"
+                       maxTagTextLength={20}
+                       getPopupContainer={(trigger) => trigger.parentElement}
+                    >
+                      <Option value="monday">Monday</Option>
+                      <Option value="tuesday">Tuesday</Option>
+                      <Option value="wednesday">Wednesday</Option>
+                      <Option value="thursday">Thursday</Option>
+                      <Option value="friday">Friday</Option>
+                      <Option value="saturday">Saturday</Option>
+                      <Option value="sunday">Sunday</Option>
+                     </SafeSelect>
+                     {formData.preferred_working_hours && formData.preferred_working_hours.length > 0 && (
+                       <div className="working-days-display">
+                         <span className="working-days-label">Selected Days:</span>
+                         <span className="working-days-formatted">{formatWorkingDays(formData.preferred_working_hours)}</span>
+                       </div>
+                     )}
+                    {errors.preferred_working_hours && <span className="error">{errors.preferred_working_hours}</span>}
                   </div>
                 </div>
                 <div className="form-row">
@@ -828,65 +1434,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="hours_per_day">Hours Per Day</label>
-                    <input
-                      id="hours_per_day"
-                      type="number"
-                      value={formData.hours_per_day}
-                      onChange={(e) => handleInputChange(e, "hours_per_day")}
-                      min="1"
-                      max="24"
-                      disabled={formData.work_type === 'full-time'}
-                    />
-                    {formData.work_type === 'full-time' && (
-                      <span className="help-text">Full-time automatically set to 8 hours per day</span>
-                    )}
-                    {errors.hours_per_day && <span className="error">{errors.hours_per_day}</span>}
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="monthly_salary">Expected Monthly Salary (PHP)</label>
-                    <input
-                      id="monthly_salary"
-                      type="number"
-                      value={formData.monthly_salary}
-                      onChange={(e) => handleInputChange(e, "monthly_salary")}
-                      min="0"
-                      step="100"
-                      placeholder="e.g., 15000"
-                    />
-                    <span className="help-text">Set your expected monthly salary (optional)</span>
-                    {errors.monthly_salary && <span className="error">{errors.monthly_salary}</span>}
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>Preferred Working Hours</label>
-                    <div className="working-hours-container">
-                      {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map(day => {
-                        const isChecked = formData.preferred_working_hours && formData.preferred_working_hours.includes(day);
-                        return (
-                          <label key={day} className="day-checkbox">
-                            <input
-                              type="checkbox"
-                              checked={isChecked}
-                              onChange={(e) => {
-                                const currentHours = formData.preferred_working_hours || [];
-                                const newHours = e.target.checked
-                                  ? [...currentHours, day]
-                                  : currentHours.filter(h => h !== day);
-                                handleInputChange(newHours, "preferred_working_hours");
-                              }}
-                            />
-                            <span>{day.charAt(0).toUpperCase() + day.slice(1)}</span>
-                          </label>
-                        );
-                      })}
-                    </div>
-                    {errors.preferred_working_hours && <span className="error">{errors.preferred_working_hours}</span>}
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="form-group">
                     <label htmlFor="bio">Bio</label>
                     <textarea
                       id="bio"
@@ -901,197 +1448,795 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                   </div>
                 </div>
               </div>
-              <div className="form-section">
+              <div className="form-section worker-modal-form-skills-info">
                 <h3>Skills</h3>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="primary_skill">Primary Skill <span className="required">*</span></label>
-                    <Select
-                      showSearch
-                      placeholder="Search and select primary skill"
-                      onSearch={setSearchTermPrimary}
+                    <label htmlFor="primary_skill">Primary Skill (One Only) <span className="required">*</span></label>
+                    <SafeSelect
+                      id="primary_skill"
+                      placeholder={filteredSkillsPrimary.length === 0 ? "Loading skills..." : "Select primary skill"}
                       onChange={handlePrimarySkillSelect}
-                      className="credential-dropdown"
-                      optionFilterProp="children"
+                      showSearch={false}
                       required
                       value={formData.skills_id[0]?.skill_id || undefined}
+                      className="primary-skill-select"
+                      loading={filteredSkillsPrimary.length === 0}
+                      notFoundContent={filteredSkillsPrimary.length === 0 ? "No skills available" : "No skills found"}
+                      allowClear={true}
+                      styles={{
+                        popup: {
+                          root: {
+                            zIndex: 3000
+                          }
+                        }
+                      }}
+                      getPopupContainer={(trigger) => trigger.parentElement}
+                      onOpenChange={(open) => {
+                        if (isMountedRef.current) {
+                        if (open) {
+                            // Force dropdown to be visible when opening
+                            const timeoutId = setTimeout(() => {
+                              if (isMountedRef.current) {
+                            const dropdown = document.querySelector('.primary-skill-select .ant-select-dropdown');
+                            if (dropdown) {
+                              dropdown.classList.remove('ant-select-dropdown-hidden');
+                              dropdown.style.pointerEvents = 'auto';
+                              dropdown.style.visibility = 'visible';
+                              dropdown.style.display = 'block';
+                                }
+                            }
+                          }, 10);
+                            timeoutRefs.current.push(timeoutId);
+                          } else {
+                            // Ensure dropdown is properly hidden when closing
+                            const timeoutId = setTimeout(() => {
+                              if (isMountedRef.current) {
+                                const dropdown = document.querySelector('.primary-skill-select .ant-select-dropdown');
+                                if (dropdown) {
+                                  dropdown.classList.add('ant-select-dropdown-hidden');
+                                  dropdown.style.pointerEvents = 'none';
+                                  dropdown.style.visibility = 'hidden';
+                                  dropdown.style.display = 'none';
+                                }
+                              }
+                            }, 10);
+                            timeoutRefs.current.push(timeoutId);
+                          }
+                        }
+                      }}
                     >
                       {filteredSkillsPrimary.map((skill) => (
                         <Option key={skill.id} value={String(skill.id)}>
                           {skill.name}
                         </Option>
                       ))}
-                    </Select>
+                    </SafeSelect>
                     {errors.skills_id && <span className="error">{errors.skills_id}</span>}
                   </div>
-                </div>
-                {formData.skills_id[0]?.skill_id && (
-                  <div className="selected-skills">
-                    <h4>Selected Primary Skill</h4>
-                    <Dropdown menu={skillMenu(formData.skills_id[0])} trigger={["click"]}>
-                      <div
-                        className="skill-item ant-dropdown-trigger"
-                        role="button"
-                        tabIndex={0}
-                        onKeyPress={(e) => e.key === 'Enter' && console.log('Primary skill clicked')}
-                      >
-                        <div className="skill-info">
-                          <span className="skill-name">{formData.skills_id[0].skill_name}</span>
-                          {formData.skills_id[0].sub_skills?.length > 0 && (
-                            <span className="skill-sub-skills">
-                              Sub-skills: {formData.skills_id[0].sub_skills.join(", ")}
-                            </span>
-                          )}
-                          {formData.skills_id[0].experience && (
-                            <span className="skill-experience">
-                              Experience: {experienceOptions.find(e => e.value === formData.skills_id[0].experience)?.label}
-                            </span>
-                          )}
-                          {formData.skills_id[0].hourly_rate && (
-                            <span className="skill-rate">
-                              Rate: ₱{formData.skills_id[0].hourly_rate}/hr
-                            </span>
-                          )}
-                        </div>
-                        <IconChevronDown size={16} className="dropdown-arrow" />
-                      </div>
-                    </Dropdown>
-                  </div>
-                )}
-                <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="additional_skills">Additional Skills</label>
-                    <Select
+                    <SafeSelect
+                      id="additional_skills"
                       mode="multiple"
-                      showSearch
-                      placeholder="Search and select additional skills"
-                      onSearch={setSearchTermAdditional}
-                      onChange={handleAdditionalSkillsSelect}
-                      className="credential-dropdown"
-                      optionFilterProp="children"
+                      placeholder="Select additional skills"
+                      onChange={handleMultipleAdditionalSkillsSelect}
+                      showSearch={false}
                       value={formData.skills_id.slice(1).map((skill) => skill.skill_id)}
+                      className="additional-skills-select"
+                      loading={filteredSkillsAdditional.length === 0}
+                      notFoundContent={filteredSkillsAdditional.length === 0 ? "No skills available" : "No skills found"}
+                      styles={{
+                        popup: {
+                          root: {
+                            zIndex: 3000
+                          }
+                        }
+                      }}
+                      getPopupContainer={(trigger) => trigger.parentElement}
+                      onOpenChange={(open) => {
+                        if (isMountedRef.current) {
+                          // If we're forcing close, don't open the dropdown
+                          if (forceCloseAdditionalDropdown) {
+                            return false;
+                          }
+                          
+                        if (open) {
+                            // Force dropdown to be visible when opening
+                            const timeoutId = setTimeout(() => {
+                              if (isMountedRef.current) {
+                            const dropdown = document.querySelector('.additional-skills-select .ant-select-dropdown');
+                            if (dropdown) {
+                              dropdown.classList.remove('ant-select-dropdown-hidden');
+                              dropdown.style.pointerEvents = 'auto';
+                              dropdown.style.visibility = 'visible';
+                              dropdown.style.display = 'block';
+                                }
+                            }
+                          }, 10);
+                            timeoutRefs.current.push(timeoutId);
+                          } else {
+                            // Ensure dropdown is properly hidden when closing
+                            const timeoutId = setTimeout(() => {
+                              if (isMountedRef.current) {
+                                const dropdown = document.querySelector('.additional-skills-select .ant-select-dropdown');
+                                if (dropdown) {
+                                  dropdown.classList.add('ant-select-dropdown-hidden');
+                                  dropdown.style.pointerEvents = 'none';
+                                  dropdown.style.visibility = 'hidden';
+                                  dropdown.style.display = 'none';
+                                }
+                              }
+                            }, 10);
+                            timeoutRefs.current.push(timeoutId);
+                          }
+                        }
+                      }}
                     >
                       {filteredSkillsAdditional.map((skill) => (
                         <Option key={skill.id} value={String(skill.id)}>
                           {skill.name}
                         </Option>
                       ))}
-                    </Select>
+                    </SafeSelect>
                   </div>
                 </div>
-                {formData.skills_id.slice(1).length > 0 && (
-                  <div className="selected-skills">
-                    <h4>Selected Additional Skills</h4>
+
+                {/* New Step-by-Step Skill Selection */}
+                {newSkill.skill_id && (
+                  <div className="skill-selection-flow">
+                    <div className="skill-selection-step">                     
+                      {showSubSkillsDropdown && availableSubSkills.length > 0 && (
+                        <div className="form-group skill-sub-skills-step">
+                          <label htmlFor="sub_skills">Sub-Skills</label>
+                          <SafeSelect
+                            id="sub_skills"
+                            mode="multiple"
+                            placeholder="Select sub-skills"
+                            value={newSkill.sub_skills || []}
+                            onChange={handleSubSkillsSelect}
+                            showSearch={false}
+                            className="skill-sub-skills-flow-select"
+                            styles={{
+                              popup: {
+                                root: {
+                                  zIndex: 3000
+                                }
+                              }
+                            }}
+                            getPopupContainer={(trigger) => trigger.parentElement}
+                            onOpenChange={(open) => {
+                              if (isMountedRef.current) {
+                                if (open) {
+                                  // Force dropdown to be visible when opening
+                                  const timeoutId = setTimeout(() => {
+                                    if (isMountedRef.current) {
+                                      const dropdown = document.querySelector('.skill-sub-skills-flow-select .ant-select-dropdown');
+                                      if (dropdown) {
+                                        dropdown.classList.remove('ant-select-dropdown-hidden');
+                                        dropdown.style.pointerEvents = 'auto';
+                                        dropdown.style.visibility = 'visible';
+                                        dropdown.style.display = 'block';
+                                      }
+                                    }
+                                  }, 10);
+                                  timeoutRefs.current.push(timeoutId);
+                                } else {
+                                  // Ensure dropdown is properly hidden when closing
+                                  const timeoutId = setTimeout(() => {
+                                    if (isMountedRef.current) {
+                                      const dropdown = document.querySelector('.skill-sub-skills-flow-select .ant-select-dropdown');
+                                      if (dropdown) {
+                                        dropdown.classList.add('ant-select-dropdown-hidden');
+                                        dropdown.style.pointerEvents = 'none';
+                                        dropdown.style.visibility = 'hidden';
+                                        dropdown.style.display = 'none';
+                                      }
+                                    }
+                                  }, 10);
+                                  timeoutRefs.current.push(timeoutId);
+                                }
+                              }
+                            }}
+                          >
+                            {availableSubSkills.map((subSkill) => (
+                              <Option key={subSkill} value={subSkill}>
+                                {subSkill}
+                              </Option>
+                            ))}
+                          </SafeSelect>
+                          {errors.sub_skills && <span className="error">{errors.sub_skills}</span>}
+                        </div>
+                      )}
+
+                      {showExperienceDropdown && (
+                        <div className="form-group skill-experience-step">
+                          <label htmlFor="experience">Experience Level <span className="required">*</span></label>
+                          <SafeSelect
+                            id="experience"
+                            placeholder="Select experience level"
+                            value={newSkill.experience || undefined}
+                            onChange={handleExperienceSelect}
+                            showSearch={false}
+                            className="skill-experience-flow-select"
+                            styles={{
+                              popup: {
+                                root: {
+                                  zIndex: 3000
+                                }
+                              }
+                            }}
+                            getPopupContainer={(trigger) => trigger.parentElement}
+                            onOpenChange={(open) => {
+                              if (isMountedRef.current) {
+                                if (open) {
+                                  // Force dropdown to be visible when opening
+                                  const timeoutId = setTimeout(() => {
+                                    if (isMountedRef.current) {
+                                      const dropdown = document.querySelector('.skill-experience-flow-select .ant-select-dropdown');
+                                      if (dropdown) {
+                                        dropdown.classList.remove('ant-select-dropdown-hidden');
+                                        dropdown.style.pointerEvents = 'auto';
+                                        dropdown.style.visibility = 'visible';
+                                        dropdown.style.display = 'block';
+                                      }
+                                    }
+                                  }, 10);
+                                  timeoutRefs.current.push(timeoutId);
+                                } else {
+                                  // Ensure dropdown is properly hidden when closing
+                                  const timeoutId = setTimeout(() => {
+                                    if (isMountedRef.current) {
+                                      const dropdown = document.querySelector('.skill-experience-flow-select .ant-select-dropdown');
+                                      if (dropdown) {
+                                        dropdown.classList.add('ant-select-dropdown-hidden');
+                                        dropdown.style.pointerEvents = 'none';
+                                        dropdown.style.visibility = 'hidden';
+                                        dropdown.style.display = 'none';
+                                      }
+                                    }
+                                  }, 10);
+                                  timeoutRefs.current.push(timeoutId);
+                                }
+                              }
+                            }}
+                          >
+                            {experienceOptions.map((option) => (
+                              <Option key={option.value} value={option.value}>
+                                {option.label}
+                              </Option>
+                            ))}
+                          </SafeSelect>
+                          {errors.experience && <span className="error">{errors.experience}</span>}
+                        </div>
+                      )}
+
+                      <div className="skill-selection-actions">
+                        <button 
+                          type="button" 
+                          className="cancel-skill-btn"
+                          onClick={cancelSkillSelection}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Organized Skills Display */}
+                {(formData.skills_id[0]?.skill_id || formData.skills_id.slice(1).length > 0) && (
+                  <div className="selected-skills-container">
+                    <div className="skills-display-row">
+                      {/* Primary Skills Column */}
+                      <div className="skills-column primary-skills-column">
+                        <h4>Primary Skills</h4>
+                        {formData.skills_id[0]?.skill_id ? (
+                          <div className="skill-item-container">
+                    <Dropdown menu={skillMenu(formData.skills_id[0])} trigger={["click"]}>
+                      <div
+                                className="skill-item ant-dropdown-trigger primary-skill-item"
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={(e) => e.key === 'Enter' && console.log('Primary skill clicked')}
+                      >
+                        <div className="skill-info">
+                          <div className="skill-detail">
+                            <span className="skill-label">Skills:</span>
+                          <span className="skill-name">{formData.skills_id[0].skill_name}</span>
+                          </div>
+                          {formData.skills_id[0].sub_skills?.length > 0 && (
+                            <div className="skill-detail">
+                              <span className="skill-label">Sub-skills:</span>
+                              <span className="skill-sub-skills">{formData.skills_id[0].sub_skills.join(", ")}</span>
+                            </div>
+                          )}
+                          {formData.skills_id[0].experience && (
+                            <div className="skill-detail">
+                              <span className="skill-label">Experience:</span>
+                              <span className="skill-experience">{experienceOptions.find(e => e.value === formData.skills_id[0].experience)?.label}</span>
+                            </div>
+                          )}
+                          {formData.skills_id[0].hourly_rate && (
+                            <div className="skill-detail">
+                              <span className="skill-label">Rate:</span>
+                              <span className="skill-rate">₱{formData.skills_id[0].hourly_rate}/hr</span>
+                            </div>
+                          )}
+                        </div>
+                        <IconChevronDown size={16} className="dropdown-arrow" />
+                      </div>
+                    </Dropdown>
+                  </div>
+                        ) : (
+                          <div className="no-skills-message">
+                            <span>No primary skill selected</span>
+                  </div>
+                )}
+                      </div>
+
+                      {/* Additional Skills Column */}
+                      <div className="skills-column additional-skills-column">
+                        <h4>Additional Skills</h4>
+                        {formData.skills_id.slice(1).length > 0 ? (
+                          <div className="additional-skills-list">
                     {formData.skills_id.slice(1).map((skill) => (
-                      <Dropdown key={skill.skill_id} menu={skillMenu(skill)} trigger={["click"]}>
+                              <div key={skill.skill_id} className="skill-item-container">
+                                <Dropdown menu={skillMenu(skill)} trigger={["click"]}>
                         <div
-                          className="skill-item ant-dropdown-trigger"
+                                    className="skill-item ant-dropdown-trigger additional-skill-item"
                           role="button"
                           tabIndex={0}
                           onKeyPress={(e) => e.key === 'Enter' && console.log('Additional skill clicked')}
                         >
                           <div className="skill-info">
+                            <div className="skill-detail">
+                              <span className="skill-label">Skills:</span>
                             <span className="skill-name">{skill.skill_name}</span>
+                            </div>
                             {skill.sub_skills?.length > 0 && (
-                              <span className="skill-sub-skills">
-                                Sub-skills: {skill.sub_skills.join(", ")}
-                              </span>
+                              <div className="skill-detail">
+                                <span className="skill-label">Sub-skills:</span>
+                                <span className="skill-sub-skills">{skill.sub_skills.join(", ")}</span>
+                              </div>
                             )}
                             {skill.experience && (
-                              <span className="skill-experience">
-                                Experience: {experienceOptions.find(e => e.value === skill.experience)?.label}
-                              </span>
+                              <div className="skill-detail">
+                                <span className="skill-label">Experience:</span>
+                                <span className="skill-experience">{experienceOptions.find(e => e.value === skill.experience)?.label}</span>
+                              </div>
                             )}
                             {skill.hourly_rate && (
-                              <span className="skill-rate">
-                                Rate: ₱{skill.hourly_rate}/hr
-                              </span>
+                              <div className="skill-detail">
+                                <span className="skill-label">Rate:</span>
+                                <span className="skill-rate">₱{skill.hourly_rate}/hr</span>
+                              </div>
                             )}
                           </div>
                           <IconChevronDown size={16} className="dropdown-arrow" />
                         </div>
                       </Dropdown>
-                    ))}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="no-skills-message">
+                            <span>No additional skills selected</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
               <div className="form-section">
                 <h3>Profile Picture</h3>
                 <div className="form-group">
-                  <label htmlFor="profile_img">Profile Picture</label>
+                  <div className="profile-upload-container">
+                    <div 
+                      className="profile-upload-dropzone"
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        e.currentTarget.classList.add('drag-over');
+                      }}
+                      onDragLeave={(e) => {
+                        e.currentTarget.classList.remove('drag-over');
+                      }}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        e.currentTarget.classList.remove('drag-over');
+                        const files = e.dataTransfer.files;
+                        if (files.length > 0) {
+                          handleInputChange({ target: { files: [files[0]] } }, "profile_img");
+                        }
+                      }}
+                    >
+                      {formData.profile_img ? (
+                        <div className="profile-img-preview-inside">
+                          <div className="preview-image-container">
+                            {typeof formData.profile_img === "string" ? (
+                              <img src={`http://127.0.0.1:8000/storage/${formData.profile_img}`} alt="Profile Preview" />
+                            ) : (
+                              <img src={URL.createObjectURL(formData.profile_img)} alt="Profile Preview" />
+                            )}
+                          </div>
+                          <div className="preview-actions">
+                            <button 
+                              type="button" 
+                              className="change-image-button"
+                              onClick={() => document.getElementById('profile_img').click()}
+                            >
+                              Change Image
+                            </button>
+                            <button 
+                              type="button" 
+                              className="remove-image-button"
+                              onClick={removeProfileImg}
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="upload-content">
+                          <div className="upload-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                          <button 
+                            type="button" 
+                            className="browse-button"
+                            onClick={() => document.getElementById('profile_img').click()}
+                          >
+                            Browse
+                          </button>
+                          <p className="drop-text">drop a file here</p>
+                          <p className="file-types">*File supported .png, .jpg & .webp</p>
+                        </div>
+                      )}
                   <input
                     id="profile_img"
                     type="file"
                     accept="image/jpeg,image/png,image/jpg"
                     onChange={(e) => handleInputChange(e, "profile_img")}
                     ref={profileImgRef}
-                  />
-                  {formData.profile_img && (
-                    <div className="profile-img-preview">
-                      {typeof formData.profile_img === "string" ? (
-                        <img src={`http://127.0.0.1:8000/storage/${formData.profile_img}`} alt="Profile Preview" />
-                      ) : (
-                        <img src={URL.createObjectURL(formData.profile_img)} alt="Profile Preview" />
-                      )}
-                      <button type="button" onClick={removeProfileImg}>Remove</button>
+                        style={{ display: 'none' }}
+                      />
                     </div>
-                  )}
+                  </div>
                   {errors.profile_img && <span className="error">{errors.profile_img}</span>}
                 </div>
               </div>
-              <div className="form-section">
+              <div className="form-section worker-modal-form-credentials-info">
                 <h3>Credentials</h3>
-                <div className="form-group">
-                  <label>Add Credential</label>
+                    <div className="form-group">
                   <div className="credential-section">
-                    <select
-                      value={newCredential.credentials_name}
-                      onChange={(e) => handleNewCredentialChange(e, "credentials_name")}
-                      className="credential-dropdown"
-                    >
-                      <option value="">Choose a credential</option>
-                      {credentialOptions.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
+                    <div className="credential-selection-side">
+                      <label htmlFor="credential_type">Choose Credential Type</label>
+                      <select
+                        id="credential_type"
+                        value={newCredential.credentials_name}
+                        onChange={(e) => handleNewCredentialChange(e, "credentials_name")}
+                        className="credential-dropdown"
+                      >
+                        <option value="">Choose a credential</option>
+                        {credentialOptions.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.new_credential_name && <span className="error">{errors.new_credential_name}</span>}
+                    </div>
+                    
                     {newCredential.credentials_name && (
-                      <div className="credential-upload">
-                        <input
-                          type="file"
-                          accept=".pdf,.doc,.docx,.jpg,.png"
-                          onChange={(e) => handleNewCredentialChange(e, "credentials_photo")}
-                          ref={credentialFileRef}
-                        />
-                        <button type="button" onClick={addCredential}>Add Credential</button>
+                      <div className="credential-upload-side">
+                        <div className="credential-upload-options">
+                          <div className="credential-upload-option">
+                            <label htmlFor="credential_photo">Upload Credential Photo</label>
+                            <div 
+                              className="credential-upload-dropzone"
+                              onDragOver={(e) => {
+                                e.preventDefault();
+                                e.currentTarget.classList.add('drag-over');
+                              }}
+                              onDragLeave={(e) => {
+                                e.currentTarget.classList.remove('drag-over');
+                              }}
+                              onDrop={(e) => {
+                                e.preventDefault();
+                                e.currentTarget.classList.remove('drag-over');
+                                const files = e.dataTransfer.files;
+                                if (files.length > 0) {
+                                  handleNewCredentialChange({ target: { files: [files[0]] } }, "credentials_photo");
+                                }
+                              }}
+                            >
+                              {newCredential.credentials_photo ? (
+                                <div className="credential-file-preview">
+                                  <div className="preview-file-container">
+                                    {newCredential.credentials_photo instanceof File ? (
+                                      <>
+                                        {newCredential.credentials_photo.type.startsWith('image/') ? (
+                                          <img src={URL.createObjectURL(newCredential.credentials_photo)} alt="Credential Preview" />
+                                        ) : (
+                                          <div className="file-icon">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                              <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                          </div>
+                                        )}
+                                        <div className="file-info">
+                                          <span className="file-name">{newCredential.credentials_photo.name}</span>
+                                          <span className="file-size">{(newCredential.credentials_photo.size / 1024 / 1024).toFixed(2)} MB</span>
+                                        </div>
+                                      </>
+                                    ) : (
+                                      <div className="file-info">
+                                        <span className="file-name">{newCredential.credentials_photo}</span>
+                                      </div>
+                                    )}
+                                  </div>
+                                  <div className="preview-actions">
+                                    <button 
+                                      type="button" 
+                                      className="change-file-button"
+                                      onClick={() => document.getElementById('credential_photo').click()}
+                                    >
+                                      Change Photo
+                                    </button>
+                                    <button 
+                                      type="button" 
+                                      className="remove-file-button"
+                                      onClick={() => {
+                                        setNewCredential(prev => ({ ...prev, credentials_photo: null }));
+                                      }}
+                                    >
+                                      Remove
+                                    </button>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="upload-content">
+                                  <div className="upload-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                  </div>
+                                  <button 
+                                    type="button" 
+                                    className="browse-button"
+                                    onClick={() => document.getElementById('credential_photo').click()}
+                                  >
+                                    Browse Photos
+                                  </button>
+                                  <p className="drop-text">or drop a photo here</p>
+                                  <p className="file-types">*File supported .jpg, .png, .pdf</p>
+                                </div>
+                              )}
+                              <input
+                                id="credential_photo"
+                                type="file"
+                                accept=".jpg,.png,.pdf"
+                                onChange={(e) => handleNewCredentialChange(e, "credentials_photo")}
+                                style={{ display: 'none' }}
+                              />
+                            </div>
+                            {errors.new_credential_photo && <span className="error">{errors.new_credential_photo}</span>}
+                          </div>
+
+                          <div className="credential-upload-option">
+                            <label htmlFor="credential_doc">Upload Credential Document</label>
+                            <div 
+                              className="credential-upload-dropzone"
+                              onDragOver={(e) => {
+                                e.preventDefault();
+                                e.currentTarget.classList.add('drag-over');
+                              }}
+                              onDragLeave={(e) => {
+                                e.currentTarget.classList.remove('drag-over');
+                              }}
+                              onDrop={(e) => {
+                                e.preventDefault();
+                                e.currentTarget.classList.remove('drag-over');
+                                const files = e.dataTransfer.files;
+                                if (files.length > 0) {
+                                  handleNewCredentialChange({ target: { files: [files[0]] } }, "credentials_doc");
+                                }
+                              }}
+                            >
+                              {newCredential.credentials_doc ? (
+                                <div className="credential-file-preview">
+                                  <div className="preview-file-container">
+                                    {newCredential.credentials_doc instanceof File ? (
+                                      <>
+                                        <div className="file-icon">
+                                          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                          </svg>
+                                        </div>
+                                        <div className="file-info">
+                                          <span className="file-name">{newCredential.credentials_doc.name}</span>
+                                          <span className="file-size">{(newCredential.credentials_doc.size / 1024 / 1024).toFixed(2)} MB</span>
+                                        </div>
+                                      </>
+                                    ) : (
+                                      <div className="file-info">
+                                        <span className="file-name">{newCredential.credentials_doc}</span>
+                                      </div>
+                                    )}
+                                  </div>
+                                  <div className="preview-actions">
+                                    <button 
+                                      type="button" 
+                                      className="change-file-button"
+                                      onClick={() => document.getElementById('credential_doc').click()}
+                                    >
+                                      Change Document
+                                    </button>
+                                    <button 
+                                      type="button" 
+                                      className="remove-file-button"
+                                      onClick={() => {
+                                        setNewCredential(prev => ({ ...prev, credentials_doc: null }));
+                                      }}
+                                    >
+                                      Remove
+                                    </button>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="upload-content">
+                                  <div className="upload-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M14 2V8H20" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M16 13H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M16 17H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                      <path d="M10 9H8" stroke="#1A2A44" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                  </div>
+                                  <button 
+                                    type="button" 
+                                    className="browse-button"
+                                    onClick={() => document.getElementById('credential_doc').click()}
+                                  >
+                                    Browse Documents
+                                  </button>
+                                  <p className="drop-text">or drop a document here</p>
+                                  <p className="file-types">*File supported .pdf, .doc, .docx</p>
+                                </div>
+                              )}
+                              <input
+                                id="credential_doc"
+                                type="file"
+                                accept=".pdf,.doc,.docx"
+                                onChange={(e) => handleNewCredentialChange(e, "credentials_doc")}
+                                style={{ display: 'none' }}
+                              />
+                            </div>
+                            {errors.new_credential_doc && <span className="error">{errors.new_credential_doc}</span>}
+                          </div>
+                        </div>
                       </div>
                     )}
-                    <div className="credential-list">
-                      {formData.credentials.map((cred, index) => (
-                        <div key={`credential-${index}`} className="credential-item">
-                          {cred.credentials_name}:{" "}
-                          {typeof cred.credentials_photo === "string" ? (
-                            isImageFile(cred.credentials_photo) ? (
-                              <img
-                                src={`http://127.0.0.1:8000/storage/${cred.credentials_photo}`}
-                                alt={cred.credentials_name}
-                              />
-                            ) : (
-                              <a href={`http://127.0.0.1:8000/storage/${cred.credentials_photo}`} download>
-                                {cred.credentials_photo.split("/").pop()}
-                              </a>
-                            )
-                          ) : (
-                            cred.credentials_photo?.name || "No file selected"
-                          )}
-                          <button type="button" onClick={() => removeCredential(index)}>Remove</button>
-                        </div>
-                      ))}
+                    
+                    {newCredential.credentials_name && (newCredential.credentials_photo || newCredential.credentials_doc) && (
+                      <div className="add-credential-section">
+                      <button 
+                        type="button" 
+                        className="add-credential-button"
+                        onClick={addCredential}
+                      >
+                          <IconPlus size={16} />
+                          Add Credential
+                      </button>
+                    </div>
+                    )}
+                  
+                      <div className="credential-list">
+                      <h4>Added Credentials</h4>
+                        {formData.credentials.length > 0 ? (
+                        <div className="credentials-grid">
+                          {formData.credentials.map((cred, index) => (
+                            <div key={`credential-${index}`} className="credential-item">
+                              <div className="credential-item-header">
+                                <span className="credential-name">{cred.credentials_name}</span>
+                                <button 
+                                  type="button" 
+                                  className="remove-credential-button"
+                                  onClick={() => removeCredential(index)}
+                                >
+                                  <TiDeleteOutline size={20} />
+                                </button>
+                              </div>
+                              <div className="credential-file-display">
+                                  {/* Display photo if available */}
+                                  {cred.credentials_photo && (
+                                    <div className="credential-photo">
+                                      <h5>Photo:</h5>
+                                      {typeof cred.credentials_photo === "string" && cred.credentials_photo ? (
+                                        <img
+                                          src={`http://127.0.0.1:8000/storage/${cred.credentials_photo}`}
+                                          alt={cred.credentials_name}
+                                          className="credential-image"
+                                        />
+                                      ) : cred.credentials_photo instanceof File ? (
+                                        cred.credentials_photo.type.startsWith('image/') ? (
+                                          <img
+                                            src={URL.createObjectURL(cred.credentials_photo)}
+                                            alt={cred.credentials_name}
+                                            className="credential-image"
+                                          />
+                                        ) : (
+                                          <div className="credential-file-info">
+                                            {cred.credentials_photo.name}
+                                          </div>
+                                        )
+                                      ) : (
+                                        <div className="credential-file-info">
+                                          {cred.credentials_photo}
+                                        </div>
+                                      )}
+                                    </div>
+                                  )}
+                                  
+                                  {/* Display document if available */}
+                                  {cred.credentials_doc && (
+                                    <div className="credential-doc">
+                                      <h5>Document:</h5>
+                                      {typeof cred.credentials_doc === "string" && cred.credentials_doc ? (
+                                        <div className="credential-file-link">
+                                          <a href={`http://127.0.0.1:8000/storage/${cred.credentials_doc}`} download>
+                                            {cred.credentials_doc.split("/").pop()}
+                                          </a>
+                                        </div>
+                                      ) : cred.credentials_doc instanceof File ? (
+                                        <div className="credential-file-info">
+                                          {cred.credentials_doc.name}
+                                        </div>
+                                      ) : (
+                                        <div className="credential-file-info">
+                                          {cred.credentials_doc}
+                                        </div>
+                                      )}
+                                    </div>
+                                  )}
+                                  
+                                  {/* Show message if no files */}
+                                  {!cred.credentials_photo && !cred.credentials_doc && (
+                                    <div className="credential-file-info">
+                                      No files selected
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                          ))}
+                            </div>
+                        ) : (
+                          <div className="no-credentials-message">
+                            <span>No credentials added yet</span>
+                          </div>
+                        )}
                     </div>
                     {errors.credentials && <span className="error">{errors.credentials}</span>}
-                    {errors.new_credential_name && <span className="error">{errors.new_credential_name}</span>}
-                    {errors.new_credential_photo && <span className="error">{errors.new_credential_photo}</span>}
                   </div>
                 </div>
               </div>
@@ -1107,115 +2252,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
           </form>
         )}
 
-        {showSkillModal && selectedSkill && (
-          <div className="skill-details-modal-overlay">
-            <div className="skill-details-modal">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h3>{selectedSkill.name}</h3>
-                  <IconX size={20} className="close-icon" onClick={handleModalClose} />
-                </div>
-                <div className="modal-body">
-                  <div className="skill-details-section">
-                    <div className="experience-container">
-                      <label className="experience-label">Experience Level <span className="required">(Required)</span></label>
-                      <Select
-                        value={selectedSkill.experience || '0-11-months'}
-                        onChange={(value) => setSelectedSkill(prev => ({ ...prev, experience: value }))}
-                        style={{ width: '100%', marginBottom: '15px' }}
-                        className="experience-select"
-                      >
-                        {experienceOptions.map(option => (
-                          <Option key={option.value} value={option.value}>
-                            {option.label}
-                          </Option>
-                        ))}
-                      </Select>
-                    </div>
-
-                    <div className="skill-hourly-rate-container">
-                      <label className="skill-rate-label">Hourly Rate for this Skill (PHP)</label>
-                      <input
-                        type="number"
-                        value={selectedSkill.hourly_rate || ''}
-                        onChange={(e) => setSelectedSkill(prev => ({ ...prev, hourly_rate: e.target.value }))}
-                        placeholder="e.g., 500"
-                        min="0"
-                        step="10"
-                        className="skill-hourly-rate-input"
-                      />
-                      <p className="skill-rate-note">Set a specific rate for this skill (optional)</p>
-                    </div>
-                  </div>
-
-                  {selectedSkill.sub_skills.length > 0 ? (
-                    <div className="sub-skills-section">
-                      <label className="sub-skills-label">
-                        Sub-Skills <span className="required">(Required)</span>
-                      </label>
-                      <p className="sub-skills-instruction">Select sub-skills by moving them between the lists below.</p>
-                      <div className="sub-skills-container">
-                        <div className="available-sub-skills">
-                          <h4>Available Sub-Skills</h4>
-                          {availableSubSkills.length > 0 ? (
-                            <ul className="sub-skills-list">
-                              {availableSubSkills.map((subSkill) => (
-                                <li key={subSkill} className="sub-skill-item">
-                                  <span className="sub-skill-text">{subSkill}</span>
-                                  <button
-                                    className="add-sub-skill-btn"
-                                    onClick={() => handleAddSubSkill(subSkill)}
-                                    aria-label={`Add ${subSkill} to selected sub-skills`}
-                                  >
-                                    <IconPlus size={16} />
-                                  </button>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <p className="no-sub-skills">No available sub-skills</p>
-                          )}
-                        </div>
-                        <div className="selected-sub-skills">
-                          <h4>Selected Sub-Skills</h4>
-                          {selectedSubSkills.length > 0 ? (
-                            <ul className="sub-skills-list">
-                              {selectedSubSkills.map((subSkill) => (
-                                <li key={subSkill} className="sub-skill-item">
-                                  <span className="sub-skill-text">{subSkill}</span>
-                                  <button
-                                    className="remove-sub-skill-btn"
-                                    onClick={() => handleRemoveSubSkill(subSkill)}
-                                    aria-label={`Remove ${subSkill} from selected sub-skills`}
-                                  >
-                                    <IconMinus size={16} />
-                                  </button>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : (
-                            <p className="no-sub-skills">No sub-skills selected</p>
-                          )}
-                        </div>
-                      </div>
-                      {errors.sub_skills && <span className="error">{errors.sub_skills}</span>}
-                    </div>
-                  ) : (
-                    <p className="no-sub-skills">This skill has no sub-skills. Click Save to continue.</p>
-                  )}
-                </div>
-                <div className="modal-footer">
-                  <button className="cancel-btn" onClick={handleModalClose}>
-                    Cancel
-                  </button>
-                  <button className="save-btn" onClick={handleSaveSkill}>
-                    Save
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

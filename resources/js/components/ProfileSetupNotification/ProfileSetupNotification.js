@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IconX, IconUser, IconArrowRight } from '@tabler/icons-react';
+import { IconUser, IconArrowRight } from '@tabler/icons-react';
 import { useNavigate } from 'react-router-dom';
 import '../../../sass/components/_profilesetupnotification.scss';
 
@@ -21,6 +21,7 @@ const ProfileSetupNotification = () => {
           const isComplete = localStorage.getItem(`isProfileComplete_${parsedUser.id}`);
           const skillsCompleted = localStorage.getItem(`skillsStepCompleted_${parsedUser.id}`);
 
+          // If profile is marked as complete in localStorage, don't show notification
           if (isComplete === 'true' || skillsCompleted === 'true') {
             setIsProfileComplete(true);
             setIsVisible(false);
@@ -48,16 +49,34 @@ const ProfileSetupNotification = () => {
             }
             
             const profileData = await response.json();
-            const skills = Array.isArray(profileData?.worker?.skills_id) ? profileData.worker.skills_id : [];
-            const hasCredentials = Array.isArray(profileData?.worker?.credentials_name) && profileData.worker.credentials_name.length > 0;
+            const skills = profileData?.worker?.skills_id || {};
+            const primarySkills = Array.isArray(skills.primary_skills) ? skills.primary_skills : [];
+            const additionalSkills = Array.isArray(skills.additional_skills) ? skills.additional_skills : [];
+            const totalSkills = primarySkills.length + additionalSkills.length;
+            const hasCredentials = Array.isArray(profileData?.worker?.credentials_name) && 
+                                 profileData.worker.credentials_name.filter(name => name && name.trim() !== '').length > 0;
             
-            if (skills.length >= 2 && hasCredentials) {
+            // Check if profile is complete based on backend data
+            if (totalSkills >= 2 && hasCredentials) {
+              // Profile is complete - set localStorage and hide notification
               localStorage.setItem(`skillsStepCompleted_${parsedUser.id}`, 'true');
               localStorage.setItem(`isProfileComplete_${parsedUser.id}`, 'true');
               setIsProfileComplete(true);
               setIsVisible(false);
+              console.log('Profile is complete - hiding notification');
             } else {
-              setIsVisible(true);
+              // Also check if user has work preferences set (bio, work_type, etc.)
+              const hasWorkPreferences = profileData?.worker?.bio && 
+                                       profileData?.worker?.work_type && 
+                                       profileData?.worker?.hours_per_day;
+              
+              if (hasWorkPreferences) {
+                // If user has work preferences but missing skills/credentials, still show notification
+                setIsVisible(true);
+              } else {
+                // If user has neither skills/credentials nor work preferences, show notification
+                setIsVisible(true);
+              }
             }
           } catch (error) {
             console.error('Error checking profile:', error);
@@ -71,10 +90,6 @@ const ProfileSetupNotification = () => {
 
   const handleCompleteProfile = () => {
     navigate('/skill-rating');
-  };
-
-  const handleDismiss = () => {
-    setIsVisible(false);
   };
 
   if (!isVisible || !user || user.role_id !== 1 || isProfileComplete) {
@@ -94,9 +109,6 @@ const ProfileSetupNotification = () => {
           <button className="complete-btn" onClick={handleCompleteProfile}>
             Complete Now
             <IconArrowRight size={16} />
-          </button>
-          <button className="dismiss-btn" onClick={handleDismiss}>
-            <IconX size={16} />
           </button>
         </div>
       </div>

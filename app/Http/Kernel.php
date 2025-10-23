@@ -22,12 +22,14 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\UpdateUserActivity::class, // Add user activity tracking
         ],
 
         'api' => [
             \Fruitcake\Cors\HandleCors::class, // Add CORS here for API routes
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\UpdateUserActivity::class, // Add user activity tracking
         ],
     ];
 
@@ -41,5 +43,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'activity' => \App\Http\Middleware\UpdateUserActivity::class, // Register as route middleware
     ];
 }

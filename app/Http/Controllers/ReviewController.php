@@ -66,12 +66,17 @@ class ReviewController extends Controller
                 function ($attribute, $value, $fail) use ($request) {
                     $user = User::find($value);
                     $reviewedUser = User::find($request->reviewed_user_id);
-                    if ($user && $reviewedUser) {
-                        if ($user->role_id === 1 && $reviewedUser->role_id !== 2) {
-                            $fail('Workers can only review employers.');
-                        } elseif ($user->role_id === 2 && $reviewedUser->role_id !== 1) {
-                            $fail('Employers can only review workers.');
-                        }
+                    if ($user && $reviewedUser && $user->id === $reviewedUser->id) {
+                        $fail('Users cannot review themselves.');
+                    }
+                    
+                    // Check for existing review
+                    $existingReview = Review::where('user_id', $value)
+                        ->where('reviewed_user_id', $request->reviewed_user_id)
+                        ->where('archived', false)
+                        ->first();
+                    if ($existingReview) {
+                        $fail('A review already exists for this user combination.');
                     }
                 },
             ],
@@ -101,12 +106,8 @@ class ReviewController extends Controller
                 function ($attribute, $value, $fail) use ($request) {
                     $reviewedUser = User::find($value);
                     $user = User::find($request->user_id);
-                    if ($user && $reviewedUser) {
-                        if ($user->role_id === 1 && $reviewedUser->role_id !== 2) {
-                            $fail('Workers can only review employers.');
-                        } elseif ($user->role_id === 2 && $reviewedUser->role_id !== 1) {
-                            $fail('Employers can only review workers.');
-                        }
+                    if ($user && $reviewedUser && $user->id === $reviewedUser->id) {
+                        $fail('Users cannot review themselves.');
                     }
                 },
             ],

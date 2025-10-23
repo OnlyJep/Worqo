@@ -103,6 +103,63 @@ class AdminUserController extends Controller
     }
 
     /**
+     * Display a specific user with online status information.
+     *
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function showWithStatus($id): JsonResponse
+    {
+        try {
+            $user = User::with(['role', 'profile.gender', 'profile.suffix'])->findOrFail($id);
+            
+            // Determine last active status
+            $isOnline = false;
+            $lastActiveText = 'Offline';
+            if ($user->last_activity) {
+                $lastActivity = $user->last_activity;
+                $minutesAgo = $lastActivity->diffInMinutes(now());
+                
+                if ($minutesAgo < 5) {
+                    $isOnline = true;
+                    $lastActiveText = 'Online';
+                } else if ($minutesAgo < 60) {
+                    $lastActiveText = "Active {$minutesAgo} minute" . ($minutesAgo == 1 ? '' : 's') . " ago";
+                } else {
+                    $hoursAgo = floor($minutesAgo / 60);
+                    $lastActiveText = "Active {$hoursAgo} hour" . ($hoursAgo == 1 ? '' : 's') . " ago";
+                }
+            } else {
+                // Fallback to updated_at if last_activity is not set
+                if ($user->updated_at) {
+                    $minutesAgo = $user->updated_at->diffInMinutes(now());
+                    if ($minutesAgo < 15) {
+                        $isOnline = true;
+                        $lastActiveText = 'Online';
+                    } else if ($minutesAgo < 60) {
+                        $lastActiveText = "Active {$minutesAgo} minute" . ($minutesAgo == 1 ? '' : 's') . " ago";
+                    } else {
+                        $hoursAgo = floor($minutesAgo / 60);
+                        $lastActiveText = "Active {$hoursAgo} hour" . ($hoursAgo == 1 ? '' : 's') . " ago";
+                    }
+                }
+            }
+            
+            $formattedUser = $this->formatUserResponse($user);
+            
+            // Add online status information
+            $formattedUser['is_online'] = $isOnline;
+            $formattedUser['last_active_text'] = $lastActiveText;
+            $formattedUser['last_activity'] = $user->last_activity;
+            
+            return response()->json($formattedUser, 200);
+        } catch (\Exception $e) {
+            Log::error('Error fetching user with status: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['messages' => ['general' => 'User not found']], 404);
+        }
+    }
+
+    /**
      * Store a new user and their profile.
      *
      * @param Request $request
@@ -199,8 +256,17 @@ class AdminUserController extends Controller
     public function update(Request $request, $id): JsonResponse
     {
         try {
-            $user = User::findOrFail($id);
-            $profile = Profile::where('user_id', $id)->firstOrFail();
+            $user = User::find($id);
+            if (!$user) {
+                Log::warning('User not found for update:', ['user_id' => $id]);
+                return response()->json(['messages' => ['general' => 'User not found']], 404);
+            }
+            
+            $profile = Profile::where('user_id', $id)->first();
+            if (!$profile) {
+                Log::warning('Profile not found for user:', ['user_id' => $id]);
+                return response()->json(['messages' => ['general' => 'User profile not found']], 404);
+            }
 
             $validator = Validator::make($request->all(), [
                 'first_name' => 'required|string|max:255',
@@ -311,6 +377,36 @@ class AdminUserController extends Controller
             $profile->fill($profileData);
             $profile->save();
             Log::info('Profile updated:', ['changes' => $profile->getChanges()]);
+
+            // Check if user is a worker and if address was completed
+            if ($user->role_id == 1) { // Worker role
+                $worker = $user->worker;
+                if ($worker) {
+                    // Check if address fields are now complete (street and contact_number)
+                    $addressNowComplete = (!empty($validated['street']) && !empty($validated['contact_number']));
+                    $addressPreviouslyIncomplete = (empty($profile->getOriginal('street')) || empty($profile->getOriginal('contact_number')));
+                    
+                    // If address was previously incomplete and is now complete, set worker to "TO BE REVIEWED"
+                    if ($addressNowComplete && $addressPreviouslyIncomplete) {
+                        $worker->update(['is_reviewed' => 'TO BE REVIEWED']);
+                        Log::info('Worker profile set to TO BE REVIEWED due to address completion', [
+                            'worker_id' => $worker->id,
+                            'user_id' => $user->id
+                        ]);
+                        
+                        // Create notification for the worker
+                        NotificationController::createNotification(
+                            $user->id,
+                            null, // System notification
+                            'profile_review',
+                            'Profile Review Pending',
+                            'Please wait while your worker profile is being reviewed by WORQO Job Portal.',
+                            $worker->id,
+                            'worker'
+                        );
+                    }
+                }
+            }
 
             DB::commit();
 

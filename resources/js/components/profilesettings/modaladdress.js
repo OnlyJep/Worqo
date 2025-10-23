@@ -37,6 +37,8 @@ const ModalAddress = ({ onClose, onAddAddress, editingAddress, userProfile }) =>
     e.preventDefault();
     if (formData.street && formData.contact_number) {
       onAddAddress(formData);
+    } else {
+      alert('Please fill in both street and contact number');
     }
   };
 
@@ -69,12 +71,12 @@ const ModalAddress = ({ onClose, onAddAddress, editingAddress, userProfile }) =>
           {/* Contact Number */}
           <div className="address-form-row">
             <div className="address-form-group">
-              <label htmlFor="contact_number">Contact Number</label>
+              <label htmlFor="contact_number">Contact Number *</label>
               <input
                 type="tel"
                 id="contact_number"
                 name="contact_number"
-                value={formData.contact_number}
+                value={formData.contact_number || ''}
                 onChange={handleInputChange}
                 placeholder="Enter contact number"
                 required
@@ -85,12 +87,12 @@ const ModalAddress = ({ onClose, onAddAddress, editingAddress, userProfile }) =>
           {/* Street */}
           <div className="address-form-row">
             <div className="address-form-group">
-              <label htmlFor="street">Street</label>
+              <label htmlFor="street">Street *</label>
               <input
                 type="text"
                 id="street"
                 name="street"
-                value={formData.street}
+                value={formData.street || ''}
                 onChange={handleInputChange}
                 placeholder="Enter street address"
                 required
@@ -141,7 +143,11 @@ const ModalAddress = ({ onClose, onAddAddress, editingAddress, userProfile }) =>
             <button type="button" className="address-cancel-btn" onClick={onClose}>
               Cancel
             </button>
-            <button type="submit" className="address-add-btn">
+            <button 
+              type="submit" 
+              className="address-add-btn"
+              disabled={!formData.street || !formData.contact_number}
+            >
               {editingAddress ? 'Update Address' : 'Add Address'}
             </button>
           </div>

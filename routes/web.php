@@ -13,6 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any?}', function () {
+Route::get('/', function () {
     return view('welcome');
-})->where('any', '^(?!api).*$');
+});
+
+// Include test routes
+if (app()->environment('local')) {
+    include base_path('routes/test.php');
+}
+
+// Catch-all route for React Router
+// This should be at the end of your web routes to handle any undefined routes
+// and let React Router handle client-side routing
+Route::get('/{any}', function () {
+    return view('welcome');
+})->where('any', '.*');

@@ -549,7 +549,7 @@ body {
 
     .confirm-button {
       padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
-      background: #D81B60;
+      background: #10B981;
       color: #FFFFFF;
       border: none;
       border-radius: 5px;
@@ -558,7 +558,7 @@ body {
       font-size: clamp(12px, 3vw, 14px);
 
       &:hover {
-        background: #B71A54; /* Darkened #D81B60 */
+        background: #059669;
         transform: translateY(-2px);
       }
     }

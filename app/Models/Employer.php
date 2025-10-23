@@ -11,10 +11,15 @@ class Employer extends Model
 
     protected $fillable = [
         'profile_id',
-        'company_name',
-        'company_phone',
-        'company_email',
-        'company_address',
+        'user_id',
+        'full_name',
+        'gender_id',
+        'suffix_id',
+        'street',
+        'city',
+        'province',
+        'postal_code',
+        'country',
     ];
 
     public function profile()

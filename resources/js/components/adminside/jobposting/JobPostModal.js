@@ -43,7 +43,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
         const [skillsResponse, ranksResponse, companiesResponse] = await Promise.all([
           axios.get("http://127.0.0.1:8000/api/skills"),
           axios.get("http://127.0.0.1:8000/api/ranks"),
-          axios.get("http://127.0.0.1:8000/api/companies"),
+          axios.get("http://127.0.0.1:8000/api/employers"),
         ]);
         const skillsData = skillsResponse.data.map((skill) => ({
           ...skill,
@@ -55,12 +55,12 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
         // Update ranks to use full rank objects instead of just names
         const ranksData = ranksResponse.data.ranks || ranksResponse.data;
         setAvailableRanks(ranksData);
-        const companiesData = companiesResponse.data.companies || [];
+        const companiesData = companiesResponse.data || [];
         setCompanies(companiesData);
         // Map company_id to employer object
-        const employersMap = companiesData.reduce((acc, company) => {
-          if (company.id && company.employer && company.employer.id) {
-            acc[company.id] = company.employer;
+        const employersMap = companiesData.reduce((acc, employer) => {
+          if (employer.id && employer.profile) {
+            acc[employer.id] = employer;
           }
           return acc;
         }, {});
@@ -99,7 +99,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
       setSelectedCompany(company || null);
       setFormData({
         company_id: initialData.company_id || "",
-        profile_id: company?.employer_id ? String(company.employer_id) : initialData.profile_id || "",
+        profile_id: company?.profile?.id ? String(company.profile.id) : initialData.profile_id || "",
         skills_required: initialData.skills ? (() => {
           const skillsArray = [];
           // Parse the alternating format: skill_name, [sub_skills], skill_name, [sub_skills], ...
@@ -138,7 +138,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           : "",
       });
       console.log("Edit mode - Selected company:", company);
-      console.log("Edit mode - Set profile_id to:", company?.employer_id || initialData.profile_id);
+      console.log("Edit mode - Set profile_id to:", company?.profile?.id || initialData.profile_id);
     }
   }, [isEdit, initialData, companies]);
 
@@ -149,10 +149,10 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
       if (field === "company_id") {
         const company = companies.find((c) => c.id === parseInt(value));
         setSelectedCompany(company || null);
-        newData.profile_id = company?.employer_id ? String(company.employer_id) : "";
+        newData.profile_id = company?.profile?.id ? String(company.profile.id) : "";
         console.log("Selected company:", company);
         console.log("Set profile_id to:", newData.profile_id);
-        if (!company?.employer) {
+        if (!company?.profile) {
           setErrors((prev) => ({
             ...prev,
             profile_id: "No employer associated with this company",
@@ -293,7 +293,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     if (!formData.profile_id) {
       newErrors.profile_id = "Profile is required";
     }
-    if (formData.company_id && selectedCompany && String(selectedCompany.employer_id) !== formData.profile_id) {
+    if (formData.company_id && selectedCompany && String(selectedCompany.profile?.id) !== formData.profile_id) {
       newErrors.profile_id = "Profile must match the company's employer";
     }
     if (!formData.description) {
@@ -458,7 +458,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
               {Array.isArray(companies) &&
                 companies.map((company) => (
                   <option key={company.id} value={company.id}>
-                    {company.company_name}
+                    {company.profile?.first_name + ' ' + company.profile?.last_name || 'N/A'}
                   </option>
                 ))}
             </select>
@@ -477,7 +477,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
                 Select Profile
               </option>
               {selectedCompany && companyEmployers[selectedCompany.id] ? (
-                <option value={selectedCompany.employer_id}>
+                <option value={selectedCompany.profile?.id}>
                   {getProfileName(companyEmployers[selectedCompany.id])}
                 </option>
               ) : (

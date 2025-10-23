@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './../../../sass/components/profile.scss';
 import Headerz from "../HeaderContent/Headerz";
@@ -13,6 +13,7 @@ import { message } from 'antd';
 
 const Profile = ({ initialServiceType }) => {
   const { workerId } = useParams();
+  const location = useLocation();
   const resolvedWorkerId = (() => {
     // If route param is not a valid id (e.g., 'profile'), fallback to current user id
     if (!workerId || isNaN(Number(workerId))) {
@@ -66,10 +67,34 @@ const Profile = ({ initialServiceType }) => {
   // Handle Hire Now button click
   const handleHireNowClick = () => {
     if (!isLoggedIn()) {
-      setIsLoginModalOpen(true);
-    } else {
-      setIsBookingModalOpen(true);
+      alert('Please login to hire workers');
+      window.location.href = '/login';
+      return;
     }
+    
+    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+    const currentUser = userData.user || userData;
+    
+    if (currentUser.role_id === 1) {
+      alert('Workers cannot hire other workers. Please switch to Employer account.');
+      return;
+    }
+    
+    setIsBookingModalOpen(true);
+  };
+
+  // Handle Message button click
+  const handleMessageClick = () => {
+    if (!isLoggedIn()) {
+      alert('Please login to send messages');
+      window.location.href = '/login';
+      return;
+    }
+    
+    // Store the target user ID in localStorage
+    localStorage.setItem('message_target_user_id', worker.id);
+    // Navigate to messages page
+    window.location.href = '/message';
   };
 
   // Fetch worker data from API
@@ -168,14 +193,15 @@ const Profile = ({ initialServiceType }) => {
           id: workerData.id,
           name: fullName,
           email: workerData.email,
-          status: "ACTIVE NOW", // Since we only show ACCEPTED workers
+          status: workerData.last_active_text || (workerData.is_online ? "Online" : "Offline"),
+          is_online: workerData.is_online,
+          last_active_text: workerData.last_active_text,
           hourlyRate: workerData.worker?.skills_id?.primary_skills?.[0]?.hourly_rate 
             ? parseFloat(workerData.worker.skills_id.primary_skills[0].hourly_rate) 
             : 150.00,
           description: workerData.worker?.bio || "No bio available",
           work_type: workerData.worker?.work_type || 'part-time',
           hours_per_day: workerData.worker?.hours_per_day || 4,
-          monthly_salary: workerData.worker?.monthly_salary || null,
           location: fullAddress || 'Address not specified',
           profile_img: workerData.profile?.profile_img,
           contact_number: workerData.profile?.contact_number,
@@ -442,6 +468,11 @@ const Profile = ({ initialServiceType }) => {
       </div>
     );
   }
+
+  // Check if service parameter exists in URL
+  const searchParams = new URLSearchParams(location.search);
+  const hasServiceParam = searchParams.has('service');
+  const serviceType = searchParams.get('service') || initialServiceType;
 
   return (
     <div className="profile-page">
@@ -751,6 +782,7 @@ const Profile = ({ initialServiceType }) => {
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
         onSubmit={(details) => handleBookingSubmit(details)}
+        serviceType={serviceType}
       />
 
       <ConfirmationModal

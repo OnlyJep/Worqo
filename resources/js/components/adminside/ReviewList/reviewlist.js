@@ -8,7 +8,7 @@ import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_reviewstable.scss";
 import ReviewModal from "./reviewlistmodal.js";
 
-const API_BASE_URL = "http://127.0.0.1:8000/api";
+const API_BASE_URL = "/api";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -226,6 +226,10 @@ const ReviewsTable = () => {
   const handleAddNewClick = () => {
     if (!dataLoaded) {
       setError("Please wait until user data is loaded.");
+      return;
+    }
+    if (employers.length === 0 || workers.length === 0) {
+      setError("No users available for review. Please ensure there are both employers and workers in the system.");
       return;
     }
     console.log("Add New clicked, opening modal");

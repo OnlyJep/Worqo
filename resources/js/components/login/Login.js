@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './../../../sass/components/_login.scss';
@@ -30,12 +31,13 @@ const Login = () => {
     setError(null);
 
     if (!email || !password) {
-      setError('Please fill in all fields.');
+      message.warning('Please fill in all fields.');
       setIsLoading(false);
       return;
     }
 
     setIsLoading(true);
+    message.loading({ content: 'Logging in... Please wait', key: 'login', duration: 0 });
 
     try {
       const response = await fetch('http://127.0.0.1:8000/api/login', {
@@ -51,6 +53,7 @@ const Login = () => {
       console.log('API Response:', data);
 
       if (response.ok) {
+        message.success({ content: 'Login successful!', key: 'login', duration: 2 });
         localStorage.setItem('auth_token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
 
@@ -59,6 +62,19 @@ const Login = () => {
         } else {
           localStorage.removeItem('remembered_email');
         }
+
+        // Update user status to online
+        const updatedUser = {
+          ...data.user,
+          is_online: true,
+          last_active_text: 'Online'
+        };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        
+        // Dispatch userLoggedIn event to notify other components
+        window.dispatchEvent(new CustomEvent('userLoggedIn', {
+          detail: { user: updatedUser }
+        }));
 
         const userRole = data.user.role_id;
         console.log('User Role:', userRole);
@@ -80,20 +96,20 @@ const Login = () => {
             setIsLoading(false);
           }, 500);
         } else {
-          setError('Invalid role');
+          message.error({ content: 'Invalid role', key: 'login' });
           setIsLoading(false);
         }
       } else {
         // Handle specific error for archived user
         if (data.message === 'Account is archived and cannot log in') {
-          setError('Your account is locked. Please contact support.');
+          message.error({ content: 'Your account is locked. Please contact support.', key: 'login' });
         } else {
-          setError(data.message || 'Invalid email or password.');
+          message.error({ content: (data.message || 'Invalid email or password.'), key: 'login' });
         }
         setIsLoading(false);
       }
     } catch (error) {
-      setError('An error occurred. Please try again later.');
+      message.error({ content: 'An error occurred. Please try again later.', key: 'login' });
       console.error('Login error:', error);
       setIsLoading(false);
     }
@@ -119,6 +135,18 @@ const Login = () => {
 
       const data = await response.json();
       if (response.ok) {
+        // Update user status to offline before removing from localStorage
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+          const userData = JSON.parse(storedUser);
+          const updatedUser = {
+            ...userData,
+            is_online: false,
+            last_active_text: 'Offline'
+          };
+          localStorage.setItem('user', JSON.stringify(updatedUser));
+        }
+        
         localStorage.removeItem('auth_token');
         localStorage.removeItem('user');
         localStorage.removeItem('remembered_email');
@@ -183,13 +211,10 @@ const Login = () => {
                   />
                   Remember me
                 </label>
-                <Link to="/forgot-password" className="forgot-password">
-                  Forgot Password?
-                </Link>
               </div>
 
               <button type="submit" className="login-submit-btn" disabled={isLoading}>
-                {isLoading ? 'Logging in...' : 'Login'}
+                {isLoading ? 'Signing in...' : 'Login'}
               </button>
             </form>
 

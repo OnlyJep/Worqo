@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { message } from "antd";
 import { Link, useNavigate } from "react-router-dom"; // Added useNavigate
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { CaretDownOutlined } from '@ant-design/icons';
 import "./../../../sass/components/_register.scss";
 import Loader from "../LoaderContent/loader";
+
+message.config({ top: 80, duration: 3 });
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +21,6 @@ const Register = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
-  const [alert, setAlert] = useState({ message: "", type: "" });
   const [isLoading, setIsLoading] = useState(true);
   const [suffixes, setSuffixes] = useState([]);
   const [roles, setRoles] = useState([]);
@@ -71,24 +73,7 @@ const Register = () => {
         ]);
       } catch (error) {
         console.error("Failed to fetch data:", error);
-        showAlert(`Failed to load registration data: ${error.message}`, "error");
-        // Fallback data
-        setSuffixes([
-          { id: 1, suffix_name: "Jr.", archived: false },
-          { id: 2, suffix_name: "Sr.", archived: false },
-          { id: 3, suffix_name: "II", archived: false },
-          { id: 4, suffix_name: "III", archived: false },
-        ]);
-        setRoles([
-          { id: 1, role_name: "Worker" },
-          { id: 2, role_name: "Employer" },
-        ]);
-        setGenders([
-          { value: "", label: "Select Gender", disabled: true },
-          { value: "Female", label: "Female" },
-          { value: "Male", label: "Male" },
-          { value: "Custom", label: "Custom" },
-        ]);
+        message.error(`Failed to load registration data: ${error.message}`);
       } finally {
         setIsLoading(false);
       }
@@ -97,14 +82,7 @@ const Register = () => {
     fetchData();
   }, []);
 
-  const showAlert = (message, type) => {
-    setAlert({ message, type });
-    setTimeout(() => setAlert({ message: "", type: "" }), 5000);
-  };
-
-  const closeAlert = () => {
-    setAlert({ message: "", type: "" });
-  };
+  const closeAlert = () => {};
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -132,11 +110,11 @@ const Register = () => {
       !formData.role ||
       !formData.gender
     ) {
-      showAlert("Please fill in all required fields.", "error");
+      message.warning("Please fill in all required fields.");
       return;
     }
     if (passwordError) {
-      showAlert("Please fix password errors.", "error");
+      message.warning("Please fix password errors.");
       return;
     }
 
@@ -166,9 +144,9 @@ const Register = () => {
         const errorMessage = data.errors
           ? Object.values(data.errors).flat().join(", ")
           : data.error || "Registration failed";
-        showAlert(errorMessage, "error");
+        message.error(errorMessage);
       } else {
-        showAlert("✅ Registration successful!", "success");
+        message.success("Registration successful!");
         setFormData({
           firstName: "",
           middleName: "",
@@ -184,7 +162,7 @@ const Register = () => {
       }
     } catch (error) {
       console.error("Registration error:", error);
-      showAlert("Registration failed: Network error", "error");
+      message.error("Registration failed: Network error");
     } finally {
       setIsLoading(false);
     }
@@ -197,12 +175,7 @@ const Register = () => {
         <div className="register-card">
           <div className="register-image-section"></div>
           <div className="register-content">
-            {alert.message && (
-              <div className={`custom-alert ${alert.type}`}>
-                {alert.message}
-                <button className="alert-close-btn" onClick={closeAlert}>×</button>
-              </div>
-            )}
+            {/* Ant Design message is used instead of inline alerts */}
             <div className="register-header">
               <h2 className="register-title">Create Your Account</h2>
               <p className="register-subtitle">Join us to get started</p>

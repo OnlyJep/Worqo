@@ -1,17 +1,12 @@
 import React from 'react';
 import './../../../sass/components/footer.scss';
 
-// Assets
-import Logo from '../../../../resources/sass/img/worqo_logo.svg';
-import FacebookIcon from '../../../../resources/sass/img/iconsAssets/Facebook.svg';
-import TwitterIcon from '../../../../resources/sass/img/iconsAssets/twitter.svg';
-
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__info">
-          <img className="footer__logo" src={Logo} alt="WORQO" />
+          <img className="footer__logo" src="/images/worqo_logo.svg" alt="WORQO" />
           <ul className="footer__contact">
             <li><span className="footer__bullet" aria-hidden>📍</span> 21 JC Aquino Avenue, Butuan City</li>
             <li><span className="footer__bullet" aria-hidden>📞</span> +639506149789</li>
@@ -48,10 +43,10 @@ const Footer = () => {
           <h3>Follow Us</h3>
           <div className="footer__social-icons">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <img src={FacebookIcon} alt="Facebook" />
+              <img src="/images/facebook.svg" alt="Facebook" />
             </a>
             <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
-              <img src={TwitterIcon} alt="Twitter" />
+              <img src="/images/twitter.svg" alt="Twitter" />
             </a>
           </div>
         </div>

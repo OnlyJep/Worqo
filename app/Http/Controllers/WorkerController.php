@@ -161,6 +161,125 @@ class WorkerController extends Controller
     }
 
     /**
+     * Fetch all workers for admin interface.
+     */
+    public function adminIndex(Request $request): JsonResponse
+    {
+        try {
+            $search = $request->query('search', '');
+            $page = $request->query('page', 1);
+            $limit = $request->query('limit', 10);
+            $status = $request->query('status', 'all');
+            $excludeUserId = $request->query('exclude_user_id');
+
+            $query = User::with(['profile', 'worker'])
+                ->whereIn('users.role_id', [1, 2]) // Allow both workers (1) and employers (2)
+                ->where('users.archived', false)
+                ->whereHas('worker'); // Show all workers, not just ACCEPTED ones
+
+            // Exclude specific user if provided
+            if ($excludeUserId) {
+                $query->where('users.id', '!=', $excludeUserId);
+            }
+
+            if (!empty($search)) {
+                $query->whereHas('profile', function ($q) use ($search) {
+                    $q->where('first_name', 'like', '%' . $search . '%')
+                      ->orWhere('middlename', ' like', '%' . $search . '%')
+                      ->orWhere('last_name', 'like', '%' . $search . '%');
+                })->orWhere('users.email', 'like', '%' . $search . '%');
+            }
+
+            // Filter by status
+            if ($status !== 'all') {
+                $query->whereHas('worker', function ($q) use ($status) {
+                    switch ($status) {
+                        case 'to_review':
+                            $q->where(function ($subQ) {
+                                $subQ->whereNull('is_reviewed')
+                                     ->orWhere('is_reviewed', '')
+                                     ->orWhere('is_reviewed', '0')
+                                     ->orWhere('is_reviewed', 'TO BE REVIEWED');
+                            });
+                            break;
+                        case 'accepted':
+                            $q->where('is_reviewed', 'ACCEPTED');
+                            break;
+                        case 'declined':
+                            $q->where('is_reviewed', 'DECLINED');
+                            break;
+                    }
+                });
+            }
+
+            // Order by review status: TO BE REVIEWED first, then ACCEPTED, then DECLINED
+            $query->leftJoin('profiles', 'users.id', '=', 'profiles.user_id')
+                  ->leftJoin('workers', 'profiles.id', '=', 'workers.profile_id')
+                  ->orderByRaw("
+                    CASE 
+                        WHEN workers.is_reviewed IS NULL OR workers.is_reviewed = '' OR workers.is_reviewed = '0' OR workers.is_reviewed = 'TO BE REVIEWED' THEN 1
+                        WHEN workers.is_reviewed = 'ACCEPTED' THEN 2
+                        WHEN workers.is_reviewed = 'DECLINED' THEN 3
+                        ELSE 4
+                    END
+                  ")
+                  ->orderBy('users.created_at', 'desc')
+                  ->select('users.*');
+
+                $workers = $query->paginate($limit, ['*'], 'page', $page);
+
+            foreach ($workers as $user) {
+                if (!$user->profile) {
+                    $user->profile()->create([
+                        'user_id' => $user->id,
+                        'first_name' => 'Unknown',
+                        'last_name' => 'Worker',
+                        'email' => $user->email,
+                        'city' => 'Butuan City',
+                        'province' => 'Agusan Del Norte',
+                        'postal_code' => '8600',
+                        'country' => 'Philippines',
+                    ]);
+                    $user->load('profile');
+                }
+                if (!$user->worker && $user->profile) {
+                    Worker::create([
+                        'profile_id' => $user->profile->id,
+                        'work_type' => 'part-time',
+                        'skills_id' => [],
+                        'credentials_name' => [],
+                        'archived' => false,
+                    ]);
+                    $user->load('worker');
+                }
+            }
+
+            $response = [
+                'workers' => collect($workers->items())->map(function ($user) {
+                    return $this->formatWorker($user);
+                })->toArray(),
+                'pagination' => [
+                    'currentPage' => $workers->currentPage(),
+                    'totalPages' => $workers->lastPage(),
+                    'totalItems' => $workers->total(),
+                ],
+            ];
+
+            Log::info('Fetched workers for admin interface', [
+                'count' => $workers->count(),
+                'page' => $page,
+                'limit' => $limit,
+                'total' => $workers->total(),
+            ]);
+
+            return response()->json($response, 200);
+        } catch (\Exception $e) {
+            Log::error('Error fetching workers for admin: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            return response()->json(['error' => 'Failed to fetch workers: ' . $e->getMessage()], 500);
+        }
+    }
+
+    /**
      * Fetch archived workers.
      */
     public function archived(Request $request): JsonResponse
@@ -390,7 +509,8 @@ class WorkerController extends Controller
                     'street' => 'nullable|string|max:255',
                     'work_type' => 'required|in:part-time,full-time,one-time',
                     'hours_per_day' => 'nullable|integer|min:1|max:24',
-                    'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
+                    'preferred_working_hours' => 'nullable|array',
+                    'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
                     'preferred_working_days' => 'nullable|array',
                     'preferred_working_days.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
                     'bio' => 'nullable|string|max:1000',
@@ -402,6 +522,9 @@ class WorkerController extends Controller
                     'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                     'credentials' => 'nullable|array',
                     'credentials.*.credentials_name' => 'required|string|max:255',
+                    'credentials.*.credentials_photo' => 'nullable|file|mimes:jpeg,png,jpg,pdf,doc,docx|max:2048',
+                    'credentials.*.credentials_doc' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+                    'is_reviewed' => 'nullable|string|in:TO BE REVIEWED,ACCEPTED,DECLINED',
                 ]
             );
 
@@ -461,15 +584,57 @@ class WorkerController extends Controller
 
             $profile = Profile::create($profileData);
 
+            Log::info("Credentials data received", [
+                'has_credentials' => $request->has('credentials'),
+                'credentials_data' => $request->input('credentials'),
+                'all_files' => $request->allFiles()
+            ]);
+            
             $credentials_name = [];
+            $credentials_photo = [];
+            $credentials_doc = [];
             if ($request->has('credentials') && is_array($request->credentials)) {
-                foreach ($request->credentials as $credential) {
+                foreach ($request->credentials as $index => $credential) {
                     if (
                         isset($credential['credentials_name']) &&
                         !empty($credential['credentials_name']) &&
                         !empty($credential['credentials_name'])
                     ) {
                         $credentials_name[] = $credential['credentials_name'];
+                        
+                        // Handle file upload and determine if it's photo or document
+                        if ($request->hasFile("credentials.{$index}.credentials_photo")) {
+                            $file = $request->file("credentials.{$index}.credentials_photo");
+                            $fileExtension = strtolower($file->getClientOriginalExtension());
+                            $mimeType = $file->getMimeType();
+                            
+                            Log::info("Processing credential file", [
+                                'index' => $index,
+                                'original_name' => $file->getClientOriginalName(),
+                                'extension' => $fileExtension,
+                                'mime_type' => $mimeType,
+                                'size' => $file->getSize()
+                            ]);
+                            
+                            // Check if it's an image file
+                            if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif', 'webp']) || 
+                                str_starts_with($mimeType, 'image/')) {
+                                // Store as photo
+                                $photoPath = $file->store('credentials/photos', 'public');
+                                $credentials_photo[] = $photoPath;
+                                $credentials_doc[] = null;
+                                Log::info("Stored as photo", ['path' => $photoPath]);
+                            } else {
+                                // Store as document
+                                $docPath = $file->store('credentials/documents', 'public');
+                                $credentials_doc[] = $docPath;
+                                $credentials_photo[] = null;
+                                Log::info("Stored as document", ['path' => $docPath]);
+                            }
+                        } else {
+                            $credentials_photo[] = null;
+                            $credentials_doc[] = null;
+                        }
                     }
                 }
             }
@@ -488,17 +653,25 @@ class WorkerController extends Controller
                 $preferredWorkingHours = [];
             }
 
+            Log::info("Final credentials data before worker creation", [
+                'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
+                'credentials_doc' => $credentials_doc
+            ]);
+
             $worker = Worker::create([
                 'profile_id' => $profile->id,
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
-                'monthly_salary' => $request->monthly_salary,
+                'preferred_working_hours' => $preferredWorkingHours,
                 'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
+                'credentials_doc' => $credentials_doc,
                 'archived' => false,
-                'is_reviewed' => null,
+                'is_reviewed' => $request->is_reviewed,
             ]);
 
             Log::info('Worker created', [
@@ -591,7 +764,8 @@ class WorkerController extends Controller
                     'street' => 'nullable|string|max:255',
                     'work_type' => 'required|in:part-time,full-time,one-time-job',
                     'hours_per_day' => 'nullable|integer|min:1|max:24',
-                    'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
+                    'preferred_working_hours' => 'nullable|array',
+                    'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
                     'preferred_working_days' => 'nullable|array',
                     'preferred_working_days.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
                     'bio' => 'nullable|string|max:1000',
@@ -603,6 +777,9 @@ class WorkerController extends Controller
                     'profile_img' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
                     'credentials' => 'nullable|array',
                     'credentials.*.credentials_name' => 'required|string|max:255',
+                    'credentials.*.credentials_photo' => 'nullable|file|mimes:jpeg,png,jpg,pdf,doc,docx|max:2048',
+                    'credentials.*.credentials_doc' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+                    'is_reviewed' => 'nullable|string|in:TO BE REVIEWED,ACCEPTED,DECLINED',
                 ]
             );
 
@@ -679,14 +856,45 @@ class WorkerController extends Controller
 
             }
 
+            // Handle credentials_photo and credentials_doc arrays
+            $credentials_photo = [];
+            $credentials_doc = [];
+            
+            if ($request->has('credentials') && is_array($request->credentials)) {
+                foreach ($request->credentials as $index => $credential) {
+                    if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
+                        // Handle credentials_photo file upload
+                        if ($request->hasFile("credentials.{$index}.credentials_photo")) {
+                            $photoFile = $request->file("credentials.{$index}.credentials_photo");
+                            $photoPath = $photoFile->store('credentials/photos', 'public');
+                            $credentials_photo[] = $photoPath;
+                        } else {
+                            $credentials_photo[] = null;
+                        }
+                        
+                        // Handle credentials_doc file upload
+                        if ($request->hasFile("credentials.{$index}.credentials_doc")) {
+                            $docFile = $request->file("credentials.{$index}.credentials_doc");
+                            $docPath = $docFile->store('credentials/documents', 'public');
+                            $credentials_doc[] = $docPath;
+                        } else {
+                            $credentials_doc[] = null;
+                        }
+                    }
+                }
+            }
+
             $user->worker->update([
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
-                'monthly_salary' => $request->monthly_salary,
+                'preferred_working_hours' => $preferredWorkingHours,
                 'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
+                'credentials_doc' => $credentials_doc,
+                'is_reviewed' => $request->input('is_reviewed', $user->worker->is_reviewed),
                 'archived' => $user->archived,
             ]);
 
@@ -694,7 +902,7 @@ class WorkerController extends Controller
                 'worker_id' => $user->worker->id,
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
-                'monthly_salary' => $request->monthly_salary,
+                'preferred_working_hours' => $preferredWorkingHours,
                 'preferred_working_days' => $preferredWorkingHours,
                 'bio' => $request->bio,
                 'skills_id' => $skillsId,
@@ -1703,7 +1911,7 @@ class WorkerController extends Controller
             'worker' => [
                 'work_type' => $user->worker->work_type,
                 'hours_per_day' => $user->worker->hours_per_day,
-                'monthly_salary' => $user->worker->monthly_salary,
+                'preferred_working_hours' => $user->worker->preferred_working_hours,
                 'preferred_working_days' => $user->worker->preferred_working_days,
                 'bio' => $user->worker->bio,
                 'skills_id' => $structuredSkillsId,
@@ -1735,7 +1943,8 @@ class WorkerController extends Controller
                 'profile_id' => 'required|integer|exists:profiles,id',
                 'work_type' => 'required|in:part-time,full-time,one-time',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
-                'monthly_salary' => 'nullable|numeric|min:0|max:999999.99',
+                'preferred_working_hours' => 'nullable|string',
+                'bio' => 'nullable|string|max:1000',
                 'preferred_working_days' => 'nullable|string',
                 'skills_id' => 'required|array',
                 'skills_id.primary_skills' => 'required|array|min:1',
@@ -1750,6 +1959,8 @@ class WorkerController extends Controller
                 'skills_id.additional_skills.*.sub_skills.*' => 'string|max:255',
                 'credentials' => 'nullable|array',
                 'credentials.*.credentials_name' => 'required|string|max:255',
+                'credentials.*.credentials_photo' => 'nullable|file|mimes:jpeg,png,jpg,gif|max:10240',
+                'credentials.*.credentials_doc' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png,jpg|max:10240',
             ]);
 
             if ($validator->fails()) {
@@ -1827,10 +2038,31 @@ class WorkerController extends Controller
             }
 
             $credentials_name = [];
+            $credentials_photo = [];
+            $credentials_doc = [];
+            
             if ($request->has('credentials') && is_array($request->credentials)) {
                 foreach ($request->credentials as $index => $credential) {
                     if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
                         $credentials_name[] = $credential['credentials_name'];
+                        
+                        // Handle credentials_photo file upload
+                        if ($request->hasFile("credentials.{$index}.credentials_photo")) {
+                            $photoFile = $request->file("credentials.{$index}.credentials_photo");
+                            $photoPath = $photoFile->store('credentials', 'public');
+                            $credentials_photo[] = $photoPath;
+                        } else {
+                            $credentials_photo[] = null;
+                        }
+                        
+                        // Handle credentials_doc file upload
+                        if ($request->hasFile("credentials.{$index}.credentials_doc")) {
+                            $docFile = $request->file("credentials.{$index}.credentials_doc");
+                            $docPath = $docFile->store('credentials', 'public');
+                            $credentials_doc[] = $docPath;
+                        } else {
+                            $credentials_doc[] = null;
+                        }
                     }
                 }
             }
@@ -1838,11 +2070,14 @@ class WorkerController extends Controller
             $user->worker->update([
                 'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
-                'monthly_salary' => $request->monthly_salary,
+                'preferred_working_hours' => $preferredWorkingHours,
                 'preferred_working_days' => $preferredWorkingHours,
                 'skills_id' => $skillsId, // Keep the original structure with primary_skills and additional_skills
                 'credentials_name' => $credentials_name,
-                'is_reviewed' => null,
+                'credentials_photo' => $credentials_photo,
+                'credentials_doc' => $credentials_doc,
+                'bio' => $request->bio,
+                'is_reviewed' => 'TO BE REVIEWED',
             ]);
 
             Log::info('Worker profile completed', [
@@ -1851,6 +2086,10 @@ class WorkerController extends Controller
                 'work_type' => $request->work_type,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
+                'credentials_photo' => $credentials_photo,
+                'credentials_doc' => $credentials_doc,
+                'bio' => $request->bio,
+                'is_reviewed' => 'TO BE REVIEWED',
             ]);
 
             return response()->json([
@@ -1981,7 +2220,7 @@ class WorkerController extends Controller
             $request->validate([
                 'work_type' => 'nullable|string|max:255',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
-                'monthly_salary' => 'nullable|numeric|min:0',
+                'preferred_working_hours' => 'nullable|string',
                 'preferred_working_days' => 'nullable|string',
                 'bio' => 'nullable|string|max:1000',
             ]);
@@ -1995,10 +2234,6 @@ class WorkerController extends Controller
             
             if ($request->has('hours_per_day')) {
                 $updateData['hours_per_day'] = $request->input('hours_per_day');
-            }
-            
-            if ($request->has('monthly_salary')) {
-                $updateData['monthly_salary'] = $request->input('monthly_salary');
             }
             
             if ($request->has('preferred_working_days')) {

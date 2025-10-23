@@ -51,7 +51,6 @@ const MyProfile = () => {
   const [workPreferences, setWorkPreferences] = useState({
     workType: '',
     hoursPerDay: '',
-    monthlySalary: '',
     preferredWorkingDays: [],
     bio: ''
   });
@@ -106,20 +105,56 @@ const MyProfile = () => {
 
   // Load user data on component mount
   useEffect(() => {
-    loadUserData();
+    let isMounted = true;
     
-    // Fetch genders and suffixes
-    fetchGenders();
-    fetchSuffixes();
+    const loadData = async () => {
+      try {
+        await loadUserData();
+        
+        // Fetch genders and suffixes
+        await Promise.all([
+          fetchGenders(),
+          fetchSuffixes()
+        ]);
+      } catch (error) {
+        if (isMounted) {
+          console.error('Error loading initial data:', error);
+        }
+      }
+    };
+    
+    loadData();
+    
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Fetch rank and reviews when user is loaded
   useEffect(() => {
+    let isMounted = true;
+    
     if (user?.id && user?.role_id === 1) {
-      fetchWorkerReviews(user.id);
-      fetchWorkerProfile(user.id);
-      fetchAvailableSkills();
+      const fetchData = async () => {
+        try {
+          await Promise.all([
+            fetchWorkerReviews(user.id),
+            fetchWorkerProfile(user.id),
+            fetchAvailableSkills()
+          ]);
+        } catch (error) {
+          if (isMounted) {
+            console.error('Error fetching worker data:', error);
+          }
+        }
+      };
+      
+      fetchData();
     }
+    
+    return () => {
+      isMounted = false;
+    };
   }, [user]);
 
   // Handle clicking outside dropdown
@@ -318,7 +353,10 @@ const MyProfile = () => {
           setWorkerRank(sortedRanks[0]);
           setProgressPercent(0);
         } else {
-          console.error('No ranks available');
+          console.log('No ranks available - this is normal for new users');
+          // Set a default state when no ranks are available
+          setWorkerRank(null);
+          setProgressPercent(0);
         }
       } else {
         console.error('Failed to fetch ranks:', response.status);
@@ -386,9 +424,8 @@ const MyProfile = () => {
         setWorkPreferences({
           workType: workerData.work_type || '',
           hoursPerDay: workerData.hours_per_day || '',
-          monthlySalary: workerData.monthly_salary || '',
           preferredWorkingDays: Array.isArray(workerData.preferred_working_days) 
-            ? workerData.preferred_working_days 
+            ? workerData.preferred_working_days
             : (workerData.preferred_working_days ? JSON.parse(workerData.preferred_working_days) : []),
           bio: workerData.bio || ''
         });
@@ -429,16 +466,21 @@ const MyProfile = () => {
         
         // Set credentials from worker data
         if (workerData.credentials_name && Array.isArray(workerData.credentials_name)) {
-          const creds = workerData.credentials_name.map((name, index) => {
-            const photo = workerData.credentials_photo?.[index];
-            console.log(`Credential ${index}: name="${name}", photo="${photo}"`);
-            return {
-              credentials_name: name,
-              credentials_photo: photo || null
-            };
-          });
+          const creds = workerData.credentials_name
+            .map((name, index) => {
+              const photo = workerData.credentials_photo?.[index];
+              const doc = workerData.credentials_doc?.[index];
+              console.log(`Credential ${index}: name="${name}", photo="${photo}", doc="${doc}"`);
+              return {
+                credentials_name: name,
+                credentials_photo: photo || null,
+                credentials_doc: doc || null
+              };
+            })
+            .filter(cred => cred.credentials_name && cred.credentials_name.trim() !== ''); // Filter out empty/null credentials
           console.log('Setting credentials from backend:', creds);
           console.log('Raw credentials_photo from backend:', workerData.credentials_photo);
+          console.log('Raw credentials_doc from backend:', workerData.credentials_doc);
           setWorkerCredentials(creds);
         } else {
           console.log('No credentials found in backend data');
@@ -619,9 +661,8 @@ const MyProfile = () => {
         await fetchWorkerProfile(user.id);
         // Dispatch event for other components
         window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
-        
-        // Show the skill items immediately after saving
-        // The skill items will be displayed because the data is refreshed
+        // Exit edit mode so saved items render cleanly
+        setIsEditingSkills(false);
       } else {
         const errorData = await response.json().catch(() => ({}));
         message.error(`Failed to save ${skillType} skill: ${errorData.message || 'Please try again.'}`);
@@ -800,10 +841,10 @@ const MyProfile = () => {
     });
   };
 
-  const handleRemoveAdditionalSkill = () => {
+  const handleRemoveAdditionalSkill = (removeId) => {
     setWorkerSkills(prev => ({
       ...prev,
-      additional_skills: []
+      additional_skills: (prev.additional_skills || []).filter(s => s.id !== removeId)
     }));
   };
 
@@ -1248,6 +1289,15 @@ const MyProfile = () => {
           setIsEditingProfile(false);
         }
       } else {
+        // Handle 404 - User not found (stale data)
+        if (response.status === 404) {
+          console.error("User not found - clearing stale data");
+          const { clearStaleUserData } = await import('../../utils/profileImageUtils.js');
+          clearStaleUserData();
+          message.error("Your session has expired. Please log in again.");
+          return;
+        }
+        
         try {
           const errorData = await response.json();
           message.error(`Failed to update profile: ${errorData.message || 'Please try again.'}`);
@@ -1365,7 +1415,6 @@ const MyProfile = () => {
         body: JSON.stringify({
           work_type: workPreferences.workType,
           hours_per_day: workPreferences.hoursPerDay,
-          monthly_salary: workPreferences.monthlySalary,
           preferred_working_days: JSON.stringify(workPreferences.preferredWorkingDays),
           bio: workPreferences.bio
         })
@@ -1405,12 +1454,12 @@ const MyProfile = () => {
       <div className="profile-card">
         <div className="profile-header">
           <div className="avatar-container">
-            <div className={`avatar-placeholder ${!profileImagePreview && (!user?.profile_img || user?.profile_img === 'img/defaultpfp.jpg') ? 'no-image' : ''}`}>
+            <div className={`avatar-placeholder ${!profileImagePreview && (!user?.profile_img || user?.profile_img === 'images/defpfp.svg') ? 'no-image' : ''}`}>
               <img 
-                src={profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : "img/defaultpfp.jpg")} 
+                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
                 alt="Profile" 
                 onError={(e) => {
-                  e.target.src = "img/defaultpfp.jpg";
+                  e.target.src = "images/defpfp.svg";
                   e.target.parentElement.classList.add('no-image');
                 }}
               />
@@ -1771,26 +1820,9 @@ const MyProfile = () => {
               </div>
             </div>
 
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="monthlySalary" className="label-up">Expected Monthly Salary</label>
-                <input
-                  type="number"
-                  id="monthlySalary"
-                  name="monthlySalary"
-                  value={workPreferences.monthlySalary}
-                  onChange={handleWorkPreferencesChange}
-                  disabled={!isEditingWorkPreferences}
-                  className={isEditingWorkPreferences ? 'editing' : ''}
-                  placeholder="e.g., 15000"
-                  min="0"
-                  step="100"
-                />
-              </div>
-            </div>
 
             <div className="form-group full-width">
-              <label htmlFor="preferredWorkingDays" className="label-up">Preferred Working Days</label>
+              <label className="label-up">Preferred Working Days</label>
               <div className="working-days-container">
                 {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map(day => (
                   <label key={day} className={`day-checkbox ${!isEditingWorkPreferences ? 'disabled' : ''}`}>
@@ -1883,10 +1915,12 @@ const MyProfile = () => {
                           className="form-input"
                         >
                           <option value="">Select Experience</option>
-                          <option value="Beginner (0-1 years)">Beginner (0-1 years)</option>
-                          <option value="Intermediate (1-3 years)">Intermediate (1-3 years)</option>
-                          <option value="Advanced (3-5 years)">Advanced (3-5 years)</option>
-                          <option value="Expert (5+ years)">Expert (5+ years)</option>
+                          <option value="no-experience">No Experience</option>
+                          <option value="0-11-months">0 to 11 months</option>
+                          <option value="1-2-years">1 to 2 years</option>
+                          <option value="2-5-years">2 to 5 years</option>
+                          <option value="5-10-years">5 to 10 years</option>
+                          <option value="10-plus-years">10+ years</option>
                         </select>
                       </div>
                       
@@ -2012,15 +2046,19 @@ const MyProfile = () => {
                           const skillName = selectedSkill.name || selectedSkill.skill_name;
                           console.log('Additional skill name:', skillName);
                           
-                          setWorkerSkills(prev => ({
-                            ...prev,
-                            additional_skills: [{
-                              id: selectedSkill.id,
-                              skill_name: skillName,
-                              sub_skills: [],
-                              experience: ''
-                            }]
-                          }));
+                          setWorkerSkills(prev => {
+                            const exists = (prev.additional_skills || []).some(s => s.id === selectedSkill.id);
+                            const updated = exists
+                              ? prev.additional_skills
+                              : [
+                                  ...(prev.additional_skills || []),
+                                  { id: selectedSkill.id, skill_name: skillName, sub_skills: [], experience: '' }
+                                ];
+                            return {
+                              ...prev,
+                              additional_skills: updated
+                            };
+                          });
                         } else {
                           setWorkerSkills(prev => ({
                             ...prev,
@@ -2046,7 +2084,7 @@ const MyProfile = () => {
                         <button
                           type="button"
                           className="remove-skill-btn"
-                          onClick={handleRemoveAdditionalSkill}
+                          onClick={() => handleRemoveAdditionalSkill(skill.id)}
                           title="Remove this skill"
                         >
                           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -2063,10 +2101,12 @@ const MyProfile = () => {
                           className="form-input"
                         >
                           <option value="">Select Experience</option>
-                          <option value="Beginner (0-1 years)">Beginner (0-1 years)</option>
-                          <option value="Intermediate (1-3 years)">Intermediate (1-3 years)</option>
-                          <option value="Advanced (3-5 years)">Advanced (3-5 years)</option>
-                          <option value="Expert (5+ years)">Expert (5+ years)</option>
+                          <option value="no-experience">No Experience</option>
+                          <option value="0-11-months">0 to 11 months</option>
+                          <option value="1-2-years">1 to 2 years</option>
+                          <option value="2-5-years">2 to 5 years</option>
+                          <option value="5-10-years">5 to 10 years</option>
+                          <option value="10-plus-years">10+ years</option>
                         </select>
                       </div>
                       
@@ -2125,8 +2165,8 @@ const MyProfile = () => {
                         <button 
                           type="button" 
                           className="save-individual-skill-btn"
-                          onClick={() => handleSaveIndividualSkill('Additional', workerSkills.additional_skills[0])}
-                          disabled={!workerSkills.additional_skills[0]?.skill_name}
+                          onClick={() => handleSaveIndividualSkill('Additional')}
+                          disabled={!skill?.skill_name}
                         >
                           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                             <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
@@ -2275,18 +2315,18 @@ const MyProfile = () => {
                     </div>
                     <div className="credential-info">
                       <span className="credential-name">{credential.credentials_name}</span>
-                      {credential.credentials_photo ? (
-                        typeof credential.credentials_photo === 'string' ? (
+                      {credential.credentials_photo || credential.credentials_doc ? (
+                        typeof credential.credentials_photo === 'string' || typeof credential.credentials_doc === 'string' ? (
                           <div className="document-info">
                             <a 
-                              href={`http://127.0.0.1:8000/storage/${credential.credentials_photo}`} 
+                              href={`http://127.0.0.1:8000/storage/${credential.credentials_photo || credential.credentials_doc}`} 
                               target="_blank" 
                               rel="noopener noreferrer"
                               className="view-document-link"
                             >
                               View Document
                             </a>
-                            <span className="file-path">{credential.credentials_photo.split('/').pop()}</span>
+                            <span className="file-path">{(credential.credentials_photo || credential.credentials_doc).split('/').pop()}</span>
                           </div>
                         ) : credential.credentials_photo instanceof File ? (
                           <span className="pending-upload">Pending upload: {credential.credentials_photo.name}</span>
@@ -2360,10 +2400,10 @@ const MyProfile = () => {
             </div>
             <div className="image-modal-content">
               <img 
-                src={profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : "img/defaultpfp.jpg")} 
+                src={profileImagePreview || (user?.profile_img ? (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}`) : 'images/defpfp.svg')} 
                 alt="Profile" 
                 onError={(e) => {
-                  e.target.src = "img/defaultpfp.jpg";
+                  e.target.src = "images/defpfp.svg";
                 }}
               />
             </div>

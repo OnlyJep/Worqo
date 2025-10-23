@@ -61,7 +61,40 @@ const JobProfile = () => {
   }, [job, loading, error, navigate]);
 
   const handleApplyJob = () => {
+    const authToken = localStorage.getItem("auth_token");
+    if (!authToken) {
+      alert('Please login to apply for jobs');
+      window.location.href = '/login';
+      return;
+    }
+    
+    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+    const currentUser = userData.user || userData;
+    
+    if (currentUser.role_id === 2) {
+      alert('Employers cannot apply for jobs. Please switch to Worker account.');
+      return;
+    }
+    
     setIsApplyModalOpen(true);
+  };
+
+  const handleMessageClick = () => {
+    const authToken = localStorage.getItem("auth_token");
+    if (!authToken) {
+      alert('Please login to send messages');
+      window.location.href = '/login';
+      return;
+    }
+    
+    // Store the target user ID in localStorage
+    localStorage.setItem('message_target_user_id', job.user_id);
+    // Navigate to messages page
+    window.location.href = '/message';
+  };
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
   };
 
   const handleModalClose = () => {
@@ -168,9 +201,14 @@ const JobProfile = () => {
             </div>
             <p className="job-location">Posted by: {job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name}</p>
             <p className="job-member-since">POSTED SINCE: {new Date(job.created_at).toLocaleDateString()}</p>
-            <button className="job-apply-button" onClick={handleApplyJob}>
-              Apply Job
-            </button>
+            <div className="profile-actions">
+              <button className="job-apply-button" onClick={handleApplyJob}>
+                Apply Job
+              </button>
+              <button className="message-button" onClick={handleMessageClick}>
+                MESSAGE EMPLOYER
+              </button>
+            </div>
           </div>
           <div className="job-stats">
             <div className="job-stat-item">

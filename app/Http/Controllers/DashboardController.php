@@ -37,9 +37,8 @@ class DashboardController extends Controller
             ->where('archived', 0)
             ->count();
 
-        // Count total companies
-        $totalCompanies = DB::table('companies')
-            ->where('archived', 0)
+        // Count total bookings
+        $totalBookings = DB::table('bookings')
             ->count();
 
         // Calculate Worker and Employer registrations for the last 7 days for the charts
@@ -83,7 +82,7 @@ class DashboardController extends Controller
                 'total_admins' => $totalAdmins,
                 'total_users' => $totalUsers,
                 'total_job_postings' => $totalJobPostings,
-                'total_companies' => $totalCompanies,
+                'total_bookings' => $totalBookings,
             ],
             'worker_chart_data' => $workerChartData,
             'employer_chart_data' => $employerChartData,

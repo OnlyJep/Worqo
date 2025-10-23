@@ -1,11 +1,11 @@
 // Clean Color Palette - Professional Design
-$primary-color: #2563eb;        // Blue primary
-$secondary-color: #64748b;       // Slate secondary
+$primary-color: #1A2A44;        // Blue primary
+$secondary-color: #fff;       // Slate secondary
 $success-color: #10b981;         // Green success
 $error-color: #ef4444;           // Red error
 $warning-color: #f59e0b;         // Orange warning
-$text-primary: #1e293b;          // Dark slate text
-$text-secondary: #64748b;        // Medium slate text
+$text-primary: #1A2A44;          // Dark slate text
+$text-secondary: #1A2A44;        // Medium slate text
 $text-light: #94a3b8;            // Light slate text
 $bg-primary: #ffffff;            // White background
 $bg-secondary: #f8fafc;          // Light gray background
@@ -386,6 +386,335 @@ $border-dark: #94a3b8;           // Dark border
     justify-content: flex-end;
     gap: 12px;
     margin-top: 20px;
+
+    .work-preferences-next-btn {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid $primary-color;
+      min-width: 100px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: $primary-color;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+
+      &:hover {
+        background: #1A2A44;
+        border-color: #000;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(33, 33, 33, 0.16);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(238, 240, 246, 0.934);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(9, 9, 9, 0.685);
+      }
+
+      &:disabled {
+        background: $text-light;
+        border-color: $text-light;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.6;
+
+        &:hover {
+          background: $text-light;
+          border-color: $text-light;
+          transform: none;
+          box-shadow: none;
+        }
+      }
+
+      // Size variants for work preferences button
+      &.work-preferences-next-btn-small {
+        padding: 14px 28px;
+        font-size: 16px;
+        min-width: 160px;
+      }
+
+      &.work-preferences-next-btn-large {
+        padding: 24px 48px;
+        font-size: 20px;
+        min-width: 240px;
+      }
+
+      // Style variants for work preferences button
+      &.work-preferences-next-btn-secondary {
+        background: $bg-secondary;
+        color: $text-primary;
+        border-color: $border-medium;
+
+        &:hover {
+          background: $bg-tertiary;
+          border-color: $border-dark;
+          color: $text-primary;
+        }
+      }
+
+      &.work-preferences-next-btn-outline {
+        background: transparent;
+        color: $primary-color;
+        border-color: $primary-color;
+
+        &:hover {
+          background: $primary-color;
+          color: white;
+        }
+      }
+    }
+
+    .work-reference-navigation-btn {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid $primary-color;
+      min-width: 100px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: $primary-color;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+
+      &:hover {
+        background: #1d4ed8;
+        border-color: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+      }
+
+      &:disabled {
+        background: $text-light;
+        border-color: $text-light;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.6;
+
+        &:hover {
+          background: $text-light;
+          border-color: $text-light;
+          transform: none;
+          box-shadow: none;
+        }
+      }
+
+      // Size variants for work reference navigation
+      &.work-reference-navigation-btn-small {
+        padding: 14px 28px;
+        font-size: 16px;
+        min-width: 160px;
+      }
+
+      &.work-reference-navigation-btn-large {
+        padding: 24px 48px;
+        font-size: 20px;
+        min-width: 240px;
+      }
+
+      // Style variants for work reference navigation
+      &.work-reference-navigation-btn-secondary {
+        background: $bg-secondary;
+        color: $text-primary;
+        border-color: $border-medium;
+
+        &:hover {
+          background: $bg-tertiary;
+          border-color: $border-dark;
+          color: $text-primary;
+        }
+      }
+
+      &.work-reference-navigation-btn-outline {
+        background: transparent;
+        color: $primary-color;
+        border-color: $primary-color;
+
+        &:hover {
+          background: $primary-color;
+          color: white;
+        }
+      }
+    }
+  }
+
+  // Reference Button - Large Size
+  .reference-btn {
+    padding: 24px 48px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid $primary-color;
+    min-width: 250px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: $primary-color;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+    gap: 12px;
+
+    // Icon styling
+    .btn-icon {
+      font-size: 22px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    // Icon-only button variant
+    &.reference-btn-icon-only {
+      padding: 20px;
+      min-width: 60px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      
+      .btn-icon {
+        font-size: 24px;
+      }
+    }
+
+    &:hover {
+      background: #1A2A44;
+      border-color: #1A2A44;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+
+      .btn-icon {
+        transform: scale(1.1);
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    &:disabled {
+      background: $text-light;
+      border-color: $text-light;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      opacity: 0.6;
+
+      &:hover {
+        background: $text-light;
+        border-color: $text-light;
+        transform: none;
+        box-shadow: none;
+      }
+    }
+
+    // Size variants
+    &.reference-btn-small {
+      padding: 12px 24px;
+      font-size: 14px;
+      min-width: 140px;
+
+      .btn-icon {
+        font-size: 16px;
+      }
+
+      &.reference-btn-icon-only {
+        padding: 12px;
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+
+        .btn-icon {
+          font-size: 18px;
+        }
+      }
+    }
+
+    &.reference-btn-large {
+      padding: 20px 40px;
+      font-size: 18px;
+      min-width: 220px;
+
+      .btn-icon {
+        font-size: 20px;
+      }
+
+      &.reference-btn-icon-only {
+        padding: 20px;
+        min-width: 56px;
+        width: 56px;
+        height: 56px;
+
+        .btn-icon {
+          font-size: 24px;
+        }
+      }
+    }
+
+    // Style variants
+    &.reference-btn-secondary {
+      background: $bg-secondary;
+      color: $text-primary;
+      border-color: $border-medium;
+
+      &:hover {
+        background: $bg-tertiary;
+        border-color: $border-dark;
+        color: $text-primary;
+      }
+    }
+
+    &.reference-btn-outline {
+      background: transparent;
+      color: $primary-color;
+      border-color: $primary-color;
+
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
   }
 
   // Form elements styling
@@ -1355,7 +1684,7 @@ $border-dark: #94a3b8;           // Dark border
 
           &:hover {
             background: #ffffff;
-            border-color: #3b82f6;
+            border-color: #1A2A44;
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
             transform: translateY(-2px);
           }
@@ -1380,7 +1709,7 @@ $border-dark: #94a3b8;           // Dark border
             .credential-category {
               display: inline-block;
               background: #e3f2fd;
-              color: #1976d2;
+              color: #1A2A44;
               font-size: 12px;
               font-weight: 600;
               padding: 4px 12px;
@@ -1607,7 +1936,7 @@ $border-dark: #94a3b8;           // Dark border
 
         &:focus {
           border-color: $primary-color !important;
-          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+          box-shadow: 0 0 0 3px rgba(29, 30, 31, 0.1) !important;
           outline: none !important;
         }
 
@@ -1670,7 +1999,7 @@ $border-dark: #94a3b8;           // Dark border
             &:focus {
               outline: none;
               border-color: $primary-color;
-              box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+              box-shadow: 0 0 0 3px rgba(18, 18, 18, 0.107);
               background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%232563eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
             }
 
@@ -1706,7 +2035,7 @@ $border-dark: #94a3b8;           // Dark border
             &:focus {
               outline: none;
               border-color: $primary-color;
-              box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+              box-shadow: 0 0 0 3px rgba(11, 11, 11, 0.1);
             }
 
             &:hover {
@@ -1778,7 +2107,7 @@ $border-dark: #94a3b8;           // Dark border
           &:focus {
             outline: none;
             border-color: $primary-color;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.1);
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%232563eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
           }
 
@@ -1866,11 +2195,11 @@ $border-dark: #94a3b8;           // Dark border
                   cursor: pointer;
 
                 svg {
-                  color: #3b82f6;
+                  color: #0000001c;
                 }
 
                 &:hover svg {
-                  color: #2563eb;
+                  color: #04040420;
                   }
                 }
               }
@@ -1926,10 +2255,10 @@ $border-dark: #94a3b8;           // Dark border
         color: white;
 
         &:hover {
-          background: #1d4ed8;
-          border-color: #1d4ed8;
+          background: #1A2A44;
+          border-color: #1A2A44;
           transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+          box-shadow: 0 4px 12px rgba(10, 10, 10, 0.3);
         }
       }
     }
@@ -2090,7 +2419,7 @@ textarea {
   .modal-title {
     font-size: 20px;
     font-weight: 700;
-    color: #1f2937;
+    color: #1A2A44;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
@@ -2154,8 +2483,8 @@ textarea {
     }
 
     &:focus-within {
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      border-color: #1A2A44;
+      box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.601);
     }
 
     .field-content {
@@ -2193,7 +2522,7 @@ textarea {
     }
 
     &:hover .field-icon {
-      color: #374151;
+      color: #0b0c0cc7;
     }
 
     .modal-dropdown-menu {
@@ -2229,10 +2558,10 @@ textarea {
 
         &.selected {
           background: #eff6ff;
-          color: #1d4ed8;
+          color: #1A2A44;
 
           .dropdown-item-check {
-            color: #1d4ed8;
+            color: #1A2A44;
             font-weight: bold;
           }
         }
@@ -2321,42 +2650,92 @@ textarea {
     justify-content: flex-end;
     gap: 12px;
 
-    .btn {
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-size: 14px;
+    .work-reference-button {
+      padding: 20px 40px;
+      border-radius: 20px;
+      font-size: 18px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-      min-width: 80px;
+      transition: all 0.3s ease;
+      border: 2px solid $primary-color;
+      min-width: 250px;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: $primary-color;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
 
-      &.btn-secondary {
-        background: #f8f9fa;
-        color: #374151;
-        border-color: #e5e7eb;
+      &:hover {
+        background: #1d4ed8;
+        border-color: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 20px 32px rgba(37, 99, 235, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+      }
+
+      &:disabled {
+        background: $text-light;
+        border-color: $text-light;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.6;
 
         &:hover {
-          background: #e9ecef;
-          border-color: #d1d5db;
+          background: $text-light;
+          border-color: $text-light;
+          transform: none;
+          box-shadow: none;
         }
       }
 
-      &.btn-primary {
-        background: #3b82f6;
-        color: white;
-        border-color: #3b82f6;
+      // Size variants
+      &.work-reference-button-small {
+        padding: 24px 30px;
+        font-size: 16px;
+        min-width: 160px;
+      }
+
+      &.work-reference-button-large {
+        padding: 24px 48px;
+        font-size: 20px;
+        min-width: 240px;
+      }
+
+      // Style variants
+      &.work-reference-button-secondary {
+        background: $bg-secondary;
+        color: $text-primary;
+        border-color: $border-medium;
 
         &:hover {
-          background: #2563eb;
-          border-color: #2563eb;
+          background: $bg-tertiary;
+          border-color: $border-dark;
+          color: $text-primary;
         }
+      }
 
-        &:disabled {
-          background: #9ca3af;
-          border-color: #9ca3af;
-          cursor: not-allowed;
+      &.work-reference-button-outline {
+        background: transparent;
+        color: $primary-color;
+        border-color: $primary-color;
+
+        &:hover {
+          background: $primary-color;
+          color: white;
         }
       }
     }
@@ -2366,7 +2745,6 @@ textarea {
 .credential-category {
   display: inline-block;
   background: #e0f2fe;
-  color: #0369a1;
   font-size: 12px;
   font-weight: 500;
   padding: 2px 8px;
@@ -2393,6 +2771,145 @@ textarea {
   }
 }
 
+// Unique credentials form styling (scoped)
+.worker-credentials-form {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  position: relative;
+  z-index: 5;
+  overflow: visible;
+  isolation: isolate;
+
+  .section-title {
+    margin-top: 0;
+  }
+
+  .credential-form,
+  .credentials-section {
+    margin: 0;
+  }
+
+  .file-upload-container {
+    border: 2px dashed #d1d5db;
+    border-radius: 10px;
+    padding: 16px;
+    background: #f9fafb;
+
+    .file-upload-label {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  .file-preview {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .file-name {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .add-credential-btn {
+    background: #1A2A44;
+    color: #ffffff;
+    border: 1px solid #1A2A44;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: auto;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.1s ease;
+
+    &:hover {
+      background: #1A2A44;
+      border-color: #1A2A44;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Unique credentials list styling (scoped)
+.worker-credentials-list {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 16px;
+  margin-top: 16px;
+  position: relative;
+  z-index: 1;
+
+  .list-header {
+    background: #f8fafc;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1px solid #e5e7eb;
+    margin: -16px -16px 16px -16px;
+    padding: 12px 16px;
+  }
+
+  .worker-credential-item {
+    margin-bottom: 12px;
+    position: relative;
+
+    .remove-credential-btn {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #6b7280;
+      font-size: 18px;
+      line-height: 1;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f3f4f6;
+        color: #ef4444;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+      }
+    }
+
+    .credential-info {
+      padding-right: 44px; // prevent text underlapping the X button
+    }
+  }
+}
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -2409,6 +2926,7 @@ textarea {
 .type-dropdown-container {
   position: relative;
   width: 100%;
+  z-index: 10;
 
   .custom-dropdown-trigger {
     display: flex;
@@ -2480,7 +2998,7 @@ textarea {
     border: 1px solid #d1d5db;
     border-radius: 6px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    z-index: 1000;
+    z-index: 11000;
     margin-top: 4px;
     max-height: 200px;
     overflow-y: auto;
@@ -2527,12 +3045,404 @@ textarea {
     }
   }
 }
+
+.added-credentials-section {
+  margin-top: 24px;
+  position: relative;
+  z-index: 0;
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 12px;
+  }
+
+  .worker-credentials-list {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 16px;
+    position: relative;
+    z-index: -1;
+  }
+}
 }
 
+// Skills & Experience navigation buttons
+.skills-experience-back-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid $border-medium;
+  min-width: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: $bg-secondary;
+  color: $text-primary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 16px; // Add gap between buttons
 
+  &:hover {
+    background: $bg-tertiary;
+    border-color: $text-secondary;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 
+  // Size variants
+  &.skills-experience-back-btn-small {
+    padding: 12px 24px;
+    font-size: 14px;
+    min-width: 120px;
+    margin-right: 12px;
+  }
 
+  &.skills-experience-back-btn-large {
+    padding: 24px 48px;
+    font-size: 20px;
+    min-width: 240px;
+    margin-right: 20px;
+  }
 
+  // Style variants
+  &.skills-experience-back-btn-secondary {
+    background: $bg-tertiary;
+    color: $text-secondary;
+    border-color: $border-medium;
+
+    &:hover {
+      background: $border-light;
+      color: $text-primary;
+    }
+  }
+
+  &.skills-experience-back-btn-outline {
+    background: transparent;
+    color: $text-primary;
+    border-color: $primary-color;
+
+    &:hover {
+      background: rgba($primary-color, 0.05);
+      border-color: $primary-color;
+    }
+  }
+}
+
+.skills-experience-next-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid $primary-color;
+  min-width: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: $primary-color;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+
+  &:hover {
+    background: #1A2A44;
+    border-color: #1A2A44;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(18, 18, 18, 0.671);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(18, 18, 18, 0.671);
+  }
+
+  // Size variants
+  &.skills-experience-next-btn-small {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+
+  &.skills-experience-next-btn-large {
+    padding: 10px 20px;
+    font-size: 20px;
+    min-width: 100px;
+  }
+
+  // Style variants
+  &.skills-experience-next-btn-secondary {
+    background: $bg-tertiary;
+    color: $text-secondary;
+    border-color: $border-medium;
+
+    &:hover {
+      background: $border-light;
+      color: $text-primary;
+    }
+  }
+
+  &.skills-experience-next-btn-outline {
+    background: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+      background: rgba($primary-color, 0.05);
+      border-color: $primary-color;
+    }
+  }
+}
+
+// Credentials navigation buttons - matching Skills & Experience style
+.credentials-back-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid $border-medium;
+  min-width: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: $bg-secondary;
+  color: $text-primary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 16px; // Add gap between buttons
+
+  &:hover {
+    background: $bg-tertiary;
+    border-color: $text-secondary;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  // Size variants
+  &.credentials-back-btn-small {
+    padding: 12px 24px;
+    font-size: 14px;
+    min-width: 120px;
+    margin-right: 12px;
+  }
+
+  &.credentials-back-btn-large {
+    padding: 24px 48px;
+    font-size: 20px;
+    min-width: 240px;
+    margin-right: 20px;
+  }
+
+  // Style variants
+  &.credentials-back-btn-secondary {
+    background: $bg-tertiary;
+    color: $text-secondary;
+    border-color: $border-medium;
+
+    &:hover {
+      background: $border-light;
+      color: $text-primary;
+    }
+  }
+
+  &.credentials-back-btn-outline {
+    background: transparent;
+    color: $text-primary;
+    border-color: $primary-color;
+
+    &:hover {
+      background: rgba($primary-color, 0.05);
+      border-color: $primary-color;
+    }
+  }
+}
+
+.credentials-complete-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid $primary-color;
+  min-width: 100px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: $primary-color;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+
+  &:hover {
+    background: #1A2A44;
+    border-color: #1A2A44;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(18, 18, 18, 0.671);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(18, 18, 18, 0.671);
+  }
+
+  // Size variants
+  &.credentials-complete-btn-small {
+    padding: 10px 20px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+
+  &.credentials-complete-btn-large {
+    padding: 10px 20px;
+    font-size: 20px;
+    min-width: 100px;
+  }
+
+  // Style variants
+  &.credentials-complete-btn-secondary {
+    background: $bg-tertiary;
+    color: $text-secondary;
+    border-color: $border-medium;
+
+    &:hover {
+      background: $border-light;
+      color: $text-primary;
+    }
+  }
+
+  &.credentials-complete-btn-outline {
+    background: transparent;
+    color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+      background: rgba($primary-color, 0.05);
+      border-color: $primary-color;
+    }
+  }
+}
+
+// Credential cards - matching skill card styling
+.credential-card {
+  background: transparent;
+  border: 1px solid $border-light;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $primary-color;
+    box-shadow: 0 2px 8px rgba($primary-color, 0.1);
+    transform: translateY(-1px);
+    
+    .credential-name {
+      color: $primary-color;
+    }
+  }
+
+  .credential-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .credential-name {
+      font-weight: 600;
+      font-size: 16px;
+      color: $text-primary;
+      transition: color 0.3s ease;
+    }
+
+    .remove-credential-btn {
+      background: transparent;
+      border: none;
+      color: $text-secondary;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background: rgba($error-color, 0.1);
+        color: $error-color;
+      }
+    }
+  }
+
+  .credential-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .credential-category,
+    .credential-files {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .category-label,
+      .files-label {
+        font-size: 14px;
+        color: $text-secondary;
+        font-weight: 500;
+      }
+
+      .category-value {
+        background: rgba($text-secondary, 0.1);
+        color: $text-secondary;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .files-list {
+        font-size: 14px;
+        color: $text-primary;
+      }
+    }
+  }
+}
 
 

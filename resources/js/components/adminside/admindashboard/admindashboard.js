@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     total_users: 0,
     total_job_postings: 0,
     total_completed_jobs: 0,
-    total_companies: 0,
+    total_bookings: 0,
   });
   const [workerChartData, setWorkerChartData] = useState({
     labels: [],
@@ -142,7 +142,7 @@ const AdminDashboard = () => {
           <div className="stats-grid">
             {[
               { icon: FaClipboardList, title: 'Total Job Postings', value: stats.total_job_postings, change: '+10% this week', positive: true },
-              { icon: FaBuilding, title: 'Total Companies', value: stats.total_companies, change: 'Updated today', positive: false },
+              { icon: FaClipboardList, title: 'Total Bookings', value: stats.total_bookings, change: 'Updated today', positive: false },
             ].map((stat, index) => (
               <div key={index} className="stat-card">
                 <stat.icon className="icon" />

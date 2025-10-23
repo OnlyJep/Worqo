@@ -334,7 +334,6 @@ const Browse = () => {
       experience: "Experience varies",
       profile_img: profile.profile_img,
       work_type: worker.work_type,
-      monthly_salary: worker.monthly_salary,
       hours_per_day: worker.hours_per_day,
       verified: worker.verified === true || worker.verified === 1,
       rank: worker.rank || null,
@@ -594,7 +593,7 @@ const Browse = () => {
                           {worker.work_type || 'Part-time'} work 
                           {worker.hours_per_day ? ` (${worker.hours_per_day} hours/day)` : ' (4 hours/day)'}
                           <br/>at ₱{worker.hourlyRate}/hour
-                          <br/>({worker.monthly_salary ? `₱${worker.monthly_salary}/month` : `₱${Math.round(worker.hourlyRate * (worker.hours_per_day || 4) * 30)}/month`})
+                          <br/>(₱{Math.round(worker.hourlyRate * (worker.hours_per_day || 4) * 30)}/month)
                       </div>
                       </div>
                     </div>

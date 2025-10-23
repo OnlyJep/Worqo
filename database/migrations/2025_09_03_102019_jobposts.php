@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->decimal('salary', 10, 2)->nullable();
             $table->enum('job_type', ['full-time', 'part-time', 'contract', 'temporary']);
+            $table->enum('hiring_type', ['individual', 'team'])->default('individual');
             $table->string('street')->nullable();
             $table->string('city')->default('Butuan City');
             $table->string('province')->default('Agusan Del Norte');

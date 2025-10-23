@@ -139,7 +139,7 @@ class BookingController extends Controller
                 $authUser->id,
                 'booking',
                 'New Booking Request',
-                "$employerName has sent you a booking request for {$request->service_type}. Please review and respond.",
+                "$employerName has sent you a booking request for {$request->service_type}. Please review and respond. Click Here to go to@http://127.0.0.1:8000/profile-settings/bookings",
                 $booking->id,
                 'booking'
             );
@@ -293,6 +293,16 @@ class BookingController extends Controller
                     'booking_declined',
                     'Booking Declined',
                     "$workerName has declined your booking request for {$booking->service_type}.",
+                    $booking->id,
+                    'booking'
+                );
+            } elseif ($request->status === 'cancelled') {
+                NotificationController::createNotification(
+                    $booking->employer_id,
+                    $authUser->id,
+                    'booking_cancelled',
+                    'Booking Cancelled',
+                    "$workerName has cancelled the booking for {$booking->service_type}.",
                     $booking->id,
                     'booking'
                 );
