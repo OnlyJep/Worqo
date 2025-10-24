@@ -71374,7 +71374,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.colorcodecollars-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.colorcodecollars-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.colorcodecollars-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .colorcodecollars-dashboard.sidebar-expanded, .colorcodecollars-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.colorcodecollars-dashboard .colorcodecollars-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.colorcodecollars-dashboard .colorcodecollars-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-container {\n  position: relative;\n  width: 100%;\n  max-width: clamp(180px, 40vw, 200px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-container .search-icon {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: clamp(14px, 3vw, 16px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-container .search-input {\n  width: 100%;\n  padding: 8px 12px 8px 35px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-container .search-input:focus {\n  border-color: #4A90E2;\n  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);\n}\n@media (max-width: 768px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-container .search-input {\n    max-width: 100%;\n  }\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #4A90E2;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  border-color: #4A90E2;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .archive-all-button {\n  background: #D81B60;\n  color: #FFFFFF;\n  border-color: #D81B60;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .archive-all-button:hover {\n  background: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  border-color: rgb(170.6666666667, 21.3333333333, 75.8518518519);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions {\n    flex: 1;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions,\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n    width: 100%;\n    justify-content: center;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  -webkit-overflow-scrolling: touch;\n  width: 100%;\n  display: block;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table {\n  width: 100%;\n  min-width: 600px;\n  border-collapse: collapse;\n  table-layout: auto;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #4A90E2;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #357ABD;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td.collar-name-cell {\n  text-align: left;\n  white-space: normal;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td .collar-type {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  justify-content: center;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td .collar-type .collar-icon {\n  font-size: clamp(14px, 3.5vw, 16px);\n  border: 1px solid;\n  border-radius: 4px;\n  padding: 2px;\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table tr:last-child {\n  border-bottom: none;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .checkbox-icon,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .delete-icon,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .edit-icon,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .restore-icon {\n  color: #4A90E2;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .checkbox-icon:hover,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .delete-icon:hover,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .edit-icon:hover,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .restore-icon:hover {\n  color: #357ABD;\n  transform: scale(1.2);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .delete-icon {\n  color: #D81B60;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .delete-icon:hover {\n  color: #A71D2A;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(1),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(1) {\n  width: clamp(60px, 10vw, 80px);\n  min-width: 60px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(2),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(2) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(3),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(3) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(4),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(4) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(5),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(5) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n@media (max-width: 768px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table table {\n    width: 100%;\n    min-width: 600px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th,\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td {\n    padding: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 6px);\n    font-size: clamp(11px, 2.5vw, 13px);\n  }\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table table {\n    min-width: 600px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th,\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td {\n    padding: clamp(5px, 1.2vw, 7px) clamp(3px, 0.8vw, 5px);\n    font-size: clamp(10px, 2.2vw, 12px);\n  }\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button.active {\n  background: #4A90E2;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination {\n    gap: 6px;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button,\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #10B981;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #059669;\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.colorcodecollars-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.colorcodecollars-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.colorcodecollars-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .colorcodecollars-dashboard.sidebar-expanded, .colorcodecollars-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.colorcodecollars-dashboard .colorcodecollars-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.colorcodecollars-dashboard .colorcodecollars-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-icon {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: clamp(14px, 3vw, 16px);\n  z-index: 1;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-input {\n  width: 100%;\n  max-width: clamp(200px, 30vw, 300px);\n  padding: 8px 12px 8px 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(14, 14, 15, 0.2);\n}\n@media (max-width: 768px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions .search-input {\n    max-width: 100%;\n  }\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #1A2A44;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .archive-all-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .archive-all-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  border-color: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions {\n    flex: 1;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .left-actions,\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n    width: 100%;\n    justify-content: center;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  -webkit-overflow-scrolling: touch;\n  width: 100%;\n  display: block;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table {\n  width: 100%;\n  min-width: 600px;\n  border-collapse: collapse;\n  table-layout: auto;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #1A2A44;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #1A2A44;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td.collar-name-cell {\n  text-align: left;\n  white-space: normal;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td .collar-type {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  justify-content: center;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td .collar-type .collar-icon {\n  font-size: clamp(14px, 3.5vw, 16px);\n  border: 1px solid;\n  border-radius: 4px;\n  padding: 2px;\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table tr:last-child {\n  border-bottom: none;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .checkbox-icon,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .delete-icon,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .edit-icon,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .restore-icon {\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .checkbox-icon:hover,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .delete-icon:hover,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .edit-icon:hover,\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .restore-icon:hover {\n  color: #1A2A44;\n  transform: scale(1.2);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .delete-icon {\n  color: #1A2A44;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table .action-icons .delete-icon:hover {\n  color: #1A2A44;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(1),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(1) {\n  width: clamp(60px, 10vw, 80px);\n  min-width: 60px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(2),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(2) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(3),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(3) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(4),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(4) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th:nth-child(5),\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td:nth-child(5) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n@media (max-width: 768px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table table {\n    width: 100%;\n    min-width: 600px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th,\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td {\n    padding: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 6px);\n    font-size: clamp(11px, 2.5vw, 13px);\n  }\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table table {\n    min-width: 600px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table th,\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-table table td {\n    padding: clamp(5px, 1.2vw, 7px) clamp(3px, 0.8vw, 5px);\n    font-size: clamp(10px, 2.2vw, 12px);\n  }\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button.active {\n  background: #1A2A44;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination {\n    gap: 6px;\n  }\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination button,\n  .colorcodecollars-dashboard .colorcodecollars-content .colorcodecollars-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #1A2A44;\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71531,7 +71531,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_side_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".login-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #f5f5f5;\n  margin: 0;\n  padding: 0;\n  overflow-y: auto;\n  box-sizing: border-box;\n}\n\n.login-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #ffffff;\n  border-radius: 0;\n  box-shadow: none;\n  overflow: hidden;\n}\n\n.login-image-section {\n  flex: 1;\n  background: #001E40 url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: cover;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 30px;\n}\n.login-image-section .login-logo {\n  width: 100%;\n  max-width: 400px;\n  height: auto;\n  max-height: 90%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n}\n\n.login-content {\n  flex: 1;\n  padding: 60px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #ffffff;\n}\n\n.login-container {\n  background: #ffffff;\n  border-radius: 16px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n  padding: 40px;\n  width: 100%;\n  max-width: 450px;\n  transition: transform 0.3s ease;\n}\n\n.login-header {\n  text-align: left;\n  margin-bottom: 40px;\n  width: 100%;\n}\n\n.login-title {\n  font-size: 32px;\n  font-weight: 700;\n  margin-bottom: 10px;\n  color: #000000;\n}\n\n.login-subtitle {\n  font-size: 18px;\n  color: #666666;\n  margin: 0;\n}\n\n.login-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.login-input-group,\n.login-password-group {\n  width: 100%;\n  margin-bottom: 20px;\n  position: relative;\n}\n.login-input-group input,\n.login-password-group input {\n  width: 100%;\n  padding: 16px 48px 16px 16px;\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 18px;\n  color: #000000;\n  background: #ffffff;\n  transition: border-color 0.3s, box-shadow 0.3s;\n}\n.login-input-group input:focus,\n.login-password-group input:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.login-input-group input::-moz-placeholder, .login-password-group input::-moz-placeholder {\n  color: #999999;\n}\n.login-input-group input::placeholder,\n.login-password-group input::placeholder {\n  color: #999999;\n}\n\n.login-password-group {\n  position: relative;\n}\n.login-password-group .password-toggle {\n  position: absolute;\n  right: 16px;\n  top: 18px;\n  cursor: pointer;\n  color: #666666;\n  font-size: 20px;\n  z-index: 2;\n  transition: color 0.3s;\n}\n.login-password-group .password-toggle:hover {\n  color: #001E40;\n}\n\n.login-options-group {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.login-options-group .remember-me {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #000000;\n}\n.login-options-group .remember-me input {\n  margin-right: 8px;\n  accent-color: #001E40;\n  width: 18px;\n  height: 18px;\n}\n.login-options-group .forgot-password {\n  font-size: 14px;\n  color: #0000FF;\n  text-decoration: none;\n}\n.login-options-group .forgot-password:hover {\n  text-decoration: underline;\n}\n\n.login-submit-btn {\n  width: 100%;\n  padding: 18px;\n  background: #001E40;\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 600;\n  border: none;\n  cursor: pointer;\n  border-radius: 12px;\n  margin-top: 30px;\n  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;\n}\n.login-submit-btn:hover {\n  background: #003366;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);\n}\n.login-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n.login-signup {\n  margin-top: 30px;\n  font-size: 14px;\n  text-align: center;\n}\n.login-signup .login-signup-link {\n  color: #001E40;\n  text-decoration: underline;\n  font-weight: 500;\n}\n.login-signup .login-signup-link:hover {\n  color: #003366;\n}\n\n.login-error {\n  color: #ff0000;\n  font-size: 16px;\n  margin-bottom: 20px;\n  text-align: center;\n  animation: fadeIn 0.3s ease;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/* Responsive Design */\n@media (max-width: 768px) {\n  .login-wrapper {\n    background: #ffffff;\n    align-items: flex-start;\n    padding-top: 20px;\n  }\n  .login-card {\n    flex-direction: column;\n    height: auto;\n    min-height: 100vh;\n  }\n  .login-image-section {\n    height: 200px;\n    width: 100%;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat center top;\n    background-size: contain;\n    padding: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n  }\n  .login-image-section .login-logo {\n    max-width: 250px;\n    max-height: 150px;\n  }\n  .login-content {\n    padding: 20px;\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .login-container {\n    padding: 30px;\n    border-radius: 12px;\n    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);\n    margin: 0 20px;\n  }\n  .login-header {\n    padding: 0;\n  }\n  .login-title {\n    font-size: 28px;\n  }\n  .login-subtitle {\n    font-size: 16px;\n  }\n  .login-input-group input,\n  .login-password-group input {\n    padding: 14px 48px 14px 16px;\n    font-size: 16px;\n  }\n  .login-input-group .password-toggle,\n  .login-password-group .password-toggle {\n    top: 16px;\n  }\n  .login-submit-btn {\n    padding: 16px;\n    font-size: 18px;\n  }\n  .login-options-group .remember-me {\n    font-size: 13px;\n  }\n  .login-options-group .remember-me input {\n    width: 16px;\n    height: 16px;\n  }\n  .login-options-group .forgot-password {\n    font-size: 13px;\n  }\n}\n@media (max-width: 480px) {\n  .login-image-section {\n    height: 180px;\n  }\n  .login-image-section .login-logo {\n    max-width: 220px;\n    max-height: 120px;\n  }\n  .login-container {\n    padding: 20px;\n    margin: 0 15px;\n  }\n  .login-title {\n    font-size: 24px;\n  }\n  .login-subtitle {\n    font-size: 14px;\n  }\n  .login-submit-btn {\n    padding: 14px;\n    font-size: 16px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".login-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #f5f5f5;\n  margin: 0;\n  padding: 0;\n  overflow-y: auto;\n  box-sizing: border-box;\n}\n\n.login-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #ffffff;\n  border-radius: 0;\n  box-shadow: none;\n  overflow: hidden;\n}\n\n.login-image-section {\n  flex: 1;\n  background: #001E40 url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: cover;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 30px;\n}\n.login-image-section .login-logo {\n  width: 100%;\n  max-width: 400px;\n  height: auto;\n  max-height: 90%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n}\n\n.login-content {\n  flex: 1;\n  padding: 40px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #ffffff;\n}\n\n.login-container {\n  background: #ffffff;\n  border-radius: 16px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n  padding: 30px;\n  width: 100%;\n  max-width: 350px;\n  transition: transform 0.3s ease;\n}\n\n.login-header {\n  text-align: left;\n  margin-bottom: 40px;\n  width: 100%;\n}\n\n.login-title {\n  font-size: 32px;\n  font-weight: 700;\n  margin-bottom: 10px;\n  color: #000000;\n}\n\n.login-subtitle {\n  font-size: 18px;\n  color: #666666;\n  margin: 0;\n}\n\n.login-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.login-input-group,\n.login-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.login-input-group input,\n.login-password-group input {\n  width: 100%;\n  padding: 12px 40px 12px 12px;\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  transition: border-color 0.3s, box-shadow 0.3s;\n}\n.login-input-group input:focus,\n.login-password-group input:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.login-input-group input::-moz-placeholder, .login-password-group input::-moz-placeholder {\n  color: #999999;\n}\n.login-input-group input::placeholder,\n.login-password-group input::placeholder {\n  color: #999999;\n}\n\n.login-password-group {\n  position: relative;\n}\n.login-password-group .password-toggle {\n  position: absolute;\n  right: 16px;\n  top: 18px;\n  cursor: pointer;\n  color: #666666;\n  font-size: 20px;\n  z-index: 2;\n  transition: color 0.3s;\n}\n.login-password-group .password-toggle:hover {\n  color: #001E40;\n}\n\n.login-options-group {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.login-options-group .remember-me {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #000000;\n}\n.login-options-group .remember-me input {\n  margin-right: 8px;\n  accent-color: #001E40;\n  width: 18px;\n  height: 18px;\n}\n.login-options-group .forgot-password {\n  font-size: 14px;\n  color: #0000FF;\n  text-decoration: none;\n}\n.login-options-group .forgot-password:hover {\n  text-decoration: underline;\n}\n\n.login-submit-btn {\n  width: 100%;\n  padding: 18px;\n  background: #001E40;\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 600;\n  border: none;\n  cursor: pointer;\n  border-radius: 12px;\n  margin-top: 30px;\n  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;\n}\n.login-submit-btn:hover {\n  background: #003366;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);\n}\n.login-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n.login-signup {\n  margin-top: 30px;\n  font-size: 14px;\n  text-align: center;\n}\n.login-signup .login-signup-link {\n  color: #001E40;\n  text-decoration: underline;\n  font-weight: 500;\n}\n.login-signup .login-signup-link:hover {\n  color: #003366;\n}\n\n.login-error {\n  color: #ff0000;\n  font-size: 16px;\n  margin-bottom: 20px;\n  text-align: center;\n  animation: fadeIn 0.3s ease;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/* Responsive Design */\n@media (max-width: 768px) {\n  .login-wrapper {\n    background: #ffffff;\n    align-items: flex-start;\n    padding-top: 20px;\n  }\n  .login-card {\n    flex-direction: column;\n    height: auto;\n    min-height: 100vh;\n  }\n  .login-image-section {\n    height: 200px;\n    width: 100%;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat center top;\n    background-size: contain;\n    padding: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n  }\n  .login-image-section .login-logo {\n    max-width: 250px;\n    max-height: 150px;\n  }\n  .login-content {\n    padding: 20px;\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .login-container {\n    padding: 30px;\n    border-radius: 12px;\n    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);\n    margin: 0 20px;\n  }\n  .login-header {\n    padding: 0;\n  }\n  .login-title {\n    font-size: 28px;\n  }\n  .login-subtitle {\n    font-size: 16px;\n  }\n  .login-input-group input,\n  .login-password-group input {\n    padding: 14px 48px 14px 16px;\n    font-size: 16px;\n  }\n  .login-input-group .password-toggle,\n  .login-password-group .password-toggle {\n    top: 16px;\n  }\n  .login-submit-btn {\n    padding: 16px;\n    font-size: 18px;\n  }\n  .login-options-group .remember-me {\n    font-size: 13px;\n  }\n  .login-options-group .remember-me input {\n    width: 16px;\n    height: 16px;\n  }\n  .login-options-group .forgot-password {\n    font-size: 13px;\n  }\n}\n@media (max-width: 480px) {\n  .login-image-section {\n    height: 180px;\n  }\n  .login-image-section .login-logo {\n    max-width: 220px;\n    max-height: 120px;\n  }\n  .login-container {\n    padding: 20px;\n    margin: 0 15px;\n  }\n  .login-title {\n    font-size: 24px;\n  }\n  .login-subtitle {\n    font-size: 14px;\n  }\n  .login-submit-btn {\n    padding: 14px;\n    font-size: 16px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71579,7 +71579,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".adminmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.adminmodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.adminmodal h2 {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.adminmodal .adminmodal-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.adminmodal .adminmodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.adminmodal .adminmodal-content .form-group label {\n  font-weight: 500;\n  color: #2d3748;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.adminmodal .adminmodal-content .form-group input,\n.adminmodal .adminmodal-content .form-group .image-upload {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.adminmodal .adminmodal-content .form-group input:focus,\n.adminmodal .adminmodal-content .form-group .image-upload:focus {\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);\n  outline: none;\n}\n.adminmodal .adminmodal-content .form-group input.error,\n.adminmodal .adminmodal-content .form-group .image-upload.error {\n  border-color: #ef4444;\n  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper {\n  position: relative;\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper .image-preview {\n  margin-top: 10px;\n  position: relative;\n  display: inline-block;\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper .image-preview img {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 8px;\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper .image-preview .remove-image-button {\n  position: absolute;\n  top: 0;\n  right: 0;\n  background: #ef4444;\n  border: none;\n  border-radius: 50%;\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  color: #ffffff;\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper .image-preview .remove-image-button:hover {\n  background: #dc2626;\n}\n.adminmodal .adminmodal-content .form-group .error {\n  color: #ef4444;\n  font-size: 12px;\n  margin-top: 2px;\n  font-family: \"Inter\", sans-serif;\n}\n.adminmodal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.adminmodal .adminmodal-buttons .submit-button {\n  background: #3b82f6;\n  color: #ffffff;\n  border: none;\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.adminmodal .adminmodal-buttons .submit-button:hover {\n  background: #2563eb;\n}\n.adminmodal .adminmodal-buttons .cancel-button {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.adminmodal .adminmodal-buttons .cancel-button:hover {\n  background: #e5e7eb;\n}\n.adminmodal .adminmodal-content::-webkit-scrollbar {\n  width: 6px;\n}\n.adminmodal .adminmodal-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.adminmodal .adminmodal-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n@media (max-width: 600px) {\n  .adminmodal .adminmodal {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .adminmodal h2 {\n    font-size: 20px;\n  }\n  .adminmodal .adminmodal-content {\n    gap: 10px;\n  }\n  .adminmodal .form-group {\n    gap: 4px;\n  }\n  .adminmodal .form-group label {\n    font-size: 12px;\n  }\n  .adminmodal .form-group input,\n  .adminmodal .form-group .image-upload {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .adminmodal .form-group .image-upload-wrapper .image-preview img {\n    width: 80px;\n    height: 80px;\n  }\n  .adminmodal .form-group .image-upload-wrapper .image-preview .remove-image-button {\n    width: 18px;\n    height: 18px;\n  }\n  .adminmodal .adminmodal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .adminmodal .adminmodal-buttons .submit-button,\n  .adminmodal .adminmodal-buttons .cancel-button {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".adminmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.adminmodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.adminmodal h2 {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.adminmodal .adminmodal-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.adminmodal .adminmodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.adminmodal .adminmodal-content .form-group label {\n  font-weight: 500;\n  color: #2d3748;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.adminmodal .adminmodal-content .form-group input,\n.adminmodal .adminmodal-content .form-group .image-upload {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.adminmodal .adminmodal-content .form-group input:focus,\n.adminmodal .adminmodal-content .form-group .image-upload:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);\n  outline: none;\n}\n.adminmodal .adminmodal-content .form-group input.error,\n.adminmodal .adminmodal-content .form-group .image-upload.error {\n  border-color: #ef4444;\n  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper {\n  position: relative;\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper .image-preview {\n  margin-top: 10px;\n  position: relative;\n  display: inline-block;\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper .image-preview img {\n  width: 100px;\n  height: 100px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 8px;\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper .image-preview .remove-image-button {\n  position: absolute;\n  top: 0;\n  right: 0;\n  background: #1A2A44;\n  border: none;\n  border-radius: 50%;\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  color: #ffffff;\n}\n.adminmodal .adminmodal-content .form-group .image-upload-wrapper .image-preview .remove-image-button:hover {\n  background: #dc2626;\n}\n.adminmodal .adminmodal-content .form-group .error {\n  color: #ef4444;\n  font-size: 12px;\n  margin-top: 2px;\n  font-family: \"Inter\", sans-serif;\n}\n.adminmodal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.adminmodal .adminmodal-buttons .submit-button {\n  background: #1A2A44;\n  color: #ffffff;\n  border: none;\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.adminmodal .adminmodal-buttons .submit-button:hover {\n  background: #1A2A44;\n}\n.adminmodal .adminmodal-buttons .cancel-button {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: background 0.2s ease;\n}\n.adminmodal .adminmodal-buttons .cancel-button:hover {\n  background: #e5e7eb;\n}\n.adminmodal .adminmodal-content::-webkit-scrollbar {\n  width: 6px;\n}\n.adminmodal .adminmodal-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.adminmodal .adminmodal-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n@media (max-width: 600px) {\n  .adminmodal .adminmodal {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .adminmodal h2 {\n    font-size: 20px;\n  }\n  .adminmodal .adminmodal-content {\n    gap: 10px;\n  }\n  .adminmodal .form-group {\n    gap: 4px;\n  }\n  .adminmodal .form-group label {\n    font-size: 12px;\n  }\n  .adminmodal .form-group input,\n  .adminmodal .form-group .image-upload {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .adminmodal .form-group .image-upload-wrapper .image-preview img {\n    width: 80px;\n    height: 80px;\n  }\n  .adminmodal .form-group .image-upload-wrapper .image-preview .remove-image-button {\n    width: 18px;\n    height: 18px;\n  }\n  .adminmodal .adminmodal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .adminmodal .adminmodal-buttons .submit-button,\n  .adminmodal .adminmodal-buttons .cancel-button {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71612,7 +71612,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_side_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".register-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #f5f5f5;\n  margin: 0;\n  padding: 0;\n  overflow-y: auto;\n  box-sizing: border-box;\n}\n\n.register-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #ffffff;\n  border-radius: 0;\n  box-shadow: none;\n  overflow: hidden;\n}\n\n.register-image-section {\n  flex: 1;\n  background: #001E40 url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: cover;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 30px;\n}\n.register-image-section .register-logo {\n  width: 100%;\n  max-width: 400px;\n  height: auto;\n  max-height: 90%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n}\n\n.register-content {\n  flex: 1;\n  padding: 60px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #ffffff;\n}\n\n.register-container {\n  background: #ffffff;\n  border-radius: 16px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n  padding: 40px;\n  width: 100%;\n  max-width: 450px;\n  transition: transform 0.3s ease;\n}\n\n.register-header {\n  text-align: left;\n  margin-bottom: 40px;\n  width: 100%;\n}\n\n.register-title {\n  font-size: 32px;\n  font-weight: 700;\n  margin-bottom: 10px;\n  color: #000000;\n}\n\n.register-subtitle {\n  font-size: 18px;\n  color: #666666;\n  margin: 0;\n}\n\n.register-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.register-row {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 20px;\n}\n.register-row .register-input-group {\n  flex: 1;\n  margin-right: 10px;\n}\n.register-row .register-input-group:last-child {\n  margin-right: 0;\n}\n.register-row .register-input-group input,\n.register-row .register-input-group select {\n  width: 100%;\n  padding: 12px 24px 12px 12px;\n  font-size: 16px;\n}\n\n.register-input-group,\n.register-password-group {\n  width: 100%;\n  margin-bottom: 20px;\n  position: relative;\n}\n.register-input-group input,\n.register-input-group select,\n.register-password-group input,\n.register-password-group select {\n  width: 100%;\n  padding: 12px 40px 12px 12px; /* Adjusted for icon space */\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  transition: border-color 0.3s, box-shadow 0.3s;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; /* Remove default arrow */\n}\n.register-input-group input:focus,\n.register-input-group select:focus,\n.register-password-group input:focus,\n.register-password-group select:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.register-input-group input::-moz-placeholder, .register-input-group select::-moz-placeholder, .register-password-group input::-moz-placeholder, .register-password-group select::-moz-placeholder {\n  color: #999999;\n}\n.register-input-group input::placeholder,\n.register-input-group select::placeholder,\n.register-password-group input::placeholder,\n.register-password-group select::placeholder {\n  color: #999999;\n}\n\n.register-password-group {\n  position: relative;\n}\n.register-password-group .password-toggle {\n  position: absolute;\n  right: 12px;\n  top: 14px;\n  cursor: pointer;\n  color: #666666;\n  font-size: 18px;\n  z-index: 2;\n  transition: color 0.3s;\n}\n.register-password-group .password-toggle:hover {\n  color: #001E40;\n}\n\n.register-select-group {\n  width: 100%;\n  margin-bottom: 20px;\n  position: relative;\n}\n.register-select-group select {\n  width: 100%;\n  padding: 12px 40px 12px 12px; /* Space for icon */\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; /* Remove default arrow */\n  cursor: pointer;\n}\n.register-select-group select:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.register-select-group .select-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: 16px;\n  pointer-events: none; /* Prevent icon from interfering with select */\n}\n\n.register-submit-btn {\n  width: 100%;\n  padding: 16px;\n  background: #001E40;\n  color: #ffffff;\n  font-size: 18px;\n  font-weight: 600;\n  border: none;\n  cursor: pointer;\n  border-radius: 12px;\n  margin-top: 20px;\n  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;\n}\n.register-submit-btn:hover {\n  background: #003366;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);\n}\n.register-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n.register-login {\n  margin-top: 20px;\n  font-size: 14px;\n  text-align: center;\n}\n.register-login .register-login-link {\n  color: #001E40;\n  text-decoration: underline;\n  font-weight: 500;\n}\n.register-login .register-login-link:hover {\n  color: #003366;\n}\n\n.register-error {\n  color: #ff0000;\n  font-size: 16px;\n  margin-bottom: 20px;\n  text-align: center;\n  animation: fadeIn 0.3s ease;\n}\n\n.custom-alert {\n  position: fixed;\n  top: 20px;\n  right: 20px;\n  padding: 15px 20px;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  z-index: 1000;\n  min-width: 200px;\n  max-width: 400px;\n  font-size: 16px;\n  transition: opacity 0.3s ease;\n}\n.custom-alert.success {\n  background: #e6ffed;\n  color: #2e7d32;\n  border: 1px solid #4caf50;\n}\n.custom-alert.error {\n  background: #ffe6e6;\n  color: #d32f2f;\n  border: 1px solid #f44336;\n}\n.custom-alert .alert-close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  cursor: pointer;\n  color: #666666;\n  margin-left: 10px;\n}\n.custom-alert .alert-close-btn:hover {\n  color: #000000;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/* Responsive Design */\n@media (max-width: 768px) {\n  .register-wrapper {\n    background: #ffffff;\n    align-items: flex-start;\n    padding-top: 20px;\n  }\n  .register-card {\n    flex-direction: column;\n    height: auto;\n    min-height: 100vh;\n  }\n  .register-image-section {\n    height: 200px;\n    width: 100%;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat center top;\n    background-size: contain;\n    padding: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n  }\n  .register-image-section .register-logo {\n    max-width: 250px;\n    max-height: 150px;\n  }\n  .register-content {\n    padding: 20px;\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .register-container {\n    padding: 30px;\n    border-radius: 12px;\n    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);\n    margin: 0 20px;\n  }\n  .register-header {\n    padding: 0;\n  }\n  .register-title {\n    font-size: 28px;\n  }\n  .register-subtitle {\n    font-size: 16px;\n  }\n  .register-row {\n    flex-direction: column;\n  }\n  .register-row .register-input-group {\n    margin-right: 0;\n    margin-bottom: 20px;\n  }\n  .register-row .register-input-group input,\n  .register-row .register-input-group select {\n    padding: 10px 35px 10px 10px;\n    font-size: 14px;\n  }\n  .register-input-group input,\n  .register-input-group select,\n  .register-password-group input,\n  .register-password-group select {\n    padding: 10px 35px 10px 10px;\n    font-size: 14px;\n  }\n  .register-input-group .password-toggle,\n  .register-password-group .password-toggle {\n    top: 12px;\n    font-size: 16px;\n  }\n  .register-select-group .select-icon {\n    font-size: 14px;\n    right: 10px;\n  }\n  .register-submit-btn {\n    padding: 14px;\n    font-size: 16px;\n  }\n}\n@media (max-width: 480px) {\n  .register-image-section {\n    height: 180px;\n  }\n  .register-image-section .register-logo {\n    max-width: 220px;\n    max-height: 120px;\n  }\n  .register-container {\n    padding: 20px;\n    margin: 0 15px;\n  }\n  .register-title {\n    font-size: 24px;\n  }\n  .register-subtitle {\n    font-size: 14px;\n  }\n  .register-submit-btn {\n    padding: 12px;\n    font-size: 14px;\n  }\n  .register-input-group input,\n  .register-input-group select,\n  .register-password-group input,\n  .register-password-group select {\n    padding: 8px 30px 8px 8px;\n    font-size: 13px;\n  }\n  .register-select-group .select-icon {\n    font-size: 12px;\n    right: 8px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".register-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #f5f5f5;\n  margin: 0;\n  padding: 0;\n  overflow-y: auto;\n  box-sizing: border-box;\n}\n\n.register-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #ffffff;\n  border-radius: 0;\n  box-shadow: none;\n  overflow: hidden;\n}\n\n.register-image-section {\n  flex: 1;\n  background: #001E40 url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: cover;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 30px;\n}\n.register-image-section .register-logo {\n  width: 100%;\n  max-width: 400px;\n  height: auto;\n  max-height: 90%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n}\n\n.register-content {\n  flex: 1;\n  padding: 60px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #ffffff;\n}\n\n.register-container {\n  background: #ffffff;\n  border-radius: 16px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n  padding: 30px;\n  width: 100%;\n  max-width: 350px;\n  transition: transform 0.3s ease;\n}\n\n.register-header {\n  text-align: left;\n  margin-bottom: 40px;\n  width: 100%;\n}\n\n.register-title {\n  font-size: 32px;\n  font-weight: 700;\n  margin-bottom: 10px;\n  color: #000000;\n}\n\n.register-subtitle {\n  font-size: 18px;\n  color: #666666;\n  margin: 0;\n}\n\n.register-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.register-row {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 20px;\n}\n.register-row .register-input-group {\n  flex: 1;\n  margin-right: 10px;\n}\n.register-row .register-input-group:last-child {\n  margin-right: 0;\n}\n.register-row .register-input-group input,\n.register-row .register-input-group select {\n  width: 100%;\n  padding: 12px 24px 12px 12px;\n  font-size: 16px;\n}\n\n.register-input-group,\n.register-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.register-input-group input,\n.register-input-group select,\n.register-password-group input,\n.register-password-group select {\n  width: 100%;\n  padding: 12px 40px 12px 12px; /* Adjusted for icon space */\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  transition: border-color 0.3s, box-shadow 0.3s;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; /* Remove default arrow */\n}\n.register-input-group input:focus,\n.register-input-group select:focus,\n.register-password-group input:focus,\n.register-password-group select:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.register-input-group input::-moz-placeholder, .register-input-group select::-moz-placeholder, .register-password-group input::-moz-placeholder, .register-password-group select::-moz-placeholder {\n  color: #999999;\n}\n.register-input-group input::placeholder,\n.register-input-group select::placeholder,\n.register-password-group input::placeholder,\n.register-password-group select::placeholder {\n  color: #999999;\n}\n\n.register-password-group {\n  position: relative;\n}\n.register-password-group .password-toggle {\n  position: absolute;\n  right: 12px;\n  top: 14px;\n  cursor: pointer;\n  color: #666666;\n  font-size: 18px;\n  z-index: 2;\n  transition: color 0.3s;\n}\n.register-password-group .password-toggle:hover {\n  color: #001E40;\n}\n\n.register-select-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.register-select-group select {\n  width: 100%;\n  padding: 12px 40px 12px 12px; /* Space for icon */\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; /* Remove default arrow */\n  cursor: pointer;\n}\n.register-select-group select:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.register-select-group .select-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: 16px;\n  pointer-events: none; /* Prevent icon from interfering with select */\n}\n\n.register-submit-btn {\n  width: 100%;\n  padding: 16px;\n  background: #001E40;\n  color: #ffffff;\n  font-size: 18px;\n  font-weight: 600;\n  border: none;\n  cursor: pointer;\n  border-radius: 12px;\n  margin-top: 20px;\n  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;\n}\n.register-submit-btn:hover {\n  background: #003366;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);\n}\n.register-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n.register-login {\n  margin-top: 20px;\n  font-size: 14px;\n  text-align: center;\n}\n.register-login .register-login-link {\n  color: #001E40;\n  text-decoration: underline;\n  font-weight: 500;\n}\n.register-login .register-login-link:hover {\n  color: #003366;\n}\n\n.register-error {\n  color: #ff0000;\n  font-size: 16px;\n  margin-bottom: 20px;\n  text-align: center;\n  animation: fadeIn 0.3s ease;\n}\n\n.custom-alert {\n  position: fixed;\n  top: 20px;\n  right: 20px;\n  padding: 15px 20px;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  z-index: 1000;\n  min-width: 200px;\n  max-width: 400px;\n  font-size: 16px;\n  transition: opacity 0.3s ease;\n}\n.custom-alert.success {\n  background: #e6ffed;\n  color: #2e7d32;\n  border: 1px solid #4caf50;\n}\n.custom-alert.error {\n  background: #ffe6e6;\n  color: #d32f2f;\n  border: 1px solid #f44336;\n}\n.custom-alert .alert-close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  cursor: pointer;\n  color: #666666;\n  margin-left: 10px;\n}\n.custom-alert .alert-close-btn:hover {\n  color: #000000;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/* Responsive Design */\n@media (max-width: 768px) {\n  .register-wrapper {\n    background: #ffffff;\n    align-items: flex-start;\n    padding-top: 20px;\n  }\n  .register-card {\n    flex-direction: column;\n    height: auto;\n    min-height: 100vh;\n  }\n  .register-image-section {\n    height: 200px;\n    width: 100%;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat center top;\n    background-size: contain;\n    padding: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n  }\n  .register-image-section .register-logo {\n    max-width: 250px;\n    max-height: 150px;\n  }\n  .register-content {\n    padding: 20px;\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .register-container {\n    padding: 30px;\n    border-radius: 12px;\n    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);\n    margin: 0 20px;\n  }\n  .register-header {\n    padding: 0;\n  }\n  .register-title {\n    font-size: 28px;\n  }\n  .register-subtitle {\n    font-size: 16px;\n  }\n  .register-row {\n    flex-direction: column;\n  }\n  .register-row .register-input-group {\n    margin-right: 0;\n    margin-bottom: 20px;\n  }\n  .register-row .register-input-group input,\n  .register-row .register-input-group select {\n    padding: 10px 35px 10px 10px;\n    font-size: 14px;\n  }\n  .register-input-group input,\n  .register-input-group select,\n  .register-password-group input,\n  .register-password-group select {\n    padding: 10px 35px 10px 10px;\n    font-size: 14px;\n  }\n  .register-input-group .password-toggle,\n  .register-password-group .password-toggle {\n    top: 12px;\n    font-size: 16px;\n  }\n  .register-select-group .select-icon {\n    font-size: 14px;\n    right: 10px;\n  }\n  .register-submit-btn {\n    padding: 14px;\n    font-size: 16px;\n  }\n}\n@media (max-width: 480px) {\n  .register-image-section {\n    height: 180px;\n  }\n  .register-image-section .register-logo {\n    max-width: 220px;\n    max-height: 120px;\n  }\n  .register-container {\n    padding: 20px;\n    margin: 0 15px;\n  }\n  .register-title {\n    font-size: 24px;\n  }\n  .register-subtitle {\n    font-size: 14px;\n  }\n  .register-submit-btn {\n    padding: 12px;\n    font-size: 14px;\n  }\n  .register-input-group input,\n  .register-input-group select,\n  .register-password-group input,\n  .register-password-group select {\n    padding: 8px 30px 8px 8px;\n    font-size: 13px;\n  }\n  .register-select-group .select-icon {\n    font-size: 12px;\n    right: 8px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71637,7 +71637,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.reviewstable-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.reviewstable-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.reviewstable-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .reviewstable-dashboard.sidebar-expanded, .reviewstable-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.reviewstable-dashboard .reviewstable-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.reviewstable-dashboard .reviewstable-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-container {\n  position: relative;\n  width: 100%;\n  max-width: clamp(180px, 40vw, 200px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-container .search-icon {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: clamp(14px, 3vw, 16px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-container .search-input {\n  width: 100%;\n  padding: 8px 12px 8px 35px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-container .search-input:focus {\n  border-color: #4A90E2;\n  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);\n}\n@media (max-width: 768px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-container .search-input {\n    max-width: 100%;\n  }\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #4A90E2;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  border-color: #4A90E2;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .archive-all-button {\n  background: #D81B60;\n  color: #FFFFFF;\n  border-color: #D81B60;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .archive-all-button:hover {\n  background: #B71A54; /* Darkened #D81B60 by ~10% */\n  border-color: #B71A54;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions {\n    flex: 1;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions,\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n    width: 100%;\n    justify-content: center;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  -webkit-overflow-scrolling: touch;\n  width: 100%;\n  display: block;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table {\n  width: 100%;\n  min-width: 800px;\n  border-collapse: collapse;\n  table-layout: auto;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #4A90E2;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #357ABD;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td.employer-cell, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td.worker-cell, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td.comment-cell, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td.rating-cell {\n  text-align: left;\n  white-space: normal;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td.rating-cell {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td.rating-cell .star {\n  font-size: clamp(16px, 4vw, 18px); /* Larger stars */\n  color: #CCCCCC;\n  line-height: 1;\n  display: inline-block;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td.rating-cell .star.filled {\n  color: #4A90E2;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table tr:last-child {\n  border-bottom: none;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .checkbox-icon,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .delete-icon,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .edit-icon,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .restore-icon {\n  color: #4A90E2;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .checkbox-icon:hover,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .delete-icon:hover,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .edit-icon:hover,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .restore-icon:hover {\n  color: #357ABD;\n  transform: scale(1.2);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .delete-icon {\n  color: #D81B60;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .delete-icon:hover {\n  color: #A71D2A;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(1),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(1) {\n  width: clamp(60px, 10vw, 80px);\n  min-width: 60px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(2),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(2) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(3),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(3) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(4),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(4) {\n  width: clamp(100px, 15vw, 120px);\n  min-width: 100px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(5),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(5) {\n  width: clamp(200px, 30vw, 250px);\n  min-width: 200px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(6),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(6) {\n  width: clamp(80px, 12vw, 100px);\n  min-width: 80px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(7),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(7) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(8),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(8) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n@media (max-width: 768px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table table {\n    width: 100%;\n    min-width: 800px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table th, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td {\n    padding: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 6px);\n    font-size: clamp(11px, 2.5vw, 13px);\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table .rating-cell .star {\n    font-size: clamp(14px, 3.5vw, 16px);\n  }\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table table {\n    min-width: 800px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table th, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td {\n    padding: clamp(5px, 1.2vw, 7px) clamp(3px, 0.8vw, 5px);\n    font-size: clamp(10px, 2.2vw, 12px);\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table .rating-cell .star {\n    font-size: clamp(12px, 3vw, 14px);\n  }\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination button:hover {\n  background: #4A90E2;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination button.active {\n  background: #4A90E2;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-pagination {\n    gap: 6px;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-pagination button, .reviewstable-dashboard .reviewstable-content .reviewstable-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #10B981;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #059669;\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: #C4C4C4; /* Darkened #DDDDDD */\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.reviewstable-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.reviewstable-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.reviewstable-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .reviewstable-dashboard.sidebar-expanded, .reviewstable-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.reviewstable-dashboard .reviewstable-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.reviewstable-dashboard .reviewstable-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-icon {\n  position: absolute;\n  left: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: clamp(14px, 3vw, 16px);\n  z-index: 1;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-input {\n  width: 100%;\n  max-width: clamp(200px, 30vw, 300px);\n  padding: 8px 12px 8px 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(14, 14, 15, 0.2);\n}\n@media (max-width: 768px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions .search-input {\n    max-width: 100%;\n  }\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #1A2A44;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .archive-all-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .archive-all-button:hover {\n  background: #1A2A44; /* Darkened #D81B60 by ~10% */\n  border-color: #1A2A44;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions {\n    flex: 1;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .left-actions,\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n    width: 100%;\n    justify-content: center;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  -webkit-overflow-scrolling: touch;\n  width: 100%;\n  display: block;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table {\n  width: 100%;\n  min-width: 800px;\n  border-collapse: collapse;\n  table-layout: auto;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #1A2A44;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #1A2A44;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td.employer-cell, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td.worker-cell, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td.comment-cell, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td.rating-cell {\n  text-align: left;\n  white-space: normal;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td.rating-cell {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td.rating-cell .star {\n  font-size: clamp(16px, 4vw, 18px); /* Larger stars */\n  color: #CCCCCC;\n  line-height: 1;\n  display: inline-block;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td.rating-cell .star.filled {\n  color: #1A2A44;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table tr:last-child {\n  border-bottom: none;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .checkbox-icon,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .delete-icon,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .edit-icon,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .restore-icon {\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .checkbox-icon:hover,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .delete-icon:hover,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .edit-icon:hover,\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .restore-icon:hover {\n  color: #1A2A44;\n  transform: scale(1.2);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .delete-icon {\n  color: #1A2A44;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table .action-icons .delete-icon:hover {\n  color: #1A2A44;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(1),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(1) {\n  width: clamp(60px, 10vw, 80px);\n  min-width: 60px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(2),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(2) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(3),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(3) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(4),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(4) {\n  width: clamp(100px, 15vw, 120px);\n  min-width: 100px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(5),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(5) {\n  width: clamp(200px, 30vw, 250px);\n  min-width: 200px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(6),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(6) {\n  width: clamp(80px, 12vw, 100px);\n  min-width: 80px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(7),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(7) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table th:nth-child(8),\n.reviewstable-dashboard .reviewstable-content .reviewstable-table table td:nth-child(8) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n@media (max-width: 768px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table table {\n    width: 100%;\n    min-width: 800px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table th, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td {\n    padding: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 6px);\n    font-size: clamp(11px, 2.5vw, 13px);\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table .rating-cell .star {\n    font-size: clamp(14px, 3.5vw, 16px);\n  }\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table table {\n    min-width: 800px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table th, .reviewstable-dashboard .reviewstable-content .reviewstable-table table td {\n    padding: clamp(5px, 1.2vw, 7px) clamp(3px, 0.8vw, 5px);\n    font-size: clamp(10px, 2.2vw, 12px);\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-table table .rating-cell .star {\n    font-size: clamp(12px, 3vw, 14px);\n  }\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination button.active {\n  background: #1A2A44;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.reviewstable-dashboard .reviewstable-content .reviewstable-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .reviewstable-dashboard .reviewstable-content .reviewstable-pagination {\n    gap: 6px;\n  }\n  .reviewstable-dashboard .reviewstable-content .reviewstable-pagination button, .reviewstable-dashboard .reviewstable-content .reviewstable-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #1A2A44;\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: #C4C4C4; /* Darkened #DDDDDD */\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71784,7 +71784,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".top-navbar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 60px;\n  background: #FFFFFF;\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  padding: 0 20px;\n  z-index: 1000;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  overflow: visible;\n}\n.top-navbar .profile {\n  position: relative;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  overflow: visible;\n}\n.top-navbar .profile .profile-icon {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #4A90E2;\n  cursor: pointer;\n}\n.top-navbar .profile .dropdown-toggle {\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-icon {\n  font-size: 18px;\n  color: #333333;\n  transition: transform 0.2s ease;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-icon:hover {\n  color: #4A90E2;\n}\n.top-navbar .profile .dropdown-toggle.open .dropdown-menu {\n  display: block !important; /* Ensure visibility */\n  visibility: visible !important;\n  opacity: 1 !important;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu {\n  display: none;\n  position: absolute;\n  top: 50px;\n  right: 0;\n  background: #FFFFFF;\n  border: 1px solid #DDDDDD;\n  border-radius: 6px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n  min-width: 160px;\n  z-index: 10000;\n  overflow: visible;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu ul {\n  list-style: none;\n  margin: 0;\n  padding: 8px 0;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu ul li {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 10px 20px;\n  font-size: 14px;\n  color: #333333;\n  cursor: pointer;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu ul li:hover {\n  background: #F4F6F9;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu ul li .menu-icon {\n  font-size: 14px;\n  color: #333333;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".top-navbar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 60px;\n  background: #FFFFFF;\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  padding: 0 20px;\n  z-index: 1000;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  overflow: visible;\n}\n.top-navbar .profile {\n  position: relative;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  overflow: visible;\n}\n.top-navbar .profile .profile-icon {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #4A90E2;\n  cursor: pointer;\n}\n.top-navbar .profile .dropdown-toggle {\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n}\n.top-navbar .profile .dropdown-toggle::after {\n  content: none;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-icon {\n  font-size: 18px;\n  color: #333333;\n  transition: transform 0.2s ease;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-icon:hover {\n  color: #4A90E2;\n}\n.top-navbar .profile .dropdown-toggle.open .dropdown-menu {\n  display: block !important; /* Ensure visibility */\n  visibility: visible !important;\n  opacity: 1 !important;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu {\n  display: none;\n  position: absolute;\n  top: 50px;\n  right: 0;\n  background: #FFFFFF;\n  border: 1px solid #DDDDDD;\n  border-radius: 6px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n  min-width: 160px;\n  z-index: 10000;\n  overflow: visible;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu ul {\n  list-style: none;\n  margin: 0;\n  padding: 8px 0;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu ul li {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 10px 20px;\n  font-size: 14px;\n  color: #333333;\n  cursor: pointer;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu ul li:hover {\n  background: #F4F6F9;\n}\n.top-navbar .profile .dropdown-toggle .dropdown-menu ul li .menu-icon {\n  font-size: 14px;\n  color: #333333;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71809,7 +71809,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.userlist-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.userlist-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.userlist-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .userlist-dashboard.sidebar-expanded, .userlist-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .userlist-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.userlist-dashboard .userlist-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.userlist-dashboard .userlist-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.userlist-dashboard .userlist-content .userlist-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.userlist-dashboard .userlist-content .userlist-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.userlist-dashboard .userlist-content .userlist-header .left-actions .search-input {\n  width: 100%;\n  max-width: clamp(180px, 40vw, 200px);\n  padding: 8px 12px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.userlist-dashboard .userlist-content .userlist-header .left-actions .search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(29, 46, 65, 0.305);\n}\n@media (max-width: 768px) {\n  .userlist-dashboard .userlist-content .userlist-header .left-actions .search-input {\n    max-width: 100%;\n  }\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #1A2A44;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .archive-all-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .archive-all-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  border-color: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .userlist-dashboard .userlist-content .userlist-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .userlist-dashboard .userlist-content .userlist-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .left-actions {\n    flex: 1;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .userlist-dashboard .userlist-content .userlist-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .left-actions,\n  .userlist-dashboard .userlist-content .userlist-header .right-actions {\n    width: 100%;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.userlist-dashboard .userlist-content .userlist-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.userlist-dashboard .userlist-content .userlist-table table {\n  width: 100%;\n  min-width: 600px;\n  border-collapse: collapse;\n  table-layout: auto;\n}\n.userlist-dashboard .userlist-content .userlist-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #1A2A44;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.userlist-dashboard .userlist-content .userlist-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.userlist-dashboard .userlist-content .userlist-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #1A2A44;\n}\n.userlist-dashboard .userlist-content .userlist-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.userlist-dashboard .userlist-content .userlist-table table td.username-cell, .userlist-dashboard .userlist-content .userlist-table table td[data-label=Email] {\n  text-align: left;\n  white-space: normal;\n}\n.userlist-dashboard .userlist-content .userlist-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.userlist-dashboard .userlist-content .userlist-table table tr:last-child {\n  border-bottom: none;\n}\n.userlist-dashboard .userlist-content .userlist-table table .username-cell {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: clamp(8px, 2vw, 10px);\n}\n.userlist-dashboard .userlist-content .userlist-table table .username-cell .profile-picture {\n  width: clamp(32px, 8vw, 40px);\n  height: clamp(32px, 8vw, 40px);\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .checkbox-icon,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .delete-icon,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .edit-icon,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .restore-icon {\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .checkbox-icon:hover,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .delete-icon:hover,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .edit-icon:hover,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .restore-icon:hover {\n  color: #1A2A44;\n  transform: scale(1.2);\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .delete-icon {\n  color: #1A2A44;\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .delete-icon:hover {\n  color: #1A2A44;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(1),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(1) {\n  width: clamp(60px, 10vw, 80px);\n  min-width: 60px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(2),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(2) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(3),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(3) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(4),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(4) {\n  width: clamp(100px, 15vw, 120px);\n  min-width: 100px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(5),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(5) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(6),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(6) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.userlist-dashboard .userlist-content .userlist-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.userlist-dashboard .userlist-content .userlist-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.userlist-dashboard .userlist-content .userlist-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.userlist-dashboard .userlist-content .userlist-pagination button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.userlist-dashboard .userlist-content .userlist-pagination button.active {\n  background: #1A2A44;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.userlist-dashboard .userlist-content .userlist-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.userlist-dashboard .userlist-content .userlist-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .userlist-dashboard .userlist-content .userlist-pagination {\n    gap: 6px;\n  }\n  .userlist-dashboard .userlist-content .userlist-pagination button, .userlist-dashboard .userlist-content .userlist-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #1A2A44;\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.userlist-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.userlist-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.userlist-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .userlist-dashboard.sidebar-expanded, .userlist-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .userlist-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.userlist-dashboard .userlist-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.userlist-dashboard .userlist-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n}\n.userlist-dashboard .userlist-content .userlist-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.userlist-dashboard .userlist-content .userlist-header .left-actions {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.userlist-dashboard .userlist-content .userlist-header .left-actions .search-input {\n  width: 100%;\n  max-width: clamp(200px, 30vw, 300px);\n  padding: 8px 12px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.userlist-dashboard .userlist-content .userlist-header .left-actions .search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(14, 14, 15, 0.2);\n}\n@media (max-width: 768px) {\n  .userlist-dashboard .userlist-content .userlist-header .left-actions .search-input {\n    max-width: 100%;\n  }\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #1A2A44;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .archive-all-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.userlist-dashboard .userlist-content .userlist-header .right-actions .archive-all-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  border-color: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .userlist-dashboard .userlist-content .userlist-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .userlist-dashboard .userlist-content .userlist-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .left-actions {\n    flex: 1;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .userlist-dashboard .userlist-content .userlist-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .left-actions,\n  .userlist-dashboard .userlist-content .userlist-header .right-actions {\n    width: 100%;\n  }\n  .userlist-dashboard .userlist-content .userlist-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.userlist-dashboard .userlist-content .userlist-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.userlist-dashboard .userlist-content .userlist-table table {\n  width: 100%;\n  min-width: 600px;\n  border-collapse: collapse;\n  table-layout: auto;\n}\n.userlist-dashboard .userlist-content .userlist-table table th {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #1A2A44;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.userlist-dashboard .userlist-content .userlist-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.userlist-dashboard .userlist-content .userlist-table table th .header-actions-icon .checkbox-icon:hover {\n  color: #1A2A44;\n}\n.userlist-dashboard .userlist-content .userlist-table table td {\n  padding: clamp(8px, 2vw, 10px) clamp(6px, 1.5vw, 8px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.userlist-dashboard .userlist-content .userlist-table table td.username-cell, .userlist-dashboard .userlist-content .userlist-table table td[data-label=Email] {\n  text-align: left;\n  white-space: normal;\n}\n.userlist-dashboard .userlist-content .userlist-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.userlist-dashboard .userlist-content .userlist-table table tr:last-child {\n  border-bottom: none;\n}\n.userlist-dashboard .userlist-content .userlist-table table .username-cell {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: clamp(8px, 2vw, 10px);\n}\n.userlist-dashboard .userlist-content .userlist-table table .username-cell .profile-picture {\n  width: clamp(32px, 8vw, 40px);\n  height: clamp(32px, 8vw, 40px);\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .checkbox-icon,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .delete-icon,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .edit-icon,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .restore-icon {\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .checkbox-icon:hover,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .delete-icon:hover,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .edit-icon:hover,\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .restore-icon:hover {\n  color: #1A2A44;\n  transform: scale(1.2);\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .delete-icon {\n  color: #1A2A44;\n}\n.userlist-dashboard .userlist-content .userlist-table table .action-icons .delete-icon:hover {\n  color: #1A2A44;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(1),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(1) {\n  width: clamp(60px, 10vw, 80px);\n  min-width: 60px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(2),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(2) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(3),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(3) {\n  width: clamp(150px, 25vw, 200px);\n  min-width: 150px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(4),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(4) {\n  width: clamp(100px, 15vw, 120px);\n  min-width: 100px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(5),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(5) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.userlist-dashboard .userlist-content .userlist-table table th:nth-child(6),\n.userlist-dashboard .userlist-content .userlist-table table td:nth-child(6) {\n  width: clamp(120px, 20vw, 140px);\n  min-width: 120px;\n}\n.userlist-dashboard .userlist-content .userlist-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.userlist-dashboard .userlist-content .userlist-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.userlist-dashboard .userlist-content .userlist-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.userlist-dashboard .userlist-content .userlist-pagination button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.userlist-dashboard .userlist-content .userlist-pagination button.active {\n  background: #1A2A44;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.userlist-dashboard .userlist-content .userlist-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.userlist-dashboard .userlist-content .userlist-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .userlist-dashboard .userlist-content .userlist-pagination {\n    gap: 6px;\n  }\n  .userlist-dashboard .userlist-content .userlist-pagination button, .userlist-dashboard .userlist-content .userlist-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #1A2A44;\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71968,7 +71968,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".browse {\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  background-color: #f5f7fa;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n}\n.browse .browse-content {\n  padding: 0 40px 40px;\n  width: 100%;\n  margin: 0 auto;\n  box-sizing: border-box;\n  margin-top: 40px;\n}\n.browse .browse-content .header-section {\n  margin-bottom: 2rem;\n}\n.browse .browse-content .header-section .category-title {\n  margin-bottom: 1rem;\n  text-align: center;\n}\n.browse .browse-content .header-section .search-and-sort-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 20px;\n}\n.browse .browse-content .header-section .search-bar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex: 1;\n  justify-content: center;\n}\n.browse .browse-content .header-section .search-bar .search-input {\n  width: 300px;\n  max-width: 60vw;\n  height: 40px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  padding: 0 12px;\n  font-size: 16px;\n  color: #111827;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-input:focus {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .search-bar .search-btn {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #0a2a40;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-btn:hover {\n  background-color: #08203a;\n}\n.browse .browse-content .header-section .sort-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 16px;\n  color: #000000;\n  cursor: pointer;\n  padding: 8px 16px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by:hover {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-icon {\n  width: 18px;\n  height: 18px;\n  stroke: #000000;\n  stroke-width: 2;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #fff;\n  border-radius: 6px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  z-index: 10;\n  min-width: 180px;\n  border: 1px solid #e6f2ef;\n  margin-top: 4px;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option {\n  padding: 10px 16px;\n  font-size: 14px;\n  color: #333;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option:hover {\n  background-color: #e6f2ef;\n  color: #000000;\n}\n.browse .browse-content .category-title {\n  font-size: 2rem;\n  font-weight: 800;\n  color: #0b0d0f;\n  margin: 0;\n  text-transform: uppercase;\n  line-height: 1.2;\n}\n.browse .content-layout {\n  display: grid;\n  grid-template-columns: 400px 1fr;\n  gap: 24px;\n  align-items: stretch;\n  min-height: calc(100vh - 200px);\n}\n.browse .filters-sidebar {\n  background: #0a2a40;\n  color: #fff;\n  padding: 24px;\n  border-radius: 6px;\n  position: sticky;\n  top: 20px;\n  height: 100%;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n}\n.browse .filters-sidebar .filters-title {\n  font-size: 16px;\n  letter-spacing: 0.5px;\n  opacity: 0.85;\n  margin: 0 0 20px;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n.browse .filters-sidebar .filter-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 20px;\n}\n.browse .filters-sidebar .filter-group label {\n  font-size: 14px;\n  opacity: 0.75;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n.browse .filters-sidebar .filter-group select,\n.browse .filters-sidebar .filter-group input[type=number],\n.browse .filters-sidebar .filter-group .search-descriptions {\n  height: 40px;\n  border: 1px solid #1e4a6e;\n  border-radius: 6px;\n  padding: 0 12px;\n  font-size: 14px;\n  color: #fff;\n  background: #0f3a5a;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .filters-sidebar .filter-group select:focus,\n.browse .filters-sidebar .filter-group input[type=number]:focus,\n.browse .filters-sidebar .filter-group .search-descriptions:focus {\n  border-color: #1ec64b;\n}\n.browse .filters-sidebar .filter-group .range {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.browse .filters-sidebar .filter-group .range input[type=number] {\n  width: 80px;\n}\n.browse .filters-sidebar .filter-group .range span {\n  font-size: 14px;\n  color: #b0c4de;\n}\n.browse .filters-sidebar .filter-group .search-descriptions {\n  width: 100%;\n  padding: 8px 12px;\n}\n.browse .filters-sidebar .apply-btn {\n  width: 100%;\n  height: 40px;\n  border: none;\n  border-radius: 20px;\n  background: #1ec64b;\n  color: #fff;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background-color 0.3s ease;\n}\n.browse .filters-sidebar .apply-btn:hover {\n  background-color: #1aa33f;\n}\n.browse .results-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.browse .result-card {\n  background: linear-gradient(180deg, #f3f7fb 0%, #eef3f7 100%);\n  border-radius: 8px;\n  padding: 16px;\n}\n.browse .result-card .card-inner {\n  display: grid;\n  grid-template-columns: 120px 1fr 140px;\n  align-items: start;\n  gap: 20px;\n}\n.browse .result-card .avatar {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background: #e6e9ef;\n}\n.browse .result-card .name {\n  margin: 0;\n  font-size: 18px;\n  color: #0a2a40;\n}\n.browse .result-card .role {\n  margin-left: 12px;\n  font-size: 14px;\n  color: #3c556e;\n}\n.browse .result-card .label {\n  font-size: 12px;\n  color: #73839b;\n  margin-bottom: 6px;\n}\n.browse .result-card .value {\n  font-size: 14px;\n  color: #1b2430;\n}\n.browse .result-card .desc {\n  margin-top: 12px;\n  font-size: 14px;\n  color: #1b2430;\n  opacity: 0.9;\n}\n.browse .result-card .skills-row {\n  margin-top: 12px;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.browse .result-card .chip {\n  background: #fff;\n  border: 1px solid #d9e2ec;\n  border-radius: 6px;\n  padding: 4px 10px;\n  font-size: 12px;\n  color: #284b63;\n}\n.browse .result-card .view-btn {\n  width: 130px;\n  height: 36px;\n  border: none;\n  border-radius: 18px;\n  background: #0a2a40;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  transition: background-color 0.3s ease;\n}\n.browse .result-card .view-btn:hover {\n  background-color: #08203a;\n}\n.browse .result-card .stars {\n  margin-top: 12px;\n  color: #0a2a40;\n  font-size: 20px;\n  letter-spacing: 4px;\n}\n@media (max-width: 768px) {\n  .browse .browse-content {\n    padding: 0 20px 20px;\n  }\n  .browse .browse-content .header-section {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1.5rem;\n  }\n  .browse .browse-content .content-layout {\n    grid-template-columns: 1fr;\n  }\n  .browse .browse-content .filters-sidebar {\n    position: relative;\n    top: 0;\n    margin-bottom: 20px;\n    height: auto;\n  }\n}\n@media (max-width: 480px) {\n  .browse .browse-content {\n    padding: 0 10px 10px;\n  }\n  .browse .header-section .search-bar .search-input {\n    width: 200px;\n  }\n  .browse .result-card .card-inner {\n    grid-template-columns: 80px 1fr 100px;\n  }\n  .browse .avatar {\n    width: 80px;\n    height: 80px;\n  }\n  .browse .name {\n    font-size: 16px;\n  }\n  .browse .role {\n    font-size: 12px;\n  }\n  .browse .view-btn {\n    width: 110px;\n    font-size: 12px;\n  }\n  .browse .stars {\n    font-size: 16px;\n    letter-spacing: 2px;\n  }\n}\n\n.name-with-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.name-with-badges .name {\n  margin: 0;\n}\n\n.badges-container {\n  display: flex;\n  gap: 6px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 3px 6px;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.verified-badge svg {\n  flex-shrink: 0;\n}\n.verified-badge .verified-text {\n  font-size: 0.65rem;\n  font-weight: 600;\n}\n\n.collar-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  color: #495057;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.7rem;\n  font-weight: 500;\n  border: 1px solid #dee2e6;\n  transition: all 0.2s ease;\n}\n.collar-badge:hover {\n  background: linear-gradient(135deg, #e9ecef, #dee2e6);\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.collar-badge .collar-icon {\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  flex-shrink: 0;\n}\n.collar-badge .collar-text {\n  font-size: 0.65rem;\n  font-weight: 600;\n  white-space: nowrap;\n}\n\n.collar-badge-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border: 2px solid #dee2e6;\n  transition: all 0.2s ease;\n  cursor: pointer;\n}\n.collar-badge-icon:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  border-color: #adb5bd;\n}\n.collar-badge-icon .collar-icon-only {\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.collar-badge-icon .collar-icon-placeholder {\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #6c757d, #495057);\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.65rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: -0.5px;\n}\n.collar-badge-icon.collar-1 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #1976d2, #1565c0);\n}\n.collar-badge-icon.collar-2 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #e91e63, #c2185b);\n  color: white;\n}\n.collar-badge-icon.collar-3 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);\n  color: #424242;\n  border: 1px solid #bdbdbd;\n}\n.collar-badge-icon.collar-4 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #ff9800, #f57c00);\n  color: white;\n}\n.collar-badge-icon.collar-5 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #9c27b0, #7b1fa2);\n  color: white;\n}\n\n.rank-badge {\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  padding: 3px 6px;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 600;\n  border: 1px solid #ffb300;\n  transition: all 0.2s ease;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge:hover {\n  background: linear-gradient(135deg, #ffed4e, #ffd700);\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);\n}\n.rank-badge .rank-icon {\n  width: 14px;\n  height: 14px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n}\n\n.rank-badge[title*=Bronze] {\n  background: linear-gradient(135deg, #cd7f32, #daa520);\n  color: #fff;\n  border-color: #b8860b;\n  box-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);\n}\n.rank-badge[title*=Silver] {\n  background: linear-gradient(135deg, #c0c0c0, #e5e5e5);\n  color: #333;\n  border-color: #999;\n  box-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);\n}\n.rank-badge[title*=Gold] {\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  border-color: #ffb300;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge[title*=Diamond] {\n  background: linear-gradient(135deg, #b9f2ff, #e6f7ff);\n  color: #0066cc;\n  border-color: #4fc3f7;\n  box-shadow: 0 2px 4px rgba(185, 242, 255, 0.3);\n}\n\n.skill-chip-with-rank {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-right: 12px;\n  margin-bottom: 6px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border: 1px solid #dee2e6;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n  color: #495057;\n  transition: all 0.2s ease;\n}\n.skill-chip-with-rank:hover {\n  background: linear-gradient(135deg, #e9ecef, #dee2e6);\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.skill-chip-with-rank .skill-rank-icon-small {\n  width: 18px;\n  height: 18px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 3px;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n  border: 1px solid #fff;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".browse {\n  position: relative;\n  width: 100vw;\n  min-height: 100vh;\n  background-color: #f5f7fa;\n  margin: 0;\n  padding: 0;\n  overflow-x: hidden;\n}\n.browse .browse-content {\n  padding: 0 40px 40px;\n  width: 100%;\n  margin: 0 auto;\n  box-sizing: border-box;\n  margin-top: 40px;\n}\n.browse .browse-content .header-section {\n  margin-bottom: 2rem;\n}\n.browse .browse-content .header-section .category-title {\n  margin-bottom: 1rem;\n  text-align: center;\n}\n.browse .browse-content .header-section .search-and-sort-container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 20px;\n}\n.browse .browse-content .header-section .search-bar {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex: 1;\n  justify-content: center;\n}\n.browse .browse-content .header-section .search-bar .search-input {\n  width: 300px;\n  max-width: 60vw;\n  height: 40px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  padding: 0 12px;\n  font-size: 16px;\n  color: #111827;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-input:focus {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .search-bar .search-btn {\n  width: 40px;\n  height: 40px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #0a2a40;\n  border: 0;\n  border-radius: 4px;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.browse .browse-content .header-section .search-bar .search-btn:hover {\n  background-color: #08203a;\n}\n.browse .browse-content .header-section .sort-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 16px;\n  color: #000000;\n  cursor: pointer;\n  padding: 8px 16px;\n  border: 1px solid #c9ced6;\n  border-radius: 4px;\n  transition: border-color 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-by:hover {\n  border-color: #0a2a40;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-icon {\n  width: 18px;\n  height: 18px;\n  stroke: #000000;\n  stroke-width: 2;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #fff;\n  border-radius: 6px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  z-index: 10;\n  min-width: 180px;\n  border: 1px solid #e6f2ef;\n  margin-top: 4px;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option {\n  padding: 10px 16px;\n  font-size: 14px;\n  color: #333;\n  cursor: pointer;\n  transition: background-color 0.3s ease;\n}\n.browse .browse-content .header-section .sort-wrapper .sort-dropdown .sort-option:hover {\n  background-color: #e6f2ef;\n  color: #000000;\n}\n.browse .browse-content .category-title {\n  font-size: 2rem;\n  font-weight: 800;\n  color: #0b0d0f;\n  margin: 0;\n  text-transform: uppercase;\n  line-height: 1.2;\n}\n.browse .content-layout {\n  display: grid;\n  grid-template-columns: 400px 1fr;\n  gap: 24px;\n  align-items: stretch;\n  min-height: calc(100vh - 200px);\n}\n.browse .filters-sidebar {\n  background: #0a2a40;\n  color: #fff;\n  padding: 24px;\n  border-radius: 6px;\n  position: sticky;\n  top: 20px;\n  height: 100%;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n}\n.browse .filters-sidebar .filters-title {\n  font-size: 16px;\n  letter-spacing: 0.5px;\n  opacity: 0.85;\n  margin: 0 0 20px;\n  font-weight: 600;\n  text-transform: uppercase;\n}\n.browse .filters-sidebar .filter-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 20px;\n}\n.browse .filters-sidebar .filter-group label {\n  font-size: 14px;\n  opacity: 0.75;\n  font-weight: 500;\n  text-transform: uppercase;\n}\n.browse .filters-sidebar .filter-group select,\n.browse .filters-sidebar .filter-group input[type=number],\n.browse .filters-sidebar .filter-group .search-descriptions {\n  height: 40px;\n  border: 1px solid #1e4a6e;\n  border-radius: 6px;\n  padding: 0 12px;\n  font-size: 14px;\n  color: #fff;\n  background: #0f3a5a;\n  outline: none;\n  transition: border-color 0.3s ease;\n}\n.browse .filters-sidebar .filter-group select:focus,\n.browse .filters-sidebar .filter-group input[type=number]:focus,\n.browse .filters-sidebar .filter-group .search-descriptions:focus {\n  border-color: #1ec64b;\n}\n.browse .filters-sidebar .filter-group .range {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.browse .filters-sidebar .filter-group .range input[type=number] {\n  width: 80px;\n}\n.browse .filters-sidebar .filter-group .range span {\n  font-size: 14px;\n  color: #b0c4de;\n}\n.browse .filters-sidebar .filter-group .search-descriptions {\n  width: 100%;\n  padding: 8px 12px;\n}\n.browse .filters-sidebar .apply-btn {\n  width: 100%;\n  height: 40px;\n  border: none;\n  border-radius: 20px;\n  background: #1ec64b;\n  color: #fff;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background-color 0.3s ease;\n}\n.browse .filters-sidebar .apply-btn:hover {\n  background-color: #1aa33f;\n}\n.browse .results-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.browse .result-card {\n  background: linear-gradient(180deg, #f3f7fb 0%, #eef3f7 100%);\n  border-radius: 8px;\n  padding: 16px;\n}\n.browse .result-card .card-inner {\n  display: grid;\n  grid-template-columns: 120px 1fr 140px;\n  align-items: start;\n  gap: 20px;\n}\n.browse .result-card .avatar {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  background: #e6e9ef;\n}\n.browse .result-card .name {\n  margin: 0;\n  font-size: 18px;\n  color: #0a2a40;\n}\n.browse .result-card .role {\n  margin-left: 12px;\n  font-size: 14px;\n  color: #3c556e;\n}\n.browse .result-card .contact-info {\n  margin-top: 4px;\n  margin-left: 12px;\n}\n.browse .result-card .contact-info .contact-number {\n  font-size: 12px;\n  color: #9ca3af;\n  font-family: monospace;\n}\n.browse .result-card .label {\n  font-size: 12px;\n  color: #73839b;\n  margin-bottom: 6px;\n}\n.browse .result-card .value {\n  font-size: 14px;\n  color: #1b2430;\n}\n.browse .result-card .desc {\n  margin-top: 12px;\n  font-size: 14px;\n  color: #1b2430;\n  opacity: 0.9;\n}\n.browse .result-card .skills-row {\n  margin-top: 12px;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.browse .result-card .chip {\n  background: #fff;\n  border: 1px solid #d9e2ec;\n  border-radius: 6px;\n  padding: 4px 10px;\n  font-size: 12px;\n  color: #284b63;\n}\n.browse .result-card .view-btn {\n  width: 130px;\n  height: 36px;\n  border: none;\n  border-radius: 18px;\n  background: #0a2a40;\n  color: #fff;\n  cursor: pointer;\n  font-size: 14px;\n  transition: background-color 0.3s ease;\n}\n.browse .result-card .view-btn:hover {\n  background-color: #08203a;\n}\n.browse .result-card .view-btn.blue-btn {\n  background: #1A2A44;\n  color: #fff;\n}\n.browse .result-card .view-btn.blue-btn:hover {\n  background: #0f1a2e;\n}\n.browse .result-card .message-btn {\n  width: 130px;\n  height: 36px;\n  border: 1px solid #1A2A44;\n  border-radius: 18px;\n  background: transparent;\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: 14px;\n  margin-top: 8px;\n  transition: all 0.3s ease;\n}\n.browse .result-card .message-btn:hover {\n  background: #1A2A44;\n  color: #fff;\n}\n@media (max-width: 768px) {\n  .browse .browse-content {\n    padding: 0 20px 20px;\n  }\n  .browse .browse-content .header-section {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 1.5rem;\n  }\n  .browse .browse-content .content-layout {\n    grid-template-columns: 1fr;\n  }\n  .browse .browse-content .filters-sidebar {\n    position: relative;\n    top: 0;\n    margin-bottom: 20px;\n    height: auto;\n  }\n}\n@media (max-width: 480px) {\n  .browse .browse-content {\n    padding: 0 10px 10px;\n  }\n  .browse .header-section .search-bar .search-input {\n    width: 200px;\n  }\n  .browse .result-card .card-inner {\n    grid-template-columns: 80px 1fr 100px;\n  }\n  .browse .avatar {\n    width: 80px;\n    height: 80px;\n  }\n  .browse .name {\n    font-size: 16px;\n  }\n  .browse .role {\n    font-size: 12px;\n  }\n  .browse .view-btn {\n    width: 110px;\n    font-size: 12px;\n  }\n  .browse .message-btn {\n    width: 110px;\n    font-size: 12px;\n  }\n}\n\n.name-with-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.name-with-badges .name {\n  margin: 0;\n}\n\n.name-with-collar-verified {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n  position: relative;\n  z-index: 5;\n}\n.name-with-collar-verified .name {\n  margin: 0;\n  font-size: 1.2rem;\n  font-weight: 600;\n  color: #333;\n}\n\n.browse-service-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  color: #0a2a44;\n  font-weight: 700;\n}\n.browse-service-badge .badge-icon {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n  min-width: 20px;\n  min-height: 20px;\n}\n\n.profile-verified-badge {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  z-index: 10;\n  flex-shrink: 0;\n}\n.profile-verified-badge .verified-icon {\n  width: 20px;\n  height: 20px;\n  flex-shrink: 0;\n  -o-object-fit: contain;\n     object-fit: contain;\n  position: relative;\n  z-index: 11;\n}\n\n.badges-container {\n  display: flex;\n  gap: 6px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 3px 6px;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.verified-badge svg {\n  flex-shrink: 0;\n}\n.verified-badge .verified-text {\n  font-size: 0.65rem;\n  font-weight: 600;\n}\n\n.collar-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  color: #495057;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.7rem;\n  font-weight: 500;\n  border: 1px solid #dee2e6;\n  transition: all 0.2s ease;\n}\n.collar-badge:hover {\n  background: linear-gradient(135deg, #e9ecef, #dee2e6);\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.collar-badge .collar-icon {\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  flex-shrink: 0;\n}\n.collar-badge .collar-text {\n  font-size: 0.65rem;\n  font-weight: 600;\n  white-space: nowrap;\n}\n\n.collar-badge-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border: 2px solid #dee2e6;\n  transition: all 0.2s ease;\n  cursor: pointer;\n}\n.collar-badge-icon:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  border-color: #adb5bd;\n}\n.collar-badge-icon .collar-icon-only {\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.collar-badge-icon .collar-icon-placeholder {\n  width: 16px;\n  height: 16px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #6c757d, #495057);\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.65rem;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: -0.5px;\n}\n.collar-badge-icon.collar-1 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #1976d2, #1565c0);\n}\n.collar-badge-icon.collar-2 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #e91e63, #c2185b);\n  color: white;\n}\n.collar-badge-icon.collar-3 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);\n  color: #424242;\n  border: 1px solid #bdbdbd;\n}\n.collar-badge-icon.collar-4 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #ff9800, #f57c00);\n  color: white;\n}\n.collar-badge-icon.collar-5 .collar-icon-placeholder {\n  background: linear-gradient(135deg, #9c27b0, #7b1fa2);\n  color: white;\n}\n\n.rank-badge {\n  display: flex;\n  align-items: center;\n  gap: 3px;\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  padding: 3px 6px;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 600;\n  border: 1px solid #ffb300;\n  transition: all 0.2s ease;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge:hover {\n  background: linear-gradient(135deg, #ffed4e, #ffd700);\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);\n}\n.rank-badge .rank-icon {\n  width: 14px;\n  height: 14px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n}\n\n.rank-badge[title*=Bronze] {\n  background: linear-gradient(135deg, #cd7f32, #daa520);\n  color: #fff;\n  border-color: #b8860b;\n  box-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);\n}\n.rank-badge[title*=Silver] {\n  background: linear-gradient(135deg, #c0c0c0, #e5e5e5);\n  color: #333;\n  border-color: #999;\n  box-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);\n}\n.rank-badge[title*=Gold] {\n  background: linear-gradient(135deg, #ffd700, #ffed4e);\n  color: #8b4513;\n  border-color: #ffb300;\n  box-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);\n}\n.rank-badge[title*=Diamond] {\n  background: linear-gradient(135deg, #b9f2ff, #e6f7ff);\n  color: #0066cc;\n  border-color: #4fc3f7;\n  box-shadow: 0 2px 4px rgba(185, 242, 255, 0.3);\n}\n\n.skill-chip-with-rank {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-right: 12px;\n  margin-bottom: 6px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, #f8f9fa, #e9ecef);\n  border: 1px solid #dee2e6;\n  border-radius: 20px;\n  font-size: 0.85rem;\n  font-weight: 500;\n  color: #495057;\n  transition: all 0.2s ease;\n}\n.skill-chip-with-rank:hover {\n  background: linear-gradient(135deg, #e9ecef, #dee2e6);\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.skill-chip-with-rank .skill-rank-icon-small {\n  width: 18px;\n  height: 18px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 3px;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n  border: 1px solid #fff;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72064,7 +72064,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".employermodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.employermodal {\n  background: #fff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 800px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n}\n.employermodal h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 22px;\n  font-weight: 600;\n}\n.employermodal .employermodal-content {\n  display: flex;\n  flex-direction: column;\n  gap: 14px;\n}\n.employermodal .form-row {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 14px;\n}\n@media (max-width: 600px) {\n  .employermodal .form-row {\n    grid-template-columns: 1fr;\n  }\n}\n.employermodal .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.employermodal .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #2d3748;\n}\n.employermodal .form-group input, .employermodal .form-group select {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  background: #f9fafb;\n  font-size: 14px;\n}\n.employermodal .form-group input[type=file] {\n  background: #1A2A44;\n  color: #fff;\n  padding: 8px 12px;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n}\n.employermodal .form-group input[type=file]::file-selector-button {\n  background: transparent;\n  color: #fff;\n  border: none;\n  padding: 0;\n  margin-right: 8px;\n  cursor: pointer;\n}\n.employermodal .form-group input:disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n}\n.employermodal .profile-img-preview {\n  margin-top: 10px;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.employermodal .profile-img-preview img {\n  width: 50px;\n  height: 50px;\n  border-radius: 8px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #ccc;\n}\n.employermodal .profile-img-preview button {\n  padding: 4px 10px;\n  background: #1A2A44;\n  color: #fff;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n}\n.employermodal .employermodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 20px;\n}\n.employermodal .employermodal-buttons .submit-button {\n  background: #1A2A44;\n  color: #fff;\n  padding: 8px 20px;\n  border-radius: 8px;\n  border: none;\n  cursor: pointer;\n}\n.employermodal .employermodal-buttons .cancel-button {\n  background: #f3f4f6;\n  color: #374151;\n  padding: 8px 20px;\n  border-radius: 8px;\n  border: 1px solid #d1d5db;\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".employermodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.employermodal {\n  background: #fff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 800px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n}\n.employermodal .employermodal-content input[type=file] {\n  background: #1A2A44 !important;\n  color: #fff !important;\n  border: none !important;\n}\n.employermodal .employermodal-content input[type=file]::file-selector-button {\n  background: #1A2A44 !important;\n  color: #fff !important;\n  border: none !important;\n}\n.employermodal .employermodal-buttons .submit-button {\n  background: #1A2A44 !important;\n  color: #fff !important;\n  border: none !important;\n}\n.employermodal h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 22px;\n  font-weight: 600;\n}\n.employermodal .employermodal-content {\n  display: flex;\n  flex-direction: column;\n  gap: 14px;\n}\n.employermodal .form-row {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 14px;\n}\n@media (max-width: 600px) {\n  .employermodal .form-row {\n    grid-template-columns: 1fr;\n  }\n}\n.employermodal .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.employermodal .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #2d3748;\n}\n.employermodal .form-group input, .employermodal .form-group select {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  background: #f9fafb;\n  font-size: 14px;\n}\n.employermodal .form-group input[type=file] {\n  padding: 8px 12px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n}\n.employermodal .form-group input:disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n}\n.employermodal .profile-img-preview {\n  margin-top: 10px;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.employermodal .profile-img-preview img {\n  width: 50px;\n  height: 50px;\n  border-radius: 8px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #ccc;\n}\n.employermodal .profile-img-preview button {\n  padding: 4px 10px;\n  background: #1A2A44 !important;\n  color: #fff !important;\n  border: none;\n  border-radius: 6px;\n  cursor: pointer;\n}\n.employermodal .employermodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 20px;\n}\n.employermodal .employermodal-buttons .submit-button {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n}\n.employermodal .employermodal-buttons .cancel-button {\n  background: #f3f4f6;\n  color: #374151;\n  padding: 8px 20px;\n  border-radius: 8px;\n  border: 1px solid #d1d5db;\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72331,7 +72331,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.profile-page .profile-header {\n  position: relative;\n  width: 100%;\n}\n.profile-page .profile-header .profile-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.profile-page .profile-header .profile-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-header .profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.profile-page .profile-header .profile-photo-wrapper .profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.profile-page .profile-container .profile-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.profile-page .profile-container .profile-left .profile-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-name-container {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-name-container h2 {\n  margin: 0;\n  font-size: 1.8rem;\n  font-weight: 600;\n  color: #333;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-badges-container {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  background: #e8f5e8;\n  color: #2e7d32;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 0.75rem;\n  font-weight: 500;\n  border: 1px solid #4caf50;\n  transition: all 0.2s ease;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge:hover {\n  background: #c8e6c9;\n  transform: translateY(-1px);\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge svg {\n  flex-shrink: 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-dot {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-dot.online {\n  background-color: #4CAF50;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-dot.offline {\n  background-color: #9E9E9E;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status {\n  font-size: 14px;\n  margin: 5px 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status.online {\n  color: #4CAF50;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status.offline {\n  color: #9E9E9E;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-button {\n  background: #1E90FF;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 12px 24px;\n  font-size: 16px;\n  margin: 15px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  width: 100%;\n  max-width: 300px;\n  font-weight: 600;\n  transition: all 0.2s ease;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-button:hover {\n  background: #104E8B;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(30, 144, 255, 0.3);\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-button svg {\n  flex-shrink: 0;\n}\n.profile-page .profile-container .profile-left .profile-info .message-button {\n  background: #4CAF50;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  width: 100%;\n  max-width: 300px;\n  font-weight: 600;\n  transition: all 0.2s ease;\n}\n.profile-page .profile-container .profile-left .profile-info .message-button:hover {\n  background: #388E3C;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);\n}\n.profile-page .profile-container .profile-left .profile-info .message-button svg {\n  flex-shrink: 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-actions {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-disabled {\n  background: #f5f5f5;\n  border: 2px dashed #ccc;\n  border-radius: 20px;\n  padding: 12px 24px;\n  margin: 15px 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  min-width: 350px;\n  text-align: center;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-disabled p {\n  color: #666;\n  font-size: 14px;\n  margin: 0;\n  font-style: italic;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section {\n  margin: 15px 0;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info .profile-rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info .profile-points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-loading {\n  text-align: center;\n  color: #666;\n  font-style: italic;\n}\n.profile-page .profile-container .profile-left .profile-stats {\n  margin: 25px 0;\n  background: #f9fafb;\n  padding: 20px;\n  border-radius: 12px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  min-width: 350px;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding: 12px 0;\n  border-bottom: 1px solid #eee;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item .profile-stat-label {\n  font-size: 18px;\n  color: #2d3748;\n  font-weight: 600;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item .profile-stat-number {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1E90FF;\n}\n.profile-page .profile-container .profile-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  height: calc(100vh - 320px);\n}\n.profile-page .profile-container .profile-right .profile-tabs {\n  display: flex;\n  border-bottom: 1px solid #eee;\n  background: #f9fafb;\n  padding: 0 10px;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab {\n  padding: 10px 15px;\n  background: none;\n  border: none;\n  cursor: pointer;\n  font-size: 14px;\n  text-transform: uppercase;\n  color: #666;\n  border-radius: 4px 4px 0 0;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab.active {\n  color: #1E90FF;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  background: #fff;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab:hover {\n  background: #e6f0fa;\n}\n.profile-page .profile-container .profile-right .profile-tab-content {\n  flex: 1;\n  padding: 20px;\n  background: #fff;\n  border-radius: 0 8px 8px 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n  color: #4a5568;\n  line-height: 1.7;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-row,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-skills-row,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-row .profile-chip,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-skills-row .profile-chip,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-skills-row .profile-chip {\n  background: #e6f0fa;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1E90FF;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview ul,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials ul,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews ul {\n  list-style: disc;\n  padding-left: 20px;\n  margin-bottom: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview ul li,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials ul li,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews ul li {\n  color: #4a5568;\n  margin-bottom: 8px;\n  line-height: 1.6;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview p {\n  color: #555;\n  line-height: 1.7;\n  margin-bottom: 25px;\n  font-size: 16px;\n  background: #f8f9fa;\n  padding: 15px;\n  border-radius: 8px;\n  border-left: 4px solid #1E90FF;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section {\n  margin-bottom: 30px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category {\n  margin-bottom: 25px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category h5 {\n  margin-bottom: 15px;\n  color: #1E90FF;\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item {\n  background: linear-gradient(135deg, #f8f9fa, #ffffff);\n  border: 1px solid #e9ecef;\n  border-radius: 12px;\n  padding: 20px;\n  margin-bottom: 15px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: all 0.3s ease;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-header {\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-rank-icon {\n  width: 32px;\n  height: 32px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 6px;\n  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);\n  border: 2px solid #fff;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-name {\n  font-weight: 600;\n  color: #333;\n  font-size: 1.1rem;\n  line-height: 1.4;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-name .profile-sub-skills {\n  color: #666;\n  font-weight: 400;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details {\n  display: flex;\n  gap: 25px;\n  font-size: 14px;\n  flex-wrap: wrap;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details .profile-experience {\n  color: #666;\n  background: #e9ecef;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details .profile-hourly-rate {\n  color: #1E90FF;\n  font-weight: 600;\n  background: #e3f2fd;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos {\n  margin-top: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos h5 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo {\n  margin-bottom: 10px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo a {\n  color: #1E90FF;\n  text-decoration: none;\n  font-weight: 500;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo a:hover {\n  text-decoration: underline;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header h4 {\n  margin: 0;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-rating-number {\n  font-size: 24px;\n  font-weight: 600;\n  color: #2d3748;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars {\n  display: flex;\n  gap: 2px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars .profile-star {\n  color: #cbd5e0;\n  font-size: 18px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars .profile-star.filled {\n  color: #f59e0b;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-total-reviews {\n  color: #718096;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item {\n  border-bottom: 1px solid #eee;\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info {\n  display: flex;\n  gap: 12px;\n  align-items: center;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-avatar {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-reviewer-name {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating {\n  display: flex;\n  gap: 2px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating .profile-star {\n  color: #cbd5e0;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating .profile-star.filled {\n  color: #f59e0b;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-review-date {\n  color: #718096;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-comment {\n  color: #4a5568;\n  line-height: 1.6;\n  margin-left: 60px;\n  font-size: 14px;\n}\n\n.blurred-contact {\n  display: inline-block;\n  margin-left: 8px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(30, 144, 255, 0.05));\n  border: 2px dashed #1E90FF;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n  min-width: 120px;\n  text-align: center;\n}\n.blurred-contact:hover {\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0.1));\n  border-color: #0070f3;\n  transform: scale(1.05);\n}\n.blurred-contact:active {\n  transform: scale(0.95);\n}\n\n.upgrade-hint {\n  color: #1E90FF;\n  font-size: 12px;\n  font-weight: 500;\n  margin-left: 8px;\n  background: #e3f2fd;\n  padding: 2px 6px;\n  border-radius: 4px;\n  border: 1px solid #1E90FF;\n}\n\n.profile-login-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n}\n\n.profile-login-modal {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  max-width: 500px;\n  width: 90%;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n.profile-login-modal .profile-login-modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 1rem;\n}\n.profile-login-modal .profile-login-options {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.profile-login-modal .profile-login-option {\n  text-align: center;\n  padding: 20px;\n  border: 2px solid #f0f0f0;\n  border-radius: 12px;\n  background: #fafafa;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-option:hover {\n  border-color: #007bff;\n  background: #f8f9ff;\n}\n.profile-login-modal .profile-login-option h3 {\n  margin: 0 0 8px 0;\n  color: #333;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.profile-login-modal .profile-login-option p {\n  margin: 0 0 15px 0;\n  color: #666;\n  font-size: 0.9rem;\n  line-height: 1.4;\n}\n.profile-login-modal .profile-login-divider {\n  text-align: center;\n  position: relative;\n  margin: 10px 0;\n}\n.profile-login-modal .profile-login-divider::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 1px;\n  background: #ddd;\n}\n.profile-login-modal .profile-login-divider span {\n  background: #fff;\n  padding: 0 15px;\n  color: #999;\n  font-size: 0.9rem;\n  font-weight: 500;\n}\n.profile-login-modal .profile-login-btn {\n  width: 100%;\n  padding: 12px 24px;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-btn.profile-signin-btn {\n  background: #007bff;\n  color: white;\n}\n.profile-login-modal .profile-login-btn.profile-signin-btn:hover {\n  background: #0056b3;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);\n}\n.profile-login-modal .profile-login-btn.profile-signup-btn {\n  background: #28a745;\n  color: white;\n}\n.profile-login-modal .profile-login-btn.profile-signup-btn:hover {\n  background: #1e7e34;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);\n}\n.profile-login-modal .profile-login-modal-buttons {\n  display: flex;\n  justify-content: center;\n}\n.profile-login-modal .profile-login-modal-buttons .profile-login-cancel-button {\n  padding: 12px 24px;\n  border: 2px solid #e0e0e0;\n  background: white;\n  color: #666;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 600;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-modal-buttons .profile-login-cancel-button:hover {\n  background: #f5f5f5;\n  border-color: #ccc;\n}\n\n@media (max-width: 768px) {\n  .profile-page .profile-container {\n    flex-direction: column;\n    padding: 0 20px;\n  }\n  .profile-page .profile-container .profile-left {\n    padding-right: 0;\n    margin-bottom: 20px;\n  }\n  .profile-page .profile-container .profile-right {\n    padding-left: 0;\n    height: auto;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n    font-size: 16px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n    font-size: 14px;\n  }\n  .profile-page .profile-header .profile-photo-wrapper {\n    left: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .profile-page .profile-container {\n    padding: 0 15px;\n    margin-top: 60px;\n  }\n  .profile-page .profile-container .profile-left .profile-info .profile-hire-button {\n    min-width: 100%;\n    padding: 10px 16px;\n  }\n  .profile-page .profile-container .profile-left .profile-stats {\n    padding: 12px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content {\n    padding: 12px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n    font-size: 14px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n    font-size: 14px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-skills-row .profile-chip {\n    font-size: 12px;\n    padding: 4px 8px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.profile-page .profile-header {\n  position: relative;\n  width: 100%;\n}\n.profile-page .profile-header .profile-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.profile-page .profile-header .profile-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-header .profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.profile-page .profile-header .profile-photo-wrapper .profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.profile-page .profile-container .profile-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.profile-page .profile-container .profile-left .profile-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-name-container {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-name-container .profile-name-with-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-name-container .profile-name-with-badge h2 {\n  margin: 0;\n  font-size: 1.8rem;\n  font-weight: 600;\n  color: #333;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-badges-container {\n  display: flex;\n  gap: 8px;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  padding: 0;\n  transition: all 0.2s ease;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge:hover {\n  transform: translateY(-1px);\n}\n.profile-page .profile-container .profile-left .profile-info .profile-verified-badge .verified-icon {\n  width: 16px;\n  height: 16px;\n  flex-shrink: 0;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-service-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  color: #0a2a44;\n  font-weight: 700;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-service-badge .badge-icon {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-dot {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-dot.online {\n  background-color: #4CAF50;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status-dot.offline {\n  background-color: #9E9E9E;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status.online {\n  color: #4CAF50;\n  font-weight: 600;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status.offline {\n  color: #9E9E9E;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status {\n  font-size: 14px;\n  margin: 5px 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status.online {\n  color: #4CAF50;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-status.offline {\n  color: #9E9E9E;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-action-buttons {\n  display: flex;\n  gap: 12px;\n  margin: 15px 0;\n  width: 100%;\n  max-width: 300px;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-button {\n  background: #1A2A44;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 12px 24px;\n  font-size: 16px;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  flex: 1;\n  font-weight: 600;\n  transition: all 0.2s ease;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-button:hover {\n  background: #0f1a2e;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(26, 42, 68, 0.3);\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-button svg {\n  flex-shrink: 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-message-button {\n  background: transparent;\n  color: #1A2A44;\n  border: 2px solid #1A2A44;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 12px 24px;\n  font-size: 16px;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  flex: 1;\n  font-weight: 600;\n  transition: all 0.2s ease;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-message-button:hover {\n  background: #1A2A44;\n  color: #fff;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(26, 42, 68, 0.3);\n}\n.profile-page .profile-container .profile-left .profile-info .profile-message-button svg {\n  flex-shrink: 0;\n}\n.profile-page .profile-container .profile-left .profile-info .message-button {\n  background: #4CAF50;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  width: 100%;\n  max-width: 300px;\n  font-weight: 600;\n  transition: all 0.2s ease;\n}\n.profile-page .profile-container .profile-left .profile-info .message-button:hover {\n  background: #388E3C;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);\n}\n.profile-page .profile-container .profile-left .profile-info .message-button svg {\n  flex-shrink: 0;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-actions {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-disabled {\n  background: #f5f5f5;\n  border: 2px dashed #ccc;\n  border-radius: 20px;\n  padding: 12px 24px;\n  margin: 15px 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  min-width: 350px;\n  text-align: center;\n}\n.profile-page .profile-container .profile-left .profile-info .profile-hire-disabled p {\n  color: #666;\n  font-size: 14px;\n  margin: 0;\n  font-style: italic;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section {\n  margin: 15px 0;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info .profile-rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-info .profile-points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-bar-container .profile-progress-bar-fill.profile-rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-display .profile-rank-progress .profile-progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.profile-page .profile-container .profile-left .profile-rank-display-section .profile-rank-loading {\n  text-align: center;\n  color: #666;\n  font-style: italic;\n}\n.profile-page .profile-container .profile-left .profile-stats {\n  margin: 25px 0;\n  background: #f9fafb;\n  padding: 20px;\n  border-radius: 12px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n  min-width: 350px;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding: 12px 0;\n  border-bottom: 1px solid #eee;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item .profile-stat-label {\n  font-size: 18px;\n  color: #2d3748;\n  font-weight: 600;\n}\n.profile-page .profile-container .profile-left .profile-stats .profile-stat-item .profile-stat-number {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1E90FF;\n}\n.profile-page .profile-container .profile-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  height: calc(100vh - 320px);\n}\n.profile-page .profile-container .profile-right .profile-tabs {\n  display: flex;\n  border-bottom: 1px solid #eee;\n  background: #f9fafb;\n  padding: 0 10px;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab {\n  padding: 10px 15px;\n  background: none;\n  border: none;\n  cursor: pointer;\n  font-size: 14px;\n  text-transform: uppercase;\n  color: #666;\n  border-radius: 4px 4px 0 0;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab.active {\n  color: #1E90FF;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  background: #fff;\n}\n.profile-page .profile-container .profile-right .profile-tabs .profile-tab:hover {\n  background: #e6f0fa;\n}\n.profile-page .profile-container .profile-right .profile-tab-content {\n  flex: 1;\n  padding: 20px;\n  background: #fff;\n  border-radius: 0 8px 8px 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n  color: #4a5568;\n  line-height: 1.7;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-row,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-skills-row,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-row .profile-chip,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-skills-row .profile-chip,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-skills-row .profile-chip {\n  background: #e6f0fa;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1E90FF;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview ul,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials ul,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews ul {\n  list-style: disc;\n  padding-left: 20px;\n  margin-bottom: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview ul li,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials ul li,\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews ul li {\n  color: #4a5568;\n  margin-bottom: 8px;\n  line-height: 1.6;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4 {\n  font-size: 20px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 600;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 8px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview p {\n  color: #555;\n  line-height: 1.7;\n  margin-bottom: 25px;\n  font-size: 16px;\n  background: #f8f9fa;\n  padding: 15px;\n  border-radius: 8px;\n  border-left: 4px solid #1E90FF;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section {\n  margin-bottom: 30px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category {\n  margin-bottom: 25px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category h5 {\n  margin-bottom: 15px;\n  color: #1E90FF;\n  font-size: 16px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item {\n  background: linear-gradient(135deg, #f8f9fa, #ffffff);\n  border: 1px solid #e9ecef;\n  border-radius: 12px;\n  padding: 20px;\n  margin-bottom: 15px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);\n  transition: all 0.3s ease;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-header {\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-rank-icon {\n  width: 32px;\n  height: 32px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  border-radius: 6px;\n  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);\n  border: 2px solid #fff;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-name {\n  font-weight: 600;\n  color: #333;\n  font-size: 1.1rem;\n  line-height: 1.4;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-name-with-rank .profile-skill-name .profile-sub-skills {\n  color: #666;\n  font-weight: 400;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details {\n  display: flex;\n  gap: 25px;\n  font-size: 14px;\n  flex-wrap: wrap;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details .profile-experience {\n  color: #666;\n  background: #e9ecef;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-overview .profile-skills-section .profile-skills-category .profile-skill-item .profile-skill-details .profile-hourly-rate {\n  color: #1E90FF;\n  font-weight: 600;\n  background: #e3f2fd;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos {\n  margin-top: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos h5 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo {\n  margin-bottom: 10px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo a {\n  color: #1E90FF;\n  text-decoration: none;\n  font-weight: 500;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-credentials .profile-credentials-photos .profile-credential-photo a:hover {\n  text-decoration: underline;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header h4 {\n  margin: 0;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-rating-number {\n  font-size: 24px;\n  font-weight: 600;\n  color: #2d3748;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars {\n  display: flex;\n  gap: 2px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars .profile-star {\n  color: #cbd5e0;\n  font-size: 18px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-stars .profile-star.filled {\n  color: #f59e0b;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-header .profile-reviews-summary .profile-average-rating .profile-total-reviews {\n  color: #718096;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item {\n  border-bottom: 1px solid #eee;\n  padding-bottom: 20px;\n  margin-bottom: 20px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info {\n  display: flex;\n  gap: 12px;\n  align-items: center;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-avatar {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-reviewer-name {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 15px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating {\n  display: flex;\n  gap: 2px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating .profile-star {\n  color: #cbd5e0;\n  font-size: 14px;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-reviewer-info .profile-reviewer-details .profile-review-rating .profile-star.filled {\n  color: #f59e0b;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-header .profile-review-date {\n  color: #718096;\n  font-size: 13px;\n  white-space: nowrap;\n}\n.profile-page .profile-container .profile-right .profile-tab-content .profile-reviews .profile-reviews-list .profile-review-item .profile-review-comment {\n  color: #4a5568;\n  line-height: 1.6;\n  margin-left: 60px;\n  font-size: 14px;\n}\n\n.blurred-contact {\n  display: inline-block;\n  margin-left: 8px;\n  padding: 6px 12px;\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(30, 144, 255, 0.05));\n  border: 2px dashed #1E90FF;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n  min-width: 120px;\n  text-align: center;\n}\n.blurred-contact:hover {\n  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0.1));\n  border-color: #0070f3;\n  transform: scale(1.05);\n}\n.blurred-contact:active {\n  transform: scale(0.95);\n}\n\n.upgrade-hint {\n  color: #1E90FF;\n  font-size: 12px;\n  font-weight: 500;\n  margin-left: 8px;\n  background: #e3f2fd;\n  padding: 2px 6px;\n  border-radius: 4px;\n  border: 1px solid #1E90FF;\n}\n\n.profile-login-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n}\n\n.profile-login-modal {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  max-width: 500px;\n  width: 90%;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n.profile-login-modal .profile-login-modal-subtitle {\n  text-align: center;\n  color: #666;\n  margin-bottom: 30px;\n  font-size: 1rem;\n}\n.profile-login-modal .profile-login-options {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 30px;\n}\n.profile-login-modal .profile-login-option {\n  text-align: center;\n  padding: 20px;\n  border: 2px solid #f0f0f0;\n  border-radius: 12px;\n  background: #fafafa;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-option:hover {\n  border-color: #007bff;\n  background: #f8f9ff;\n}\n.profile-login-modal .profile-login-option h3 {\n  margin: 0 0 8px 0;\n  color: #333;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n.profile-login-modal .profile-login-option p {\n  margin: 0 0 15px 0;\n  color: #666;\n  font-size: 0.9rem;\n  line-height: 1.4;\n}\n.profile-login-modal .profile-login-divider {\n  text-align: center;\n  position: relative;\n  margin: 10px 0;\n}\n.profile-login-modal .profile-login-divider::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 1px;\n  background: #ddd;\n}\n.profile-login-modal .profile-login-divider span {\n  background: #fff;\n  padding: 0 15px;\n  color: #999;\n  font-size: 0.9rem;\n  font-weight: 500;\n}\n.profile-login-modal .profile-login-btn {\n  width: 100%;\n  padding: 12px 24px;\n  border: none;\n  border-radius: 8px;\n  font-size: 1rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-btn.profile-signin-btn {\n  background: #007bff;\n  color: white;\n}\n.profile-login-modal .profile-login-btn.profile-signin-btn:hover {\n  background: #0056b3;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);\n}\n.profile-login-modal .profile-login-btn.profile-signup-btn {\n  background: #28a745;\n  color: white;\n}\n.profile-login-modal .profile-login-btn.profile-signup-btn:hover {\n  background: #1e7e34;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);\n}\n.profile-login-modal .profile-login-modal-buttons {\n  display: flex;\n  justify-content: center;\n}\n.profile-login-modal .profile-login-modal-buttons .profile-login-cancel-button {\n  padding: 12px 24px;\n  border: 2px solid #e0e0e0;\n  background: white;\n  color: #666;\n  border-radius: 8px;\n  cursor: pointer;\n  font-weight: 600;\n  transition: all 0.3s ease;\n}\n.profile-login-modal .profile-login-modal-buttons .profile-login-cancel-button:hover {\n  background: #f5f5f5;\n  border-color: #ccc;\n}\n\n@media (max-width: 768px) {\n  .profile-page .profile-container {\n    flex-direction: column;\n    padding: 0 20px;\n  }\n  .profile-page .profile-container .profile-left {\n    padding-right: 0;\n    margin-bottom: 20px;\n  }\n  .profile-page .profile-container .profile-right {\n    padding-left: 0;\n    height: auto;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n    font-size: 16px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n    font-size: 14px;\n  }\n  .profile-page .profile-header .profile-photo-wrapper {\n    left: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .profile-page .profile-container {\n    padding: 0 15px;\n    margin-top: 60px;\n  }\n  .profile-page .profile-container .profile-left .profile-info .profile-hire-button {\n    min-width: 100%;\n    padding: 10px 16px;\n  }\n  .profile-page .profile-container .profile-left .profile-stats {\n    padding: 12px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content {\n    padding: 12px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials h4,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews h4 {\n    font-size: 14px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-overview p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-credentials p,\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-reviews p {\n    font-size: 14px;\n  }\n  .profile-page .profile-container .profile-right .profile-tab-content .profile-skills-row .profile-chip {\n    font-size: 12px;\n    padding: 4px 8px;\n  }\n}\n.verification-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 10000;\n}\n\n.verification-modal {\n  background: white;\n  border-radius: 12px;\n  padding: 0;\n  width: 90%;\n  max-width: 500px;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n  animation: modalSlideIn 0.3s ease-out;\n}\n\n.verification-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #eee;\n  background: #f8f9fa;\n  border-radius: 12px 12px 0 0;\n}\n.verification-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.verification-modal-header .verification-close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #666;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: all 0.2s ease;\n}\n.verification-modal-header .verification-close-btn:hover {\n  background: #e9ecef;\n  color: #333;\n}\n\n.verification-modal-content {\n  padding: 24px;\n  text-align: center;\n}\n.verification-modal-content p {\n  margin: 0 0 20px 0;\n  color: #666;\n  font-size: 14px;\n  line-height: 1.5;\n}\n.verification-modal-content .recaptcha-verification {\n  margin: 20px 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 120px;\n}\n.verification-modal-content .recaptcha-verification .verification-loading {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n}\n.verification-modal-content .recaptcha-verification .verification-loading .loading-spinner {\n  width: 32px;\n  height: 32px;\n  border: 4px solid #f3f3f3;\n  border-top: 4px solid #1A2A44;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 15px;\n}\n.verification-modal-content .recaptcha-verification .verification-loading p {\n  margin: 0;\n  color: #666;\n  font-size: 14px;\n  font-weight: 500;\n}\n.verification-modal-content .recaptcha-verification .verification-success {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n}\n.verification-modal-content .recaptcha-verification .verification-success .success-icon {\n  width: 48px;\n  height: 48px;\n  background: #4CAF50;\n  color: white;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 24px;\n  font-weight: bold;\n  margin-bottom: 15px;\n  animation: successPulse 0.6s ease-out;\n}\n.verification-modal-content .recaptcha-verification .verification-success p {\n  margin: 0;\n  color: #4CAF50;\n  font-size: 14px;\n  font-weight: 600;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@keyframes successPulse {\n  0% {\n    transform: scale(0.8);\n    opacity: 0;\n  }\n  50% {\n    transform: scale(1.1);\n  }\n  100% {\n    transform: scale(1);\n    opacity: 1;\n  }\n}\n.verification-modal-content .verification-actions {\n  margin-top: 20px;\n  display: flex;\n  justify-content: center;\n}\n.verification-modal-content .verification-actions .continue-button {\n  padding: 12px 24px;\n  border: none;\n  border-radius: 6px;\n  font-size: 16px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  min-width: 120px;\n}\n.verification-modal-content .verification-actions .continue-button.enabled {\n  background: #1A2A44;\n  color: white;\n}\n.verification-modal-content .verification-actions .continue-button.enabled:hover {\n  background: #0f1a2e;\n  transform: translateY(-1px);\n}\n.verification-modal-content .verification-actions .continue-button.disabled {\n  background: #e9ecef;\n  color: #6c757d;\n  cursor: not-allowed;\n}\n.verification-modal-content .verification-actions .continue-button.disabled:hover {\n  transform: none;\n}\n\n@keyframes modalSlideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n@media (max-width: 768px) {\n  .verification-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .verification-modal-header {\n    padding: 16px 20px;\n  }\n  .verification-modal-header h3 {\n    font-size: 16px;\n  }\n  .verification-modal-content {\n    padding: 20px;\n  }\n  .verification-modal-content p {\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72643,7 +72643,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: transparent;\n  color: #dc3545;\n  border: 1px solid #dc3545;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  outline: none;\n  box-shadow: none;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .application-period {\n  margin-bottom: 20px;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-post-job-container .job-card .job-content .application-period .period-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 15px 0;\n  border-bottom: 2px solid #1E90FF;\n  padding-bottom: 10px;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 4px 0;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item .date-icon {\n  color: #1E90FF;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.my-post-job-container .job-card .job-content .application-period .period-dates .date-item .date-text {\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -196359,12 +196359,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/AdminSetting/AdminProfileSetting.js */ "./resources/js/components/AdminSetting/AdminProfileSetting.js");
 /* harmony import */ var _components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/SkillRatingModal/SkillRatingModal */ "./resources/js/components/SkillRatingModal/SkillRatingModal.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
@@ -196407,41 +196401,21 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var useAuth = function useAuth() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
-      var token = localStorage.getItem("auth_token");
-      var storedUser = localStorage.getItem("user");
-      if (token && storedUser) {
-        var user = JSON.parse(storedUser);
-        return {
-          isAuthenticated: true,
-          userRole: user.role_id
-        };
-      }
-      return {
-        isAuthenticated: false,
-        userRole: null
-      };
-    }),
-    _useState2 = _slicedToArray(_useState, 2),
-    authState = _useState2[0],
-    setAuthState = _useState2[1];
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
     var token = localStorage.getItem("auth_token");
     var storedUser = localStorage.getItem("user");
     if (token && storedUser) {
       var user = JSON.parse(storedUser);
-      setAuthState({
+      return {
         isAuthenticated: true,
         userRole: user.role_id
-      });
-    } else {
-      setAuthState({
-        isAuthenticated: false,
-        userRole: null
-      });
+      };
     }
+    return {
+      isAuthenticated: false,
+      userRole: null
+    };
   }, []);
-  return authState;
 };
 var ProtectedRoute = function ProtectedRoute(_ref) {
   var children = _ref.children,
@@ -196474,24 +196448,9 @@ var RoleBasedRoute = function RoleBasedRoute(_ref2) {
     _ref2$restrictedRoles = _ref2.restrictedRoles,
     restrictedRoles = _ref2$restrictedRoles === void 0 ? [] : _ref2$restrictedRoles;
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
   var _useAuth2 = useAuth(),
     isAuthenticated = _useAuth2.isAuthenticated,
     userRole = _useAuth2.userRole;
-  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
-    if (!isAuthenticated) {
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].warning("Please login to access this page.");
-      return;
-    }
-    if (restrictedRoles.includes(userRole)) {
-      var roleName = userRole === 1 ? 'Worker' : userRole === 2 ? 'Employer' : 'Admin';
-      var restrictedAction = location.pathname.includes('/services') ? 'access services' : location.pathname.includes('/find-jobs') ? 'find jobs' : location.pathname.includes('/post-job') ? 'post jobs' : 'access this page';
-      antd__WEBPACK_IMPORTED_MODULE_4__["default"].warning("".concat(roleName, "s cannot ").concat(restrictedAction, ". Please switch to the appropriate account."));
-      navigate('/homepage', {
-        replace: true
-      });
-    }
-  }, [isAuthenticated, userRole, restrictedRoles, location.pathname, navigate]);
   if (!isAuthenticated) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/login",
@@ -196504,7 +196463,10 @@ var RoleBasedRoute = function RoleBasedRoute(_ref2) {
 
   // If user's role is in the restricted roles, redirect to homepage
   if (restrictedRoles.includes(userRole)) {
-    return null; // Will be handled by useEffect
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+      to: "/homepage",
+      replace: true
+    });
   }
   return children;
 };
@@ -196598,38 +196560,25 @@ function Routers() {
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_Homepage_homepage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/services",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(RoleBasedRoute, {
-          restrictedRoles: [1],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_Service__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_Service__WEBPACK_IMPORTED_MODULE_9__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/headerz",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_8__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/find-jobs",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(RoleBasedRoute, {
-          restrictedRoles: [2],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_30__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_30__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/job/:jobId",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(RoleBasedRoute, {
-          restrictedRoles: [2],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_31__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_31__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/about",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_32__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/message",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(ProtectedRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_33__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_33__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/notifications",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(ProtectedRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_34__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_34__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/browse",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(RoleBasedRoute, {
@@ -196653,14 +196602,10 @@ function Routers() {
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_Payment_Info_pay__WEBPACK_IMPORTED_MODULE_14__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/profile/:workerId",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(ProtectedRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_Profile_profile__WEBPACK_IMPORTED_MODULE_15__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_Profile_profile__WEBPACK_IMPORTED_MODULE_15__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/profile-settings/*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(ProtectedRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_37__["default"], {})
-        })
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_37__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/skill-rating",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(ProtectedRoute, {
@@ -196678,12 +196623,6 @@ function Routers() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/post-jobs",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(PostJobsGuard, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-        path: "/profile-settings/post-job",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(RoleBasedRoute, {
-          restrictedRoles: [1],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(_components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_37__["default"], {})
-        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_40__.jsx)(ProtectedRoute, {
@@ -199476,7 +199415,7 @@ var Headerz = function Headerz() {
       alert('Workers cannot post jobs. Please switch to Employer account.');
       return;
     }
-    navigate('/profile-settings/post-job');
+    navigate('/post-jobs');
   };
   var goToNotifications = function goToNotifications() {
     setIsLoading(true);
@@ -199692,13 +199631,22 @@ var Headerz = function Headerz() {
   }();
   var handleLogout = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
-      var token, response, storedUser, userData, updatedUser, profileCompleteFlags, keys, _profileCompleteFlags, _keys, _t6;
+      var token, storedUser, userData, updatedUser, response, profileCompleteFlags, keys, _profileCompleteFlags, _keys, _t6;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
             setIsLoading(true);
             _context5.p = 1;
-            token = localStorage.getItem('auth_token');
+            token = localStorage.getItem('auth_token'); // Update user status to offline (is_online = 0) before logout
+            storedUser = localStorage.getItem('user');
+            if (storedUser) {
+              userData = JSON.parse(storedUser);
+              updatedUser = _objectSpread(_objectSpread({}, userData), {}, {
+                is_online: 0,
+                last_active_text: 'Offline'
+              });
+              localStorage.setItem('user', JSON.stringify(updatedUser));
+            }
             _context5.n = 2;
             return fetch('http://127.0.0.1:8000/api/logout', {
               method: 'POST',
@@ -199709,16 +199657,6 @@ var Headerz = function Headerz() {
             });
           case 2:
             response = _context5.v;
-            // Update user status to offline before clearing localStorage
-            storedUser = localStorage.getItem('user');
-            if (storedUser) {
-              userData = JSON.parse(storedUser);
-              updatedUser = _objectSpread(_objectSpread({}, userData), {}, {
-                is_online: false,
-                last_active_text: 'Offline'
-              });
-              localStorage.setItem('user', JSON.stringify(updatedUser));
-            }
             if (response.ok) {
               localStorage.clear();
               setIsLoggedIn(false);
@@ -199871,7 +199809,7 @@ var Headerz = function Headerz() {
           className: "profile",
           ref: dropdownRef,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
-            src: imageError || !(user !== null && user !== void 0 && user.profile_img) ? 'images/defpfp.svg' : user.profile_img.startsWith('images/') ? user.profile_img : "http://127.0.0.1:8000/storage/".concat(user.profile_img),
+            src: imageError || !(user !== null && user !== void 0 && user.profile_img) || user.profile_img === null ? 'images/defpfp.svg' : user.profile_img.startsWith('images/') ? user.profile_img : "http://127.0.0.1:8000/storage/".concat(user.profile_img),
             alt: "Profile",
             className: "profile-icon",
             onError: handleImageError
@@ -201768,11 +201706,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var _Headerz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
 /* harmony import */ var _FooterContent_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../FooterContent/footer */ "./resources/js/components/FooterContent/footer.js");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var _sass_components_Service_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../sass/components/Service.scss */ "./resources/sass/components/Service.scss");
-/* harmony import */ var _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../sass/img/search.svg */ "./resources/sass/img/search.svg");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_Service_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/Service.scss */ "./resources/sass/components/Service.scss");
+/* harmony import */ var _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../sass/img/search.svg */ "./resources/sass/img/search.svg");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -201798,9 +201735,9 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-
 var BrowseLaborCategories = function BrowseLaborCategories() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
     services = _useState2[0],
@@ -201817,33 +201754,182 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
     _useState8 = _slicedToArray(_useState7, 2),
     searchTerm = _useState8[0],
     setSearchTerm = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState0 = _slicedToArray(_useState9, 2),
+    searchInput = _useState0[0],
+    setSearchInput = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       currentPage: 1,
       totalPages: 1
     }),
-    _useState0 = _slicedToArray(_useState9, 2),
-    pagination = _useState0[0],
-    setPagination = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(8),
     _useState10 = _slicedToArray(_useState1, 2),
-    visibleCount = _useState10[0],
-    setVisibleCount = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    pagination = _useState10[0],
+    setPagination = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(8),
     _useState12 = _slicedToArray(_useState11, 2),
-    loading = _useState12[0],
-    setLoading = _useState12[1];
+    visibleCount = _useState12[0],
+    setVisibleCount = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState14 = _slicedToArray(_useState13, 2),
     error = _useState14[0],
     setError = _useState14[1];
+  var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var isMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
   var fetchData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(signal) {
-      var authToken, headers, _yield$Promise$all, _yield$Promise$all2, servicesResponse, collarsResponse, _error$response, _error$response2, _error$response3, _t;
+      var _servicesResponse$dat, _servicesResponse$dat2, authToken, headers, servicesResponse, collarsResponse, _error$response, _error$response2, _error$response3, _error$response4, _error$message, errorMessage, _t, _t2, _t3;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
-            _context.p = 0;
-            setLoading(true);
+            if (isMountedRef.current) {
+              _context.n = 1;
+              break;
+            }
+            return _context.a(2);
+          case 1:
+            _context.p = 1;
+            setError(null);
+            setServices([]); // Clear previous data
+            authToken = localStorage.getItem("auth_token");
+            headers = authToken ? {
+              Authorization: "Bearer ".concat(authToken),
+              Accept: "application/json"
+            } : {
+              Accept: "application/json"
+            }; // Fetching data silently
+            // Try to fetch services first, then collars
+            _context.p = 2;
+            _context.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/services", {
+              params: {
+                search: searchTerm.trim(),
+                color_collar_id: selectedCollar,
+                page: pagination.currentPage,
+                limit: visibleCount
+              },
+              headers: headers,
+              signal: signal,
+              timeout: 30000
+            });
+          case 3:
+            servicesResponse = _context.v;
+            _context.n = 6;
+            break;
+          case 4:
+            _context.p = 4;
+            _t = _context.v;
+            if (!(_t.name === 'CanceledError' || _t.code === 'ERR_CANCELED')) {
+              _context.n = 5;
+              break;
+            }
+            console.log("Services API call was canceled - this is normal");
+            return _context.a(2);
+          case 5:
+            console.error("Services API call failed:", _t);
+            throw _t;
+          case 6:
+            _context.p = 6;
+            _context.n = 7;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/collars", {
+              headers: headers,
+              signal: signal,
+              timeout: 30000
+            });
+          case 7:
+            collarsResponse = _context.v;
+            _context.n = 9;
+            break;
+          case 8:
+            _context.p = 8;
+            _t2 = _context.v;
+            if (_t2.name === 'CanceledError' || _t2.code === 'ERR_CANCELED') {
+              console.log("Collars API call was canceled - this is normal");
+              collarsResponse = {
+                data: {
+                  collars: []
+                }
+              };
+            } else {
+              console.error("Collars API call failed:", _t2);
+              // If collars fail, we can still show services
+              collarsResponse = {
+                data: {
+                  collars: []
+                }
+              };
+            }
+          case 9:
+            if (isMountedRef.current) {
+              _context.n = 10;
+              break;
+            }
+            return _context.a(2);
+          case 10:
+            if (servicesResponse.data) {
+              _context.n = 11;
+              break;
+            }
+            throw new Error("Invalid response from services API");
+          case 11:
+            setServices(servicesResponse.data.services || []);
+            setPagination({
+              currentPage: ((_servicesResponse$dat = servicesResponse.data.pagination) === null || _servicesResponse$dat === void 0 ? void 0 : _servicesResponse$dat.currentPage) || 1,
+              totalPages: ((_servicesResponse$dat2 = servicesResponse.data.pagination) === null || _servicesResponse$dat2 === void 0 ? void 0 : _servicesResponse$dat2.totalPages) || 1
+            });
+            setCollars(collarsResponse.data.collars || []);
+
+            // Data successfully loaded
+            _context.n = 15;
+            break;
+          case 12:
+            _context.p = 12;
+            _t3 = _context.v;
+            if (isMountedRef.current) {
+              _context.n = 13;
+              break;
+            }
+            return _context.a(2);
+          case 13:
+            if (!(_t3.name === "AbortError" || _t3.name === 'CanceledError' || _t3.code === 'ERR_CANCELED')) {
+              _context.n = 14;
+              break;
+            }
+            console.log("Request was aborted - this is normal during search");
+            return _context.a(2);
+          case 14:
+            console.error("Error fetching data:", ((_error$response = _t3.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t3.message);
+
+            // No retry logic to prevent overlapping requests
+            errorMessage = ((_error$response2 = _t3.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 401 ? "Please log in to view labor categories." : ((_error$response3 = _t3.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 403 ? "Access denied. Please check your permissions." : ((_error$response4 = _t3.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.status) >= 500 ? "Server error. Please try again later." : (_error$message = _t3.message) !== null && _error$message !== void 0 && _error$message.includes('timeout') ? "Request timed out. Please try again." : "Failed to fetch data. Please try again later.";
+            setError(errorMessage);
+            setServices([]);
+            setCollars([]);
+            antd__WEBPACK_IMPORTED_MODULE_7__["default"].error(errorMessage);
+          case 15:
+            _context.p = 15;
+            return _context.f(15);
+          case 16:
+            return _context.a(2);
+        }
+      }, _callee, null, [[6, 8], [2, 4], [1, 12, 15, 16]]);
+    }));
+    return function fetchData(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  var fetchSearchData = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(signal) {
+      var _servicesResponse$dat3, _servicesResponse$dat4, authToken, headers, servicesResponse, collarsResponse, _error$response5, _error$response6, _error$response7, _error$response8, _error$message2, errorMessage, _t4, _t5, _t6;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            if (isMountedRef.current) {
+              _context2.n = 1;
+              break;
+            }
+            return _context2.a(2);
+          case 1:
+            _context2.p = 1;
             setError(null);
             authToken = localStorage.getItem("auth_token");
             headers = authToken ? {
@@ -201851,87 +201937,228 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
               Accept: "application/json"
             } : {
               Accept: "application/json"
-            };
-            _context.n = 1;
-            return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/services", {
+            }; // Fetching search data silently
+            // Try to fetch services first, then collars
+            _context2.p = 2;
+            _context2.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/services", {
               params: {
-                search: searchTerm,
+                search: searchTerm.trim(),
                 color_collar_id: selectedCollar,
                 page: pagination.currentPage,
                 limit: visibleCount
               },
               headers: headers,
               signal: signal,
-              timeout: 10000
-            }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/collars", {
-              headers: headers,
-              signal: signal,
-              timeout: 5000
-            })]);
-          case 1:
-            _yield$Promise$all = _context.v;
-            _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
-            servicesResponse = _yield$Promise$all2[0];
-            collarsResponse = _yield$Promise$all2[1];
-            setServices(servicesResponse.data.services || []);
-            setPagination({
-              currentPage: servicesResponse.data.pagination.currentPage,
-              totalPages: servicesResponse.data.pagination.totalPages
+              timeout: 30000
             });
-            setCollars(collarsResponse.data.collars || []);
-            _context.n = 4;
+          case 3:
+            servicesResponse = _context2.v;
+            _context2.n = 6;
             break;
-          case 2:
-            _context.p = 2;
-            _t = _context.v;
-            if (!(_t.name === "AbortError")) {
-              _context.n = 3;
+          case 4:
+            _context2.p = 4;
+            _t4 = _context2.v;
+            if (!(_t4.name === 'CanceledError' || _t4.code === 'ERR_CANCELED')) {
+              _context2.n = 5;
               break;
             }
-            return _context.a(2);
-          case 3:
-            console.error("Error fetching data:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
-            setError(((_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 401 ? "Please log in to view labor categories." : "Failed to fetch data. Please try again later.");
+            console.log("Services API call was canceled - this is normal");
+            return _context2.a(2);
+          case 5:
+            console.error("Services API call failed:", _t4);
+            throw _t4;
+          case 6:
+            _context2.p = 6;
+            _context2.n = 7;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/collars", {
+              headers: headers,
+              signal: signal,
+              timeout: 30000
+            });
+          case 7:
+            collarsResponse = _context2.v;
+            _context2.n = 9;
+            break;
+          case 8:
+            _context2.p = 8;
+            _t5 = _context2.v;
+            if (_t5.name === 'CanceledError' || _t5.code === 'ERR_CANCELED') {
+              console.log("Collars API call was canceled - this is normal");
+              collarsResponse = {
+                data: {
+                  collars: []
+                }
+              };
+            } else {
+              console.error("Collars API call failed:", _t5);
+              // If collars fail, we can still show services
+              collarsResponse = {
+                data: {
+                  collars: []
+                }
+              };
+            }
+          case 9:
+            if (isMountedRef.current) {
+              _context2.n = 10;
+              break;
+            }
+            return _context2.a(2);
+          case 10:
+            if (servicesResponse.data) {
+              _context2.n = 11;
+              break;
+            }
+            throw new Error("Invalid response from services API");
+          case 11:
+            setServices(servicesResponse.data.services || []);
+            setPagination({
+              currentPage: ((_servicesResponse$dat3 = servicesResponse.data.pagination) === null || _servicesResponse$dat3 === void 0 ? void 0 : _servicesResponse$dat3.currentPage) || 1,
+              totalPages: ((_servicesResponse$dat4 = servicesResponse.data.pagination) === null || _servicesResponse$dat4 === void 0 ? void 0 : _servicesResponse$dat4.totalPages) || 1
+            });
+            setCollars(collarsResponse.data.collars || []);
+
+            // Search data successfully loaded
+            _context2.n = 15;
+            break;
+          case 12:
+            _context2.p = 12;
+            _t6 = _context2.v;
+            if (isMountedRef.current) {
+              _context2.n = 13;
+              break;
+            }
+            return _context2.a(2);
+          case 13:
+            if (!(_t6.name === "AbortError")) {
+              _context2.n = 14;
+              break;
+            }
+            console.log("Search request was aborted - this is normal during search");
+            return _context2.a(2);
+          case 14:
+            console.error("Error fetching search data:", ((_error$response5 = _t6.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t6.message);
+
+            // No retry logic to prevent overlapping requests
+            errorMessage = ((_error$response6 = _t6.response) === null || _error$response6 === void 0 ? void 0 : _error$response6.status) === 401 ? "Please log in to view labor categories." : ((_error$response7 = _t6.response) === null || _error$response7 === void 0 ? void 0 : _error$response7.status) === 403 ? "Access denied. Please check your permissions." : ((_error$response8 = _t6.response) === null || _error$response8 === void 0 ? void 0 : _error$response8.status) >= 500 ? "Server error. Please try again later." : (_error$message2 = _t6.message) !== null && _error$message2 !== void 0 && _error$message2.includes('timeout') ? "Request timed out. Please try again." : "Failed to fetch search results. Please try again later.";
+            setError(errorMessage);
             setServices([]);
             setCollars([]);
-            antd__WEBPACK_IMPORTED_MODULE_8__["default"].error(((_error$response3 = _t.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 401 ? "Please log in." : "Failed to fetch data.");
-          case 4:
-            _context.p = 4;
-            setLoading(false);
-            return _context.f(4);
-          case 5:
-            return _context.a(2);
+            antd__WEBPACK_IMPORTED_MODULE_7__["default"].error(errorMessage);
+          case 15:
+            _context2.p = 15;
+            return _context2.f(15);
+          case 16:
+            return _context2.a(2);
         }
-      }, _callee, null, [[0, 2, 4, 5]]);
+      }, _callee2, null, [[6, 8], [2, 4], [1, 12, 15, 16]]);
     }));
-    return function fetchData(_x) {
-      return _ref.apply(this, arguments);
+    return function fetchSearchData(_x2) {
+      return _ref2.apply(this, arguments);
     };
   }();
+
+  // Handle URL search parameters
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var urlParams = new URLSearchParams(location.search);
+    var searchParam = urlParams.get('search');
+    if (searchParam) {
+      // URL search parameter found
+      setSearchTerm(searchParam);
+      setSearchInput(searchParam);
+    } else {
+      // Clear search if no URL parameter
+      setSearchTerm("");
+      setSearchInput("");
+    }
+  }, [location.search]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // Cancel previous request if it exists
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    // Create new abort controller for this request
     var controller = new AbortController();
-    fetchData(controller.signal);
+    abortControllerRef.current = controller;
+    var fetchDataSafely = /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        var isSearchOperation, _t7;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
+            case 0:
+              _context3.p = 0;
+              // Use fetchSearchData for search operations, fetchData for initial load
+              isSearchOperation = searchTerm && searchTerm.trim().length > 0;
+              if (!isSearchOperation) {
+                _context3.n = 2;
+                break;
+              }
+              _context3.n = 1;
+              return fetchSearchData(controller.signal);
+            case 1:
+              _context3.n = 3;
+              break;
+            case 2:
+              _context3.n = 3;
+              return fetchData(controller.signal);
+            case 3:
+              _context3.n = 5;
+              break;
+            case 4:
+              _context3.p = 4;
+              _t7 = _context3.v;
+              if (_t7.name !== "AbortError" && _t7.name !== 'CanceledError' && _t7.code !== 'ERR_CANCELED') {
+                console.error("Error in fetchDataSafely:", _t7);
+              }
+            case 5:
+              return _context3.a(2);
+          }
+        }, _callee3, null, [[0, 4]]);
+      }));
+      return function fetchDataSafely() {
+        return _ref3.apply(this, arguments);
+      };
+    }();
+
+    // Execute immediately - no delay
+    if (isMountedRef.current) {
+      fetchDataSafely();
+    }
     return function () {
-      return controller.abort();
+      if (abortControllerRef.current && !abortControllerRef.current.signal.aborted) {
+        abortControllerRef.current.abort();
+      }
     };
   }, [searchTerm, selectedCollar, pagination.currentPage, visibleCount]);
+
+  // Cleanup on unmount
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    return function () {
+      isMountedRef.current = false;
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
   var handleViewWorkersClick = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(serviceName, colorCollarName, serviceSkills) {
-      var _JSON$parse, skillNames, currentUserId, authToken, headers, response, workers, _error$response4, _t2;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(serviceName, colorCollarName, serviceSkills) {
+      var _JSON$parse, skillNames, currentUserId, authToken, headers, response, workers, _error$response9, _t8;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
           case 0:
-            _context2.p = 0;
+            _context4.p = 0;
             // Get skill names from the service
             skillNames = serviceSkills ? serviceSkills.map(function (skill) {
               return skill.name;
             }) : [];
             if (!(skillNames.length === 0)) {
-              _context2.n = 1;
+              _context4.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_8__["default"].warning("No skills found for this service.");
-            return _context2.a(2);
+            antd__WEBPACK_IMPORTED_MODULE_7__["default"].warning("No skills found for this service.");
+            return _context4.a(2);
           case 1:
             // Get current user ID to exclude from results
             currentUserId = (_JSON$parse = JSON.parse(localStorage.getItem("user") || '{}')) === null || _JSON$parse === void 0 ? void 0 : _JSON$parse.id; // Fetch workers with the specific skills and ACCEPTED status
@@ -201943,8 +202170,8 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
               Accept: "application/json"
             };
             console.log('Searching for workers with skills:', skillNames);
-            _context2.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/by-skills", {
+            _context4.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/workers/by-skills", {
               params: {
                 skill_names: skillNames.join(','),
                 page: 1,
@@ -201955,16 +202182,16 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
               timeout: 10000
             });
           case 2:
-            response = _context2.v;
+            response = _context4.v;
             console.log('API Response:', response.data);
             workers = response.data.workers || [];
             if (!(workers.length === 0)) {
-              _context2.n = 3;
+              _context4.n = 3;
               break;
             }
             console.log('No workers found with skills:', skillNames);
-            antd__WEBPACK_IMPORTED_MODULE_8__["default"].info("No workers found with skills: ".concat(skillNames.join(', ')));
-            return _context2.a(2);
+            antd__WEBPACK_IMPORTED_MODULE_7__["default"].info("No workers found with skills: ".concat(skillNames.join(', ')));
+            return _context4.a(2);
           case 3:
             console.log('Navigating to browse with workers:', workers.length);
             console.log('Navigation state:', {
@@ -201983,20 +202210,20 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
                 totalWorkers: response.data.pagination.totalItems
               }
             });
-            _context2.n = 5;
+            _context4.n = 5;
             break;
           case 4:
-            _context2.p = 4;
-            _t2 = _context2.v;
-            console.error("Error fetching workers by skills:", ((_error$response4 = _t2.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t2.message);
-            antd__WEBPACK_IMPORTED_MODULE_8__["default"].error("Failed to fetch workers. Please try again later.");
+            _context4.p = 4;
+            _t8 = _context4.v;
+            console.error("Error fetching workers by skills:", ((_error$response9 = _t8.response) === null || _error$response9 === void 0 ? void 0 : _error$response9.data) || _t8.message);
+            antd__WEBPACK_IMPORTED_MODULE_7__["default"].error("Failed to fetch workers. Please try again later.");
           case 5:
-            return _context2.a(2);
+            return _context4.a(2);
         }
-      }, _callee2, null, [[0, 4]]);
+      }, _callee4, null, [[0, 4]]);
     }));
-    return function handleViewWorkersClick(_x2, _x3, _x4) {
-      return _ref2.apply(this, arguments);
+    return function handleViewWorkersClick(_x3, _x4, _x5) {
+      return _ref4.apply(this, arguments);
     };
   }();
   var handleShowMore = function handleShowMore() {
@@ -202012,11 +202239,31 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
     });
   };
   var handleSearchChange = function handleSearchChange(e) {
-    setSearchTerm(e.target.value);
-    setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
-      currentPage: 1
-    }));
+    var value = e.target.value;
+    setSearchInput(value);
+  };
+  var handleSearchSubmit = function handleSearchSubmit() {
+    var trimmedSearch = searchInput.trim();
+    setSearchTerm(trimmedSearch);
+
+    // Update URL
+    if (trimmedSearch) {
+      navigate("/services?search=".concat(encodeURIComponent(trimmedSearch)));
+    } else {
+      navigate('/services');
+    }
+
+    // Reset pagination for new search
+    setPagination({
+      currentPage: 1,
+      totalPages: 1
+    });
     setVisibleCount(8);
+  };
+  var handleSearchKeyPress = function handleSearchKeyPress(e) {
+    if (e.key === 'Enter') {
+      handleSearchSubmit();
+    }
   };
   var handleCollarChange = function handleCollarChange(e) {
     setSelectedCollar(e.target.value);
@@ -202025,69 +202272,71 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
     }));
     setVisibleCount(8);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "service-page",
-    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("main", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("main", {
       className: "service-content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "service-container",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("section", {
           className: "service-intro",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h1", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
             className: "service-headline",
             children: "Hands-On Talent, Tailored to Your Needs"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "service-subtitle",
             children: "Connect with workers who get the job done\u2014skilled, service-based, or administrative."
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "hero-search",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "search-container",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                 type: "text",
                 placeholder: "Search",
                 className: "search-input",
-                value: searchTerm,
-                onChange: handleSearchChange
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+                value: searchInput,
+                onChange: handleSearchChange,
+                onKeyPress: handleSearchKeyPress
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "search-button",
                 "aria-label": "Search",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                  src: _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_7__["default"],
+                onClick: handleSearchSubmit,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
                   alt: "Search"
                 })
               })]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "section-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
             className: "section-title",
             children: "Browse Labor Categories"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "filter-control",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("select", {
               className: "collar-select",
               value: selectedCollar,
               onChange: handleCollarChange,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
                 value: "",
                 children: "All Collars"
               }), collars.length > 0 ? collars.map(function (collar) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
                   value: collar.id,
                   children: collar.name || "Unnamed Collar"
                 }, collar.id);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
                 value: "",
                 disabled: true,
                 children: "No collars available"
               })]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "services-grid",
-          children: error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+          children: error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             className: "error-message",
             children: error
           }) : services.length > 0 ? services.map(function (service, index) {
@@ -202095,32 +202344,32 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
             var collar = collars.find(function (c) {
               return c.id === service.color_collar_id;
             });
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "service-card",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "card-image",
-                children: service.service_image ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                children: service.service_image ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
                   src: "http://127.0.0.1:8000/storage/".concat(service.service_image),
                   alt: service.name || "Service"
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                  src: _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_7__["default"],
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: _sass_img_search_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
                   alt: "Placeholder"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
                 children: service.name || "N/A"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                 children: service.description || "N/A"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "service-badge",
-                children: [collar && collar.collar_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                children: [collar && collar.collar_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
                   src: "http://127.0.0.1:8000/storage/".concat(collar.collar_img),
                   alt: service.color_collar_name || "Collar",
                   className: "badge-icon"
-                }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                   className: "badge-text",
                   children: service.color_collar_name || "N/A"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
                 className: "service-cta-btn",
                 onClick: function onClick() {
                   return handleViewWorkersClick(service.name, service.color_collar_name, service.skills);
@@ -202128,12 +202377,12 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
                 children: "View Available Workers >>"
               })]
             }, index);
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             children: "No labor categories found"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "show-more-wrap",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
             type: "button",
             className: "show-more-btn",
             onClick: handleShowMore,
@@ -202142,7 +202391,7 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
           })
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_FooterContent_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_FooterContent_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BrowseLaborCategories);
@@ -204848,12 +205097,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
@@ -204880,6 +205130,30 @@ var Profile = function Profile(_ref) {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)(),
     workerId = _useParams.workerId;
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
+
+  // Function to format last active time
+  var getLastActiveText = function getLastActiveText(lastActivity, isOnline) {
+    // If user is offline (is_online = 0), always show "Offline"
+    if (isOnline === 0 || isOnline === false) return 'Offline';
+    if (!lastActivity) return 'Offline';
+    var now = new Date();
+    var lastActive = new Date(lastActivity);
+    var diffInMinutes = Math.floor((now - lastActive) / (1000 * 60));
+    if (diffInMinutes < 1) return 'Active now';
+    if (diffInMinutes < 60) return "Active ".concat(diffInMinutes, " minute").concat(diffInMinutes > 1 ? 's' : '', " ago");
+    var diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) return "Active ".concat(diffInHours, " hour").concat(diffInHours > 1 ? 's' : '', " ago");
+    var diffInDays = Math.floor(diffInHours / 24);
+    if (diffInDays < 365) return "Active ".concat(diffInDays, " day").concat(diffInDays > 1 ? 's' : '', " ago");
+    var diffInYears = Math.floor(diffInDays / 365);
+    return "Active ".concat(diffInYears, " year").concat(diffInYears > 1 ? 's' : '', " ago");
+  };
+
+  // Function to check if status should be green (only when actually online)
+  var isStatusGreen = function isStatusGreen() {
+    // Only show green if user is actually online
+    return isUserOnline();
+  };
   var resolvedWorkerId = function () {
     // If route param is not a valid id (e.g., 'profile'), fallback to current user id
     if (!workerId || isNaN(Number(workerId))) {
@@ -204907,54 +205181,162 @@ var Profile = function Profile(_ref) {
     _useState8 = _slicedToArray(_useState7, 2),
     isSuccessModalOpen = _useState8[0],
     setIsSuccessModalOpen = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState0 = _slicedToArray(_useState9, 2),
-    bookingDetails = _useState0[0],
-    setBookingDetails = _useState0[1];
+    isVerificationModalOpen = _useState0[0],
+    setIsVerificationModalOpen = _useState0[1];
   var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState10 = _slicedToArray(_useState1, 2),
-    worker = _useState10[0],
-    setWorker = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    bookingDetails = _useState10[0],
+    setBookingDetails = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState12 = _slicedToArray(_useState11, 2),
-    loading = _useState12[0],
-    setLoading = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    worker = _useState12[0],
+    setWorker = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState14 = _slicedToArray(_useState13, 2),
-    error = _useState14[0],
-    setError = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    loading = _useState14[0],
+    setLoading = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState16 = _slicedToArray(_useState15, 2),
-    isLoginModalOpen = _useState16[0],
-    setIsLoginModalOpen = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    error = _useState16[0],
+    setError = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState18 = _slicedToArray(_useState17, 2),
-    reviews = _useState18[0],
-    setReviews = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    isLoginModalOpen = _useState18[0],
+    setIsLoginModalOpen = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState20 = _slicedToArray(_useState19, 2),
-    reviewsLoading = _useState20[0],
-    setReviewsLoading = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    reviews = _useState20[0],
+    setReviews = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState22 = _slicedToArray(_useState21, 2),
-    averageRating = _useState22[0],
-    setAverageRating = _useState22[1];
+    reviewsLoading = _useState22[0],
+    setReviewsLoading = _useState22[1];
   var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState24 = _slicedToArray(_useState23, 2),
-    totalReviews = _useState24[0],
-    setTotalReviews = _useState24[1];
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    averageRating = _useState24[0],
+    setAverageRating = _useState24[1];
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState26 = _slicedToArray(_useState25, 2),
-    workerRank = _useState26[0],
-    setWorkerRank = _useState26[1];
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    totalReviews = _useState26[0],
+    setTotalReviews = _useState26[1];
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState28 = _slicedToArray(_useState27, 2),
-    totalPoints = _useState28[0],
-    setTotalPoints = _useState28[1];
+    workerRank = _useState28[0],
+    setWorkerRank = _useState28[1];
   var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState30 = _slicedToArray(_useState29, 2),
-    progressPercent = _useState30[0],
-    setProgressPercent = _useState30[1];
+    totalPoints = _useState30[0],
+    setTotalPoints = _useState30[1];
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState32 = _slicedToArray(_useState31, 2),
+    progressPercent = _useState32[0],
+    setProgressPercent = _useState32[1];
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState34 = _slicedToArray(_useState33, 2),
+    collarData = _useState34[0],
+    setCollarData = _useState34[1];
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState36 = _slicedToArray(_useState35, 2),
+    servicesData = _useState36[0],
+    setServicesData = _useState36[1];
+
+  // Function to fetch collar data from API
+  var fetchCollarData = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var response, collars, collarMap, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            _context.p = 0;
+            console.log('Fetching collar data...');
+            _context.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('/api/collars');
+          case 1:
+            response = _context.v;
+            console.log('Collar API response:', response.data);
+            collars = response.data.collars || [];
+            collarMap = {};
+            collars.forEach(function (collar) {
+              console.log('Processing collar:', collar);
+              collarMap[collar.id] = {
+                id: collar.id,
+                name: collar.name,
+                image: collar.collar_img,
+                collar_img: collar.collar_img
+              };
+
+              // Aggressive preloading for ultra-fast collar image loading
+              if (collar.collar_img) {
+                var img = new Image();
+                img.src = "http://127.0.0.1:8000/storage/".concat(collar.collar_img);
+                img.loading = 'eager';
+                img.decoding = 'async';
+                console.log('Preloading collar image:', img.src);
+              }
+            });
+            setCollarData(collarMap);
+            console.log('Fetched collar data:', collarMap);
+            _context.n = 3;
+            break;
+          case 2:
+            _context.p = 2;
+            _t = _context.v;
+            console.error('Error fetching collar data:', _t);
+          case 3:
+            return _context.a(2);
+        }
+      }, _callee, null, [[0, 2]]);
+    }));
+    return function fetchCollarData() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  // Function to fetch services data from API
+  var fetchServicesData = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var response, services, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            _context2.p = 0;
+            console.log('Fetching services data...');
+            _context2.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('/api/services');
+          case 1:
+            response = _context2.v;
+            console.log('Services API response:', response.data);
+            services = response.data.services || [];
+            setServicesData(services);
+            console.log('Fetched services data:', services);
+
+            // Aggressive preloading for ultra-fast collar image loading
+            services.forEach(function (service) {
+              if (service.collar_img) {
+                var img = new Image();
+                img.src = "http://127.0.0.1:8000/storage/".concat(service.collar_img);
+                img.loading = 'eager';
+                img.decoding = 'async';
+                console.log('Preloading collar image:', img.src);
+              }
+            });
+            _context2.n = 3;
+            break;
+          case 2:
+            _context2.p = 2;
+            _t2 = _context2.v;
+            console.error('Error fetching services data:', _t2);
+          case 3:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[0, 2]]);
+    }));
+    return function fetchServicesData() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
 
   // Helper function to get rank based on experience
   var getRankByExperience = function getRankByExperience(experience) {
@@ -204962,35 +205344,140 @@ var Profile = function Profile(_ref) {
       case '0-11-months':
         return {
           name: 'Bronze',
-          image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg'
+          image: '/images/bronze.png'
         };
       case '1-2-years':
         return {
           name: 'Silver',
-          image: 'img/rank/pp1cpyZuiQcpUy44geQdA6GtN5DzvJBZu1Jra53H.png'
+          image: '/images/silver.svg'
         };
       case '2-5-years':
         return {
           name: 'Gold',
-          image: 'img/rank/aTxm30AVX6eA2bX8ICZLRskw66eg9pBgibzhutXO.jpg'
+          image: '/images/gold.svg'
         };
       case '5-10-years':
         return {
+          name: 'Platinum',
+          image: '/images/platinum.svg'
+        };
+      case '10+ years':
+        return {
           name: 'Diamond',
-          image: 'img/rank/BT3ZPIEvlO4KYEsUpPhD6jVQyskw0tPknV43CoY1.jpg'
+          image: '/images/diamond.svg'
         };
       default:
         return {
           name: 'Bronze',
-          image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg'
+          image: '/images/bronze.png'
         };
     }
+  };
+
+  // Helper function to get worker collar based on skills and services
+  var getWorkerCollar = function getWorkerCollar(worker) {
+    console.log('Getting worker collar for:', worker);
+    console.log('Services data available:', servicesData);
+    console.log('Worker skills:', worker === null || worker === void 0 ? void 0 : worker.primary_skills, worker === null || worker === void 0 ? void 0 : worker.additional_skills);
+    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) {
+      console.log('No skills found, using default Blue Collars');
+      return {
+        id: 1,
+        name: "Blue Collars",
+        image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png"
+      };
+    }
+    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
+    console.log('All worker skills:', allSkills);
+    console.log('Available services:', servicesData);
+
+    // Find matching service based on worker's skills
+    var _iterator = _createForOfIteratorHelper(allSkills),
+      _step;
+    try {
+      var _loop = function _loop() {
+          var skill = _step.value;
+          console.log('Checking skill:', skill);
+
+          // Find service that contains this skill
+          var matchingService = servicesData.find(function (service) {
+            var _skill$skill_id;
+            var serviceSkillIds = service.skill_ids || [];
+            console.log('Service skill IDs:', serviceSkillIds, 'for service:', service.name);
+            return serviceSkillIds.includes((_skill$skill_id = skill.skill_id) === null || _skill$skill_id === void 0 ? void 0 : _skill$skill_id.toString());
+          });
+          if (matchingService) {
+            console.log('Found matching service:', matchingService);
+            console.log('Service collar info:', {
+              color_collar_id: matchingService.color_collar_id,
+              color_collar_name: matchingService.color_collar_name,
+              collar_img: matchingService.collar_img
+            });
+            return {
+              v: {
+                id: matchingService.color_collar_id,
+                name: matchingService.color_collar_name,
+                image: matchingService.collar_img
+              }
+            };
+          }
+        },
+        _ret;
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        _ret = _loop();
+        if (_ret) return _ret.v;
+      }
+
+      // Default to Blue Collars if no match found
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+    console.log('No matching service found, using default Blue Collars');
+    return {
+      id: 1,
+      name: "Blue Collars",
+      image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png"
+    };
   };
 
   // Check if user is logged in
   var isLoggedIn = function isLoggedIn() {
     var authToken = localStorage.getItem("auth_token");
     return !!authToken;
+  };
+
+  // Check if the user whose profile is being viewed is online
+  var isUserOnline = function isUserOnline() {
+    var userData = JSON.parse(localStorage.getItem("user") || '{}');
+    var currentUser = userData.user || userData;
+    var isOwnProfile = (currentUser === null || currentUser === void 0 ? void 0 : currentUser.id) === parseInt(resolvedWorkerId);
+    console.log('Profile status check:', {
+      currentUserId: currentUser === null || currentUser === void 0 ? void 0 : currentUser.id,
+      workerId: worker === null || worker === void 0 ? void 0 : worker.id,
+      resolvedWorkerId: resolvedWorkerId,
+      isOwnProfile: isOwnProfile,
+      isLoggedIn: isLoggedIn(),
+      workerIsOnline: worker === null || worker === void 0 ? void 0 : worker.is_online,
+      workerLastActivity: worker === null || worker === void 0 ? void 0 : worker.last_activity
+    });
+
+    // If viewing own profile and logged in, show as online
+    if (isOwnProfile && isLoggedIn()) {
+      console.log('Showing as online - own profile and logged in');
+      return true;
+    }
+
+    // If the worker ID matches the current user ID (alternative check)
+    if (worker && worker.id && currentUser !== null && currentUser !== void 0 && currentUser.id && worker.id === currentUser.id && isLoggedIn()) {
+      console.log('Showing as online - worker ID matches current user');
+      return true;
+    }
+
+    // Use the backend is_online status
+    console.log('Using backend is_online status:', worker === null || worker === void 0 ? void 0 : worker.is_online);
+    return (worker === null || worker === void 0 ? void 0 : worker.is_online) || false;
   };
 
   // Handle Hire Now button click
@@ -205006,7 +205493,20 @@ var Profile = function Profile(_ref) {
       alert('Workers cannot hire other workers. Please switch to Employer account.');
       return;
     }
+
+    // Show verification modal first
+    setIsVerificationModalOpen(true);
+  };
+
+  // Handle continue button click
+  var handleVerificationContinue = function handleVerificationContinue() {
+    setIsVerificationModalOpen(false);
     setIsBookingModalOpen(true);
+  };
+
+  // Handle verification modal close
+  var handleVerificationClose = function handleVerificationClose() {
+    setIsVerificationModalOpen(false);
   };
 
   // Handle Message button click
@@ -205027,17 +205527,17 @@ var Profile = function Profile(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var isMounted = true;
     var fetchWorkerData = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var _workerData$worker, _workerData$worker2, _workerData$worker3, _workerData$worker4, _workerData$worker5, _workerData$worker6, _workerData$profile, _workerData$profile2, _workerData$profile3, _workerData$profile4, _workerData$profile5, _workerData$profile6, _workerData$profile7, _workerData$profile8, _workerData$profile9, _workerData$worker7, _workerData$worker8, _workerData$worker9, _workerData$worker0, _workerData$profile0, _workerData$profile1, _workerData$profile10, _workerData$profile11, _workerData$profile12, _workerData$worker1, _workerData$worker10, _workerData$worker11, _workerData$worker12, _workerData$worker13, _workerData$worker14, _workerData$worker15, _workerData$worker16, _workerData$worker17, _workerData$worker18, authToken, userData, currentUser, headers, workerData, response, _apiError$response, _apiError$response2, firstName, middleName, lastName, suffix, nameParts, fullName, addressParts, fullAddress, formattedWorker, _error$response, _t, _t2;
-        return _regenerator().w(function (_context) {
-          while (1) switch (_context.p = _context.n) {
+      var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        var _workerData$worker, _workerData$worker2, _workerData$worker3, _workerData$worker4, _workerData$worker5, _workerData$worker6, _workerData$profile, _workerData$profile2, _workerData$profile3, _workerData$profile4, _workerData$profile5, _workerData$profile6, _workerData$profile7, _workerData$profile8, _workerData$profile9, _workerData$worker7, _workerData$worker8, _workerData$worker9, _workerData$worker0, _workerData$profile0, _workerData$profile1, _workerData$profile10, _workerData$profile11, _workerData$profile12, _workerData$worker1, _workerData$worker10, _workerData$worker11, _workerData$worker12, _workerData$worker13, _workerData$worker14, _workerData$worker15, _workerData$worker16, _workerData$worker17, _workerData$worker18, authToken, userData, currentUser, headers, workerData, response, _apiError$response, _apiError$response2, firstName, middleName, lastName, suffix, nameParts, fullName, addressParts, fullAddress, formattedWorker, _error$response, _t3, _t4;
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.p = _context3.n) {
             case 0:
-              _context.p = 0;
+              _context3.p = 0;
               if (isMounted) {
-                _context.n = 1;
+                _context3.n = 1;
                 break;
               }
-              return _context.a(2);
+              return _context3.a(2);
             case 1:
               setLoading(true);
               setError(null);
@@ -205050,49 +205550,49 @@ var Profile = function Profile(_ref) {
               } : {
                 Accept: "application/json"
               };
-              _context.p = 2;
-              console.log('Making API call to:', "http://127.0.0.1:8000/api/workers/".concat(resolvedWorkerId));
-              _context.n = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/".concat(resolvedWorkerId), {
+              _context3.p = 2;
+              console.log('Making API call to:', "/api/workers/".concat(resolvedWorkerId));
+              _context3.n = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/workers/".concat(resolvedWorkerId), {
                 headers: headers,
-                timeout: 10000
+                timeout: 30000
               });
             case 3:
-              response = _context.v;
+              response = _context3.v;
               workerData = response.data;
               console.log('API response received:', workerData);
-              _context.n = 7;
+              _context3.n = 7;
               break;
             case 4:
-              _context.p = 4;
-              _t = _context.v;
-              if (!(((_apiError$response = _t.response) === null || _apiError$response === void 0 ? void 0 : _apiError$response.status) === 403)) {
-                _context.n = 5;
+              _context3.p = 4;
+              _t3 = _context3.v;
+              if (!(((_apiError$response = _t3.response) === null || _apiError$response === void 0 ? void 0 : _apiError$response.status) === 403)) {
+                _context3.n = 5;
                 break;
               }
               if (isMounted) {
-                setError(_t.response.data.message || "Access denied. Workers cannot view other worker profiles.");
+                setError(_t3.response.data.message || "Access denied. Workers cannot view other worker profiles.");
                 setLoading(false);
               }
-              return _context.a(2);
+              return _context3.a(2);
             case 5:
-              if (!(((_apiError$response2 = _t.response) === null || _apiError$response2 === void 0 ? void 0 : _apiError$response2.status) === 404)) {
-                _context.n = 6;
+              if (!(((_apiError$response2 = _t3.response) === null || _apiError$response2 === void 0 ? void 0 : _apiError$response2.status) === 404)) {
+                _context3.n = 6;
                 break;
               }
               if (isMounted) {
                 setError("This user is not a worker. Only worker profiles can be viewed here.");
                 setLoading(false);
               }
-              return _context.a(2);
+              return _context3.a(2);
             case 6:
-              throw _t;
+              throw _t3;
             case 7:
               if (isMounted) {
-                _context.n = 8;
+                _context3.n = 8;
                 break;
               }
-              return _context.a(2);
+              return _context3.a(2);
             case 8:
               console.log("Raw worker data from API:", workerData);
               console.log("Profile data:", workerData.profile);
@@ -205106,14 +205606,14 @@ var Profile = function Profile(_ref) {
 
               // Check if the target user is a worker (has worker data)
               if (workerData.worker) {
-                _context.n = 9;
+                _context3.n = 9;
                 break;
               }
               if (isMounted) {
                 setError("This user is not a worker. Only worker profiles can be viewed here.");
                 setLoading(false);
               }
-              return _context.a(2);
+              return _context3.a(2);
             case 9:
               // Allow viewing of any worker profile, including own profile
               // This allows employers to view their own worker profiles
@@ -205137,6 +205637,7 @@ var Profile = function Profile(_ref) {
                 status: workerData.last_active_text || (workerData.is_online ? "Online" : "Offline"),
                 is_online: workerData.is_online,
                 last_active_text: workerData.last_active_text,
+                last_activity: workerData.last_activity,
                 hourlyRate: (_workerData$worker7 = workerData.worker) !== null && _workerData$worker7 !== void 0 && (_workerData$worker7 = _workerData$worker7.skills_id) !== null && _workerData$worker7 !== void 0 && (_workerData$worker7 = _workerData$worker7.primary_skills) !== null && _workerData$worker7 !== void 0 && (_workerData$worker7 = _workerData$worker7[0]) !== null && _workerData$worker7 !== void 0 && _workerData$worker7.hourly_rate ? parseFloat(workerData.worker.skills_id.primary_skills[0].hourly_rate) : 150.00,
                 description: ((_workerData$worker8 = workerData.worker) === null || _workerData$worker8 === void 0 ? void 0 : _workerData$worker8.bio) || "No bio available",
                 work_type: ((_workerData$worker9 = workerData.worker) === null || _workerData$worker9 === void 0 ? void 0 : _workerData$worker9.work_type) || 'part-time',
@@ -205172,29 +205673,29 @@ var Profile = function Profile(_ref) {
               if (isMounted) {
                 setWorker(formattedWorker);
               }
-              _context.n = 11;
+              _context3.n = 11;
               break;
             case 10:
-              _context.p = 10;
-              _t2 = _context.v;
-              console.error("Error fetching worker data:", ((_error$response = _t2.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t2.message);
+              _context3.p = 10;
+              _t4 = _context3.v;
+              console.error("Error fetching worker data:", ((_error$response = _t4.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t4.message);
               if (isMounted) {
                 setError("Failed to load worker profile. Please try again later.");
                 antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Failed to load worker profile.");
               }
             case 11:
-              _context.p = 11;
+              _context3.p = 11;
               if (isMounted) {
                 setLoading(false);
               }
-              return _context.f(11);
+              return _context3.f(11);
             case 12:
-              return _context.a(2);
+              return _context3.a(2);
           }
-        }, _callee, null, [[2, 4], [0, 10, 11, 12]]);
+        }, _callee3, null, [[2, 4], [0, 10, 11, 12]]);
       }));
       return function fetchWorkerData() {
-        return _ref2.apply(this, arguments);
+        return _ref4.apply(this, arguments);
       };
     }();
     if (workerId) {
@@ -205206,25 +205707,48 @@ var Profile = function Profile(_ref) {
     };
   }, [workerId]);
 
+  // Fetch collar data on component mount
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchCollarData();
+  }, []);
+
+  // Fetch services data on component mount
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchServicesData();
+
+    // Preload verified.png for ultra-fast loading
+    var verifiedImg = new Image();
+    verifiedImg.src = '/images/verified.png';
+    verifiedImg.loading = 'eager';
+    verifiedImg.decoding = 'async';
+    verifiedImg.onload = function () {
+      return console.log('Verified.png loaded successfully');
+    };
+    verifiedImg.onerror = function () {
+      return console.error('Failed to load verified.png');
+    };
+    console.log('Preloading verified.png from:', verifiedImg.src);
+  }, []);
+
   // Fetch worker reviews
   var fetchWorkerReviews = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var response, avgRating, numReviews, calculatedPoints, _t3;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+      var response, avgRating, numReviews, calculatedPoints, _t5;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
           case 0:
-            _context2.p = 0;
+            _context4.p = 0;
             setReviewsLoading(true);
-            _context2.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/reviews/worker/".concat(resolvedWorkerId), {
+            _context4.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/reviews/worker/".concat(resolvedWorkerId), {
               headers: {
                 Accept: "application/json"
               }
             });
           case 1:
-            response = _context2.v;
+            response = _context4.v;
             if (!response.data.success) {
-              _context2.n = 3;
+              _context4.n = 3;
               break;
             }
             setReviews(response.data.reviews);
@@ -205238,61 +205762,61 @@ var Profile = function Profile(_ref) {
             setTotalPoints(calculatedPoints);
 
             // Determine rank based on total points
-            _context2.n = 2;
+            _context4.n = 2;
             return fetchWorkerRank(calculatedPoints);
           case 2:
-            _context2.n = 4;
+            _context4.n = 4;
             break;
           case 3:
             // If fetch fails, still show rank with 0 points
             setTotalPoints(0);
-            _context2.n = 4;
+            _context4.n = 4;
             return fetchWorkerRank(0);
           case 4:
-            _context2.n = 6;
+            _context4.n = 6;
             break;
           case 5:
-            _context2.p = 5;
-            _t3 = _context2.v;
-            console.error("Error fetching reviews:", _t3);
+            _context4.p = 5;
+            _t5 = _context4.v;
+            console.error("Error fetching reviews:", _t5);
             // Even on error, show rank with 0 points
             setTotalPoints(0);
-            _context2.n = 6;
+            _context4.n = 6;
             return fetchWorkerRank(0);
           case 6:
-            _context2.p = 6;
+            _context4.p = 6;
             setReviewsLoading(false);
-            return _context2.f(6);
+            return _context4.f(6);
           case 7:
-            return _context2.a(2);
+            return _context4.a(2);
         }
-      }, _callee2, null, [[0, 5, 6, 7]]);
+      }, _callee4, null, [[0, 5, 6, 7]]);
     }));
     return function fetchWorkerReviews() {
-      return _ref3.apply(this, arguments);
+      return _ref5.apply(this, arguments);
     };
   }();
 
   // Fetch worker rank based on total points
   var fetchWorkerRank = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(points) {
-      var response, ranks, matchedRank, i, rank, minPoints, maxPoints, currentMinPoints, currentMaxPoints, rangeSize, pointsInRange, progress, _t4;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(points) {
+      var response, ranks, matchedRank, i, rank, minPoints, maxPoints, currentMinPoints, currentMaxPoints, rangeSize, pointsInRange, progress, _t6;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
           case 0:
-            _context3.p = 0;
+            _context5.p = 0;
             if (!(points >= 0)) {
-              _context3.n = 6;
+              _context5.n = 6;
               break;
             }
-            _context3.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/ranks', {
+            _context5.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('/api/ranks', {
               headers: {
                 Accept: "application/json"
               }
             });
           case 1:
-            response = _context3.v;
+            response = _context5.v;
             // Get all ranks sorted by min_points
             ranks = (response.data.ranks || []).sort(function (a, b) {
               return a.min_points - b.min_points;
@@ -205301,32 +205825,32 @@ var Profile = function Profile(_ref) {
             i = 0;
           case 2:
             if (!(i < ranks.length)) {
-              _context3.n = 5;
+              _context5.n = 5;
               break;
             }
             rank = ranks[i];
             minPoints = rank.min_points || 0;
             maxPoints = rank.max_points;
             if (!(maxPoints === null || maxPoints === undefined)) {
-              _context3.n = 3;
+              _context5.n = 3;
               break;
             }
             // This is the highest rank (no max limit)
             if (points >= minPoints) {
               matchedRank = rank;
             }
-            _context3.n = 4;
+            _context5.n = 4;
             break;
           case 3:
             if (!(points >= minPoints && points <= maxPoints)) {
-              _context3.n = 4;
+              _context5.n = 4;
               break;
             }
             matchedRank = rank;
-            return _context3.a(3, 5);
+            return _context5.a(3, 5);
           case 4:
             i++;
-            _context3.n = 2;
+            _context5.n = 2;
             break;
           case 5:
             if (matchedRank) {
@@ -205351,19 +205875,19 @@ var Profile = function Profile(_ref) {
               setProgressPercent(0);
             }
           case 6:
-            _context3.n = 8;
+            _context5.n = 8;
             break;
           case 7:
-            _context3.p = 7;
-            _t4 = _context3.v;
-            console.error("Error fetching worker rank:", _t4);
+            _context5.p = 7;
+            _t6 = _context5.v;
+            console.error("Error fetching worker rank:", _t6);
           case 8:
-            return _context3.a(2);
+            return _context5.a(2);
         }
-      }, _callee3, null, [[0, 7]]);
+      }, _callee5, null, [[0, 7]]);
     }));
     return function fetchWorkerRank(_x) {
-      return _ref4.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     };
   }();
   var handleTabClick = function handleTabClick(tab) {
@@ -205376,36 +205900,36 @@ var Profile = function Profile(_ref) {
     setIsConfirmationModalOpen(true);
   };
   var handleConfirmBooking = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var _JSON$parse, authToken, currentUserId, formatDateTime, bookingData, response, _error$response2, _error$response3, _error$response$data, errors, errorMessages, _error$response$data2, _error$response4, errorMessage, _t5;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
+    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
+      var _JSON$parse, authToken, currentUserId, formatDateTime, bookingData, response, _error$response2, _error$response3, _error$response$data, errors, errorMessages, _error$response$data2, _error$response4, errorMessage, _t7;
+      return _regenerator().w(function (_context6) {
+        while (1) switch (_context6.p = _context6.n) {
           case 0:
-            _context4.p = 0;
+            _context6.p = 0;
             authToken = localStorage.getItem("auth_token");
             if (authToken) {
-              _context4.n = 1;
+              _context6.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Please log in to book this worker");
             setIsLoginModalOpen(true);
-            return _context4.a(2);
+            return _context6.a(2);
           case 1:
             // Check if user is trying to book themselves
             currentUserId = (_JSON$parse = JSON.parse(localStorage.getItem("user"))) === null || _JSON$parse === void 0 ? void 0 : _JSON$parse.id;
             if (!(currentUserId && currentUserId === worker.id)) {
-              _context4.n = 2;
+              _context6.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("You cannot book yourself");
-            return _context4.a(2);
+            return _context6.a(2);
           case 2:
             if (!(!worker || !worker.id)) {
-              _context4.n = 3;
+              _context6.n = 3;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Worker information is missing. Please refresh the page and try again.");
-            return _context4.a(2);
+            return _context6.a(2);
           case 3:
             // Convert datetime-local format to proper date format for backend
             formatDateTime = function formatDateTime(dateTimeString) {
@@ -205427,8 +205951,8 @@ var Profile = function Profile(_ref) {
               daily_rate: parseFloat(bookingDetails.daily_rate),
               total_salary: parseFloat(bookingDetails.total_salary) || null
             };
-            _context4.n = 4;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post('http://127.0.0.1:8000/api/bookings', bookingData, {
+            _context6.n = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post('/api/bookings', bookingData, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json",
@@ -205436,7 +205960,7 @@ var Profile = function Profile(_ref) {
               }
             });
           case 4:
-            response = _context4.v;
+            response = _context6.v;
             if (response.data.success) {
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Booking request sent successfully!");
               setIsConfirmationModalOpen(false);
@@ -205444,32 +205968,32 @@ var Profile = function Profile(_ref) {
             } else {
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(response.data.message || "Failed to send booking request");
             }
-            _context4.n = 6;
+            _context6.n = 6;
             break;
           case 5:
-            _context4.p = 5;
-            _t5 = _context4.v;
-            console.error("Booking error:", ((_error$response2 = _t5.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t5.message);
-            if (((_error$response3 = _t5.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 422) {
+            _context6.p = 5;
+            _t7 = _context6.v;
+            console.error("Booking error:", ((_error$response2 = _t7.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t7.message);
+            if (((_error$response3 = _t7.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 422) {
               // Handle validation errors
-              errors = (_error$response$data = _t5.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.errors;
+              errors = (_error$response$data = _t7.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.errors;
               if (errors) {
                 errorMessages = Object.values(errors).flat();
                 antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
               } else {
-                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response$data2 = _t5.response.data) === null || _error$response$data2 === void 0 ? void 0 : _error$response$data2.message) || "Validation failed");
+                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response$data2 = _t7.response.data) === null || _error$response$data2 === void 0 ? void 0 : _error$response$data2.message) || "Validation failed");
               }
             } else {
-              errorMessage = ((_error$response4 = _t5.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.message) || "Failed to send booking request";
+              errorMessage = ((_error$response4 = _t7.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.message) || "Failed to send booking request";
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(errorMessage);
             }
           case 6:
-            return _context4.a(2);
+            return _context6.a(2);
         }
-      }, _callee4, null, [[0, 5]]);
+      }, _callee6, null, [[0, 5]]);
     }));
     return function handleConfirmBooking() {
-      return _ref5.apply(this, arguments);
+      return _ref7.apply(this, arguments);
     };
   }();
   if (loading) {
@@ -205511,9 +206035,12 @@ var Profile = function Profile(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
         className: "profile-photo-wrapper",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-          src: worker.profile_img ? "http://127.0.0.1:8000/storage/".concat(worker.profile_img) : _resources_sass_img_pfp_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
+          src: worker.profile_img ? "http://127.0.0.1:8000/storage/".concat(worker.profile_img) : "/images/defpfp.svg",
           alt: "Profile",
-          className: "profile-photo"
+          className: "profile-photo",
+          onError: function onError(e) {
+            e.target.src = "/images/defpfp.svg";
+          }
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
@@ -205522,35 +206049,58 @@ var Profile = function Profile(_ref) {
         className: "profile-left",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "profile-info",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
             className: "profile-name-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
-              children: worker.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-              className: "profile-badges-container",
-              children: (worker.verified === true || worker.verified === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "profile-name-with-badge",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
+                children: worker.name
+              }), function () {
+                var workerCollar = getWorkerCollar(worker);
+                console.log('Worker collar result:', workerCollar);
+                console.log('Image path:', workerCollar.image);
+                console.log('Full image URL:', "http://127.0.0.1:8000/storage/".concat(workerCollar.image));
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "profile-service-badge",
+                  title: "".concat(workerCollar.name, " Worker"),
+                  children: workerCollar.image ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                    src: "http://127.0.0.1:8000/storage/".concat(workerCollar.image),
+                    alt: "".concat(workerCollar.name, " Collar"),
+                    className: "badge-icon",
+                    onError: function onError(e) {
+                      console.error('Collar image failed to load:', e.target.src);
+                      e.target.style.display = 'none';
+                    },
+                    onLoad: function onLoad() {
+                      console.log('Collar image loaded successfully');
+                    }
+                  }) : null
+                });
+              }(), (worker.verified === true || worker.verified === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
                 className: "profile-verified-badge",
                 title: "Verified Worker",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("svg", {
-                  width: "16",
-                  height: "16",
-                  viewBox: "0 0 24 24",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
-                    d: "M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z",
-                    fill: "#4CAF50"
-                  })
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                  src: "/images/verified.png",
+                  alt: "Verified",
+                  className: "verified-icon",
+                  loading: "eager",
+                  decoding: "async",
+                  onLoad: function onLoad() {
+                    return console.log('Verified badge image loaded in profile');
+                  },
+                  onError: function onError(e) {
+                    return console.error('Failed to load verified badge image:', e.target.src);
+                  }
                 })
-              })
-            })]
+              })]
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "profile-status-container",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
-              className: "profile-status-dot"
+              className: "profile-status-dot ".concat(isStatusGreen() ? 'online' : 'offline')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
-              className: "profile-status",
-              children: worker.status === "ACTIVE NOW" ? "Available now" : worker.status
+              className: "profile-status ".concat(isStatusGreen() ? 'online' : 'offline'),
+              children: isUserOnline() ? 'Online' : getLastActiveText(worker.last_activity, worker.is_online)
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
             className: "profile-location",
@@ -205561,10 +206111,17 @@ var Profile = function Profile(_ref) {
             var isEmployer = (currentUser === null || currentUser === void 0 ? void 0 : currentUser.role_id) === 2;
             var isOwnProfile = (currentUser === null || currentUser === void 0 ? void 0 : currentUser.id) === parseInt(resolvedWorkerId);
             if (isEmployer || isOwnProfile) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
-                className: "profile-hire-button",
-                onClick: handleHireNowClick,
-                children: "HIRE NOW"
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "profile-action-buttons",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                  className: "profile-hire-button",
+                  onClick: handleHireNowClick,
+                  children: "HIRE NOW"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                  className: "profile-message-button",
+                  onClick: handleMessageClick,
+                  children: "MESSAGE"
+                })]
               });
             } else {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
@@ -205686,7 +206243,7 @@ var Profile = function Profile(_ref) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                         className: "profile-skill-name-with-rank",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-                          src: "http://127.0.0.1:8000/storage/".concat(skillRank.image),
+                          src: skillRank.image,
                           alt: "".concat(skillRank.name, " Rank"),
                           className: "profile-skill-rank-icon"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
@@ -205722,7 +206279,7 @@ var Profile = function Profile(_ref) {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                         className: "profile-skill-name-with-rank",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-                          src: "http://127.0.0.1:8000/storage/".concat(skillRank.image),
+                          src: skillRank.image,
                           alt: "".concat(skillRank.name, " Rank"),
                           className: "profile-skill-rank-icon"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
@@ -205852,6 +206409,33 @@ var Profile = function Profile(_ref) {
           })]
         })]
       })]
+    }), isVerificationModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+      className: "verification-modal-overlay",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        className: "verification-modal",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "verification-modal-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
+            children: "Security Verification"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+            className: "verification-close-btn",
+            onClick: handleVerificationClose,
+            children: "\xD7"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          className: "verification-modal-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+            children: "Click Continue to proceed with hiring."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            className: "verification-actions",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+              className: "continue-button enabled",
+              onClick: handleVerificationContinue,
+              children: "Continue"
+            })
+          })]
+        })]
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_BookModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
       worker: worker,
       isOpen: isBookingModalOpen,
@@ -206243,6 +206827,7 @@ function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t =
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -206273,6 +206858,22 @@ var Browse = function Browse() {
     _useState2 = _slicedToArray(_useState, 2),
     isSortDropdownOpen = _useState2[0],
     setIsSortDropdownOpen = _useState2[1];
+
+  // Function to format last active time
+  var getLastActiveText = function getLastActiveText(lastActivity) {
+    if (!lastActivity) return 'Offline';
+    var now = new Date();
+    var lastActive = new Date(lastActivity);
+    var diffInMinutes = Math.floor((now - lastActive) / (1000 * 60));
+    if (diffInMinutes < 1) return 'Active now';
+    if (diffInMinutes < 60) return "Active ".concat(diffInMinutes, " minute").concat(diffInMinutes > 1 ? 's' : '', " ago");
+    var diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) return "Active ".concat(diffInHours, " hour").concat(diffInHours > 1 ? 's' : '', " ago");
+    var diffInDays = Math.floor(diffInHours / 24);
+    if (diffInDays < 365) return "Active ".concat(diffInDays, " day").concat(diffInDays > 1 ? 's' : '', " ago");
+    var diffInYears = Math.floor(diffInDays / 365);
+    return "Active ".concat(diffInYears, " year").concat(diffInYears > 1 ? 's' : '', " ago");
+  };
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("Sort by"),
     _useState4 = _slicedToArray(_useState3, 2),
     selectedSortOption = _useState4[0],
@@ -206312,6 +206913,10 @@ var Browse = function Browse() {
     _useState14 = _slicedToArray(_useState13, 2),
     collarData = _useState14[0],
     setCollarData = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState16 = _slicedToArray(_useState15, 2),
+    servicesData = _useState16[0],
+    setServicesData = _useState16[1];
 
   // Function to fetch collar data from API
   var fetchCollarData = /*#__PURE__*/function () {
@@ -206322,7 +206927,7 @@ var Browse = function Browse() {
           case 0:
             _context.p = 0;
             _context.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/collars');
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('/api/collars');
           case 1:
             response = _context.v;
             collars = response.data.collars || [];
@@ -206331,18 +206936,35 @@ var Browse = function Browse() {
               collarMap[collar.id] = {
                 id: collar.id,
                 name: collar.name,
-                image: collar.collar_img
+                image: collar.collar_img,
+                collar_img: collar.collar_img
               };
+
+              // Aggressive preloading for ultra-fast collar image loading
+              if (collar.collar_img) {
+                var img = new Image();
+                img.src = "http://127.0.0.1:8000/storage/".concat(collar.collar_img);
+                img.loading = 'eager';
+                img.decoding = 'async';
+                console.log('Preloading collar image:', img.src);
+              }
             });
             setCollarData(collarMap);
             console.log('Fetched collar data:', collarMap);
-            _context.n = 3;
+            _context.n = 4;
             break;
           case 2:
             _context.p = 2;
             _t = _context.v;
-            console.error('Error fetching collar data:', _t);
+            if (!(_t.name === "AbortError")) {
+              _context.n = 3;
+              break;
+            }
+            console.log("Collar data request was aborted");
+            return _context.a(2);
           case 3:
+            console.error('Error fetching collar data:', _t);
+          case 4:
             return _context.a(2);
         }
       }, _callee, null, [[0, 2]]);
@@ -206352,33 +206974,157 @@ var Browse = function Browse() {
     };
   }();
 
+  // Function to fetch services data from API
+  var fetchServicesData = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var response, services, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            _context2.p = 0;
+            console.log('Fetching services data...');
+            _context2.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('/api/services');
+          case 1:
+            response = _context2.v;
+            console.log('Services API response:', response.data);
+            services = response.data.services || [];
+            setServicesData(services);
+            console.log('Fetched services data:', services);
+
+            // Aggressive preloading for ultra-fast collar image loading
+            services.forEach(function (service) {
+              if (service.collar_img) {
+                var img = new Image();
+                img.src = "http://127.0.0.1:8000/storage/".concat(service.collar_img);
+                img.loading = 'eager';
+                img.decoding = 'async';
+                console.log('Preloading collar image:', img.src);
+              }
+            });
+            _context2.n = 4;
+            break;
+          case 2:
+            _context2.p = 2;
+            _t2 = _context2.v;
+            if (!(_t2.name === "AbortError")) {
+              _context2.n = 3;
+              break;
+            }
+            console.log("Services data request was aborted");
+            return _context2.a(2);
+          case 3:
+            console.error('Error fetching services data:', _t2);
+          case 4:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[0, 2]]);
+    }));
+    return function fetchServicesData() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  // Helper function to get worker collar based on skills and services
+  var getWorkerCollar = function getWorkerCollar(worker) {
+    console.log('Getting worker collar for:', worker);
+    console.log('Services data available:', servicesData);
+    console.log('Worker skills:', worker === null || worker === void 0 ? void 0 : worker.primary_skills, worker === null || worker === void 0 ? void 0 : worker.additional_skills);
+    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) {
+      console.log('No skills found, using default Blue Collars');
+      return {
+        id: 1,
+        name: "Blue Collars",
+        image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png"
+      };
+    }
+    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
+    console.log('All worker skills:', allSkills);
+    console.log('Available services:', servicesData);
+
+    // Find matching service based on worker's skills
+    var _iterator = _createForOfIteratorHelper(allSkills),
+      _step;
+    try {
+      var _loop = function _loop() {
+          var skill = _step.value;
+          console.log('Checking skill:', skill);
+
+          // Find service that contains this skill
+          var matchingService = servicesData.find(function (service) {
+            var _skill$skill_id;
+            var serviceSkillIds = service.skill_ids || [];
+            console.log('Service skill IDs:', serviceSkillIds, 'for service:', service.name);
+            return serviceSkillIds.includes((_skill$skill_id = skill.skill_id) === null || _skill$skill_id === void 0 ? void 0 : _skill$skill_id.toString());
+          });
+          if (matchingService) {
+            console.log('Found matching service:', matchingService);
+            console.log('Service collar info:', {
+              color_collar_id: matchingService.color_collar_id,
+              color_collar_name: matchingService.color_collar_name,
+              collar_img: matchingService.collar_img
+            });
+            return {
+              v: {
+                id: matchingService.color_collar_id,
+                name: matchingService.color_collar_name,
+                image: matchingService.collar_img
+              }
+            };
+          }
+        },
+        _ret;
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        _ret = _loop();
+        if (_ret) return _ret.v;
+      }
+
+      // Default to Blue Collars if no match found
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+    console.log('No matching service found, using default Blue Collars');
+    return {
+      id: 1,
+      name: "Blue Collars",
+      image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png"
+    };
+  };
+
   // Helper function to get rank based on experience
   var getRankByExperience = function getRankByExperience(experience) {
     switch (experience) {
       case '0-11-months':
         return {
           name: 'Bronze',
-          image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg'
+          image: '/images/bronze.png'
         };
       case '1-2-years':
         return {
           name: 'Silver',
-          image: 'img/rank/pp1cpyZuiQcpUy44geQdA6GtN5DzvJBZu1Jra53H.png'
+          image: '/images/silver.svg'
         };
       case '2-5-years':
         return {
           name: 'Gold',
-          image: 'img/rank/aTxm30AVX6eA2bX8ICZLRskw66eg9pBgibzhutXO.jpg'
+          image: '/images/gold.svg'
         };
       case '5-10-years':
         return {
+          name: 'Platinum',
+          image: '/images/platinum.svg'
+        };
+      case '10+ years':
+        return {
           name: 'Diamond',
-          image: 'img/rank/BT3ZPIEvlO4KYEsUpPhD6jVQyskw0tPknV43CoY1.jpg'
+          image: '/images/diamond.svg'
         };
       default:
         return {
           name: 'Bronze',
-          image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg'
+          image: '/images/bronze.png'
         };
     }
   };
@@ -206494,18 +207240,18 @@ var Browse = function Browse() {
 
   // Function to fetch workers data from API
   var fetchWorkersData = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var _userData$user, _formattedWorkers, _filteredWorkers, authToken, headers, response, currentSkillNames, servicesResponse, services, currentService, userData, currentUserId, workers, formattedWorkers, _filteredWorkers2, _error$response, _error$response2, _t2, _t3;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+      var _userData$user, _formattedWorkers, _filteredWorkers, authToken, headers, response, currentSkillNames, servicesResponse, services, currentService, userData, currentUserId, workers, formattedWorkers, _filteredWorkers2, _error$response, _error$response2, _t3, _t4;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
           case 0:
-            _context2.p = 0;
+            _context3.p = 0;
             setLoading(true);
             setError(null);
 
             // First, check if we have filtered workers from navigation state
             if (!(navigationState !== null && navigationState !== void 0 && navigationState.filteredWorkers && navigationState.filteredWorkers.length > 0)) {
-              _context2.n = 1;
+              _context3.n = 1;
               break;
             }
             console.log("Using filtered workers from navigation state:", navigationState.filteredWorkers.length);
@@ -206528,7 +207274,7 @@ var Browse = function Browse() {
             setAllWorkers(_filteredWorkers);
             setFilteredWorkers(_filteredWorkers);
             setLoading(false);
-            return _context2.a(2);
+            return _context3.a(2);
           case 1:
             // If no navigation state, fetch from API
             authToken = localStorage.getItem("auth_token");
@@ -206541,17 +207287,17 @@ var Browse = function Browse() {
             // First, try to get skill names from the service if we have a service name
             currentSkillNames = skillNames;
             if (!(currentSkillNames.length === 0 && serviceName)) {
-              _context2.n = 5;
+              _context3.n = 5;
               break;
             }
-            _context2.p = 2;
-            _context2.n = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/services", {
+            _context3.p = 2;
+            _context3.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/services", {
               headers: headers,
-              timeout: 10000
+              timeout: 30000
             });
           case 3:
-            servicesResponse = _context2.v;
+            servicesResponse = _context3.v;
             services = servicesResponse.data.services || [];
             currentService = services.find(function (service) {
               return service.name === serviceName;
@@ -206562,23 +207308,23 @@ var Browse = function Browse() {
               });
               console.log("Found skill names for service:", currentSkillNames);
             }
-            _context2.n = 5;
+            _context3.n = 5;
             break;
           case 4:
-            _context2.p = 4;
-            _t2 = _context2.v;
-            console.warn("Could not fetch service data:", _t2);
+            _context3.p = 4;
+            _t3 = _context3.v;
+            console.warn("Could not fetch service data:", _t3);
           case 5:
             // Get current user ID to exclude from results
             userData = JSON.parse(localStorage.getItem("user") || '{}');
             currentUserId = ((_userData$user = userData.user) === null || _userData$user === void 0 ? void 0 : _userData$user.id) || userData.id; // If we have skill names, fetch by skills, otherwise fetch all workers
             if (!(currentSkillNames.length > 0)) {
-              _context2.n = 7;
+              _context3.n = 7;
               break;
             }
             console.log("Fetching workers by skills:", currentSkillNames);
-            _context2.n = 6;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/by-skills", {
+            _context3.n = 6;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/workers/by-skills", {
               params: {
                 skill_names: currentSkillNames.join(','),
                 page: 1,
@@ -206586,26 +207332,26 @@ var Browse = function Browse() {
                 exclude_user_id: currentUserId // Exclude current user
               },
               headers: headers,
-              timeout: 10000
+              timeout: 30000
             });
           case 6:
-            response = _context2.v;
-            _context2.n = 9;
+            response = _context3.v;
+            _context3.n = 9;
             break;
           case 7:
             console.log("Fetching all workers");
-            _context2.n = 8;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/", {
+            _context3.n = 8;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/workers", {
               params: {
                 page: 1,
                 limit: 50,
                 exclude_user_id: currentUserId // Exclude current user
               },
               headers: headers,
-              timeout: 10000
+              timeout: 30000
             });
           case 8:
-            response = _context2.v;
+            response = _context3.v;
           case 9:
             workers = response.data.workers || [];
             console.log("Fetched workers:", workers.length);
@@ -206629,33 +207375,40 @@ var Browse = function Browse() {
             console.log('Workers with profiles (excluding own):', _filteredWorkers2.length, 'out of', formattedWorkers.length);
             setAllWorkers(_filteredWorkers2);
             setFilteredWorkers(_filteredWorkers2);
-            _context2.n = 11;
+            _context3.n = 12;
             break;
           case 10:
-            _context2.p = 10;
-            _t3 = _context2.v;
-            console.error("Error fetching workers data:", ((_error$response = _t3.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t3.message);
+            _context3.p = 10;
+            _t4 = _context3.v;
+            if (!(_t4.name === "AbortError")) {
+              _context3.n = 11;
+              break;
+            }
+            console.log("Request was aborted");
+            return _context3.a(2);
+          case 11:
+            console.error("Error fetching workers data:", ((_error$response = _t4.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t4.message);
 
             // Handle role-based access denial
-            if (((_error$response2 = _t3.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 403) {
-              setError(_t3.response.data.message || "Access denied. Workers cannot browse other worker profiles. Please switch to employer role to hire workers.");
-              antd__WEBPACK_IMPORTED_MODULE_10__["default"].error(_t3.response.data.message || "Access denied. Switch to employer role to browse workers.");
+            if (((_error$response2 = _t4.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 403) {
+              setError(_t4.response.data.message || "Access denied. Workers cannot browse other worker profiles. Please switch to employer role to hire workers.");
+              antd__WEBPACK_IMPORTED_MODULE_10__["default"].error(_t4.response.data.message || "Access denied. Switch to employer role to browse workers.");
             } else {
               setError("Failed to load workers. Please try again later.");
               antd__WEBPACK_IMPORTED_MODULE_10__["default"].error("Failed to load workers.");
             }
             setFilteredWorkers([]);
-          case 11:
-            _context2.p = 11;
-            setLoading(false);
-            return _context2.f(11);
           case 12:
-            return _context2.a(2);
+            _context3.p = 12;
+            setLoading(false);
+            return _context3.f(12);
+          case 13:
+            return _context3.a(2);
         }
-      }, _callee2, null, [[2, 4], [0, 10, 11, 12]]);
+      }, _callee3, null, [[2, 4], [0, 10, 12, 13]]);
     }));
     return function fetchWorkersData() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -206713,6 +207466,7 @@ var Browse = function Browse() {
       hours_per_day: worker.hours_per_day,
       verified: worker.verified === true || worker.verified === 1,
       rank: worker.rank || null,
+      last_activity: apiWorker.last_activity,
       // Include detailed skills data for rank display
       primary_skills: skills.primary_skills || [],
       additional_skills: skills.additional_skills || []
@@ -206724,16 +207478,34 @@ var Browse = function Browse() {
     fetchCollarData();
   }, []);
 
+  // Fetch services data on component mount
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchServicesData();
+
+    // Preload verified.png for ultra-fast loading
+    var verifiedImg = new Image();
+    verifiedImg.src = '/images/verified.png';
+    verifiedImg.loading = 'eager';
+    verifiedImg.decoding = 'async';
+    verifiedImg.onload = function () {
+      return console.log('Verified.png loaded successfully');
+    };
+    verifiedImg.onerror = function () {
+      return console.error('Failed to load verified.png');
+    };
+    console.log('Preloading verified.png from:', verifiedImg.src);
+  }, []);
+
   // Fetch workers data on component mount
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchWorkersData();
   }, [serviceName, skillNames]);
 
   // State for all workers (before filtering)
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState16 = _slicedToArray(_useState15, 2),
-    allWorkers = _useState16[0],
-    setAllWorkers = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState18 = _slicedToArray(_useState17, 2),
+    allWorkers = _useState18[0],
+    setAllWorkers = _useState18[1];
 
   // Filter and sort workers based on search and sort options
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -206958,8 +207730,11 @@ var Browse = function Browse() {
                   className: "avatar-col",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
                     className: "avatar",
-                    src: worker.profile_img ? "http://127.0.0.1:8000/storage/".concat(worker.profile_img) : "/images/avatar.svg",
-                    alt: "".concat(worker.name, "'s avatar")
+                    src: worker.profile_img ? "http://127.0.0.1:8000/storage/".concat(worker.profile_img) : "/images/defpfp.svg",
+                    alt: "".concat(worker.name, "'s avatar"),
+                    onError: function onError(e) {
+                      e.target.src = "/images/defpfp.svg";
+                    }
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                   className: "details-col",
@@ -206967,48 +207742,77 @@ var Browse = function Browse() {
                     className: "name-row",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                       className: "name-with-badges",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h5", {
-                        className: "name",
-                        children: worker.name
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                        className: "badges-container",
-                        children: [(worker.verified === true || worker.verified === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                          className: "verified-badge",
-                          title: "Verified Worker",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("svg", {
-                            width: "16",
-                            height: "16",
-                            viewBox: "0 0 24 24",
-                            fill: "none",
-                            xmlns: "http://www.w3.org/2000/svg",
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
-                              d: "M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z",
-                              fill: "#4CAF50"
-                            })
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-                            className: "verified-text",
-                            children: "Verified"
-                          })]
-                        }), getWorkerCollars(worker).map(function (collar, index) {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                        className: "name-with-collar-verified",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h5", {
+                          className: "name",
+                          children: worker.name
+                        }), function () {
+                          var workerCollar = getWorkerCollar(worker);
+                          console.log('Worker collar result:', workerCollar);
+                          console.log('Image path:', workerCollar.image);
+                          console.log('Full image URL:', "http://127.0.0.1:8000/storage/".concat(workerCollar.image));
                           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                            className: "collar-badge-icon collar-".concat(collar.id),
-                            title: "".concat(collar.name, " Worker"),
-                            children: collar.image ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-                              src: "http://127.0.0.1:8000/storage/".concat(collar.image),
-                              alt: "".concat(collar.name, " Collar"),
-                              className: "collar-icon-only"
-                            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                              className: "collar-icon-placeholder",
-                              title: collar.name,
-                              children: collar.name.charAt(0)
-                            })
-                          }, index);
-                        })]
+                            className: "browse-service-badge",
+                            title: "".concat(workerCollar.name, " Worker"),
+                            children: workerCollar.image ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                              src: "http://127.0.0.1:8000/storage/".concat(workerCollar.image),
+                              alt: "".concat(workerCollar.name, " Collar"),
+                              className: "badge-icon",
+                              loading: "eager",
+                              decoding: "async",
+                              onError: function onError(e) {
+                                console.error('Collar image failed to load:', e.target.src);
+                                e.target.style.display = 'none';
+                              },
+                              onLoad: function onLoad() {
+                                console.log('Collar image loaded successfully');
+                              }
+                            }) : null
+                          });
+                        }(), function () {
+                          console.log('Worker verified status:', worker.verified, 'Type:', _typeof(worker.verified));
+
+                          // Check if worker is verified (verified = 1)
+                          var isVerified = worker.verified === 1 || worker.verified === true;
+                          console.log('Is worker verified:', isVerified);
+                          if (isVerified) {
+                            console.log('Rendering verified badge for worker:', worker.name);
+                            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                              className: "profile-verified-badge",
+                              title: "Verified Worker",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                                src: "/images/verified.png",
+                                alt: "Verified",
+                                className: "verified-icon",
+                                loading: "eager",
+                                decoding: "async",
+                                onLoad: function onLoad() {
+                                  return console.log('Verified badge image loaded in browseblue');
+                                },
+                                onError: function onError(e) {
+                                  return console.error('Failed to load verified badge image:', e.target.src);
+                                }
+                              })
+                            });
+                          } else {
+                            console.log('Worker not verified (verified = 0), not showing badge');
+                            return null;
+                          }
+                        }()]
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                        className: "badges-container"
                       })]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                       className: "role",
                       children: worker.role
                     })]
+                  }), worker.contact_number && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                    className: "contact-info",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                      className: "contact-number",
+                      children: worker.contact_number.replace(/(\d{4})\d{3}(\d{4})/, '$1***$2')
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                     className: "info-row",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
@@ -207032,7 +207836,7 @@ var Browse = function Browse() {
                         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                           className: "chip skill-chip-with-rank",
                           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-                            src: "http://127.0.0.1:8000/storage/".concat(skillRank.image),
+                            src: skillRank.image,
                             alt: "".concat(skillRank.name, " Rank"),
                             className: "skill-rank-icon-small"
                           }), skill.skill_name, skill.sub_skills && skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
@@ -207046,7 +207850,7 @@ var Browse = function Browse() {
                         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                           className: "chip skill-chip-with-rank",
                           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-                            src: "http://127.0.0.1:8000/storage/".concat(skillRank.image),
+                            src: skillRank.image,
                             alt: "".concat(skillRank.name, " Rank"),
                             className: "skill-rank-icon-small"
                           }), skill.skill_name, skill.sub_skills && skill.sub_skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
@@ -207061,20 +207865,16 @@ var Browse = function Browse() {
                       }, index);
                     })]
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "action-col",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-                    className: "view-btn",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+                    className: "view-btn blue-btn",
                     type: "button",
                     onClick: function onClick() {
                       return handleViewProfile(worker.id);
                     },
                     children: "VIEW PROFILE"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "stars",
-                    "aria-label": "rating",
-                    children: "\u2605\u2605\u2605\u2605\u2605"
-                  })]
+                  })
                 })]
               })
             }, worker.id);
@@ -212340,10 +213140,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.mjs");
-/* harmony import */ var _sass_components_reviewstable_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../sass/components/_reviewstable.scss */ "./resources/sass/components/_reviewstable.scss");
-/* harmony import */ var _reviewlistmodal_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./reviewlistmodal.js */ "./resources/js/components/adminside/ReviewList/reviewlistmodal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_reviewstable_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../../sass/components/_reviewstable.scss */ "./resources/sass/components/_reviewstable.scss");
+/* harmony import */ var _reviewlistmodal_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./reviewlistmodal.js */ "./resources/js/components/adminside/ReviewList/reviewlistmodal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -212476,7 +213275,7 @@ var ReviewsTable = function ReviewsTable() {
     var source = axios__WEBPACK_IMPORTED_MODULE_2__["default"].CancelToken.source();
     var fetchUsers = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var _yield$Promise$all, _yield$Promise$all2, employerResponse, workerResponse, employersData, workersData, _t;
+        var _yield$Promise$all, _yield$Promise$all2, employerResponse, workerResponse, employersData, workersData, _err$response, errorMessage, _t;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
@@ -212497,9 +213296,28 @@ var ReviewsTable = function ReviewsTable() {
               if (isMounted) {
                 console.log("Employers:", employerResponse.data);
                 console.log("Workers:", workerResponse.data);
-                // Handle nested workers array
-                employersData = Array.isArray(employerResponse.data) ? employerResponse.data : [];
-                workersData = Array.isArray(workerResponse.data.workers) ? workerResponse.data.workers : [];
+
+                // Handle different response structures
+                employersData = [];
+                workersData = []; // Handle employers data
+                if (Array.isArray(employerResponse.data)) {
+                  employersData = employerResponse.data;
+                } else if (employerResponse.data && Array.isArray(employerResponse.data.employers)) {
+                  employersData = employerResponse.data.employers;
+                } else if (employerResponse.data && Array.isArray(employerResponse.data.data)) {
+                  employersData = employerResponse.data.data;
+                }
+
+                // Handle workers data
+                if (Array.isArray(workerResponse.data)) {
+                  workersData = workerResponse.data;
+                } else if (workerResponse.data && Array.isArray(workerResponse.data.workers)) {
+                  workersData = workerResponse.data.workers;
+                } else if (workerResponse.data && Array.isArray(workerResponse.data.data)) {
+                  workersData = workerResponse.data.data;
+                }
+                console.log("Processed Employers:", employersData);
+                console.log("Processed Workers:", workersData);
                 setEmployers(employersData);
                 setWorkers(workersData);
                 setDataLoaded(true);
@@ -212512,8 +213330,9 @@ var ReviewsTable = function ReviewsTable() {
               if (axios__WEBPACK_IMPORTED_MODULE_2__["default"].isCancel(_t)) {
                 console.log("Users fetch canceled:", _t.message);
               } else if (isMounted) {
-                setError("Failed to fetch users. Please try again.");
-                console.error(_t);
+                console.error("Error fetching users:", _t);
+                errorMessage = ((_err$response = _t.response) === null || _err$response === void 0 || (_err$response = _err$response.data) === null || _err$response === void 0 ? void 0 : _err$response.message) || _t.message || "Failed to fetch users. Please try again.";
+                setError("Error loading user data: ".concat(errorMessage));
               }
             case 4:
               _context.p = 4;
@@ -212538,7 +213357,7 @@ var ReviewsTable = function ReviewsTable() {
   // Fetch reviews from API
   var fetchReviews = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var source, _response$data$meta, _response$data$meta2, response, normalizedReviews, _err$response, _t2;
+      var source, _response$data$meta, _response$data$meta2, response, normalizedReviews, _err$response2, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -212576,7 +213395,7 @@ var ReviewsTable = function ReviewsTable() {
             if (axios__WEBPACK_IMPORTED_MODULE_2__["default"].isCancel(_t2)) {
               console.log("Reviews fetch canceled:", _t2.message);
             } else {
-              setError(((_err$response = _t2.response) === null || _err$response === void 0 || (_err$response = _err$response.data) === null || _err$response === void 0 ? void 0 : _err$response.error) || "Failed to fetch reviews. Please try again.");
+              setError(((_err$response2 = _t2.response) === null || _err$response2 === void 0 || (_err$response2 = _err$response2.data) === null || _err$response2 === void 0 ? void 0 : _err$response2.error) || "Failed to fetch reviews. Please try again.");
               console.error(_t2);
             }
           case 4:
@@ -212634,7 +213453,7 @@ var ReviewsTable = function ReviewsTable() {
   };
   var handleArchiveConfirm = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-      var _err$response2, _t3;
+      var _err$response3, _t3;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
@@ -212660,7 +213479,7 @@ var ReviewsTable = function ReviewsTable() {
           case 5:
             _context3.p = 5;
             _t3 = _context3.v;
-            setError(((_err$response2 = _t3.response) === null || _err$response2 === void 0 || (_err$response2 = _err$response2.data) === null || _err$response2 === void 0 ? void 0 : _err$response2.error) || "Failed to archive review. Please try again.");
+            setError(((_err$response3 = _t3.response) === null || _err$response3 === void 0 || (_err$response3 = _err$response3.data) === null || _err$response3 === void 0 ? void 0 : _err$response3.error) || "Failed to archive review. Please try again.");
             console.error(_t3);
           case 6:
             _context3.p = 6;
@@ -212677,7 +213496,7 @@ var ReviewsTable = function ReviewsTable() {
   }();
   var handleRestoreReview = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(reviewId) {
-      var _err$response3, _t4;
+      var _err$response4, _t4;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
@@ -212695,7 +213514,7 @@ var ReviewsTable = function ReviewsTable() {
           case 4:
             _context4.p = 4;
             _t4 = _context4.v;
-            setError(((_err$response3 = _t4.response) === null || _err$response3 === void 0 || (_err$response3 = _err$response3.data) === null || _err$response3 === void 0 ? void 0 : _err$response3.error) || "Failed to restore review. Please try again.");
+            setError(((_err$response4 = _t4.response) === null || _err$response4 === void 0 || (_err$response4 = _err$response4.data) === null || _err$response4 === void 0 ? void 0 : _err$response4.error) || "Failed to restore review. Please try again.");
             console.error(_t4);
           case 5:
             _context4.p = 5;
@@ -212712,7 +213531,7 @@ var ReviewsTable = function ReviewsTable() {
   }();
   var handleBulkAction = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(action) {
-      var _err$response4, _t5;
+      var _err$response5, _t5;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
@@ -212740,7 +213559,7 @@ var ReviewsTable = function ReviewsTable() {
           case 5:
             _context5.p = 5;
             _t5 = _context5.v;
-            setError(((_err$response4 = _t5.response) === null || _err$response4 === void 0 || (_err$response4 = _err$response4.data) === null || _err$response4 === void 0 ? void 0 : _err$response4.error) || "Failed to perform bulk ".concat(action, ". Please try again."));
+            setError(((_err$response5 = _t5.response) === null || _err$response5 === void 0 || (_err$response5 = _err$response5.data) === null || _err$response5 === void 0 ? void 0 : _err$response5.error) || "Failed to perform bulk ".concat(action, ". Please try again."));
             console.error(_t5);
           case 6:
             _context5.p = 6;
@@ -212760,9 +213579,17 @@ var ReviewsTable = function ReviewsTable() {
       setError("Please wait until user data is loaded.");
       return;
     }
+
+    // Clear any previous errors
+    setError(null);
+
+    // Show warning if no users available, but still allow modal to open
     if (employers.length === 0 || workers.length === 0) {
-      setError("No users available for review. Please ensure there are both employers and workers in the system.");
-      return;
+      console.warn("Limited users available:", {
+        employers: employers.length,
+        workers: workers.length
+      });
+      // Don't block the modal, just show a warning
     }
     console.log("Add New clicked, opening modal");
     setIsEditMode(false);
@@ -212774,6 +213601,9 @@ var ReviewsTable = function ReviewsTable() {
       setError("Please wait until user data is loaded.");
       return;
     }
+
+    // Clear any previous errors
+    setError(null);
     console.log("Edit clicked for review:", review);
     setReviewToEdit(_objectSpread(_objectSpread({}, review), {}, {
       user: review.user || {
@@ -212807,7 +213637,7 @@ var ReviewsTable = function ReviewsTable() {
   var renderStars = function renderStars(rating) {
     var stars = [];
     for (var i = 1; i <= 5; i++) {
-      stars.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+      stars.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
         className: i <= rating ? "star filled" : "star",
         children: "\u2605"
       }, i));
@@ -212830,7 +213660,7 @@ var ReviewsTable = function ReviewsTable() {
     var endPage = Math.min(pagination.totalPages, startPage + maxPagesToShow - 1);
     if (pagination.totalPages <= maxPagesToShow) {
       var _loop = function _loop(i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           className: pagination.currentPage === i ? "active" : "",
           onClick: function onClick() {
             return handlePageChange(i);
@@ -212843,21 +213673,21 @@ var ReviewsTable = function ReviewsTable() {
       }
     } else {
       if (startPage > 1) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           onClick: function onClick() {
             return handlePageChange(1);
           },
           children: "1"
         }, 1));
         if (startPage > 2) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "start-ellipsis"));
         }
       }
       var _loop2 = function _loop2(_i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           className: pagination.currentPage === _i ? "active" : "",
           onClick: function onClick() {
             return handlePageChange(_i);
@@ -212870,12 +213700,12 @@ var ReviewsTable = function ReviewsTable() {
       }
       if (endPage < pagination.totalPages) {
         if (endPage < pagination.totalPages - 1) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "end-ellipsis"));
         }
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           onClick: function onClick() {
             return handlePageChange(pagination.totalPages);
           },
@@ -212885,147 +213715,184 @@ var ReviewsTable = function ReviewsTable() {
     }
     return pageNumbers;
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     className: "app",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
       activeItem: "Reviews List"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "reviewstable-dashboard",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "reviewstable-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: showArchived ? "Archived Reviews" : "Reviews List"
-        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "error-message",
+          style: {
+            background: '#ffebee',
+            color: '#c62828',
+            padding: '12px',
+            borderRadius: '4px',
+            marginBottom: '16px',
+            border: '1px solid #ffcdd2'
+          },
           children: error
-        }), loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        }), loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "loading-message",
+          style: {
+            background: '#e3f2fd',
+            color: '#1976d2',
+            padding: '12px',
+            borderRadius: '4px',
+            marginBottom: '16px',
+            border: '1px solid #bbdefb'
+          },
           children: "Loading..."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), !dataLoaded && !loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          style: {
+            background: '#fff3e0',
+            color: '#f57c00',
+            padding: '12px',
+            borderRadius: '4px',
+            marginBottom: '16px',
+            border: '1px solid #ffcc02'
+          },
+          children: "Initializing user data..."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "reviewstable-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "left-actions",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-              className: "search-container",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                size: 20,
-                className: "search-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-                type: "text",
-                className: "search-input",
-                placeholder: "Search Reviews",
-                value: searchTerm,
-                onChange: function onChange(e) {
-                  return setSearchTerm(e.target.value);
-                }
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("svg", {
+              width: "20",
+              height: "20",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              strokeWidth: "2",
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              className: "search-icon",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("circle", {
+                cx: "11",
+                cy: "11",
+                r: "8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
+                d: "m21 21-4.35-4.35"
               })]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+              type: "text",
+              className: "search-input",
+              placeholder: "Search Reviews",
+              value: searchTerm,
+              onChange: function onChange(e) {
+                return setSearchTerm(e.target.value);
+              }
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "right-actions",
-            children: [selectedReviews.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            children: [selectedReviews.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button archive-all-button",
               onClick: function onClick() {
                 return handleBulkAction(showArchived ? "restore" : "archive");
               },
               disabled: loading,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "Restore All" : "Archive All"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button",
               onClick: handleAddNewClick,
               disabled: loading || !dataLoaded,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: "Add New"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button",
               onClick: handleToggleArchived,
               disabled: loading,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "View Active" : "View Archived"
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "reviewstable-table",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("table", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("table", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                     className: "header-actions-icon",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                       onClick: toggleSelectAll,
                       style: {
                         cursor: "pointer"
                       },
-                      children: selectedReviews.length === filteredReviews.length && filteredReviews.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                      children: selectedReviews.length === filteredReviews.length && filteredReviews.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                         className: "checkbox-icon"
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                         className: "checkbox-icon"
                       })
                     }), "Actions"]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Reviewer"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Reviewed User"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Rating"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Comment"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Created At"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Updated At"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tbody", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("tbody", {
               children: currentReviews.length > 0 ? currentReviews.map(function (review) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                       className: "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                         onClick: function onClick() {
                           return toggleSelectReview(review.id);
                         },
                         style: {
                           cursor: "pointer"
                         },
-                        children: selectedReviews.includes(review.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                        children: selectedReviews.includes(review.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                           className: "checkbox-icon",
                           size: 16
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                           className: "checkbox-icon",
                           size: 16
                         })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
+                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
                         size: 16,
                         className: "restore-icon",
                         onClick: function onClick() {
                           return handleRestoreReview(review.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
                           return handleArchiveClick(review);
                         }
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEdit, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEdit, {
                         size: 16,
                         className: "edit-icon",
                         onClick: function onClick() {
@@ -213033,43 +213900,43 @@ var ReviewsTable = function ReviewsTable() {
                         }
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     className: "reviewer-cell",
                     children: getFullName(review.user)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     className: "reviewed-user-cell",
                     children: getFullName(review.reviewedUser)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     className: "rating-cell",
                     children: renderStars(review.rating)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     className: "comment-cell",
                     children: review.comment || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     children: formatDate(review.created_at)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     children: formatDate(review.updated_at)
                   })]
                 }, review.id);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("td", {
                   colSpan: "7",
                   children: ["No ", showArchived ? "archived" : "active", " reviews found"]
                 })
               })
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "reviewstable-pagination",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
             children: ["Page ", pagination.currentPage, " of ", pagination.totalPages]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             onClick: function onClick() {
               return handlePageChange(pagination.currentPage - 1);
             },
             disabled: pagination.currentPage <= 1 || loading,
             children: "<"
-          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             onClick: function onClick() {
               return handlePageChange(pagination.currentPage + 1);
             },
@@ -213078,22 +213945,22 @@ var ReviewsTable = function ReviewsTable() {
           })]
         })]
       })
-    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "confirm-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "confirm-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
           children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
           children: ["Do you want to archive review for \"", getFullName(reviewToArchive === null || reviewToArchive === void 0 ? void 0 : reviewToArchive.reviewedUser), "\"?"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "confirm-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             className: "confirm-button",
             onClick: handleArchiveConfirm,
             disabled: loading,
             children: "Yes, Archive"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             className: "cancel-button",
             onClick: function onClick() {
               return setIsConfirmModalOpen(false);
@@ -213103,7 +213970,7 @@ var ReviewsTable = function ReviewsTable() {
           })]
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_reviewlistmodal_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_reviewlistmodal_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
       onClose: handleModalClose,
       onRefresh: fetchReviews,
       isEdit: isEditMode,
@@ -213419,6 +214286,7 @@ var ReviewModal = function ReviewModal(_ref) {
   // Check if workers and employers are arrays
   var isWorkersLoaded = Array.isArray(workers);
   var isEmployersLoaded = Array.isArray(employers);
+  var hasUsers = workers && workers.length > 0 || employers && employers.length > 0;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "reviewmodal-overlay",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -213429,7 +214297,9 @@ var ReviewModal = function ReviewModal(_ref) {
         className: "error",
         children: submitError
       }), !isWorkersLoaded || !isEmployersLoaded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        children: "Error: User data not loaded. Please try again later."
+        children: "Loading user data..."
+      }) : !hasUsers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: "No users available for review. Please ensure there are users in the system."
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "reviewmodal-content",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -213537,7 +214407,7 @@ var ReviewModal = function ReviewModal(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "submit-button",
           onClick: handleSubmit,
-          disabled: !isWorkersLoaded || !isEmployersLoaded,
+          disabled: !hasUsers,
           children: isEdit ? "Update" : "Create"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "cancel-button",
@@ -215433,10 +216303,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.mjs");
-/* harmony import */ var _sass_components_colorcodecollars_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../sass/components/_colorcodecollars.scss */ "./resources/sass/components/_colorcodecollars.scss");
-/* harmony import */ var _ColorCodeCollarsModal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ColorCodeCollarsModal */ "./resources/js/components/adminside/colorcodecollars/ColorCodeCollarsModal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_colorcodecollars_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../../sass/components/_colorcodecollars.scss */ "./resources/sass/components/_colorcodecollars.scss");
+/* harmony import */ var _ColorCodeCollarsModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ColorCodeCollarsModal */ "./resources/js/components/adminside/colorcodecollars/ColorCodeCollarsModal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -215908,7 +216777,7 @@ var Collars = function Collars() {
     var endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
     if (totalPages <= maxPagesToShow) {
       var _loop = function _loop(i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           className: pagination.currentPage === i ? "active" : "",
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
@@ -215923,7 +216792,7 @@ var Collars = function Collars() {
       }
     } else {
       if (startPage > 1) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
               currentPage: 1
@@ -215932,14 +216801,14 @@ var Collars = function Collars() {
           children: "1"
         }, 1));
         if (startPage > 2) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "start-ellipsis"));
         }
       }
       var _loop2 = function _loop2(_i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           className: pagination.currentPage === _i ? "active" : "",
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
@@ -215954,12 +216823,12 @@ var Collars = function Collars() {
       }
       if (endPage < totalPages) {
         if (endPage < totalPages - 1) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "end-ellipsis"));
         }
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
               currentPage: totalPages
@@ -215971,138 +216840,149 @@ var Collars = function Collars() {
     }
     return pageNumbers;
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     className: "app",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
       activeItem: "Collars"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "colorcodecollars-dashboard",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "colorcodecollars-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: showArchived ? "Archived Collars" : "Collars"
-        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "error",
           children: error
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "colorcodecollars-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "left-actions",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-              className: "search-container",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                size: 20,
-                className: "search-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-                type: "text",
-                className: "search-input",
-                placeholder: "Search Collars",
-                value: searchTerm,
-                onChange: function onChange(e) {
-                  return setSearchTerm(e.target.value);
-                }
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("svg", {
+              width: "20",
+              height: "20",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              strokeWidth: "2",
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              className: "search-icon",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("circle", {
+                cx: "11",
+                cy: "11",
+                r: "8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
+                d: "m21 21-4.35-4.35"
               })]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+              type: "text",
+              className: "search-input",
+              placeholder: "Search Collars",
+              value: searchTerm,
+              onChange: function onChange(e) {
+                return setSearchTerm(e.target.value);
+              }
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "right-actions",
-            children: [selectedCollars.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            children: [selectedCollars.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button archive-all-button",
               onClick: function onClick() {
                 return handleBulkAction(showArchived ? "restore" : "archive");
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "Restore All" : "Archive All"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button",
               onClick: handleAddNewClick,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: "Add New"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button",
               onClick: handleToggleArchived,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "View Active" : "View Archived"
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "colorcodecollars-table",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("table", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("table", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                     className: "header-actions-icon",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                       onClick: toggleSelectAll,
                       style: {
                         cursor: "pointer"
                       },
-                      children: selectedCollars.length === collars.length && collars.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                      children: selectedCollars.length === collars.length && collars.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                         className: "checkbox-icon"
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                         className: "checkbox-icon"
                       })
                     }), "Actions"]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Collar Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Collar Image"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Created At"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Updated At"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tbody", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("tbody", {
               children: collars.length > 0 ? collars.map(function (collar) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Actions",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                       className: "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                         onClick: function onClick() {
                           return toggleSelectCollar(collar.id);
                         },
                         style: {
                           cursor: "pointer"
                         },
-                        children: selectedCollars.includes(collar.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                        children: selectedCollars.includes(collar.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                           className: "checkbox-icon",
                           size: 16
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                           className: "checkbox-icon",
                           size: 16
                         })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
+                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
                         size: 16,
                         className: "restore-icon",
                         onClick: function onClick() {
                           return handleRestoreCollar(collar.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
                           return handleArchiveClick(collar);
                         }
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
                         size: 16,
                         className: "edit-icon",
                         onClick: function onClick() {
@@ -216110,13 +216990,13 @@ var Collars = function Collars() {
                         }
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Collar Name",
                     className: "collar-name-cell",
                     children: collar.name || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Collar Image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
                       src: collar.collar_img ? "/storage/".concat(collar.collar_img) : "https://via.placeholder.com/40",
                       alt: collar.name,
                       style: {
@@ -216125,27 +217005,27 @@ var Collars = function Collars() {
                         objectFit: "contain"
                       }
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Created At",
                     children: formatDate(collar.created_at)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Updated At",
                     children: formatDate(collar.updated_at)
                   })]
                 }, collar.id);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("td", {
                   colSpan: "5",
                   children: ["No ", showArchived ? "archived" : "active", " collars found"]
                 })
               })
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "colorcodecollars-pagination",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
             children: ["Page ", pagination.currentPage, " of ", pagination.totalPages]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             onClick: function onClick() {
               return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
                 currentPage: pagination.currentPage - 1
@@ -216153,7 +217033,7 @@ var Collars = function Collars() {
             },
             disabled: pagination.currentPage <= 1,
             children: "<"
-          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             onClick: function onClick() {
               return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
                 currentPage: pagination.currentPage + 1
@@ -216164,21 +217044,21 @@ var Collars = function Collars() {
           })]
         })]
       })
-    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "confirm-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "confirm-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
           children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
           children: ["Do you want to archive \"", collarToArchive === null || collarToArchive === void 0 ? void 0 : collarToArchive.name, "\"?"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "confirm-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             className: "confirm-button",
             onClick: handleArchiveConfirm,
             children: "Yes, Archive"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             className: "cancel-button",
             onClick: function onClick() {
               return setIsConfirmModalOpen(false);
@@ -216187,7 +217067,7 @@ var Collars = function Collars() {
           })]
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ColorCodeCollarsModal__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_ColorCodeCollarsModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
       onClose: handleModalClose,
       onSubmit: isEditMode ? handleCollarUpdate : handleCollarAdd,
       isEdit: isEditMode,
@@ -223034,10 +223914,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.mjs");
-/* harmony import */ var _sass_components_ranksModal_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../sass/components/_ranksModal.scss */ "./resources/sass/components/_ranksModal.scss");
-/* harmony import */ var _RanksModal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./RanksModal */ "./resources/js/components/adminside/ranks/RanksModal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_ranksModal_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../../sass/components/_ranksModal.scss */ "./resources/sass/components/_ranksModal.scss");
+/* harmony import */ var _RanksModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./RanksModal */ "./resources/js/components/adminside/ranks/RanksModal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -223523,7 +224402,7 @@ var Ranks = function Ranks() {
     var endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
     if (totalPages <= maxPagesToShow) {
       var _loop = function _loop(i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           className: pagination.currentPage === i ? "active" : "",
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
@@ -223538,7 +224417,7 @@ var Ranks = function Ranks() {
       }
     } else {
       if (startPage > 1) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
               currentPage: 1
@@ -223547,14 +224426,14 @@ var Ranks = function Ranks() {
           children: "1"
         }, 1));
         if (startPage > 2) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "start-ellipsis"));
         }
       }
       var _loop2 = function _loop2(_i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           className: pagination.currentPage === _i ? "active" : "",
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
@@ -223569,12 +224448,12 @@ var Ranks = function Ranks() {
       }
       if (endPage < totalPages) {
         if (endPage < totalPages - 1) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "end-ellipsis"));
         }
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
               currentPage: totalPages
@@ -223586,141 +224465,152 @@ var Ranks = function Ranks() {
     }
     return pageNumbers;
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     className: "app",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
       activeItem: "Ranks"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "ranks-dashboard",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "ranks-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: showArchived ? "Archived Ranks" : "Ranks"
-        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "error",
           children: error
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "ranks-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "left-actions",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-              className: "search-container",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                size: 20,
-                className: "search-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-                type: "text",
-                className: "search-input",
-                placeholder: "Search Ranks",
-                value: searchTerm,
-                onChange: function onChange(e) {
-                  return setSearchTerm(e.target.value);
-                }
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("svg", {
+              width: "20",
+              height: "20",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              strokeWidth: "2",
+              strokeLinecap: "round",
+              strokeLinejoin: "round",
+              className: "search-icon",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("circle", {
+                cx: "11",
+                cy: "11",
+                r: "8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
+                d: "m21 21-4.35-4.35"
               })]
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+              type: "text",
+              className: "search-input",
+              placeholder: "Search Ranks",
+              value: searchTerm,
+              onChange: function onChange(e) {
+                return setSearchTerm(e.target.value);
+              }
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "right-actions",
-            children: [selectedRanks.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            children: [selectedRanks.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button archive-all-button",
               onClick: function onClick() {
                 return handleBulkAction(showArchived ? "restore" : "archive");
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "Restore All" : "Archive All"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button",
               onClick: handleAddNewClick,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: "Add New"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
               className: "header-button",
               onClick: handleToggleArchived,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "View Active" : "View Archived"
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "ranks-table",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("table", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("table", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                     className: "header-actions-icon",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                       onClick: toggleSelectAll,
                       style: {
                         cursor: "pointer"
                       },
-                      children: selectedRanks.length === ranks.length && ranks.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                      children: selectedRanks.length === ranks.length && ranks.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                         className: "checkbox-icon"
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                         className: "checkbox-icon"
                       })
                     }), "Actions"]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Rank Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Rank Image"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Points Range"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Created At"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
                   children: "Updated At"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tbody", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("tbody", {
               children: ranks.length > 0 ? ranks.map(function (rank) {
                 var _rank$min_points;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Actions",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                       className: "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                         onClick: function onClick() {
                           return toggleSelectRank(rank.id);
                         },
                         style: {
                           cursor: "pointer"
                         },
-                        children: selectedRanks.includes(rank.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                        children: selectedRanks.includes(rank.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                           className: "checkbox-icon",
                           size: 16
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                           className: "checkbox-icon",
                           size: 16
                         })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
+                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
                         size: 16,
                         className: "restore-icon",
                         onClick: function onClick() {
                           return handleRestoreRank(rank.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
                           return handleArchiveClick(rank);
                         }
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
                         size: 16,
                         className: "edit-icon",
                         onClick: function onClick() {
@@ -223728,13 +224618,13 @@ var Ranks = function Ranks() {
                         }
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Rank Name",
                     className: "rank-name-cell",
                     children: rank.name || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Rank Image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
                       src: rank.image ? "/storage/".concat(rank.image) : "https://via.placeholder.com/40",
                       alt: rank.name,
                       style: {
@@ -223743,30 +224633,30 @@ var Ranks = function Ranks() {
                         objectFit: "contain"
                       }
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("td", {
                     "data-label": "Points Range",
                     children: [((_rank$min_points = rank.min_points) === null || _rank$min_points === void 0 ? void 0 : _rank$min_points.toLocaleString()) || '0', " - ", rank.max_points ? rank.max_points.toLocaleString() : '∞']
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Created At",
                     children: formatDate(rank.created_at)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
                     "data-label": "Updated At",
                     children: formatDate(rank.updated_at)
                   })]
                 }, rank.id);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("td", {
                   colSpan: "6",
                   children: ["No ", showArchived ? "archived" : "active", " ranks found"]
                 })
               })
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "ranks-pagination",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
             children: ["Page ", pagination.currentPage, " of ", pagination.totalPages]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             onClick: function onClick() {
               return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
                 currentPage: pagination.currentPage - 1
@@ -223774,7 +224664,7 @@ var Ranks = function Ranks() {
             },
             disabled: pagination.currentPage <= 1,
             children: "<"
-          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             onClick: function onClick() {
               return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
                 currentPage: pagination.currentPage + 1
@@ -223785,21 +224675,21 @@ var Ranks = function Ranks() {
           })]
         })]
       })
-    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "confirm-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "confirm-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
           children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
           children: ["Do you want to archive \"", rankToArchive === null || rankToArchive === void 0 ? void 0 : rankToArchive.name, "\"?"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "confirm-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             className: "confirm-button",
             onClick: handleArchiveConfirm,
             children: "Yes, Archive"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
             className: "cancel-button",
             onClick: function onClick() {
               return setIsConfirmModalOpen(false);
@@ -223808,7 +224698,7 @@ var Ranks = function Ranks() {
           })]
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_RanksModal__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_RanksModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
       onClose: handleModalClose,
       onSubmit: isEditMode ? handleRankUpdate : handleRankAdd,
       isEdit: isEditMode,
@@ -225013,13 +225903,13 @@ var ServiceModal = function ServiceModal(_ref) {
               throw new Error("No auth token found. Please log in.");
             case 1:
               _context.n = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/collars", {
+              return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/collars", {
                 headers: {
                   Authorization: "Bearer ".concat(authToken),
                   Accept: "application/json"
                 },
                 signal: controller.signal,
-                timeout: 5000
+                timeout: 15000
               });
             case 2:
               response = _context.v;
@@ -225070,13 +225960,13 @@ var ServiceModal = function ServiceModal(_ref) {
               throw new Error("No auth token found. Please log in.");
             case 1:
               _context2.n = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/skills", {
+              return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/skills", {
                 headers: {
                   Authorization: "Bearer ".concat(authToken),
                   Accept: "application/json"
                 },
                 signal: controller.signal,
-                timeout: 5000
+                timeout: 15000
               });
             case 2:
               response = _context2.v;
@@ -225420,12 +226310,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconSearch.mjs");
-/* harmony import */ var _sass_components_userlist_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../sass/components/_userlist.scss */ "./resources/sass/components/_userlist.scss");
-/* harmony import */ var _Servicemodal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Servicemodal */ "./resources/js/components/adminside/services/Servicemodal.js");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_userlist_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../../sass/components/_userlist.scss */ "./resources/sass/components/_userlist.scss");
+/* harmony import */ var _Servicemodal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Servicemodal */ "./resources/js/components/adminside/services/Servicemodal.js");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -225527,7 +226416,7 @@ var Services = function Services() {
             throw new Error("No auth token found. Please log in.");
           case 1:
             _context.n = 2;
-            return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/services", {
+            return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/services", {
               params: {
                 archived: showArchived,
                 search: searchTerm,
@@ -225540,13 +226429,13 @@ var Services = function Services() {
               },
               signal: signal,
               timeout: 10000
-            }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/skills", {
+            }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/skills", {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
               },
               signal: signal,
-              timeout: 5000
+              timeout: 15000
             })]);
           case 2:
             _yield$Promise$all = _context.v;
@@ -225575,7 +226464,7 @@ var Services = function Services() {
             return _context.a(2);
           case 4:
             console.error("Error fetching data:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].error(((_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 401 ? "Unauthorized: Please log in again." : "Failed to fetch data. Please check the server or network.");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response2 = _t.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status) === 401 ? "Unauthorized: Please log in again." : "Failed to fetch data. Please check the server or network.");
             setServices([]);
             setSkills([]);
           case 5:
@@ -225623,7 +226512,7 @@ var Services = function Services() {
               submitData.append("service_image", formData.service_image);
             }
             _context2.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/services", submitData, {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/services", submitData, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 "Content-Type": "multipart/form-data",
@@ -225635,7 +226524,7 @@ var Services = function Services() {
           case 2:
             response = _context2.v;
             setIsModalOpen(false);
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].success("Service added successfully");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Service added successfully");
             _context2.n = 3;
             return fetchData(signal);
           case 3:
@@ -225688,7 +226577,7 @@ var Services = function Services() {
             }
             submitData.append("_method", "PUT");
             _context3.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/services/".concat(serviceToEdit.id), submitData, {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/services/".concat(serviceToEdit.id), submitData, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 "Content-Type": "multipart/form-data",
@@ -225702,7 +226591,7 @@ var Services = function Services() {
             setIsModalOpen(false);
             setIsEditMode(false);
             setServiceToEdit(null);
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].success("Service updated successfully");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Service updated successfully");
             _context3.n = 3;
             return fetchData(signal);
           case 3:
@@ -225777,19 +226666,19 @@ var Services = function Services() {
             throw new Error("No auth token found. Please log in.");
           case 2:
             _context4.n = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("http://127.0.0.1:8000/api/services/".concat(serviceToArchive.id, "/archive"), {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("/api/services/".concat(serviceToArchive.id, "/archive"), {
               archived: true
             }, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
               },
-              timeout: 5000
+              timeout: 15000
             });
           case 3:
             setIsConfirmModalOpen(false);
             setServiceToArchive(null);
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].success("Service archived successfully");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Service archived successfully");
             controller = new AbortController();
             _context4.n = 4;
             return fetchData(controller.signal);
@@ -225806,7 +226695,7 @@ var Services = function Services() {
             return _context4.a(2);
           case 6:
             console.error("Error archiving service:", ((_error$response5 = _t4.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t4.message);
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].error(((_error$response6 = _t4.response) === null || _error$response6 === void 0 ? void 0 : _error$response6.status) === 401 ? "Unauthorized: Please log in again." : "Failed to archive service. Please try again.");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response6 = _t4.response) === null || _error$response6 === void 0 ? void 0 : _error$response6.status) === 401 ? "Unauthorized: Please log in again." : "Failed to archive service. Please try again.");
           case 7:
             return _context4.a(2);
         }
@@ -225831,17 +226720,17 @@ var Services = function Services() {
             throw new Error("No auth token found. Please log in.");
           case 1:
             _context5.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("http://127.0.0.1:8000/api/services/".concat(serviceId, "/archive"), {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("/api/services/".concat(serviceId, "/archive"), {
               archived: false
             }, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
               },
-              timeout: 5000
+              timeout: 15000
             });
           case 2:
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].success("Service restored successfully");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Service restored successfully");
             controller = new AbortController();
             _context5.n = 3;
             return fetchData(controller.signal);
@@ -225858,7 +226747,7 @@ var Services = function Services() {
             return _context5.a(2);
           case 5:
             console.error("Error restoring service:", ((_error$response7 = _t5.response) === null || _error$response7 === void 0 ? void 0 : _error$response7.data) || _t5.message);
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].error(((_error$response8 = _t5.response) === null || _error$response8 === void 0 ? void 0 : _error$response8.status) === 401 ? "Unauthorized: Please log in again." : "Failed to restore service. Please try again.");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response8 = _t5.response) === null || _error$response8 === void 0 ? void 0 : _error$response8.status) === 401 ? "Unauthorized: Please log in again." : "Failed to restore service. Please try again.");
           case 6:
             return _context5.a(2);
         }
@@ -225878,7 +226767,7 @@ var Services = function Services() {
               _context6.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].warning("No services selected");
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].warning("No services selected");
             return _context6.a(2);
           case 1:
             _context6.p = 1;
@@ -225890,7 +226779,7 @@ var Services = function Services() {
             throw new Error("No auth token found. Please log in.");
           case 2:
             _context6.n = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("http://127.0.0.1:8000/api/services/bulk-archive", {
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/services/bulk-archive", {
               service_ids: selectedServices,
               action: action
             }, {
@@ -225902,7 +226791,7 @@ var Services = function Services() {
             });
           case 3:
             setSelectedServices([]);
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].success("Services ".concat(action, "d successfully"));
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Services ".concat(action, "d successfully"));
             controller = new AbortController();
             _context6.n = 4;
             return fetchData(controller.signal);
@@ -225919,7 +226808,7 @@ var Services = function Services() {
             return _context6.a(2);
           case 6:
             console.error("Error ".concat(action, "ing services:"), ((_error$response9 = _t6.response) === null || _error$response9 === void 0 ? void 0 : _error$response9.data) || _t6.message);
-            antd__WEBPACK_IMPORTED_MODULE_12__["default"].error(((_error$response0 = _t6.response) === null || _error$response0 === void 0 ? void 0 : _error$response0.status) === 401 ? "Unauthorized: Please log in again." : "Failed to ".concat(action, " services. Please try again."));
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response0 = _t6.response) === null || _error$response0 === void 0 ? void 0 : _error$response0.status) === 401 ? "Unauthorized: Please log in again." : "Failed to ".concat(action, " services. Please try again."));
           case 7:
             return _context6.a(2);
         }
@@ -225968,7 +226857,7 @@ var Services = function Services() {
     var endPage = Math.min(pagination.totalPages, startPage + maxPagesToShow - 1);
     if (pagination.totalPages <= maxPagesToShow) {
       var _loop = function _loop(i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
           className: pagination.currentPage === i ? "active" : "",
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
@@ -225983,7 +226872,7 @@ var Services = function Services() {
       }
     } else {
       if (startPage > 1) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
               currentPage: 1
@@ -225992,14 +226881,14 @@ var Services = function Services() {
           children: "1"
         }, 1));
         if (startPage > 2) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "start-ellipsis"));
         }
       }
       var _loop2 = function _loop2(_i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
           className: pagination.currentPage === _i ? "active" : "",
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
@@ -226014,12 +226903,12 @@ var Services = function Services() {
       }
       if (endPage < pagination.totalPages) {
         if (endPage < pagination.totalPages - 1) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "end-ellipsis"));
         }
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
               currentPage: pagination.totalPages
@@ -226031,142 +226920,136 @@ var Services = function Services() {
     }
     return pageNumbers;
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
     className: "app",
-    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_11__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
       activeItem: "Services"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       className: "userlist-dashboard",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
         className: "userlist-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
           children: showArchived ? "Archived Services" : "Services"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "userlist-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
             className: "left-actions",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-              className: "search-container",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                size: 20,
-                className: "search-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
-                type: "text",
-                className: "search-input",
-                placeholder: "Search Services",
-                value: searchTerm,
-                onChange: function onChange(e) {
-                  return setSearchTerm(e.target.value);
-                }
-              })]
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+              type: "text",
+              className: "search-input",
+              placeholder: "Search Services",
+              value: searchTerm,
+              onChange: function onChange(e) {
+                return setSearchTerm(e.target.value);
+              }
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "right-actions",
-            children: [selectedServices.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("button", {
+            children: [selectedServices.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
               className: "header-button archive-all-button",
               onClick: function onClick() {
                 return handleBulkAction(showArchived ? "restore" : "archive");
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "Restore All" : "Archive All"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
               className: "header-button",
               onClick: handleAddNewClick,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "button-text",
                 children: "Add New"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
               className: "header-button",
               onClick: handleToggleArchived,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "View Active" : "View Archived"
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
           className: "userlist-table",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("table", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("table", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                     className: "header-actions-icon",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                       onClick: toggleSelectAll,
                       style: {
                         cursor: "pointer"
                       },
-                      children: selectedServices.length === services.length && services.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                      children: selectedServices.length === services.length && services.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                         className: "checkbox-icon"
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                         className: "checkbox-icon"
                       })
                     }), "Actions"]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Service Image"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Description"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Color Collar"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Fetch Skills"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("tbody", {
-              children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tbody", {
+              children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                   colSpan: "6",
                   className: "loading-row",
                   children: "Loading services..."
                 })
               }) : services.length > 0 ? services.map(function (service) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                       className: "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                         onClick: function onClick() {
                           return toggleSelectService(service.id);
                         },
                         style: {
                           cursor: "pointer"
                         },
-                        children: selectedServices.includes(service.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                        children: selectedServices.includes(service.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                           className: "checkbox-icon",
                           size: 16
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                           className: "checkbox-icon",
                           size: 16
                         })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
+                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
                         size: 16,
                         className: "restore-icon",
                         onClick: function onClick() {
                           return handleRestoreService(service.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
                           return handleArchiveClick(service);
                         }
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEdit, {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEdit, {
                         size: 16,
                         className: "edit-icon",
                         onClick: function onClick() {
@@ -226174,8 +227057,8 @@ var Services = function Services() {
                         }
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
-                    children: service.service_image ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    children: service.service_image ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
                       src: "http://127.0.0.1:8000/storage/".concat(service.service_image),
                       alt: "Service",
                       className: "service-img",
@@ -226186,31 +227069,31 @@ var Services = function Services() {
                         objectFit: "cover"
                       }
                     }) : "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: service.name || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: service.description || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: service.color_collar_name || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: service.skills ? service.skills.map(function (skill) {
                       return skill.name;
                     }).join(", ") : "N/A"
                   })]
                 }, service.id);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("td", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("td", {
                   colSpan: "6",
                   children: ["No ", showArchived ? "archived" : "active", " services found"]
                 })
               })
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "userlist-pagination",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
             children: ["Page ", pagination.currentPage, " of ", pagination.totalPages]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
             onClick: function onClick() {
               return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
                 currentPage: pagination.currentPage - 1
@@ -226218,7 +227101,7 @@ var Services = function Services() {
             },
             disabled: pagination.currentPage <= 1,
             children: "<"
-          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
             onClick: function onClick() {
               return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
                 currentPage: pagination.currentPage + 1
@@ -226229,21 +227112,21 @@ var Services = function Services() {
           })]
         })]
       })
-    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       className: "confirm-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
         className: "confirm-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
           children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("p", {
           children: ["Do you want to archive \"", serviceToArchive === null || serviceToArchive === void 0 ? void 0 : serviceToArchive.name, "\"?"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "confirm-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
             className: "confirm-button",
             onClick: handleArchiveConfirm,
             children: "Yes, Archive"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
             className: "cancel-button",
             onClick: function onClick() {
               return setIsConfirmModalOpen(false);
@@ -226252,7 +227135,7 @@ var Services = function Services() {
           })]
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Servicemodal__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Servicemodal__WEBPACK_IMPORTED_MODULE_9__["default"], {
       onClose: handleModalClose,
       onSubmit: isEditMode ? handleServiceUpdate : handleServiceAdd,
       isEdit: isEditMode,
@@ -229526,7 +230409,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleReviewConfirm = /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7() {
-      var authToken, status, response, _err$response8, _err$response9, errorMessage, _t7;
+      var authToken, status, response, _err$response8, _err$response0, _err$response1, _err$response9, _errorMessage, errorMessage, _t7;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
           case 0:
@@ -229570,7 +230453,7 @@ var WorkerList = function WorkerList() {
             setReviewAction(null);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Worker \"".concat(getFullName(workerToReview, suffixes), "\" ").concat(reviewAction, "d successfully!"));
           case 5:
-            _context7.n = 8;
+            _context7.n = 10;
             break;
           case 6:
             _context7.p = 6;
@@ -229581,18 +230464,34 @@ var WorkerList = function WorkerList() {
             }
             return _context7.a(2);
           case 7:
-            errorMessage = ((_err$response8 = _t7.response) === null || _err$response8 === void 0 || (_err$response8 = _err$response8.data) === null || _err$response8 === void 0 ? void 0 : _err$response8.error) || "Failed to ".concat(reviewAction, " worker.");
+            if (!(((_err$response8 = _t7.response) === null || _err$response8 === void 0 ? void 0 : _err$response8.status) === 404)) {
+              _context7.n = 9;
+              break;
+            }
+            _errorMessage = ((_err$response9 = _t7.response) === null || _err$response9 === void 0 || (_err$response9 = _err$response9.data) === null || _err$response9 === void 0 ? void 0 : _err$response9.error) || 'Worker not found. The worker may have been deleted.';
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(_errorMessage);
+
+            // Refresh the worker list to remove the deleted worker
+            _context7.n = 8;
+            return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+          case 8:
+            setIsConfirmModalOpen(false);
+            setWorkerToReview(null);
+            setReviewAction(null);
+            return _context7.a(2);
+          case 9:
+            errorMessage = ((_err$response0 = _t7.response) === null || _err$response0 === void 0 || (_err$response0 = _err$response0.data) === null || _err$response0 === void 0 ? void 0 : _err$response0.error) || "Failed to ".concat(reviewAction, " worker.");
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Review error:", ((_err$response9 = _t7.response) === null || _err$response9 === void 0 ? void 0 : _err$response9.data) || _t7.message);
-          case 8:
-            _context7.p = 8;
+            console.error("Review error:", ((_err$response1 = _t7.response) === null || _err$response1 === void 0 ? void 0 : _err$response1.data) || _t7.message);
+          case 10:
+            _context7.p = 10;
             setLoading(false);
-            return _context7.f(8);
-          case 9:
+            return _context7.f(10);
+          case 11:
             return _context7.a(2);
         }
-      }, _callee7, null, [[1, 6, 8, 9]]);
+      }, _callee7, null, [[1, 6, 10, 11]]);
     }));
     return function handleReviewConfirm() {
       return _ref8.apply(this, arguments);
@@ -229600,7 +230499,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleRestoreWorker = /*#__PURE__*/function () {
     var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(workerId) {
-      var worker, authToken, response, _err$response0, _err$response1, errorMessage, _t8;
+      var worker, authToken, response, _err$response10, _err$response11, errorMessage, _t8;
       return _regenerator().w(function (_context8) {
         while (1) switch (_context8.p = _context8.n) {
           case 0:
@@ -229655,10 +230554,10 @@ var WorkerList = function WorkerList() {
             }
             return _context8.a(2);
           case 7:
-            errorMessage = ((_err$response0 = _t8.response) === null || _err$response0 === void 0 || (_err$response0 = _err$response0.data) === null || _err$response0 === void 0 ? void 0 : _err$response0.error) || "Failed to restore worker.";
+            errorMessage = ((_err$response10 = _t8.response) === null || _err$response10 === void 0 || (_err$response10 = _err$response10.data) === null || _err$response10 === void 0 ? void 0 : _err$response10.error) || "Failed to restore worker.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Restore error:", ((_err$response1 = _t8.response) === null || _err$response1 === void 0 ? void 0 : _err$response1.data) || _t8.message);
+            console.error("Restore error:", ((_err$response11 = _t8.response) === null || _err$response11 === void 0 ? void 0 : _err$response11.data) || _t8.message);
           case 8:
             _context8.p = 8;
             setLoading(false);
@@ -229674,7 +230573,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleBulkAction = /*#__PURE__*/function () {
     var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(action) {
-      var authToken, validWorkerIds, response, _err$response10, _err$response11, errorMessage, _t9;
+      var authToken, validWorkerIds, response, _err$response12, _err$response13, errorMessage, _t9;
       return _regenerator().w(function (_context9) {
         while (1) switch (_context9.p = _context9.n) {
           case 0:
@@ -229741,10 +230640,10 @@ var WorkerList = function WorkerList() {
             }
             return _context9.a(2);
           case 8:
-            errorMessage = ((_err$response10 = _t9.response) === null || _err$response10 === void 0 || (_err$response10 = _err$response10.data) === null || _err$response10 === void 0 ? void 0 : _err$response10.error) || "Failed to ".concat(action, " workers. Please try again.");
+            errorMessage = ((_err$response12 = _t9.response) === null || _err$response12 === void 0 || (_err$response12 = _err$response12.data) === null || _err$response12 === void 0 ? void 0 : _err$response12.error) || "Failed to ".concat(action, " workers. Please try again.");
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Bulk action error:", ((_err$response11 = _t9.response) === null || _err$response11 === void 0 ? void 0 : _err$response11.data) || _t9.message);
+            console.error("Bulk action error:", ((_err$response13 = _t9.response) === null || _err$response13 === void 0 ? void 0 : _err$response13.data) || _t9.message);
           case 9:
             _context9.p = 9;
             setLoading(false);
@@ -229760,7 +230659,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleBulkReview = /*#__PURE__*/function () {
     var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(action) {
-      var authToken, pendingIds, status, response, _err$response12, _err$response13, errorMessage, _t0;
+      var authToken, pendingIds, status, response, _err$response14, _err$response16, _err$response17, _err$response15, _errorMessage2, errorMessage, _t0;
       return _regenerator().w(function (_context0) {
         while (1) switch (_context0.p = _context0.n) {
           case 0:
@@ -229819,7 +230718,7 @@ var WorkerList = function WorkerList() {
             setSelectedWorkers([]);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("".concat(pendingIds.length, " workers ").concat(action === 'accept' ? 'accepted' : 'declined', " successfully!"));
           case 6:
-            _context0.n = 9;
+            _context0.n = 11;
             break;
           case 7:
             _context0.p = 7;
@@ -229830,18 +230729,32 @@ var WorkerList = function WorkerList() {
             }
             return _context0.a(2);
           case 8:
-            errorMessage = ((_err$response12 = _t0.response) === null || _err$response12 === void 0 || (_err$response12 = _err$response12.data) === null || _err$response12 === void 0 ? void 0 : _err$response12.error) || "Failed to ".concat(action, " selected workers.");
+            if (!(((_err$response14 = _t0.response) === null || _err$response14 === void 0 ? void 0 : _err$response14.status) === 404)) {
+              _context0.n = 10;
+              break;
+            }
+            _errorMessage2 = ((_err$response15 = _t0.response) === null || _err$response15 === void 0 || (_err$response15 = _err$response15.data) === null || _err$response15 === void 0 ? void 0 : _err$response15.error) || 'Some workers not found. The workers may have been deleted.';
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(_errorMessage2);
+
+            // Refresh the worker list to remove any deleted workers
+            _context0.n = 9;
+            return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+          case 9:
+            setSelectedWorkers([]);
+            return _context0.a(2);
+          case 10:
+            errorMessage = ((_err$response16 = _t0.response) === null || _err$response16 === void 0 || (_err$response16 = _err$response16.data) === null || _err$response16 === void 0 ? void 0 : _err$response16.error) || "Failed to ".concat(action, " selected workers.");
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Bulk review error:", ((_err$response13 = _t0.response) === null || _err$response13 === void 0 ? void 0 : _err$response13.data) || _t0.message);
-          case 9:
-            _context0.p = 9;
+            console.error("Bulk review error:", ((_err$response17 = _t0.response) === null || _err$response17 === void 0 ? void 0 : _err$response17.data) || _t0.message);
+          case 11:
+            _context0.p = 11;
             setLoading(false);
-            return _context0.f(9);
-          case 10:
+            return _context0.f(11);
+          case 12:
             return _context0.a(2);
         }
-      }, _callee0, null, [[1, 7, 9, 10]]);
+      }, _callee0, null, [[1, 7, 11, 12]]);
     }));
     return function handleBulkReview(_x6) {
       return _ref1.apply(this, arguments);
@@ -229849,7 +230762,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleBulkDeleteDeclined = /*#__PURE__*/function () {
     var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1() {
-      var authToken, declinedIds, response, _err$response14, _err$response15, errorMessage, _t1;
+      var authToken, declinedIds, response, _err$response18, _err$response19, errorMessage, _t1;
       return _regenerator().w(function (_context1) {
         while (1) switch (_context1.p = _context1.n) {
           case 0:
@@ -229920,10 +230833,10 @@ var WorkerList = function WorkerList() {
             }
             return _context1.a(2);
           case 8:
-            errorMessage = ((_err$response14 = _t1.response) === null || _err$response14 === void 0 || (_err$response14 = _err$response14.data) === null || _err$response14 === void 0 ? void 0 : _err$response14.error) || "Failed to delete selected declined workers.";
+            errorMessage = ((_err$response18 = _t1.response) === null || _err$response18 === void 0 || (_err$response18 = _err$response18.data) === null || _err$response18 === void 0 ? void 0 : _err$response18.error) || "Failed to delete selected declined workers.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Bulk delete declined error:", ((_err$response15 = _t1.response) === null || _err$response15 === void 0 ? void 0 : _err$response15.data) || _t1.message);
+            console.error("Bulk delete declined error:", ((_err$response19 = _t1.response) === null || _err$response19 === void 0 ? void 0 : _err$response19.data) || _t1.message);
           case 9:
             _context1.p = 9;
             setLoading(false);
@@ -229939,7 +230852,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleDeleteArchivedWorker = /*#__PURE__*/function () {
     var _ref11 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee10(workerId) {
-      var authToken, response, _err$response16, errorMessage, _t10;
+      var authToken, response, _err$response20, errorMessage, _t10;
       return _regenerator().w(function (_context10) {
         while (1) switch (_context10.p = _context10.n) {
           case 0:
@@ -229982,7 +230895,7 @@ var WorkerList = function WorkerList() {
             }
             return _context10.a(2);
           case 6:
-            errorMessage = ((_err$response16 = _t10.response) === null || _err$response16 === void 0 || (_err$response16 = _err$response16.data) === null || _err$response16 === void 0 ? void 0 : _err$response16.error) || "Failed to delete worker.";
+            errorMessage = ((_err$response20 = _t10.response) === null || _err$response20 === void 0 || (_err$response20 = _err$response20.data) === null || _err$response20 === void 0 ? void 0 : _err$response20.error) || "Failed to delete worker.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
           case 7:
@@ -230000,7 +230913,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleBulkDeleteArchived = /*#__PURE__*/function () {
     var _ref12 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee11() {
-      var authToken, archivedIds, response, _err$response17, errorMessage, _t11;
+      var authToken, archivedIds, response, _err$response21, errorMessage, _t11;
       return _regenerator().w(function (_context11) {
         while (1) switch (_context11.p = _context11.n) {
           case 0:
@@ -230066,7 +230979,7 @@ var WorkerList = function WorkerList() {
             }
             return _context11.a(2);
           case 8:
-            errorMessage = ((_err$response17 = _t11.response) === null || _err$response17 === void 0 || (_err$response17 = _err$response17.data) === null || _err$response17 === void 0 ? void 0 : _err$response17.error) || "Failed to delete archived workers.";
+            errorMessage = ((_err$response21 = _t11.response) === null || _err$response21 === void 0 || (_err$response21 = _err$response21.data) === null || _err$response21 === void 0 ? void 0 : _err$response21.error) || "Failed to delete archived workers.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
           case 9:
@@ -230115,7 +231028,7 @@ var WorkerList = function WorkerList() {
   };
   var handleEditClick = /*#__PURE__*/function () {
     var _ref13 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12(worker) {
-      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, _response$data$worker5, authToken, response, _err$response18, _err$response19, errorMessage, _t12;
+      var _response$data$profil, _response$data$profil2, _response$data$profil3, _response$data$profil4, _response$data$profil5, _response$data$profil6, _response$data$profil7, _response$data$profil8, _response$data$profil9, _response$data$profil0, _response$data$profil1, _response$data$profil10, _response$data$profil11, _response$data$worker, _response$data$worker2, _response$data$worker3, _response$data$worker4, _response$data$worker5, _response$data$worker6, _response$data$worker7, _response$data$worker8, _response$data$worker9, _response$data$worker0, _response$data$worker1, _response$data$worker10, authToken, response, _err$response22, _err$response23, errorMessage, _t12;
       return _regenerator().w(function (_context12) {
         while (1) switch (_context12.p = _context12.n) {
           case 0:
@@ -230142,27 +231055,39 @@ var WorkerList = function WorkerList() {
               id: response.data.id,
               email: response.data.email || "",
               username: response.data.username || "",
+              archived: response.data.archived || false,
+              created_at: response.data.created_at || null,
+              updated_at: response.data.updated_at || null,
+              profile_id: response.data.profile_id || null,
               profile: {
-                first_name: ((_response$data$profil = response.data.profile) === null || _response$data$profil === void 0 ? void 0 : _response$data$profil.first_name) || "",
-                middlename: ((_response$data$profil2 = response.data.profile) === null || _response$data$profil2 === void 0 ? void 0 : _response$data$profil2.middlename) || "",
-                last_name: ((_response$data$profil3 = response.data.profile) === null || _response$data$profil3 === void 0 ? void 0 : _response$data$profil3.last_name) || "",
-                suffix_id: (_response$data$profil4 = response.data.profile) !== null && _response$data$profil4 !== void 0 && _response$data$profil4.suffix_id ? String(response.data.profile.suffix_id) : "",
-                gender_id: (_response$data$profil5 = response.data.profile) !== null && _response$data$profil5 !== void 0 && _response$data$profil5.gender_id ? String(response.data.profile.gender_id) : "",
-                contact_number: ((_response$data$profil6 = response.data.profile) === null || _response$data$profil6 === void 0 ? void 0 : _response$data$profil6.contact_number) || "",
-                street: ((_response$data$profil7 = response.data.profile) === null || _response$data$profil7 === void 0 ? void 0 : _response$data$profil7.street) || "",
-                city: ((_response$data$profil8 = response.data.profile) === null || _response$data$profil8 === void 0 ? void 0 : _response$data$profil8.city) || "Butuan City",
-                province: ((_response$data$profil9 = response.data.profile) === null || _response$data$profil9 === void 0 ? void 0 : _response$data$profil9.province) || "Agusan Del Norte",
-                postal_code: ((_response$data$profil0 = response.data.profile) === null || _response$data$profil0 === void 0 ? void 0 : _response$data$profil0.postal_code) || "8600",
-                country: ((_response$data$profil1 = response.data.profile) === null || _response$data$profil1 === void 0 ? void 0 : _response$data$profil1.country) || "Philippines",
+                id: ((_response$data$profil = response.data.profile) === null || _response$data$profil === void 0 ? void 0 : _response$data$profil.id) || null,
+                first_name: ((_response$data$profil2 = response.data.profile) === null || _response$data$profil2 === void 0 ? void 0 : _response$data$profil2.first_name) || "",
+                middlename: ((_response$data$profil3 = response.data.profile) === null || _response$data$profil3 === void 0 ? void 0 : _response$data$profil3.middlename) || "",
+                last_name: ((_response$data$profil4 = response.data.profile) === null || _response$data$profil4 === void 0 ? void 0 : _response$data$profil4.last_name) || "",
+                suffix_id: (_response$data$profil5 = response.data.profile) !== null && _response$data$profil5 !== void 0 && _response$data$profil5.suffix_id ? String(response.data.profile.suffix_id) : "",
+                gender_id: (_response$data$profil6 = response.data.profile) !== null && _response$data$profil6 !== void 0 && _response$data$profil6.gender_id ? String(response.data.profile.gender_id) : "",
+                contact_number: ((_response$data$profil7 = response.data.profile) === null || _response$data$profil7 === void 0 ? void 0 : _response$data$profil7.contact_number) || "",
+                street: ((_response$data$profil8 = response.data.profile) === null || _response$data$profil8 === void 0 ? void 0 : _response$data$profil8.street) || "",
+                city: ((_response$data$profil9 = response.data.profile) === null || _response$data$profil9 === void 0 ? void 0 : _response$data$profil9.city) || "Butuan City",
+                province: ((_response$data$profil0 = response.data.profile) === null || _response$data$profil0 === void 0 ? void 0 : _response$data$profil0.province) || "Agusan Del Norte",
+                postal_code: ((_response$data$profil1 = response.data.profile) === null || _response$data$profil1 === void 0 ? void 0 : _response$data$profil1.postal_code) || "8600",
+                country: ((_response$data$profil10 = response.data.profile) === null || _response$data$profil10 === void 0 ? void 0 : _response$data$profil10.country) || "Philippines",
                 profile_img: null,
-                image_url: ((_response$data$profil10 = response.data.profile) === null || _response$data$profil10 === void 0 ? void 0 : _response$data$profil10.profile_img) || null
+                image_url: ((_response$data$profil11 = response.data.profile) === null || _response$data$profil11 === void 0 ? void 0 : _response$data$profil11.profile_img) || null
               },
               worker: {
                 work_type: ((_response$data$worker = response.data.worker) === null || _response$data$worker === void 0 ? void 0 : _response$data$worker.work_type) || "part-time",
-                skills_id: ((_response$data$worker2 = response.data.worker) === null || _response$data$worker2 === void 0 ? void 0 : _response$data$worker2.skills_id) || [],
-                credentials_name: ((_response$data$worker3 = response.data.worker) === null || _response$data$worker3 === void 0 ? void 0 : _response$data$worker3.credentials_name) || [],
-                credentials_photo: ((_response$data$worker4 = response.data.worker) === null || _response$data$worker4 === void 0 ? void 0 : _response$data$worker4.credentials_photo) || [],
-                is_reviewed: ((_response$data$worker5 = response.data.worker) === null || _response$data$worker5 === void 0 ? void 0 : _response$data$worker5.is_reviewed) || "0"
+                hours_per_day: ((_response$data$worker2 = response.data.worker) === null || _response$data$worker2 === void 0 ? void 0 : _response$data$worker2.hours_per_day) || 4,
+                preferred_working_hours: ((_response$data$worker3 = response.data.worker) === null || _response$data$worker3 === void 0 ? void 0 : _response$data$worker3.preferred_working_hours) || [],
+                preferred_working_days: ((_response$data$worker4 = response.data.worker) === null || _response$data$worker4 === void 0 ? void 0 : _response$data$worker4.preferred_working_days) || [],
+                bio: ((_response$data$worker5 = response.data.worker) === null || _response$data$worker5 === void 0 ? void 0 : _response$data$worker5.bio) || "",
+                skills_id: ((_response$data$worker6 = response.data.worker) === null || _response$data$worker6 === void 0 ? void 0 : _response$data$worker6.skills_id) || [],
+                credentials_name: ((_response$data$worker7 = response.data.worker) === null || _response$data$worker7 === void 0 ? void 0 : _response$data$worker7.credentials_name) || [],
+                credentials_photo: ((_response$data$worker8 = response.data.worker) === null || _response$data$worker8 === void 0 ? void 0 : _response$data$worker8.credentials_photo) || [],
+                credentials_doc: ((_response$data$worker9 = response.data.worker) === null || _response$data$worker9 === void 0 ? void 0 : _response$data$worker9.credentials_doc) || [],
+                is_reviewed: ((_response$data$worker0 = response.data.worker) === null || _response$data$worker0 === void 0 ? void 0 : _response$data$worker0.is_reviewed) || "0",
+                verified: ((_response$data$worker1 = response.data.worker) === null || _response$data$worker1 === void 0 ? void 0 : _response$data$worker1.verified) || false,
+                rank: ((_response$data$worker10 = response.data.worker) === null || _response$data$worker10 === void 0 ? void 0 : _response$data$worker10.rank) || null
               }
             });
             setIsEditMode(true);
@@ -230179,10 +231104,10 @@ var WorkerList = function WorkerList() {
             }
             return _context12.a(2);
           case 4:
-            errorMessage = ((_err$response18 = _t12.response) === null || _err$response18 === void 0 || (_err$response18 = _err$response18.data) === null || _err$response18 === void 0 ? void 0 : _err$response18.error) || "Failed to fetch worker details.";
+            errorMessage = ((_err$response22 = _t12.response) === null || _err$response22 === void 0 || (_err$response22 = _err$response22.data) === null || _err$response22 === void 0 ? void 0 : _err$response22.error) || "Failed to fetch worker details.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Fetch worker details error:", ((_err$response19 = _t12.response) === null || _err$response19 === void 0 ? void 0 : _err$response19.data) || _t12.message);
+            console.error("Fetch worker details error:", ((_err$response23 = _t12.response) === null || _err$response23 === void 0 ? void 0 : _err$response23.data) || _t12.message);
           case 5:
             _context12.p = 5;
             setLoading(false);
@@ -230212,7 +231137,7 @@ var WorkerList = function WorkerList() {
   };
   var handleWorkerAdd = /*#__PURE__*/function () {
     var _ref14 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee13(formData, workerId, signal) {
-      var authToken, response, _err$response20, _err$response21, errorMessage, _t13;
+      var authToken, response, _err$response24, _err$response25, errorMessage, _t13;
       return _regenerator().w(function (_context13) {
         while (1) switch (_context13.p = _context13.n) {
           case 0:
@@ -230260,10 +231185,10 @@ var WorkerList = function WorkerList() {
             console.log("Add request was aborted");
             return _context13.a(2);
           case 6:
-            errorMessage = ((_err$response20 = _t13.response) === null || _err$response20 === void 0 || (_err$response20 = _err$response20.data) === null || _err$response20 === void 0 ? void 0 : _err$response20.error) || "Failed to add worker.";
+            errorMessage = ((_err$response24 = _t13.response) === null || _err$response24 === void 0 || (_err$response24 = _err$response24.data) === null || _err$response24 === void 0 ? void 0 : _err$response24.error) || "Failed to add worker.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Error adding worker:", ((_err$response21 = _t13.response) === null || _err$response21 === void 0 ? void 0 : _err$response21.data) || _t13.message);
+            console.error("Error adding worker:", ((_err$response25 = _t13.response) === null || _err$response25 === void 0 ? void 0 : _err$response25.data) || _t13.message);
             throw _t13;
           case 7:
             _context13.p = 7;
@@ -230280,7 +231205,7 @@ var WorkerList = function WorkerList() {
   }();
   var handleWorkerUpdate = /*#__PURE__*/function () {
     var _ref15 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee14(formData, workerId, signal) {
-      var authToken, response, _err$response22, _err$response23, errorMessage, _t14;
+      var authToken, response, _err$response26, _err$response28, _err$response29, _err$response27, _errorMessage3, errorMessage, _t14;
       return _regenerator().w(function (_context14) {
         while (1) switch (_context14.p = _context14.n) {
           case 0:
@@ -230318,7 +231243,7 @@ var WorkerList = function WorkerList() {
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Worker updated successfully!");
             return _context14.a(2, response.data);
           case 4:
-            _context14.n = 7;
+            _context14.n = 9;
             break;
           case 5:
             _context14.p = 5;
@@ -230330,19 +231255,35 @@ var WorkerList = function WorkerList() {
             console.log("Update request was aborted");
             return _context14.a(2);
           case 6:
-            errorMessage = ((_err$response22 = _t14.response) === null || _err$response22 === void 0 || (_err$response22 = _err$response22.data) === null || _err$response22 === void 0 ? void 0 : _err$response22.error) || "Failed to update worker.";
+            if (!(((_err$response26 = _t14.response) === null || _err$response26 === void 0 ? void 0 : _err$response26.status) === 404)) {
+              _context14.n = 8;
+              break;
+            }
+            _errorMessage3 = ((_err$response27 = _t14.response) === null || _err$response27 === void 0 || (_err$response27 = _err$response27.data) === null || _err$response27 === void 0 ? void 0 : _err$response27.error) || 'Worker not found. The worker may have been deleted.';
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(_errorMessage3);
+
+            // Refresh the worker list to remove the deleted worker
+            _context14.n = 7;
+            return fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+          case 7:
+            setIsModalOpen(false);
+            setIsEditMode(false);
+            setWorkerToEdit(null);
+            return _context14.a(2);
+          case 8:
+            errorMessage = ((_err$response28 = _t14.response) === null || _err$response28 === void 0 || (_err$response28 = _err$response28.data) === null || _err$response28 === void 0 ? void 0 : _err$response28.error) || "Failed to update worker.";
             setError(errorMessage);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            console.error("Error updating worker:", ((_err$response23 = _t14.response) === null || _err$response23 === void 0 ? void 0 : _err$response23.data) || _t14.message);
+            console.error("Error updating worker:", ((_err$response29 = _t14.response) === null || _err$response29 === void 0 ? void 0 : _err$response29.data) || _t14.message);
             throw _t14;
-          case 7:
-            _context14.p = 7;
+          case 9:
+            _context14.p = 9;
             setLoading(false);
-            return _context14.f(7);
-          case 8:
+            return _context14.f(9);
+          case 10:
             return _context14.a(2);
         }
-      }, _callee14, null, [[0, 5, 7, 8]]);
+      }, _callee14, null, [[0, 5, 9, 10]]);
     }));
     return function handleWorkerUpdate(_x10, _x11, _x12) {
       return _ref15.apply(this, arguments);
@@ -230762,6 +231703,8 @@ var WorkerList = function WorkerList() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Hours/Day"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                  children: "Preferred Days"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Skills"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                   children: "Credentials"
@@ -230780,12 +231723,12 @@ var WorkerList = function WorkerList() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tbody", {
               children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tr", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                  colSpan: "12",
+                  colSpan: "13",
                   className: "loading-row",
                   children: "Loading workers..."
                 })
               }) : currentWorkers.length > 0 ? currentWorkers.map(function (worker) {
-                var _worker$worker5, _worker$worker6, _worker$worker7, _worker$worker8, _worker$profile, _worker$worker9, _worker$worker0, _worker$worker10, _worker$worker11, _worker$worker12;
+                var _worker$worker5, _worker$worker6, _worker$worker7, _worker$worker8, _worker$profile, _worker$worker9, _worker$worker0, _worker$worker1, _worker$worker11, _worker$worker12, _worker$worker13;
                 var credentials = Array.isArray((_worker$worker5 = worker.worker) === null || _worker$worker5 === void 0 ? void 0 : _worker$worker5.credentials_name) && (Array.isArray((_worker$worker6 = worker.worker) === null || _worker$worker6 === void 0 ? void 0 : _worker$worker6.credentials_photo) || Array.isArray((_worker$worker7 = worker.worker) === null || _worker$worker7 === void 0 ? void 0 : _worker$worker7.credentials_doc)) ? worker.worker.credentials_name.map(function (name, index) {
                   var _worker$worker$creden, _worker$worker$creden2;
                   return {
@@ -230909,9 +231852,11 @@ var WorkerList = function WorkerList() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: (_worker$worker0 = worker.worker) !== null && _worker$worker0 !== void 0 && _worker$worker0.hours_per_day ? "".concat(worker.worker.hours_per_day, " hrs") : "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                    children: (_worker$worker1 = worker.worker) !== null && _worker$worker1 !== void 0 && _worker$worker1.preferred_working_days ? Array.isArray(worker.worker.preferred_working_days) ? worker.worker.preferred_working_days.join(", ") : worker.worker.preferred_working_days : "N/A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     className: "skills-cell",
-                    children: function (_worker$worker1) {
-                      var skillsText = getDetailedSkillNames((_worker$worker1 = worker.worker) === null || _worker$worker1 === void 0 ? void 0 : _worker$worker1.skills_id);
+                    children: function (_worker$worker10) {
+                      var skillsText = getDetailedSkillNames((_worker$worker10 = worker.worker) === null || _worker$worker10 === void 0 ? void 0 : _worker$worker10.skills_id);
                       var words = skillsText.split(' ');
                       if (words.length > 30) {
                         return words.slice(0, 30).join(' ') + '...';
@@ -230923,18 +231868,33 @@ var WorkerList = function WorkerList() {
                     children: credentials.length > 0 ? credentials.map(function (cred, index) {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                         className: "credential-item",
-                        children: [cred.credentials_name, ":", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                        children: [cred.credentials_name, ":", " ", cred.credentials_photo && isImageFile(cred.credentials_photo) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
                           className: "credential-link",
                           onClick: function onClick() {
-                            return handlePreviewClick(cred);
+                            return handlePreviewClick(_objectSpread(_objectSpread({}, cred), {}, {
+                              credentials_photo: cred.credentials_photo,
+                              credentials_doc: null
+                            }));
                           },
-                          children: cred.credentials_photo && isImageFile(cred.credentials_photo) || cred.credentials_doc && isImageFile(cred.credentials_doc) ? "View Image" : "View File"
+                          style: {
+                            marginRight: '5px'
+                          },
+                          children: "View Photo"
+                        }), cred.credentials_doc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                          className: "credential-link",
+                          onClick: function onClick() {
+                            return handlePreviewClick(_objectSpread(_objectSpread({}, cred), {}, {
+                              credentials_photo: null,
+                              credentials_doc: cred.credentials_doc
+                            }));
+                          },
+                          children: isImageFile(cred.credentials_doc) ? "View Image" : "View Document"
                         })]
                       }, index);
                     }) : "None"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     className: "bio-cell",
-                    children: (_worker$worker10 = worker.worker) !== null && _worker$worker10 !== void 0 && _worker$worker10.bio ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                    children: (_worker$worker11 = worker.worker) !== null && _worker$worker11 !== void 0 && _worker$worker11.bio ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                       title: worker.worker.bio,
                       children: worker.worker.bio.length > 50 ? "".concat(worker.worker.bio.substring(0, 50), "...") : worker.worker.bio
                     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
@@ -230947,7 +231907,7 @@ var WorkerList = function WorkerList() {
                     className: "email-cell",
                     children: worker.email || "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("td", {
-                    children: [console.log('Worker ID:', worker.id, 'is_reviewed:', (_worker$worker11 = worker.worker) === null || _worker$worker11 === void 0 ? void 0 : _worker$worker11.is_reviewed), renderStatusBadge((_worker$worker12 = worker.worker) === null || _worker$worker12 === void 0 ? void 0 : _worker$worker12.is_reviewed)]
+                    children: [console.log('Worker ID:', worker.id, 'is_reviewed:', (_worker$worker12 = worker.worker) === null || _worker$worker12 === void 0 ? void 0 : _worker$worker12.is_reviewed), renderStatusBadge((_worker$worker13 = worker.worker) === null || _worker$worker13 === void 0 ? void 0 : _worker$worker13.is_reviewed)]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: formatDate(worker.created_at)
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
@@ -230956,7 +231916,7 @@ var WorkerList = function WorkerList() {
                 }, worker.id);
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tr", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("td", {
-                  colSpan: "12",
+                  colSpan: "13",
                   children: ["No ", showArchived ? "archived" : "active", " workers found"]
                 })
               })
@@ -231535,7 +232495,7 @@ var WorkerModal = function WorkerModal(_ref2) {
       setFilteredSkillsAdditional(skills);
     }
     if (isEdit && initialData) {
-      var _initialData$worker, _initialData$worker2;
+      var _initialData$worker, _initialData$worker2, _initialData$worker3;
       // Handle skills_id structure - it can be an object with primary_skills and additional_skills
       var initialSkills = [];
       if ((_initialData$worker = initialData.worker) !== null && _initialData$worker !== void 0 && _initialData$worker.skills_id) {
@@ -231550,40 +232510,40 @@ var WorkerModal = function WorkerModal(_ref2) {
         }
       }
 
-      // Ensure preferred_working_hours is always an array
-      var preferredWorkingHours = ((_initialData$worker2 = initialData.worker) === null || _initialData$worker2 === void 0 ? void 0 : _initialData$worker2.preferred_working_hours) || [];
+      // Ensure preferred_working_days is always an array (use preferred_working_days for consistency with table display)
+      var preferredWorkingDays = ((_initialData$worker2 = initialData.worker) === null || _initialData$worker2 === void 0 ? void 0 : _initialData$worker2.preferred_working_days) || ((_initialData$worker3 = initialData.worker) === null || _initialData$worker3 === void 0 ? void 0 : _initialData$worker3.preferred_working_hours) || [];
 
       // Handle different data formats
-      if (typeof preferredWorkingHours === 'string') {
+      if (typeof preferredWorkingDays === 'string') {
         try {
-          preferredWorkingHours = JSON.parse(preferredWorkingHours);
+          preferredWorkingDays = JSON.parse(preferredWorkingDays);
         } catch (e) {
           // If JSON parsing fails, try to handle as comma-separated string
-          if (preferredWorkingHours.includes(',')) {
-            preferredWorkingHours = preferredWorkingHours.split(',').map(function (day) {
+          if (preferredWorkingDays.includes(',')) {
+            preferredWorkingDays = preferredWorkingDays.split(',').map(function (day) {
               return day.trim().toLowerCase();
             });
-          } else if (preferredWorkingHours.trim()) {
-            preferredWorkingHours = [preferredWorkingHours.trim().toLowerCase()];
+          } else if (preferredWorkingDays.trim()) {
+            preferredWorkingDays = [preferredWorkingDays.trim().toLowerCase()];
           } else {
-            preferredWorkingHours = [];
+            preferredWorkingDays = [];
           }
         }
       }
 
       // Ensure it's always an array and normalize the values
-      if (!Array.isArray(preferredWorkingHours)) {
-        preferredWorkingHours = [];
+      if (!Array.isArray(preferredWorkingDays)) {
+        preferredWorkingDays = [];
       }
 
       // Normalize day names to lowercase
-      preferredWorkingHours = preferredWorkingHours.map(function (day) {
+      preferredWorkingDays = preferredWorkingDays.map(function (day) {
         return day.toLowerCase().trim();
       }).filter(function (day) {
         return ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].includes(day);
       });
       if (isMountedRef.current) {
-        var _initialData$profile, _initialData$profile2, _initialData$profile3, _initialData$profile4, _initialData$profile5, _initialData$profile6, _initialData$profile7, _initialData$profile8, _initialData$profile9, _initialData$profile0, _initialData$profile1, _initialData$profile10, _initialData$worker3, _initialData$worker4, _initialData$worker5, _initialData$worker6, _initialData$worker7, _initialData$worker8, _initialData$worker9, _initialData$worker0, _initialData$worker1;
+        var _initialData$profile, _initialData$profile2, _initialData$profile3, _initialData$profile4, _initialData$profile5, _initialData$profile6, _initialData$profile7, _initialData$profile8, _initialData$profile9, _initialData$profile0, _initialData$profile1, _initialData$profile10, _initialData$worker4, _initialData$worker5, _initialData$worker6, _initialData$worker7, _initialData$worker8, _initialData$worker9, _initialData$worker0, _initialData$worker1, _initialData$worker10, _initialData$worker11;
         var newFormData = {
           first_name: ((_initialData$profile = initialData.profile) === null || _initialData$profile === void 0 ? void 0 : _initialData$profile.first_name) || "",
           middlename: ((_initialData$profile2 = initialData.profile) === null || _initialData$profile2 === void 0 ? void 0 : _initialData$profile2.middlename) || "",
@@ -231599,19 +232559,21 @@ var WorkerModal = function WorkerModal(_ref2) {
           postal_code: ((_initialData$profile0 = initialData.profile) === null || _initialData$profile0 === void 0 ? void 0 : _initialData$profile0.postal_code) || "8600",
           country: ((_initialData$profile1 = initialData.profile) === null || _initialData$profile1 === void 0 ? void 0 : _initialData$profile1.country) || "Philippines",
           profile_img: ((_initialData$profile10 = initialData.profile) === null || _initialData$profile10 === void 0 ? void 0 : _initialData$profile10.profile_img) || null,
-          work_type: ((_initialData$worker3 = initialData.worker) === null || _initialData$worker3 === void 0 ? void 0 : _initialData$worker3.work_type) || "",
-          hours_per_day: ((_initialData$worker4 = initialData.worker) === null || _initialData$worker4 === void 0 ? void 0 : _initialData$worker4.hours_per_day) || 4,
-          preferred_working_hours: preferredWorkingHours,
-          bio: ((_initialData$worker5 = initialData.worker) === null || _initialData$worker5 === void 0 ? void 0 : _initialData$worker5.bio) || "",
+          work_type: ((_initialData$worker4 = initialData.worker) === null || _initialData$worker4 === void 0 ? void 0 : _initialData$worker4.work_type) || "",
+          hours_per_day: ((_initialData$worker5 = initialData.worker) === null || _initialData$worker5 === void 0 ? void 0 : _initialData$worker5.hours_per_day) || 4,
+          preferred_working_hours: preferredWorkingDays,
+          bio: ((_initialData$worker6 = initialData.worker) === null || _initialData$worker6 === void 0 ? void 0 : _initialData$worker6.bio) || "",
           skills_id: initialSkills,
-          credentials: Array.isArray((_initialData$worker6 = initialData.worker) === null || _initialData$worker6 === void 0 ? void 0 : _initialData$worker6.credentials_name) && Array.isArray((_initialData$worker7 = initialData.worker) === null || _initialData$worker7 === void 0 ? void 0 : _initialData$worker7.credentials_photo) ? initialData.worker.credentials_name.map(function (name, index) {
+          credentials: Array.isArray((_initialData$worker7 = initialData.worker) === null || _initialData$worker7 === void 0 ? void 0 : _initialData$worker7.credentials_name) && (Array.isArray((_initialData$worker8 = initialData.worker) === null || _initialData$worker8 === void 0 ? void 0 : _initialData$worker8.credentials_photo) || Array.isArray((_initialData$worker9 = initialData.worker) === null || _initialData$worker9 === void 0 ? void 0 : _initialData$worker9.credentials_doc)) ? initialData.worker.credentials_name.map(function (name, index) {
+            var _initialData$worker$c, _initialData$worker$c2;
             return {
               credentials_name: name || "",
-              credentials_photo: initialData.worker.credentials_photo[index] || null
+              credentials_photo: ((_initialData$worker$c = initialData.worker.credentials_photo) === null || _initialData$worker$c === void 0 ? void 0 : _initialData$worker$c[index]) || null,
+              credentials_doc: ((_initialData$worker$c2 = initialData.worker.credentials_doc) === null || _initialData$worker$c2 === void 0 ? void 0 : _initialData$worker$c2[index]) || null
             };
           }) : [],
           role_id: "1",
-          is_reviewed: ((_initialData$worker8 = initialData.worker) === null || _initialData$worker8 === void 0 ? void 0 : _initialData$worker8.is_reviewed) === null || ((_initialData$worker9 = initialData.worker) === null || _initialData$worker9 === void 0 ? void 0 : _initialData$worker9.is_reviewed) === 'TO BE REVIEWED' || ((_initialData$worker0 = initialData.worker) === null || _initialData$worker0 === void 0 ? void 0 : _initialData$worker0.is_reviewed) === '0' ? '' : ((_initialData$worker1 = initialData.worker) === null || _initialData$worker1 === void 0 ? void 0 : _initialData$worker1.is_reviewed) || ''
+          is_reviewed: ((_initialData$worker0 = initialData.worker) === null || _initialData$worker0 === void 0 ? void 0 : _initialData$worker0.is_reviewed) === null || ((_initialData$worker1 = initialData.worker) === null || _initialData$worker1 === void 0 ? void 0 : _initialData$worker1.is_reviewed) === 'TO BE REVIEWED' || ((_initialData$worker10 = initialData.worker) === null || _initialData$worker10 === void 0 ? void 0 : _initialData$worker10.is_reviewed) === '0' ? '' : ((_initialData$worker11 = initialData.worker) === null || _initialData$worker11 === void 0 ? void 0 : _initialData$worker11.is_reviewed) || ''
         };
         setFormData(newFormData);
         setApiError("");
@@ -234212,13 +235174,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var _sass_components_login_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/_login.scss */ "./resources/sass/components/_login.scss");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var _sass_components_login_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../sass/components/_login.scss */ "./resources/sass/components/_login.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -234235,8 +235195,6 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
 
 
 
@@ -234259,7 +235217,7 @@ var Login = function Login() {
     _useState8 = _slicedToArray(_useState7, 2),
     error = _useState8[0],
     setError = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState0 = _slicedToArray(_useState9, 2),
     isLoading = _useState0[0],
     setIsLoading = _useState0[1];
@@ -234267,19 +235225,13 @@ var Login = function Login() {
     _useState10 = _slicedToArray(_useState1, 2),
     rememberMe = _useState10[0],
     setRememberMe = _useState10[1];
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var rememberedEmail = localStorage.getItem('remembered_email');
     if (rememberedEmail) {
       setEmail(rememberedEmail);
       setRememberMe(true);
     }
-    var timer = setTimeout(function () {
-      setIsLoading(false);
-    }, 1000);
-    return function () {
-      return clearTimeout(timer);
-    };
   }, []);
   var handleLogin = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(e) {
@@ -234293,16 +235245,10 @@ var Login = function Login() {
               _context.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_1__["default"].warning('Please fill in all fields.');
-            setIsLoading(false);
+            setError('Please fill in all fields.');
             return _context.a(2);
           case 1:
             setIsLoading(true);
-            antd__WEBPACK_IMPORTED_MODULE_1__["default"].loading({
-              content: 'Logging in... Please wait',
-              key: 'login',
-              duration: 0
-            });
             _context.p = 2;
             _context.n = 3;
             return fetch('http://127.0.0.1:8000/api/login', {
@@ -234324,11 +235270,6 @@ var Login = function Login() {
             data = _context.v;
             console.log('API Response:', data);
             if (response.ok) {
-              antd__WEBPACK_IMPORTED_MODULE_1__["default"].success({
-                content: 'Login successful!',
-                key: 'login',
-                duration: 2
-              });
               localStorage.setItem('auth_token', data.token);
               localStorage.setItem('user', JSON.stringify(data.user));
               if (rememberMe) {
@@ -234337,9 +235278,9 @@ var Login = function Login() {
                 localStorage.removeItem('remembered_email');
               }
 
-              // Update user status to online
+              // Update user status to online (is_online = 1)
               updatedUser = _objectSpread(_objectSpread({}, data.user), {}, {
-                is_online: true,
+                is_online: 1,
                 last_active_text: 'Online'
               });
               localStorage.setItem('user', JSON.stringify(updatedUser));
@@ -234376,24 +235317,15 @@ var Login = function Login() {
                   setIsLoading(false);
                 }, 500);
               } else {
-                antd__WEBPACK_IMPORTED_MODULE_1__["default"].error({
-                  content: 'Invalid role',
-                  key: 'login'
-                });
+                setError('Invalid role');
                 setIsLoading(false);
               }
             } else {
               // Handle specific error for archived user
               if (data.message === 'Account is archived and cannot log in') {
-                antd__WEBPACK_IMPORTED_MODULE_1__["default"].error({
-                  content: 'Your account is locked. Please contact support.',
-                  key: 'login'
-                });
+                setError('Your account is locked. Please contact support.');
               } else {
-                antd__WEBPACK_IMPORTED_MODULE_1__["default"].error({
-                  content: data.message || 'Invalid email or password.',
-                  key: 'login'
-                });
+                setError(data.message || 'Invalid email or password.');
               }
               setIsLoading(false);
             }
@@ -234402,10 +235334,7 @@ var Login = function Login() {
           case 5:
             _context.p = 5;
             _t = _context.v;
-            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error({
-              content: 'An error occurred. Please try again later.',
-              key: 'login'
-            });
+            setError('An error occurred. Please try again later.');
             console.error('Login error:', _t);
             setIsLoading(false);
           case 6:
@@ -234449,12 +235378,12 @@ var Login = function Login() {
           case 4:
             data = _context2.v;
             if (response.ok) {
-              // Update user status to offline before removing from localStorage
+              // Update user status to offline (is_online = 0) before removing from localStorage
               storedUser = localStorage.getItem('user');
               if (storedUser) {
                 userData = JSON.parse(storedUser);
                 updatedUser = _objectSpread(_objectSpread({}, userData), {}, {
-                  is_online: false,
+                  is_online: 0,
                   last_active_text: 'Offline'
                 });
                 localStorage.setItem('user', JSON.stringify(updatedUser));
@@ -234488,91 +235417,89 @@ var Login = function Login() {
       return _ref2.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "login-wrapper",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "login-card",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-          className: "login-image-section"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: "login-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "login-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
-              className: "login-title",
-              children: "Login to Your Account"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-              className: "login-subtitle",
-              children: "See what's going on with your business"
-            })]
-          }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-            className: "login-error",
-            children: error
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-            onSubmit: handleLogin,
-            className: "login-form-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "login-input-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                type: "email",
-                className: "login-email-input",
-                placeholder: "Email",
-                value: email,
-                onChange: function onChange(e) {
-                  return setEmail(e.target.value);
-                },
-                required: true
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "login-password-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                type: showPassword ? 'text' : 'password',
-                className: "login-password-input",
-                placeholder: "Password",
-                value: password,
-                onChange: function onChange(e) {
-                  return setPassword(e.target.value);
-                },
-                required: true
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                className: "password-toggle",
-                onClick: function onClick() {
-                  return setShowPassword(!showPassword);
-                },
-                children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEye, {})
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "login-options-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("label", {
-                className: "remember-me",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                  type: "checkbox",
-                  checked: rememberMe,
-                  onChange: function onChange(e) {
-                    return setRememberMe(e.target.checked);
-                  }
-                }), "Remember me"]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-              type: "submit",
-              className: "login-submit-btn",
-              disabled: isLoading,
-              children: isLoading ? 'Signing in...' : 'Login'
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-            className: "login-signup",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
-              children: ["Not Registered Yet?", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                to: "/register",
-                className: "login-signup-link",
-                children: "Create an account"
-              })]
-            })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    className: "login-wrapper",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "login-card",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "login-image-section"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "login-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "login-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+            className: "login-title",
+            children: "Login to Your Account"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "login-subtitle",
+            children: "See what's going on with your business"
           })]
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+          className: "login-error",
+          children: error
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+          onSubmit: handleLogin,
+          className: "login-form-container",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "login-input-group",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+              type: "email",
+              className: "login-email-input",
+              placeholder: "Email",
+              value: email,
+              onChange: function onChange(e) {
+                return setEmail(e.target.value);
+              },
+              required: true
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "login-password-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+              type: showPassword ? 'text' : 'password',
+              className: "login-password-input",
+              placeholder: "Password",
+              value: password,
+              onChange: function onChange(e) {
+                return setPassword(e.target.value);
+              },
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              className: "password-toggle",
+              onClick: function onClick() {
+                return setShowPassword(!showPassword);
+              },
+              children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEye, {})
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "login-options-group",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("label", {
+              className: "remember-me",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                type: "checkbox",
+                checked: rememberMe,
+                onChange: function onChange(e) {
+                  return setRememberMe(e.target.checked);
+                }
+              }), "Remember me"]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+            type: "submit",
+            className: "login-submit-btn",
+            disabled: isLoading,
+            children: isLoading ? 'Signing in...' : 'Login'
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "login-signup",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+            children: ["Not Registered Yet?", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              to: "/register",
+              className: "login-signup-link",
+              children: "Create an account"
+            })]
+          })
         })]
-      })
-    })]
+      })]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Login);
@@ -240810,7 +241737,6 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
-
 var MyPostJob = function MyPostJob() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -240856,7 +241782,7 @@ var MyPostJob = function MyPostJob() {
   }, []);
   var fetchJobs = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var authToken, userData, response, _error$response, _t, _t2;
+      var authToken, userData, currentUser, profileId, profileResponse, response, _response$data$job_po, _error$response, _t, _t2, _t3;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -240886,35 +241812,60 @@ var MyPostJob = function MyPostJob() {
             console.log("No expired jobs to archive");
           case 4:
             userData = JSON.parse(localStorage.getItem("user") || '{}');
-            _context.n = 5;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/jobposts?profile_id=".concat(userData.id, "&show_archived=true"), {
+            currentUser = userData.user || userData; // Get the profile ID first
+            _context.p = 5;
+            _context.n = 6;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(currentUser.id), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
               }
             });
-          case 5:
-            response = _context.v;
-            if (response.data.job_posts) {
-              setJobs(response.data.job_posts.data || []);
-            } else {
-              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch job posts");
-            }
-            _context.n = 7;
-            break;
           case 6:
-            _context.p = 6;
-            _t2 = _context.v;
-            console.error("Error fetching job posts:", ((_error$response = _t2.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t2.message);
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch job posts");
+            profileResponse = _context.v;
+            profileId = profileResponse.data.id;
+            console.log("Profile found for job fetch:", profileResponse.data);
+            _context.n = 8;
+            break;
           case 7:
             _context.p = 7;
-            setLoading(false);
-            return _context.f(7);
+            _t2 = _context.v;
+            console.log("Profile not found, using user ID:", currentUser.id);
+            profileId = currentUser.id;
           case 8:
+            _context.n = 9;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/jobposts?profile_id=".concat(profileId, "&show_archived=true"), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
+            });
+          case 9:
+            response = _context.v;
+            console.log("Job posts response:", response.data);
+            console.log("Profile ID used:", profileId);
+            if (response.data.job_posts) {
+              setJobs(response.data.job_posts.data || []);
+              console.log("Jobs found:", ((_response$data$job_po = response.data.job_posts.data) === null || _response$data$job_po === void 0 ? void 0 : _response$data$job_po.length) || 0);
+            } else {
+              console.log("No job_posts in response:", response.data);
+              setJobs([]);
+            }
+            _context.n = 11;
+            break;
+          case 10:
+            _context.p = 10;
+            _t3 = _context.v;
+            console.error("Error fetching job posts:", ((_error$response = _t3.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t3.message);
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch job posts");
+          case 11:
+            _context.p = 11;
+            setLoading(false);
+            return _context.f(11);
+          case 12:
             return _context.a(2);
         }
-      }, _callee, null, [[1, 3], [0, 6, 7, 8]]);
+      }, _callee, null, [[5, 7], [1, 3], [0, 10, 11, 12]]);
     }));
     return function fetchJobs() {
       return _ref.apply(this, arguments);
@@ -240939,15 +241890,72 @@ var MyPostJob = function MyPostJob() {
   };
   var handleSubmitJob = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(jobData) {
-      var authToken, userData, currentUser, profileId, salaryTypeMap, jobPayload, response, _error$response2, _t3;
+      var authToken, userData, currentUser, profileId, profileResponse, createProfileResponse, _createError$response, salaryTypeMap, jobPayload, response, _error$response2, _error$response3, errors, errorMessages, _t4, _t5, _t6;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
             _context2.p = 0;
             authToken = localStorage.getItem("auth_token");
             userData = JSON.parse(localStorage.getItem("user") || '{}'); // Get the correct user ID from the nested structure
-            currentUser = userData.user || userData;
-            profileId = currentUser.id || currentUser.profile_id; // Map salary types to backend expected values
+            currentUser = userData.user || userData; // First, let's try to get the profile ID from the backend
+            _context2.p = 1;
+            _context2.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(currentUser.id), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
+            });
+          case 2:
+            profileResponse = _context2.v;
+            profileId = profileResponse.data.id;
+            console.log("Profile found:", profileResponse.data);
+            _context2.n = 7;
+            break;
+          case 3:
+            _context2.p = 3;
+            _t4 = _context2.v;
+            console.log("Profile not found, creating profile for user:", currentUser.id);
+            // Create a profile record for this user
+            _context2.p = 4;
+            _context2.n = 5;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/api/profiles', {
+              user_id: currentUser.id,
+              first_name: currentUser.first_name || 'Unknown',
+              last_name: currentUser.last_name || 'User',
+              gender_id: currentUser.gender_id || 1,
+              contact_number: currentUser.contact_number || null,
+              street: currentUser.street || null,
+              city: currentUser.city || 'Butuan City',
+              province: currentUser.province || 'Agusan Del Norte',
+              postal_code: currentUser.postal_code || '8600',
+              country: currentUser.country || 'Philippines',
+              profile_img: currentUser.profile_img || null
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 5:
+            createProfileResponse = _context2.v;
+            profileId = createProfileResponse.data.profile.id;
+            console.log("Profile created:", createProfileResponse.data.profile);
+            _context2.n = 7;
+            break;
+          case 6:
+            _context2.p = 6;
+            _t5 = _context2.v;
+            console.error("Failed to create profile:", ((_createError$response = _t5.response) === null || _createError$response === void 0 ? void 0 : _createError$response.data) || _t5.message);
+            // Fallback to user ID
+            profileId = currentUser.id;
+          case 7:
+            console.log("User data:", userData);
+            console.log("Profile ID:", profileId);
+            console.log("Current user:", currentUser);
+
+            // Map salary types to backend expected values
             salaryTypeMap = {
               'hourly': 'per_hour',
               'daily': 'per_hour',
@@ -240967,17 +241975,23 @@ var MyPostJob = function MyPostJob() {
               salary_type: salaryTypeMap[jobData.salaryType] || 'per_hour',
               job_type: jobData.typeOfEmployment,
               hiring_type: jobData.hiringType,
-              team_size: jobData.teamSize,
-              work_start: jobData.workStart || null,
-              work_end: jobData.workEnd || null,
-              application_start: jobData.applicationStart,
-              application_deadline: jobData.applicationDeadline
+              team_size: jobData.teamSize || (jobData.hiringType === 'team' ? 2 : 1),
+              work_start: jobData.workStart ? new Date(jobData.workStart).toISOString().split('T')[0] : jobData.workStart,
+              work_end: jobData.workEnd ? new Date(jobData.workEnd).toISOString().split('T')[0] : jobData.workEnd,
+              application_start: jobData.applicationStart ? new Date(jobData.applicationStart).toISOString().split('T')[0] : jobData.applicationStart,
+              application_deadline: jobData.applicationDeadline ? new Date(jobData.applicationDeadline).toISOString().split('T')[0] : jobData.applicationDeadline,
+              street: null,
+              city: 'Butuan City',
+              province: 'Agusan Del Norte',
+              postal_code: '8600',
+              country: 'Philippines'
             };
+            console.log("Job payload being sent:", jobPayload);
             if (!editingJob) {
-              _context2.n = 2;
+              _context2.n = 9;
               break;
             }
-            _context2.n = 1;
+            _context2.n = 8;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("http://127.0.0.1:8000/api/jobposts/".concat(editingJob.id), jobPayload, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -240985,13 +241999,13 @@ var MyPostJob = function MyPostJob() {
                 "Content-Type": "application/json"
               }
             });
-          case 1:
+          case 8:
             response = _context2.v;
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Job post updated successfully");
-            _context2.n = 4;
+            _context2.n = 11;
             break;
-          case 2:
-            _context2.n = 3;
+          case 9:
+            _context2.n = 10;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/api/jobposts', jobPayload, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -240999,26 +242013,37 @@ var MyPostJob = function MyPostJob() {
                 "Content-Type": "application/json"
               }
             });
-          case 3:
+          case 10:
             response = _context2.v;
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Job post created successfully");
-          case 4:
+          case 11:
             if (response.data) {
               fetchJobs(); // Refresh the jobs list
               setIsModalOpen(false);
               setEditingJob(null);
             }
-            _context2.n = 6;
+            _context2.n = 13;
             break;
-          case 5:
-            _context2.p = 5;
-            _t3 = _context2.v;
-            console.error("Error submitting job:", ((_error$response2 = _t3.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t3.message);
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to submit job post");
-          case 6:
+          case 12:
+            _context2.p = 12;
+            _t6 = _context2.v;
+            console.error("Error submitting job:", ((_error$response2 = _t6.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t6.message);
+            console.error("Full error response:", _t6.response);
+
+            // Show specific validation errors if available
+            if ((_error$response3 = _t6.response) !== null && _error$response3 !== void 0 && (_error$response3 = _error$response3.data) !== null && _error$response3 !== void 0 && _error$response3.errors) {
+              errors = _t6.response.data.errors;
+              console.error("Validation errors:", errors);
+              errorMessages = Object.values(errors).flat();
+              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
+            } else {
+              console.error("No specific validation errors found");
+              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to submit job post");
+            }
+          case 13:
             return _context2.a(2);
         }
-      }, _callee2, null, [[0, 5]]);
+      }, _callee2, null, [[4, 6], [1, 3], [0, 12]]);
     }));
     return function handleSubmitJob(_x) {
       return _ref2.apply(this, arguments);
@@ -241118,7 +242143,7 @@ var MyPostJob = function MyPostJob() {
                 children: "Job Overview/Description"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
                 className: "description-text",
-                children: job.description && job.description.length > 200 ? "".concat(job.description.substring(0, 200), "...") : job.description
+                children: job.description
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "job-skills",
@@ -244650,14 +245675,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/CaretDownOutlined.js");
-/* harmony import */ var _sass_components_register_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../sass/components/_register.scss */ "./resources/sass/components/_register.scss");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/CaretDownOutlined.js");
+/* harmony import */ var _sass_components_register_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/_register.scss */ "./resources/sass/components/_register.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -244679,17 +245702,11 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
-
  // Added useNavigate
 
 
 
 
-
-antd__WEBPACK_IMPORTED_MODULE_1__["default"].config({
-  top: 80,
-  duration: 3
-});
 var Register = function Register() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       firstName: "",
@@ -244728,7 +245745,11 @@ var Register = function Register() {
     _useState12 = _slicedToArray(_useState11, 2),
     genders = _useState12[0],
     setGenders = _useState12[1];
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)(); // Added for navigation
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState14 = _slicedToArray(_useState13, 2),
+    error = _useState14[0],
+    setError = _useState14[1];
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)(); // Added for navigation
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Clear auth token to ensure not logged in
@@ -244821,7 +245842,7 @@ var Register = function Register() {
               _context.p = 10;
               _t = _context.v;
               console.error("Failed to fetch data:", _t);
-              antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to load registration data: ".concat(_t.message));
+              setError("Failed to load registration data: ".concat(_t.message));
             case 11:
               _context.p = 11;
               setIsLoading(false);
@@ -244855,18 +245876,19 @@ var Register = function Register() {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
             e.preventDefault();
+            setError(null);
             if (!(!formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.role || !formData.gender)) {
               _context2.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_1__["default"].warning("Please fill in all required fields.");
+            setError("Please fill in all required fields.");
             return _context2.a(2);
           case 1:
             if (!passwordError) {
               _context2.n = 2;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_1__["default"].warning("Please fix password errors.");
+            setError("Please fix password errors.");
             return _context2.a(2);
           case 2:
             setIsLoading(true);
@@ -244898,9 +245920,8 @@ var Register = function Register() {
             if (!response.ok) {
               // Handle validation errors or other errors
               errorMessage = data.errors ? Object.values(data.errors).flat().join(", ") : data.error || "Registration failed";
-              antd__WEBPACK_IMPORTED_MODULE_1__["default"].error(errorMessage);
+              setError(errorMessage);
             } else {
-              antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Registration successful!");
               setFormData({
                 firstName: "",
                 middleName: "",
@@ -244922,7 +245943,7 @@ var Register = function Register() {
             _context2.p = 6;
             _t2 = _context2.v;
             console.error("Registration error:", _t2);
-            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Registration failed: Network error");
+            setError("Registration failed: Network error");
           case 7:
             _context2.p = 7;
             setIsLoading(false);
@@ -244936,163 +245957,164 @@ var Register = function Register() {
       return _ref2.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-      className: "register-wrapper",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-        className: "register-card",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-          className: "register-image-section"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-          className: "register-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "register-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
-              className: "register-title",
-              children: "Create Your Account"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-              className: "register-subtitle",
-              children: "Join us to get started"
-            })]
-          }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-            className: "register-error",
-            children: passwordError
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
-            onSubmit: handleRegister,
-            className: "register-form-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "register-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "register-input-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                  type: "text",
-                  name: "firstName",
-                  placeholder: "First Name",
-                  value: formData.firstName,
-                  onChange: handleChange,
-                  required: true
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "register-input-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                  type: "text",
-                  name: "middleName",
-                  placeholder: "Middle Name (optional)",
-                  value: formData.middleName,
-                  onChange: handleChange
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "register-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "register-input-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                  type: "text",
-                  name: "lastName",
-                  placeholder: "Last Name",
-                  value: formData.lastName,
-                  onChange: handleChange,
-                  required: true
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "register-input-group",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("select", {
-                  name: "suffix",
-                  value: formData.suffix,
-                  onChange: handleChange,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
-                    value: "",
-                    children: "Suffix (optional)"
-                  }), suffixes.map(function (suffix) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
-                      value: suffix.suffix_name,
-                      children: suffix.suffix_name
-                    }, suffix.id);
-                  })]
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    className: "register-wrapper",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "register-card",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        className: "register-image-section"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "register-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "register-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+            className: "register-title",
+            children: "Create Your Account"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+            className: "register-subtitle",
+            children: "Join us to get started"
+          })]
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "register-error",
+          children: error
+        }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "register-error",
+          children: passwordError
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+          onSubmit: handleRegister,
+          className: "register-form-container",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "register-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "register-input-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                type: "email",
-                name: "email",
-                placeholder: "Email",
-                value: formData.email,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                type: "text",
+                name: "firstName",
+                placeholder: "First Name",
+                value: formData.firstName,
                 onChange: handleChange,
                 required: true
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "register-password-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-                type: showPassword ? "text" : "password",
-                name: "password",
-                placeholder: "Password",
-                value: formData.password,
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "register-input-group",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                type: "text",
+                name: "middleName",
+                placeholder: "Middle Name (optional)",
+                value: formData.middleName,
+                onChange: handleChange
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "register-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "register-input-group",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                type: "text",
+                name: "lastName",
+                placeholder: "Last Name",
+                value: formData.lastName,
                 onChange: handleChange,
                 required: true
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "password-toggle",
-                onClick: function onClick() {
-                  return setShowPassword(!showPassword);
-                },
-                children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_4__.FaEye, {})
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "register-select-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("select", {
-                name: "role",
-                value: formData.role,
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "register-input-group",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
+                name: "suffix",
+                value: formData.suffix,
                 onChange: handleChange,
-                required: true,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
                   value: "",
-                  disabled: true,
-                  children: "Select Role"
-                }), roles.map(function (role) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
-                    value: role.id,
-                    children: role.role_name
-                  }, role.id);
+                  children: "Suffix (optional)"
+                }), suffixes.map(function (suffix) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                    value: suffix.suffix_name,
+                    children: suffix.suffix_name
+                  }, suffix.id);
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                className: "select-icon"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "register-select-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("select", {
-                name: "gender",
-                value: formData.gender,
-                onChange: handleChange,
-                required: true,
-                children: genders.map(function (option) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
-                    value: option.value,
-                    disabled: option.disabled,
-                    children: option.label
-                  }, option.value);
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                className: "select-icon"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-              type: "submit",
-              className: "register-submit-btn",
-              disabled: isLoading,
-              children: isLoading ? "Registering..." : "Register"
+              })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-            className: "register-login",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
-              children: ["Already have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                to: "/login",
-                className: "register-login-link",
-                children: "Login"
-              })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "register-input-group",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              type: "email",
+              name: "email",
+              placeholder: "Email",
+              value: formData.email,
+              onChange: handleChange,
+              required: true
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "register-password-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              type: showPassword ? "text" : "password",
+              name: "password",
+              placeholder: "Password",
+              value: formData.password,
+              onChange: handleChange,
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+              className: "password-toggle",
+              onClick: function onClick() {
+                return setShowPassword(!showPassword);
+              },
+              children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEye, {})
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "register-select-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
+              name: "role",
+              value: formData.role,
+              onChange: handleChange,
+              required: true,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                value: "",
+                disabled: true,
+                children: "Select Role"
+              }), roles.map(function (role) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  value: role.id,
+                  children: role.role_name
+                }, role.id);
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              className: "select-icon"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "register-select-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("select", {
+              name: "gender",
+              value: formData.gender,
+              onChange: handleChange,
+              required: true,
+              children: genders.map(function (option) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  value: option.value,
+                  disabled: option.disabled,
+                  children: option.label
+                }, option.value);
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              className: "select-icon"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            type: "submit",
+            className: "register-submit-btn",
+            disabled: isLoading,
+            children: isLoading ? "Registering..." : "Register"
           })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "register-login",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+            children: ["Already have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              to: "/login",
+              className: "register-login-link",
+              children: "Login"
+            })]
+          })
         })]
-      })
-    })]
+      })]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Register);

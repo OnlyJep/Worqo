@@ -44,7 +44,7 @@
 
 .login-content {
   flex: 1;
-  padding: 60px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,9 +56,9 @@
   background: #ffffff;
   border-radius: 16px; // Rounded corners for a modern look
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
-  padding: 40px; // Generous padding for mobile
+  padding: 30px; // Reduced padding for smaller form
   width: 100%;
-  max-width: 450px;
+  max-width: 350px;
   transition: transform 0.3s ease; // Smooth scaling effect
 }
 
@@ -91,15 +91,15 @@
 .login-input-group,
 .login-password-group {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   position: relative;
 
   input {
     width: 100%;
-    padding: 16px 48px 16px 16px; // Extra padding for touch-friendliness
+    padding: 12px 40px 12px 12px; // Reduced padding for smaller form
     border: 2px solid #001E40;
     border-radius: 12px; // More rounded for modern look
-    font-size: 18px;
+    font-size: 16px;
     color: #000000;
     background: #ffffff;
     transition: border-color 0.3s, box-shadow 0.3s;
@@ -141,7 +141,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 
   .remember-me {
     display: flex;

@@ -1769,6 +1769,8 @@ class WorkerController extends Controller
                 'archived' => $user->archived,
                 'created_at' => $user->created_at,
                 'updated_at' => $user->updated_at,
+                'last_activity' => $user->last_activity,
+                'is_online' => $user->is_online,
                 'profile' => $user->profile ? [
                     'first_name' => $user->profile->first_name,
                     'middlename' => $user->profile->middlename,
@@ -1892,6 +1894,8 @@ class WorkerController extends Controller
             'archived' => $user->archived,
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
+            'last_activity' => $user->last_activity,
+            'is_online' => $user->is_online,
             'profile_id' => $user->profile ? $user->profile->id : null,
             'profile' => $user->profile ? [
                 'id' => $user->profile->id,

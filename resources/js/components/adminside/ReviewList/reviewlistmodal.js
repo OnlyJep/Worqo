@@ -178,6 +178,7 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
   // Check if workers and employers are arrays
   const isWorkersLoaded = Array.isArray(workers);
   const isEmployersLoaded = Array.isArray(employers);
+  const hasUsers = (workers && workers.length > 0) || (employers && employers.length > 0);
 
   return (
     <div className="reviewmodal-overlay">
@@ -185,7 +186,9 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
         <h2>{isEdit ? "Edit Review" : "Add New Review"}</h2>
         {submitError && <div className="error">{submitError}</div>}
         {!isWorkersLoaded || !isEmployersLoaded ? (
-          <div>Error: User data not loaded. Please try again later.</div>
+          <div>Loading user data...</div>
+        ) : !hasUsers ? (
+          <div>No users available for review. Please ensure there are users in the system.</div>
         ) : (
           <div className="reviewmodal-content">
             <div className="form-group">
@@ -261,7 +264,7 @@ const ReviewModal = ({ onClose, onRefresh, isEdit, initialData, employers, worke
           <button
             className="submit-button"
             onClick={handleSubmit}
-            disabled={!isWorkersLoaded || !isEmployersLoaded}
+            disabled={!hasUsers}
           >
             {isEdit ? "Update" : "Create"}
           </button>

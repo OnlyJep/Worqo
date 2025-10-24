@@ -70,46 +70,43 @@ body {
       flex-wrap: wrap;
 
       .left-actions {
+        position: relative;
         display: flex;
         align-items: center;
         flex: 1;
         min-width: clamp(150px, 30vw, 180px);
 
-        .search-container {
-          position: relative;
-          width: 100%;
-          max-width: clamp(180px, 40vw, 200px);
+        .search-icon {
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #666666;
+          font-size: clamp(14px, 3vw, 16px);
+          z-index: 1;
+        }
 
-          .search-icon {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666666;
-            font-size: clamp(14px, 3vw, 16px);
+        .search-input {
+          width: 100%;
+          max-width: clamp(200px, 30vw, 300px);
+          padding: 8px 12px 8px 40px;
+          border: 1px solid #DDDDDD;
+          border-radius: 5px;
+          background: #FFFFFF;
+          color: #333333;
+          font-size: clamp(12px, 3vw, 14px);
+          outline: none;
+          height: 40px;
+          box-sizing: border-box;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+          &:focus {
+            border-color: #1A2A44;
+            box-shadow: 0 0 0 2px rgba(26, 42, 68, 0.2);
           }
 
-          .search-input {
-            width: 100%;
-            padding: 8px 12px 8px 35px;
-            border: 1px solid #DDDDDD;
-            border-radius: 5px;
-            background: #FFFFFF;
-            color: #333333;
-            font-size: clamp(12px, 3vw, 14px);
-            outline: none;
-            height: 40px;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-
-            &:focus {
-              border-color: #4A90E2;
-              box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
-            }
-
-            @media (max-width: 768px) {
-              max-width: 100%;
-            }
+          @media (max-width: 768px) {
+            max-width: 100%;
           }
         }
       }
@@ -138,7 +135,7 @@ body {
 
           .button-icon {
             margin-right: 8px;
-            color: #4A90E2;
+            color: #1A2A44;
             font-size: clamp(16px, 4vw, 20px);
           }
 
@@ -147,9 +144,9 @@ body {
           }
 
           &:hover {
-            background: #4A90E2;
+            background: #1A2A44;
             color: #FFFFFF;
-            border-color: #4A90E2;
+            border-color: #1A2A44;
             transform: translateY(-2px);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
@@ -160,17 +157,17 @@ body {
         }
 
         .archive-all-button {
-          background: #D81B60;
+          background: #1A2A44;
           color: #FFFFFF;
-          border-color: #D81B60;
+          border-color: #1A2A44;
 
           .button-icon {
             color: #FFFFFF;
           }
 
           &:hover {
-            background: darken(#D81B60, 10%);
-            border-color: darken(#D81B60, 10%);
+            background: darken(#1A2A44, 10%);
+            border-color: darken(#1A2A44, 10%);
             transform: translateY(-2px);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           }
@@ -246,7 +243,7 @@ body {
           border-bottom: 1px solid #EEEEEE;
           color: #FFFFFF;
           font-size: clamp(13px, 3.2vw, 15px);
-          background: #4A90E2;
+          background: #1A2A44;
           font-weight: 600;
           position: sticky;
           top: 0;
@@ -264,7 +261,7 @@ body {
               font-size: clamp(14px, 3.5vw, 16px);
 
               &:hover {
-                color: #357ABD;
+                color: darken(#1A2A44, 15%);
               }
             }
           }
@@ -321,22 +318,22 @@ body {
           .delete-icon,
           .edit-icon,
           .restore-icon {
-            color: #4A90E2;
+            color: #1A2A44;
             cursor: pointer;
             font-size: clamp(14px, 3.5vw, 16px);
             transition: color 0.2s ease, transform 0.2s ease;
 
             &:hover {
-              color: #357ABD;
+              color: darken(#1A2A44, 15%);
               transform: scale(1.2);
             }
           }
 
           .delete-icon {
-            color: #D81B60;
+            color: #1A2A44;
 
             &:hover {
-              color: #A71D2A;
+              color: darken(#1A2A44, 15%);
             }
           }
         }
@@ -451,13 +448,13 @@ body {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
         &:hover {
-          background: #4A90E2;
+          background: darken(#1A2A44, 10%);
           color: #FFFFFF;
           transform: scale(1.1);
         }
 
         &.active {
-          background: #4A90E2;
+          background: #1A2A44;
           color: #FFFFFF;
           font-weight: 700;
           transform: scale(1.15);
@@ -536,7 +533,7 @@ body {
 
     .confirm-button {
       padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
-      background: #10B981;
+      background: #1A2A44;
       color: #FFFFFF;
       border: none;
       border-radius: 5px;
@@ -545,7 +542,7 @@ body {
       font-size: clamp(12px, 3vw, 14px);
 
       &:hover {
-        background: #059669;
+        background: darken(#1A2A44, 10%);
         transform: translateY(-2px);
       }
     }

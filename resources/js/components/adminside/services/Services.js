@@ -4,7 +4,7 @@ import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
-import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
+import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_userlist.scss";
 import ServiceModal from "./Servicemodal";
 import Loader from "./../../LoaderContent/loader";
@@ -33,16 +33,16 @@ const Services = () => {
         throw new Error("No auth token found. Please log in.");
       }
       const [servicesResponse, skillsResponse] = await Promise.all([
-        axios.get("http://127.0.0.1:8000/api/services", {
+        axios.get("/api/services", {
           params: { archived: showArchived, search: searchTerm, page: pagination.currentPage, limit: 5 },
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
           signal,
           timeout: 10000,
         }),
-        axios.get("http://127.0.0.1:8000/api/skills", {
+        axios.get("/api/skills", {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
           signal,
-          timeout: 5000,
+          timeout: 15000,
         }),
       ]);
       console.log("Skills Response:", skillsResponse.data);
@@ -91,7 +91,7 @@ const Services = () => {
         submitData.append("service_image", formData.service_image);
       }
 
-      const response = await axios.post("http://127.0.0.1:8000/api/services", submitData, {
+      const response = await axios.post("/api/services", submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
@@ -129,7 +129,7 @@ const Services = () => {
       }
       submitData.append("_method", "PUT");
 
-      const response = await axios.post(`http://127.0.0.1:8000/api/services/${serviceToEdit.id}`, submitData, {
+      const response = await axios.post(`/api/services/${serviceToEdit.id}`, submitData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           "Content-Type": "multipart/form-data",
@@ -184,11 +184,11 @@ const Services = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.patch(
-        `http://127.0.0.1:8000/api/services/${serviceToArchive.id}/archive`,
+        `/api/services/${serviceToArchive.id}/archive`,
         { archived: true },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-          timeout: 5000,
+          timeout: 15000,
         }
       );
       setIsConfirmModalOpen(false);
@@ -214,11 +214,11 @@ const Services = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.patch(
-        `http://127.0.0.1:8000/api/services/${serviceId}/archive`,
+        `/api/services/${serviceId}/archive`,
         { archived: false },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
-          timeout: 5000,
+          timeout: 15000,
         }
       );
       message.success("Service restored successfully");
@@ -246,7 +246,7 @@ const Services = () => {
         throw new Error("No auth token found. Please log in.");
       }
       await axios.post(
-        "http://127.0.0.1:8000/api/services/bulk-archive",
+        "/api/services/bulk-archive",
         { service_ids: selectedServices, action },
         {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
@@ -368,16 +368,13 @@ const Services = () => {
           <h2>{showArchived ? "Archived Services" : "Services"}</h2>
           <div className="userlist-header">
             <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search Services"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search Services"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="right-actions">
               {selectedServices.length > 0 && (

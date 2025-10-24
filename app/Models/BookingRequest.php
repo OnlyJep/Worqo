@@ -34,7 +34,6 @@ class BookingRequest extends Model
         'time_out' => 'datetime',
         'daily_rate' => 'decimal:2',
         'total_amount' => 'decimal:2',
-        'total_hours' => 'decimal:2',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
     ];

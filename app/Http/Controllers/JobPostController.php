@@ -115,6 +115,11 @@ class JobPostController extends Controller
             'work_end' => 'required|date|after:work_start',
             'application_start' => 'required|date',
             'application_deadline' => 'required|date|after:application_start',
+            'street' => 'nullable|string|max:255',
+            'city' => 'nullable|string|max:255',
+            'province' => 'nullable|string|max:255',
+            'postal_code' => 'nullable|string|max:20',
+            'country' => 'nullable|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -139,6 +144,11 @@ class JobPostController extends Controller
              'work_end' => Carbon::parse($validated['work_end'], 'Asia/Manila'),
              'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
              'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
+             'street' => $validated['street'] ?? null,
+             'city' => $validated['city'] ?? 'Butuan City',
+             'province' => $validated['province'] ?? 'Agusan Del Norte',
+             'postal_code' => $validated['postal_code'] ?? '8600',
+             'country' => $validated['country'] ?? 'Philippines',
              'archived' => false, // Don't auto-archive on creation
          ]);
 
@@ -219,6 +229,11 @@ class JobPostController extends Controller
             'work_end' => 'required|date|after:work_start',
             'application_start' => 'required|date',
             'application_deadline' => 'required|date|after:application_start',
+            'street' => 'nullable|string|max:255',
+            'city' => 'nullable|string|max:255',
+            'province' => 'nullable|string|max:255',
+            'postal_code' => 'nullable|string|max:20',
+            'country' => 'nullable|string|max:255',
             'archived' => 'boolean',
         ]);
 
@@ -244,6 +259,11 @@ class JobPostController extends Controller
             'work_end' => Carbon::parse($validated['work_end'], 'Asia/Manila'),
             'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
             'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
+            'street' => $validated['street'] ?? null,
+            'city' => $validated['city'] ?? 'Butuan City',
+            'province' => $validated['province'] ?? 'Agusan Del Norte',
+            'postal_code' => $validated['postal_code'] ?? '8600',
+            'country' => $validated['country'] ?? 'Philippines',
             'archived' => $validated['archived'] ?? Carbon::parse($validated['application_deadline'], 'Asia/Manila')->isPast(),
         ]);
 

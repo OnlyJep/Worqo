@@ -1,78 +1,298 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import Headerz from "./Headerz";
 import Footer from "../FooterContent/footer";
-import Loader from "../LoaderContent/loader";
 import "./../../../sass/components/Service.scss";
 import searchIcon from "../../../sass/img/search.svg";
 import { message } from "antd";
 
 const BrowseLaborCategories = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [services, setServices] = useState([]);
   const [collars, setCollars] = useState([]);
   const [selectedCollar, setSelectedCollar] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchInput, setSearchInput] = useState("");
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
   const [visibleCount, setVisibleCount] = useState(8);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const abortControllerRef = useRef(null);
+  const isMountedRef = useRef(true);
 
   const fetchData = async (signal) => {
+    if (!isMountedRef.current) return;
+    
     try {
-      setLoading(true);
       setError(null);
+      setServices([]); // Clear previous data
+      
       const authToken = localStorage.getItem("auth_token");
       const headers = authToken
         ? { Authorization: `Bearer ${authToken}`, Accept: "application/json" }
         : { Accept: "application/json" };
 
-      const [servicesResponse, collarsResponse] = await Promise.all([
-        axios.get("http://127.0.0.1:8000/api/services", {
+      // Fetching data silently
+
+      // Try to fetch services first, then collars
+      let servicesResponse, collarsResponse;
+      
+      try {
+        servicesResponse = await         axios.get("/api/services", {
           params: {
-            search: searchTerm,
+            search: searchTerm.trim(),
             color_collar_id: selectedCollar,
             page: pagination.currentPage,
             limit: visibleCount,
           },
           headers,
           signal,
-          timeout: 10000,
-        }),
-        axios.get("http://127.0.0.1:8000/api/collars", {
+          timeout: 30000,
+        });
+        // Services API call successful
+      } catch (serviceError) {
+        if (serviceError.name === 'CanceledError' || serviceError.code === 'ERR_CANCELED') {
+          console.log("Services API call was canceled - this is normal");
+          return;
+        }
+        console.error("Services API call failed:", serviceError);
+        throw serviceError;
+      }
+
+      try {
+        collarsResponse = await axios.get("/api/collars", {
           headers,
           signal,
-          timeout: 5000,
-        }),
-      ]);
+          timeout: 30000,
+        });
+        // Collars API call successful
+      } catch (collarError) {
+        if (collarError.name === 'CanceledError' || collarError.code === 'ERR_CANCELED') {
+          console.log("Collars API call was canceled - this is normal");
+          collarsResponse = { data: { collars: [] } };
+        } else {
+          console.error("Collars API call failed:", collarError);
+          // If collars fail, we can still show services
+          collarsResponse = { data: { collars: [] } };
+        }
+      }
+
+      if (!isMountedRef.current) return;
+
+      // Data loaded successfully
+
+      // Validate response data
+      if (!servicesResponse.data) {
+        throw new Error("Invalid response from services API");
+      }
+
       setServices(servicesResponse.data.services || []);
       setPagination({
-        currentPage: servicesResponse.data.pagination.currentPage,
-        totalPages: servicesResponse.data.pagination.totalPages,
+        currentPage: servicesResponse.data.pagination?.currentPage || 1,
+        totalPages: servicesResponse.data.pagination?.totalPages || 1,
       });
       setCollars(collarsResponse.data.collars || []);
+      
+      // Data successfully loaded
     } catch (error) {
-      if (error.name === "AbortError") return;
+      if (!isMountedRef.current) return;
+      
+      if (error.name === "AbortError" || error.name === 'CanceledError' || error.code === 'ERR_CANCELED') {
+        console.log("Request was aborted - this is normal during search");
+        return;
+      }
+      
       console.error("Error fetching data:", error.response?.data || error.message);
-      setError(
-        error.response?.status === 401
+      
+      // No retry logic to prevent overlapping requests
+      
+      const errorMessage = error.response?.status === 401
           ? "Please log in to view labor categories."
-          : "Failed to fetch data. Please try again later."
-      );
+        : error.response?.status === 403
+        ? "Access denied. Please check your permissions."
+        : error.response?.status >= 500
+        ? "Server error. Please try again later."
+        : error.message?.includes('timeout')
+        ? "Request timed out. Please try again."
+        : "Failed to fetch data. Please try again later.";
+      
+      setError(errorMessage);
       setServices([]);
       setCollars([]);
-      message.error(error.response?.status === 401 ? "Please log in." : "Failed to fetch data.");
+      message.error(errorMessage);
     } finally {
-      setLoading(false);
+      // No loading state changes
     }
   };
 
+  const fetchSearchData = async (signal) => {
+    if (!isMountedRef.current) return;
+    
+    try {
+      setError(null);
+      
+      const authToken = localStorage.getItem("auth_token");
+      const headers = authToken
+        ? { Authorization: `Bearer ${authToken}`, Accept: "application/json" }
+        : { Accept: "application/json" };
+
+      // Fetching search data silently
+
+      // Try to fetch services first, then collars
+      let servicesResponse, collarsResponse;
+      
+      try {
+        servicesResponse = await         axios.get("/api/services", {
+          params: {
+            search: searchTerm.trim(),
+            color_collar_id: selectedCollar,
+            page: pagination.currentPage,
+            limit: visibleCount,
+          },
+          headers,
+          signal,
+          timeout: 30000,
+        });
+        // Services API call successful
+      } catch (serviceError) {
+        if (serviceError.name === 'CanceledError' || serviceError.code === 'ERR_CANCELED') {
+          console.log("Services API call was canceled - this is normal");
+          return;
+        }
+        console.error("Services API call failed:", serviceError);
+        throw serviceError;
+      }
+
+      try {
+        collarsResponse = await axios.get("/api/collars", {
+          headers,
+          signal,
+          timeout: 30000,
+        });
+        // Collars API call successful
+      } catch (collarError) {
+        if (collarError.name === 'CanceledError' || collarError.code === 'ERR_CANCELED') {
+          console.log("Collars API call was canceled - this is normal");
+          collarsResponse = { data: { collars: [] } };
+        } else {
+          console.error("Collars API call failed:", collarError);
+          // If collars fail, we can still show services
+          collarsResponse = { data: { collars: [] } };
+        }
+      }
+
+      if (!isMountedRef.current) return;
+
+      // Search data loaded successfully
+
+      // Validate response data
+      if (!servicesResponse.data) {
+        throw new Error("Invalid response from services API");
+      }
+
+      setServices(servicesResponse.data.services || []);
+      setPagination({
+        currentPage: servicesResponse.data.pagination?.currentPage || 1,
+        totalPages: servicesResponse.data.pagination?.totalPages || 1,
+      });
+      setCollars(collarsResponse.data.collars || []);
+      
+      // Search data successfully loaded
+    } catch (error) {
+      if (!isMountedRef.current) return;
+      
+      if (error.name === "AbortError") {
+        console.log("Search request was aborted - this is normal during search");
+        return;
+      }
+      
+      console.error("Error fetching search data:", error.response?.data || error.message);
+      
+      // No retry logic to prevent overlapping requests
+      
+      const errorMessage = error.response?.status === 401
+        ? "Please log in to view labor categories."
+        : error.response?.status === 403
+        ? "Access denied. Please check your permissions."
+        : error.response?.status >= 500
+        ? "Server error. Please try again later."
+        : error.message?.includes('timeout')
+        ? "Request timed out. Please try again."
+        : "Failed to fetch search results. Please try again later.";
+      
+      setError(errorMessage);
+      setServices([]);
+      setCollars([]);
+      message.error(errorMessage);
+    } finally {
+      // No loading state changes
+    }
+  };
+
+  // Handle URL search parameters
   useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const searchParam = urlParams.get('search');
+    if (searchParam) {
+      // URL search parameter found
+      setSearchTerm(searchParam);
+      setSearchInput(searchParam);
+    } else {
+      // Clear search if no URL parameter
+      setSearchTerm("");
+      setSearchInput("");
+    }
+  }, [location.search]);
+
+  useEffect(() => {
+    // Cancel previous request if it exists
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    
+    // Create new abort controller for this request
     const controller = new AbortController();
-    fetchData(controller.signal);
-    return () => controller.abort();
+    abortControllerRef.current = controller;
+    
+    const fetchDataSafely = async () => {
+      try {
+        // Use fetchSearchData for search operations, fetchData for initial load
+        const isSearchOperation = searchTerm && searchTerm.trim().length > 0;
+        
+        if (isSearchOperation) {
+          await fetchSearchData(controller.signal);
+        } else {
+          await fetchData(controller.signal);
+        }
+      } catch (error) {
+        if (error.name !== "AbortError" && error.name !== 'CanceledError' && error.code !== 'ERR_CANCELED') {
+          console.error("Error in fetchDataSafely:", error);
+        }
+      }
+    };
+    
+    // Execute immediately - no delay
+    if (isMountedRef.current) {
+      fetchDataSafely();
+    }
+    
+    return () => {
+      if (abortControllerRef.current && !abortControllerRef.current.signal.aborted) {
+        abortControllerRef.current.abort();
+      }
+    };
   }, [searchTerm, selectedCollar, pagination.currentPage, visibleCount]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
 
   const handleViewWorkersClick = async (serviceName, colorCollarName, serviceSkills) => {
     try {
@@ -95,7 +315,7 @@ const BrowseLaborCategories = () => {
 
       console.log('Searching for workers with skills:', skillNames);
       
-      const response = await axios.get("http://127.0.0.1:8000/api/workers/by-skills", {
+      const response = await axios.get("/api/workers/by-skills", {
         params: {
           skill_names: skillNames.join(','),
           page: 1,
@@ -147,9 +367,30 @@ const BrowseLaborCategories = () => {
   };
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    setPagination({ ...pagination, currentPage: 1 });
+    const value = e.target.value;
+    setSearchInput(value);
+  };
+
+  const handleSearchSubmit = () => {
+    const trimmedSearch = searchInput.trim();
+    setSearchTerm(trimmedSearch);
+    
+    // Update URL
+    if (trimmedSearch) {
+      navigate(`/services?search=${encodeURIComponent(trimmedSearch)}`);
+    } else {
+      navigate('/services');
+    }
+    
+    // Reset pagination for new search
+    setPagination({ currentPage: 1, totalPages: 1 });
     setVisibleCount(8);
+  };
+
+  const handleSearchKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchSubmit();
+    }
   };
 
   const handleCollarChange = (e) => {
@@ -160,7 +401,6 @@ const BrowseLaborCategories = () => {
 
   return (
     <div className="service-page">
-      {loading && <Loader />}
       <Headerz />
       <main className="service-content">
         <div className="service-container">
@@ -175,10 +415,11 @@ const BrowseLaborCategories = () => {
                   type="text"
                   placeholder="Search"
                   className="search-input"
-                  value={searchTerm}
+                  value={searchInput}
                   onChange={handleSearchChange}
+                  onKeyPress={handleSearchKeyPress}
                 />
-                <button className="search-button" aria-label="Search">
+                <button className="search-button" aria-label="Search" onClick={handleSearchSubmit}>
                   <img src={searchIcon} alt="Search" />
                 </button>
               </div>

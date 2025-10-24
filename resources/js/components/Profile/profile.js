@@ -14,6 +14,36 @@ import { message } from 'antd';
 const Profile = ({ initialServiceType }) => {
   const { workerId } = useParams();
   const location = useLocation();
+
+  // Function to format last active time
+  const getLastActiveText = (lastActivity, isOnline) => {
+    // If user is offline (is_online = 0), always show "Offline"
+    if (isOnline === 0 || isOnline === false) return 'Offline';
+    
+    if (!lastActivity) return 'Offline';
+    
+    const now = new Date();
+    const lastActive = new Date(lastActivity);
+    const diffInMinutes = Math.floor((now - lastActive) / (1000 * 60));
+    
+    if (diffInMinutes < 1) return 'Active now';
+    if (diffInMinutes < 60) return `Active ${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
+    
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) return `Active ${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+    
+    const diffInDays = Math.floor(diffInHours / 24);
+    if (diffInDays < 365) return `Active ${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+    
+    const diffInYears = Math.floor(diffInDays / 365);
+    return `Active ${diffInYears} year${diffInYears > 1 ? 's' : ''} ago`;
+  };
+
+  // Function to check if status should be green (only when actually online)
+  const isStatusGreen = () => {
+    // Only show green if user is actually online
+    return isUserOnline();
+  };
   const resolvedWorkerId = (() => {
     // If route param is not a valid id (e.g., 'profile'), fallback to current user id
     if (!workerId || isNaN(Number(workerId))) {
@@ -28,6 +58,7 @@ const Profile = ({ initialServiceType }) => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
   const [bookingDetails, setBookingDetails] = useState(null);
   const [worker, setWorker] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -40,21 +71,137 @@ const Profile = ({ initialServiceType }) => {
   const [workerRank, setWorkerRank] = useState(null);
   const [totalPoints, setTotalPoints] = useState(0);
   const [progressPercent, setProgressPercent] = useState(0);
+  const [collarData, setCollarData] = useState({});
+  const [servicesData, setServicesData] = useState([]);
+
+  // Function to fetch collar data from API
+  const fetchCollarData = async () => {
+    try {
+      console.log('Fetching collar data...');
+      const response = await axios.get('/api/collars');
+      console.log('Collar API response:', response.data);
+      const collars = response.data.collars || [];
+      const collarMap = {};
+      
+      collars.forEach(collar => {
+        console.log('Processing collar:', collar);
+        collarMap[collar.id] = {
+          id: collar.id,
+          name: collar.name,
+          image: collar.collar_img,
+          collar_img: collar.collar_img
+        };
+        
+        // Aggressive preloading for ultra-fast collar image loading
+        if (collar.collar_img) {
+          const img = new Image();
+          img.src = `http://127.0.0.1:8000/storage/${collar.collar_img}`;
+          img.loading = 'eager';
+          img.decoding = 'async';
+          console.log('Preloading collar image:', img.src);
+        }
+      });
+      
+      setCollarData(collarMap);
+      console.log('Fetched collar data:', collarMap);
+    } catch (error) {
+      console.error('Error fetching collar data:', error);
+    }
+  };
+
+  // Function to fetch services data from API
+  const fetchServicesData = async () => {
+    try {
+      console.log('Fetching services data...');
+      const response = await axios.get('/api/services');
+      console.log('Services API response:', response.data);
+      const services = response.data.services || [];
+      
+      setServicesData(services);
+      console.log('Fetched services data:', services);
+      
+      // Aggressive preloading for ultra-fast collar image loading
+      services.forEach(service => {
+        if (service.collar_img) {
+          const img = new Image();
+          img.src = `http://127.0.0.1:8000/storage/${service.collar_img}`;
+          img.loading = 'eager';
+          img.decoding = 'async';
+          console.log('Preloading collar image:', img.src);
+        }
+      });
+    } catch (error) {
+      console.error('Error fetching services data:', error);
+    }
+  };
 
   // Helper function to get rank based on experience
   const getRankByExperience = (experience) => {
     switch (experience) {
       case '0-11-months':
-        return { name: 'Bronze', image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg' };
+        return { name: 'Bronze', image: '/images/bronze.png' };
       case '1-2-years':
-        return { name: 'Silver', image: 'img/rank/pp1cpyZuiQcpUy44geQdA6GtN5DzvJBZu1Jra53H.png' };
+        return { name: 'Silver', image: '/images/silver.svg' };
       case '2-5-years':
-        return { name: 'Gold', image: 'img/rank/aTxm30AVX6eA2bX8ICZLRskw66eg9pBgibzhutXO.jpg' };
+        return { name: 'Gold', image: '/images/gold.svg' };
       case '5-10-years':
-        return { name: 'Diamond', image: 'img/rank/BT3ZPIEvlO4KYEsUpPhD6jVQyskw0tPknV43CoY1.jpg' };
+        return { name: 'Platinum', image: '/images/platinum.svg' };
+      case '10+ years':
+        return { name: 'Diamond', image: '/images/diamond.svg' };
       default:
-        return { name: 'Bronze', image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg' };
+        return { name: 'Bronze', image: '/images/bronze.png' };
     }
+  };
+
+  // Helper function to get worker collar based on skills and services
+  const getWorkerCollar = (worker) => {
+    console.log('Getting worker collar for:', worker);
+    console.log('Services data available:', servicesData);
+    console.log('Worker skills:', worker?.primary_skills, worker?.additional_skills);
+    
+    if (!worker?.primary_skills && !worker?.additional_skills) {
+      console.log('No skills found, using default Blue Collars');
+      return { id: 1, name: "Blue Collars", image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" };
+    }
+    
+    const allSkills = [
+      ...(worker.primary_skills || []),
+      ...(worker.additional_skills || [])
+    ];
+    
+    console.log('All worker skills:', allSkills);
+    console.log('Available services:', servicesData);
+    
+    // Find matching service based on worker's skills
+    for (const skill of allSkills) {
+      console.log('Checking skill:', skill);
+      
+      // Find service that contains this skill
+      const matchingService = servicesData.find(service => {
+        const serviceSkillIds = service.skill_ids || [];
+        console.log('Service skill IDs:', serviceSkillIds, 'for service:', service.name);
+        return serviceSkillIds.includes(skill.skill_id?.toString());
+      });
+      
+      if (matchingService) {
+        console.log('Found matching service:', matchingService);
+        console.log('Service collar info:', {
+          color_collar_id: matchingService.color_collar_id,
+          color_collar_name: matchingService.color_collar_name,
+          collar_img: matchingService.collar_img
+        });
+        
+        return {
+          id: matchingService.color_collar_id,
+          name: matchingService.color_collar_name,
+          image: matchingService.collar_img
+        };
+      }
+    }
+    
+    // Default to Blue Collars if no match found
+    console.log('No matching service found, using default Blue Collars');
+    return { id: 1, name: "Blue Collars", image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" };
   };
 
 
@@ -62,6 +209,39 @@ const Profile = ({ initialServiceType }) => {
   const isLoggedIn = () => {
     const authToken = localStorage.getItem("auth_token");
     return !!authToken;
+  };
+
+  // Check if the user whose profile is being viewed is online
+  const isUserOnline = () => {
+    const userData = JSON.parse(localStorage.getItem("user") || '{}');
+    const currentUser = userData.user || userData;
+    const isOwnProfile = currentUser?.id === parseInt(resolvedWorkerId);
+    
+    console.log('Profile status check:', {
+      currentUserId: currentUser?.id,
+      workerId: worker?.id,
+      resolvedWorkerId: resolvedWorkerId,
+      isOwnProfile: isOwnProfile,
+      isLoggedIn: isLoggedIn(),
+      workerIsOnline: worker?.is_online,
+      workerLastActivity: worker?.last_activity
+    });
+    
+    // If viewing own profile and logged in, show as online
+    if (isOwnProfile && isLoggedIn()) {
+      console.log('Showing as online - own profile and logged in');
+      return true;
+    }
+    
+    // If the worker ID matches the current user ID (alternative check)
+    if (worker && worker.id && currentUser?.id && worker.id === currentUser.id && isLoggedIn()) {
+      console.log('Showing as online - worker ID matches current user');
+      return true;
+    }
+    
+    // Use the backend is_online status
+    console.log('Using backend is_online status:', worker?.is_online);
+    return worker?.is_online || false;
   };
 
   // Handle Hire Now button click
@@ -80,8 +260,21 @@ const Profile = ({ initialServiceType }) => {
       return;
     }
     
+    // Show verification modal first
+    setIsVerificationModalOpen(true);
+  };
+
+  // Handle continue button click
+  const handleVerificationContinue = () => {
+    setIsVerificationModalOpen(false);
     setIsBookingModalOpen(true);
   };
+
+  // Handle verification modal close
+  const handleVerificationClose = () => {
+    setIsVerificationModalOpen(false);
+  };
+
 
   // Handle Message button click
   const handleMessageClick = () => {
@@ -118,10 +311,10 @@ const Profile = ({ initialServiceType }) => {
 
         let workerData;
         try {
-          console.log('Making API call to:', `http://127.0.0.1:8000/api/workers/${resolvedWorkerId}`);
-          const response = await axios.get(`http://127.0.0.1:8000/api/workers/${resolvedWorkerId}`, {
+          console.log('Making API call to:', `/api/workers/${resolvedWorkerId}`);
+          const response = await axios.get(`/api/workers/${resolvedWorkerId}`, {
             headers,
-            timeout: 10000,
+            timeout: 30000,
           });
           workerData = response.data;
           console.log('API response received:', workerData);
@@ -196,6 +389,7 @@ const Profile = ({ initialServiceType }) => {
           status: workerData.last_active_text || (workerData.is_online ? "Online" : "Offline"),
           is_online: workerData.is_online,
           last_active_text: workerData.last_active_text,
+          last_activity: workerData.last_activity,
           hourlyRate: workerData.worker?.skills_id?.primary_skills?.[0]?.hourly_rate 
             ? parseFloat(workerData.worker.skills_id.primary_skills[0].hourly_rate) 
             : 150.00,
@@ -262,11 +456,30 @@ const Profile = ({ initialServiceType }) => {
     };
   }, [workerId]);
 
+  // Fetch collar data on component mount
+  useEffect(() => {
+    fetchCollarData();
+  }, []);
+
+    // Fetch services data on component mount
+  useEffect(() => {
+    fetchServicesData();
+    
+    // Preload verified.png for ultra-fast loading
+    const verifiedImg = new Image();
+    verifiedImg.src = '/images/verified.png';
+    verifiedImg.loading = 'eager';
+    verifiedImg.decoding = 'async';
+    verifiedImg.onload = () => console.log('Verified.png loaded successfully');
+    verifiedImg.onerror = () => console.error('Failed to load verified.png');
+    console.log('Preloading verified.png from:', verifiedImg.src);
+  }, []);
+
   // Fetch worker reviews
   const fetchWorkerReviews = async () => {
     try {
       setReviewsLoading(true);
-      const response = await axios.get(`http://127.0.0.1:8000/api/reviews/worker/${resolvedWorkerId}`, {
+      const response = await axios.get(`/api/reviews/worker/${resolvedWorkerId}`, {
         headers: { Accept: "application/json" }
       });
 
@@ -302,7 +515,7 @@ const Profile = ({ initialServiceType }) => {
   const fetchWorkerRank = async (points) => {
     try {
       if (points >= 0) {
-        const response = await axios.get('http://127.0.0.1:8000/api/ranks', {
+        const response = await axios.get('/api/ranks', {
           headers: { Accept: "application/json" }
         });
         
@@ -413,7 +626,7 @@ const Profile = ({ initialServiceType }) => {
         total_salary: parseFloat(bookingDetails.total_salary) || null,
       };
 
-      const response = await axios.post('http://127.0.0.1:8000/api/bookings', bookingData, {
+      const response = await axios.post('/api/bookings', bookingData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
@@ -485,10 +698,13 @@ const Profile = ({ initialServiceType }) => {
           <img 
             src={worker.profile_img 
               ? `http://127.0.0.1:8000/storage/${worker.profile_img}` 
-              : profilePhoto
+              : "/images/defpfp.svg"
             } 
             alt="Profile" 
             className="profile-photo" 
+            onError={(e) => {
+              e.target.src = "/images/defpfp.svg";
+            }}
           />
         </div>
       </div>
@@ -497,23 +713,58 @@ const Profile = ({ initialServiceType }) => {
         <div className="profile-left">
           <div className="profile-info">
             <div className="profile-name-container">
-              <h2>{worker.name}</h2>
-               <div className="profile-badges-container">
-                 {(worker.verified === true || worker.verified === 1) && (
-                   <div className="profile-verified-badge" title="Verified Worker">
-                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                       <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="#4CAF50"/>
-                     </svg>
-                   </div>
-                 )}
-               </div>
+              <div className="profile-name-with-badge">
+                <h2>{worker.name}</h2>
+                {/* Collar Badge - positioned beside name */}
+                {(() => {
+                  const workerCollar = getWorkerCollar(worker);
+                  console.log('Worker collar result:', workerCollar);
+                  console.log('Image path:', workerCollar.image);
+                  console.log('Full image URL:', `http://127.0.0.1:8000/storage/${workerCollar.image}`);
+                  
+                  return (
+                    <div className="profile-service-badge" title={`${workerCollar.name} Worker`}>
+                      {workerCollar.image ? (
+                        <img 
+                          src={`http://127.0.0.1:8000/storage/${workerCollar.image}`} 
+                          alt={`${workerCollar.name} Collar`}
+                          className="badge-icon"
+                          onError={(e) => {
+                            console.error('Collar image failed to load:', e.target.src);
+                            e.target.style.display = 'none';
+                          }}
+                          onLoad={() => {
+                            console.log('Collar image loaded successfully');
+                          }}
+                        />
+                      ) : null}
+                    </div>
+                  );
+                })()}
+                {/* Verified Badge - positioned beside collar icon */}
+                {(worker.verified === true || worker.verified === 1) && (
+                  <div className="profile-verified-badge" title="Verified Worker">
+                    <img 
+                      src="/images/verified.png" 
+                      alt="Verified" 
+                      className="verified-icon"
+                      loading="eager"
+                      decoding="async"
+                      onLoad={() => console.log('Verified badge image loaded in profile')}
+                      onError={(e) => console.error('Failed to load verified badge image:', e.target.src)}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
             <div className="profile-status-container">
-              <span className="profile-status-dot"></span>
-              <p className="profile-status">{worker.status === "ACTIVE NOW" ? "Available now" : worker.status}</p>
+              <span className={`profile-status-dot ${isStatusGreen() ? 'online' : 'offline'}`}></span>
+              <p className={`profile-status ${isStatusGreen() ? 'online' : 'offline'}`}>
+                {isUserOnline() ? 'Online' : getLastActiveText(worker.last_activity, worker.is_online)}
+              </p>
             </div>
             <p className="profile-location">{worker.location}</p>
-            {/* Only show HIRE NOW button for employers or if viewing own profile */}
+            {/* Show HIRE NOW and MESSAGE buttons */}
             {(() => {
               const userData = JSON.parse(localStorage.getItem("user") || '{}');
               const currentUser = userData.user || userData;
@@ -522,9 +773,14 @@ const Profile = ({ initialServiceType }) => {
               
               if (isEmployer || isOwnProfile) {
                 return (
-                  <button className="profile-hire-button" onClick={handleHireNowClick}>
-                    HIRE NOW
-                  </button>
+                  <div className="profile-action-buttons">
+                    <button className="profile-hire-button" onClick={handleHireNowClick}>
+                      HIRE NOW
+                    </button>
+                    <button className="profile-message-button" onClick={handleMessageClick}>
+                      MESSAGE
+                    </button>
+                  </div>
                 );
               } else {
                 return (
@@ -619,7 +875,7 @@ const Profile = ({ initialServiceType }) => {
                             <div className="profile-skill-header">
                               <div className="profile-skill-name-with-rank">
                                 <img 
-                                  src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
+                                  src={skillRank.image} 
                                   alt={`${skillRank.name} Rank`}
                                   className="profile-skill-rank-icon"
                                 />
@@ -651,7 +907,7 @@ const Profile = ({ initialServiceType }) => {
                             <div className="profile-skill-header">
                               <div className="profile-skill-name-with-rank">
                                 <img 
-                                  src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
+                                  src={skillRank.image} 
                                   alt={`${skillRank.name} Rank`}
                                   className="profile-skill-rank-icon"
                                 />
@@ -776,6 +1032,35 @@ const Profile = ({ initialServiceType }) => {
           </div>
         </div>
       </div>
+
+      {/* Cloudflare Turnstile Verification Modal */}
+      {isVerificationModalOpen && (
+        <div className="verification-modal-overlay">
+          <div className="verification-modal">
+            <div className="verification-modal-header">
+              <h3>Security Verification</h3>
+              <button 
+                className="verification-close-btn" 
+                onClick={handleVerificationClose}
+              >
+                ×
+              </button>
+            </div>
+            <div className="verification-modal-content">
+              <p>Click Continue to proceed with hiring.</p>
+              
+              <div className="verification-actions">
+                <button 
+                  className="continue-button enabled"
+                  onClick={handleVerificationContinue}
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <BookModal
         worker={worker}

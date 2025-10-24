@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { message } from "antd";
@@ -42,7 +42,7 @@ import SkillRatingModal from "./components/SkillRatingModal/SkillRatingModal";
 
 
 const useAuth = () => {
-  const [authState, setAuthState] = useState(() => {
+  return useMemo(() => {
     const token = localStorage.getItem("auth_token");
     const storedUser = localStorage.getItem("user");
     if (token && storedUser) {
@@ -50,20 +50,7 @@ const useAuth = () => {
       return { isAuthenticated: true, userRole: user.role_id };
     }
     return { isAuthenticated: false, userRole: null };
-  });
-
-  useEffect(() => {
-    const token = localStorage.getItem("auth_token");
-    const storedUser = localStorage.getItem("user");
-    if (token && storedUser) {
-      const user = JSON.parse(storedUser);
-      setAuthState({ isAuthenticated: true, userRole: user.role_id });
-    } else {
-      setAuthState({ isAuthenticated: false, userRole: null });
-    }
   }, []);
-
-  return authState;
 };
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -84,25 +71,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 // Role-based route protection component
 const RoleBasedRoute = ({ children, restrictedRoles = [] }) => {
   const location = useLocation();
-  const navigate = useNavigate();
   const { isAuthenticated, userRole } = useAuth();
-
-  React.useEffect(() => {
-    if (!isAuthenticated) {
-      message.warning("Please login to access this page.");
-      return;
-    }
-
-    if (restrictedRoles.includes(userRole)) {
-      const roleName = userRole === 1 ? 'Worker' : userRole === 2 ? 'Employer' : 'Admin';
-      const restrictedAction = location.pathname.includes('/services') ? 'access services' :
-                              location.pathname.includes('/find-jobs') ? 'find jobs' :
-                              location.pathname.includes('/post-job') ? 'post jobs' : 'access this page';
-      
-      message.warning(`${roleName}s cannot ${restrictedAction}. Please switch to the appropriate account.`);
-      navigate('/homepage', { replace: true });
-    }
-  }, [isAuthenticated, userRole, restrictedRoles, location.pathname, navigate]);
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace state={{ from: location }} />;
@@ -110,7 +79,7 @@ const RoleBasedRoute = ({ children, restrictedRoles = [] }) => {
 
   // If user's role is in the restricted roles, redirect to homepage
   if (restrictedRoles.includes(userRole)) {
-    return null; // Will be handled by useEffect
+    return <Navigate to="/homepage" replace />;
   }
 
   return children;
@@ -166,12 +135,7 @@ const PostJobsGuard = () => {
 
 export default function Routers() {
   return (
-    <Router
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true
-      }}
-    >
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Routes>
         <Route path="/" element={<RootRoute />} />
         <Route
@@ -193,46 +157,17 @@ export default function Routers() {
         <Route path="/homepage" element={<Homepage />} />
         <Route 
           path="/services" 
-          element={
-            <RoleBasedRoute restrictedRoles={[1]}>
-              <Service />
-            </RoleBasedRoute>
-          } 
+          element={<Service />} 
         />
         <Route path="/headerz" element={<Headerz />} />
         <Route 
           path="/find-jobs" 
-          element={
-            <RoleBasedRoute restrictedRoles={[2]}>
-              <FindJob />
-            </RoleBasedRoute>
-          } 
+          element={<FindJob />} 
         />
-        <Route 
-          path="/job/:jobId" 
-          element={
-            <RoleBasedRoute restrictedRoles={[2]}>
-              <JobProfile />
-            </RoleBasedRoute>
-          } 
-        />
+        <Route path="/job/:jobId" element={<JobProfile />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route 
-          path="/message" 
-          element={
-            <ProtectedRoute>
-              <Message />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/notifications" 
-          element={
-            <ProtectedRoute>
-              <Notif />
-            </ProtectedRoute>
-          } 
-        />
+        <Route path="/message" element={<Message />} />
+        <Route path="/notifications" element={<Notif />} />
         <Route 
           path="/browse" 
           element={
@@ -254,20 +189,9 @@ export default function Routers() {
         <Route path="/pay" element={<Pay />} />
         <Route 
           path="/profile/:workerId" 
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
+          element={<Profile />} 
         />
-        <Route 
-          path="/profile-settings/*" 
-          element={
-            <ProtectedRoute>
-              <ProfileSettings />
-            </ProtectedRoute>
-          } 
-        />
+        <Route path="/profile-settings/*" element={<ProfileSettings />} />
         <Route 
           path="/skill-rating" 
           element={
@@ -284,14 +208,6 @@ export default function Routers() {
         <Route 
           path="/post-jobs" 
           element={<PostJobsGuard />} 
-        />
-        <Route 
-          path="/profile-settings/post-job" 
-          element={
-            <RoleBasedRoute restrictedRoles={[1]}>
-              <ProfileSettings />
-            </RoleBasedRoute>
-          } 
         />
         <Route
           path="/admin"

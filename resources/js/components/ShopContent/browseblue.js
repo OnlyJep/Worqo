@@ -11,6 +11,28 @@ import { message } from 'antd';
 
 const Browse = () => {
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
+
+  // Function to format last active time
+  const getLastActiveText = (lastActivity) => {
+    if (!lastActivity) return 'Offline';
+    
+    const now = new Date();
+    const lastActive = new Date(lastActivity);
+    const diffInMinutes = Math.floor((now - lastActive) / (1000 * 60));
+    
+    if (diffInMinutes < 1) return 'Active now';
+    if (diffInMinutes < 60) return `Active ${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
+    
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) return `Active ${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+    
+    const diffInDays = Math.floor(diffInHours / 24);
+    if (diffInDays < 365) return `Active ${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+    
+    const diffInYears = Math.floor(diffInDays / 365);
+    return `Active ${diffInYears} year${diffInYears > 1 ? 's' : ''} ago`;
+  };
+
   const [selectedSortOption, setSelectedSortOption] = useState("Sort by");
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredWorkers, setFilteredWorkers] = useState([]);
@@ -29,11 +51,12 @@ const Browse = () => {
 
   // Collar data state
   const [collarData, setCollarData] = useState({});
+  const [servicesData, setServicesData] = useState([]);
 
   // Function to fetch collar data from API
   const fetchCollarData = async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:8000/api/collars');
+      const response = await axios.get('/api/collars');
       const collars = response.data.collars || [];
       const collarMap = {};
       
@@ -41,30 +64,127 @@ const Browse = () => {
         collarMap[collar.id] = {
           id: collar.id,
           name: collar.name,
-          image: collar.collar_img
+          image: collar.collar_img,
+          collar_img: collar.collar_img
         };
+        
+        // Aggressive preloading for ultra-fast collar image loading
+        if (collar.collar_img) {
+          const img = new Image();
+          img.src = `http://127.0.0.1:8000/storage/${collar.collar_img}`;
+          img.loading = 'eager';
+          img.decoding = 'async';
+          console.log('Preloading collar image:', img.src);
+        }
       });
       
       setCollarData(collarMap);
       console.log('Fetched collar data:', collarMap);
     } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Collar data request was aborted");
+        return;
+      }
       console.error('Error fetching collar data:', error);
     }
+  };
+
+  // Function to fetch services data from API
+  const fetchServicesData = async () => {
+    try {
+      console.log('Fetching services data...');
+      const response = await axios.get('/api/services');
+      console.log('Services API response:', response.data);
+      const services = response.data.services || [];
+      
+      setServicesData(services);
+      console.log('Fetched services data:', services);
+      
+      // Aggressive preloading for ultra-fast collar image loading
+      services.forEach(service => {
+        if (service.collar_img) {
+          const img = new Image();
+          img.src = `http://127.0.0.1:8000/storage/${service.collar_img}`;
+          img.loading = 'eager';
+          img.decoding = 'async';
+          console.log('Preloading collar image:', img.src);
+        }
+      });
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Services data request was aborted");
+        return;
+      }
+      console.error('Error fetching services data:', error);
+    }
+  };
+
+  // Helper function to get worker collar based on skills and services
+  const getWorkerCollar = (worker) => {
+    console.log('Getting worker collar for:', worker);
+    console.log('Services data available:', servicesData);
+    console.log('Worker skills:', worker?.primary_skills, worker?.additional_skills);
+    
+    if (!worker?.primary_skills && !worker?.additional_skills) {
+      console.log('No skills found, using default Blue Collars');
+      return { id: 1, name: "Blue Collars", image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" };
+    }
+    
+    const allSkills = [
+      ...(worker.primary_skills || []),
+      ...(worker.additional_skills || [])
+    ];
+    
+    console.log('All worker skills:', allSkills);
+    console.log('Available services:', servicesData);
+    
+    // Find matching service based on worker's skills
+    for (const skill of allSkills) {
+      console.log('Checking skill:', skill);
+      
+      // Find service that contains this skill
+      const matchingService = servicesData.find(service => {
+        const serviceSkillIds = service.skill_ids || [];
+        console.log('Service skill IDs:', serviceSkillIds, 'for service:', service.name);
+        return serviceSkillIds.includes(skill.skill_id?.toString());
+      });
+      
+      if (matchingService) {
+        console.log('Found matching service:', matchingService);
+        console.log('Service collar info:', {
+          color_collar_id: matchingService.color_collar_id,
+          color_collar_name: matchingService.color_collar_name,
+          collar_img: matchingService.collar_img
+        });
+        
+        return {
+          id: matchingService.color_collar_id,
+          name: matchingService.color_collar_name,
+          image: matchingService.collar_img
+        };
+      }
+    }
+    
+    // Default to Blue Collars if no match found
+    console.log('No matching service found, using default Blue Collars');
+    return { id: 1, name: "Blue Collars", image: "img/collar/aAuEXungkh3r08FEXqhWMSf9fYJNKEjQiMSc76iM.png" };
   };
 
   // Helper function to get rank based on experience
   const getRankByExperience = (experience) => {
     switch (experience) {
       case '0-11-months':
-        return { name: 'Bronze', image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg' };
+        return { name: 'Bronze', image: '/images/bronze.png' };
       case '1-2-years':
-        return { name: 'Silver', image: 'img/rank/pp1cpyZuiQcpUy44geQdA6GtN5DzvJBZu1Jra53H.png' };
+        return { name: 'Silver', image: '/images/silver.svg' };
       case '2-5-years':
-        return { name: 'Gold', image: 'img/rank/aTxm30AVX6eA2bX8ICZLRskw66eg9pBgibzhutXO.jpg' };
+        return { name: 'Gold', image: '/images/gold.svg' };
       case '5-10-years':
-        return { name: 'Diamond', image: 'img/rank/BT3ZPIEvlO4KYEsUpPhD6jVQyskw0tPknV43CoY1.jpg' };
+        return { name: 'Platinum', image: '/images/platinum.svg' };
+      case '10+ years':
+        return { name: 'Diamond', image: '/images/diamond.svg' };
       default:
-        return { name: 'Bronze', image: 'img/rank/chOmYCPss4v5FLPv4M309dB0qzCKIxG0WRThxD9i.jpg' };
+        return { name: 'Bronze', image: '/images/bronze.png' };
     }
   };
 
@@ -192,9 +312,9 @@ const Browse = () => {
       if (currentSkillNames.length === 0 && serviceName) {
         try {
           // Fetch services to get skill names for the current service
-          const servicesResponse = await axios.get("http://127.0.0.1:8000/api/services", {
+          const servicesResponse = await axios.get("/api/services", {
             headers,
-            timeout: 10000,
+            timeout: 30000,
           });
           
           const services = servicesResponse.data.services || [];
@@ -216,7 +336,7 @@ const Browse = () => {
       // If we have skill names, fetch by skills, otherwise fetch all workers
       if (currentSkillNames.length > 0) {
         console.log("Fetching workers by skills:", currentSkillNames);
-        response = await axios.get("http://127.0.0.1:8000/api/workers/by-skills", {
+        response = await axios.get("/api/workers/by-skills", {
           params: {
             skill_names: currentSkillNames.join(','),
             page: 1,
@@ -224,18 +344,18 @@ const Browse = () => {
             exclude_user_id: currentUserId // Exclude current user
           },
           headers,
-          timeout: 10000,
+          timeout: 30000,
         });
       } else {
         console.log("Fetching all workers");
-        response = await axios.get("http://127.0.0.1:8000/api/workers/", {
+        response = await axios.get("/api/workers", {
           params: {
             page: 1,
             limit: 50,
             exclude_user_id: currentUserId // Exclude current user
           },
           headers,
-          timeout: 10000,
+          timeout: 30000,
         });
       }
 
@@ -264,6 +384,10 @@ const Browse = () => {
       setFilteredWorkers(filteredWorkers);
       
     } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Request was aborted");
+        return;
+      }
       console.error("Error fetching workers data:", error.response?.data || error.message);
       
       // Handle role-based access denial
@@ -337,6 +461,7 @@ const Browse = () => {
       hours_per_day: worker.hours_per_day,
       verified: worker.verified === true || worker.verified === 1,
       rank: worker.rank || null,
+      last_activity: apiWorker.last_activity,
       // Include detailed skills data for rank display
       primary_skills: skills.primary_skills || [],
       additional_skills: skills.additional_skills || []
@@ -346,6 +471,20 @@ const Browse = () => {
   // Fetch collar data on component mount
   useEffect(() => {
     fetchCollarData();
+  }, []);
+
+  // Fetch services data on component mount
+  useEffect(() => {
+    fetchServicesData();
+    
+    // Preload verified.png for ultra-fast loading
+    const verifiedImg = new Image();
+    verifiedImg.src = '/images/verified.png';
+    verifiedImg.loading = 'eager';
+    verifiedImg.decoding = 'async';
+    verifiedImg.onload = () => console.log('Verified.png loaded successfully');
+    verifiedImg.onerror = () => console.error('Failed to load verified.png');
+    console.log('Preloading verified.png from:', verifiedImg.src);
   }, []);
 
   // Fetch workers data on component mount
@@ -548,44 +687,89 @@ const Browse = () => {
                       className="avatar" 
                       src={worker.profile_img 
                         ? `http://127.0.0.1:8000/storage/${worker.profile_img}` 
-                        : "/images/avatar.svg"
+                        : "/images/defpfp.svg"
                       } 
-                      alt={`${worker.name}'s avatar`} 
+                      alt={`${worker.name}'s avatar`}
+                      onError={(e) => {
+                        e.target.src = "/images/defpfp.svg";
+                      }}
                     />
                   </div>
                   <div className="details-col">
                     <div className="name-row">
                       <div className="name-with-badges">
-                        <h5 className="name">{worker.name}</h5>
-                        <div className="badges-container">
-                          {(worker.verified === true || worker.verified === 1) && (
-                            <div className="verified-badge" title="Verified Worker">
-                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="#4CAF50"/>
-                              </svg>
-                              <span className="verified-text">Verified</span>
-                            </div>
-                          )}
-                          {/* Multiple Collar Badges */}
-                          {getWorkerCollars(worker).map((collar, index) => (
-                            <div key={index} className={`collar-badge-icon collar-${collar.id}`} title={`${collar.name} Worker`}>
-                              {collar.image ? (
-                                <img 
-                                  src={`http://127.0.0.1:8000/storage/${collar.image}`} 
-                                  alt={`${collar.name} Collar`}
-                                  className="collar-icon-only"
-                                />
-                              ) : (
-                                <div className="collar-icon-placeholder" title={collar.name}>
-                                  {collar.name.charAt(0)}
+                        <div className="name-with-collar-verified">
+                          <h5 className="name">{worker.name}</h5>
+                          {/* Collar Image - positioned beside name */}
+                          {(() => {
+                            const workerCollar = getWorkerCollar(worker);
+                            console.log('Worker collar result:', workerCollar);
+                            console.log('Image path:', workerCollar.image);
+                            console.log('Full image URL:', `http://127.0.0.1:8000/storage/${workerCollar.image}`);
+                            
+                            return (
+                              <div className="browse-service-badge" title={`${workerCollar.name} Worker`}>
+                                {workerCollar.image ? (
+                                  <img 
+                                    src={`http://127.0.0.1:8000/storage/${workerCollar.image}`} 
+                                    alt={`${workerCollar.name} Collar`}
+                                    className="badge-icon"
+                                    loading="eager"
+                                    decoding="async"
+                                    onError={(e) => {
+                                      console.error('Collar image failed to load:', e.target.src);
+                                      e.target.style.display = 'none';
+                                    }}
+                                    onLoad={() => {
+                                      console.log('Collar image loaded successfully');
+                                    }}
+                                  />
+                                ) : null}
+                              </div>
+                            );
+                          })()}
+                          {/* Verified Badge - positioned beside collar image */}
+                          {(() => {
+                            console.log('Worker verified status:', worker.verified, 'Type:', typeof worker.verified);
+                            
+                            // Check if worker is verified (verified = 1)
+                            const isVerified = worker.verified === 1 || worker.verified === true;
+                            console.log('Is worker verified:', isVerified);
+                            
+                            if (isVerified) {
+                              console.log('Rendering verified badge for worker:', worker.name);
+                              return (
+                                <div className="profile-verified-badge" title="Verified Worker">
+                                  <img 
+                                    src="/images/verified.png" 
+                                    alt="Verified" 
+                                    className="verified-icon"
+                                    loading="eager"
+                                    decoding="async"
+                                    onLoad={() => console.log('Verified badge image loaded in browseblue')}
+                                    onError={(e) => console.error('Failed to load verified badge image:', e.target.src)}
+                                  />
                                 </div>
-                              )}
-                            </div>
-                          ))}
+                              );
+                            } else {
+                              console.log('Worker not verified (verified = 0), not showing badge');
+                              return null;
+                            }
+                          })()}
+                        </div>
+                        <div className="badges-container">
+                          {/* Collar badges removed - now using collar_img beside name */}
                         </div>
                       </div>
                       <span className="role">{worker.role}</span>
                     </div>
+                    {worker.contact_number && (
+                      <div className="contact-info">
+                        <span className="contact-number">
+                          {worker.contact_number.replace(/(\d{4})\d{3}(\d{4})/, '$1***$2')}
+                        </span>
+                      </div>
+                    )}
                     <div className="info-row">
                       <div className="info-block">
                         <div className="label">LOOKING FOR</div>
@@ -606,7 +790,7 @@ const Browse = () => {
                             return (
                               <span key={`primary-${index}`} className="chip skill-chip-with-rank">
                                 <img 
-                                  src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
+                                  src={skillRank.image} 
                                   alt={`${skillRank.name} Rank`}
                                   className="skill-rank-icon-small"
                                 />
@@ -626,7 +810,7 @@ const Browse = () => {
                             return (
                               <span key={`additional-${index}`} className="chip skill-chip-with-rank">
                                 <img 
-                                  src={`http://127.0.0.1:8000/storage/${skillRank.image}`} 
+                                  src={skillRank.image} 
                                   alt={`${skillRank.name} Rank`}
                                   className="skill-rank-icon-small"
                                 />
@@ -648,8 +832,7 @@ const Browse = () => {
                     </div>
                   </div>
                   <div className="action-col">
-                    <button className="view-btn" type="button" onClick={() => handleViewProfile(worker.id)}>VIEW PROFILE</button>
-                    <div className="stars" aria-label="rating">★★★★★</div>
+                    <button className="view-btn blue-btn" type="button" onClick={() => handleViewProfile(worker.id)}>VIEW PROFILE</button>
                   </div>
                 </div>
               </article>

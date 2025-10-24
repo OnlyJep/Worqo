@@ -4,7 +4,7 @@ import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
-import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
+import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_ranksModal.scss";
 import RanksModal from "./RanksModal";
 
@@ -309,16 +309,17 @@ const Ranks = () => {
           {error && <div className="error">{error}</div>}
           <div className="ranks-header">
             <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search Ranks"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="search-icon">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search Ranks"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
             <div className="right-actions">
               {selectedRanks.length > 0 && (

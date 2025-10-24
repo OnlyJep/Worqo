@@ -4,7 +4,7 @@ import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
-import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
+import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_reviewstable.scss";
 import ReviewModal from "./reviewlistmodal.js";
 
@@ -70,9 +70,32 @@ const ReviewsTable = () => {
         if (isMounted) {
           console.log("Employers:", employerResponse.data);
           console.log("Workers:", workerResponse.data);
-          // Handle nested workers array
-          const employersData = Array.isArray(employerResponse.data) ? employerResponse.data : [];
-          const workersData = Array.isArray(workerResponse.data.workers) ? workerResponse.data.workers : [];
+          
+          // Handle different response structures
+          let employersData = [];
+          let workersData = [];
+          
+          // Handle employers data
+          if (Array.isArray(employerResponse.data)) {
+            employersData = employerResponse.data;
+          } else if (employerResponse.data && Array.isArray(employerResponse.data.employers)) {
+            employersData = employerResponse.data.employers;
+          } else if (employerResponse.data && Array.isArray(employerResponse.data.data)) {
+            employersData = employerResponse.data.data;
+          }
+          
+          // Handle workers data
+          if (Array.isArray(workerResponse.data)) {
+            workersData = workerResponse.data;
+          } else if (workerResponse.data && Array.isArray(workerResponse.data.workers)) {
+            workersData = workerResponse.data.workers;
+          } else if (workerResponse.data && Array.isArray(workerResponse.data.data)) {
+            workersData = workerResponse.data.data;
+          }
+          
+          console.log("Processed Employers:", employersData);
+          console.log("Processed Workers:", workersData);
+          
           setEmployers(employersData);
           setWorkers(workersData);
           setDataLoaded(true);
@@ -81,8 +104,9 @@ const ReviewsTable = () => {
         if (axios.isCancel(err)) {
           console.log("Users fetch canceled:", err.message);
         } else if (isMounted) {
-          setError("Failed to fetch users. Please try again.");
-          console.error(err);
+          console.error("Error fetching users:", err);
+          const errorMessage = err.response?.data?.message || err.message || "Failed to fetch users. Please try again.";
+          setError(`Error loading user data: ${errorMessage}`);
         }
       } finally {
         if (isMounted) setLoading(false);
@@ -228,10 +252,16 @@ const ReviewsTable = () => {
       setError("Please wait until user data is loaded.");
       return;
     }
+    
+    // Clear any previous errors
+    setError(null);
+    
+    // Show warning if no users available, but still allow modal to open
     if (employers.length === 0 || workers.length === 0) {
-      setError("No users available for review. Please ensure there are both employers and workers in the system.");
-      return;
+      console.warn("Limited users available:", { employers: employers.length, workers: workers.length });
+      // Don't block the modal, just show a warning
     }
+    
     console.log("Add New clicked, opening modal");
     setIsEditMode(false);
     setReviewToEdit(null);
@@ -243,6 +273,10 @@ const ReviewsTable = () => {
       setError("Please wait until user data is loaded.");
       return;
     }
+    
+    // Clear any previous errors
+    setError(null);
+    
     console.log("Edit clicked for review:", review);
     setReviewToEdit({
       ...review,
@@ -344,21 +378,56 @@ const ReviewsTable = () => {
       <div className="reviewstable-dashboard">
         <div className="reviewstable-content">
           <h2>{showArchived ? "Archived Reviews" : "Reviews List"}</h2>
-          {error && <div className="error-message">{error}</div>}
-          {loading && <div className="loading-message">Loading...</div>}
-          <div className="reviewstable-header">
-            <div className="left-actions">
-              <div className="search-container">
-                <IconSearch size={20} className="search-icon" />
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search Reviews"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
+          {error && (
+            <div className="error-message" style={{ 
+              background: '#ffebee', 
+              color: '#c62828', 
+              padding: '12px', 
+              borderRadius: '4px', 
+              marginBottom: '16px',
+              border: '1px solid #ffcdd2'
+            }}>
+              {error}
             </div>
+          )}
+          {loading && (
+            <div className="loading-message" style={{ 
+              background: '#e3f2fd', 
+              color: '#1976d2', 
+              padding: '12px', 
+              borderRadius: '4px', 
+              marginBottom: '16px',
+              border: '1px solid #bbdefb'
+            }}>
+              Loading...
+            </div>
+          )}
+          {!dataLoaded && !loading && (
+            <div style={{ 
+              background: '#fff3e0', 
+              color: '#f57c00', 
+              padding: '12px', 
+              borderRadius: '4px', 
+              marginBottom: '16px',
+              border: '1px solid #ffcc02'
+            }}>
+              Initializing user data...
+            </div>
+          )}
+          <div className="reviewstable-header">
+             <div className="left-actions">
+               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="search-icon">
+                 <circle cx="11" cy="11" r="8"></circle>
+                 <path d="m21 21-4.35-4.35"></path>
+               </svg>
+               <input
+                 type="text"
+                 className="search-input"
+                 placeholder="Search Reviews"
+                 value={searchTerm}
+                 onChange={(e) => setSearchTerm(e.target.value)}
+               />
+             </div>
             <div className="right-actions">
               {selectedReviews.length > 0 && (
                 <button

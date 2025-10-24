@@ -273,6 +273,18 @@
       color: #3c556e;
     }
 
+    .contact-info {
+      margin-top: 4px;
+      margin-left: 12px;
+      
+      .contact-number {
+        font-size: 12px;
+        color: #9ca3af;
+        font-family: monospace;
+      }
+    }
+
+
     .label {
       font-size: 12px;
       color: #73839b;
@@ -321,13 +333,33 @@
       &:hover {
         background-color: #08203a;
       }
+
+      &.blue-btn {
+        background: #1A2A44;
+        color: #fff;
+        
+        &:hover {
+          background: #0f1a2e;
+        }
+      }
     }
 
-    .stars {
-      margin-top: 12px;
-      color: #0a2a40; // Blue color for stars
-      font-size: 20px;
-      letter-spacing: 4px;
+    .message-btn {
+      width: 130px;
+      height: 36px;
+      border: 1px solid #1A2A44;
+      border-radius: 18px;
+      background: transparent;
+      color: #1A2A44;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 8px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #1A2A44;
+        color: #fff;
+      }
     }
   }
 
@@ -385,9 +417,9 @@
       font-size: 12px;
     }
 
-    .stars {
-      font-size: 16px;
-      letter-spacing: 2px;
+    .message-btn {
+      width: 110px;
+      font-size: 12px;
     }
   }
 }
@@ -401,6 +433,61 @@
 
   .name {
     margin: 0;
+  }
+}
+
+.name-with-collar-verified {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+
+  .name {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.browse-service-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0a2a44;
+  font-weight: 700;
+
+  .badge-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    // Optimize for fast loading
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    // Prevent layout shift
+    min-width: 20px;
+    min-height: 20px;
+  }
+}
+
+// Clean verified badge - no background, just the image
+.profile-verified-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+
+  .verified-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+    position: relative;
+    z-index: 11;
   }
 }
 

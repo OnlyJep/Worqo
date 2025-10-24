@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { message } from "antd";
 import { Link, useNavigate } from "react-router-dom"; // Added useNavigate
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { CaretDownOutlined } from '@ant-design/icons';
 import "./../../../sass/components/_register.scss";
-import Loader from "../LoaderContent/loader";
-
-message.config({ top: 80, duration: 3 });
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +21,7 @@ const Register = () => {
   const [suffixes, setSuffixes] = useState([]);
   const [roles, setRoles] = useState([]);
   const [genders, setGenders] = useState([]);
+  const [error, setError] = useState(null);
   const navigate = useNavigate(); // Added for navigation
 
   useEffect(() => {
@@ -73,7 +70,7 @@ const Register = () => {
         ]);
       } catch (error) {
         console.error("Failed to fetch data:", error);
-        message.error(`Failed to load registration data: ${error.message}`);
+        setError(`Failed to load registration data: ${error.message}`);
       } finally {
         setIsLoading(false);
       }
@@ -81,6 +78,7 @@ const Register = () => {
 
     fetchData();
   }, []);
+
 
   const closeAlert = () => {};
 
@@ -102,6 +100,8 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setError(null);
+    
     if (
       !formData.firstName ||
       !formData.lastName ||
@@ -110,11 +110,11 @@ const Register = () => {
       !formData.role ||
       !formData.gender
     ) {
-      message.warning("Please fill in all required fields.");
+      setError("Please fill in all required fields.");
       return;
     }
     if (passwordError) {
-      message.warning("Please fix password errors.");
+      setError("Please fix password errors.");
       return;
     }
 
@@ -144,9 +144,8 @@ const Register = () => {
         const errorMessage = data.errors
           ? Object.values(data.errors).flat().join(", ")
           : data.error || "Registration failed";
-        message.error(errorMessage);
+        setError(errorMessage);
       } else {
-        message.success("Registration successful!");
         setFormData({
           firstName: "",
           middleName: "",
@@ -162,16 +161,14 @@ const Register = () => {
       }
     } catch (error) {
       console.error("Registration error:", error);
-      message.error("Registration failed: Network error");
+      setError("Registration failed: Network error");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <>
-      {isLoading && <Loader />}
-      <div className="register-wrapper">
+    <div className="register-wrapper">
         <div className="register-card">
           <div className="register-image-section"></div>
           <div className="register-content">
@@ -181,6 +178,7 @@ const Register = () => {
               <p className="register-subtitle">Join us to get started</p>
             </div>
 
+            {error && <p className="register-error">{error}</p>}
             {passwordError && <p className="register-error">{passwordError}</p>}
 
             <form onSubmit={handleRegister} className="register-form-container">
@@ -314,7 +312,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

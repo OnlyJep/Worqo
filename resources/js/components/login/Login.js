@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './../../../sass/components/_login.scss';
-import Loader from '../LoaderContent/loader';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
@@ -20,24 +18,20 @@ const Login = () => {
       setEmail(rememberedEmail);
       setRememberMe(true);
     }
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
   }, []);
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(null);
 
     if (!email || !password) {
-      message.warning('Please fill in all fields.');
-      setIsLoading(false);
+      setError('Please fill in all fields.');
       return;
     }
 
+
     setIsLoading(true);
-    message.loading({ content: 'Logging in... Please wait', key: 'login', duration: 0 });
 
     try {
       const response = await fetch('http://127.0.0.1:8000/api/login', {
@@ -53,7 +47,6 @@ const Login = () => {
       console.log('API Response:', data);
 
       if (response.ok) {
-        message.success({ content: 'Login successful!', key: 'login', duration: 2 });
         localStorage.setItem('auth_token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
 
@@ -63,10 +56,10 @@ const Login = () => {
           localStorage.removeItem('remembered_email');
         }
 
-        // Update user status to online
+        // Update user status to online (is_online = 1)
         const updatedUser = {
           ...data.user,
-          is_online: true,
+          is_online: 1,
           last_active_text: 'Online'
         };
         localStorage.setItem('user', JSON.stringify(updatedUser));
@@ -96,20 +89,20 @@ const Login = () => {
             setIsLoading(false);
           }, 500);
         } else {
-          message.error({ content: 'Invalid role', key: 'login' });
+          setError('Invalid role');
           setIsLoading(false);
         }
       } else {
         // Handle specific error for archived user
         if (data.message === 'Account is archived and cannot log in') {
-          message.error({ content: 'Your account is locked. Please contact support.', key: 'login' });
+          setError('Your account is locked. Please contact support.');
         } else {
-          message.error({ content: (data.message || 'Invalid email or password.'), key: 'login' });
+          setError(data.message || 'Invalid email or password.');
         }
         setIsLoading(false);
       }
     } catch (error) {
-      message.error({ content: 'An error occurred. Please try again later.', key: 'login' });
+      setError('An error occurred. Please try again later.');
       console.error('Login error:', error);
       setIsLoading(false);
     }
@@ -135,13 +128,13 @@ const Login = () => {
 
       const data = await response.json();
       if (response.ok) {
-        // Update user status to offline before removing from localStorage
+        // Update user status to offline (is_online = 0) before removing from localStorage
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
           const userData = JSON.parse(storedUser);
           const updatedUser = {
             ...userData,
-            is_online: false,
+            is_online: 0,
             last_active_text: 'Offline'
           };
           localStorage.setItem('user', JSON.stringify(updatedUser));
@@ -163,9 +156,7 @@ const Login = () => {
   };
 
   return (
-    <>
-      {isLoading && <Loader />}
-      <div className="login-wrapper">
+    <div className="login-wrapper">
         <div className="login-card">
           <div className="login-image-section"></div>
           <div className="login-content">
@@ -229,7 +220,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

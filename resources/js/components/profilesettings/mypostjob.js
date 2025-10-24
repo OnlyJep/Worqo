@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FaUserFriends, FaRegEdit, FaPlus } from 'react-icons/fa';
-import { MdDateRange } from 'react-icons/md';
 import { message } from 'antd';
 import axios from 'axios';
 import ModalPostJob from './modalpostjob';
@@ -47,17 +46,40 @@ const MyPostJob = () => {
       }
 
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
-      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts?profile_id=${userData.id}&show_archived=true`, {
+      const currentUser = userData.user || userData;
+      
+      // Get the profile ID first
+      let profileId;
+      try {
+        const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUser.id}`, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json"
+          }
+        });
+        profileId = profileResponse.data.id;
+        console.log("Profile found for job fetch:", profileResponse.data);
+      } catch (profileError) {
+        console.log("Profile not found, using user ID:", currentUser.id);
+        profileId = currentUser.id;
+      }
+
+      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts?profile_id=${profileId}&show_archived=true`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json"
         }
       });
 
+      console.log("Job posts response:", response.data);
+      console.log("Profile ID used:", profileId);
+
       if (response.data.job_posts) {
         setJobs(response.data.job_posts.data || []);
+        console.log("Jobs found:", response.data.job_posts.data?.length || 0);
       } else {
-        message.error("Failed to fetch job posts");
+        console.log("No job_posts in response:", response.data);
+        setJobs([]);
       }
     } catch (error) {
       console.error("Error fetching job posts:", error.response?.data || error.message);
@@ -92,7 +114,53 @@ const MyPostJob = () => {
       
       // Get the correct user ID from the nested structure
       const currentUser = userData.user || userData;
-      const profileId = currentUser.id || currentUser.profile_id;
+      
+      // First, let's try to get the profile ID from the backend
+      let profileId;
+      try {
+        const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUser.id}`, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json"
+          }
+        });
+        profileId = profileResponse.data.id;
+        console.log("Profile found:", profileResponse.data);
+      } catch (profileError) {
+        console.log("Profile not found, creating profile for user:", currentUser.id);
+        // Create a profile record for this user
+        try {
+          const createProfileResponse = await axios.post('http://127.0.0.1:8000/api/profiles', {
+            user_id: currentUser.id,
+            first_name: currentUser.first_name || 'Unknown',
+            last_name: currentUser.last_name || 'User',
+            gender_id: currentUser.gender_id || 1,
+            contact_number: currentUser.contact_number || null,
+            street: currentUser.street || null,
+            city: currentUser.city || 'Butuan City',
+            province: currentUser.province || 'Agusan Del Norte',
+            postal_code: currentUser.postal_code || '8600',
+            country: currentUser.country || 'Philippines',
+            profile_img: currentUser.profile_img || null
+          }, {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            }
+          });
+          profileId = createProfileResponse.data.profile.id;
+          console.log("Profile created:", createProfileResponse.data.profile);
+        } catch (createError) {
+          console.error("Failed to create profile:", createError.response?.data || createError.message);
+          // Fallback to user ID
+          profileId = currentUser.id;
+        }
+      }
+      
+      console.log("User data:", userData);
+      console.log("Profile ID:", profileId);
+      console.log("Current user:", currentUser);
       
       // Map salary types to backend expected values
       const salaryTypeMap = {
@@ -102,7 +170,7 @@ const MyPostJob = () => {
         'monthly': 'per_month',
         'project': 'per_hour' // Map project to per_hour for now
       };
-
+      
       const jobPayload = {
         profile_id: profileId,
         job_title: jobData.jobTitle,
@@ -113,13 +181,20 @@ const MyPostJob = () => {
         salary_type: salaryTypeMap[jobData.salaryType] || 'per_hour',
         job_type: jobData.typeOfEmployment,
         hiring_type: jobData.hiringType,
-        team_size: jobData.teamSize,
-        work_start: jobData.workStart || null,
-        work_end: jobData.workEnd || null,
-        application_start: jobData.applicationStart,
-        application_deadline: jobData.applicationDeadline
+        team_size: jobData.teamSize || (jobData.hiringType === 'team' ? 2 : 1),
+        work_start: jobData.workStart ? new Date(jobData.workStart).toISOString().split('T')[0] : jobData.workStart,
+        work_end: jobData.workEnd ? new Date(jobData.workEnd).toISOString().split('T')[0] : jobData.workEnd,
+        application_start: jobData.applicationStart ? new Date(jobData.applicationStart).toISOString().split('T')[0] : jobData.applicationStart,
+        application_deadline: jobData.applicationDeadline ? new Date(jobData.applicationDeadline).toISOString().split('T')[0] : jobData.applicationDeadline,
+        street: null,
+        city: 'Butuan City',
+        province: 'Agusan Del Norte',
+        postal_code: '8600',
+        country: 'Philippines'
       };
-
+      
+      console.log("Job payload being sent:", jobPayload);
+      
       let response;
       if (editingJob) {
         // Update existing job
@@ -150,7 +225,18 @@ const MyPostJob = () => {
       }
     } catch (error) {
       console.error("Error submitting job:", error.response?.data || error.message);
-      message.error("Failed to submit job post");
+      console.error("Full error response:", error.response);
+      
+      // Show specific validation errors if available
+      if (error.response?.data?.errors) {
+        const errors = error.response.data.errors;
+        console.error("Validation errors:", errors);
+        const errorMessages = Object.values(errors).flat();
+        message.error(`Validation failed: ${errorMessages.join(', ')}`);
+      } else {
+        console.error("No specific validation errors found");
+        message.error("Failed to submit job post");
+      }
     }
   };
 
@@ -229,11 +315,7 @@ const MyPostJob = () => {
 
                 <div className="job-description">
                   <h4 className="description-title">Job Overview/Description</h4>
-                  <p className="description-text">
-                    {job.description && job.description.length > 200 
-                      ? `${job.description.substring(0, 200)}...` 
-                      : job.description}
-                  </p>
+                  <p className="description-text">{job.description}</p>
                 </div>
 
                 <div className="job-skills">

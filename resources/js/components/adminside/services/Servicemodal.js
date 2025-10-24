@@ -33,10 +33,10 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
         if (!authToken) {
           throw new Error("No auth token found. Please log in.");
         }
-        const response = await axios.get("http://127.0.0.1:8000/api/collars", {
+        const response = await axios.get("/api/collars", {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
           signal: controller.signal,
-          timeout: 5000,
+          timeout: 15000,
         });
         const collarsData = Array.isArray(response.data.collars) ? response.data.collars : [];
         setColorCollars(collarsData);
@@ -59,10 +59,10 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
         if (!authToken) {
           throw new Error("No auth token found. Please log in.");
         }
-        const response = await axios.get("http://127.0.0.1:8000/api/skills", {
+        const response = await axios.get("/api/skills", {
           headers: { Authorization: `Bearer ${authToken}`, Accept: "application/json" },
           signal: controller.signal,
-          timeout: 5000,
+          timeout: 15000,
         });
         const skillsData = Array.isArray(response.data) ? response.data : response.data.skills || [];
         setSkills(skillsData);

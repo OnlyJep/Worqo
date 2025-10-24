@@ -353,32 +353,32 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
         }
       }
 
-      // Ensure preferred_working_hours is always an array
-      let preferredWorkingHours = initialData.worker?.preferred_working_hours || [];
+      // Ensure preferred_working_days is always an array (use preferred_working_days for consistency with table display)
+      let preferredWorkingDays = initialData.worker?.preferred_working_days || initialData.worker?.preferred_working_hours || [];
       
       // Handle different data formats
-      if (typeof preferredWorkingHours === 'string') {
+      if (typeof preferredWorkingDays === 'string') {
         try {
-          preferredWorkingHours = JSON.parse(preferredWorkingHours);
+          preferredWorkingDays = JSON.parse(preferredWorkingDays);
         } catch (e) {
           // If JSON parsing fails, try to handle as comma-separated string
-          if (preferredWorkingHours.includes(',')) {
-            preferredWorkingHours = preferredWorkingHours.split(',').map(day => day.trim().toLowerCase());
-          } else if (preferredWorkingHours.trim()) {
-            preferredWorkingHours = [preferredWorkingHours.trim().toLowerCase()];
+          if (preferredWorkingDays.includes(',')) {
+            preferredWorkingDays = preferredWorkingDays.split(',').map(day => day.trim().toLowerCase());
+          } else if (preferredWorkingDays.trim()) {
+            preferredWorkingDays = [preferredWorkingDays.trim().toLowerCase()];
           } else {
-            preferredWorkingHours = [];
+            preferredWorkingDays = [];
           }
         }
       }
       
       // Ensure it's always an array and normalize the values
-      if (!Array.isArray(preferredWorkingHours)) {
-        preferredWorkingHours = [];
+      if (!Array.isArray(preferredWorkingDays)) {
+        preferredWorkingDays = [];
       }
       
       // Normalize day names to lowercase
-      preferredWorkingHours = preferredWorkingHours
+      preferredWorkingDays = preferredWorkingDays
         .map(day => day.toLowerCase().trim())
         .filter(day => ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].includes(day));
       
@@ -400,13 +400,15 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
           profile_img: initialData.profile?.profile_img || null,
           work_type: initialData.worker?.work_type || "",
           hours_per_day: initialData.worker?.hours_per_day || 4,
-          preferred_working_hours: preferredWorkingHours,
+          preferred_working_hours: preferredWorkingDays,
           bio: initialData.worker?.bio || "",
           skills_id: initialSkills,
-          credentials: Array.isArray(initialData.worker?.credentials_name) && Array.isArray(initialData.worker?.credentials_photo)
+          credentials: Array.isArray(initialData.worker?.credentials_name) && 
+            (Array.isArray(initialData.worker?.credentials_photo) || Array.isArray(initialData.worker?.credentials_doc))
             ? initialData.worker.credentials_name.map((name, index) => ({
                 credentials_name: name || "",
-                credentials_photo: initialData.worker.credentials_photo[index] || null,
+                credentials_photo: initialData.worker.credentials_photo?.[index] || null,
+                credentials_doc: initialData.worker.credentials_doc?.[index] || null,
               }))
             : [],
           role_id: "1",

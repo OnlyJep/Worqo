@@ -620,6 +620,20 @@ const WorkerList = () => {
 
       if (err.name === "AbortError") return;
 
+      // Handle specific error cases
+      if (err.response?.status === 404) {
+        const errorMessage = err.response?.data?.error || 'Worker not found. The worker may have been deleted.';
+        message.error(errorMessage);
+        
+        // Refresh the worker list to remove the deleted worker
+        await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+        
+        setIsConfirmModalOpen(false);
+        setWorkerToReview(null);
+        setReviewAction(null);
+        return;
+      }
+
       const errorMessage = err.response?.data?.error || `Failed to ${reviewAction} worker.`;
 
       setError(errorMessage);
@@ -865,6 +879,17 @@ const WorkerList = () => {
     } catch (err) {
 
       if (err.name === "AbortError") return;
+
+      // Handle specific error cases
+      if (err.response?.status === 404) {
+        const errorMessage = err.response?.data?.error || 'Some workers not found. The workers may have been deleted.';
+        message.error(errorMessage);
+        
+        // Refresh the worker list to remove any deleted workers
+        await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+        setSelectedWorkers([]);
+        return;
+      }
 
       const errorMessage = err.response?.data?.error || `Failed to ${action} selected workers.`;
 
@@ -1202,7 +1227,17 @@ const WorkerList = () => {
 
         username: response.data.username || "",
 
+        archived: response.data.archived || false,
+
+        created_at: response.data.created_at || null,
+
+        updated_at: response.data.updated_at || null,
+
+        profile_id: response.data.profile_id || null,
+
         profile: {
+
+          id: response.data.profile?.id || null,
 
           first_name: response.data.profile?.first_name || "",
 
@@ -1236,13 +1271,27 @@ const WorkerList = () => {
 
           work_type: response.data.worker?.work_type || "part-time",
 
+          hours_per_day: response.data.worker?.hours_per_day || 4,
+
+          preferred_working_hours: response.data.worker?.preferred_working_hours || [],
+
+          preferred_working_days: response.data.worker?.preferred_working_days || [],
+
+          bio: response.data.worker?.bio || "",
+
           skills_id: response.data.worker?.skills_id || [],
 
           credentials_name: response.data.worker?.credentials_name || [],
 
           credentials_photo: response.data.worker?.credentials_photo || [],
 
+          credentials_doc: response.data.worker?.credentials_doc || [],
+
           is_reviewed: response.data.worker?.is_reviewed || "0",
+
+          verified: response.data.worker?.verified || false,
+
+          rank: response.data.worker?.rank || null,
 
         },
 
@@ -1448,6 +1497,20 @@ const WorkerList = () => {
 
         return;
 
+      }
+
+      // Handle specific error cases
+      if (err.response?.status === 404) {
+        const errorMessage = err.response?.data?.error || 'Worker not found. The worker may have been deleted.';
+        message.error(errorMessage);
+        
+        // Refresh the worker list to remove the deleted worker
+        await fetchWorkers(pagination.currentPage, showArchived, new AbortController().signal);
+        
+        setIsModalOpen(false);
+        setIsEditMode(false);
+        setWorkerToEdit(null);
+        return;
       }
 
       const errorMessage = err.response?.data?.error || "Failed to update worker.";
@@ -2044,6 +2107,8 @@ const WorkerList = () => {
 
                   <th>Hours/Day</th>
 
+                  <th>Preferred Days</th>
+
                   <th>Skills</th>
 
                   <th>Credentials</th>
@@ -2068,7 +2133,7 @@ const WorkerList = () => {
 
                   <tr>
 
-                    <td colSpan="12" className="loading-row">Loading workers...</td>
+                    <td colSpan="13" className="loading-row">Loading workers...</td>
 
                   </tr>
 
@@ -2294,6 +2359,20 @@ const WorkerList = () => {
 
                         </td>
 
+                        <td>
+
+                          {worker.worker?.preferred_working_days ? (
+
+                            Array.isArray(worker.worker.preferred_working_days) 
+
+                              ? worker.worker.preferred_working_days.join(", ")
+
+                              : worker.worker.preferred_working_days
+
+                          ) : "N/A"}
+
+                        </td>
+
                         <td className="skills-cell">
                           {(() => {
                             const skillsText = getDetailedSkillNames(worker.worker?.skills_id);
@@ -2315,22 +2394,24 @@ const WorkerList = () => {
 
                                   {cred.credentials_name}:{" "}
 
-                                  <button
-
-                                    className="credential-link"
-
-                                    onClick={() => handlePreviewClick(cred)}
-
-                                  >
-
-                                    {(cred.credentials_photo && isImageFile(cred.credentials_photo)) || 
-                                     (cred.credentials_doc && isImageFile(cred.credentials_doc))
-
-                                      ? "View Image"
-
-                                      : "View File"}
-
-                                  </button>
+                                  {cred.credentials_photo && isImageFile(cred.credentials_photo) && (
+                                    <button
+                                      className="credential-link"
+                                      onClick={() => handlePreviewClick({...cred, credentials_photo: cred.credentials_photo, credentials_doc: null})}
+                                      style={{ marginRight: '5px' }}
+                                    >
+                                      View Photo
+                                    </button>
+                                  )}
+                                  
+                                  {cred.credentials_doc && (
+                                    <button
+                                      className="credential-link"
+                                      onClick={() => handlePreviewClick({...cred, credentials_photo: null, credentials_doc: cred.credentials_doc})}
+                                    >
+                                      {isImageFile(cred.credentials_doc) ? "View Image" : "View Document"}
+                                    </button>
+                                  )}
 
                                 </div>
 
@@ -2388,7 +2469,7 @@ const WorkerList = () => {
 
                   <tr>
 
-                    <td colSpan="12">No {showArchived ? "archived" : "active"} workers found</td>
+                    <td colSpan="13">No {showArchived ? "archived" : "active"} workers found</td>
 
                   </tr>
 

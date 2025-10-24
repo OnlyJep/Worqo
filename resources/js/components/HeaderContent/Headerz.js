@@ -192,7 +192,7 @@ const Headerz = () => {
       alert('Workers cannot post jobs. Please switch to Employer account.');
       return;
     }
-    navigate('/profile-settings/post-job');
+    navigate('/post-jobs');
   };
   const goToNotifications = () => {
     setIsLoading(true);
@@ -352,6 +352,19 @@ const Headerz = () => {
     setIsLoading(true);
     try {
       const token = localStorage.getItem('auth_token');
+      
+      // Update user status to offline (is_online = 0) before logout
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        const userData = JSON.parse(storedUser);
+        const updatedUser = {
+          ...userData,
+          is_online: 0,
+          last_active_text: 'Offline'
+        };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+      }
+      
       const response = await fetch('http://127.0.0.1:8000/api/logout', {
         method: 'POST',
         headers: {
@@ -359,18 +372,6 @@ const Headerz = () => {
           'Content-Type': 'application/json',
         },
       });
-      
-      // Update user status to offline before clearing localStorage
-      const storedUser = localStorage.getItem('user');
-      if (storedUser) {
-        const userData = JSON.parse(storedUser);
-        const updatedUser = {
-          ...userData,
-          is_online: false,
-          last_active_text: 'Offline'
-        };
-        localStorage.setItem('user', JSON.stringify(updatedUser));
-      }
       
       if (response.ok) {
         localStorage.clear();
@@ -494,7 +495,7 @@ const Headerz = () => {
           {isLoggedIn ? (
             <div className="profile" ref={dropdownRef}>
               <img
-                src={imageError || !user?.profile_img ? 'images/defpfp.svg' : (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}`)}
+                src={imageError || !user?.profile_img || user.profile_img === null ? 'images/defpfp.svg' : (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}`)}
                 alt="Profile"
                 className="profile-icon"
                 onError={handleImageError}

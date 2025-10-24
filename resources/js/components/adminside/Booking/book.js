@@ -5,8 +5,9 @@ import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconPlus, IconArchive } from "@tabler/icons-react";
-import "./../../../../sass/components/_colorcodecollars.scss";
-import ColorCodeCollarsModal from "./ColorCodeCollarsModal";
+import "./../../../../sass/components/_book.scss";
+import Loader from "./../../LoaderContent/loader";
+import BookingModal from "./bookingmodal";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -21,29 +22,33 @@ const formatDate = (dateString) => {
   }).format(date);
 };
 
-const Collars = () => {
-  const [collars, setCollars] = useState([]);
+const Book = () => {
+  const [books, setBooks] = useState([]);
+  const [skills, setSkills] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
-  const [selectedCollars, setSelectedCollars] = useState([]);
+  const [selectedBooks, setSelectedBooks] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [collarToArchive, setCollarToArchive] = useState(null);
+  const [bookToArchive, setBookToArchive] = useState(null);
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1, totalItems: 0 });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [collarToEdit, setCollarToEdit] = useState(null);
+  const [bookToEdit, setBookToEdit] = useState(null);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const controller = new AbortController();
-    fetchCollars(controller.signal);
+    fetchBooks(controller.signal);
+    fetchSkills(controller.signal);
     return () => controller.abort();
   }, [searchTerm, showArchived, pagination.currentPage]);
 
-  const fetchCollars = async (signal) => {
+  const fetchBooks = async (signal) => {
     try {
-      const response = await axios.get("/api/collars", {
+      setLoading(true);
+      const response = await axios.get("/api/bookings", {
         params: {
           search: searchTerm,
           archived: showArchived,
@@ -53,82 +58,97 @@ const Collars = () => {
         signal,
         timeout: 10000,
       });
-      setCollars(response.data.collars);
+      setBooks(response.data.bookings || []);
       setPagination({
-        currentPage: response.data.pagination.currentPage,
-        totalPages: response.data.pagination.totalPages,
-        totalItems: response.data.pagination.totalItems,
+        currentPage: response.data.pagination?.currentPage || 1,
+        totalPages: response.data.pagination?.totalPages || 1,
+        totalItems: response.data.pagination?.totalItems || 0,
       });
       setError("");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error fetching collars:", error.response?.data?.error || error.message);
-      setError("Failed to fetch collars. Please try again.");
+      console.error("Error fetching bookings:", error.response?.data?.error || error.message);
+      setError("Failed to fetch bookings. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const toggleSelectCollar = (collarId) => {
-    setSelectedCollars((prev) =>
-      prev.includes(collarId) ? prev.filter((id) => id !== collarId) : [...prev, collarId]
+  const fetchSkills = async (signal) => {
+    try {
+      const response = await axios.get("/api/skills", {
+        signal,
+        timeout: 10000,
+      });
+      setSkills(response.data || []);
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error fetching skills:", error.response?.data?.error || error.message);
+    }
+  };
+
+  const toggleSelectBook = (bookId) => {
+    setSelectedBooks((prev) =>
+      prev.includes(bookId) ? prev.filter((id) => id !== bookId) : [...prev, bookId]
     );
   };
 
   const toggleSelectAll = () => {
-    if (selectedCollars.length === collars.length) {
-      setSelectedCollars([]);
+    if (selectedBooks.length === (books?.length || 0)) {
+      setSelectedBooks([]);
     } else {
-      setSelectedCollars(collars.map((collar) => collar.id));
+      setSelectedBooks((books || []).map((book) => book.id));
     }
   };
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
     setPagination({ ...pagination, currentPage: 1 });
-    setSelectedCollars([]);
+    setSelectedBooks([]);
   };
 
-  const handleArchiveClick = (collar) => {
-    setCollarToArchive(collar);
+  const handleArchiveClick = (book) => {
+    setBookToArchive(book);
     setIsConfirmModalOpen(true);
   };
 
   const handleArchiveConfirm = async () => {
-    if (!collarToArchive) return;
+    if (!bookToArchive) return;
     try {
-      await axios.patch(`/api/collars/${collarToArchive.id}/archive`, { archived: true }, { timeout: 5000 });
+      await axios.patch(`/api/books/${bookToArchive.id}/archive`, { archived: true }, { timeout: 5000 });
       setIsConfirmModalOpen(false);
-      setCollarToArchive(null);
-      await fetchCollars(new AbortController().signal);
+      setBookToArchive(null);
+      await fetchBooks(new AbortController().signal);
       setError("");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error archiving collar:", error.response?.data?.error || error.message);
-      setError("Failed to archive collar. Please try again.");
+      console.error("Error archiving book:", error.response?.data?.error || error.message);
+      setError("Failed to archive book. Please try again.");
     }
   };
 
-  const handleRestoreCollar = async (collarId) => {
+  const handleRestoreBook = async (bookId) => {
     try {
-      await axios.patch(`/api/collars/${collarId}/archive`, { archived: false }, { timeout: 5000 });
-      await fetchCollars(new AbortController().signal);
+      await axios.patch(`/api/books/${bookId}/archive`, { archived: false }, { timeout: 5000 });
+      await fetchBooks(new AbortController().signal);
       setError("");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error restoring collar:", error.response?.data?.error || error.message);
-      setError("Failed to restore collar. Please try again.");
+      console.error("Error restoring book:", error.response?.data?.error || error.message);
+      setError("Failed to restore book. Please try again.");
     }
   };
 
   const handleBulkAction = async (action) => {
-    if (selectedCollars.length === 0) return;
+    if (selectedBooks.length === 0) return;
     try {
       await axios.post(
-        "/api/collars/bulk-archive",
-        { collar_ids: selectedCollars, action },
+        "/api/books/bulk-archive",
+        { book_ids: selectedBooks, action },
         { timeout: 10000 }
       );
-      setSelectedCollars([]);
-      await fetchCollars(new AbortController().signal);
+      setSelectedBooks([]);
+      await fetchBooks(new AbortController().signal);
       setError("");
     } catch (error) {
       if (error.name === "AbortError") return;
@@ -139,18 +159,13 @@ const Collars = () => {
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
-    setCollarToEdit({ name: "", collar_img: null });
+    setBookToEdit(null);
     setIsModalOpen(true);
     setError("");
   };
 
-  const handleEditClick = (collar) => {
-    setCollarToEdit({
-      id: collar.id,
-      name: collar.name || "",
-      collar_img: null,
-      image_url: collar.collar_img ? `/storage/${collar.collar_img}` : null,
-    });
+  const handleEditClick = (book) => {
+    setBookToEdit(book);
     setIsEditMode(true);
     setIsModalOpen(true);
     setError("");
@@ -159,72 +174,28 @@ const Collars = () => {
   const handleModalClose = () => {
     setIsModalOpen(false);
     setIsEditMode(false);
-    setCollarToEdit(null);
+    setBookToEdit(null);
     setError("");
   };
 
-  const handleCollarAdd = async (formData, signal) => {
+  const handleBookingSubmit = async (formData) => {
     try {
-      const submitData = new FormData();
-      submitData.append("name", formData.name || "");
-      if (formData.collar_img instanceof File) {
-        submitData.append("collar_img", formData.collar_img);
+      if (isEditMode && bookToEdit) {
+        // Update existing booking
+        await axios.put(`/api/bookings/${bookToEdit.id}`, formData, { timeout: 10000 });
+      } else {
+        // Create new booking
+        await axios.post("/api/bookings", formData, { timeout: 10000 });
       }
-
-      for (let [key, value] of submitData.entries()) {
-        console.log(`${key}: ${value}`);
-      }
-
-      const response = await axios.post("/api/collars", submitData, {
-        headers: { "Content-Type": "multipart/form-data" },
-        timeout: 10000,
-        signal,
-      });
-      setIsModalOpen(false);
-      await fetchCollars(new AbortController().signal);
+      
+      // Refresh the bookings list
+      await fetchBooks(new AbortController().signal);
       setError("");
-      return response.data;
     } catch (error) {
-      if (error.name === "AbortError") {
-        console.log("Add request was aborted");
-        return;
-      }
-      console.error("Error adding collar:", error.response?.data?.error || error.message);
-      throw error;
-    }
-  };
-
-  const handleCollarUpdate = async (formData, signal) => {
-    try {
-      const submitData = new FormData();
-      submitData.append("name", formData.name || "");
-      if (formData.collar_img instanceof File) {
-        submitData.append("collar_img", formData.collar_img);
-      }
-      submitData.append("_method", "PUT");
-
-      for (let [key, value] of submitData.entries()) {
-        console.log(`${key}: ${value}`);
-      }
-
-      const response = await axios.post(`/api/collars/${collarToEdit.id}`, submitData, {
-        headers: { "Content-Type": "multipart/form-data" },
-        timeout: 10000,
-        signal,
-      });
-      setIsModalOpen(false);
-      setIsEditMode(false);
-      setCollarToEdit(null);
-      await fetchCollars(new AbortController().signal);
-      setError("");
-      return response.data;
-    } catch (error) {
-      if (error.name === "AbortError") {
-        console.log("Update request was aborted");
-        return;
-      }
-      console.error("Error updating collar:", error.response?.data?.error || error.message);
-      throw error;
+      if (error.name === "AbortError") return;
+      console.error("Error saving booking:", error.response?.data?.error || error.message);
+      setError(`Failed to ${isEditMode ? "update" : "create"} booking. Please try again.`);
+      throw error; // Re-throw to prevent modal from closing
     }
   };
 
@@ -291,28 +262,24 @@ const Collars = () => {
 
   return (
     <div className="app">
-      <AdminSidebar activeItem="Collars" />
+      <AdminSidebar activeItem="Books" />
       <TopNavbar />
-      <div className="colorcodecollars-dashboard">
-        <div className="colorcodecollars-content">
-          <h2>{showArchived ? "Archived Collars" : "Collars"}</h2>
+      <div className="book-dashboard">
+        <div className="book-content">
+          <h2>{showArchived ? "Archived Bookings" : "Bookings"}</h2>
           {error && <div className="error">{error}</div>}
-          <div className="colorcodecollars-header">
+          <div className="book-header">
             <div className="left-actions">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="search-icon">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
               <input
                 type="text"
                 className="search-input"
-                placeholder="Search Collars"
+                placeholder="Search Bookings"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
             <div className="right-actions">
-              {selectedCollars.length > 0 && (
+              {selectedBooks.length > 0 && (
                 <button
                   className="header-button archive-all-button"
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
@@ -331,14 +298,14 @@ const Collars = () => {
               </button>
             </div>
           </div>
-          <div className="colorcodecollars-table">
+          <div className="book-table">
             <table>
               <thead>
                 <tr>
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedCollars.length === collars.length && collars.length > 0 ? (
+                        {selectedBooks.length === (books?.length || 0) && (books?.length || 0) > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -347,20 +314,37 @@ const Collars = () => {
                       Actions
                     </div>
                   </th>
-                  <th>Collar Name</th>
-                  <th>Collar Image</th>
+                  <th>Employer Name</th>
+                  <th>Worker Name</th>
+                  <th>Service Type</th>
+                  <th>Sub Skill</th>
+                  <th>Work Type</th>
+                  <th>Description</th>
+                  <th>Book In</th>
+                  <th>Book End</th>
+                  <th>Time In</th>
+                  <th>Time Out</th>
+                  <th>Daily Rate</th>
+                  <th>Total Amount</th>
+                  <th>Status</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                 </tr>
               </thead>
               <tbody>
-                {collars.length > 0 ? (
-                  collars.map((collar) => (
-                    <tr key={collar.id}>
+                {loading ? (
+                  <tr>
+                    <td colSpan="16" className="loading-row">
+                      <Loader />
+                    </td>
+                  </tr>
+                ) : (books?.length || 0) > 0 ? (
+                  books.map((book) => (
+                    <tr key={book.id}>
                       <td data-label="Actions">
                         <div className="action-icons">
-                          <span onClick={() => toggleSelectCollar(collar.id)} style={{ cursor: "pointer" }}>
-                            {selectedCollars.includes(collar.id) ? (
+                          <span onClick={() => toggleSelectBook(book.id)} style={{ cursor: "pointer" }}>
+                            {selectedBooks.includes(book.id) ? (
                               <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
                               <FaSquare className="checkbox-icon" size={16} />
@@ -370,43 +354,52 @@ const Collars = () => {
                             <FaCheckCircle
                               size={16}
                               className="restore-icon"
-                              onClick={() => handleRestoreCollar(collar.id)}
+                              onClick={() => handleRestoreBook(book.id)}
                             />
                           ) : (
                             <FaTrash
                               size={16}
                               className="delete-icon"
-                              onClick={() => handleArchiveClick(collar)}
+                              onClick={() => handleArchiveClick(book)}
                             />
                           )}
                           <FaPencilAlt
                             size={16}
                             className="edit-icon"
-                            onClick={() => handleEditClick(collar)}
+                            onClick={() => handleEditClick(book)}
                           />
                         </div>
                       </td>
-                      <td data-label="Collar Name" className="collar-name-cell">{collar.name || "N/A"}</td>
-                      <td data-label="Collar Image">
-                        <img
-                          src={collar.collar_img ? `/storage/${collar.collar_img}` : "https://via.placeholder.com/40"}
-                          alt={collar.name}
-                          style={{ width: "40px", height: "40px", objectFit: "contain" }}
-                        />
+                      <td data-label="Employer ID">{book.employer_id || "N/A"}</td>
+                      <td data-label="Worker ID">{book.worker_id || "N/A"}</td>
+                      <td data-label="Service Type">{book.service_type || "N/A"}</td>
+                      <td data-label="Sub Skill">{book.sub_skill || "N/A"}</td>
+                      <td data-label="Work Type">{book.work_type || "N/A"}</td>
+                      <td data-label="Description">{book.description || "N/A"}</td>
+                      <td data-label="Book In">{formatDate(book.book_in)}</td>
+                      <td data-label="Book End">{formatDate(book.book_end)}</td>
+                      <td data-label="Time In">{formatDate(book.time_in)}</td>
+                      <td data-label="Time Out">{formatDate(book.time_out)}</td>
+                      <td data-label="Daily Rate">${book.daily_rate || "0.00"}</td>
+                      <td data-label="Total Amount">${book.total_amount || "0.00"}</td>
+                      <td data-label="Status">
+                        <span className={`status-badge status-${book.status}`}>
+                          {book.status || "N/A"}
+                        </span>
                       </td>
-                      <td data-label="Created At">{formatDate(collar.created_at)}</td>
-                      <td data-label="Updated At">{formatDate(collar.updated_at)}</td>
+                      <td data-label="Created At">{formatDate(book.created_at)}</td>
+                      <td data-label="Updated At">{formatDate(book.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="5">No {showArchived ? "archived" : "active"} collars found</td>
+                    <td colSpan="16">No {showArchived ? "archived" : "active"} bookings found</td>
                   </tr>
                 )}
               </tbody>
             </table>
           </div>
-          <div className="colorcodecollars-pagination">
+          <div className="book-pagination">
             <span>Page {pagination.currentPage} of {pagination.totalPages}</span>
             <button
               onClick={() => setPagination({ ...pagination, currentPage: pagination.currentPage - 1 })}
@@ -428,7 +421,7 @@ const Collars = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{collarToArchive?.name}"?</p>
+            <p>Do you want to archive this booking?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -440,16 +433,17 @@ const Collars = () => {
           </div>
         </div>
       )}
-      {isModalOpen && (
-        <ColorCodeCollarsModal
-          onClose={handleModalClose}
-          onSubmit={isEditMode ? handleCollarUpdate : handleCollarAdd}
-          isEdit={isEditMode}
-          initialData={collarToEdit || { name: "", collar_img: null }}
-        />
-      )}
+
+      <BookingModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        onSubmit={handleBookingSubmit}
+        isEdit={isEditMode}
+        initialData={bookToEdit}
+        skills={skills}
+      />
     </div>
   );
 };
 
-export default Collars;
+export default Book;

@@ -29,13 +29,15 @@ class LoginController extends Controller
                     return response()->json(['message' => 'Account is archived and cannot log in'], 403);
                 }
 
-                // Update last_activity timestamp when user logs in
-                Log::info('Updating last_activity on login', [
+                // Update last_activity timestamp and set user as online when user logs in
+                Log::info('Updating last_activity and is_online on login', [
                     'user_id' => $user->id,
                     'previous_activity' => $user->last_activity,
-                    'new_activity' => now()
+                    'new_activity' => now(),
+                    'is_online' => 1
                 ]);
                 $user->last_activity = now();
+                $user->is_online = 1;
                 $user->save();
 
                 Log::info('Authenticated User:', [
@@ -71,13 +73,15 @@ class LoginController extends Controller
         try {
             $user = Auth::guard('api')->user();
             if ($user) {
-                // Update last_activity timestamp when user logs out
-                Log::info('Updating last_activity on logout', [
+                // Update last_activity timestamp and set user as offline when user logs out
+                Log::info('Updating last_activity and is_online on logout', [
                     'user_id' => $user->id,
                     'previous_activity' => $user->last_activity,
-                    'new_activity' => now()
+                    'new_activity' => now(),
+                    'is_online' => 0
                 ]);
                 $user->last_activity = now();
+                $user->is_online = 0;
                 $user->save();
                 
                 // Revoke the current access token
@@ -127,6 +131,7 @@ class LoginController extends Controller
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
             'last_activity' => $user->last_activity,
+            'is_online' => $user->is_online,
             'archived' => $user->archived,
         ];
     }
