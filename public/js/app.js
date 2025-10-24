@@ -71612,6 +71612,31 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".profile-setup-notification {\n  posit
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranks.scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranks.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.ranks-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.ranks-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.ranks-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .ranks-dashboard.sidebar-expanded, .ranks-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .ranks-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.ranks-dashboard .ranks-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.ranks-dashboard .ranks-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n  text-align: left;\n}\n.ranks-dashboard .ranks-content .ranks-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.ranks-dashboard .ranks-content .ranks-header .left-actions {\n  position: relative;\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.ranks-dashboard .ranks-content .ranks-header .left-actions .search-input {\n  width: 100%;\n  max-width: clamp(200px, 30vw, 300px);\n  padding: 8px 12px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.ranks-dashboard .ranks-content .ranks-header .left-actions .search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(26, 42, 68, 0.2);\n}\n@media (max-width: 768px) {\n  .ranks-dashboard .ranks-content .ranks-header .left-actions .search-input {\n    max-width: 100%;\n  }\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #1A2A44;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions .header-button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions .archive-all-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.ranks-dashboard .ranks-content .ranks-header .right-actions .archive-all-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  border-color: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .ranks-dashboard .ranks-content .ranks-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .ranks-dashboard .ranks-content .ranks-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .ranks-dashboard .ranks-content .ranks-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .ranks-dashboard .ranks-content .ranks-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .ranks-dashboard .ranks-content .ranks-header .left-actions {\n    flex: 1;\n  }\n  .ranks-dashboard .ranks-content .ranks-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .ranks-dashboard .ranks-content .ranks-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .ranks-dashboard .ranks-content .ranks-header .left-actions,\n  .ranks-dashboard .ranks-content .ranks-header .right-actions {\n    width: 100%;\n    justify-content: center;\n  }\n  .ranks-dashboard .ranks-content .ranks-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.ranks-dashboard .ranks-content .ranks-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  -webkit-overflow-scrolling: touch;\n  width: 100%;\n  display: block;\n}\n.ranks-dashboard .ranks-content .ranks-table table {\n  width: 100%;\n  min-width: 1000px;\n  border-collapse: collapse;\n  table-layout: fixed;\n}\n.ranks-dashboard .ranks-content .ranks-table table th {\n  padding: clamp(12px, 3vw, 16px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(13px, 3.2vw, 15px);\n  background: #1A2A44;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.ranks-dashboard .ranks-content .ranks-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.ranks-dashboard .ranks-content .ranks-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.ranks-dashboard .ranks-content .ranks-table table th .header-actions-icon .checkbox-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n}\n.ranks-dashboard .ranks-content .ranks-table table td {\n  padding: clamp(12px, 3vw, 16px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n}\n.ranks-dashboard .ranks-content .ranks-table table td.rank-name-cell {\n  text-align: center;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  padding-left: clamp(12px, 3vw, 14px);\n  padding-right: clamp(12px, 3vw, 14px);\n}\n.ranks-dashboard .ranks-content .ranks-table table td.loading-row {\n  text-align: center;\n  color: #666666;\n  font-style: italic;\n}\n.ranks-dashboard .ranks-content .ranks-table table td img {\n  width: 40px;\n  height: 40px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  display: block;\n  margin: 0 auto;\n}\n.ranks-dashboard .ranks-content .ranks-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.ranks-dashboard .ranks-content .ranks-table table tr:last-child {\n  border-bottom: none;\n}\n.ranks-dashboard .ranks-content .ranks-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .checkbox-icon,\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .delete-icon,\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .edit-icon,\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .restore-icon {\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .checkbox-icon:hover,\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .delete-icon:hover,\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .edit-icon:hover,\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .restore-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n  transform: scale(1.2);\n}\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .delete-icon {\n  color: #1A2A44;\n}\n.ranks-dashboard .ranks-content .ranks-table table .action-icons .delete-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n}\n.ranks-dashboard .ranks-content .ranks-table table th:nth-child(1),\n.ranks-dashboard .ranks-content .ranks-table table td:nth-child(1) {\n  width: clamp(80px, 12vw, 100px);\n  min-width: 80px;\n}\n.ranks-dashboard .ranks-content .ranks-table table th:nth-child(2),\n.ranks-dashboard .ranks-content .ranks-table table td:nth-child(2) {\n  width: clamp(200px, 20vw, 250px);\n  min-width: 200px;\n}\n.ranks-dashboard .ranks-content .ranks-table table th:nth-child(3),\n.ranks-dashboard .ranks-content .ranks-table table td:nth-child(3) {\n  width: clamp(100px, 15vw, 120px);\n  min-width: 100px;\n}\n.ranks-dashboard .ranks-content .ranks-table table th:nth-child(4),\n.ranks-dashboard .ranks-content .ranks-table table td:nth-child(4) {\n  width: clamp(150px, 18vw, 180px);\n  min-width: 150px;\n}\n.ranks-dashboard .ranks-content .ranks-table table th:nth-child(5),\n.ranks-dashboard .ranks-content .ranks-table table td:nth-child(5) {\n  width: clamp(150px, 18vw, 180px);\n  min-width: 150px;\n}\n.ranks-dashboard .ranks-content .ranks-table table th:nth-child(6),\n.ranks-dashboard .ranks-content .ranks-table table td:nth-child(6) {\n  width: clamp(150px, 18vw, 180px);\n  min-width: 150px;\n}\n@media (max-width: 768px) {\n  .ranks-dashboard .ranks-content .ranks-table table table {\n    width: 100%;\n    min-width: 1000px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .ranks-dashboard .ranks-content .ranks-table table th,\n  .ranks-dashboard .ranks-content .ranks-table table td {\n    padding: clamp(8px, 2vw, 10px);\n    font-size: clamp(11px, 2.5vw, 13px);\n  }\n  .ranks-dashboard .ranks-content .ranks-table table td.rank-name-cell {\n    text-align: center;\n  }\n}\n@media (max-width: 480px) {\n  .ranks-dashboard .ranks-content .ranks-table table table {\n    min-width: 1000px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .ranks-dashboard .ranks-content .ranks-table table th,\n  .ranks-dashboard .ranks-content .ranks-table table td {\n    padding: clamp(6px, 1.5vw, 8px);\n    font-size: clamp(10px, 2.2vw, 12px);\n  }\n  .ranks-dashboard .ranks-content .ranks-table table td.rank-name-cell {\n    text-align: center;\n  }\n}\n.ranks-dashboard .ranks-content .ranks-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.ranks-dashboard .ranks-content .ranks-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.ranks-dashboard .ranks-content .ranks-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.ranks-dashboard .ranks-content .ranks-pagination button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.ranks-dashboard .ranks-content .ranks-pagination button.active {\n  background: #1A2A44;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.ranks-dashboard .ranks-content .ranks-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.ranks-dashboard .ranks-content .ranks-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .ranks-dashboard .ranks-content .ranks-pagination {\n    gap: 6px;\n  }\n  .ranks-dashboard .ranks-content .ranks-pagination button,\n  .ranks-dashboard .ranks-content .ranks-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranksModal.scss":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranksModal.scss ***!
@@ -213428,85 +213453,49 @@ var Book = function Book() {
   }();
   var fetchAllUsers = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(signal) {
-      var response, users, firstUser, _employers, _workers, altEmployers, altWorkers, _error$response3, _yield$Promise$all, _yield$Promise$all2, employersResponse, workersResponse, _employers2, _workers2, _t3, _t4;
+      var _yield$Promise$all, _yield$Promise$all2, employersResponse, workersResponse, _employers, _workers, firstWorker, _error$response3, _t3;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
             _context3.p = 0;
-            console.log("Fetching users with profiles...");
+            console.log("Fetching employers and workers...");
+
+            // Fetch employers and workers using the proper API endpoints
             _context3.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/bookings/users-with-profiles", {
+            return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/employers", {
               signal: signal,
               timeout: 10000
-            });
+            }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/workers", {
+              signal: signal,
+              timeout: 10000
+            })]);
           case 1:
-            response = _context3.v;
-            console.log("Users response:", response.data);
-            users = response.data.users || [];
-            console.log("Users array:", users);
-            console.log("First user:", users[0]);
+            _yield$Promise$all = _context3.v;
+            _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
+            employersResponse = _yield$Promise$all2[0];
+            workersResponse = _yield$Promise$all2[1];
+            // Extract data from responses
+            _employers = employersResponse.data.employers || employersResponse.data || [];
+            _workers = workersResponse.data.workers || workersResponse.data || [];
+            console.log("Fetched employers:", _employers.length, _employers);
+            console.log("Fetched workers:", _workers.length, _workers);
+            console.log("First employer:", _employers[0]);
+            console.log("First worker:", _workers[0]);
 
-            // Debug the first user's data structure
-            if (users.length > 0) {
-              firstUser = users[0];
-              console.log("First user detailed structure:", {
-                id: firstUser.id,
-                user_id: firstUser.user_id,
-                full_name: firstUser.full_name,
-                first_name: firstUser.first_name,
-                last_name: firstUser.last_name,
-                username: firstUser.username,
-                email: firstUser.email,
-                role_id: firstUser.role_id
+            // Debug worker data structure
+            if (_workers.length > 0) {
+              firstWorker = _workers[0];
+              console.log("First worker detailed structure:", {
+                id: firstWorker.id,
+                email: firstWorker.email,
+                profile: firstWorker.profile,
+                worker: firstWorker.worker
               });
             }
-            // Debug: Log all users and their role_ids
-            console.log("All users with role_ids:", users.map(function (user) {
-              return {
-                id: user.id,
-                full_name: user.full_name,
-                role_id: user.role_id,
-                username: user.username
-              };
-            }));
-
-            // Separate users by role
-            _employers = users.filter(function (user) {
-              return user.role_id === 2;
-            }); // Employers have role_id 2
-            _workers = users.filter(function (user) {
-              return user.role_id === 1;
-            }); // Workers have role_id 1
-            console.log("Filtered employers (role_id=2):", _employers.length, _employers);
-            console.log("Filtered workers (role_id=1):", _workers.length, _workers);
-
-            // If no users found with expected role_ids, try different role_ids or show all users
-            if (_employers.length === 0 && _workers.length === 0) {
-              console.log("No users found with role_id 1 or 2, trying alternative role_ids");
-
-              // Try different role_ids that might exist
-              altEmployers = users.filter(function (user) {
-                return user.role_id === 3;
-              }); // Maybe admin is role_id 3
-              altWorkers = users.filter(function (user) {
-                return user.role_id === 1 || user.role_id === 2;
-              });
-              console.log("Alternative employers (role_id=3):", altEmployers.length);
-              console.log("Alternative workers (role_id=1 or 2):", altWorkers.length);
-              if (altEmployers.length > 0 || altWorkers.length > 0) {
-                setEmployers(altEmployers);
-                setWorkers(altWorkers);
-              } else {
-                console.log("No users found with any role_ids, showing all users");
-                setEmployers(users);
-                setWorkers(users);
-              }
-            } else {
-              setEmployers(_employers);
-              setWorkers(_workers);
-            }
-            console.log("Employers set:", _employers.length, "Workers set:", _workers.length);
-            _context3.n = 7;
+            setEmployers(_employers);
+            setWorkers(_workers);
+            console.log("Successfully set employers:", _employers.length, "and workers:", _workers.length);
+            _context3.n = 4;
             break;
           case 2:
             _context3.p = 2;
@@ -213518,41 +213507,11 @@ var Book = function Book() {
             return _context3.a(2);
           case 3:
             console.error("Error fetching users:", ((_error$response3 = _t3.response) === null || _error$response3 === void 0 || (_error$response3 = _error$response3.data) === null || _error$response3 === void 0 ? void 0 : _error$response3.error) || _t3.message);
-
-            // Fallback to original endpoints
-            console.log("Falling back to original endpoints...");
-            _context3.p = 4;
-            _context3.n = 5;
-            return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/employers", {
-              signal: signal,
-              timeout: 10000
-            }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/workers", {
-              signal: signal,
-              timeout: 10000
-            })]);
-          case 5:
-            _yield$Promise$all = _context3.v;
-            _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
-            employersResponse = _yield$Promise$all2[0];
-            workersResponse = _yield$Promise$all2[1];
-            _employers2 = employersResponse.data.employers || employersResponse.data || [];
-            _workers2 = workersResponse.data.workers || workersResponse.data || [];
-            console.log("Fallback employers:", _employers2);
-            console.log("Fallback workers:", _workers2);
-            console.log("Fallback first employer:", _employers2[0]);
-            console.log("Fallback first worker:", _workers2[0]);
-            setEmployers(_employers2);
-            setWorkers(_workers2);
-            _context3.n = 7;
-            break;
-          case 6:
-            _context3.p = 6;
-            _t4 = _context3.v;
-            console.error("Fallback also failed:", _t4);
-          case 7:
+            setError("Failed to fetch users. Please try again.");
+          case 4:
             return _context3.a(2);
         }
-      }, _callee3, null, [[4, 6], [0, 2]]);
+      }, _callee3, null, [[0, 2]]);
     }));
     return function fetchAllUsers(_x3) {
       return _ref3.apply(this, arguments);
@@ -213589,7 +213548,7 @@ var Book = function Book() {
   };
   var handleArchiveConfirm = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var _error$response4, _t5;
+      var _error$response4, _t4;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
@@ -213617,14 +213576,14 @@ var Book = function Book() {
             break;
           case 4:
             _context4.p = 4;
-            _t5 = _context4.v;
-            if (!(_t5.name === "AbortError")) {
+            _t4 = _context4.v;
+            if (!(_t4.name === "AbortError")) {
               _context4.n = 5;
               break;
             }
             return _context4.a(2);
           case 5:
-            console.error("Error archiving book:", ((_error$response4 = _t5.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.error) || _t5.message);
+            console.error("Error archiving book:", ((_error$response4 = _t4.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.error) || _t4.message);
             setError("Failed to archive book. Please try again.");
           case 6:
             return _context4.a(2);
@@ -213637,7 +213596,7 @@ var Book = function Book() {
   }();
   var handleRestoreBook = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(bookId) {
-      var _error$response5, _t6;
+      var _error$response5, _t5;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
@@ -213657,14 +213616,14 @@ var Book = function Book() {
             break;
           case 3:
             _context5.p = 3;
-            _t6 = _context5.v;
-            if (!(_t6.name === "AbortError")) {
+            _t5 = _context5.v;
+            if (!(_t5.name === "AbortError")) {
               _context5.n = 4;
               break;
             }
             return _context5.a(2);
           case 4:
-            console.error("Error restoring book:", ((_error$response5 = _t6.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.error) || _t6.message);
+            console.error("Error restoring book:", ((_error$response5 = _t5.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.error) || _t5.message);
             setError("Failed to restore book. Please try again.");
           case 5:
             return _context5.a(2);
@@ -213677,7 +213636,7 @@ var Book = function Book() {
   }();
   var handleDeleteBook = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(bookId) {
-      var _error$response6, _t7;
+      var _error$response6, _t6;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
@@ -213695,14 +213654,14 @@ var Book = function Book() {
             break;
           case 3:
             _context6.p = 3;
-            _t7 = _context6.v;
-            if (!(_t7.name === "AbortError")) {
+            _t6 = _context6.v;
+            if (!(_t6.name === "AbortError")) {
               _context6.n = 4;
               break;
             }
             return _context6.a(2);
           case 4:
-            console.error("Error deleting book:", ((_error$response6 = _t7.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.error) || _t7.message);
+            console.error("Error deleting book:", ((_error$response6 = _t6.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.error) || _t6.message);
             setError("Failed to delete book. Please try again.");
           case 5:
             return _context6.a(2);
@@ -213715,7 +213674,7 @@ var Book = function Book() {
   }();
   var handleBulkAction = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(action) {
-      var _error$response7, _t8;
+      var _error$response7, _t7;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
           case 0:
@@ -213757,14 +213716,14 @@ var Book = function Book() {
             break;
           case 6:
             _context7.p = 6;
-            _t8 = _context7.v;
-            if (!(_t8.name === "AbortError")) {
+            _t7 = _context7.v;
+            if (!(_t7.name === "AbortError")) {
               _context7.n = 7;
               break;
             }
             return _context7.a(2);
           case 7:
-            console.error("Error performing bulk ".concat(action, ":"), ((_error$response7 = _t8.response) === null || _error$response7 === void 0 || (_error$response7 = _error$response7.data) === null || _error$response7 === void 0 ? void 0 : _error$response7.error) || _t8.message);
+            console.error("Error performing bulk ".concat(action, ":"), ((_error$response7 = _t7.response) === null || _error$response7 === void 0 || (_error$response7 = _error$response7.data) === null || _error$response7 === void 0 ? void 0 : _error$response7.error) || _t7.message);
             setError("Failed to perform bulk ".concat(action, ". Please try again."));
           case 8:
             return _context7.a(2);
@@ -213795,7 +213754,7 @@ var Book = function Book() {
   };
   var handleBookingSubmit = /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(formData) {
-      var _error$response8, _t9;
+      var _error$response8, _t8;
       return _regenerator().w(function (_context8) {
         while (1) switch (_context8.p = _context8.n) {
           case 0:
@@ -213825,16 +213784,16 @@ var Book = function Book() {
             break;
           case 5:
             _context8.p = 5;
-            _t9 = _context8.v;
-            if (!(_t9.name === "AbortError")) {
+            _t8 = _context8.v;
+            if (!(_t8.name === "AbortError")) {
               _context8.n = 6;
               break;
             }
             return _context8.a(2);
           case 6:
-            console.error("Error saving booking:", ((_error$response8 = _t9.response) === null || _error$response8 === void 0 || (_error$response8 = _error$response8.data) === null || _error$response8 === void 0 ? void 0 : _error$response8.error) || _t9.message);
+            console.error("Error saving booking:", ((_error$response8 = _t8.response) === null || _error$response8 === void 0 || (_error$response8 = _error$response8.data) === null || _error$response8 === void 0 ? void 0 : _error$response8.error) || _t8.message);
             setError("Failed to ".concat(isEditMode ? "update" : "create", " booking. Please try again."));
-            throw _t9;
+            throw _t8;
           case 7:
             return _context8.a(2);
         }
@@ -214104,12 +214063,21 @@ var Book = function Book() {
                           },
                           title: "Delete Permanently"
                         })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
-                        size: 16,
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("svg", {
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 512 512",
                         className: "edit-icon",
                         onClick: function onClick() {
                           return handleEditClick(book);
-                        }
+                        },
+                        style: {
+                          cursor: "pointer"
+                        },
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
+                          d: "M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z",
+                          fill: "currentColor"
+                        })
                       })]
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -214323,48 +214291,48 @@ var BookingModal = function BookingModal(_ref) {
     }
     console.log("getFullName: processing person:", person);
 
-    // Handle the actual data structure from the API
-    var first_name = person.first_name,
-      middlename = person.middlename,
-      last_name = person.last_name,
-      suffix = person.suffix,
-      username = person.username,
-      full_name = person.full_name;
+    // Handle different data structures from different API endpoints
+    var firstName, middleName, lastName, suffix, username, email;
+
+    // Check if person has a profile object (from workers/employers API)
+    if (person.profile) {
+      firstName = person.profile.first_name;
+      middleName = person.profile.middlename;
+      lastName = person.profile.last_name;
+      suffix = person.profile.suffix;
+      username = person.username;
+      email = person.email;
+    } else {
+      // Direct fields (from users-with-profiles API)
+      firstName = person.first_name;
+      middleName = person.middlename;
+      lastName = person.last_name;
+      suffix = person.suffix;
+      username = person.username;
+      email = person.email;
+    }
     console.log("getFullName: extracted fields:", {
-      first_name: first_name,
-      middlename: middlename,
-      last_name: last_name,
+      firstName: firstName,
+      middleName: middleName,
+      lastName: lastName,
       suffix: suffix,
       username: username,
-      full_name: full_name
+      email: email
     });
 
-    // If full_name is already provided, use it
-    if (full_name && full_name !== "N/A" && full_name.trim() !== "") {
-      console.log("getFullName: using full_name:", full_name);
-      return full_name;
+    // Construct name from available fields
+    var name = firstName || "";
+    if (middleName) {
+      name += " ".concat(middleName);
     }
-
-    // Otherwise construct from individual fields
-    var name = first_name || username || "";
-    if (middlename) {
-      name += " ".concat(middlename);
-    }
-    if (last_name) {
-      name += " ".concat(last_name);
+    if (lastName) {
+      name += " ".concat(lastName);
     }
     if (suffix) {
       name += " ".concat(suffix);
     }
-    var result = name.trim() || "N/A";
+    var result = name.trim() || username || email || "Unknown User";
     console.log("getFullName: constructed name:", result);
-
-    // If still N/A, try to use any available field
-    if (result === "N/A") {
-      var fallbackName = username || "Unknown User";
-      console.log("getFullName: using fallback name:", fallbackName);
-      return fallbackName;
-    }
     return result;
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -214534,12 +214502,6 @@ var BookingModal = function BookingModal(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
               htmlFor: "employer_id",
               children: "Employer"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("small", {
-              style: {
-                color: '#666',
-                fontSize: '12px'
-              },
-              children: "Select at least one participant (employer and/or worker)"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
               id: "employer_id",
               name: "employer_id",
@@ -218727,12 +218689,21 @@ var Collars = function Collars() {
                         onClick: function onClick() {
                           return handleArchiveClick(collar);
                         }
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
-                        size: 16,
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("svg", {
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 512 512",
                         className: "edit-icon",
                         onClick: function onClick() {
                           return handleEditClick(collar);
-                        }
+                        },
+                        style: {
+                          cursor: "pointer"
+                        },
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
+                          d: "M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z",
+                          fill: "currentColor"
+                        })
                       })]
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
@@ -225659,11 +225630,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
-/* harmony import */ var _sass_components_ranksModal_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../../sass/components/_ranksModal.scss */ "./resources/sass/components/_ranksModal.scss");
-/* harmony import */ var _RanksModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./RanksModal */ "./resources/js/components/adminside/ranks/RanksModal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_ranks_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../../sass/components/_ranks.scss */ "./resources/sass/components/_ranks.scss");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var _RanksModal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./RanksModal */ "./resources/js/components/adminside/ranks/RanksModal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -225693,17 +225664,28 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
 var formatDate = function formatDate(dateString) {
   if (!dateString) return "N/A";
-  var date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true
-  }).format(date);
+  try {
+    var date = new Date(dateString);
+
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      return "Invalid Date";
+    }
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true
+    }).format(date);
+  } catch (error) {
+    console.error("Error formatting date:", error, "Input:", dateString);
+    return "Invalid Date";
+  }
 };
 var Ranks = function Ranks() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -225754,6 +225736,10 @@ var Ranks = function Ranks() {
     _useState20 = _slicedToArray(_useState19, 2),
     error = _useState20[0],
     setError = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState22 = _slicedToArray(_useState21, 2),
+    loading = _useState22[0],
+    setLoading = _useState22[1];
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var controller = new AbortController();
@@ -225764,11 +225750,12 @@ var Ranks = function Ranks() {
   }, [searchTerm, showArchived, pagination.currentPage]);
   var fetchRanks = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(signal) {
-      var response, _error$response, _t;
+      var _response$data$pagina, _response$data$pagina2, _response$data$pagina3, response, _error$response, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
             _context.p = 0;
+            setLoading(true);
             _context.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/ranks", {
               params: {
@@ -225782,11 +225769,11 @@ var Ranks = function Ranks() {
             });
           case 1:
             response = _context.v;
-            setRanks(response.data.ranks);
+            setRanks(response.data.ranks || []);
             setPagination({
-              currentPage: response.data.pagination.currentPage,
-              totalPages: response.data.pagination.totalPages,
-              totalItems: response.data.pagination.totalItems
+              currentPage: ((_response$data$pagina = response.data.pagination) === null || _response$data$pagina === void 0 ? void 0 : _response$data$pagina.currentPage) || 1,
+              totalPages: ((_response$data$pagina2 = response.data.pagination) === null || _response$data$pagina2 === void 0 ? void 0 : _response$data$pagina2.totalPages) || 1,
+              totalItems: ((_response$data$pagina3 = response.data.pagination) === null || _response$data$pagina3 === void 0 ? void 0 : _response$data$pagina3.totalItems) || 0
             });
             setError("");
             _context.n = 4;
@@ -225794,7 +225781,7 @@ var Ranks = function Ranks() {
           case 2:
             _context.p = 2;
             _t = _context.v;
-            if (!(_t.name === "AbortError")) {
+            if (!(_t.name === "AbortError" || _t.code === "ERR_CANCELED")) {
               _context.n = 3;
               break;
             }
@@ -225803,9 +225790,13 @@ var Ranks = function Ranks() {
             console.error("Error fetching ranks:", ((_error$response = _t.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 ? void 0 : _error$response.error) || _t.message);
             setError("Failed to fetch ranks. Please try again.");
           case 4:
+            _context.p = 4;
+            setLoading(false);
+            return _context.f(4);
+          case 5:
             return _context.a(2);
         }
-      }, _callee, null, [[0, 2]]);
+      }, _callee, null, [[0, 2, 4, 5]]);
     }));
     return function fetchRanks(_x) {
       return _ref.apply(this, arguments);
@@ -225819,10 +225810,10 @@ var Ranks = function Ranks() {
     });
   };
   var toggleSelectAll = function toggleSelectAll() {
-    if (selectedRanks.length === ranks.length) {
+    if (selectedRanks.length === ((ranks === null || ranks === void 0 ? void 0 : ranks.length) || 0)) {
       setSelectedRanks([]);
     } else {
-      setSelectedRanks(ranks.map(function (rank) {
+      setSelectedRanks((ranks || []).map(function (rank) {
         return rank.id;
       }));
     }
@@ -225928,76 +225919,114 @@ var Ranks = function Ranks() {
       return _ref3.apply(this, arguments);
     };
   }();
-  var handleBulkAction = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(action) {
+  var handleDeleteRank = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(rankId) {
       var _error$response4, _t4;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
-            if (!(selectedRanks.length === 0)) {
-              _context4.n = 1;
+            _context4.p = 0;
+            _context4.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"]("/api/ranks/".concat(rankId), {
+              timeout: 5000
+            });
+          case 1:
+            _context4.n = 2;
+            return fetchRanks(new AbortController().signal);
+          case 2:
+            setError("");
+            _context4.n = 5;
+            break;
+          case 3:
+            _context4.p = 3;
+            _t4 = _context4.v;
+            if (!(_t4.name === "AbortError")) {
+              _context4.n = 4;
               break;
             }
             return _context4.a(2);
+          case 4:
+            console.error("Error deleting rank:", ((_error$response4 = _t4.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.error) || _t4.message);
+            setError("Failed to delete rank. Please try again.");
+          case 5:
+            return _context4.a(2);
+        }
+      }, _callee4, null, [[0, 3]]);
+    }));
+    return function handleDeleteRank(_x3) {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+  var handleBulkAction = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(action) {
+      var _error$response5, _t5;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
+          case 0:
+            if (!(selectedRanks.length === 0)) {
+              _context5.n = 1;
+              break;
+            }
+            return _context5.a(2);
           case 1:
-            _context4.p = 1;
-            _context4.n = 2;
+            _context5.p = 1;
+            if (!(action === "delete")) {
+              _context5.n = 3;
+              break;
+            }
+            _context5.n = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/ranks/bulk-delete", {
+              rank_ids: selectedRanks
+            }, {
+              timeout: 10000
+            });
+          case 2:
+            _context5.n = 4;
+            break;
+          case 3:
+            _context5.n = 4;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/ranks/bulk-archive", {
               rank_ids: selectedRanks,
               action: action
             }, {
               timeout: 10000
             });
-          case 2:
-            setSelectedRanks([]);
-            _context4.n = 3;
-            return fetchRanks(new AbortController().signal);
-          case 3:
-            setError("");
-            _context4.n = 6;
-            break;
           case 4:
-            _context4.p = 4;
-            _t4 = _context4.v;
-            if (!(_t4.name === "AbortError")) {
-              _context4.n = 5;
+            setSelectedRanks([]);
+            _context5.n = 5;
+            return fetchRanks(new AbortController().signal);
+          case 5:
+            setError("");
+            _context5.n = 8;
+            break;
+          case 6:
+            _context5.p = 6;
+            _t5 = _context5.v;
+            if (!(_t5.name === "AbortError")) {
+              _context5.n = 7;
               break;
             }
-            return _context4.a(2);
-          case 5:
-            console.error("Error performing bulk ".concat(action, ":"), ((_error$response4 = _t4.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.error) || _t4.message);
+            return _context5.a(2);
+          case 7:
+            console.error("Error performing bulk ".concat(action, ":"), ((_error$response5 = _t5.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.error) || _t5.message);
             setError("Failed to perform bulk ".concat(action, ". Please try again."));
-          case 6:
-            return _context4.a(2);
+          case 8:
+            return _context5.a(2);
         }
-      }, _callee4, null, [[1, 4]]);
+      }, _callee5, null, [[1, 6]]);
     }));
-    return function handleBulkAction(_x3) {
-      return _ref4.apply(this, arguments);
+    return function handleBulkAction(_x4) {
+      return _ref5.apply(this, arguments);
     };
   }();
   var handleAddNewClick = function handleAddNewClick() {
     setIsEditMode(false);
-    setRankToEdit({
-      name: "",
-      image: null,
-      min_points: 0,
-      max_points: null
-    });
+    setRankToEdit(null);
     setIsModalOpen(true);
     setError("");
   };
   var handleEditClick = function handleEditClick(rank) {
-    setRankToEdit({
-      id: rank.id,
-      name: rank.name || "",
-      image: null,
-      // No file selected initially
-      image_url: rank.image ? "/storage/".concat(rank.image) : null,
-      // Store existing image URL
-      min_points: rank.min_points || 0,
-      max_points: rank.max_points || null
-    });
+    setRankToEdit(rank);
     setIsEditMode(true);
     setIsModalOpen(true);
     setError("");
@@ -226008,73 +226037,9 @@ var Ranks = function Ranks() {
     setRankToEdit(null);
     setError("");
   };
-  var handleRankAdd = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(formData, signal) {
-      var submitData, _iterator, _step, _step$value, key, value, response, _error$response5, _t5;
-      return _regenerator().w(function (_context5) {
-        while (1) switch (_context5.p = _context5.n) {
-          case 0:
-            _context5.p = 0;
-            submitData = new FormData();
-            submitData.append("name", formData.name || "");
-            if (formData.image instanceof File) {
-              submitData.append("image", formData.image);
-            }
-            submitData.append("min_points", formData.min_points || 0);
-            if (formData.max_points !== null && formData.max_points !== undefined) {
-              submitData.append("max_points", formData.max_points);
-            }
-            _iterator = _createForOfIteratorHelper(submitData.entries());
-            try {
-              for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                _step$value = _slicedToArray(_step.value, 2), key = _step$value[0], value = _step$value[1];
-                console.log("".concat(key, ": ").concat(value));
-              }
-            } catch (err) {
-              _iterator.e(err);
-            } finally {
-              _iterator.f();
-            }
-            _context5.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/ranks", submitData, {
-              headers: {
-                "Content-Type": "multipart/form-data"
-              },
-              timeout: 10000,
-              signal: signal
-            });
-          case 1:
-            response = _context5.v;
-            setIsModalOpen(false);
-            _context5.n = 2;
-            return fetchRanks(new AbortController().signal);
-          case 2:
-            setError("");
-            return _context5.a(2, response.data);
-          case 3:
-            _context5.p = 3;
-            _t5 = _context5.v;
-            if (!(_t5.name === "AbortError")) {
-              _context5.n = 4;
-              break;
-            }
-            console.log("Add request was aborted");
-            return _context5.a(2);
-          case 4:
-            console.error("Error adding rank:", ((_error$response5 = _t5.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.error) || _t5.message);
-            throw _t5;
-          case 5:
-            return _context5.a(2);
-        }
-      }, _callee5, null, [[0, 3]]);
-    }));
-    return function handleRankAdd(_x4, _x5) {
-      return _ref5.apply(this, arguments);
-    };
-  }();
-  var handleRankUpdate = /*#__PURE__*/function () {
+  var handleRankSubmit = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(formData, signal) {
-      var submitData, _iterator2, _step2, _step2$value, key, value, response, _error$response6, _t6;
+      var submitData, _error$response6, _t6;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
@@ -226088,18 +226053,12 @@ var Ranks = function Ranks() {
             if (formData.max_points !== null && formData.max_points !== undefined) {
               submitData.append("max_points", formData.max_points);
             }
-            submitData.append("_method", "PUT");
-            _iterator2 = _createForOfIteratorHelper(submitData.entries());
-            try {
-              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                _step2$value = _slicedToArray(_step2.value, 2), key = _step2$value[0], value = _step2$value[1];
-                console.log("".concat(key, ": ").concat(value));
-              }
-            } catch (err) {
-              _iterator2.e(err);
-            } finally {
-              _iterator2.f();
+            if (!(isEditMode && rankToEdit)) {
+              _context6.n = 2;
+              break;
             }
+            // Update existing rank
+            submitData.append("_method", "PUT");
             _context6.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/ranks/".concat(rankToEdit.id), submitData, {
               headers: {
@@ -226109,34 +226068,156 @@ var Ranks = function Ranks() {
               signal: signal
             });
           case 1:
-            response = _context6.v;
+            _context6.n = 3;
+            break;
+          case 2:
+            _context6.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/ranks", submitData, {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              },
+              timeout: 10000,
+              signal: signal
+            });
+          case 3:
+            // Close modal and refresh the ranks list
             setIsModalOpen(false);
             setIsEditMode(false);
             setRankToEdit(null);
-            _context6.n = 2;
+            _context6.n = 4;
+            return fetchRanks(new AbortController().signal);
+          case 4:
+            setError("");
+            _context6.n = 7;
+            break;
+          case 5:
+            _context6.p = 5;
+            _t6 = _context6.v;
+            if (!(_t6.name === "AbortError")) {
+              _context6.n = 6;
+              break;
+            }
+            console.log("Request was aborted");
+            return _context6.a(2);
+          case 6:
+            console.error("Error saving rank:", ((_error$response6 = _t6.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.error) || _t6.message);
+            throw _t6;
+          case 7:
+            return _context6.a(2);
+        }
+      }, _callee6, null, [[0, 5]]);
+    }));
+    return function handleRankSubmit(_x5, _x6) {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+  var handleRankAdd = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(formData, signal) {
+      var submitData, response, _error$response7, _t7;
+      return _regenerator().w(function (_context7) {
+        while (1) switch (_context7.p = _context7.n) {
+          case 0:
+            _context7.p = 0;
+            submitData = new FormData();
+            submitData.append("name", formData.name || "");
+            if (formData.image instanceof File) {
+              submitData.append("image", formData.image);
+            }
+            submitData.append("min_points", formData.min_points || 0);
+            if (formData.max_points !== null && formData.max_points !== undefined) {
+              submitData.append("max_points", formData.max_points);
+            }
+            _context7.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/ranks", submitData, {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              },
+              timeout: 10000,
+              signal: signal
+            });
+          case 1:
+            response = _context7.v;
+            setIsModalOpen(false);
+            _context7.n = 2;
             return fetchRanks(new AbortController().signal);
           case 2:
             setError("");
-            return _context6.a(2, response.data);
+            return _context7.a(2, response.data);
           case 3:
-            _context6.p = 3;
-            _t6 = _context6.v;
-            if (!(_t6.name === "AbortError")) {
-              _context6.n = 4;
+            _context7.p = 3;
+            _t7 = _context7.v;
+            if (!(_t7.name === "AbortError")) {
+              _context7.n = 4;
+              break;
+            }
+            console.log("Add request was aborted");
+            return _context7.a(2);
+          case 4:
+            console.error("Error adding rank:", ((_error$response7 = _t7.response) === null || _error$response7 === void 0 || (_error$response7 = _error$response7.data) === null || _error$response7 === void 0 ? void 0 : _error$response7.error) || _t7.message);
+            throw _t7;
+          case 5:
+            return _context7.a(2);
+        }
+      }, _callee7, null, [[0, 3]]);
+    }));
+    return function handleRankAdd(_x7, _x8) {
+      return _ref7.apply(this, arguments);
+    };
+  }();
+  var handleRankUpdate = /*#__PURE__*/function () {
+    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(formData, signal) {
+      var submitData, response, _error$response8, _t8;
+      return _regenerator().w(function (_context8) {
+        while (1) switch (_context8.p = _context8.n) {
+          case 0:
+            _context8.p = 0;
+            submitData = new FormData();
+            submitData.append("name", formData.name || "");
+            if (formData.image instanceof File) {
+              submitData.append("image", formData.image);
+            }
+            submitData.append("min_points", formData.min_points || 0);
+            if (formData.max_points !== null && formData.max_points !== undefined) {
+              submitData.append("max_points", formData.max_points);
+            }
+            submitData.append("_method", "PUT");
+            _context8.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/ranks/".concat(rankToEdit.id), submitData, {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              },
+              timeout: 10000,
+              signal: signal
+            });
+          case 1:
+            response = _context8.v;
+            setIsModalOpen(false);
+            setIsEditMode(false);
+            setRankToEdit(null);
+            _context8.n = 2;
+            return fetchRanks(new AbortController().signal);
+          case 2:
+            setError("");
+            return _context8.a(2, response.data);
+          case 3:
+            _context8.p = 3;
+            _t8 = _context8.v;
+            if (!(_t8.name === "AbortError")) {
+              _context8.n = 4;
               break;
             }
             console.log("Update request was aborted");
-            return _context6.a(2);
+            return _context8.a(2);
           case 4:
-            console.error("Error updating rank:", ((_error$response6 = _t6.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.error) || _t6.message);
-            throw _t6;
+            console.error("Error updating rank:", ((_error$response8 = _t8.response) === null || _error$response8 === void 0 || (_error$response8 = _error$response8.data) === null || _error$response8 === void 0 ? void 0 : _error$response8.error) || _t8.message);
+            throw _t8;
           case 5:
-            return _context6.a(2);
+            return _context8.a(2);
         }
-      }, _callee6, null, [[0, 3]]);
+      }, _callee8, null, [[0, 3]]);
     }));
-    return function handleRankUpdate(_x6, _x7) {
-      return _ref6.apply(this, arguments);
+    return function handleRankUpdate(_x9, _x0) {
+      return _ref8.apply(this, arguments);
     };
   }();
   var renderPagination = function renderPagination() {
@@ -226147,7 +226228,7 @@ var Ranks = function Ranks() {
     var endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
     if (totalPages <= maxPagesToShow) {
       var _loop = function _loop(i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           className: pagination.currentPage === i ? "active" : "",
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
@@ -226162,7 +226243,7 @@ var Ranks = function Ranks() {
       }
     } else {
       if (startPage > 1) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
               currentPage: 1
@@ -226171,14 +226252,14 @@ var Ranks = function Ranks() {
           children: "1"
         }, 1));
         if (startPage > 2) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "start-ellipsis"));
         }
       }
       var _loop2 = function _loop2(_i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           className: pagination.currentPage === _i ? "active" : "",
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
@@ -226193,12 +226274,12 @@ var Ranks = function Ranks() {
       }
       if (endPage < totalPages) {
         if (endPage < totalPages - 1) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "end-ellipsis"));
         }
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           onClick: function onClick() {
             return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
               currentPage: totalPages
@@ -226210,41 +226291,24 @@ var Ranks = function Ranks() {
     }
     return pageNumbers;
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
     className: "app",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
       activeItem: "Ranks"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "ranks-dashboard",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "ranks-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
           children: showArchived ? "Archived Ranks" : "Ranks"
-        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "error",
           children: error
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "ranks-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "left-actions",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("svg", {
-              width: "20",
-              height: "20",
-              viewBox: "0 0 24 24",
-              fill: "none",
-              stroke: "currentColor",
-              strokeWidth: "2",
-              strokeLinecap: "round",
-              strokeLinejoin: "round",
-              className: "search-icon",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("circle", {
-                cx: "11",
-                cy: "11",
-                r: "8"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
-                d: "m21 21-4.35-4.35"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
               type: "text",
               className: "search-input",
               placeholder: "Search Ranks",
@@ -226252,124 +226316,173 @@ var Ranks = function Ranks() {
               onChange: function onChange(e) {
                 return setSearchTerm(e.target.value);
               }
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "right-actions",
-            children: [selectedRanks.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
-              className: "header-button archive-all-button",
-              onClick: function onClick() {
-                return handleBulkAction(showArchived ? "restore" : "archive");
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
-                size: 20,
-                className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                className: "button-text",
-                children: showArchived ? "Restore All" : "Archive All"
+            children: [selectedRanks.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+                className: "header-button archive-all-button",
+                onClick: function onClick() {
+                  return handleBulkAction(showArchived ? "restore" : "archive");
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                  size: 20,
+                  className: "button-icon"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                  className: "button-text",
+                  children: showArchived ? "Restore All" : "Archive All"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
+                className: "header-button delete-all-button",
+                onClick: function onClick() {
+                  return handleBulkAction("delete");
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                  size: 20,
+                  className: "button-icon"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                  className: "button-text",
+                  children: "Delete All"
+                })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: "header-button",
               onClick: handleAddNewClick,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                 className: "button-text",
                 children: "Add New"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: "header-button",
               onClick: handleToggleArchived,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaEye, {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "View Active" : "View Archived"
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "ranks-table",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("table", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("table", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                     className: "header-actions-icon",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                       onClick: toggleSelectAll,
                       style: {
                         cursor: "pointer"
                       },
-                      children: selectedRanks.length === ranks.length && ranks.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                      children: selectedRanks.length === ((ranks === null || ranks === void 0 ? void 0 : ranks.length) || 0) && ((ranks === null || ranks === void 0 ? void 0 : ranks.length) || 0) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                         className: "checkbox-icon"
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                         className: "checkbox-icon"
                       })
                     }), "Actions"]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Rank Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Rank Image"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Points Range"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Created At"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Updated At"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("tbody", {
-              children: ranks.length > 0 ? ranks.map(function (rank) {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tbody", {
+              children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                  colSpan: "6",
+                  className: "loading-row",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+                })
+              }) : ((ranks === null || ranks === void 0 ? void 0 : ranks.length) || 0) > 0 ? ranks.map(function (rank) {
                 var _rank$min_points;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Actions",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                       className: "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                         onClick: function onClick() {
                           return toggleSelectRank(rank.id);
                         },
                         style: {
                           cursor: "pointer"
                         },
-                        children: selectedRanks.includes(rank.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
+                        children: selectedRanks.includes(rank.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckSquare, {
                           className: "checkbox-icon",
                           size: 16
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaSquare, {
                           className: "checkbox-icon",
                           size: 16
                         })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
-                        size: 16,
-                        className: "restore-icon",
-                        onClick: function onClick() {
-                          return handleRestoreRank(rank.id);
-                        }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
-                        size: 16,
-                        className: "delete-icon",
-                        onClick: function onClick() {
-                          return handleArchiveClick(rank);
-                        }
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaPencilAlt, {
-                        size: 16,
+                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaCheckCircle, {
+                          size: 16,
+                          className: "restore-icon",
+                          onClick: function onClick() {
+                            return handleRestoreRank(rank.id);
+                          },
+                          title: "Restore"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                          size: 16,
+                          className: "delete-icon",
+                          onClick: function onClick() {
+                            return handleDeleteRank(rank.id);
+                          },
+                          title: "Delete Permanently"
+                        })]
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                          size: 16,
+                          className: "archive-icon",
+                          onClick: function onClick() {
+                            return handleArchiveClick(rank);
+                          },
+                          title: "Archive"
+                        }), rank.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                          size: 16,
+                          className: "delete-icon",
+                          onClick: function onClick() {
+                            return handleDeleteRank(rank.id);
+                          },
+                          title: "Delete Permanently"
+                        })]
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("svg", {
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 512 512",
                         className: "edit-icon",
                         onClick: function onClick() {
                           return handleEditClick(rank);
-                        }
+                        },
+                        style: {
+                          cursor: "pointer"
+                        },
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
+                          d: "M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z",
+                          fill: "currentColor"
+                        })
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Rank Name",
                     className: "rank-name-cell",
                     children: rank.name || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Rank Image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
                       src: rank.image ? "/storage/".concat(rank.image) : "https://via.placeholder.com/40",
                       alt: rank.name,
                       style: {
@@ -226378,30 +226491,30 @@ var Ranks = function Ranks() {
                         objectFit: "contain"
                       }
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
                     "data-label": "Points Range",
                     children: [((_rank$min_points = rank.min_points) === null || _rank$min_points === void 0 ? void 0 : _rank$min_points.toLocaleString()) || '0', " - ", rank.max_points ? rank.max_points.toLocaleString() : '∞']
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Created At",
                     children: formatDate(rank.created_at)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Updated At",
                     children: formatDate(rank.updated_at)
                   })]
                 }, rank.id);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("td", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
                   colSpan: "6",
                   children: ["No ", showArchived ? "archived" : "active", " ranks found"]
                 })
               })
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "ranks-pagination",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
             children: ["Page ", pagination.currentPage, " of ", pagination.totalPages]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             onClick: function onClick() {
               return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
                 currentPage: pagination.currentPage - 1
@@ -226409,7 +226522,7 @@ var Ranks = function Ranks() {
             },
             disabled: pagination.currentPage <= 1,
             children: "<"
-          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             onClick: function onClick() {
               return setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
                 currentPage: pagination.currentPage + 1
@@ -226420,21 +226533,21 @@ var Ranks = function Ranks() {
           })]
         })]
       })
-    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "confirm-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "confirm-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
           children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
-          children: ["Do you want to archive \"", rankToArchive === null || rankToArchive === void 0 ? void 0 : rankToArchive.name, "\"?"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
+          children: "Do you want to archive this rank?"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "confirm-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "confirm-button",
             onClick: handleArchiveConfirm,
             children: "Yes, Archive"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "cancel-button",
             onClick: function onClick() {
               return setIsConfirmModalOpen(false);
@@ -226443,7 +226556,7 @@ var Ranks = function Ranks() {
           })]
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_RanksModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_RanksModal__WEBPACK_IMPORTED_MODULE_10__["default"], {
       onClose: handleModalClose,
       onSubmit: isEditMode ? handleRankUpdate : handleRankAdd,
       isEdit: isEditMode,
@@ -226522,7 +226635,9 @@ var RanksModal = function RanksModal(_ref) {
     setApiError = _useState6[1];
   var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var isMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    isMountedRef.current = true;
     if (isEdit && initialData) {
       setFormData({
         name: initialData.name || "",
@@ -226535,6 +226650,7 @@ var RanksModal = function RanksModal(_ref) {
       setApiError("");
     }
     return function () {
+      isMountedRef.current = false;
       if (abortControllerRef.current) {
         abortControllerRef.current.abort();
       }
@@ -226602,8 +226718,10 @@ var RanksModal = function RanksModal(_ref) {
             _context.n = 3;
             return onSubmit(submitData, abortControllerRef.current.signal);
           case 3:
-            setApiError("");
-            setErrors({});
+            if (isMountedRef.current) {
+              setApiError("");
+              setErrors({});
+            }
             _context.n = 6;
             break;
           case 4:
@@ -226616,11 +226734,13 @@ var RanksModal = function RanksModal(_ref) {
             console.log("Request was aborted");
             return _context.a(2);
           case 5:
-            if ((_error$response = _t.response) !== null && _error$response !== void 0 && (_error$response = _error$response.data) !== null && _error$response !== void 0 && _error$response.errors) {
-              setErrors(_t.response.data.errors);
-              setApiError("Please correct the errors in the form: " + JSON.stringify(_t.response.data.errors));
-            } else {
-              setApiError(((_error$response2 = _t.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.error) || "An error occurred. Please try again.");
+            if (isMountedRef.current) {
+              if ((_error$response = _t.response) !== null && _error$response !== void 0 && (_error$response = _error$response.data) !== null && _error$response !== void 0 && _error$response.errors) {
+                setErrors(_t.response.data.errors);
+                setApiError("Please correct the errors in the form: " + JSON.stringify(_t.response.data.errors));
+              } else {
+                setApiError(((_error$response2 = _t.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.error) || "An error occurred. Please try again.");
+              }
             }
           case 6:
             return _context.a(2);
@@ -231567,12 +231687,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../adminsidebar/adminsidebar */ "./resources/js/components/adminside/adminsidebar/adminsidebar.js");
 /* harmony import */ var _admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../admintopnavbar/admintopnavbar */ "./resources/js/components/adminside/admintopnavbar/admintopnavbar.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
-/* harmony import */ var _sass_components_workerlist_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../../../../sass/components/_workerlist.scss */ "./resources/sass/components/_workerlist.scss");
-/* harmony import */ var _workerlistmodal_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./workerlistmodal.js */ "./resources/js/components/adminside/workerlist/workerlistmodal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
+/* harmony import */ var _sass_components_workerlist_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../sass/components/_workerlist.scss */ "./resources/sass/components/_workerlist.scss");
+/* harmony import */ var _workerlistmodal_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./workerlistmodal.js */ "./resources/js/components/adminside/workerlist/workerlistmodal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -231606,7 +231725,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var Loader = function Loader() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
     className: "loader",
     style: {
       position: "fixed",
@@ -233126,7 +233245,7 @@ var WorkerList = function WorkerList() {
     var status = getReviewStatus(isReviewed);
     console.log('renderStatusBadge called with:', isReviewed, 'status:', status);
     var cls = status === 'ACCEPTED' ? 'accepted' : status === 'DECLINED' ? 'declined' : 'pending';
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
       className: "status-badge ".concat(cls),
       children: status
     });
@@ -233170,7 +233289,7 @@ var WorkerList = function WorkerList() {
     var endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
     if (totalPages <= maxPagesToShow) {
       var _loop = function _loop(i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           className: pagination.currentPage === i ? "active" : "",
           onClick: function onClick() {
             return handlePageChange(i);
@@ -233183,21 +233302,21 @@ var WorkerList = function WorkerList() {
       }
     } else {
       if (startPage > 1) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           onClick: function onClick() {
             return handlePageChange(1);
           },
           children: "1"
         }, 1));
         if (startPage > 2) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "start-ellipsis"));
         }
       }
       var _loop2 = function _loop2(_i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           className: pagination.currentPage === _i ? "active" : "",
           onClick: function onClick() {
             return handlePageChange(_i);
@@ -233210,12 +233329,12 @@ var WorkerList = function WorkerList() {
       }
       if (endPage < totalPages) {
         if (endPage < totalPages - 1) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
             className: "ellipsis",
             children: "..."
           }, "end-ellipsis"));
         }
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           onClick: function onClick() {
             return handlePageChange(totalPages);
           },
@@ -233225,53 +233344,53 @@ var WorkerList = function WorkerList() {
     }
     return pageNumbers;
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
     className: "app",
-    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Loader, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(Loader, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {
       activeItem: "Worker List"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "workerlist-dashboard",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "workerlist-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
           children: showArchived ? "Archived Workers" : "Worker List"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "workerlist-tabs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: activeTab === 'all' ? 'active' : '',
             onClick: function onClick() {
               return handleTabChange('all');
             },
             children: "All"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: activeTab === 'to_review' ? 'active' : '',
             onClick: function onClick() {
               return handleTabChange('to_review');
             },
             children: "To Be Reviewed"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: activeTab === 'accepted' ? 'active' : '',
             onClick: function onClick() {
               return handleTabChange('accepted');
             },
             children: "Accepted"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: activeTab === 'declined' ? 'active' : '',
             onClick: function onClick() {
               return handleTabChange('declined');
             },
             children: "Declined"
           })]
-        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "error-message",
           style: {
             color: "red",
             marginBottom: "10px"
           },
           children: error
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "workerlist-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("svg", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("svg", {
             width: "20",
             height: "20",
             viewBox: "0 0 24 24",
@@ -233281,14 +233400,14 @@ var WorkerList = function WorkerList() {
             strokeLinecap: "round",
             strokeLinejoin: "round",
             className: "search-icon",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("circle", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("circle", {
               cx: "11",
               cy: "11",
               r: "8"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("path", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
               d: "m21 21-4.35-4.35"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
             type: "text",
             className: "search-input",
             placeholder: "Search Workers",
@@ -233301,173 +233420,173 @@ var WorkerList = function WorkerList() {
                 totalItems: 0
               });
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "right-actions",
-            children: [selectedWorkers.length > 0 && showArchived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+            children: [selectedWorkers.length > 0 && showArchived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                 className: "header-button archive-all-button",
                 onClick: function onClick() {
                   return handleBulkAction("restore");
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   size: 20,
                   className: "button-icon"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                   className: "button-text",
                   children: isAllSelected ? "Restore All" : "Restore Selected"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                 className: "header-button",
                 onClick: handleBulkDeleteArchived,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
                   className: "button-icon"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                   className: "button-text",
                   children: isAllSelected ? "Delete All" : "Delete Selected"
                 })]
               })]
-            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'to_review' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'to_review' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                 className: "header-button",
                 onClick: function onClick() {
                   return handleBulkReview('accept');
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheck, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheck, {
                   className: "button-icon"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                   className: "button-text",
                   children: isAllSelected ? "Accept All" : "Accept Selected"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                 className: "header-button",
                 onClick: function onClick() {
                   return handleBulkReview('decline');
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTimes, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTimes, {
                   className: "button-icon"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                   className: "button-text",
                   children: isAllSelected ? "Decline All" : "Decline Selected"
                 })]
               })]
-            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: "header-button archive-all-button",
               onClick: function onClick() {
                 return handleBulkAction("archive");
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                 className: "button-text",
                 children: isAllSelected ? "Archive All" : "Archive Selected"
               })]
-            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'declined' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'declined' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                 className: "header-button archive-all-button",
                 onClick: function onClick() {
                   return handleBulkAction("archive");
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   size: 20,
                   className: "button-icon"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                   className: "button-text",
                   children: isAllSelected ? "Archive All" : "Archive Selected"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                 className: "header-button",
                 onClick: handleBulkDeleteDeclined,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
                   className: "button-icon"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                   className: "button-text",
                   children: isAllSelected ? "Delete All" : "Delete Selected"
                 })]
               })]
-            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'all' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+            }), selectedWorkers.length > 0 && !showArchived && activeTab === 'all' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: "header-button archive-all-button",
               onClick: function onClick() {
                 return handleBulkAction("archive");
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                 className: "button-text",
                 children: isAllSelected ? "Archive All" : "Archive Selected"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: "header-button",
               onClick: handleAddNewClick,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                 className: "button-text",
                 children: "Add New"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
               className: "header-button",
               onClick: handleToggleArchived,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaEye, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaEye, {
                 size: 20,
                 className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                 className: "button-text",
                 children: showArchived ? "View Active" : "View Archived"
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "workerlist-table",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("table", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("table", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                     className: "header-actions-icon",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                       onClick: toggleSelectAll,
                       style: {
                         cursor: "pointer"
                       },
-                      children: selectedWorkers.length === currentWorkers.length && currentWorkers.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckSquare, {
+                      children: selectedWorkers.length === currentWorkers.length && currentWorkers.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckSquare, {
                         className: "checkbox-icon"
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaSquare, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaSquare, {
                         className: "checkbox-icon"
                       })
                     }), "Actions"]
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Profile Image"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Full Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Work Type"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Hours/Day"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Preferred Days"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Skills"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Credentials"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Bio"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Email"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Status"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Created At"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Updated At"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tbody", {
-              children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tbody", {
+              children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                   colSpan: "13",
                   className: "loading-row",
                   children: "Loading workers..."
@@ -233484,32 +233603,32 @@ var WorkerList = function WorkerList() {
                 }).filter(function (cred) {
                   return cred.credentials_name && (cred.credentials_photo || cred.credentials_doc);
                 }) : [];
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                       className: "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                         onClick: function onClick() {
                           return toggleSelectWorker(worker.id);
                         },
                         style: {
                           cursor: "pointer"
                         },
-                        children: selectedWorkers.includes(worker.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckSquare, {
+                        children: selectedWorkers.includes(worker.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckSquare, {
                           className: "checkbox-icon",
                           size: 16
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaSquare, {
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaSquare, {
                           className: "checkbox-icon",
                           size: 16
                         })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckCircle, {
+                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckCircle, {
                           size: 16,
                           className: "restore-icon",
                           onClick: function onClick() {
                             return handleRestoreWorker(worker.id);
                           }
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
                           size: 16,
                           className: "delete-icon",
                           onClick: /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15() {
@@ -233524,50 +233643,59 @@ var WorkerList = function WorkerList() {
                             }, _callee15);
                           }))
                         })]
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-                        children: [getReviewStatus((_worker$worker8 = worker.worker) === null || _worker$worker8 === void 0 ? void 0 : _worker$worker8.is_reviewed) === 'TO BE REVIEWED' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheck, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                        children: [getReviewStatus((_worker$worker8 = worker.worker) === null || _worker$worker8 === void 0 ? void 0 : _worker$worker8.is_reviewed) === 'TO BE REVIEWED' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheck, {
                             size: 16,
                             title: "Accept Worker",
                             onClick: function onClick() {
                               return handleReviewClick(worker, 'accept');
                             }
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTimes, {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTimes, {
                             size: 16,
                             title: "Decline Worker",
                             onClick: function onClick() {
                               return handleReviewClick(worker, 'decline');
                             }
                           })]
-                        }) : null, activeTab === 'all' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
+                        }) : null, activeTab === 'all' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
                             return handleArchiveClick(worker);
                           }
-                        }), activeTab === 'accepted' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
+                        }), activeTab === 'accepted' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
                             return handleArchiveClick(worker);
                           }
-                        }), activeTab === 'declined' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
+                        }), activeTab === 'declined' && !worker.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
                             return handleArchiveClick(worker);
                           }
                         })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_7__.MdOutlineModeEditOutline, {
-                        size: 18,
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("svg", {
+                        width: "18",
+                        height: "18",
+                        viewBox: "0 0 512 512",
                         className: "edit-icon",
                         onClick: function onClick() {
                           return handleEditClick(worker);
-                        }
+                        },
+                        style: {
+                          cursor: "pointer"
+                        },
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("path", {
+                          d: "M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z",
+                          fill: "currentColor"
+                        })
                       })]
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                    children: (_worker$profile = worker.profile) !== null && _worker$profile !== void 0 && _worker$profile.profile_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                    children: (_worker$profile = worker.profile) !== null && _worker$profile !== void 0 && _worker$profile.profile_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
                       src: "http://127.0.0.1:8000/storage/".concat(worker.profile.profile_img),
                       alt: "Profile",
                       className: "profile-img",
@@ -233581,24 +233709,24 @@ var WorkerList = function WorkerList() {
                         e.target.style.display = "none";
                         e.target.parentElement.innerHTML += "<span style=\"color: red;\">N/A</span>";
                       }
-                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                       style: {
                         color: "#888"
                       },
                       children: "N/A"
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     className: "fullname-cell",
                     children: getFullName(worker, suffixes)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     children: (_worker$worker9 = worker.worker) !== null && _worker$worker9 !== void 0 && _worker$worker9.work_type ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, function (c) {
                       return c.toUpperCase();
                     }) : "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     children: (_worker$worker0 = worker.worker) !== null && _worker$worker0 !== void 0 && _worker$worker0.hours_per_day ? "".concat(worker.worker.hours_per_day, " hrs") : "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     children: (_worker$worker1 = worker.worker) !== null && _worker$worker1 !== void 0 && _worker$worker1.preferred_working_days ? Array.isArray(worker.worker.preferred_working_days) ? worker.worker.preferred_working_days.join(", ") : worker.worker.preferred_working_days : "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     className: "skills-cell",
                     children: function (_worker$worker10) {
                       var skillsText = getDetailedSkillNames((_worker$worker10 = worker.worker) === null || _worker$worker10 === void 0 ? void 0 : _worker$worker10.skills_id);
@@ -233608,12 +233736,12 @@ var WorkerList = function WorkerList() {
                       }
                       return skillsText;
                     }()
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     className: "credentials-cell",
                     children: credentials.length > 0 ? credentials.map(function (cred, index) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                         className: "credential-item",
-                        children: [cred.credentials_name, ":", " ", cred.credentials_photo && isImageFile(cred.credentials_photo) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                        children: [cred.credentials_name, ":", " ", cred.credentials_photo && isImageFile(cred.credentials_photo) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                           className: "credential-link",
                           onClick: function onClick() {
                             return handlePreviewClick(_objectSpread(_objectSpread({}, cred), {}, {
@@ -233625,7 +233753,7 @@ var WorkerList = function WorkerList() {
                             marginRight: '5px'
                           },
                           children: "View Photo"
-                        }), cred.credentials_doc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                        }), cred.credentials_doc && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                           className: "credential-link",
                           onClick: function onClick() {
                             return handlePreviewClick(_objectSpread(_objectSpread({}, cred), {}, {
@@ -233637,47 +233765,47 @@ var WorkerList = function WorkerList() {
                         })]
                       }, index);
                     }) : "None"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     className: "bio-cell",
-                    children: (_worker$worker11 = worker.worker) !== null && _worker$worker11 !== void 0 && _worker$worker11.bio ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                    children: (_worker$worker11 = worker.worker) !== null && _worker$worker11 !== void 0 && _worker$worker11.bio ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                       title: worker.worker.bio,
                       children: worker.worker.bio.length > 50 ? "".concat(worker.worker.bio.substring(0, 50), "...") : worker.worker.bio
-                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                       style: {
                         color: "#888"
                       },
                       children: "N/A"
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     className: "email-cell",
                     children: worker.email || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
                     children: [console.log('Worker ID:', worker.id, 'is_reviewed:', (_worker$worker12 = worker.worker) === null || _worker$worker12 === void 0 ? void 0 : _worker$worker12.is_reviewed), renderStatusBadge((_worker$worker13 = worker.worker) === null || _worker$worker13 === void 0 ? void 0 : _worker$worker13.is_reviewed)]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     children: formatDate(worker.created_at)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     children: formatDate(worker.updated_at)
                   })]
                 }, worker.id);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("td", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
                   colSpan: "13",
                   children: ["No ", showArchived ? "archived" : "active", " workers found"]
                 })
               })
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "workerlist-pagination",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
             children: ["Page ", pagination.currentPage, " of ", totalPages]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             onClick: function onClick() {
               return handlePageChange(pagination.currentPage - 1);
             },
             disabled: pagination.currentPage <= 1,
             children: "<"
-          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             onClick: function onClick() {
               return handlePageChange(pagination.currentPage + 1);
             },
@@ -233686,36 +233814,36 @@ var WorkerList = function WorkerList() {
           })]
         })]
       })
-    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "confirm-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "confirm-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
           children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
           children: workerToArchive ? "Do you want to archive \"".concat(getFullName(workerToArchive, suffixes), "\"?") : "Do you want to ".concat(reviewAction, " \"").concat(getFullName(workerToReview, suffixes), "\"?")
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "confirm-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "cancel-button",
             onClick: function onClick() {
               return setIsConfirmModalOpen(false);
             },
             children: "Cancel"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "confirm-button",
             onClick: workerToArchive ? handleArchiveConfirm : handleReviewConfirm,
             children: workerToArchive ? "Archive" : reviewAction === 'accept' ? "Accept" : "Decline"
           })]
         })]
       })
-    }), isPreviewModalOpen && previewCredential && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+    }), isPreviewModalOpen && previewCredential && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "preview-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "preview-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
           children: previewCredential.credentials_name
-        }), previewCredential.credentials_photo && isImageFile(previewCredential.credentials_photo) || previewCredential.credentials_doc && isImageFile(previewCredential.credentials_doc) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+        }), previewCredential.credentials_photo && isImageFile(previewCredential.credentials_photo) || previewCredential.credentials_doc && isImageFile(previewCredential.credentials_doc) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
           src: "http://127.0.0.1:8000/storage/".concat(previewCredential.credentials_photo || previewCredential.credentials_doc),
           alt: previewCredential.credentials_name,
           className: "preview-image",
@@ -233727,26 +233855,26 @@ var WorkerList = function WorkerList() {
             e.target.style.display = "none";
             e.target.parentElement.innerHTML += "<p style=\"color: red;\">Failed to load image: ".concat(previewCredential.credentials_photo || previewCredential.credentials_doc, "</p>");
           }
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "preview-file",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
             children: ["File: ", previewCredential.credentials_name]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("a", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("a", {
             href: "http://127.0.0.1:8000/storage/".concat(previewCredential.credentials_photo || previewCredential.credentials_doc),
             download: true,
             className: "download-button",
             children: "Download File"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "preview-modal-buttons",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             className: "close-button",
             onClick: handlePreviewClose,
             children: "Close"
           })
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_workerlistmodal_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_workerlistmodal_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
       onClose: handleModalClose,
       onSubmit: isEditMode ? handleWorkerUpdate : handleWorkerAdd,
       isEdit: isEditMode,
@@ -248664,6 +248792,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_profilesetupnotification_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/_ranks.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/components/_ranks.scss ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranks_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./_ranks.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranks.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranks_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranks_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

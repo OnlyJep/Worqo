@@ -5,20 +5,33 @@ import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconPlus, IconArchive } from "@tabler/icons-react";
-import "./../../../../sass/components/_ranksModal.scss";
+import "./../../../../sass/components/_ranks.scss";
+import Loader from "./../../LoaderContent/loader";
 import RanksModal from "./RanksModal";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  }).format(date);
+  
+  try {
+    const date = new Date(dateString);
+    
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      return "Invalid Date";
+    }
+    
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    }).format(date);
+  } catch (error) {
+    console.error("Error formatting date:", error, "Input:", dateString);
+    return "Invalid Date";
+  }
 };
 
 const Ranks = () => {
@@ -33,6 +46,7 @@ const Ranks = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [rankToEdit, setRankToEdit] = useState(null);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,6 +57,7 @@ const Ranks = () => {
 
   const fetchRanks = async (signal) => {
     try {
+      setLoading(true);
       const response = await axios.get("/api/ranks", {
         params: {
           search: searchTerm,
@@ -53,17 +68,19 @@ const Ranks = () => {
         signal,
         timeout: 10000,
       });
-      setRanks(response.data.ranks);
+      setRanks(response.data.ranks || []);
       setPagination({
-        currentPage: response.data.pagination.currentPage,
-        totalPages: response.data.pagination.totalPages,
-        totalItems: response.data.pagination.totalItems,
+        currentPage: response.data.pagination?.currentPage || 1,
+        totalPages: response.data.pagination?.totalPages || 1,
+        totalItems: response.data.pagination?.totalItems || 0,
       });
       setError("");
     } catch (error) {
-      if (error.name === "AbortError") return;
+      if (error.name === "AbortError" || error.code === "ERR_CANCELED") return;
       console.error("Error fetching ranks:", error.response?.data?.error || error.message);
       setError("Failed to fetch ranks. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -74,10 +91,10 @@ const Ranks = () => {
   };
 
   const toggleSelectAll = () => {
-    if (selectedRanks.length === ranks.length) {
+    if (selectedRanks.length === (ranks?.length || 0)) {
       setSelectedRanks([]);
     } else {
-      setSelectedRanks(ranks.map((rank) => rank.id));
+      setSelectedRanks((ranks || []).map((rank) => rank.id));
     }
   };
 
@@ -119,14 +136,34 @@ const Ranks = () => {
     }
   };
 
+  const handleDeleteRank = async (rankId) => {
+    try {
+      await axios.delete(`/api/ranks/${rankId}`, { timeout: 5000 });
+      await fetchRanks(new AbortController().signal);
+      setError("");
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error deleting rank:", error.response?.data?.error || error.message);
+      setError("Failed to delete rank. Please try again.");
+    }
+  };
+
   const handleBulkAction = async (action) => {
     if (selectedRanks.length === 0) return;
     try {
-      await axios.post(
-        "/api/ranks/bulk-archive",
-        { rank_ids: selectedRanks, action },
-        { timeout: 10000 }
-      );
+      if (action === "delete") {
+        await axios.post(
+          "/api/ranks/bulk-delete",
+          { rank_ids: selectedRanks },
+          { timeout: 10000 }
+        );
+      } else {
+        await axios.post(
+          "/api/ranks/bulk-archive",
+          { rank_ids: selectedRanks, action },
+          { timeout: 10000 }
+        );
+      }
       setSelectedRanks([]);
       await fetchRanks(new AbortController().signal);
       setError("");
@@ -139,20 +176,13 @@ const Ranks = () => {
 
   const handleAddNewClick = () => {
     setIsEditMode(false);
-    setRankToEdit({ name: "", image: null, min_points: 0, max_points: null });
+    setRankToEdit(null);
     setIsModalOpen(true);
     setError("");
   };
 
   const handleEditClick = (rank) => {
-    setRankToEdit({
-      id: rank.id,
-      name: rank.name || "",
-      image: null, // No file selected initially
-      image_url: rank.image ? `/storage/${rank.image}` : null, // Store existing image URL
-      min_points: rank.min_points || 0,
-      max_points: rank.max_points || null,
-    });
+    setRankToEdit(rank);
     setIsEditMode(true);
     setIsModalOpen(true);
     setError("");
@@ -165,7 +195,7 @@ const Ranks = () => {
     setError("");
   };
 
-  const handleRankAdd = async (formData, signal) => {
+  const handleRankSubmit = async (formData, signal) => {
     try {
       const submitData = new FormData();
       submitData.append("name", formData.name || "");
@@ -177,8 +207,49 @@ const Ranks = () => {
         submitData.append("max_points", formData.max_points);
       }
 
-      for (let [key, value] of submitData.entries()) {
-        console.log(`${key}: ${value}`);
+      if (isEditMode && rankToEdit) {
+        // Update existing rank
+        submitData.append("_method", "PUT");
+        await axios.post(`/api/ranks/${rankToEdit.id}`, submitData, {
+          headers: { "Content-Type": "multipart/form-data" },
+          timeout: 10000,
+          signal,
+        });
+      } else {
+        // Create new rank
+        await axios.post("/api/ranks", submitData, {
+          headers: { "Content-Type": "multipart/form-data" },
+          timeout: 10000,
+          signal,
+        });
+      }
+      
+      // Close modal and refresh the ranks list
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setRankToEdit(null);
+      await fetchRanks(new AbortController().signal);
+      setError("");
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Request was aborted");
+        return;
+      }
+      console.error("Error saving rank:", error.response?.data?.error || error.message);
+      throw error; // Re-throw to prevent modal from closing
+    }
+  };
+
+  const handleRankAdd = async (formData, signal) => {
+    try {
+      const submitData = new FormData();
+      submitData.append("name", formData.name || "");
+      if (formData.image instanceof File) {
+        submitData.append("image", formData.image);
+      }
+      submitData.append("min_points", formData.min_points || 0);
+      if (formData.max_points !== null && formData.max_points !== undefined) {
+        submitData.append("max_points", formData.max_points);
       }
 
       const response = await axios.post("/api/ranks", submitData, {
@@ -212,10 +283,6 @@ const Ranks = () => {
         submitData.append("max_points", formData.max_points);
       }
       submitData.append("_method", "PUT");
-
-      for (let [key, value] of submitData.entries()) {
-        console.log(`${key}: ${value}`);
-      }
 
       const response = await axios.post(`/api/ranks/${rankToEdit.id}`, submitData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -309,10 +376,6 @@ const Ranks = () => {
           {error && <div className="error">{error}</div>}
           <div className="ranks-header">
             <div className="left-actions">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="search-icon">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
               <input
                 type="text"
                 className="search-input"
@@ -323,13 +386,22 @@ const Ranks = () => {
             </div>
             <div className="right-actions">
               {selectedRanks.length > 0 && (
-                <button
-                  className="header-button archive-all-button"
-                  onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
-                >
-                  <IconArchive size={20} className="button-icon" />
-                  <span className="button-text">{showArchived ? "Restore All" : "Archive All"}</span>
-                </button>
+                <>
+                  <button
+                    className="header-button archive-all-button"
+                    onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
+                  >
+                    <IconArchive size={20} className="button-icon" />
+                    <span className="button-text">{showArchived ? "Restore All" : "Archive All"}</span>
+                  </button>
+                  <button
+                    className="header-button delete-all-button"
+                    onClick={() => handleBulkAction("delete")}
+                  >
+                    <FaTrash size={20} className="button-icon" />
+                    <span className="button-text">Delete All</span>
+                  </button>
+                </>
               )}
               <button className="header-button" onClick={handleAddNewClick}>
                 <IconPlus size={20} className="button-icon" />
@@ -348,7 +420,7 @@ const Ranks = () => {
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedRanks.length === ranks.length && ranks.length > 0 ? (
+                        {selectedRanks.length === (ranks?.length || 0) && (ranks?.length || 0) > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -365,7 +437,13 @@ const Ranks = () => {
                 </tr>
               </thead>
               <tbody>
-                {ranks.length > 0 ? (
+                {loading ? (
+                  <tr>
+                    <td colSpan="6" className="loading-row">
+                      <Loader />
+                    </td>
+                  </tr>
+                ) : (ranks?.length || 0) > 0 ? (
                   ranks.map((rank) => (
                     <tr key={rank.id}>
                       <td data-label="Actions">
@@ -378,23 +456,48 @@ const Ranks = () => {
                             )}
                           </span>
                           {showArchived ? (
-                            <FaCheckCircle
-                              size={16}
-                              className="restore-icon"
-                              onClick={() => handleRestoreRank(rank.id)}
-                            />
+                            <>
+                              <FaCheckCircle
+                                size={16}
+                                className="restore-icon"
+                                onClick={() => handleRestoreRank(rank.id)}
+                                title="Restore"
+                              />
+                              <FaTrash
+                                size={16}
+                                className="delete-icon"
+                                onClick={() => handleDeleteRank(rank.id)}
+                                title="Delete Permanently"
+                              />
+                            </>
                           ) : (
-                            <FaTrash
-                              size={16}
-                              className="delete-icon"
-                              onClick={() => handleArchiveClick(rank)}
-                            />
+                            <>
+                              <FaTrash
+                                size={16}
+                                className="archive-icon"
+                                onClick={() => handleArchiveClick(rank)}
+                                title="Archive"
+                              />
+                              {rank.archived && (
+                                <FaTrash
+                                  size={16}
+                                  className="delete-icon"
+                                  onClick={() => handleDeleteRank(rank.id)}
+                                  title="Delete Permanently"
+                                />
+                              )}
+                            </>
                           )}
-                          <FaPencilAlt
-                            size={16}
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 512 512"
                             className="edit-icon"
                             onClick={() => handleEditClick(rank)}
-                          />
+                            style={{ cursor: "pointer" }}
+                          >
+                            <path d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z" fill="currentColor" />
+                          </svg>
                         </div>
                       </td>
                       <td data-label="Rank Name" className="rank-name-cell">{rank.name || "N/A"}</td>
@@ -442,7 +545,7 @@ const Ranks = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{rankToArchive?.name}"?</p>
+            <p>Do you want to archive this rank?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -454,6 +557,7 @@ const Ranks = () => {
           </div>
         </div>
       )}
+
       {isModalOpen && (
         <RanksModal
           onClose={handleModalClose}

@@ -76,20 +76,10 @@ body {
         flex: 1;
         min-width: clamp(150px, 30vw, 180px);
 
-        .search-icon {
-          position: absolute;
-          left: 10px;
-          top: 50%;
-          transform: translateY(-50%);
-          color: #666666;
-          font-size: clamp(14px, 3vw, 16px);
-          z-index: 1;
-        }
-
         .search-input {
           width: 100%;
           max-width: clamp(200px, 30vw, 300px);
-          padding: 8px 12px 8px 40px;
+          padding: 8px 12px;
           border: 1px solid #DDDDDD;
           border-radius: 5px;
           background: #FFFFFF;
@@ -233,12 +223,12 @@ body {
 
       table {
         width: 100%;
-        min-width: 700px; // Increased to accommodate new column
+        min-width: 1000px;
         border-collapse: collapse;
         table-layout: fixed;
 
         th {
-          padding: clamp(10px, 2.5vw, 12px);
+          padding: clamp(12px, 3vw, 16px);
           text-align: center;
           border-bottom: 1px solid #EEEEEE;
           color: #FFFFFF;
@@ -268,7 +258,7 @@ body {
         }
 
         td {
-          padding: clamp(10px, 2.5vw, 12px);
+          padding: clamp(12px, 3vw, 16px);
           text-align: center;
           border-bottom: 1px solid #EEEEEE;
           color: #333333;
@@ -358,26 +348,26 @@ body {
 
         th:nth-child(4),
         td:nth-child(4) {
-          width: clamp(120px, 15vw, 150px);
-          min-width: 120px;
+          width: clamp(150px, 18vw, 180px);
+          min-width: 150px;
         }
 
         th:nth-child(5),
         td:nth-child(5) {
-          width: clamp(150px, 20vw, 180px);
+          width: clamp(150px, 18vw, 180px);
           min-width: 150px;
         }
 
         th:nth-child(6),
         td:nth-child(6) {
-          width: clamp(150px, 20vw, 180px);
+          width: clamp(150px, 18vw, 180px);
           min-width: 150px;
         }
 
         @media (max-width: 768px) {
           table {
             width: 100%;
-            min-width: 700px;
+            min-width: 1000px;
             display: table;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
@@ -396,7 +386,7 @@ body {
 
         @media (max-width: 480px) {
           table {
-            min-width: 700px;
+            min-width: 1000px;
             display: table;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;

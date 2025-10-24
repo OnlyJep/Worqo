@@ -14,8 +14,10 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
   const [apiError, setApiError] = useState("");
   const fileInputRef = useRef(null);
   const abortControllerRef = useRef(null);
+  const isMountedRef = useRef(true);
 
   useEffect(() => {
+    isMountedRef.current = true;
     if (isEdit && initialData) {
       setFormData({
         name: initialData.name || "",
@@ -28,6 +30,7 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
       setApiError("");
     }
     return () => {
+      isMountedRef.current = false;
       if (abortControllerRef.current) {
         abortControllerRef.current.abort();
       }
@@ -80,18 +83,22 @@ const RanksModal = ({ onClose, onSubmit, isEdit = false, initialData = {} }) => 
     abortControllerRef.current = new AbortController();
     try {
       await onSubmit(submitData, abortControllerRef.current.signal);
-      setApiError("");
-      setErrors({});
+      if (isMountedRef.current) {
+        setApiError("");
+        setErrors({});
+      }
     } catch (error) {
       if (error.name === "AbortError") {
         console.log("Request was aborted");
         return;
       }
-      if (error.response?.data?.errors) {
-        setErrors(error.response.data.errors);
-        setApiError("Please correct the errors in the form: " + JSON.stringify(error.response.data.errors));
-      } else {
-        setApiError(error.response?.data?.error || "An error occurred. Please try again.");
+      if (isMountedRef.current) {
+        if (error.response?.data?.errors) {
+          setErrors(error.response.data.errors);
+          setApiError("Please correct the errors in the form: " + JSON.stringify(error.response.data.errors));
+        } else {
+          setApiError(error.response?.data?.error || "An error occurred. Please try again.");
+        }
       }
     }
   };

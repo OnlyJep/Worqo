@@ -104,94 +104,42 @@ const Book = () => {
 
   const fetchAllUsers = async (signal) => {
     try {
-      console.log("Fetching users with profiles...");
-      const response = await axios.get("/api/bookings/users-with-profiles", {
-        signal,
-        timeout: 10000,
-      });
-      console.log("Users response:", response.data);
-      const users = response.data.users || [];
-      console.log("Users array:", users);
-      console.log("First user:", users[0]);
+      console.log("Fetching employers and workers...");
       
-      // Debug the first user's data structure
-      if (users.length > 0) {
-        const firstUser = users[0];
-        console.log("First user detailed structure:", {
-          id: firstUser.id,
-          user_id: firstUser.user_id,
-          full_name: firstUser.full_name,
-          first_name: firstUser.first_name,
-          last_name: firstUser.last_name,
-          username: firstUser.username,
-          email: firstUser.email,
-          role_id: firstUser.role_id
+      // Fetch employers and workers using the proper API endpoints
+      const [employersResponse, workersResponse] = await Promise.all([
+        axios.get("/api/employers", { signal, timeout: 10000 }),
+        axios.get("/api/workers", { signal, timeout: 10000 })
+      ]);
+      
+      // Extract data from responses
+      const employers = employersResponse.data.employers || employersResponse.data || [];
+      const workers = workersResponse.data.workers || workersResponse.data || [];
+      
+      console.log("Fetched employers:", employers.length, employers);
+      console.log("Fetched workers:", workers.length, workers);
+      console.log("First employer:", employers[0]);
+      console.log("First worker:", workers[0]);
+      
+      // Debug worker data structure
+      if (workers.length > 0) {
+        const firstWorker = workers[0];
+        console.log("First worker detailed structure:", {
+          id: firstWorker.id,
+          email: firstWorker.email,
+          profile: firstWorker.profile,
+          worker: firstWorker.worker
         });
       }
-      // Debug: Log all users and their role_ids
-      console.log("All users with role_ids:", users.map(user => ({
-        id: user.id,
-        full_name: user.full_name,
-        role_id: user.role_id,
-        username: user.username
-      })));
       
-      // Separate users by role
-      const employers = users.filter(user => user.role_id === 2); // Employers have role_id 2
-      const workers = users.filter(user => user.role_id === 1); // Workers have role_id 1
-      
-      console.log("Filtered employers (role_id=2):", employers.length, employers);
-      console.log("Filtered workers (role_id=1):", workers.length, workers);
-      
-      // If no users found with expected role_ids, try different role_ids or show all users
-      if (employers.length === 0 && workers.length === 0) {
-        console.log("No users found with role_id 1 or 2, trying alternative role_ids");
-        
-        // Try different role_ids that might exist
-        const altEmployers = users.filter(user => user.role_id === 3); // Maybe admin is role_id 3
-        const altWorkers = users.filter(user => user.role_id === 1 || user.role_id === 2);
-        
-        console.log("Alternative employers (role_id=3):", altEmployers.length);
-        console.log("Alternative workers (role_id=1 or 2):", altWorkers.length);
-        
-        if (altEmployers.length > 0 || altWorkers.length > 0) {
-          setEmployers(altEmployers);
-          setWorkers(altWorkers);
-        } else {
-          console.log("No users found with any role_ids, showing all users");
-          setEmployers(users);
-          setWorkers(users);
-        }
-      } else {
         setEmployers(employers);
         setWorkers(workers);
-      }
-      console.log("Employers set:", employers.length, "Workers set:", workers.length);
+      
+      console.log("Successfully set employers:", employers.length, "and workers:", workers.length);
     } catch (error) {
       if (error.name === "AbortError" || error.code === "ERR_CANCELED") return;
       console.error("Error fetching users:", error.response?.data?.error || error.message);
-      
-      // Fallback to original endpoints
-      console.log("Falling back to original endpoints...");
-      try {
-        const [employersResponse, workersResponse] = await Promise.all([
-          axios.get("/api/employers", { signal, timeout: 10000 }),
-          axios.get("/api/workers", { signal, timeout: 10000 })
-        ]);
-        
-        const employers = employersResponse.data.employers || employersResponse.data || [];
-        const workers = workersResponse.data.workers || workersResponse.data || [];
-        
-        console.log("Fallback employers:", employers);
-        console.log("Fallback workers:", workers);
-        console.log("Fallback first employer:", employers[0]);
-        console.log("Fallback first worker:", workers[0]);
-        
-        setEmployers(employers);
-        setWorkers(workers);
-      } catch (fallbackError) {
-        console.error("Fallback also failed:", fallbackError);
-      }
+      setError("Failed to fetch users. Please try again.");
     }
   };
 
@@ -521,11 +469,16 @@ const Book = () => {
                               )}
                             </>
                           )}
-                          <FaPencilAlt
-                            size={16}
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 512 512"
                             className="edit-icon"
                             onClick={() => handleEditClick(book)}
-                          />
+                            style={{ cursor: "pointer" }}
+                          >
+                            <path d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z" fill="currentColor" />
+                          </svg>
                         </div>
                       </td>
                       <td data-label="Employer Name">{book.employer_name || "N/A"}</td>

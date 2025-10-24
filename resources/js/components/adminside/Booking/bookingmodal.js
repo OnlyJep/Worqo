@@ -36,45 +36,50 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
     
     console.log("getFullName: processing person:", person);
     
-    // Handle the actual data structure from the API
-    const { first_name, middlename, last_name, suffix, username, full_name } = person;
+    // Handle different data structures from different API endpoints
+    let firstName, middleName, lastName, suffix, username, email;
+    
+    // Check if person has a profile object (from workers/employers API)
+    if (person.profile) {
+      firstName = person.profile.first_name;
+      middleName = person.profile.middlename;
+      lastName = person.profile.last_name;
+      suffix = person.profile.suffix;
+      username = person.username;
+      email = person.email;
+    } else {
+      // Direct fields (from users-with-profiles API)
+      firstName = person.first_name;
+      middleName = person.middlename;
+      lastName = person.last_name;
+      suffix = person.suffix;
+      username = person.username;
+      email = person.email;
+    }
     
     console.log("getFullName: extracted fields:", {
-      first_name,
-      middlename,
-      last_name,
+      firstName,
+      middleName,
+      lastName,
       suffix,
       username,
-      full_name
+      email
     });
     
-    // If full_name is already provided, use it
-    if (full_name && full_name !== "N/A" && full_name.trim() !== "") {
-      console.log("getFullName: using full_name:", full_name);
-      return full_name;
+    // Construct name from available fields
+    let name = firstName || "";
+    if (middleName) {
+      name += ` ${middleName}`;
     }
-    
-    // Otherwise construct from individual fields
-    let name = first_name || username || "";
-    if (middlename) {
-      name += ` ${middlename}`;
-    }
-    if (last_name) {
-      name += ` ${last_name}`;
+    if (lastName) {
+      name += ` ${lastName}`;
     }
     if (suffix) {
       name += ` ${suffix}`;
     }
     
-    const result = name.trim() || "N/A";
+    const result = name.trim() || username || email || "Unknown User";
     console.log("getFullName: constructed name:", result);
-    
-    // If still N/A, try to use any available field
-    if (result === "N/A") {
-      const fallbackName = username || "Unknown User";
-      console.log("getFullName: using fallback name:", fallbackName);
-      return fallbackName;
-    }
     
     return result;
   };
@@ -228,7 +233,6 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="employer_id">Employer</label>
-              <small style={{color: '#666', fontSize: '12px'}}>Select at least one participant (employer and/or worker)</small>
               <select
                 id="employer_id"
                 name="employer_id"
