@@ -11,20 +11,34 @@ import BookingModal from "./bookingmodal";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  }).format(date);
+  
+  try {
+    const date = new Date(dateString);
+    
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      return "Invalid Date";
+    }
+    
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    }).format(date);
+  } catch (error) {
+    console.error("Error formatting date:", error, "Input:", dateString);
+    return "Invalid Date";
+  }
 };
 
 const Book = () => {
   const [books, setBooks] = useState([]);
   const [skills, setSkills] = useState([]);
+  const [employers, setEmployers] = useState([]);
+  const [workers, setWorkers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [selectedBooks, setSelectedBooks] = useState([]);
@@ -42,6 +56,7 @@ const Book = () => {
     const controller = new AbortController();
     fetchBooks(controller.signal);
     fetchSkills(controller.signal);
+    fetchAllUsers(controller.signal);
     return () => controller.abort();
   }, [searchTerm, showArchived, pagination.currentPage]);
 
@@ -66,7 +81,7 @@ const Book = () => {
       });
       setError("");
     } catch (error) {
-      if (error.name === "AbortError") return;
+      if (error.name === "AbortError" || error.code === "ERR_CANCELED") return;
       console.error("Error fetching bookings:", error.response?.data?.error || error.message);
       setError("Failed to fetch bookings. Please try again.");
     } finally {
@@ -82,8 +97,101 @@ const Book = () => {
       });
       setSkills(response.data || []);
     } catch (error) {
-      if (error.name === "AbortError") return;
+      if (error.name === "AbortError" || error.code === "ERR_CANCELED") return;
       console.error("Error fetching skills:", error.response?.data?.error || error.message);
+    }
+  };
+
+  const fetchAllUsers = async (signal) => {
+    try {
+      console.log("Fetching users with profiles...");
+      const response = await axios.get("/api/bookings/users-with-profiles", {
+        signal,
+        timeout: 10000,
+      });
+      console.log("Users response:", response.data);
+      const users = response.data.users || [];
+      console.log("Users array:", users);
+      console.log("First user:", users[0]);
+      
+      // Debug the first user's data structure
+      if (users.length > 0) {
+        const firstUser = users[0];
+        console.log("First user detailed structure:", {
+          id: firstUser.id,
+          user_id: firstUser.user_id,
+          full_name: firstUser.full_name,
+          first_name: firstUser.first_name,
+          last_name: firstUser.last_name,
+          username: firstUser.username,
+          email: firstUser.email,
+          role_id: firstUser.role_id
+        });
+      }
+      // Debug: Log all users and their role_ids
+      console.log("All users with role_ids:", users.map(user => ({
+        id: user.id,
+        full_name: user.full_name,
+        role_id: user.role_id,
+        username: user.username
+      })));
+      
+      // Separate users by role
+      const employers = users.filter(user => user.role_id === 2); // Employers have role_id 2
+      const workers = users.filter(user => user.role_id === 1); // Workers have role_id 1
+      
+      console.log("Filtered employers (role_id=2):", employers.length, employers);
+      console.log("Filtered workers (role_id=1):", workers.length, workers);
+      
+      // If no users found with expected role_ids, try different role_ids or show all users
+      if (employers.length === 0 && workers.length === 0) {
+        console.log("No users found with role_id 1 or 2, trying alternative role_ids");
+        
+        // Try different role_ids that might exist
+        const altEmployers = users.filter(user => user.role_id === 3); // Maybe admin is role_id 3
+        const altWorkers = users.filter(user => user.role_id === 1 || user.role_id === 2);
+        
+        console.log("Alternative employers (role_id=3):", altEmployers.length);
+        console.log("Alternative workers (role_id=1 or 2):", altWorkers.length);
+        
+        if (altEmployers.length > 0 || altWorkers.length > 0) {
+          setEmployers(altEmployers);
+          setWorkers(altWorkers);
+        } else {
+          console.log("No users found with any role_ids, showing all users");
+          setEmployers(users);
+          setWorkers(users);
+        }
+      } else {
+        setEmployers(employers);
+        setWorkers(workers);
+      }
+      console.log("Employers set:", employers.length, "Workers set:", workers.length);
+    } catch (error) {
+      if (error.name === "AbortError" || error.code === "ERR_CANCELED") return;
+      console.error("Error fetching users:", error.response?.data?.error || error.message);
+      
+      // Fallback to original endpoints
+      console.log("Falling back to original endpoints...");
+      try {
+        const [employersResponse, workersResponse] = await Promise.all([
+          axios.get("/api/employers", { signal, timeout: 10000 }),
+          axios.get("/api/workers", { signal, timeout: 10000 })
+        ]);
+        
+        const employers = employersResponse.data.employers || employersResponse.data || [];
+        const workers = workersResponse.data.workers || workersResponse.data || [];
+        
+        console.log("Fallback employers:", employers);
+        console.log("Fallback workers:", workers);
+        console.log("Fallback first employer:", employers[0]);
+        console.log("Fallback first worker:", workers[0]);
+        
+        setEmployers(employers);
+        setWorkers(workers);
+      } catch (fallbackError) {
+        console.error("Fallback also failed:", fallbackError);
+      }
     }
   };
 
@@ -129,7 +237,7 @@ const Book = () => {
 
   const handleRestoreBook = async (bookId) => {
     try {
-      await axios.patch(`/api/books/${bookId}/archive`, { archived: false }, { timeout: 5000 });
+      await axios.patch(`/api/bookings/${bookId}/archive`, { archived: false }, { timeout: 5000 });
       await fetchBooks(new AbortController().signal);
       setError("");
     } catch (error) {
@@ -139,14 +247,34 @@ const Book = () => {
     }
   };
 
+  const handleDeleteBook = async (bookId) => {
+    try {
+      await axios.delete(`/api/bookings/${bookId}`, { timeout: 5000 });
+      await fetchBooks(new AbortController().signal);
+      setError("");
+    } catch (error) {
+      if (error.name === "AbortError") return;
+      console.error("Error deleting book:", error.response?.data?.error || error.message);
+      setError("Failed to delete book. Please try again.");
+    }
+  };
+
   const handleBulkAction = async (action) => {
     if (selectedBooks.length === 0) return;
     try {
-      await axios.post(
-        "/api/books/bulk-archive",
-        { book_ids: selectedBooks, action },
-        { timeout: 10000 }
-      );
+      if (action === "delete") {
+        await axios.post(
+          "/api/bookings/bulk-delete",
+          { booking_ids: selectedBooks },
+          { timeout: 10000 }
+        );
+      } else {
+        await axios.post(
+          "/api/bookings/bulk-archive",
+          { booking_ids: selectedBooks, action },
+          { timeout: 10000 }
+        );
+      }
       setSelectedBooks([]);
       await fetchBooks(new AbortController().signal);
       setError("");
@@ -280,13 +408,22 @@ const Book = () => {
             </div>
             <div className="right-actions">
               {selectedBooks.length > 0 && (
-                <button
-                  className="header-button archive-all-button"
-                  onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
-                >
-                  <IconArchive size={20} className="button-icon" />
-                  <span className="button-text">{showArchived ? "Restore All" : "Archive All"}</span>
-                </button>
+                <>
+                  <button
+                    className="header-button archive-all-button"
+                    onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
+                  >
+                    <IconArchive size={20} className="button-icon" />
+                    <span className="button-text">{showArchived ? "Restore All" : "Archive All"}</span>
+                  </button>
+                  <button
+                    className="header-button delete-all-button"
+                    onClick={() => handleBulkAction("delete")}
+                  >
+                    <FaTrash size={20} className="button-icon" />
+                    <span className="button-text">Delete All</span>
+                  </button>
+                </>
               )}
               <button className="header-button" onClick={handleAddNewClick}>
                 <IconPlus size={20} className="button-icon" />
@@ -351,17 +488,37 @@ const Book = () => {
                             )}
                           </span>
                           {showArchived ? (
-                            <FaCheckCircle
-                              size={16}
-                              className="restore-icon"
-                              onClick={() => handleRestoreBook(book.id)}
-                            />
+                            <>
+                              <FaCheckCircle
+                                size={16}
+                                className="restore-icon"
+                                onClick={() => handleRestoreBook(book.id)}
+                                title="Restore"
+                              />
+                              <FaTrash
+                                size={16}
+                                className="delete-icon"
+                                onClick={() => handleDeleteBook(book.id)}
+                                title="Delete Permanently"
+                              />
+                            </>
                           ) : (
-                            <FaTrash
-                              size={16}
-                              className="delete-icon"
-                              onClick={() => handleArchiveClick(book)}
-                            />
+                            <>
+                              <FaTrash
+                                size={16}
+                                className="archive-icon"
+                                onClick={() => handleArchiveClick(book)}
+                                title="Archive"
+                              />
+                              {book.archived && (
+                                <FaTrash
+                                  size={16}
+                                  className="delete-icon"
+                                  onClick={() => handleDeleteBook(book.id)}
+                                  title="Delete Permanently"
+                                />
+                              )}
+                            </>
                           )}
                           <FaPencilAlt
                             size={16}
@@ -370,16 +527,16 @@ const Book = () => {
                           />
                         </div>
                       </td>
-                      <td data-label="Employer ID">{book.employer_id || "N/A"}</td>
-                      <td data-label="Worker ID">{book.worker_id || "N/A"}</td>
+                      <td data-label="Employer Name">{book.employer_name || "N/A"}</td>
+                      <td data-label="Worker Name">{book.worker_name || "N/A"}</td>
                       <td data-label="Service Type">{book.service_type || "N/A"}</td>
                       <td data-label="Sub Skill">{book.sub_skill || "N/A"}</td>
                       <td data-label="Work Type">{book.work_type || "N/A"}</td>
                       <td data-label="Description">{book.description || "N/A"}</td>
                       <td data-label="Book In">{formatDate(book.book_in)}</td>
                       <td data-label="Book End">{formatDate(book.book_end)}</td>
-                      <td data-label="Time In">{formatDate(book.time_in)}</td>
-                      <td data-label="Time Out">{formatDate(book.time_out)}</td>
+                      <td data-label="Time In">{book.time_in ? formatDate(book.time_in) : "N/A"}</td>
+                      <td data-label="Time Out">{book.time_out ? formatDate(book.time_out) : "N/A"}</td>
                       <td data-label="Daily Rate">${book.daily_rate || "0.00"}</td>
                       <td data-label="Total Amount">${book.total_amount || "0.00"}</td>
                       <td data-label="Status">
@@ -441,6 +598,8 @@ const Book = () => {
         isEdit={isEditMode}
         initialData={bookToEdit}
         skills={skills}
+        employers={employers}
+        workers={workers}
       />
     </div>
   );

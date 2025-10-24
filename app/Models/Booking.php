@@ -24,14 +24,16 @@ class Booking extends Model
         'time_out',
         'daily_rate',
         'total_amount',
-        'status'
+        'status',
+        'archived'
     ];
 
     protected $casts = [
         'book_in' => 'datetime',
         'book_end' => 'datetime',
         'daily_rate' => 'decimal:2',
-        'total_amount' => 'decimal:2'
+        'total_amount' => 'decimal:2',
+        'archived' => 'boolean'
     ];
 
     // Relationships
@@ -74,6 +76,16 @@ class Booking extends Model
     public function scopeForEmployer($query, $employerId)
     {
         return $query->where('employer_id', $employerId);
+    }
+
+    public function scopeArchived($query)
+    {
+        return $query->where('archived', true);
+    }
+
+    public function scopeNotArchived($query)
+    {
+        return $query->where('archived', false);
     }
 
     /**

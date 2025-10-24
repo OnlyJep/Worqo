@@ -2,10 +2,16 @@ import React, { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import "./../../../../sass/components/_bookingmodal.scss";
 
-const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills = [] }) => {
+const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills = [], employers = [], workers = [] }) => {
+  console.log("BookingModal - Employers:", employers);
+  console.log("BookingModal - Workers:", workers);
+  console.log("BookingModal - Employers length:", employers.length);
+  console.log("BookingModal - Workers length:", workers.length);
+  console.log("BookingModal - First employer:", employers[0]);
+  console.log("BookingModal - First worker:", workers[0]);
   const [formData, setFormData] = useState({
-    employer_name: "",
-    worker_name: "",
+    employer_id: "",
+    worker_id: "",
     service_type: "",
     sub_skill: "",
     work_type: "",
@@ -21,12 +27,64 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Function to get full name from user data
+  const getFullName = (person) => {
+    if (!person) {
+      console.log("getFullName: person is null/undefined");
+      return "N/A";
+    }
+    
+    console.log("getFullName: processing person:", person);
+    
+    // Handle the actual data structure from the API
+    const { first_name, middlename, last_name, suffix, username, full_name } = person;
+    
+    console.log("getFullName: extracted fields:", {
+      first_name,
+      middlename,
+      last_name,
+      suffix,
+      username,
+      full_name
+    });
+    
+    // If full_name is already provided, use it
+    if (full_name && full_name !== "N/A" && full_name.trim() !== "") {
+      console.log("getFullName: using full_name:", full_name);
+      return full_name;
+    }
+    
+    // Otherwise construct from individual fields
+    let name = first_name || username || "";
+    if (middlename) {
+      name += ` ${middlename}`;
+    }
+    if (last_name) {
+      name += ` ${last_name}`;
+    }
+    if (suffix) {
+      name += ` ${suffix}`;
+    }
+    
+    const result = name.trim() || "N/A";
+    console.log("getFullName: constructed name:", result);
+    
+    // If still N/A, try to use any available field
+    if (result === "N/A") {
+      const fallbackName = username || "Unknown User";
+      console.log("getFullName: using fallback name:", fallbackName);
+      return fallbackName;
+    }
+    
+    return result;
+  };
+
   useEffect(() => {
     if (isOpen) {
       if (isEdit && initialData) {
         setFormData({
-          employer_name: initialData.employer_name || "",
-          worker_name: initialData.worker_name || "",
+          employer_id: initialData.employer_id || "",
+          worker_id: initialData.worker_id || "",
           service_type: initialData.service_type || "",
           sub_skill: initialData.sub_skill || "",
           work_type: initialData.work_type || "",
@@ -41,8 +99,8 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
         });
       } else {
         setFormData({
-          employer_name: "",
-          worker_name: "",
+          employer_id: "",
+          worker_id: "",
           service_type: "",
           sub_skill: "",
           work_type: "",
@@ -62,6 +120,7 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -79,12 +138,9 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.employer_name.trim()) {
-      newErrors.employer_name = "Employer name is required";
-    }
-
-    if (!formData.worker_name.trim()) {
-      newErrors.worker_name = "Worker name is required";
+    if (!formData.employer_id && !formData.worker_id) {
+      newErrors.employer_id = "At least one participant (employer or worker) must be selected";
+      newErrors.worker_id = "At least one participant (employer or worker) must be selected";
     }
 
     if (!formData.service_type.trim()) {
@@ -105,6 +161,15 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
 
     if (!formData.book_end) {
       newErrors.book_end = "Book end date is required";
+    }
+
+    // Check if book_end is after book_in
+    if (formData.book_in && formData.book_end) {
+      const bookInDate = new Date(formData.book_in);
+      const bookEndDate = new Date(formData.book_end);
+      if (bookEndDate <= bookInDate) {
+        newErrors.book_end = "Book end date must be after book in date";
+      }
     }
 
     if (!formData.daily_rate || formData.daily_rate <= 0) {
@@ -162,33 +227,59 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
         <form onSubmit={handleSubmit} className="booking-modal-form">
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="employer_name">Employer Name *</label>
-              <input
-                type="text"
-                id="employer_name"
-                name="employer_name"
-                value={formData.employer_name}
+              <label htmlFor="employer_id">Employer</label>
+              <small style={{color: '#666', fontSize: '12px'}}>Select at least one participant (employer and/or worker)</small>
+              <select
+                id="employer_id"
+                name="employer_id"
+                value={formData.employer_id}
                 onChange={handleInputChange}
-                className={errors.employer_name ? "error" : ""}
+                className={errors.employer_id ? "error" : ""}
                 disabled={isSubmitting}
-                placeholder="Enter employer name"
-              />
-              {errors.employer_name && <span className="error-message">{errors.employer_name}</span>}
+              >
+                <option value="">Select Employer</option>
+                {employers.map((employer) => {
+                  console.log("Processing employer:", employer);
+                  console.log("Employer role_id:", employer.role_id);
+                  const displayName = getFullName(employer);
+                  console.log("Final employer displayName:", displayName);
+                  
+                  return (
+                    <option key={employer.id} value={employer.id}>
+                      {displayName}
+                    </option>
+                  );
+                })}
+              </select>
+              {errors.employer_id && <span className="error-message">{errors.employer_id}</span>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="worker_name">Worker Name *</label>
-              <input
-                type="text"
-                id="worker_name"
-                name="worker_name"
-                value={formData.worker_name}
+              <label htmlFor="worker_id">Worker</label>
+              <select
+                id="worker_id"
+                name="worker_id"
+                value={formData.worker_id}
                 onChange={handleInputChange}
-                className={errors.worker_name ? "error" : ""}
+                className={errors.worker_id ? "error" : ""}
                 disabled={isSubmitting}
-                placeholder="Enter worker name"
-              />
-              {errors.worker_name && <span className="error-message">{errors.worker_name}</span>}
+              >
+                <option value="">Select Worker</option>
+                {workers.map((worker) => {
+                  console.log("Processing worker:", worker);
+                  console.log("Worker role_id:", worker.role_id);
+                  console.log("Worker keys:", Object.keys(worker));
+                  const displayName = getFullName(worker);
+                  console.log("Final worker displayName:", displayName);
+                  
+                  return (
+                    <option key={worker.id} value={worker.id}>
+                      {displayName}
+                    </option>
+                  );
+                })}
+              </select>
+              {errors.worker_id && <span className="error-message">{errors.worker_id}</span>}
             </div>
           </div>
 

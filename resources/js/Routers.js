@@ -35,6 +35,7 @@ import Message from "./components/HeaderContent/Message";
 import Notif from "./components/HeaderContent/Notif";
 import Services from "./components/adminside/services/Services";
 import Company from "./components/adminside/company/Company.js";
+import Book from "./components/adminside/Booking/book";
 import ProfileSettings from "./components/profilesettings/profilesettings";
 import AdminProfileSetting from "./components/AdminSetting/AdminProfileSetting.js";
 import SkillRatingModal from "./components/SkillRatingModal/SkillRatingModal";
@@ -329,11 +330,27 @@ export default function Routers() {
             </ProtectedRoute>
           }
         />
-              <Route
+        <Route
           path="/admin/company"
           element={
             <ProtectedRoute allowedRoles={[3]}>
               <Company />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/jobs"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Company />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/bookings"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <Book />
             </ProtectedRoute>
           }
         />

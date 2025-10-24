@@ -48,13 +48,13 @@ const AdminSidebar = ({ children }) => {
                 <FileAddOutlined className="icon" />
                 {isSidebarExpanded && <span>Post Jobs</span>}
               </li>
-              <li className={isActive('/admin/company')} onClick={() => navigate('/admin/company')}>
+              <li className={isActive('/admin/jobs')} onClick={() => navigate('/admin/jobs')}>
                 <BankOutlined className="icon" />
                 {isSidebarExpanded && <span>Jobs</span>}
               </li>
-              <li className={isActive('/admin/booking')} onClick={() => navigate('/admin/booking')}>
+              <li className={isActive('/admin/bookings')} onClick={() => navigate('/admin/bookings')}>
                 <BookOutlined className="icon" />
-                {isSidebarExpanded && <span>Booking</span>}
+                {isSidebarExpanded && <span>Bookings</span>}
               </li>
             <li className={isActive('/admin/users')} onClick={() => navigate('/admin/users')}>
               <UserOutlined className="icon" />
