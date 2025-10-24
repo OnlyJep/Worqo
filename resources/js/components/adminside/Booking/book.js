@@ -456,6 +456,7 @@ const Book = () => {
                   <th>Service Type</th>
                   <th>Sub Skill</th>
                   <th>Work Type</th>
+                  <th>Address</th>
                   <th>Description</th>
                   <th>Book In</th>
                   <th>Book End</th>
@@ -471,7 +472,7 @@ const Book = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="16" className="loading-row">
+                    <td colSpan="17" className="loading-row">
                       <Loader />
                     </td>
                   </tr>
@@ -532,6 +533,7 @@ const Book = () => {
                       <td data-label="Service Type">{book.service_type || "N/A"}</td>
                       <td data-label="Sub Skill">{book.sub_skill || "N/A"}</td>
                       <td data-label="Work Type">{book.work_type || "N/A"}</td>
+                      <td data-label="Address">{book.address || "N/A"}</td>
                       <td data-label="Description">{book.description || "N/A"}</td>
                       <td data-label="Book In">{formatDate(book.book_in)}</td>
                       <td data-label="Book End">{formatDate(book.book_end)}</td>
@@ -550,7 +552,7 @@ const Book = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="16">No {showArchived ? "archived" : "active"} bookings found</td>
+                    <td colSpan="17">No {showArchived ? "archived" : "active"} bookings found</td>
                   </tr>
                 )}
               </tbody>

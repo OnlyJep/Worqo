@@ -467,7 +467,11 @@ class BookingController extends Controller
                       ->orWhere('status', 'like', "%{$searchTerm}%")
                       ->orWhereHas('employer.profile', function ($subQ) use ($searchTerm) {
                           $subQ->where('first_name', 'like', "%{$searchTerm}%")
-                               ->orWhere('last_name', 'like', "%{$searchTerm}%");
+                               ->orWhere('last_name', 'like', "%{$searchTerm}%")
+                               ->orWhere('street', 'like', "%{$searchTerm}%")
+                               ->orWhere('city', 'like', "%{$searchTerm}%")
+                               ->orWhere('province', 'like', "%{$searchTerm}%")
+                               ->orWhere('country', 'like', "%{$searchTerm}%");
                       })
                       ->orWhereHas('worker.profile', function ($subQ) use ($searchTerm) {
                           $subQ->where('first_name', 'like', "%{$searchTerm}%")
@@ -503,6 +507,20 @@ class BookingController extends Controller
                     return trim($name) ?: 'N/A';
                 };
 
+                // Helper function to format address
+                $formatAddress = function($profile) {
+                    if (!$profile) return 'N/A';
+                    
+                    $addressParts = [];
+                    if ($profile->street) $addressParts[] = $profile->street;
+                    if ($profile->city) $addressParts[] = $profile->city;
+                    if ($profile->province) $addressParts[] = $profile->province;
+                    if ($profile->postal_code) $addressParts[] = $profile->postal_code;
+                    if ($profile->country) $addressParts[] = $profile->country;
+                    
+                    return $addressParts ? implode(', ', $addressParts) : 'N/A';
+                };
+
                 return [
                     'id' => $booking->id,
                     'employer_id' => $booking->employer && $booking->employer->profile ? $booking->employer->profile->id : null,
@@ -512,6 +530,7 @@ class BookingController extends Controller
                     'service_type' => $booking->service_type,
                     'sub_skill' => $booking->sub_skill,
                     'work_type' => $booking->work_type,
+                    'address' => $formatAddress($booking->employer ? $booking->employer->profile : null),
                     'description' => $booking->description,
                     'book_in' => $booking->book_in,
                     'book_end' => $booking->book_end,

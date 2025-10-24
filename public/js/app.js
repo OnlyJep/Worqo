@@ -214022,6 +214022,8 @@ var Book = function Book() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Work Type"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                  children: "Address"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Description"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Book In"
@@ -214046,7 +214048,7 @@ var Book = function Book() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tbody", {
               children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                  colSpan: "16",
+                  colSpan: "17",
                   className: "loading-row",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__["default"], {})
                 })
@@ -214126,6 +214128,9 @@ var Book = function Book() {
                     "data-label": "Work Type",
                     children: book.work_type || "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                    "data-label": "Address",
+                    children: book.address || "N/A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Description",
                     children: book.description || "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -214162,7 +214167,7 @@ var Book = function Book() {
                 }, book.id);
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
-                  colSpan: "16",
+                  colSpan: "17",
                   children: ["No ", showArchived ? "archived" : "active", " bookings found"]
                 })
               })
