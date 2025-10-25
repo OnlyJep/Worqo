@@ -71126,7 +71126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  overflow: auto;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 2px solid #0a2a40;\n  margin-top: 8px;\n  padding-top: 8px;\n  font-weight: 600;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation {\n  margin-top: 12px;\n  padding-top: 8px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: #ffffff;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #062541;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #6b7280;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f7f9fc;\n  color: #0b0d0f;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n.booking-modal-container .availability-warning {\n  background: #fef2f2;\n  border: 1px solid #e1ec68;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.booking-modal-container .availability-warning .warning-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 8px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n}\n.booking-modal-container .availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.booking-modal-container .availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}\n.booking-modal-container .rs-message-body {\n  text-align: left !important;\n  margin-top: 8px;\n  font-size: 14px;\n}\n@media (max-width: 600px) {\n  .booking-modal-container .booking-modal-container {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .booking-modal-container .booking-modal-title {\n    font-size: 20px;\n  }\n  .booking-modal-container .booking-modal-form-content {\n    gap: 10px;\n  }\n  .booking-modal-container .booking-form-field {\n    gap: 4px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-input,\n  .booking-modal-container .booking-form-field .booking-form-select,\n  .booking-modal-container .booking-form-field .booking-form-textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .booking-modal-container .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .booking-modal-container .booking-modal-actions .booking-btn {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9998;\n  overflow: auto;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown {\n  position: relative;\n  z-index: 9999;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger {\n  position: relative;\n  z-index: 10000 !important;\n  background: #f9fafb;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  padding: 8px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 99999 !important;\n  max-height: 200px;\n  overflow-y: auto;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  cursor: pointer;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  color: #0b0d0f;\n  border-bottom: 1px solid #f3f4f6;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 2px solid #0a2a40;\n  margin-top: 8px;\n  padding-top: 8px;\n  font-weight: 600;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation {\n  margin-top: 12px;\n  padding-top: 8px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: #ffffff;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #062541;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #6b7280;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f7f9fc;\n  color: #0b0d0f;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n.booking-modal-container .availability-warning {\n  background: #fef2f2;\n  border: 1px solid #e1ec68;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.booking-modal-container .availability-warning .warning-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 8px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n}\n.booking-modal-container .availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.booking-modal-container .availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}\n.booking-modal-container .rs-message-body {\n  text-align: left !important;\n  margin-top: 8px;\n  font-size: 14px;\n}\n@media (max-width: 600px) {\n  .booking-modal-container .booking-modal-container {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .booking-modal-container .booking-modal-title {\n    font-size: 20px;\n  }\n  .booking-modal-container .booking-modal-form-content {\n    gap: 10px;\n  }\n  .booking-modal-container .booking-form-field {\n    gap: 4px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-input,\n  .booking-modal-container .booking-form-field .booking-form-select,\n  .booking-modal-container .booking-form-field .booking-form-textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .booking-modal-container .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .booking-modal-container .booking-modal-actions .booking-btn {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71374,7 +71374,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.book-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.book-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.book-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .book-dashboard.sidebar-expanded, .book-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .book-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.book-dashboard .book-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.book-dashboard .book-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n  text-align: left;\n}\n.book-dashboard .book-content .book-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.book-dashboard .book-content .book-header .left-actions {\n  position: relative;\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.book-dashboard .book-content .book-header .left-actions .search-input {\n  width: 100%;\n  max-width: clamp(200px, 30vw, 300px);\n  padding: 8px 12px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.book-dashboard .book-content .book-header .left-actions .search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(26, 42, 68, 0.2);\n}\n@media (max-width: 768px) {\n  .book-dashboard .book-content .book-header .left-actions .search-input {\n    max-width: 100%;\n  }\n}\n.book-dashboard .book-content .book-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.book-dashboard .book-content .book-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.book-dashboard .book-content .book-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #1A2A44;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.book-dashboard .book-content .book-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.book-dashboard .book-content .book-header .right-actions .header-button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.book-dashboard .book-content .book-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.book-dashboard .book-content .book-header .right-actions .archive-all-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n}\n.book-dashboard .book-content .book-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.book-dashboard .book-content .book-header .right-actions .archive-all-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  border-color: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .book-dashboard .book-content .book-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .book-dashboard .book-content .book-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .book-dashboard .book-content .book-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .book-dashboard .book-content .book-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .book-dashboard .book-content .book-header .left-actions {\n    flex: 1;\n  }\n  .book-dashboard .book-content .book-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .book-dashboard .book-content .book-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .book-dashboard .book-content .book-header .left-actions,\n  .book-dashboard .book-content .book-header .right-actions {\n    width: 100%;\n    justify-content: center;\n  }\n  .book-dashboard .book-content .book-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.book-dashboard .book-content .book-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  -webkit-overflow-scrolling: touch;\n  width: 100%;\n  display: block;\n}\n.book-dashboard .book-content .book-table table {\n  width: 100%;\n  min-width: 1800px;\n  border-collapse: collapse;\n  table-layout: fixed;\n}\n.book-dashboard .book-content .book-table table th {\n  padding: clamp(12px, 3vw, 16px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(13px, 3.2vw, 15px);\n  background: #1A2A44;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.book-dashboard .book-content .book-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.book-dashboard .book-content .book-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.book-dashboard .book-content .book-table table th .header-actions-icon .checkbox-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n}\n.book-dashboard .book-content .book-table table td {\n  padding: clamp(12px, 3vw, 16px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n}\n.book-dashboard .book-content .book-table table td.book-employer-cell {\n  text-align: center;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  padding-left: clamp(12px, 3vw, 14px);\n  padding-right: clamp(12px, 3vw, 14px);\n}\n.book-dashboard .book-content .book-table table td .status-badge {\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  display: inline-block;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-pending {\n  background: #FFF3CD;\n  color: #856404;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-accepted {\n  background: #D4EDDA;\n  color: #155724;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-completed {\n  background: #D1ECF1;\n  color: #0C5460;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-declined {\n  background: #F8D7DA;\n  color: #721C24;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-cancelled {\n  background: #E2E3E5;\n  color: #383D41;\n}\n.book-dashboard .book-content .book-table table td.loading-row {\n  text-align: center;\n  color: #666666;\n  font-style: italic;\n}\n.book-dashboard .book-content .book-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.book-dashboard .book-content .book-table table tr:last-child {\n  border-bottom: none;\n}\n.book-dashboard .book-content .book-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.book-dashboard .book-content .book-table table .action-icons .checkbox-icon,\n.book-dashboard .book-content .book-table table .action-icons .delete-icon,\n.book-dashboard .book-content .book-table table .action-icons .edit-icon,\n.book-dashboard .book-content .book-table table .action-icons .restore-icon {\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.book-dashboard .book-content .book-table table .action-icons .checkbox-icon:hover,\n.book-dashboard .book-content .book-table table .action-icons .delete-icon:hover,\n.book-dashboard .book-content .book-table table .action-icons .edit-icon:hover,\n.book-dashboard .book-content .book-table table .action-icons .restore-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n  transform: scale(1.2);\n}\n.book-dashboard .book-content .book-table table .action-icons .delete-icon {\n  color: #1A2A44;\n}\n.book-dashboard .book-content .book-table table .action-icons .delete-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n}\n.book-dashboard .book-content .book-table table th:nth-child(1),\n.book-dashboard .book-content .book-table table td:nth-child(1) {\n  width: clamp(80px, 12vw, 100px);\n  min-width: 80px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(2),\n.book-dashboard .book-content .book-table table td:nth-child(2) {\n  width: clamp(150px, 12vw, 180px);\n  min-width: 150px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(3),\n.book-dashboard .book-content .book-table table td:nth-child(3) {\n  width: clamp(150px, 12vw, 180px);\n  min-width: 150px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(4),\n.book-dashboard .book-content .book-table table td:nth-child(4) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(5),\n.book-dashboard .book-content .book-table table td:nth-child(5) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(6),\n.book-dashboard .book-content .book-table table td:nth-child(6) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(7),\n.book-dashboard .book-content .book-table table td:nth-child(7) {\n  width: clamp(200px, 15vw, 220px);\n  min-width: 200px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(8),\n.book-dashboard .book-content .book-table table td:nth-child(8) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(9),\n.book-dashboard .book-content .book-table table td:nth-child(9) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(10),\n.book-dashboard .book-content .book-table table td:nth-child(10) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(11),\n.book-dashboard .book-content .book-table table td:nth-child(11) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(12),\n.book-dashboard .book-content .book-table table td:nth-child(12) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(13),\n.book-dashboard .book-content .book-table table td:nth-child(13) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(14),\n.book-dashboard .book-content .book-table table td:nth-child(14) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(15),\n.book-dashboard .book-content .book-table table td:nth-child(15) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(16),\n.book-dashboard .book-content .book-table table td:nth-child(16) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n@media (max-width: 768px) {\n  .book-dashboard .book-content .book-table table table {\n    width: 100%;\n    min-width: 1800px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .book-dashboard .book-content .book-table table th,\n  .book-dashboard .book-content .book-table table td {\n    padding: clamp(8px, 2vw, 10px);\n    font-size: clamp(11px, 2.5vw, 13px);\n  }\n  .book-dashboard .book-content .book-table table td.book-title-cell {\n    text-align: center;\n  }\n}\n@media (max-width: 480px) {\n  .book-dashboard .book-content .book-table table table {\n    min-width: 1800px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .book-dashboard .book-content .book-table table th,\n  .book-dashboard .book-content .book-table table td {\n    padding: clamp(6px, 1.5vw, 8px);\n    font-size: clamp(10px, 2.2vw, 12px);\n  }\n  .book-dashboard .book-content .book-table table td.book-title-cell {\n    text-align: center;\n  }\n}\n.book-dashboard .book-content .book-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.book-dashboard .book-content .book-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.book-dashboard .book-content .book-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.book-dashboard .book-content .book-pagination button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.book-dashboard .book-content .book-pagination button.active {\n  background: #1A2A44;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.book-dashboard .book-content .book-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.book-dashboard .book-content .book-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .book-dashboard .book-content .book-pagination {\n    gap: 6px;\n  }\n  .book-dashboard .book-content .book-pagination button,\n  .book-dashboard .book-content .book-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  background-color: #F4F6F9;\n  font-family: \"Roboto\", sans-serif;\n}\n\n.app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.book-dashboard {\n  flex: 1;\n  padding: clamp(60px, 10vw, 80px) clamp(10px, 5vw, 20px) clamp(10px, 5vw, 20px);\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: #FFFFFF;\n  transition: margin-left 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n}\n.book-dashboard.sidebar-expanded {\n  margin-left: 250px;\n}\n.book-dashboard.sidebar-collapsed {\n  margin-left: 0;\n}\n@media (max-width: 768px) {\n  .book-dashboard.sidebar-expanded, .book-dashboard.sidebar-collapsed {\n    margin-left: 0;\n  }\n}\n@media (max-width: 480px) {\n  .book-dashboard {\n    padding: clamp(50px, 8vw, 60px) clamp(8px, 3vw, 10px) clamp(8px, 3vw, 10px);\n  }\n}\n.book-dashboard .book-content {\n  width: 100%;\n  background: #FFFFFF;\n}\n.book-dashboard .book-content h2 {\n  font-size: clamp(18px, 4vw, 24px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(16px, 3vw, 24px);\n  text-align: left;\n}\n.book-dashboard .book-content .book-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: clamp(16px, 3vw, 24px);\n  gap: clamp(10px, 2vw, 15px);\n  flex-wrap: wrap;\n}\n.book-dashboard .book-content .book-header .left-actions {\n  position: relative;\n  display: flex;\n  align-items: center;\n  flex: 1;\n  min-width: clamp(150px, 30vw, 180px);\n}\n.book-dashboard .book-content .book-header .left-actions .search-input {\n  width: 100%;\n  max-width: clamp(200px, 30vw, 300px);\n  padding: 8px 12px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.book-dashboard .book-content .book-header .left-actions .search-input:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 2px rgba(26, 42, 68, 0.2);\n}\n@media (max-width: 768px) {\n  .book-dashboard .book-content .book-header .left-actions .search-input {\n    max-width: 100%;\n  }\n}\n.book-dashboard .book-content .book-header .right-actions {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  justify-content: flex-end;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.book-dashboard .book-content .book-header .right-actions .header-button {\n  height: 40px;\n  border: 1px solid #DDDDDD;\n  border-radius: 5px;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 0 clamp(12px, 3vw, 16px);\n  min-width: clamp(90px, 20vw, 100px);\n}\n.book-dashboard .book-content .book-header .right-actions .header-button .button-icon {\n  margin-right: 8px;\n  color: #1A2A44;\n  font-size: clamp(16px, 4vw, 20px);\n}\n.book-dashboard .book-content .book-header .right-actions .header-button .button-text {\n  display: inline-block;\n}\n.book-dashboard .book-content .book-header .right-actions .header-button:hover {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.book-dashboard .book-content .book-header .right-actions .header-button:hover .button-icon {\n  color: #FFFFFF;\n}\n.book-dashboard .book-content .book-header .right-actions .archive-all-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border-color: #1A2A44;\n}\n.book-dashboard .book-content .book-header .right-actions .archive-all-button .button-icon {\n  color: #FFFFFF;\n}\n.book-dashboard .book-content .book-header .right-actions .archive-all-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  border-color: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n@media (max-width: 480px) {\n  .book-dashboard .book-content .book-header .right-actions {\n    gap: 8px;\n    flex-wrap: nowrap;\n    overflow-x: auto;\n    padding-bottom: 8px;\n    -webkit-overflow-scrolling: touch;\n  }\n  .book-dashboard .book-content .book-header .right-actions .header-button {\n    min-width: clamp(80px, 25vw, 90px);\n    padding: 0 10px;\n    font-size: 12px;\n  }\n  .book-dashboard .book-content .book-header .right-actions .header-button .button-icon {\n    margin-right: 6px;\n  }\n}\n@media (max-width: 768px) {\n  .book-dashboard .book-content .book-header {\n    flex-direction: row;\n    justify-content: space-between;\n  }\n  .book-dashboard .book-content .book-header .left-actions {\n    flex: 1;\n  }\n  .book-dashboard .book-content .book-header .right-actions {\n    flex: 2;\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 480px) {\n  .book-dashboard .book-content .book-header {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .book-dashboard .book-content .book-header .left-actions,\n  .book-dashboard .book-content .book-header .right-actions {\n    width: 100%;\n    justify-content: center;\n  }\n  .book-dashboard .book-content .book-header .right-actions {\n    flex-wrap: wrap;\n    justify-content: center;\n  }\n}\n.book-dashboard .book-content .book-table {\n  overflow-x: auto;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  -webkit-overflow-scrolling: touch;\n  width: 100%;\n  display: block;\n}\n.book-dashboard .book-content .book-table table {\n  width: 100%;\n  min-width: 1800px;\n  border-collapse: collapse;\n  table-layout: fixed;\n}\n.book-dashboard .book-content .book-table table th {\n  padding: clamp(12px, 3vw, 16px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #FFFFFF;\n  font-size: clamp(13px, 3.2vw, 15px);\n  background: #1A2A44;\n  font-weight: 600;\n  position: sticky;\n  top: 0;\n  z-index: 10;\n}\n.book-dashboard .book-content .book-table table th .header-actions-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n}\n.book-dashboard .book-content .book-table table th .header-actions-icon .checkbox-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n}\n.book-dashboard .book-content .book-table table th .header-actions-icon .checkbox-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n}\n.book-dashboard .book-content .book-table table td {\n  padding: clamp(12px, 3vw, 16px);\n  text-align: center;\n  border-bottom: 1px solid #EEEEEE;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  background: #FFFFFF;\n  vertical-align: middle;\n}\n.book-dashboard .book-content .book-table table td .employer-info,\n.book-dashboard .book-content .book-table table td .worker-info {\n  text-align: left;\n}\n.book-dashboard .book-content .book-table table td .employer-info .name,\n.book-dashboard .book-content .book-table table td .worker-info .name {\n  font-weight: 600;\n  color: #1A2A44;\n  margin-bottom: 4px;\n}\n.book-dashboard .book-content .book-table table td .employer-info .contact,\n.book-dashboard .book-content .book-table table td .employer-info .address,\n.book-dashboard .book-content .book-table table td .worker-info .contact,\n.book-dashboard .book-content .book-table table td .worker-info .address {\n  margin-bottom: 2px;\n}\n.book-dashboard .book-content .book-table table td .employer-info .contact small,\n.book-dashboard .book-content .book-table table td .employer-info .address small,\n.book-dashboard .book-content .book-table table td .worker-info .contact small,\n.book-dashboard .book-content .book-table table td .worker-info .address small {\n  color: #666666;\n  font-size: 11px;\n  line-height: 1.3;\n  display: block;\n}\n.book-dashboard .book-content .book-table table td .address-info {\n  text-align: left;\n}\n.book-dashboard .book-content .book-table table td .address-info small {\n  color: #666666;\n  font-size: 11px;\n  line-height: 1.3;\n  display: block;\n}\n.book-dashboard .book-content .book-table table td.book-employer-cell {\n  text-align: center;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  padding-left: clamp(12px, 3vw, 14px);\n  padding-right: clamp(12px, 3vw, 14px);\n}\n.book-dashboard .book-content .book-table table td .status-badge {\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  display: inline-block;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-pending {\n  background: #FFF3CD;\n  color: #856404;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-accepted {\n  background: #D4EDDA;\n  color: #155724;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-completed {\n  background: #D1ECF1;\n  color: #0C5460;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-declined {\n  background: #F8D7DA;\n  color: #721C24;\n}\n.book-dashboard .book-content .book-table table td .status-badge.status-cancelled {\n  background: #E2E3E5;\n  color: #383D41;\n}\n.book-dashboard .book-content .book-table table td.loading-row {\n  text-align: center;\n  color: #666666;\n  font-style: italic;\n}\n.book-dashboard .book-content .book-table table tr {\n  border-bottom: 1px solid #EEEEEE;\n}\n.book-dashboard .book-content .book-table table tr:last-child {\n  border-bottom: none;\n}\n.book-dashboard .book-content .book-table table .action-icons {\n  display: flex;\n  gap: clamp(8px, 2vw, 10px);\n  align-items: center;\n  justify-content: center;\n}\n.book-dashboard .book-content .book-table table .action-icons .checkbox-icon,\n.book-dashboard .book-content .book-table table .action-icons .delete-icon,\n.book-dashboard .book-content .book-table table .action-icons .edit-icon,\n.book-dashboard .book-content .book-table table .action-icons .restore-icon {\n  color: #1A2A44;\n  cursor: pointer;\n  font-size: clamp(14px, 3.5vw, 16px);\n  transition: color 0.2s ease, transform 0.2s ease;\n}\n.book-dashboard .book-content .book-table table .action-icons .checkbox-icon:hover,\n.book-dashboard .book-content .book-table table .action-icons .delete-icon:hover,\n.book-dashboard .book-content .book-table table .action-icons .edit-icon:hover,\n.book-dashboard .book-content .book-table table .action-icons .restore-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n  transform: scale(1.2);\n}\n.book-dashboard .book-content .book-table table .action-icons .delete-icon {\n  color: #1A2A44;\n}\n.book-dashboard .book-content .book-table table .action-icons .delete-icon:hover {\n  color: rgb(4.8404255319, 7.8191489362, 12.6595744681);\n}\n.book-dashboard .book-content .book-table table th:nth-child(1),\n.book-dashboard .book-content .book-table table td:nth-child(1) {\n  width: clamp(80px, 12vw, 100px);\n  min-width: 80px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(2),\n.book-dashboard .book-content .book-table table td:nth-child(2) {\n  width: clamp(150px, 12vw, 180px);\n  min-width: 150px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(3),\n.book-dashboard .book-content .book-table table td:nth-child(3) {\n  width: clamp(150px, 12vw, 180px);\n  min-width: 150px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(4),\n.book-dashboard .book-content .book-table table td:nth-child(4) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(5),\n.book-dashboard .book-content .book-table table td:nth-child(5) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(6),\n.book-dashboard .book-content .book-table table td:nth-child(6) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(7),\n.book-dashboard .book-content .book-table table td:nth-child(7) {\n  width: clamp(200px, 15vw, 220px);\n  min-width: 200px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(8),\n.book-dashboard .book-content .book-table table td:nth-child(8) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(9),\n.book-dashboard .book-content .book-table table td:nth-child(9) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(10),\n.book-dashboard .book-content .book-table table td:nth-child(10) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(11),\n.book-dashboard .book-content .book-table table td:nth-child(11) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(12),\n.book-dashboard .book-content .book-table table td:nth-child(12) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(13),\n.book-dashboard .book-content .book-table table td:nth-child(13) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(14),\n.book-dashboard .book-content .book-table table td:nth-child(14) {\n  width: clamp(120px, 10vw, 140px);\n  min-width: 120px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(15),\n.book-dashboard .book-content .book-table table td:nth-child(15) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n.book-dashboard .book-content .book-table table th:nth-child(16),\n.book-dashboard .book-content .book-table table td:nth-child(16) {\n  width: clamp(140px, 12vw, 160px);\n  min-width: 140px;\n}\n@media (max-width: 768px) {\n  .book-dashboard .book-content .book-table table table {\n    width: 100%;\n    min-width: 1800px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .book-dashboard .book-content .book-table table th,\n  .book-dashboard .book-content .book-table table td {\n    padding: clamp(8px, 2vw, 10px);\n    font-size: clamp(11px, 2.5vw, 13px);\n  }\n  .book-dashboard .book-content .book-table table td.book-title-cell {\n    text-align: center;\n  }\n}\n@media (max-width: 480px) {\n  .book-dashboard .book-content .book-table table table {\n    min-width: 1800px;\n    display: table;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n  }\n  .book-dashboard .book-content .book-table table th,\n  .book-dashboard .book-content .book-table table td {\n    padding: clamp(6px, 1.5vw, 8px);\n    font-size: clamp(10px, 2.2vw, 12px);\n  }\n  .book-dashboard .book-content .book-table table td.book-title-cell {\n    text-align: center;\n  }\n}\n.book-dashboard .book-content .book-pagination {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  gap: clamp(6px, 1.5vw, 8px);\n  margin-top: clamp(16px, 3vw, 20px);\n  background: #FFFFFF;\n  padding: clamp(8px, 2vw, 10px);\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.book-dashboard .book-content .book-pagination span {\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  font-weight: 500;\n}\n.book-dashboard .book-content .book-pagination button {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  border: none;\n  border-radius: 50%;\n  background: #FFFFFF;\n  color: #333333;\n  font-size: clamp(12px, 3vw, 14px);\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n}\n.book-dashboard .book-content .book-pagination button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  color: #FFFFFF;\n  transform: scale(1.1);\n}\n.book-dashboard .book-content .book-pagination button.active {\n  background: #1A2A44;\n  color: #FFFFFF;\n  font-weight: 700;\n  transform: scale(1.15);\n}\n.book-dashboard .book-content .book-pagination button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n.book-dashboard .book-content .book-pagination .ellipsis {\n  width: clamp(32px, 8vw, 36px);\n  height: clamp(32px, 8vw, 36px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #666666;\n  font-size: clamp(12px, 3vw, 14px);\n}\n@media (max-width: 480px) {\n  .book-dashboard .book-content .book-pagination {\n    gap: 6px;\n  }\n  .book-dashboard .book-content .book-pagination button,\n  .book-dashboard .book-content .book-pagination .ellipsis {\n    width: clamp(28px, 7vw, 32px);\n    height: clamp(28px, 7vw, 32px);\n    font-size: clamp(10px, 2.5vw, 12px);\n  }\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #FFFFFF;\n  padding: clamp(16px, 4vw, 20px);\n  border-radius: 8px;\n  width: 100%;\n  max-width: clamp(300px, 80vw, 400px);\n  text-align: center;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  font-size: clamp(16px, 4vw, 20px);\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 clamp(8px, 2vw, 10px);\n}\n.confirm-modal p {\n  font-size: clamp(12px, 3vw, 14px);\n  color: #666666;\n  margin: 0 0 clamp(16px, 4vw, 20px);\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: clamp(8px, 2vw, 10px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: rgb(11.8936170213, 19.2127659574, 31.1063829787);\n  transform: translateY(-2px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);\n  background: #DDDDDD;\n  color: #333333;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n  font-size: clamp(12px, 3vw, 14px);\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: rgb(195.5, 195.5, 195.5);\n  transform: translateY(-2px);\n}\n@media (max-width: 480px) {\n  .confirm-modal .confirm-modal-buttons {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .confirm-modal .confirm-modal-buttons .confirm-button,\n  .confirm-modal .confirm-modal-buttons .cancel-button {\n    width: 100%;\n    padding: clamp(6px, 2vw, 8px) clamp(12px, 3vw, 16px);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71399,7 +71399,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(2px);\n  animation: fadeIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n.booking-modal {\n  background: #FFFFFF;\n  border-radius: 12px;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n  width: 100%;\n  max-width: 800px;\n  max-height: 90vh;\n  overflow-y: auto;\n  animation: slideIn 0.3s ease-out;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (max-width: 768px) {\n  .booking-modal {\n    max-width: 95%;\n    max-height: 95vh;\n    margin: 20px;\n  }\n}\n\n@keyframes slideIn {\n  from {\n    transform: translateY(-50px);\n    opacity: 0;\n  }\n  to {\n    transform: translateY(0);\n    opacity: 1;\n  }\n}\n.booking-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: clamp(20px, 4vw, 24px);\n  border-bottom: 1px solid #EEEEEE;\n  background: #FFFFFF;\n  color: #333333;\n  border-radius: 12px 12px 0 0;\n}\n.booking-modal-header h2 {\n  font-size: clamp(18px, 4vw, 22px);\n  font-weight: 600;\n  margin: 0;\n  color: #333333;\n}\n.booking-modal-header .close-button {\n  background: none;\n  border: none;\n  color: #666666;\n  font-size: clamp(18px, 4vw, 20px);\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 50%;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 36px;\n  height: 36px;\n}\n.booking-modal-header .close-button:hover {\n  background: rgba(0, 0, 0, 0.1);\n  transform: scale(1.1);\n}\n.booking-modal-header .close-button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n\n.booking-modal-form {\n  padding: clamp(20px, 4vw, 24px);\n  display: flex;\n  flex-direction: column;\n  gap: clamp(16px, 3vw, 20px);\n}\n.booking-modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: clamp(16px, 3vw, 20px);\n}\n@media (max-width: 768px) {\n  .booking-modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: clamp(12px, 2vw, 16px);\n  }\n}\n.booking-modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.booking-modal-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.booking-modal-form .form-group label {\n  font-size: clamp(13px, 3vw, 14px);\n  font-weight: 500;\n  color: #333333;\n  margin-bottom: 4px;\n}\n.booking-modal-form .form-group label::after {\n  content: \" *\";\n  color: #E74C3C;\n  font-weight: 600;\n}\n.booking-modal-form .form-group label:not([for*=required])::after {\n  display: none;\n}\n.booking-modal-form .form-group input,\n.booking-modal-form .form-group select,\n.booking-modal-form .form-group textarea {\n  padding: clamp(10px, 2.5vw, 12px);\n  border: 1px solid #DDDDDD;\n  border-radius: 6px;\n  font-size: clamp(13px, 3vw, 14px);\n  color: #333333;\n  background: #FFFFFF;\n  transition: all 0.3s ease;\n  font-family: \"Roboto\", sans-serif;\n}\n.booking-modal-form .form-group input:focus,\n.booking-modal-form .form-group select:focus,\n.booking-modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 3px rgba(26, 42, 68, 0.1);\n}\n.booking-modal-form .form-group input.error,\n.booking-modal-form .form-group select.error,\n.booking-modal-form .form-group textarea.error {\n  border-color: #E74C3C;\n  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);\n}\n.booking-modal-form .form-group input:disabled,\n.booking-modal-form .form-group select:disabled,\n.booking-modal-form .form-group textarea:disabled {\n  background: #F8F9FA;\n  color: #6C757D;\n  cursor: not-allowed;\n}\n.booking-modal-form .form-group input::-moz-placeholder, .booking-modal-form .form-group select::-moz-placeholder, .booking-modal-form .form-group textarea::-moz-placeholder {\n  color: #ADB5BD;\n  font-style: italic;\n}\n.booking-modal-form .form-group input::placeholder,\n.booking-modal-form .form-group select::placeholder,\n.booking-modal-form .form-group textarea::placeholder {\n  color: #ADB5BD;\n  font-style: italic;\n}\n.booking-modal-form .form-group select {\n  cursor: pointer;\n  background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e\");\n  background-position: right 8px center;\n  background-repeat: no-repeat;\n  background-size: 16px;\n  padding-right: 32px;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n}\n.booking-modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: \"Roboto\", sans-serif;\n}\n.booking-modal-form .form-group .error-message {\n  color: #E74C3C;\n  font-size: clamp(11px, 2.5vw, 12px);\n  font-weight: 500;\n  margin-top: 4px;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.booking-modal-form .form-group .error-message::before {\n  content: \"⚠\";\n  font-size: 12px;\n}\n.booking-modal-form .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: clamp(12px, 3vw, 16px);\n  padding-top: clamp(16px, 3vw, 20px);\n  border-top: 1px solid #EEEEEE;\n  margin-top: clamp(8px, 2vw, 12px);\n}\n@media (max-width: 480px) {\n  .booking-modal-form .booking-modal-actions {\n    flex-direction: column;\n    gap: 12px;\n  }\n}\n.booking-modal-form .booking-modal-actions .cancel-button,\n.booking-modal-form .booking-modal-actions .submit-button {\n  padding: clamp(10px, 2.5vw, 12px) clamp(20px, 4vw, 24px);\n  border-radius: 6px;\n  font-size: clamp(13px, 3vw, 14px);\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  font-family: \"Roboto\", sans-serif;\n  min-width: clamp(100px, 20vw, 120px);\n}\n.booking-modal-form .booking-modal-actions .cancel-button:disabled,\n.booking-modal-form .booking-modal-actions .submit-button:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n  transform: none;\n}\n.booking-modal-form .booking-modal-actions .cancel-button {\n  background: #F8F9FA;\n  color: #6C757D;\n  border: 1px solid #DDDDDD;\n}\n.booking-modal-form .booking-modal-actions .cancel-button:hover:not(:disabled) {\n  background: #E9ECEF;\n  color: #495057;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.booking-modal-form .booking-modal-actions .submit-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: 1px solid #1A2A44;\n}\n.booking-modal-form .booking-modal-actions .submit-button:hover:not(:disabled) {\n  background: rgb(14.714893617, 23.770212766, 38.485106383);\n  border-color: rgb(14.714893617, 23.770212766, 38.485106383);\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(26, 42, 68, 0.3);\n}\n.booking-modal-form .booking-modal-actions .submit-button:active:not(:disabled) {\n  transform: translateY(0);\n  box-shadow: 0 2px 4px rgba(26, 42, 68, 0.2);\n}\n\n.booking-modal::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal::-webkit-scrollbar-track {\n  background: #F1F3F4;\n  border-radius: 3px;\n}\n.booking-modal::-webkit-scrollbar-thumb {\n  background: #C1C8CD;\n  border-radius: 3px;\n}\n.booking-modal::-webkit-scrollbar-thumb:hover {\n  background: #A8B2BA;\n}\n\n.booking-modal-form .form-group input:disabled,\n.booking-modal-form .form-group select:disabled,\n.booking-modal-form .form-group textarea:disabled {\n  background: #F8F9FA;\n  color: #6C757D;\n  cursor: not-allowed;\n}\n\n.booking-modal:focus-within .form-group input:focus,\n.booking-modal:focus-within .form-group select:focus,\n.booking-modal:focus-within .form-group textarea:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 3px rgba(26, 42, 68, 0.1);\n}\n\n.form-group input,\n.form-group select,\n.form-group textarea {\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.form-group select[name=status] option[value=pending] {\n  background: #FFF3CD;\n}\n.form-group select[name=status] option[value=accepted] {\n  background: #D4EDDA;\n}\n.form-group select[name=status] option[value=completed] {\n  background: #D1ECF1;\n}\n.form-group select[name=status] option[value=declined] {\n  background: #F8D7DA;\n}\n.form-group select[name=status] option[value=cancelled] {\n  background: #E2E3E5;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  backdrop-filter: blur(2px);\n  animation: fadeIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n.booking-modal {\n  background: #FFFFFF;\n  border-radius: 12px;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n  width: 100%;\n  max-width: 800px;\n  max-height: 90vh;\n  overflow-y: auto;\n  animation: slideIn 0.3s ease-out;\n  font-family: \"Roboto\", sans-serif;\n}\n@media (max-width: 768px) {\n  .booking-modal {\n    max-width: 95%;\n    max-height: 95vh;\n    margin: 20px;\n  }\n}\n\n@keyframes slideIn {\n  from {\n    transform: translateY(-50px);\n    opacity: 0;\n  }\n  to {\n    transform: translateY(0);\n    opacity: 1;\n  }\n}\n.booking-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: clamp(20px, 4vw, 24px);\n  border-bottom: 1px solid #EEEEEE;\n  background: #FFFFFF;\n  color: #333333;\n  border-radius: 12px 12px 0 0;\n}\n.booking-modal-header h2 {\n  font-size: clamp(18px, 4vw, 22px);\n  font-weight: 600;\n  margin: 0;\n  color: #333333;\n}\n.booking-modal-header .close-button {\n  background: none;\n  border: none;\n  color: #666666;\n  font-size: clamp(18px, 4vw, 20px);\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 50%;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 36px;\n  height: 36px;\n}\n.booking-modal-header .close-button:hover {\n  background: rgba(0, 0, 0, 0.1);\n  transform: scale(1.1);\n}\n.booking-modal-header .close-button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none;\n}\n\n.booking-modal-form {\n  padding: clamp(20px, 4vw, 24px);\n  display: flex;\n  flex-direction: column;\n  gap: clamp(16px, 3vw, 20px);\n}\n.booking-modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: clamp(16px, 3vw, 20px);\n}\n@media (max-width: 768px) {\n  .booking-modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: clamp(12px, 2vw, 16px);\n  }\n}\n.booking-modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.booking-modal-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.booking-modal-form .form-group label {\n  font-size: clamp(13px, 3vw, 14px);\n  font-weight: 500;\n  color: #333333;\n  margin-bottom: 4px;\n}\n.booking-modal-form .form-group label::after {\n  content: \" *\";\n  color: #E74C3C;\n  font-weight: 600;\n}\n.booking-modal-form .form-group label:not([for*=required])::after {\n  display: none;\n}\n.booking-modal-form .form-group input,\n.booking-modal-form .form-group select,\n.booking-modal-form .form-group textarea {\n  padding: clamp(10px, 2.5vw, 12px);\n  border: 1px solid #DDDDDD;\n  border-radius: 6px;\n  font-size: clamp(13px, 3vw, 14px);\n  color: #333333;\n  background: #FFFFFF;\n  transition: all 0.3s ease;\n  font-family: \"Roboto\", sans-serif;\n}\n.booking-modal-form .form-group input:focus,\n.booking-modal-form .form-group select:focus,\n.booking-modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 3px rgba(26, 42, 68, 0.1);\n}\n.booking-modal-form .form-group input.error,\n.booking-modal-form .form-group select.error,\n.booking-modal-form .form-group textarea.error {\n  border-color: #E74C3C;\n  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);\n}\n.booking-modal-form .form-group input:disabled,\n.booking-modal-form .form-group select:disabled,\n.booking-modal-form .form-group textarea:disabled {\n  background: #F8F9FA;\n  color: #6C757D;\n  cursor: not-allowed;\n}\n.booking-modal-form .form-group input::-moz-placeholder, .booking-modal-form .form-group select::-moz-placeholder, .booking-modal-form .form-group textarea::-moz-placeholder {\n  color: #ADB5BD;\n  font-style: italic;\n}\n.booking-modal-form .form-group input::placeholder,\n.booking-modal-form .form-group select::placeholder,\n.booking-modal-form .form-group textarea::placeholder {\n  color: #ADB5BD;\n  font-style: italic;\n}\n.booking-modal-form .form-group select {\n  cursor: pointer;\n  background-image: url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e\");\n  background-position: right 8px center;\n  background-repeat: no-repeat;\n  background-size: 16px;\n  padding-right: 32px;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n}\n.booking-modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: \"Roboto\", sans-serif;\n}\n.booking-modal-form .form-group .error-message {\n  color: #E74C3C;\n  font-size: clamp(11px, 2.5vw, 12px);\n  font-weight: 500;\n  margin-top: 4px;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.booking-modal-form .form-group .error-message::before {\n  content: \"⚠\";\n  font-size: 12px;\n}\n.booking-modal-form .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: clamp(12px, 3vw, 16px);\n  padding-top: clamp(16px, 3vw, 20px);\n  border-top: 1px solid #EEEEEE;\n  margin-top: clamp(8px, 2vw, 12px);\n}\n@media (max-width: 480px) {\n  .booking-modal-form .booking-modal-actions {\n    flex-direction: column;\n    gap: 12px;\n  }\n}\n.booking-modal-form .booking-modal-actions .cancel-button,\n.booking-modal-form .booking-modal-actions .submit-button {\n  padding: clamp(10px, 2.5vw, 12px) clamp(20px, 4vw, 24px);\n  border-radius: 6px;\n  font-size: clamp(13px, 3vw, 14px);\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  font-family: \"Roboto\", sans-serif;\n  min-width: clamp(100px, 20vw, 120px);\n}\n.booking-modal-form .booking-modal-actions .cancel-button:disabled,\n.booking-modal-form .booking-modal-actions .submit-button:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n  transform: none;\n}\n.booking-modal-form .booking-modal-actions .cancel-button {\n  background: #F8F9FA;\n  color: #6C757D;\n  border: 1px solid #DDDDDD;\n}\n.booking-modal-form .booking-modal-actions .cancel-button:hover:not(:disabled) {\n  background: #E9ECEF;\n  color: #495057;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.booking-modal-form .booking-modal-actions .submit-button {\n  background: #1A2A44;\n  color: #FFFFFF;\n  border: 1px solid #1A2A44;\n}\n.booking-modal-form .booking-modal-actions .submit-button:hover:not(:disabled) {\n  background: rgb(14.714893617, 23.770212766, 38.485106383);\n  border-color: rgb(14.714893617, 23.770212766, 38.485106383);\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(26, 42, 68, 0.3);\n}\n.booking-modal-form .booking-modal-actions .submit-button:active:not(:disabled) {\n  transform: translateY(0);\n  box-shadow: 0 2px 4px rgba(26, 42, 68, 0.2);\n}\n\n.booking-modal::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal::-webkit-scrollbar-track {\n  background: #F1F3F4;\n  border-radius: 3px;\n}\n.booking-modal::-webkit-scrollbar-thumb {\n  background: #C1C8CD;\n  border-radius: 3px;\n}\n.booking-modal::-webkit-scrollbar-thumb:hover {\n  background: #A8B2BA;\n}\n\n.booking-modal-form .form-group input:disabled,\n.booking-modal-form .form-group select:disabled,\n.booking-modal-form .form-group textarea:disabled {\n  background: #F8F9FA;\n  color: #6C757D;\n  cursor: not-allowed;\n}\n\n.booking-modal:focus-within .form-group input:focus,\n.booking-modal:focus-within .form-group select:focus,\n.booking-modal:focus-within .form-group textarea:focus {\n  border-color: #1A2A44;\n  box-shadow: 0 0 0 3px rgba(26, 42, 68, 0.1);\n}\n\n.form-group input,\n.form-group select,\n.form-group textarea {\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.form-group select[name=status] option[value=pending] {\n  background: #FFF3CD;\n}\n.form-group select[name=status] option[value=accepted] {\n  background: #D4EDDA;\n}\n.form-group select[name=status] option[value=completed] {\n  background: #D1ECF1;\n}\n.form-group select[name=status] option[value=declined] {\n  background: #F8D7DA;\n}\n.form-group select[name=status] option[value=cancelled] {\n  background: #E2E3E5;\n}\n\n.availability-warning {\n  background: #fef2f2;\n  border: 1px solid #fecaca;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.availability-warning .warning-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 8px;\n}\n.availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n  color: #f59e0b;\n}\n.availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72454,7 +72454,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.booking-modal-container {\n  background: white;\n  border-radius: 12px;\n  padding: 32px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  overflow-y: auto;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n}\n\n.booking-modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 24px 0;\n  text-align: center;\n}\n\n.booking-modal-form-content {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 32px;\n}\n\n.booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.booking-form-label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0;\n}\n\n.booking-form-input {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  transition: border-color 0.2s ease;\n}\n.booking-form-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-input.booking-form-input-disabled {\n  background: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.booking-form-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-input::placeholder {\n  color: #9ca3af;\n}\n\n.booking-form-textarea {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  min-height: 100px;\n  resize: vertical;\n  font-family: inherit;\n  transition: border-color 0.2s ease;\n}\n.booking-form-textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-textarea::placeholder {\n  color: #9ca3af;\n}\n\n.availability-warning {\n  background: #fef3cd;\n  border: 1px solid #fde68a;\n  border-radius: 8px;\n  padding: 16px;\n  margin: 8px 0;\n}\n.availability-warning .warning-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 12px;\n}\n.availability-warning .warning-header .rs-message-body {\n  color: #92400e;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.4;\n}\n\n.salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  font-size: 14px;\n}\n.salary-calculation-preview .calculation-row.total-row {\n  border-top: 1px solid #e2e8f0;\n  padding-top: 8px;\n  margin-top: 8px;\n  font-weight: 600;\n  font-size: 16px;\n}\n.salary-calculation-preview .calculation-row .calculation-label {\n  color: #64748b;\n  font-weight: 500;\n}\n.salary-calculation-preview .calculation-row .calculation-value {\n  color: #1e293b;\n  font-weight: 600;\n}\n.salary-calculation-preview small {\n  color: #64748b;\n  font-size: 12px;\n  margin-top: 8px;\n  display: block;\n}\n\n.booking-modal-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  padding-top: 24px;\n  border-top: 1px solid #e5e7eb;\n}\n\n.booking-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-btn.booking-btn-cancel {\n  background: #f3f4f6;\n  color: #374151;\n  border: 2px solid #e5e7eb;\n}\n.booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #d1d5db;\n}\n.booking-btn.booking-btn-submit {\n  background: #3b82f6;\n  color: white;\n}\n.booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #2563eb;\n}\n.booking-btn.booking-btn-submit:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n}\n\n@media (max-width: 768px) {\n  .booking-modal-overlay {\n    padding: 10px;\n  }\n  .booking-modal-container {\n    padding: 24px;\n    max-height: 95vh;\n  }\n  .booking-modal-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n  .booking-modal-form-content {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-form-input,\n  .booking-form-textarea {\n    padding: 10px 12px;\n    font-size: 12px;\n  }\n  .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n    padding-top: 20px;\n  }\n  .booking-btn {\n    padding: 10px 20px;\n    font-size: 12px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9998;\n  padding: 20px;\n}\n\n.booking-modal-container {\n  background: white;\n  border-radius: 12px;\n  padding: 32px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  overflow-y: auto;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n}\n\n.booking-modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 24px 0;\n  text-align: center;\n}\n\n.booking-modal-form-content {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 32px;\n}\n\n.booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.booking-form-field .booking-form-input,\n.booking-form-field .booking-form-textarea {\n  position: relative;\n  z-index: 1;\n}\n\n.booking-form-label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0;\n}\n\n.booking-form-input {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  transition: border-color 0.2s ease;\n}\n.booking-form-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-input.booking-form-input-disabled {\n  background: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.booking-form-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-input::placeholder {\n  color: #9ca3af;\n}\n\n.booking-form-textarea {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  min-height: 100px;\n  resize: vertical;\n  font-family: inherit;\n  transition: border-color 0.2s ease;\n}\n.booking-form-textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-textarea::placeholder {\n  color: #9ca3af;\n}\n\n.availability-warning {\n  background: #fef3cd;\n  border: 1px solid #fde68a;\n  border-radius: 8px;\n  padding: 16px;\n  margin: 8px 0;\n}\n.availability-warning .warning-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 12px;\n}\n.availability-warning .warning-header .rs-message-body {\n  color: #92400e;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.4;\n}\n\n.salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  font-size: 14px;\n}\n.salary-calculation-preview .calculation-row.total-row {\n  border-top: 1px solid #e2e8f0;\n  padding-top: 8px;\n  margin-top: 8px;\n  font-weight: 600;\n  font-size: 16px;\n}\n.salary-calculation-preview .calculation-row .calculation-label {\n  color: #64748b;\n  font-weight: 500;\n}\n.salary-calculation-preview .calculation-row .calculation-value {\n  color: #1e293b;\n  font-weight: 600;\n}\n.salary-calculation-preview small {\n  color: #64748b;\n  font-size: 12px;\n  margin-top: 8px;\n  display: block;\n}\n\n.booking-modal-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  padding-top: 24px;\n  border-top: 1px solid #e5e7eb;\n}\n\n.booking-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-btn.booking-btn-cancel {\n  background: #f3f4f6;\n  color: #374151;\n  border: 2px solid #e5e7eb;\n}\n.booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #d1d5db;\n}\n.booking-btn.booking-btn-submit {\n  background: #3b82f6;\n  color: white;\n}\n.booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #2563eb;\n}\n.booking-btn.booking-btn-submit:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n}\n\n.booking-form-field {\n  position: relative;\n  z-index: 1;\n}\n.booking-form-field .custom-dropdown {\n  position: relative;\n  z-index: 9999;\n}\n.booking-form-field .custom-dropdown .dropdown-trigger {\n  position: relative;\n  z-index: 10000 !important;\n  background: #f9fafb;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  padding: 8px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-form-field .custom-dropdown .dropdown-trigger:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-form-field .custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 99999 !important;\n  max-height: 200px;\n  overflow-y: auto;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  cursor: pointer;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  color: #0b0d0f;\n  border-bottom: 1px solid #f3f4f6;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n\n@media (max-width: 768px) {\n  .booking-modal-overlay {\n    padding: 10px;\n  }\n  .booking-modal-container {\n    padding: 24px;\n    max-height: 95vh;\n  }\n  .booking-modal-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n  .booking-modal-form-content {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-form-input,\n  .booking-form-textarea {\n    padding: 10px 12px;\n    font-size: 12px;\n  }\n  .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n    padding-top: 20px;\n  }\n  .booking-btn {\n    padding: 10px 20px;\n    font-size: 12px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72622,7 +72622,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  position: relative;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group #teamSize {\n  width: 752px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.skills-selection-container .skills-select-button {\n  width: 100%;\n  padding: 14px 18px;\n  border: 2px dashed #007bff;\n  background-color: #f8f9ff;\n  color: #007bff;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 600;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n}\n.skills-selection-container .skills-select-button:hover {\n  background-color: #e3f2fd;\n  border-color: #0056b3;\n  transform: translateY(-1px);\n}\n.skills-selection-container .skills-select-button::before {\n  content: \"🔧\";\n  font-size: 16px;\n}\n.skills-selection-container .selected-skills-preview {\n  margin-top: 16px;\n  padding: 16px;\n  background-color: #f8f9fa;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n}\n.skills-selection-container .selected-skills-preview .skills-preview-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #495057;\n  margin-bottom: 12px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-selection-container .selected-skills-preview .skills-preview-title::before {\n  content: \"✅\";\n  font-size: 14px;\n}\n.skills-selection-container .selected-skills-preview .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 12px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  margin: 4px;\n  display: inline-block;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n  transition: all 0.2s ease;\n}\n.skills-selection-container .selected-skills-preview .skill-tag:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}\n.skills-modal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 20px;\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  background: #f8f9fa;\n}\n.skills-modal .adminmodal-buttons button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 120px;\n  font-family: \"Inter\", sans-serif;\n}\n.skills-modal .adminmodal-buttons button:first-child {\n  background: #ffffff;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .adminmodal-buttons button:first-child:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  transform: translateY(-1px);\n}\n.skills-modal .adminmodal-buttons button:last-child {\n  background: #1A2A44;\n  color: #ffffff;\n  border-color: #1A2A44;\n}\n.skills-modal .adminmodal-buttons button:last-child:hover {\n  background: #0f1419;\n  border-color: #0f1419;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  position: relative;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group #teamSize {\n  width: 752px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.sub-skills-multi-select {\n  position: relative;\n  width: 100%;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.sub-skills-multi-select .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  transition: all 0.2s ease;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option span {\n  font-size: 14px;\n  color: #374151;\n  font-weight: 500;\n}\n\n.experience-levels-container {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-top: 12px;\n}\n.experience-levels-container .experience-level-item {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item:hover {\n  background-color: #f1f5f9;\n  border-color: #3b82f6;\n}\n.experience-levels-container .experience-level-item .sub-skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n  min-width: 120px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown {\n  flex: 1;\n  max-width: 200px;\n  position: relative;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  color: #374151;\n  font-size: 14px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n\n.selected-skills-preview {\n  border: 1px solid #bae6fd;\n  margin-top: 20px;\n  padding: 20px;\n  border-radius: 8px;\n}\n.selected-skills-preview h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.selected-skills-preview h4::before {\n  content: \"✅\";\n  font-size: 18px;\n}\n.selected-skills-preview .skill-with-experience {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  margin: 4px;\n  padding: 8px 12px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  transition: all 0.2s ease;\n}\n.selected-skills-preview .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n.selected-skills-preview .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, black, #1d4ed8);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.selected-skills-preview .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #10b981, #059669);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 11px;\n  font-weight: 600;\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}\n.skills-modal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 20px;\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  background: #f8f9fa;\n}\n.skills-modal .adminmodal-buttons button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 120px;\n  font-family: \"Inter\", sans-serif;\n}\n.skills-modal .adminmodal-buttons button:first-child {\n  background: #ffffff;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .adminmodal-buttons button:first-child:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  transform: translateY(-1px);\n}\n.skills-modal .adminmodal-buttons button:last-child {\n  background: #1A2A44;\n  color: #ffffff;\n  border-color: #1A2A44;\n}\n.skills-modal .adminmodal-buttons button:last-child:hover {\n  background: #0f1419;\n  border-color: #0f1419;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72718,7 +72718,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  padding: 0 0 8px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -204563,7 +204563,7 @@ var BookModal = function BookModal(_ref) {
     }
     var validatedDetails = _objectSpread(_objectSpread({}, bookingDetails), {}, {
       daily_rate: parseFloat(bookingDetails.daily_rate),
-      total_salary: salaryCalculation.totalAmount
+      total_amount: salaryCalculation.totalAmount // Match database field name
     });
     onSubmit(validatedDetails); // Pass details to parent for further processing
   };
@@ -204744,9 +204744,27 @@ var BookModal = function BookModal(_ref) {
                 marginTop: '8px',
                 fontSize: '30px'
               }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "rs-message-body",
-              children: "Worker not free \u2014 1 job scheduled."
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "warning-message",
+                children: availabilityStatus.conflictMessage
+              }), availabilityStatus.conflictingJobs.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "conflicting-jobs",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                  children: "Conflicting Jobs:"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
+                  children: availabilityStatus.conflictingJobs.map(function (job, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("li", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                        children: job.jobTitle
+                      }), " - ", job.type === 'hired' ? 'Hired' : 'Scheduled', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("small", {
+                        children: [new Date(job.workStart).toLocaleDateString(), " - ", new Date(job.workEnd).toLocaleDateString(), job.employer && " (Employer: ".concat(job.employer, ")")]
+                      })]
+                    }, index);
+                  })
+                })]
+              })]
             })]
           })
         }), bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
@@ -205186,6 +205204,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -205990,7 +206009,7 @@ var Profile = function Profile(_ref) {
   };
   var handleConfirmBooking = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
-      var _JSON$parse, authToken, currentUserId, formatDateTime, bookingData, response, _error$response2, _error$response3, _error$response$data, errors, errorMessages, _error$response$data2, _error$response4, errorMessage, _t7;
+      var _JSON$parse, _worker$user, authToken, currentUserId, formatDateTime, userData, employerUserId, workerUserId, workerResponse, bookingData, response, _error$response2, _error$response3, _error$response$data, errors, errorMessages, _error$response$data2, _error$response4, errorMessage, _t7, _t8;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
@@ -206026,9 +206045,117 @@ var Profile = function Profile(_ref) {
               // Convert "YYYY-MM-DDTHH:MM" to "YYYY-MM-DD HH:MM:SS"
               var date = new Date(dateTimeString);
               return date.toISOString().slice(0, 19).replace('T', ' ');
-            };
+            }; // Get current user data to set employer_id
+            userData = JSON.parse(localStorage.getItem("user") || '{}'); // Use the actual user IDs from the database
+            // The employer should be the current user's ID (directly from userData.id)
+            employerUserId = userData.id;
+            console.log('=== LOCALSTORAGE USER DATA ===');
+            console.log('localStorage user key:', localStorage.getItem("user"));
+            console.log('Parsed userData:', userData);
+            console.log('Extracted employerUserId:', employerUserId);
+            console.log('UserData type:', _typeof(userData));
+            console.log('UserData.id type:', _typeof(userData.id));
+            console.log('UserData.id value:', userData.id);
+
+            // Validate that we have a valid user ID from localStorage
+            if (!(!employerUserId || employerUserId === null || employerUserId === undefined)) {
+              _context6.n = 4;
+              break;
+            }
+            console.error('CRITICAL ERROR: No valid user ID found in localStorage!');
+            console.error('localStorage user data:', userData);
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Critical error: Unable to identify user from localStorage. Please refresh and log in again.");
+            return _context6.a(2);
+          case 4:
+            // The worker ID should be the worker's user ID
+            // Try different possible worker ID fields
+            workerUserId = worker.id || worker.user_id || ((_worker$user = worker.user) === null || _worker$user === void 0 ? void 0 : _worker$user.id); // If still no worker ID, try to get it from the worker data structure
+            if (!workerUserId && worker.user) {
+              workerUserId = worker.user.id;
+            }
+
+            // Final fallback: if we still don't have a worker ID, try to fetch it
+            if (!(!workerUserId && worker.id)) {
+              _context6.n = 8;
+              break;
+            }
+            _context6.p = 5;
+            console.log('Attempting to fetch worker data for ID:', worker.id);
+            _context6.n = 6;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/".concat(worker.id));
+          case 6:
+            workerResponse = _context6.v;
+            if (workerResponse.data && workerResponse.data.id) {
+              workerUserId = workerResponse.data.id;
+              console.log('Fetched worker user ID from API:', workerUserId);
+            }
+            _context6.n = 8;
+            break;
+          case 7:
+            _context6.p = 7;
+            _t7 = _context6.v;
+            console.error('Failed to fetch worker data:', _t7);
+          case 8:
+            console.log('=== BOOKING CREATION - USING CORRECT USER IDs ===');
+            console.log('Employer User ID (from current user):', employerUserId);
+            console.log('Worker User ID (from worker profile):', workerUserId);
+            console.log('=== BOOKING CREATION DEBUG ===');
+            console.log('User data from localStorage:', userData);
+            console.log('Employer user ID:', employerUserId);
+            console.log('Worker user ID:', workerUserId);
+            console.log('Worker data structure:', JSON.stringify(worker, null, 2));
+            console.log('Worker ID type:', _typeof(worker.id));
+            console.log('Worker ID value:', worker.id);
+
+            // CRITICAL: Validate employer_id is not null/undefined
+            if (!(!employerUserId || employerUserId === null || employerUserId === undefined)) {
+              _context6.n = 9;
+              break;
+            }
+            console.error('CRITICAL ERROR: employerUserId is null/undefined!');
+            console.error('userData:', userData);
+            console.error('userData.id:', userData.id);
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Critical error: Unable to identify employer. Please refresh and try again.");
+            return _context6.a(2);
+          case 9:
+            if (!(!workerUserId || workerUserId === null || workerUserId === undefined)) {
+              _context6.n = 10;
+              break;
+            }
+            console.error('CRITICAL ERROR: workerUserId is null/undefined!');
+            console.error('worker:', worker);
+            console.error('worker.id:', worker.id);
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Critical error: Unable to identify worker. Please refresh and try again.");
+            return _context6.a(2);
+          case 10:
+            if (employerUserId) {
+              _context6.n = 11;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Unable to identify employer. Please refresh and try again.");
+            return _context6.a(2);
+          case 11:
+            if (workerUserId) {
+              _context6.n = 12;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Unable to identify worker. Please refresh and try again.");
+            return _context6.a(2);
+          case 12:
+            console.log('Creating booking with employer_id:', employerUserId, 'worker_id:', workerUserId);
+
+            // Final validation
+            console.log('Final booking data before submission:');
+            console.log('Employer ID:', employerUserId);
+            console.log('Worker ID:', workerUserId);
+            console.log('Service Type:', bookingDetails.service_type);
+            console.log('Book In:', bookingDetails.book_in);
+            console.log('Book End:', bookingDetails.book_end);
             bookingData = {
-              worker_id: worker.id,
+              employer_id: employerUserId,
+              // Use user ID directly
+              worker_id: workerUserId,
+              // Use user ID directly
               service_type: bookingDetails.service_type,
               sub_skill: bookingDetails.sub_skill || null,
               work_type: bookingDetails.work_type,
@@ -206038,48 +206165,79 @@ var Profile = function Profile(_ref) {
               time_in: bookingDetails.time_in || null,
               time_out: bookingDetails.time_out || null,
               daily_rate: parseFloat(bookingDetails.daily_rate),
-              total_salary: parseFloat(bookingDetails.total_salary) || null
+              total_amount: parseFloat(bookingDetails.total_amount) || null,
+              // Match database field name
+              status: 'pending' // Add status field
             };
-            _context6.n = 4;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post('/api/bookings', bookingData, {
+            console.log('=== FINAL BOOKING DATA VALIDATION ===');
+            console.log('bookingData.employer_id:', bookingData.employer_id);
+            console.log('bookingData.worker_id:', bookingData.worker_id);
+            console.log('bookingData.employer_id type:', _typeof(bookingData.employer_id));
+            console.log('bookingData.worker_id type:', _typeof(bookingData.worker_id));
+            console.log('bookingData.employer_id is null?', bookingData.employer_id === null);
+            console.log('bookingData.worker_id is null?', bookingData.worker_id === null);
+            console.log('Complete bookingData:', JSON.stringify(bookingData, null, 2));
+
+            // FINAL VALIDATION: Ensure employer_id is not null before sending
+            if (!(bookingData.employer_id === null || bookingData.employer_id === undefined)) {
+              _context6.n = 13;
+              break;
+            }
+            console.error('FINAL VALIDATION FAILED: employer_id is null in bookingData!');
+            antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Critical error: Employer ID is missing. Cannot create booking.");
+            return _context6.a(2);
+          case 13:
+            console.log('Submitting booking with data:', bookingData);
+            console.log('Auth token:', authToken);
+            _context6.n = 14;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post('http://127.0.0.1:8000/api/bookings', bookingData, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'X-User-ID': employerUserId
               }
             });
-          case 4:
+          case 14:
             response = _context6.v;
+            console.log('Booking submission response:', response.data);
             if (response.data.success) {
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Booking request sent successfully!");
               setIsConfirmationModalOpen(false);
               setIsSuccessModalOpen(true);
+
+              // Trigger refresh of bookings list
+              localStorage.setItem('booking_refresh_trigger', Date.now().toString());
+
+              // Also dispatch a custom event for immediate refresh
+              window.dispatchEvent(new CustomEvent('bookingSubmitted'));
+              console.log('Booking submitted successfully, triggering refresh');
             } else {
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(response.data.message || "Failed to send booking request");
             }
-            _context6.n = 6;
+            _context6.n = 16;
             break;
-          case 5:
-            _context6.p = 5;
-            _t7 = _context6.v;
-            console.error("Booking error:", ((_error$response2 = _t7.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t7.message);
-            if (((_error$response3 = _t7.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 422) {
+          case 15:
+            _context6.p = 15;
+            _t8 = _context6.v;
+            console.error("Booking error:", ((_error$response2 = _t8.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t8.message);
+            if (((_error$response3 = _t8.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 422) {
               // Handle validation errors
-              errors = (_error$response$data = _t7.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.errors;
+              errors = (_error$response$data = _t8.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.errors;
               if (errors) {
                 errorMessages = Object.values(errors).flat();
                 antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
               } else {
-                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response$data2 = _t7.response.data) === null || _error$response$data2 === void 0 ? void 0 : _error$response$data2.message) || "Validation failed");
+                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response$data2 = _t8.response.data) === null || _error$response$data2 === void 0 ? void 0 : _error$response$data2.message) || "Validation failed");
               }
             } else {
-              errorMessage = ((_error$response4 = _t7.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.message) || "Failed to send booking request";
+              errorMessage = ((_error$response4 = _t8.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.message) || "Failed to send booking request";
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(errorMessage);
             }
-          case 6:
+          case 16:
             return _context6.a(2);
         }
-      }, _callee6, null, [[0, 5]]);
+      }, _callee6, null, [[5, 7], [0, 15]]);
     }));
     return function handleConfirmBooking() {
       return _ref7.apply(this, arguments);
@@ -213105,7 +213263,7 @@ var AdminList = function AdminList() {
                         onClick: function onClick() {
                           return handleRestoreAdmin(admin.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
@@ -213382,6 +213540,13 @@ var Book = function Book() {
             });
           case 1:
             response = _context.v;
+            console.log('Admin bookings API response:', response.data);
+            console.log('Bookings data:', response.data.bookings);
+            if (response.data.bookings && response.data.bookings.length > 0) {
+              console.log('First booking data:', response.data.bookings[0]);
+              console.log('First booking employer:', response.data.bookings[0].employer);
+              console.log('First booking worker:', response.data.bookings[0].worker);
+            }
             setBooks(response.data.bookings || []);
             setPagination({
               currentPage: ((_response$data$pagina = response.data.pagination) === null || _response$data$pagina === void 0 ? void 0 : _response$data$pagina.currentPage) || 1,
@@ -213920,7 +214085,7 @@ var Book = function Book() {
                 onClick: function onClick() {
                   return handleBulkAction("delete");
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                   size: 20,
                   className: "button-icon"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
@@ -214012,6 +214177,7 @@ var Book = function Book() {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__["default"], {})
                 })
               }) : ((books === null || books === void 0 ? void 0 : books.length) || 0) > 0 ? books.map(function (book) {
+                var _book$employer, _book$employer2, _book$worker, _book$worker2, _book$employer3;
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Actions",
@@ -214039,7 +214205,7 @@ var Book = function Book() {
                             return handleRestoreBook(book.id);
                           },
                           title: "Restore"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
@@ -214048,14 +214214,14 @@ var Book = function Book() {
                           title: "Delete Permanently"
                         })]
                       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                           size: 16,
                           className: "archive-icon",
                           onClick: function onClick() {
                             return handleArchiveClick(book);
                           },
                           title: "Archive"
-                        }), book.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                        }), book.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
@@ -214082,10 +214248,46 @@ var Book = function Book() {
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Employer Name",
-                    children: book.employer_name || "N/A"
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                      className: "employer-info",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                        className: "name",
+                        children: (_book$employer = book.employer) !== null && _book$employer !== void 0 && _book$employer.profile ? "".concat(book.employer.profile.first_name || '', " ").concat(book.employer.profile.last_name || '').trim() || "N/A" : book.employer_name || "N/A"
+                      }), ((_book$employer2 = book.employer) === null || _book$employer2 === void 0 ? void 0 : _book$employer2.profile) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                          className: "contact",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("small", {
+                            children: ["\uD83D\uDCDE ", book.employer.profile.contact_number || "N/A"]
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                          className: "address",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("small", {
+                            children: ["\uD83D\uDCCD ", book.employer.profile.street || "", " ", book.employer.profile.city || "", " ", book.employer.profile.province || "", " ", book.employer.profile.postal_code || ""]
+                          })
+                        })]
+                      })]
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Worker Name",
-                    children: book.worker_name || "N/A"
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                      className: "worker-info",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                        className: "name",
+                        children: (_book$worker = book.worker) !== null && _book$worker !== void 0 && _book$worker.profile ? "".concat(book.worker.profile.first_name || '', " ").concat(book.worker.profile.last_name || '').trim() || "N/A" : book.worker_name || "N/A"
+                      }), ((_book$worker2 = book.worker) === null || _book$worker2 === void 0 ? void 0 : _book$worker2.profile) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                          className: "contact",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("small", {
+                            children: ["\uD83D\uDCDE ", book.worker.profile.contact_number || "N/A"]
+                          })
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                          className: "address",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("small", {
+                            children: ["\uD83D\uDCCD ", book.worker.profile.street || "", " ", book.worker.profile.city || "", " ", book.worker.profile.province || "", " ", book.worker.profile.postal_code || ""]
+                          })
+                        })]
+                      })]
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Service Type",
                     children: book.service_type || "N/A"
@@ -214097,7 +214299,14 @@ var Book = function Book() {
                     children: book.work_type || "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Address",
-                    children: book.address || "N/A"
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                      className: "address-info",
+                      children: (_book$employer3 = book.employer) !== null && _book$employer3 !== void 0 && _book$employer3.profile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("small", {
+                          children: ["\uD83D\uDCCD ", book.employer.profile.street || "", " ", book.employer.profile.city || "", " ", book.employer.profile.province || "", " ", book.employer.profile.postal_code || ""]
+                        })
+                      }) : "N/A"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     "data-label": "Description",
                     children: book.description || "N/A"
@@ -214216,24 +214425,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var _sass_components_bookingmodal_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../sass/components/_bookingmodal.scss */ "./resources/sass/components/_bookingmodal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
+/* harmony import */ var _sass_components_bookingmodal_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../../sass/components/_bookingmodal.scss */ "./resources/sass/components/_bookingmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -214282,6 +214494,14 @@ var BookingModal = function BookingModal(_ref) {
     _useState6 = _slicedToArray(_useState5, 2),
     isSubmitting = _useState6[0],
     setIsSubmitting = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      isAvailable: true,
+      conflictMessage: '',
+      conflictingJobs: []
+    }),
+    _useState8 = _slicedToArray(_useState7, 2),
+    availabilityStatus = _useState8[0],
+    setAvailabilityStatus = _useState8[1];
 
   // Function to get full name from user data
   var getFullName = function getFullName(person) {
@@ -214335,6 +214555,150 @@ var BookingModal = function BookingModal(_ref) {
     console.log("getFullName: constructed name:", result);
     return result;
   };
+
+  // Check worker availability for the selected dates
+  var checkWorkerAvailability = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var _jobPostsData$job_pos, book_in, book_end, worker_id, response, acceptedJobs, jobPostsResponse, jobPostsData, jobPosts, requestedStart, requestedEnd, conflictingJobs, _iterator, _step, _job$job_post, _job$job_post2, job, jobStart, jobEnd, _job$job_post$profile, _job$job_post$profile2, _iterator2, _step2, jobPost, _jobStart, _jobEnd, _jobPost$profile, _jobPost$profile2, hiredCount, scheduledCount, conflictMessage, _t, _t2;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            _context.p = 0;
+            book_in = formData.book_in, book_end = formData.book_end, worker_id = formData.worker_id;
+            if (!(!book_in || !book_end || !worker_id)) {
+              _context.n = 1;
+              break;
+            }
+            setAvailabilityStatus({
+              isAvailable: true,
+              conflictMessage: '',
+              conflictingJobs: []
+            });
+            return _context.a(2);
+          case 1:
+            _context.n = 2;
+            return fetch("http://127.0.0.1:8000/api/job-applications/worker/".concat(worker_id, "?status=accepted"));
+          case 2:
+            response = _context.v;
+            _context.n = 3;
+            return response.json();
+          case 3:
+            _t = _context.v;
+            if (_t) {
+              _context.n = 4;
+              break;
+            }
+            _t = [];
+          case 4:
+            acceptedJobs = _t;
+            _context.n = 5;
+            return fetch("http://127.0.0.1:8000/api/jobposts?worker_id=".concat(worker_id, "&include_work_schedule=true"));
+          case 5:
+            jobPostsResponse = _context.v;
+            _context.n = 6;
+            return jobPostsResponse.json();
+          case 6:
+            jobPostsData = _context.v;
+            jobPosts = (jobPostsData === null || jobPostsData === void 0 || (_jobPostsData$job_pos = jobPostsData.job_posts) === null || _jobPostsData$job_pos === void 0 ? void 0 : _jobPostsData$job_pos.data) || []; // Check for date conflicts
+            requestedStart = new Date(book_in);
+            requestedEnd = new Date(book_end);
+            conflictingJobs = []; // Check conflicts with accepted job applications
+            _iterator = _createForOfIteratorHelper(acceptedJobs);
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                job = _step.value;
+                if ((_job$job_post = job.job_post) !== null && _job$job_post !== void 0 && _job$job_post.work_start && (_job$job_post2 = job.job_post) !== null && _job$job_post2 !== void 0 && _job$job_post2.work_end) {
+                  jobStart = new Date(job.job_post.work_start);
+                  jobEnd = new Date(job.job_post.work_end); // Check if there's any overlap between the requested dates and job dates
+                  if (requestedStart >= jobStart && requestedStart <= jobEnd || requestedEnd >= jobStart && requestedEnd <= jobEnd || requestedStart <= jobStart && requestedEnd >= jobEnd) {
+                    conflictingJobs.push({
+                      jobTitle: job.job_post.job_title,
+                      workStart: job.job_post.work_start,
+                      workEnd: job.job_post.work_end,
+                      employer: ((_job$job_post$profile = job.job_post.profile) === null || _job$job_post$profile === void 0 ? void 0 : _job$job_post$profile.first_name) + ' ' + ((_job$job_post$profile2 = job.job_post.profile) === null || _job$job_post$profile2 === void 0 ? void 0 : _job$job_post$profile2.last_name),
+                      type: 'hired'
+                    });
+                  }
+                }
+              }
+
+              // Check conflicts with job posts that have fixed work schedules
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+            _iterator2 = _createForOfIteratorHelper(jobPosts);
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                jobPost = _step2.value;
+                if (jobPost.work_start && jobPost.work_end) {
+                  _jobStart = new Date(jobPost.work_start);
+                  _jobEnd = new Date(jobPost.work_end); // Check if there's any overlap between the requested dates and job post work schedule
+                  if (requestedStart >= _jobStart && requestedStart <= _jobEnd || requestedEnd >= _jobStart && requestedEnd <= _jobEnd || requestedStart <= _jobStart && requestedEnd >= _jobEnd) {
+                    conflictingJobs.push({
+                      jobTitle: jobPost.job_title,
+                      workStart: jobPost.work_start,
+                      workEnd: jobPost.work_end,
+                      employer: ((_jobPost$profile = jobPost.profile) === null || _jobPost$profile === void 0 ? void 0 : _jobPost$profile.first_name) + ' ' + ((_jobPost$profile2 = jobPost.profile) === null || _jobPost$profile2 === void 0 ? void 0 : _jobPost$profile2.last_name),
+                      type: 'scheduled'
+                    });
+                  }
+                }
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+            if (conflictingJobs.length > 0) {
+              hiredCount = conflictingJobs.filter(function (job) {
+                return job.type === 'hired';
+              }).length;
+              scheduledCount = conflictingJobs.filter(function (job) {
+                return job.type === 'scheduled';
+              }).length;
+              conflictMessage = 'Worker is not available during the selected period. ';
+              if (hiredCount > 0 && scheduledCount > 0) {
+                conflictMessage += "They are already hired for ".concat(hiredCount, " job(s) and have ").concat(scheduledCount, " scheduled job(s) during this time.");
+              } else if (hiredCount > 0) {
+                conflictMessage += "They are already hired for ".concat(hiredCount, " job(s) during this time.");
+              } else {
+                conflictMessage += "They have ".concat(scheduledCount, " scheduled job(s) during this time.");
+              }
+              setAvailabilityStatus({
+                isAvailable: false,
+                conflictMessage: conflictMessage,
+                conflictingJobs: conflictingJobs
+              });
+            } else {
+              setAvailabilityStatus({
+                isAvailable: true,
+                conflictMessage: '',
+                conflictingJobs: []
+              });
+            }
+            _context.n = 8;
+            break;
+          case 7:
+            _context.p = 7;
+            _t2 = _context.v;
+            console.error('Error checking worker availability:', _t2);
+            // On error, assume worker is available to avoid blocking legitimate bookings
+            setAvailabilityStatus({
+              isAvailable: true,
+              conflictMessage: '',
+              conflictingJobs: []
+            });
+          case 8:
+            return _context.a(2);
+        }
+      }, _callee, null, [[0, 7]]);
+    }));
+    return function checkWorkerAvailability() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isOpen) {
       if (isEdit && initialData) {
@@ -214371,8 +214735,26 @@ var BookingModal = function BookingModal(_ref) {
         });
       }
       setErrors({});
+      setAvailabilityStatus({
+        isAvailable: true,
+        conflictMessage: '',
+        conflictingJobs: []
+      });
     }
   }, [isOpen, isEdit, initialData]);
+
+  // Check worker availability when booking dates change
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (formData.book_in && formData.book_end && formData.worker_id) {
+      checkWorkerAvailability();
+    } else {
+      setAvailabilityStatus({
+        isAvailable: true,
+        conflictMessage: '',
+        conflictingJobs: []
+      });
+    }
+  }, [formData.book_in, formData.book_end, formData.worker_id]);
   var handleInputChange = function handleInputChange(e) {
     var _e$target = e.target,
       name = _e$target.name,
@@ -214431,41 +214813,41 @@ var BookingModal = function BookingModal(_ref) {
     return Object.keys(newErrors).length === 0;
   };
   var handleSubmit = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(e) {
-      var _t;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.p = _context.n) {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
+      var _t3;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
           case 0:
             e.preventDefault();
             if (validateForm()) {
-              _context.n = 1;
+              _context2.n = 1;
               break;
             }
-            return _context.a(2);
+            return _context2.a(2);
           case 1:
             setIsSubmitting(true);
-            _context.p = 2;
-            _context.n = 3;
+            _context2.p = 2;
+            _context2.n = 3;
             return onSubmit(formData);
           case 3:
             onClose();
-            _context.n = 5;
+            _context2.n = 5;
             break;
           case 4:
-            _context.p = 4;
-            _t = _context.v;
-            console.error("Error submitting booking:", _t);
+            _context2.p = 4;
+            _t3 = _context2.v;
+            console.error("Error submitting booking:", _t3);
           case 5:
-            _context.p = 5;
+            _context2.p = 5;
             setIsSubmitting(false);
-            return _context.f(5);
+            return _context2.f(5);
           case 6:
-            return _context.a(2);
+            return _context2.a(2);
         }
-      }, _callee, null, [[2, 4, 5, 6]]);
+      }, _callee2, null, [[2, 4, 5, 6]]);
     }));
     return function handleSubmit(_x) {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
   var handleClose = function handleClose() {
@@ -214474,42 +214856,42 @@ var BookingModal = function BookingModal(_ref) {
     }
   };
   if (!isOpen) return null;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "booking-modal-overlay",
     onClick: handleClose,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "booking-modal",
       onClick: function onClick(e) {
         return e.stopPropagation();
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "booking-modal-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
           children: isEdit ? "Edit Booking" : "Add New Booking"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "close-button",
           onClick: handleClose,
           disabled: isSubmitting,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
         onSubmit: handleSubmit,
         className: "booking-modal-form",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "employer_id",
               children: "Employer"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
               id: "employer_id",
               name: "employer_id",
               value: formData.employer_id,
               onChange: handleInputChange,
               className: errors.employer_id ? "error" : "",
               disabled: isSubmitting,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "",
                 children: "Select Employer"
               }), employers.map(function (employer) {
@@ -214517,28 +214899,28 @@ var BookingModal = function BookingModal(_ref) {
                 console.log("Employer role_id:", employer.role_id);
                 var displayName = getFullName(employer);
                 console.log("Final employer displayName:", displayName);
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                   value: employer.id,
                   children: displayName
                 }, employer.id);
               })]
-            }), errors.employer_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.employer_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.employer_id
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "worker_id",
               children: "Worker"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
               id: "worker_id",
               name: "worker_id",
               value: formData.worker_id,
               onChange: handleInputChange,
               className: errors.worker_id ? "error" : "",
               disabled: isSubmitting,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "",
                 children: "Select Worker"
               }), workers.map(function (worker) {
@@ -214547,60 +214929,60 @@ var BookingModal = function BookingModal(_ref) {
                 console.log("Worker keys:", Object.keys(worker));
                 var displayName = getFullName(worker);
                 console.log("Final worker displayName:", displayName);
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                   value: worker.id,
                   children: displayName
                 }, worker.id);
               })]
-            }), errors.worker_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.worker_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.worker_id
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "service_type",
               children: "Service Type *"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
               id: "service_type",
               name: "service_type",
               value: formData.service_type,
               onChange: handleInputChange,
               className: errors.service_type ? "error" : "",
               disabled: isSubmitting,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "",
                 children: "Select Service Type"
               }), skills.map(function (skill) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                   value: skill.name,
                   children: skill.name
                 }, skill.id);
               })]
-            }), errors.service_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.service_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.service_type
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "sub_skill",
               children: "Sub Skill"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
               id: "sub_skill",
               name: "sub_skill",
               value: formData.sub_skill,
               onChange: handleInputChange,
               disabled: isSubmitting,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "",
                 children: "Select Sub Skill"
               }), skills.map(function (skill) {
                 return skill.sub_skills && skill.sub_skills.length > 0 ? skill.sub_skills.map(function (subSkill, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                     value: subSkill,
                     children: subSkill
                   }, "".concat(skill.id, "-").concat(index));
@@ -214608,82 +214990,82 @@ var BookingModal = function BookingModal(_ref) {
               })]
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "work_type",
               children: "Work Type *"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
               id: "work_type",
               name: "work_type",
               value: formData.work_type,
               onChange: handleInputChange,
               className: errors.work_type ? "error" : "",
               disabled: isSubmitting,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "",
                 children: "Select Work Type"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "full-time",
                 children: "Full Time"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "part-time",
                 children: "Part Time"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "contract",
                 children: "Contract"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "temporary",
                 children: "Temporary"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "freelance",
                 children: "Freelance"
               })]
-            }), errors.work_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.work_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.work_type
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "status",
               children: "Status *"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
               id: "status",
               name: "status",
               value: formData.status,
               onChange: handleInputChange,
               className: errors.status ? "error" : "",
               disabled: isSubmitting,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "pending",
                 children: "Pending"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "accepted",
                 children: "Accepted"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "completed",
                 children: "Completed"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "declined",
                 children: "Declined"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                 value: "cancelled",
                 children: "Cancelled"
               })]
-            }), errors.status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.status
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-group full-width",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             htmlFor: "description",
             children: "Description *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
             id: "description",
             name: "description",
             value: formData.description,
@@ -214692,18 +215074,18 @@ var BookingModal = function BookingModal(_ref) {
             disabled: isSubmitting,
             rows: "4",
             placeholder: "Describe the work to be done..."
-          }), errors.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          }), errors.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
             className: "error-message",
             children: errors.description
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "book_in",
               children: "Book In Date & Time *"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "datetime-local",
               id: "book_in",
               name: "book_in",
@@ -214711,16 +215093,16 @@ var BookingModal = function BookingModal(_ref) {
               onChange: handleInputChange,
               className: errors.book_in ? "error" : "",
               disabled: isSubmitting
-            }), errors.book_in && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.book_in && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.book_in
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "book_end",
               children: "Book End Date & Time *"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "datetime-local",
               id: "book_end",
               name: "book_end",
@@ -214728,19 +215110,53 @@ var BookingModal = function BookingModal(_ref) {
               onChange: handleInputChange,
               className: errors.book_end ? "error" : "",
               disabled: isSubmitting
-            }), errors.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.book_end
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), !availabilityStatus.isAvailable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "availability-warning",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "warning-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_2__.IoWarningOutline, {
+              style: {
+                color: '#ffc107',
+                marginRight: '18px',
+                marginTop: '8px',
+                fontSize: '30px'
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "rs-message-body",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "warning-message",
+                children: availabilityStatus.conflictMessage
+              }), availabilityStatus.conflictingJobs.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "conflicting-jobs",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+                  children: "Conflicting Jobs:"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
+                  children: availabilityStatus.conflictingJobs.map(function (job, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                        children: job.jobTitle
+                      }), " - ", job.type === 'hired' ? 'Hired' : 'Scheduled', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("small", {
+                        children: [new Date(job.workStart).toLocaleDateString(), " - ", new Date(job.workEnd).toLocaleDateString(), job.employer && " (Employer: ".concat(job.employer, ")")]
+                      })]
+                    }, index);
+                  })
+                })]
+              })]
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "time_in",
               children: "Time In Date & Time"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "datetime-local",
               id: "time_in",
               name: "time_in",
@@ -214748,12 +215164,12 @@ var BookingModal = function BookingModal(_ref) {
               onChange: handleInputChange,
               disabled: isSubmitting
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "time_out",
               children: "Time Out Date & Time"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "datetime-local",
               id: "time_out",
               name: "time_out",
@@ -214762,14 +215178,14 @@ var BookingModal = function BookingModal(_ref) {
               disabled: isSubmitting
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "daily_rate",
               children: "Daily Rate *"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "number",
               id: "daily_rate",
               name: "daily_rate",
@@ -214780,16 +215196,16 @@ var BookingModal = function BookingModal(_ref) {
               min: "0",
               step: "0.01",
               placeholder: "0.00"
-            }), errors.daily_rate && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.daily_rate && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.daily_rate
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               htmlFor: "total_amount",
               children: "Total Amount *"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "number",
               id: "total_amount",
               name: "total_amount",
@@ -214800,20 +215216,20 @@ var BookingModal = function BookingModal(_ref) {
               min: "0",
               step: "0.01",
               placeholder: "0.00"
-            }), errors.total_amount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            }), errors.total_amount && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "error-message",
               children: errors.total_amount
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "booking-modal-actions",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
             type: "button",
             className: "cancel-button",
             onClick: handleClose,
             disabled: isSubmitting,
             children: "Cancel"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
             type: "submit",
             className: "submit-button",
             disabled: isSubmitting,
@@ -215593,7 +216009,7 @@ var ReviewsTable = function ReviewsTable() {
                         onClick: function onClick() {
                           return handleRestoreReview(review.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
@@ -218683,7 +219099,7 @@ var Collars = function Collars() {
                         onClick: function onClick() {
                           return handleRestoreCollar(collar.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
@@ -219786,7 +220202,7 @@ var CompanyList = function CompanyList() {
                         onClick: function onClick() {
                           return handleRestoreSkill(skill.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
@@ -220995,7 +221411,7 @@ var EmployerList = function EmployerList() {
                         onClick: function onClick() {
                           return handleRestoreEmployer(employer.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
@@ -221690,11 +222106,6 @@ var JobPostModal = function JobPostModal(_ref) {
       description: "",
       salary: "",
       job_type: "full-time",
-      street: "",
-      city: "Butuan City",
-      province: "Agusan Del Norte",
-      postal_code: "8600",
-      country: "Philippines",
       application_start: "",
       application_deadline: ""
     }),
@@ -221872,11 +222283,6 @@ var JobPostModal = function JobPostModal(_ref) {
         description: initialData.description || "",
         salary: initialData.salary || "",
         job_type: initialData.job_type || "full-time",
-        street: initialData.street || "",
-        city: initialData.city || "Butuan City",
-        province: initialData.province || "Agusan Del Norte",
-        postal_code: initialData.postal_code || "8600",
-        country: initialData.country || "Philippines",
         application_start: initialData.application_start ? new Date(initialData.application_start).toISOString().slice(0, 16) : "",
         application_deadline: initialData.application_deadline ? new Date(initialData.application_deadline).toISOString().slice(0, 16) : ""
       });
@@ -222102,18 +222508,6 @@ var JobPostModal = function JobPostModal(_ref) {
     }
     if (!formData.job_type) {
       newErrors.job_type = "Job type is required";
-    }
-    if (!formData.city) {
-      newErrors.city = "City is required";
-    }
-    if (!formData.province) {
-      newErrors.province = "Province is required";
-    }
-    if (!formData.postal_code) {
-      newErrors.postal_code = "Postal code is required";
-    }
-    if (!formData.country) {
-      newErrors.country = "Country is required";
     }
     if (!formData.application_start) {
       newErrors.application_start = "Application start date and time are required";
@@ -222503,91 +222897,6 @@ var JobPostModal = function JobPostModal(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-            htmlFor: "street",
-            children: "Street"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-            id: "street",
-            type: "text",
-            value: formData.street,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "street");
-            },
-            placeholder: "Enter street address"
-          }), errors.street && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-            className: "error",
-            children: errors.street
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-            htmlFor: "city",
-            children: "City"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-            id: "city",
-            type: "text",
-            value: formData.city,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "city");
-            },
-            placeholder: "Enter city"
-          }), errors.city && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-            className: "error",
-            children: errors.city
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-            htmlFor: "province",
-            children: "Province"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-            id: "province",
-            type: "text",
-            value: formData.province,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "province");
-            },
-            placeholder: "Enter province"
-          }), errors.province && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-            className: "error",
-            children: errors.province
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-            htmlFor: "postal_code",
-            children: "Postal Code"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-            id: "postal_code",
-            type: "text",
-            value: formData.postal_code,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "postal_code");
-            },
-            placeholder: "Enter postal code"
-          }), errors.postal_code && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-            className: "error",
-            children: errors.postal_code
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-            htmlFor: "country",
-            children: "Country"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-            id: "country",
-            type: "text",
-            value: formData.country,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "country");
-            },
-            placeholder: "Enter country"
-          }), errors.country && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-            className: "error",
-            children: errors.country
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
             htmlFor: "application_start",
             children: "Application Start (Date & Time)"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
@@ -222972,20 +223281,15 @@ var JobPostTable = function JobPostTable() {
             profilesData = Array.isArray(profilesResponse.data.data) ? profilesResponse.data.data : Array.isArray(profilesResponse.data) ? profilesResponse.data : [];
             setCompanies(companiesData.reduce(function (acc, employer) {
               if (employer.id) {
-                var _employer$profile, _employer$profile2, _employer$profile3, _employer$profile4, _employer$profile5, _employer$profile6, _employer$profile7, _employer$profile8, _employer$profile9, _employer$profile0;
+                var _employer$profile, _employer$profile2, _employer$profile3, _employer$profile4, _employer$profile5;
                 // Create a company-like structure from employer data
                 var companyData = {
                   id: employer.id,
                   company_name: ((_employer$profile = employer.profile) === null || _employer$profile === void 0 ? void 0 : _employer$profile.first_name) + ' ' + ((_employer$profile2 = employer.profile) === null || _employer$profile2 === void 0 ? void 0 : _employer$profile2.last_name) || 'N/A',
                   profile_id: ((_employer$profile3 = employer.profile) === null || _employer$profile3 === void 0 ? void 0 : _employer$profile3.id) || null,
-                  street: ((_employer$profile4 = employer.profile) === null || _employer$profile4 === void 0 ? void 0 : _employer$profile4.street) || 'N/A',
-                  contact_number: ((_employer$profile5 = employer.profile) === null || _employer$profile5 === void 0 ? void 0 : _employer$profile5.contact_number) || 'N/A',
-                  city: ((_employer$profile6 = employer.profile) === null || _employer$profile6 === void 0 ? void 0 : _employer$profile6.city) || 'N/A',
-                  province: ((_employer$profile7 = employer.profile) === null || _employer$profile7 === void 0 ? void 0 : _employer$profile7.province) || 'N/A',
-                  postal_code: ((_employer$profile8 = employer.profile) === null || _employer$profile8 === void 0 ? void 0 : _employer$profile8.postal_code) || 'N/A',
-                  country: ((_employer$profile9 = employer.profile) === null || _employer$profile9 === void 0 ? void 0 : _employer$profile9.country) || 'N/A',
+                  contact_number: ((_employer$profile4 = employer.profile) === null || _employer$profile4 === void 0 ? void 0 : _employer$profile4.contact_number) || 'N/A',
                   archived: employer.archived || false,
-                  parsed_profile_ids: [(_employer$profile0 = employer.profile) === null || _employer$profile0 === void 0 || (_employer$profile0 = _employer$profile0.id) === null || _employer$profile0 === void 0 ? void 0 : _employer$profile0.toString()].filter(Boolean)
+                  parsed_profile_ids: [(_employer$profile5 = employer.profile) === null || _employer$profile5 === void 0 || (_employer$profile5 = _employer$profile5.id) === null || _employer$profile5 === void 0 ? void 0 : _employer$profile5.toString()].filter(Boolean)
                 };
                 acc[employer.id] = companyData;
               }
@@ -223021,15 +223325,12 @@ var JobPostTable = function JobPostTable() {
     fetchJobPosts();
   }, [searchTerm, showArchived, pagination.current_page]);
   var filteredPosts = jobPosts.filter(function (post) {
-    var _post$job_title, _post$description, _post$city, _post$province, _post$country;
+    var _post$job_title, _post$description;
     if (!post) return false;
     var jobTitle = ((_post$job_title = post.job_title) === null || _post$job_title === void 0 ? void 0 : _post$job_title.toLowerCase()) || "";
     var skills = Array.isArray(post.skills) ? post.skills.join(" ").toLowerCase() : "";
     var description = ((_post$description = post.description) === null || _post$description === void 0 ? void 0 : _post$description.toLowerCase()) || "";
-    var city = ((_post$city = post.city) === null || _post$city === void 0 ? void 0 : _post$city.toLowerCase()) || "";
-    var province = ((_post$province = post.province) === null || _post$province === void 0 ? void 0 : _post$province.toLowerCase()) || "";
-    var country = ((_post$country = post.country) === null || _post$country === void 0 ? void 0 : _post$country.toLowerCase()) || "";
-    var matchesSearch = jobTitle.includes(searchTerm.toLowerCase()) || skills.includes(searchTerm.toLowerCase()) || description.includes(searchTerm.toLowerCase()) || city.includes(searchTerm.toLowerCase()) || province.includes(searchTerm.toLowerCase()) || country.includes(searchTerm.toLowerCase());
+    var matchesSearch = jobTitle.includes(searchTerm.toLowerCase()) || skills.includes(searchTerm.toLowerCase()) || description.includes(searchTerm.toLowerCase());
     return matchesSearch;
   });
   var toggleSelectPost = function toggleSelectPost(postId) {
@@ -223348,7 +223649,7 @@ var JobPostTable = function JobPostTable() {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
               type: "text",
               className: "search-input",
-              placeholder: "Search by job title, skills, description, location...",
+              placeholder: "Search by job title, skills, description...",
               value: searchTerm,
               onChange: function onChange(e) {
                 return setSearchTerm(e.target.value);
@@ -223438,16 +223739,6 @@ var JobPostTable = function JobPostTable() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                     children: "Work End"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                    children: "Street"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                    children: "City"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                    children: "Province"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                    children: "Postal Code"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                    children: "Country"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                     children: "Application Start"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                     children: "Application Deadline"
@@ -223485,7 +223776,7 @@ var JobPostTable = function JobPostTable() {
                           onClick: function onClick() {
                             return handleRestorePost(post.id);
                           }
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
@@ -223603,16 +223894,6 @@ var JobPostTable = function JobPostTable() {
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                       children: formatDate(post.work_end)
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                      children: post.street || "N/A"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                      children: post.city || "N/A"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                      children: post.province || "N/A"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                      children: post.postal_code || "N/A"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                      children: post.country || "N/A"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                       children: formatDate(post.application_start)
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                       children: formatDate(post.application_deadline)
@@ -223626,7 +223907,7 @@ var JobPostTable = function JobPostTable() {
                   }, post.id);
                 }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
-                    colSpan: "26",
+                    colSpan: "21",
                     children: ["No ", showArchived ? "archived" : "active", " post jobs found"]
                   })
                 })
@@ -226337,7 +226618,7 @@ var Ranks = function Ranks() {
                 onClick: function onClick() {
                   return handleBulkAction("delete");
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                   size: 20,
                   className: "button-icon"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
@@ -226435,7 +226716,7 @@ var Ranks = function Ranks() {
                             return handleRestoreRank(rank.id);
                           },
                           title: "Restore"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
@@ -226444,14 +226725,14 @@ var Ranks = function Ranks() {
                           title: "Delete Permanently"
                         })]
                       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                           size: 16,
                           className: "archive-icon",
                           onClick: function onClick() {
                             return handleArchiveClick(rank);
                           },
                           title: "Archive"
-                        }), rank.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                        }), rank.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
@@ -227449,7 +227730,7 @@ var Roles = function Roles() {
                         onClick: function onClick() {
                           return handleRestoreRole(role.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
@@ -228908,7 +229189,7 @@ var Services = function Services() {
                         onClick: function onClick() {
                           return handleRestoreService(service.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
@@ -229904,7 +230185,7 @@ var SkillsCategories = function SkillsCategories() {
                           onClick: function onClick() {
                             return handleRestoreSkill(skill.id);
                           }
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTrash, {
+                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: function onClick() {
@@ -231564,7 +231845,7 @@ var UsersList = function UsersList() {
                         onClick: function onClick() {
                           return handleRestoreUser(user.id);
                         }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaTrash, {
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__.FaArchive, {
                         size: 16,
                         className: "delete-icon",
                         onClick: function onClick() {
@@ -233438,7 +233719,7 @@ var WorkerList = function WorkerList() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                 className: "header-button",
                 onClick: handleBulkDeleteArchived,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
                   className: "button-icon"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                   className: "button-text",
@@ -233497,7 +233778,7 @@ var WorkerList = function WorkerList() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("button", {
                 className: "header-button",
                 onClick: handleBulkDeleteDeclined,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
                   className: "button-icon"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                   className: "button-text",
@@ -233628,7 +233909,7 @@ var WorkerList = function WorkerList() {
                           onClick: function onClick() {
                             return handleRestoreWorker(worker.id);
                           }
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaTrash, {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
                           size: 16,
                           className: "delete-icon",
                           onClick: /*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15() {
@@ -237401,6 +237682,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TransactionModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./TransactionModal */ "./resources/js/components/profilesettings/TransactionModal.js");
 /* harmony import */ var _sass_components_profilesettings_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../sass/components/profilesettings/BookingRequest.scss */ "./resources/sass/components/profilesettings/BookingRequest.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -237810,9 +238092,18 @@ var BookingRequest = function BookingRequest() {
       children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "booking-request-list",
         children: filteredBookings.map(function (booking) {
+          var _booking$worker, _booking$employer;
           var isEmployerView = userRole === 2;
           var personData = isEmployerView ? booking.worker : booking.employer;
           var personProfile = personData === null || personData === void 0 ? void 0 : personData.profile;
+
+          // For debugging - log both worker and employer data
+          console.log('=== BOOKING REQUEST PERSON DATA DEBUG ===');
+          console.log('Is Employer View:', isEmployerView);
+          console.log('Worker Data:', booking.worker);
+          console.log('Employer Data:', booking.employer);
+          console.log('Worker Profile:', (_booking$worker = booking.worker) === null || _booking$worker === void 0 ? void 0 : _booking$worker.profile);
+          console.log('Employer Profile:', (_booking$employer = booking.employer) === null || _booking$employer === void 0 ? void 0 : _booking$employer.profile);
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "booking-request-card",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -237829,9 +238120,43 @@ var BookingRequest = function BookingRequest() {
                     cursor: 'pointer'
                   },
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
-                    src: personProfile !== null && personProfile !== void 0 && personProfile.profile_img ? "http://127.0.0.1:8000/storage/".concat(personProfile.profile_img) : '/images/default-avatar.svg',
-                    alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'User',
-                    className: "booking-request-worker-avatar"
+                    src: function () {
+                      console.log('=== BOOKING REQUEST AVATAR DEBUG ===');
+                      console.log('personProfile:', personProfile);
+                      console.log('personProfile.profile_img:', personProfile === null || personProfile === void 0 ? void 0 : personProfile.profile_img);
+                      console.log('personData:', personData);
+                      console.log('personData.profile_img:', personData === null || personData === void 0 ? void 0 : personData.profile_img);
+
+                      // Check if personProfile has profile_img (nested profile data)
+                      if (personProfile !== null && personProfile !== void 0 && personProfile.profile_img && personProfile.profile_img !== null && personProfile.profile_img !== '' && personProfile.profile_img !== 'null') {
+                        console.log('Using personProfile.profile_img:', personProfile.profile_img);
+                        return "http://127.0.0.1:8000/storage/".concat(personProfile.profile_img);
+                      }
+                      // Check if personData has profile_img (direct profile data)
+                      if (personData !== null && personData !== void 0 && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
+                        console.log('Using personData.profile_img:', personData.profile_img);
+                        return "http://127.0.0.1:8000/storage/".concat(personData.profile_img);
+                      }
+                      // Check if booking has direct profile_img (for cases where data structure is different)
+                      if (booking.profile_img && booking.profile_img !== null && booking.profile_img !== '' && booking.profile_img !== 'null') {
+                        console.log('Using booking.profile_img:', booking.profile_img);
+                        return "http://127.0.0.1:8000/storage/".concat(booking.profile_img);
+                      }
+                      // Additional fallback: check if the person data has a profile_img at the root level
+                      if (personData && _typeof(personData) === 'object' && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
+                        console.log('Using personData root profile_img:', personData.profile_img);
+                        return "http://127.0.0.1:8000/storage/".concat(personData.profile_img);
+                      }
+                      // Default fallback
+                      console.log('Using default avatar: defpfp.svg');
+                      return '/images/defpfp.svg';
+                    }(),
+                    alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : personData ? "".concat(personData.first_name || '', " ").concat(personData.last_name || '').trim() || 'User' : 'User',
+                    className: "booking-request-worker-avatar",
+                    onError: function onError(e) {
+                      console.log('Image failed to load, using fallback');
+                      e.target.src = '/images/defpfp.svg';
+                    }
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                   className: "booking-request-worker-details",
@@ -237844,7 +238169,7 @@ var BookingRequest = function BookingRequest() {
                     style: {
                       cursor: 'pointer'
                     },
-                    children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'Unknown User'
+                    children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : personData ? "".concat(personData.first_name || '', " ").concat(personData.last_name || '').trim() || 'Unknown User' : 'Unknown User'
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
                     className: "booking-request-worker-profession",
                     children: isEmployerView ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
@@ -238204,9 +238529,32 @@ var EditMyBooking = function EditMyBooking(_ref) {
     setAvailabilityStatus = _useState6[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isOpen && booking) {
-      var _booking$worker, _booking$worker2, _booking$worker3;
+      var _booking$worker, _booking$worker2, _booking$worker3, _booking$worker4, _booking$worker5, _booking$worker6, _booking$worker7, _booking$worker8, _booking$worker9, _booking$worker0, _booking$worker1, _booking$worker10, _booking$worker11, _booking$worker12, _booking$worker13, _booking$worker14, _booking$worker15, _booking$worker16, _booking$worker17, _booking$worker18, _booking$worker19, _booking$worker20, _booking$worker21, _booking$worker22, _booking$worker23;
+      // Debug logging for booking data
+      console.log('=== EDIT BOOKING INITIALIZATION DEBUG ===');
+      console.log('Booking data:', booking);
+      console.log('Worker data:', booking.worker);
+      console.log('Worker profile:', (_booking$worker = booking.worker) === null || _booking$worker === void 0 ? void 0 : _booking$worker.profile);
+      console.log('Worker primary skills:', (_booking$worker2 = booking.worker) === null || _booking$worker2 === void 0 ? void 0 : _booking$worker2.primary_skills);
+      console.log('Worker additional skills:', (_booking$worker3 = booking.worker) === null || _booking$worker3 === void 0 ? void 0 : _booking$worker3.additional_skills);
+      console.log('Worker skills structure:', {
+        hasPrimarySkills: !!((_booking$worker4 = booking.worker) !== null && _booking$worker4 !== void 0 && _booking$worker4.primary_skills),
+        hasAdditionalSkills: !!((_booking$worker5 = booking.worker) !== null && _booking$worker5 !== void 0 && _booking$worker5.additional_skills),
+        primarySkillsLength: ((_booking$worker6 = booking.worker) === null || _booking$worker6 === void 0 || (_booking$worker6 = _booking$worker6.primary_skills) === null || _booking$worker6 === void 0 ? void 0 : _booking$worker6.length) || 0,
+        additionalSkillsLength: ((_booking$worker7 = booking.worker) === null || _booking$worker7 === void 0 || (_booking$worker7 = _booking$worker7.additional_skills) === null || _booking$worker7 === void 0 ? void 0 : _booking$worker7.length) || 0
+      });
+
+      // Check for different possible skill data structures
+      console.log('=== CHECKING ALL POSSIBLE SKILL LOCATIONS ===');
+      console.log('booking.worker.primary_skills:', (_booking$worker8 = booking.worker) === null || _booking$worker8 === void 0 ? void 0 : _booking$worker8.primary_skills);
+      console.log('booking.worker.additional_skills:', (_booking$worker9 = booking.worker) === null || _booking$worker9 === void 0 ? void 0 : _booking$worker9.additional_skills);
+      console.log('booking.worker.skills:', (_booking$worker0 = booking.worker) === null || _booking$worker0 === void 0 ? void 0 : _booking$worker0.skills);
+      console.log('booking.worker.skills_id:', (_booking$worker1 = booking.worker) === null || _booking$worker1 === void 0 ? void 0 : _booking$worker1.skills_id);
+      console.log('booking.worker.skills_id?.primary_skills:', (_booking$worker10 = booking.worker) === null || _booking$worker10 === void 0 || (_booking$worker10 = _booking$worker10.skills_id) === null || _booking$worker10 === void 0 ? void 0 : _booking$worker10.primary_skills);
+      console.log('booking.worker.skills_id?.additional_skills:', (_booking$worker11 = booking.worker) === null || _booking$worker11 === void 0 || (_booking$worker11 = _booking$worker11.skills_id) === null || _booking$worker11 === void 0 ? void 0 : _booking$worker11.additional_skills);
+
       // Initialize form with booking data
-      setBookingDetails({
+      var initialDetails = {
         service_type: booking.service_type || '',
         sub_skill: booking.sub_skill || '',
         work_type: booking.work_type || '',
@@ -238216,15 +238564,26 @@ var EditMyBooking = function EditMyBooking(_ref) {
         time_out: booking.time_out || '',
         description: booking.description || '',
         daily_rate: booking.daily_rate || ''
-      });
+      };
+      console.log('Setting booking details:', initialDetails);
+      setBookingDetails(initialDetails);
 
-      // Set worker data for dropdowns
-      setWorker({
+      // Set worker data for dropdowns - check multiple possible skill locations
+      var workerData = {
         id: booking.worker_id,
-        name: (_booking$worker = booking.worker) !== null && _booking$worker !== void 0 && _booking$worker.profile ? "".concat(booking.worker.profile.first_name, " ").concat(booking.worker.profile.last_name) : 'Worker',
+        name: (_booking$worker12 = booking.worker) !== null && _booking$worker12 !== void 0 && _booking$worker12.profile ? "".concat(booking.worker.profile.first_name, " ").concat(booking.worker.profile.last_name) : 'Worker',
         work_type: booking.work_type,
-        primary_skills: ((_booking$worker2 = booking.worker) === null || _booking$worker2 === void 0 ? void 0 : _booking$worker2.primary_skills) || [],
-        additional_skills: ((_booking$worker3 = booking.worker) === null || _booking$worker3 === void 0 ? void 0 : _booking$worker3.additional_skills) || []
+        primary_skills: ((_booking$worker13 = booking.worker) === null || _booking$worker13 === void 0 ? void 0 : _booking$worker13.primary_skills) || ((_booking$worker14 = booking.worker) === null || _booking$worker14 === void 0 ? void 0 : _booking$worker14.primary_skill) || ((_booking$worker15 = booking.worker) === null || _booking$worker15 === void 0 || (_booking$worker15 = _booking$worker15.skills_id) === null || _booking$worker15 === void 0 ? void 0 : _booking$worker15.primary_skills) || ((_booking$worker16 = booking.worker) === null || _booking$worker16 === void 0 || (_booking$worker16 = _booking$worker16.skills) === null || _booking$worker16 === void 0 ? void 0 : _booking$worker16.primary_skills) || [],
+        additional_skills: ((_booking$worker17 = booking.worker) === null || _booking$worker17 === void 0 ? void 0 : _booking$worker17.additional_skills) || ((_booking$worker18 = booking.worker) === null || _booking$worker18 === void 0 ? void 0 : _booking$worker18.additional_skill) || ((_booking$worker19 = booking.worker) === null || _booking$worker19 === void 0 || (_booking$worker19 = _booking$worker19.skills_id) === null || _booking$worker19 === void 0 ? void 0 : _booking$worker19.additional_skills) || ((_booking$worker20 = booking.worker) === null || _booking$worker20 === void 0 || (_booking$worker20 = _booking$worker20.skills) === null || _booking$worker20 === void 0 ? void 0 : _booking$worker20.additional_skills) || []
+      };
+      console.log('Setting worker data:', workerData);
+      setWorker(workerData);
+      console.log('Worker state set:', {
+        id: booking.worker_id,
+        name: (_booking$worker21 = booking.worker) !== null && _booking$worker21 !== void 0 && _booking$worker21.profile ? "".concat(booking.worker.profile.first_name, " ").concat(booking.worker.profile.last_name) : 'Worker',
+        work_type: booking.work_type,
+        primary_skills: ((_booking$worker22 = booking.worker) === null || _booking$worker22 === void 0 ? void 0 : _booking$worker22.primary_skills) || [],
+        additional_skills: ((_booking$worker23 = booking.worker) === null || _booking$worker23 === void 0 ? void 0 : _booking$worker23.additional_skills) || []
       });
       setAvailabilityStatus({
         isAvailable: true,
@@ -238233,6 +238592,33 @@ var EditMyBooking = function EditMyBooking(_ref) {
       });
     }
   }, [isOpen, booking]);
+
+  // Ensure service type is properly set when worker data is available
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (worker) {
+      console.log('=== WORKER DATA AVAILABLE - CHECKING SERVICE TYPES ===');
+      console.log('Worker:', worker);
+      console.log('Available service types:', getAvailableServiceTypes());
+      if (bookingDetails.service_type && getAvailableServiceTypes().length > 0) {
+        console.log('=== SERVICE TYPE VALIDATION ===');
+        console.log('Current service type:', bookingDetails.service_type);
+        console.log('Available service types:', getAvailableServiceTypes());
+        var availableTypes = getAvailableServiceTypes();
+        var isServiceTypeValid = availableTypes.some(function (option) {
+          return option.value === bookingDetails.service_type;
+        });
+        if (!isServiceTypeValid) {
+          console.log('Service type not found in available options, resetting...');
+          setBookingDetails(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              service_type: '',
+              sub_skill: ''
+            });
+          });
+        }
+      }
+    }
+  }, [worker, bookingDetails.service_type]);
 
   // Check worker availability when booking dates change
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -238710,42 +239096,66 @@ var EditMyBooking = function EditMyBooking(_ref) {
     onSubmit(validatedDetails);
   };
 
-  // Get available service types (main skills only)
+  // Get available service types (main skills only) - same as BookModal.js
   var getAvailableServiceTypes = function getAvailableServiceTypes() {
-    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) return [];
+    console.log('=== GET AVAILABLE SERVICE TYPES CALLED ===');
+    console.log('Worker object:', worker);
+    console.log('Worker primary_skills:', worker === null || worker === void 0 ? void 0 : worker.primary_skills);
+    console.log('Worker additional_skills:', worker === null || worker === void 0 ? void 0 : worker.additional_skills);
+    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) {
+      console.log('No skills found in worker data');
+      return [];
+    }
     var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
+    console.log('All skills combined:', allSkills);
 
     // Create options array for CustomDropdown with unique main skills
     var skillNames = new Set();
     var options = [];
     allSkills.forEach(function (skill) {
+      console.log('Processing skill:', skill);
       var mainSkill = skill.skill_name;
+      console.log('Skill name:', mainSkill);
       if (!skillNames.has(mainSkill)) {
         skillNames.add(mainSkill);
         options.push({
           value: mainSkill,
           label: mainSkill
         });
+        console.log('Added skill to options:', mainSkill);
       }
     });
+    console.log('Available Service Types:', options);
+    console.log('Current Booking Service Type:', bookingDetails.service_type);
     return options;
   };
 
-  // Get sub-skills for selected service type
+  // Get sub-skills for selected service type - same as BookModal.js
   var getAvailableSubSkills = function getAvailableSubSkills() {
-    if (!bookingDetails.service_type) return [];
-    var allSkills = [].concat(_toConsumableArray((worker === null || worker === void 0 ? void 0 : worker.primary_skills) || []), _toConsumableArray((worker === null || worker === void 0 ? void 0 : worker.additional_skills) || []));
+    console.log('=== GET AVAILABLE SUB-SKILLS CALLED ===');
+    console.log('Selected service type:', bookingDetails.service_type);
+    console.log('Worker object:', worker);
+    if (!bookingDetails.service_type) {
+      console.log('No service type selected');
+      return [];
+    }
+    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
+    console.log('All skills for sub-skill lookup:', allSkills);
     var options = [];
     allSkills.forEach(function (skill) {
+      console.log('Checking skill:', skill.skill_name, 'against:', bookingDetails.service_type);
       if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
+        console.log('Found matching skill with sub-skills:', skill.sub_skills);
         skill.sub_skills.forEach(function (subSkill) {
           options.push({
             value: subSkill,
             label: subSkill
           });
+          console.log('Added sub-skill:', subSkill);
         });
       }
     });
+    console.log('Available Sub-Skills:', options);
     return options;
   };
 
@@ -241306,12 +241716,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_components_common_CustomDropdown_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/common/CustomDropdown.scss */ "./resources/sass/components/common/CustomDropdown.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -241368,12 +241778,39 @@ var ModalPostJob = function ModalPostJob(_ref) {
     setSelectedSkills = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState0 = _slicedToArray(_useState9, 2),
-    isSkillsModalOpen = _useState0[0],
-    setIsSkillsModalOpen = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    isLoading = _useState0[0],
+    setIsLoading = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState10 = _slicedToArray(_useState1, 2),
-    isLoading = _useState10[0],
-    setIsLoading = _useState10[1];
+    jobTitleOptions = _useState10[0],
+    setJobTitleOptions = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState12 = _slicedToArray(_useState11, 2),
+    selectedJobTitle = _useState12[0],
+    setSelectedJobTitle = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    isSkillsDropdownOpen = _useState14[0],
+    setIsSkillsDropdownOpen = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState16 = _slicedToArray(_useState15, 2),
+    isSubSkillsDropdownOpen = _useState16[0],
+    setIsSubSkillsDropdownOpen = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState18 = _slicedToArray(_useState17, 2),
+    isExperienceDropdownOpen = _useState18[0],
+    setIsExperienceDropdownOpen = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState20 = _slicedToArray(_useState19, 2),
+    availableSubSkills = _useState20[0],
+    setAvailableSubSkills = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState22 = _slicedToArray(_useState21, 2),
+    selectedSubSkills = _useState22[0],
+    setSelectedSubSkills = _useState22[1];
+  var skillsDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var subSkillsDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var experienceDropdownRefs = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
   var salaryTypeOptions = [{
     value: "hourly",
     label: "Hourly"
@@ -241431,6 +241868,31 @@ var ModalPostJob = function ModalPostJob(_ref) {
     setUserProfile(userData);
     fetchSkills();
   }, []);
+
+  // Close dropdowns when clicking outside
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var handleClickOutside = function handleClickOutside(event) {
+      if (skillsDropdownRef.current && !skillsDropdownRef.current.contains(event.target)) {
+        setIsSkillsDropdownOpen(false);
+      }
+      if (subSkillsDropdownRef.current && !subSkillsDropdownRef.current.contains(event.target)) {
+        setIsSubSkillsDropdownOpen(false);
+      }
+      // Close all experience dropdowns
+      Object.keys(experienceDropdownRefs.current).forEach(function (key) {
+        var ref = experienceDropdownRefs.current[key];
+        if (ref && !ref.contains(event.target)) {
+          setIsExperienceDropdownOpen(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, key, false));
+          });
+        }
+      });
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return function () {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (editingJob) {
       setFormData({
@@ -241448,8 +241910,37 @@ var ModalPostJob = function ModalPostJob(_ref) {
         skills: editingJob.skills || [],
         skillExperiences: editingJob.skill_experiences || {}
       });
+      setSelectedSkills(editingJob.skills || []);
+
+      // Set selected job title and sub-skills for editing
+      if (editingJob.job_title) {
+        setSelectedJobTitle(editingJob.job_title);
+        // Find the skill that matches the job title and set its sub-skills
+        var matchingSkill = availableSkills.find(function (skill) {
+          return skill.name === editingJob.job_title;
+        });
+        if (matchingSkill && matchingSkill.sub_skills) {
+          var subSkillsOptions = matchingSkill.sub_skills.map(function (subSkill) {
+            return {
+              value: subSkill,
+              label: subSkill
+            };
+          });
+          setAvailableSubSkills(subSkillsOptions);
+        }
+      }
+
+      // Set selected sub-skills from the job's skills
+      if (editingJob.skills && editingJob.skills.length > 0) {
+        var subSkillsFromJob = editingJob.skills.map(function (skill) {
+          return skill.name;
+        });
+        setSelectedSubSkills(subSkillsFromJob);
+        console.log("Loading editing job skills:", editingJob.skills);
+        console.log("Selected sub-skills:", subSkillsFromJob);
+      }
     }
-  }, [editingJob]);
+  }, [editingJob, availableSkills]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (formData.hiringType === "team" && formData.teamSize < 2) {
       setFormData(function (prev) {
@@ -241467,7 +241958,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
   }, [formData.hiringType]);
   var fetchSkills = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var res, _t;
+      var res, uniqueSkillNames, _jobTitleOptions, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -241476,7 +241967,20 @@ var ModalPostJob = function ModalPostJob(_ref) {
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/skills");
           case 1:
             res = _context.v;
-            if (res.data) setAvailableSkills(res.data);
+            if (res.data) {
+              setAvailableSkills(res.data);
+              // Extract unique skill names for job title options
+              uniqueSkillNames = _toConsumableArray(new Set(res.data.map(function (skill) {
+                return skill.name;
+              })));
+              _jobTitleOptions = uniqueSkillNames.map(function (skillName) {
+                return {
+                  value: skillName,
+                  label: skillName
+                };
+              });
+              setJobTitleOptions(_jobTitleOptions);
+            }
             _context.n = 3;
             break;
           case 2:
@@ -241509,55 +242013,9 @@ var ModalPostJob = function ModalPostJob(_ref) {
       });
     }
   };
-  var openSkillsModal = function openSkillsModal() {
-    setSelectedSkills(_toConsumableArray(formData.skills));
-    setIsSkillsModalOpen(true);
-  };
-  var closeSkillsModal = function closeSkillsModal() {
-    setIsSkillsModalOpen(false);
-  };
-  var handleSkillToggle = function handleSkillToggle(skillId, skillName) {
-    setSelectedSkills(function (prev) {
-      if (prev.some(function (skill) {
-        return skill.id === skillId;
-      })) {
-        return prev.filter(function (skill) {
-          return skill.id !== skillId;
-        });
-      } else {
-        return [].concat(_toConsumableArray(prev), [{
-          id: skillId,
-          name: skillName,
-          experience: "0-11-months"
-        }]);
-      }
-    });
-  };
-  var handleSkillExperienceChange = function handleSkillExperienceChange(skillId, experience) {
-    setSelectedSkills(function (prev) {
-      return prev.map(function (skill) {
-        return skill.id === skillId ? _objectSpread(_objectSpread({}, skill), {}, {
-          experience: experience
-        }) : skill;
-      });
-    });
-  };
-  var confirmSkillsSelection = function confirmSkillsSelection() {
-    var skillExperiences = {};
-    selectedSkills.forEach(function (skill) {
-      skillExperiences[skill.id] = skill.experience;
-    });
-    setFormData(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, {
-        skills: selectedSkills,
-        skillExperiences: skillExperiences
-      });
-    });
-    setIsSkillsModalOpen(false);
-  };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
-      var _t2;
+      var skillsData, jobData, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -241606,8 +242064,22 @@ var ModalPostJob = function ModalPostJob(_ref) {
           case 7:
             setIsLoading(true);
             _context2.p = 8;
+            // Prepare skills data with sub-skills and experience levels
+            skillsData = selectedSubSkills.map(function (subSkill) {
+              return {
+                name: subSkill,
+                experience: formData.skillExperiences[subSkill] || "0-11-months"
+              };
+            });
+            jobData = _objectSpread(_objectSpread({}, formData), {}, {
+              skills: skillsData,
+              skillExperiences: formData.skillExperiences
+            });
+            console.log("Submitting job data:", jobData);
+            console.log("Selected sub-skills:", selectedSubSkills);
+            console.log("Skills data:", skillsData);
             _context2.n = 9;
-            return onSubmit(formData);
+            return onSubmit(jobData);
           case 9:
             _context2.n = 11;
             break;
@@ -241632,6 +242104,69 @@ var ModalPostJob = function ModalPostJob(_ref) {
   var handleClose = function handleClose() {
     return onClose();
   };
+  var handleJobTitleChange = function handleJobTitleChange(value) {
+    setSelectedJobTitle(value);
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        jobTitle: value
+      });
+    });
+
+    // Filter sub-skills based on selected job title
+    var selectedSkill = availableSkills.find(function (skill) {
+      return skill.name === value;
+    });
+    if (selectedSkill && selectedSkill.sub_skills) {
+      var subSkillsOptions = selectedSkill.sub_skills.map(function (subSkill) {
+        return {
+          value: subSkill,
+          label: subSkill
+        };
+      });
+      setAvailableSubSkills(subSkillsOptions);
+    } else {
+      setAvailableSubSkills([]);
+    }
+
+    // Reset selected sub-skills and skills when job title changes
+    setSelectedSubSkills([]);
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        skills: [],
+        skillExperiences: {}
+      });
+    });
+  };
+  var toggleSubSkillsDropdown = function toggleSubSkillsDropdown() {
+    setIsSubSkillsDropdownOpen(!isSubSkillsDropdownOpen);
+  };
+  var toggleExperienceDropdown = function toggleExperienceDropdown(subSkill) {
+    setIsExperienceDropdownOpen(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, subSkill, !prev[subSkill]));
+    });
+  };
+  var handleSubSkillToggle = function handleSubSkillToggle(subSkill) {
+    setSelectedSubSkills(function (prev) {
+      if (prev.includes(subSkill)) {
+        return prev.filter(function (skill) {
+          return skill !== subSkill;
+        });
+      } else {
+        return [].concat(_toConsumableArray(prev), [subSkill]);
+      }
+    });
+  };
+  var handleExperienceChange = function handleExperienceChange(subSkill, experience) {
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        skillExperiences: _objectSpread(_objectSpread({}, prev.skillExperiences), {}, _defineProperty({}, subSkill, experience))
+      });
+    });
+    // Close the dropdown after selection
+    setIsExperienceDropdownOpen(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, subSkill, false));
+    });
+  };
   var getAvailableServiceTypes = function getAvailableServiceTypes() {
     if (!availableSkills || availableSkills.length === 0) return [];
     var skillStructure = {};
@@ -241653,9 +242188,9 @@ var ModalPostJob = function ModalPostJob(_ref) {
     });
     return Object.values(skillStructure);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "modal-overlay",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "modal-post-job",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "modal-header",
@@ -241681,13 +242216,11 @@ var ModalPostJob = function ModalPostJob(_ref) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
                 htmlFor: "jobTitle",
                 children: "Job Title"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-                type: "text",
-                id: "jobTitle",
-                name: "jobTitle",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                options: jobTitleOptions,
                 value: formData.jobTitle,
-                onChange: handleInputChange,
-                placeholder: "Enter job title",
+                onChange: handleJobTitleChange,
+                placeholder: "Select job title",
                 className: "full-width-input",
                 required: true
               })]
@@ -241860,26 +242393,128 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   required: true
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), selectedJobTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-                children: "Desired Skills"
+                children: "Desired Sub-Skills"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                className: "skills-selection-container",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-                  type: "button",
-                  onClick: openSkillsModal,
-                  className: "skills-select-button",
-                  children: formData.skills.length > 0 ? "".concat(formData.skills.length, " skill(s) selected") : "Select Skills"
-                }), formData.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "selected-skills-preview",
-                  children: formData.skills.map(function (skill, i) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                      className: "skill-tag",
-                      children: [skill.name, " (", skill.experience, ")"]
-                    }, i);
+                className: "ant-select-selection-overflow sub-skills-multi-select",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "ant-select-selection-overflow-item",
+                  onClick: toggleSubSkillsDropdown,
+                  tabIndex: 0,
+                  onKeyDown: function onKeyDown(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggleSubSkillsDropdown();
+                    } else if (e.key === 'Escape') {
+                      setIsSubSkillsDropdownOpen(false);
+                    }
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "ant-select-selection-item",
+                    children: selectedSubSkills.length > 0 ? "".concat(selectedSubSkills.length, " sub-skill(s) selected") : "Select Sub-Skills"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "ant-select-arrow ".concat(isSubSkillsDropdownOpen ? 'open' : ''),
+                    children: "\u25BC"
+                  })]
+                }), isSubSkillsDropdownOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "ant-select-dropdown sub-skills-dropdown",
+                  children: availableSubSkills.map(function (subSkill, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "ant-select-item",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+                        className: "sub-skill-option",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                          type: "checkbox",
+                          checked: selectedSubSkills.includes(subSkill.value),
+                          onChange: function onChange() {
+                            return handleSubSkillToggle(subSkill.value);
+                          }
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                          children: subSkill.label
+                        })]
+                      })
+                    }, index);
                   })
                 })]
+              })]
+            }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: "Experience Levels"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "experience-levels-container",
+                children: selectedSubSkills.map(function (subSkill, index) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "experience-level-item",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "sub-skill-name",
+                      children: subSkill
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                      className: "ant-select-selection-overflow experience-dropdown",
+                      ref: function ref(el) {
+                        if (el) {
+                          experienceDropdownRefs.current[subSkill] = el;
+                        }
+                      },
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                        className: "ant-select-selection-overflow-item",
+                        onClick: function onClick() {
+                          return toggleExperienceDropdown(subSkill);
+                        },
+                        tabIndex: 0,
+                        onKeyDown: function onKeyDown(e) {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            toggleExperienceDropdown(subSkill);
+                          } else if (e.key === 'Escape') {
+                            setIsExperienceDropdownOpen(function (prev) {
+                              return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, subSkill, false));
+                            });
+                          }
+                        },
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                          className: "ant-select-selection-item",
+                          children: formData.skillExperiences[subSkill] || "Select Experience"
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                          className: "ant-select-arrow ".concat(isExperienceDropdownOpen[subSkill] ? 'open' : ''),
+                          children: "\u25BC"
+                        })]
+                      }), isExperienceDropdownOpen[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                        className: "ant-select-dropdown",
+                        children: experienceOptions.map(function (option, optIndex) {
+                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                            className: "ant-select-item",
+                            onClick: function onClick() {
+                              return handleExperienceChange(subSkill, option.value);
+                            },
+                            children: option.label
+                          }, optIndex);
+                        })
+                      })]
+                    })]
+                  }, index);
+                })
+              })]
+            }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "selected-skills-preview",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+                children: "Selected Skills:"
+              }), selectedSubSkills.map(function (subSkill, index) {
+                var _experienceOptions$fi;
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "skill-with-experience",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "skill-tag",
+                    children: subSkill
+                  }), formData.skillExperiences[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "experience-tag",
+                    children: (_experienceOptions$fi = experienceOptions.find(function (opt) {
+                      return opt.value === formData.skillExperiences[subSkill];
+                    })) === null || _experienceOptions$fi === void 0 ? void 0 : _experienceOptions$fi.label
+                  })]
+                }, index);
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "contact-info",
@@ -241927,81 +242562,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
           })]
         })]
       })]
-    }), isSkillsModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      className: "adminmodal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-        className: "adminmodal skills-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "adminmodal-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
-            children: "Select Required Skills"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-            type: "button",
-            className: "close-button",
-            onClick: closeSkillsModal,
-            children: "\xD7"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-          className: "adminmodal-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "skills-grid",
-            children: getAvailableServiceTypes().map(function (group, i) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                className: "skill-category",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
-                  children: group.main
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                  className: "skill-options",
-                  children: group.subSkills.length > 0 ? group.subSkills.map(function (sub, j) {
-                    var skillId = "".concat(group.main, " - ").concat(sub);
-                    var isSelected = selectedSkills.some(function (s) {
-                      return s.id === skillId;
-                    });
-                    var selectedSkill = selectedSkills.find(function (s) {
-                      return s.id === skillId;
-                    });
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                      className: "skill-option-with-experience",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-                          type: "checkbox",
-                          checked: isSelected,
-                          onChange: function onChange() {
-                            return handleSkillToggle(skillId, sub);
-                          }
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                          children: sub
-                        })]
-                      }), isSelected && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                        className: "experience-selector",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                          options: experienceOptions,
-                          value: (selectedSkill === null || selectedSkill === void 0 ? void 0 : selectedSkill.experience) || "0-11-months",
-                          onChange: function onChange(val) {
-                            return handleSkillExperienceChange(skillId, val);
-                          }
-                        })
-                      })]
-                    }, "".concat(i, "-").concat(j));
-                  }) : null
-                })]
-              }, i);
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "adminmodal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-            type: "button",
-            onClick: closeSkillsModal,
-            children: "Cancel"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-            type: "button",
-            onClick: confirmSkillsSelection,
-            children: "Confirm Selection"
-          })]
-        })]
-      })
-    })]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalPostJob);
@@ -242401,6 +242962,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EditMyBooking__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./EditMyBooking */ "./resources/js/components/profilesettings/EditMyBooking.js");
 /* harmony import */ var _sass_components_profilesettings_mybookings_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mybookings.scss */ "./resources/sass/components/profilesettings/mybookings.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -242456,14 +243018,18 @@ var MyBookings = function MyBookings() {
     _useState12 = _slicedToArray(_useState11, 2),
     bookings = _useState12[0],
     setBookings = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState14 = _slicedToArray(_useState13, 2),
-    loading = _useState14[0],
-    setLoading = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    bookingRequests = _useState14[0],
+    setBookingRequests = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState16 = _slicedToArray(_useState15, 2),
-    userRole = _useState16[0],
-    setUserRole = _useState16[1];
+    loading = _useState16[0],
+    setLoading = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState18 = _slicedToArray(_useState17, 2),
+    userRole = _useState18[0],
+    setUserRole = _useState18[1];
   var bookingCategories = [{
     id: 'all',
     label: 'All Bookings'
@@ -242541,11 +243107,51 @@ var MyBookings = function MyBookings() {
     // Get user role from localStorage
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
     setUserRole(userData.role_id);
+
+    // Test admin endpoint first to see if there are any bookings
+    testAdminEndpoint();
     fetchBookings();
+
+    // If user is a worker, also fetch booking requests
+    if (userData.role_id === 1) {
+      fetchBookingRequests();
+    }
+
+    // Listen for booking refresh trigger
+    var handleStorageChange = function handleStorageChange(e) {
+      if (e.key === 'booking_refresh_trigger') {
+        console.log('Booking refresh trigger detected, refreshing bookings...');
+        fetchBookings();
+      }
+    };
+
+    // Listen for custom booking submitted event
+    var handleBookingSubmitted = function handleBookingSubmitted() {
+      console.log('Booking submitted event detected, refreshing bookings...');
+      console.log('Current bookings before refresh:', bookings);
+      fetchBookings();
+    };
+
+    // Listen for storage changes and custom events
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('bookingSubmitted', handleBookingSubmitted);
+
+    // Also check for refresh trigger on component mount
+    var refreshTrigger = localStorage.getItem('booking_refresh_trigger');
+    if (refreshTrigger) {
+      console.log('Found booking refresh trigger on mount, refreshing bookings...');
+      fetchBookings();
+      // Clear the trigger after use
+      localStorage.removeItem('booking_refresh_trigger');
+    }
+    return function () {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('bookingSubmitted', handleBookingSubmitted);
+    };
   }, []);
-  var fetchBookings = /*#__PURE__*/function () {
+  var testAdminEndpoint = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var authToken, userData, endpoint, response, sortedBookings, _error$response, _t;
+      var _response$data$bookin, authToken, response, _error$response, _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -242555,24 +243161,224 @@ var MyBookings = function MyBookings() {
               _context.n = 1;
               break;
             }
-            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Please log in to view bookings");
             return _context.a(2);
           case 1:
-            // Determine API endpoint based on user role
-            userData = JSON.parse(localStorage.getItem("user") || '{}');
-            endpoint = userData.role_id === 1 ? 'worker' : 'employer';
+            console.log('=== TESTING ADMIN ENDPOINT ===');
             _context.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].get("http://127.0.0.1:8000/api/bookings/".concat(endpoint, "?user_id=").concat(userData.id), {
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].get('http://127.0.0.1:8000/api/bookings', {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
-                Accept: "application/json"
+                Accept: "application/json",
+                "Content-Type": "application/json"
               }
             });
           case 2:
             response = _context.v;
+            console.log('Admin endpoint test response:', response.data);
+            console.log('Total bookings in database:', ((_response$data$bookin = response.data.bookings) === null || _response$data$bookin === void 0 ? void 0 : _response$data$bookin.length) || 0);
+            if (response.data.bookings && response.data.bookings.length > 0) {
+              console.log('Sample booking:', response.data.bookings[0]);
+              console.log('Sample booking employer_id:', response.data.bookings[0].employer_id);
+              console.log('Sample booking worker_id:', response.data.bookings[0].worker_id);
+            }
+            _context.n = 4;
+            break;
+          case 3:
+            _context.p = 3;
+            _t = _context.v;
+            console.error('Admin endpoint test error:', ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
+          case 4:
+            return _context.a(2);
+        }
+      }, _callee, null, [[0, 3]]);
+    }));
+    return function testAdminEndpoint() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+  var fetchBookingRequests = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var authToken, userData, userId, response, _response$data$bookin2, _error$response2, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            _context2.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context2.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Please log in to view booking requests");
+            return _context2.a(2);
+          case 1:
+            userData = JSON.parse(localStorage.getItem("user") || '{}');
+            userId = userData.id;
+            if (userId) {
+              _context2.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Unable to fetch booking requests - user data incomplete");
+            return _context2.a(2);
+          case 2:
+            console.log('=== FETCHING BOOKING REQUESTS ===');
+            console.log('User ID:', userId);
+            _context2.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].get("http://127.0.0.1:8000/api/bookings/worker/requests?user_id=".concat(userId), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 3:
+            response = _context2.v;
+            console.log('=== BOOKING REQUESTS RESPONSE ===');
+            console.log('Response status:', response.status);
+            console.log('Response data:', response.data);
+            if (response.data.success) {
+              setBookingRequests(response.data.booking_requests || []);
+              console.log('Booking requests count:', ((_response$data$bookin2 = response.data.booking_requests) === null || _response$data$bookin2 === void 0 ? void 0 : _response$data$bookin2.length) || 0);
+            } else {
+              console.error('Failed to fetch booking requests:', response.data.message);
+            }
+            _context2.n = 5;
+            break;
+          case 4:
+            _context2.p = 4;
+            _t2 = _context2.v;
+            console.error("Error fetching booking requests:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
+          case 5:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[0, 4]]);
+    }));
+    return function fetchBookingRequests() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var fetchBookings = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+      var _response$data$bookin3, authToken, userData, endpoint, profileId, userId, response, _endpointError$respon, userBookings, sortedBookings, _sortedBookings, _error$response3, _t3, _t4;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
+          case 0:
+            _context3.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context3.n = 1;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Please log in to view bookings");
+            return _context3.a(2);
+          case 1:
+            // Determine API endpoint based on user role
+            userData = JSON.parse(localStorage.getItem("user") || '{}');
+            endpoint = userData.role_id === 1 ? 'worker' : 'employer';
+            console.log('Raw localStorage user data:', localStorage.getItem("user"));
+            console.log('Parsed user data:', userData);
+            console.log('User ID from localStorage:', userData.id);
+            console.log('Role ID from localStorage:', userData.role_id);
+
+            // Get the profile ID from user data
+            // Check if userData has a profile_id field, otherwise use the id
+            profileId = userData.profile_id || userData.id; // Validate that we have a valid user ID
+            if (userData.id) {
+              _context3.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Unable to fetch bookings - user data incomplete");
+            return _context3.a(2);
+          case 2:
+            // Make the API call to fetch bookings using the correct user_id
+            // For employers: use user_id from employers table
+            // For workers: use user_id from workers table
+            userId = userData.id; // This should be the user_id from the database
+            console.log('=== FETCHING BOOKINGS DEBUG ===');
+            console.log('User data:', userData);
+            console.log('User ID:', userId);
+            console.log('Role ID:', userData.role_id);
+            console.log('Endpoint:', endpoint);
+            console.log('API URL:', "http://127.0.0.1:8000/api/bookings/".concat(endpoint, "?user_id=").concat(userId));
+
+            // Try the specific endpoint first
+            _context3.p = 3;
+            _context3.n = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].get("http://127.0.0.1:8000/api/bookings/".concat(endpoint, "?user_id=").concat(userId), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 4:
+            response = _context3.v;
+            console.log('Specific endpoint response:', response.data);
+            _context3.n = 8;
+            break;
+          case 5:
+            _context3.p = 5;
+            _t3 = _context3.v;
+            console.log('Specific endpoint failed, trying admin endpoint...');
+            console.log('Endpoint error:', ((_endpointError$respon = _t3.response) === null || _endpointError$respon === void 0 ? void 0 : _endpointError$respon.data) || _t3.message);
+
+            // Fallback to admin endpoint
+            _context3.n = 6;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].get('http://127.0.0.1:8000/api/bookings', {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 6:
+            response = _context3.v;
+            console.log('Admin endpoint response:', response.data);
+
+            // Filter bookings for this user
+            if (!(response.data.bookings && response.data.bookings.length > 0)) {
+              _context3.n = 7;
+              break;
+            }
+            userBookings = response.data.bookings.filter(function (booking) {
+              return booking.employer_id == userId || booking.worker_id == userId;
+            });
+            console.log('Found user bookings in admin endpoint:', userBookings.length);
+            if (!(userBookings.length > 0)) {
+              _context3.n = 7;
+              break;
+            }
+            sortedBookings = userBookings.sort(function (a, b) {
+              var statusOrder = {
+                'pending': 1,
+                'accepted': 2,
+                'completed': 3,
+                'declined': 4,
+                'cancelled': 5
+              };
+              return statusOrder[a.status] - statusOrder[b.status];
+            });
+            setBookings(sortedBookings);
+            setLoading(false);
+            return _context3.a(2);
+          case 7:
+            // If no bookings found, set empty array
+            setBookings([]);
+            setLoading(false);
+            return _context3.a(2);
+          case 8:
+            console.log('=== API RESPONSE DEBUG ===');
+            console.log('Response status:', response.status);
+            console.log('Response data:', response.data);
+            console.log('Response success:', response.data.success);
+            console.log('Bookings count:', ((_response$data$bookin3 = response.data.bookings) === null || _response$data$bookin3 === void 0 ? void 0 : _response$data$bookin3.length) || 0);
+            if (response.data.bookings && response.data.bookings.length > 0) {
+              console.log('First booking:', response.data.bookings[0]);
+              console.log('First booking employer_id:', response.data.bookings[0].employer_id);
+              console.log('First booking worker_id:', response.data.bookings[0].worker_id);
+            }
             if (response.data.success) {
               // Sort bookings: Pending first, then Accepted, Completed, Declined, Cancelled
-              sortedBookings = response.data.bookings.sort(function (a, b) {
+              _sortedBookings = response.data.bookings.sort(function (a, b) {
                 var statusOrder = {
                   'pending': 1,
                   'accepted': 2,
@@ -242582,40 +243388,41 @@ var MyBookings = function MyBookings() {
                 };
                 return statusOrder[a.status] - statusOrder[b.status];
               });
-              console.log('Fetched bookings for role_id', userData.role_id, ':', sortedBookings);
-              setBookings(sortedBookings);
+              console.log('Setting bookings:', _sortedBookings.length, 'bookings');
+              setBookings(_sortedBookings);
             } else {
-              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to fetch bookings");
+              console.log('API returned success: false');
+              setBookings([]);
             }
-            _context.n = 4;
+            _context3.n = 10;
             break;
-          case 3:
-            _context.p = 3;
-            _t = _context.v;
-            console.error("Error fetching bookings:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
+          case 9:
+            _context3.p = 9;
+            _t4 = _context3.v;
+            console.error("Error fetching bookings:", ((_error$response3 = _t4.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t4.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to fetch bookings");
-          case 4:
-            _context.p = 4;
+          case 10:
+            _context3.p = 10;
             setLoading(false);
-            return _context.f(4);
-          case 5:
-            return _context.a(2);
+            return _context3.f(10);
+          case 11:
+            return _context3.a(2);
         }
-      }, _callee, null, [[0, 3, 4, 5]]);
+      }, _callee3, null, [[3, 5], [0, 9, 10, 11]]);
     }));
     return function fetchBookings() {
-      return _ref.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
   var handleCancelBooking = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(bookingId) {
-      var authToken, response, _error$response2, _t2;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(bookingId) {
+      var authToken, response, _error$response4, _t5;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
           case 0:
-            _context2.p = 0;
+            _context4.p = 0;
             authToken = localStorage.getItem("auth_token");
-            _context2.n = 1;
+            _context4.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_6__["default"].patch("http://127.0.0.1:8000/api/bookings/".concat(bookingId, "/cancel"), {}, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -242623,38 +243430,38 @@ var MyBookings = function MyBookings() {
               }
             });
           case 1:
-            response = _context2.v;
+            response = _context4.v;
             if (response.data.success) {
               antd__WEBPACK_IMPORTED_MODULE_5__["default"].success("Booking cancelled successfully");
               fetchBookings();
             } else {
               antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || "Failed to cancel booking");
             }
-            _context2.n = 3;
+            _context4.n = 3;
             break;
           case 2:
-            _context2.p = 2;
-            _t2 = _context2.v;
-            console.error("Error cancelling booking:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
+            _context4.p = 2;
+            _t5 = _context4.v;
+            console.error("Error cancelling booking:", ((_error$response4 = _t5.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t5.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to cancel booking");
           case 3:
-            return _context2.a(2);
+            return _context4.a(2);
         }
-      }, _callee2, null, [[0, 2]]);
+      }, _callee4, null, [[0, 2]]);
     }));
     return function handleCancelBooking(_x) {
-      return _ref2.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
   var handleStatusUpdate = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(bookingId, status) {
-      var authToken, response, _error$response3, _t3;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(bookingId, status) {
+      var authToken, response, _error$response5, _t6;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
           case 0:
-            _context3.p = 0;
+            _context5.p = 0;
             authToken = localStorage.getItem("auth_token");
-            _context3.n = 1;
+            _context5.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_6__["default"].put("http://127.0.0.1:8000/api/bookings/".concat(bookingId, "/status"), {
               status: status
             }, {
@@ -242665,27 +243472,117 @@ var MyBookings = function MyBookings() {
               }
             });
           case 1:
-            response = _context3.v;
+            response = _context5.v;
             if (response.data.success) {
               antd__WEBPACK_IMPORTED_MODULE_5__["default"].success("Booking ".concat(status, " successfully"));
               fetchBookings();
+              // Also refresh booking requests if user is a worker
+              if (userRole === 1) {
+                fetchBookingRequests();
+              }
             } else {
               antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || "Failed to ".concat(status, " booking"));
             }
-            _context3.n = 3;
+            _context5.n = 3;
             break;
           case 2:
-            _context3.p = 2;
-            _t3 = _context3.v;
-            console.error("Error updating booking status:", ((_error$response3 = _t3.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t3.message);
+            _context5.p = 2;
+            _t6 = _context5.v;
+            console.error("Error updating booking status:", ((_error$response5 = _t6.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t6.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to ".concat(status, " booking"));
           case 3:
-            return _context3.a(2);
+            return _context5.a(2);
         }
-      }, _callee3, null, [[0, 2]]);
+      }, _callee5, null, [[0, 2]]);
     }));
     return function handleStatusUpdate(_x2, _x3) {
-      return _ref3.apply(this, arguments);
+      return _ref5.apply(this, arguments);
+    };
+  }();
+  var handleAcceptRequest = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(requestId) {
+      var authToken, response, _error$response6, _t7;
+      return _regenerator().w(function (_context6) {
+        while (1) switch (_context6.p = _context6.n) {
+          case 0:
+            _context6.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            _context6.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].put("http://127.0.0.1:8000/api/bookings/".concat(requestId, "/status"), {
+              status: 'accepted'
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 1:
+            response = _context6.v;
+            if (response.data.success) {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].success('Booking request accepted successfully!');
+              fetchBookingRequests(); // Refresh booking requests
+              fetchBookings(); // Also refresh regular bookings
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || 'Failed to accept booking request');
+            }
+            _context6.n = 3;
+            break;
+          case 2:
+            _context6.p = 2;
+            _t7 = _context6.v;
+            console.error("Error accepting booking request:", ((_error$response6 = _t7.response) === null || _error$response6 === void 0 ? void 0 : _error$response6.data) || _t7.message);
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error('Failed to accept booking request');
+          case 3:
+            return _context6.a(2);
+        }
+      }, _callee6, null, [[0, 2]]);
+    }));
+    return function handleAcceptRequest(_x4) {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+  var handleDeclineRequest = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(requestId) {
+      var authToken, response, _error$response7, _t8;
+      return _regenerator().w(function (_context7) {
+        while (1) switch (_context7.p = _context7.n) {
+          case 0:
+            _context7.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            _context7.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].put("http://127.0.0.1:8000/api/bookings/".concat(requestId, "/status"), {
+              status: 'declined'
+            }, {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json",
+                "Content-Type": "application/json"
+              }
+            });
+          case 1:
+            response = _context7.v;
+            if (response.data.success) {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].success('Booking request declined');
+              fetchBookingRequests(); // Refresh booking requests
+              fetchBookings(); // Also refresh regular bookings
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || 'Failed to decline booking request');
+            }
+            _context7.n = 3;
+            break;
+          case 2:
+            _context7.p = 2;
+            _t8 = _context7.v;
+            console.error("Error declining booking request:", ((_error$response7 = _t8.response) === null || _error$response7 === void 0 ? void 0 : _error$response7.data) || _t8.message);
+            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error('Failed to decline booking request');
+          case 3:
+            return _context7.a(2);
+        }
+      }, _callee7, null, [[0, 2]]);
+    }));
+    return function handleDeclineRequest(_x5) {
+      return _ref7.apply(this, arguments);
     };
   }();
 
@@ -242693,6 +243590,8 @@ var MyBookings = function MyBookings() {
   var getFilteredBookings = function getFilteredBookings() {
     if (activeTab === 'all') {
       return bookings;
+    } else if (activeTab === 'requests') {
+      return bookingRequests;
     }
     return bookings.filter(function (booking) {
       return booking.status.toLowerCase() === activeTab;
@@ -242723,14 +243622,14 @@ var MyBookings = function MyBookings() {
     setSelectedBooking(null);
   };
   var handleSubmitFeedback = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(feedbackData) {
-      var authToken, response, _error$response4, _t4;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
+    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(feedbackData) {
+      var authToken, response, _error$response8, _t9;
+      return _regenerator().w(function (_context8) {
+        while (1) switch (_context8.p = _context8.n) {
           case 0:
-            _context4.p = 0;
+            _context8.p = 0;
             authToken = localStorage.getItem("auth_token");
-            _context4.n = 1;
+            _context8.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_6__["default"].post("http://127.0.0.1:8000/api/bookings/".concat(selectedWorker.id, "/review"), {
               rating: feedbackData.rating,
               comment: feedbackData.feedback
@@ -242742,7 +243641,7 @@ var MyBookings = function MyBookings() {
               }
             });
           case 1:
-            response = _context4.v;
+            response = _context8.v;
             if (response.data.success) {
               antd__WEBPACK_IMPORTED_MODULE_5__["default"].success("Review submitted successfully");
               setIsFeedbackModalOpen(false);
@@ -242751,20 +243650,20 @@ var MyBookings = function MyBookings() {
             } else {
               antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || "Failed to submit review");
             }
-            _context4.n = 3;
+            _context8.n = 3;
             break;
           case 2:
-            _context4.p = 2;
-            _t4 = _context4.v;
-            console.error("Error submitting review:", ((_error$response4 = _t4.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t4.message);
+            _context8.p = 2;
+            _t9 = _context8.v;
+            console.error("Error submitting review:", ((_error$response8 = _t9.response) === null || _error$response8 === void 0 ? void 0 : _error$response8.data) || _t9.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to submit review");
           case 3:
-            return _context4.a(2);
+            return _context8.a(2);
         }
-      }, _callee4, null, [[0, 2]]);
+      }, _callee8, null, [[0, 2]]);
     }));
-    return function handleSubmitFeedback(_x4) {
-      return _ref4.apply(this, arguments);
+    return function handleSubmitFeedback(_x6) {
+      return _ref8.apply(this, arguments);
     };
   }();
   var handleProfileClick = function handleProfileClick(personData) {
@@ -242781,14 +243680,14 @@ var MyBookings = function MyBookings() {
     setSelectedBooking(null);
   };
   var handleUpdateBooking = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(updatedDetails) {
-      var authToken, response, _error$response5, _t5;
-      return _regenerator().w(function (_context5) {
-        while (1) switch (_context5.p = _context5.n) {
+    var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(updatedDetails) {
+      var authToken, response, _error$response9, _t0;
+      return _regenerator().w(function (_context9) {
+        while (1) switch (_context9.p = _context9.n) {
           case 0:
-            _context5.p = 0;
+            _context9.p = 0;
             authToken = localStorage.getItem("auth_token");
-            _context5.n = 1;
+            _context9.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_6__["default"].put("http://127.0.0.1:8000/api/bookings/".concat(selectedBooking.id), updatedDetails, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -242797,7 +243696,7 @@ var MyBookings = function MyBookings() {
               }
             });
           case 1:
-            response = _context5.v;
+            response = _context9.v;
             if (response.data.success) {
               antd__WEBPACK_IMPORTED_MODULE_5__["default"].success("Booking updated successfully");
               setIsEditModalOpen(false);
@@ -242806,20 +243705,20 @@ var MyBookings = function MyBookings() {
             } else {
               antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(response.data.message || "Failed to update booking");
             }
-            _context5.n = 3;
+            _context9.n = 3;
             break;
           case 2:
-            _context5.p = 2;
-            _t5 = _context5.v;
-            console.error("Error updating booking:", ((_error$response5 = _t5.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t5.message);
+            _context9.p = 2;
+            _t0 = _context9.v;
+            console.error("Error updating booking:", ((_error$response9 = _t0.response) === null || _error$response9 === void 0 ? void 0 : _error$response9.data) || _t0.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to update booking");
           case 3:
-            return _context5.a(2);
+            return _context9.a(2);
         }
-      }, _callee5, null, [[0, 2]]);
+      }, _callee9, null, [[0, 2]]);
     }));
-    return function handleUpdateBooking(_x5) {
-      return _ref5.apply(this, arguments);
+    return function handleUpdateBooking(_x7) {
+      return _ref9.apply(this, arguments);
     };
   }();
   if (loading) {
@@ -242839,7 +243738,7 @@ var MyBookings = function MyBookings() {
       className: "bookings-header",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
         className: "bookings-title",
-        children: userRole === 1 ? 'Booking Requests' : 'My Bookings'
+        children: activeTab === 'requests' ? 'Booking Requests' : userRole === 1 ? 'My Bookings' : 'My Bookings'
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       className: "bookings-navigation",
@@ -242866,9 +243765,119 @@ var MyBookings = function MyBookings() {
       children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
         className: "bookings-list",
         children: filteredBookings.map(function (booking) {
+          var _booking$worker, _booking$employer, _booking$employer2, _booking$worker2;
           var isEmployerView = userRole === 2;
+          var isBookingRequest = activeTab === 'requests';
           var personData = isEmployerView ? booking.worker : booking.employer;
           var personProfile = personData === null || personData === void 0 ? void 0 : personData.profile;
+
+          // For debugging - log both worker and employer data
+          console.log('=== BOOKING PERSON DATA DEBUG ===');
+          console.log('Is Employer View:', isEmployerView);
+          console.log('Worker Data:', booking.worker);
+          console.log('Employer Data:', booking.employer);
+          console.log('Worker Profile:', (_booking$worker = booking.worker) === null || _booking$worker === void 0 ? void 0 : _booking$worker.profile);
+          console.log('Employer Profile:', (_booking$employer = booking.employer) === null || _booking$employer === void 0 ? void 0 : _booking$employer.profile);
+
+          // Debug: Log the booking data structure
+          console.log('=== BOOKING DATA DEBUG ===');
+          console.log('Booking ID:', booking.id);
+          console.log('Complete Booking Object:', booking);
+          console.log('Person Data:', personData);
+          console.log('Person Profile:', personProfile);
+          console.log('Person Profile Image:', personProfile === null || personProfile === void 0 ? void 0 : personProfile.profile_img);
+          console.log('Person Data Image:', personData === null || personData === void 0 ? void 0 : personData.profile_img);
+          console.log('Booking Employer:', booking.employer);
+          console.log('Booking Worker:', booking.worker);
+          console.log('Booking Employer Profile:', (_booking$employer2 = booking.employer) === null || _booking$employer2 === void 0 ? void 0 : _booking$employer2.profile);
+          console.log('Booking Worker Profile:', (_booking$worker2 = booking.worker) === null || _booking$worker2 === void 0 ? void 0 : _booking$worker2.profile);
+
+          // If no person data, show basic booking info
+          if (!personData) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "booking-card",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "booking-top-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "booking-worker-info",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-worker-profile",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
+                      src: "/images/defpfp.svg",
+                      alt: "User",
+                      className: "booking-worker-avatar"
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                    className: "booking-worker-details",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("h3", {
+                      className: "booking-worker-name",
+                      children: ["Booking #", booking.id]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+                      className: "booking-worker-profession",
+                      children: booking.service_type || 'Service'
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "booking-status-amount",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-status-badge",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                      className: "booking-status-text",
+                      style: {
+                        backgroundColor: getStatusIcon(booking.status).backgroundColor,
+                        color: getStatusIcon(booking.status).color
+                      },
+                      children: [getStatusIcon(booking.status).icon, booking.status.charAt(0).toUpperCase() + booking.status.slice(1)]
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "booking-middle-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "booking-dates",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                    className: "booking-date-item",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                      className: "booking-date-label",
+                      children: "Start Date"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                      className: "booking-date-value",
+                      children: new Date(booking.book_in).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                    className: "booking-date-item",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                      className: "booking-date-label",
+                      children: "End Date"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                      className: "booking-date-value",
+                      children: new Date(booking.book_end).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "booking-description",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-description-label",
+                    children: "Description"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                    className: "booking-description-text",
+                    children: booking.description && booking.description.length > 50 ? "".concat(booking.description.substring(0, 50), "...") : booking.description
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                  className: "booking-salary",
+                  children: ["\u20B1", booking.total_amount]
+                })]
+              })]
+            }, booking.id);
+          }
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "booking-card",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
@@ -242885,9 +243894,43 @@ var MyBookings = function MyBookings() {
                     cursor: 'pointer'
                   },
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-                    src: personProfile !== null && personProfile !== void 0 && personProfile.profile_img ? "http://127.0.0.1:8000/storage/".concat(personProfile.profile_img) : '/images/default-avatar.svg',
-                    alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'User',
-                    className: "booking-worker-avatar"
+                    src: function () {
+                      console.log('=== AVATAR DEBUG ===');
+                      console.log('personProfile:', personProfile);
+                      console.log('personProfile.profile_img:', personProfile === null || personProfile === void 0 ? void 0 : personProfile.profile_img);
+                      console.log('personData:', personData);
+                      console.log('personData.profile_img:', personData === null || personData === void 0 ? void 0 : personData.profile_img);
+
+                      // Check if personProfile has profile_img (nested profile data)
+                      if (personProfile !== null && personProfile !== void 0 && personProfile.profile_img && personProfile.profile_img !== null && personProfile.profile_img !== '' && personProfile.profile_img !== 'null') {
+                        console.log('Using personProfile.profile_img:', personProfile.profile_img);
+                        return "http://127.0.0.1:8000/storage/".concat(personProfile.profile_img);
+                      }
+                      // Check if personData has profile_img (direct profile data)
+                      if (personData !== null && personData !== void 0 && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
+                        console.log('Using personData.profile_img:', personData.profile_img);
+                        return "http://127.0.0.1:8000/storage/".concat(personData.profile_img);
+                      }
+                      // Check if booking has direct profile_img (for cases where data structure is different)
+                      if (booking.profile_img && booking.profile_img !== null && booking.profile_img !== '' && booking.profile_img !== 'null') {
+                        console.log('Using booking.profile_img:', booking.profile_img);
+                        return "http://127.0.0.1:8000/storage/".concat(booking.profile_img);
+                      }
+                      // Additional fallback: check if the person data has a profile_img at the root level
+                      if (personData && _typeof(personData) === 'object' && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
+                        console.log('Using personData root profile_img:', personData.profile_img);
+                        return "http://127.0.0.1:8000/storage/".concat(personData.profile_img);
+                      }
+                      // Default fallback
+                      console.log('Using default avatar: defpfp.svg');
+                      return '/images/defpfp.svg';
+                    }(),
+                    alt: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : personData ? "".concat(personData.first_name || '', " ").concat(personData.last_name || '').trim() || 'User' : 'User',
+                    className: "booking-worker-avatar",
+                    onError: function onError(e) {
+                      console.log('Image failed to load, using fallback');
+                      e.target.src = '/images/defpfp.svg';
+                    }
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                   className: "booking-worker-details",
@@ -242902,7 +243945,7 @@ var MyBookings = function MyBookings() {
                       style: {
                         cursor: 'pointer'
                       },
-                      children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : 'Unknown User'
+                      children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : personData ? "".concat(personData.first_name || '', " ").concat(personData.last_name || '').trim() || 'Unknown User' : 'Unknown User'
                     }), isEmployerView && booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
                       className: "booking-edit-container",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
@@ -242920,7 +243963,7 @@ var MyBookings = function MyBookings() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
                     className: "booking-worker-profession",
                     children: isEmployerView ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-                      children: [booking.service_type, booking.sub_skill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                      children: [booking.service_type || 'Service', booking.sub_skill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
                         className: "booking-sub-skill",
                         children: [" - ", booking.sub_skill]
                       })]
@@ -243047,20 +244090,38 @@ var MyBookings = function MyBookings() {
                       handleViewTransaction(booking);
                     },
                     children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
-                    className: "booking-accept-btn",
-                    onClick: function onClick(e) {
-                      e.stopPropagation();
-                      handleStatusUpdate(booking.id, 'accepted');
-                    },
-                    children: "Accept"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
-                    className: "booking-decline-btn",
-                    onClick: function onClick(e) {
-                      e.stopPropagation();
-                      handleStatusUpdate(booking.id, 'declined');
-                    },
-                    children: "Decline"
+                  }), isBookingRequest ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                      className: "booking-accept-btn",
+                      onClick: function onClick(e) {
+                        e.stopPropagation();
+                        handleAcceptRequest(booking.id);
+                      },
+                      children: "Accept Request"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                      className: "booking-decline-btn",
+                      onClick: function onClick(e) {
+                        e.stopPropagation();
+                        handleDeclineRequest(booking.id);
+                      },
+                      children: "Decline Request"
+                    })]
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                      className: "booking-accept-btn",
+                      onClick: function onClick(e) {
+                        e.stopPropagation();
+                        handleStatusUpdate(booking.id, 'accepted');
+                      },
+                      children: "Accept"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                      className: "booking-decline-btn",
+                      onClick: function onClick(e) {
+                        e.stopPropagation();
+                        handleStatusUpdate(booking.id, 'declined');
+                      },
+                      children: "Decline"
+                    })]
                   })]
                 }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
@@ -243100,7 +244161,7 @@ var MyBookings = function MyBookings() {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
           className: "booking-empty-title",
-          children: "No Bookings Yet"
+          children: activeTab === 'requests' ? 'No Booking Requests' : 'No Bookings Yet'
         })]
       })
     }), isFeedbackModalOpen && selectedWorker && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_modalfeedback__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -244024,6 +245085,7 @@ var MyPostJob = function MyPostJob() {
                 className: "skills-title",
                 children: "Skills Required"
               }), job.skills && job.skills.length > 0 ? job.skills.map(function (skill, index) {
+                console.log("Rendering skill:", skill);
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                   className: "skill-tag",
                   children: [skill.name, " (", skill.experience, ")"]

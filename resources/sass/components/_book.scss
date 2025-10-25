@@ -266,6 +266,40 @@ body {
           background: #FFFFFF;
           vertical-align: middle;
 
+          .employer-info,
+          .worker-info {
+            text-align: left;
+            
+            .name {
+              font-weight: 600;
+              color: #1A2A44;
+              margin-bottom: 4px;
+            }
+            
+            .contact,
+            .address {
+              margin-bottom: 2px;
+              
+              small {
+                color: #666666;
+                font-size: 11px;
+                line-height: 1.3;
+                display: block;
+              }
+            }
+          }
+
+          .address-info {
+            text-align: left;
+            
+            small {
+              color: #666666;
+              font-size: 11px;
+              line-height: 1.3;
+              display: block;
+            }
+          }
+
           &.book-employer-cell {
             text-align: center;
             white-space: nowrap;

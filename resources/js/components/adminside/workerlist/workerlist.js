@@ -4,7 +4,7 @@ import axios from "axios";
 import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaCheckCircle, FaTrash, FaEye, FaCheck, FaTimes, FaArchive } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaCheckCircle, FaArchive, FaEye, FaCheck, FaTimes } from "react-icons/fa";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_workerlist.scss"
@@ -1965,7 +1965,7 @@ const WorkerList = () => {
 
                   <button className="header-button" onClick={handleBulkDeleteArchived}>
 
-                    <FaTrash className="button-icon" />
+                    <FaArchive className="button-icon" />
 
                     <span className="button-text">{isAllSelected ? "Delete All" : "Delete Selected"}</span>
 
@@ -2025,7 +2025,7 @@ const WorkerList = () => {
 
                   <button className="header-button" onClick={handleBulkDeleteDeclined}>
 
-                    <FaTrash className="button-icon" />
+                    <FaArchive className="button-icon" />
 
                     <span className="button-text">{isAllSelected ? "Delete All" : "Delete Selected"}</span>
 
@@ -2203,7 +2203,7 @@ const WorkerList = () => {
 
                                 />
 
-                                <FaTrash
+                                <FaArchive
 
                                   size={16}
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaPencilAlt, FaArchive, FaEye, FaCheckCircle, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import { message } from 'antd';
 import AdminSidebar from "./../adminsidebar/adminsidebar";
@@ -428,7 +428,7 @@ const SkillsCategories = () => {
                                 onClick={() => handleRestoreSkill(skill.id)}
                               />
                             ) : (
-                              <FaTrash
+                              <FaArchive
                                 size={16}
                                 className="delete-icon"
                                 onClick={() => handleArchiveClick(skill)}

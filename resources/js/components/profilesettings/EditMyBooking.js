@@ -28,8 +28,31 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
 
   useEffect(() => {
     if (isOpen && booking) {
+      // Debug logging for booking data
+      console.log('=== EDIT BOOKING INITIALIZATION DEBUG ===');
+      console.log('Booking data:', booking);
+      console.log('Worker data:', booking.worker);
+      console.log('Worker profile:', booking.worker?.profile);
+      console.log('Worker primary skills:', booking.worker?.primary_skills);
+      console.log('Worker additional skills:', booking.worker?.additional_skills);
+      console.log('Worker skills structure:', {
+        hasPrimarySkills: !!booking.worker?.primary_skills,
+        hasAdditionalSkills: !!booking.worker?.additional_skills,
+        primarySkillsLength: booking.worker?.primary_skills?.length || 0,
+        additionalSkillsLength: booking.worker?.additional_skills?.length || 0
+      });
+      
+      // Check for different possible skill data structures
+      console.log('=== CHECKING ALL POSSIBLE SKILL LOCATIONS ===');
+      console.log('booking.worker.primary_skills:', booking.worker?.primary_skills);
+      console.log('booking.worker.additional_skills:', booking.worker?.additional_skills);
+      console.log('booking.worker.skills:', booking.worker?.skills);
+      console.log('booking.worker.skills_id:', booking.worker?.skills_id);
+      console.log('booking.worker.skills_id?.primary_skills:', booking.worker?.skills_id?.primary_skills);
+      console.log('booking.worker.skills_id?.additional_skills:', booking.worker?.skills_id?.additional_skills);
+      
       // Initialize form with booking data
-      setBookingDetails({
+      const initialDetails = {
         service_type: booking.service_type || '',
         sub_skill: booking.sub_skill || '',
         work_type: booking.work_type || '',
@@ -39,10 +62,32 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
         time_out: booking.time_out || '',
         description: booking.description || '',
         daily_rate: booking.daily_rate || ''
-      });
+      };
+      
+      console.log('Setting booking details:', initialDetails);
+      setBookingDetails(initialDetails);
 
-      // Set worker data for dropdowns
-      setWorker({
+      // Set worker data for dropdowns - check multiple possible skill locations
+      const workerData = {
+        id: booking.worker_id,
+        name: booking.worker?.profile ? `${booking.worker.profile.first_name} ${booking.worker.profile.last_name}` : 'Worker',
+        work_type: booking.work_type,
+        primary_skills: booking.worker?.primary_skills || 
+                       booking.worker?.primary_skill || 
+                       booking.worker?.skills_id?.primary_skills || 
+                       booking.worker?.skills?.primary_skills || 
+                       [],
+        additional_skills: booking.worker?.additional_skills || 
+                          booking.worker?.additional_skill || 
+                          booking.worker?.skills_id?.additional_skills || 
+                          booking.worker?.skills?.additional_skills || 
+                          []
+      };
+      
+      console.log('Setting worker data:', workerData);
+      setWorker(workerData);
+
+      console.log('Worker state set:', {
         id: booking.worker_id,
         name: booking.worker?.profile ? `${booking.worker.profile.first_name} ${booking.worker.profile.last_name}` : 'Worker',
         work_type: booking.work_type,
@@ -57,6 +102,29 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
       });
     }
   }, [isOpen, booking]);
+
+  // Ensure service type is properly set when worker data is available
+  useEffect(() => {
+    if (worker) {
+      console.log('=== WORKER DATA AVAILABLE - CHECKING SERVICE TYPES ===');
+      console.log('Worker:', worker);
+      console.log('Available service types:', getAvailableServiceTypes());
+      
+      if (bookingDetails.service_type && getAvailableServiceTypes().length > 0) {
+        console.log('=== SERVICE TYPE VALIDATION ===');
+        console.log('Current service type:', bookingDetails.service_type);
+        console.log('Available service types:', getAvailableServiceTypes());
+        
+        const availableTypes = getAvailableServiceTypes();
+        const isServiceTypeValid = availableTypes.some(option => option.value === bookingDetails.service_type);
+        
+        if (!isServiceTypeValid) {
+          console.log('Service type not found in available options, resetting...');
+          setBookingDetails(prev => ({ ...prev, service_type: '', sub_skill: '' }));
+        }
+      }
+    }
+  }, [worker, bookingDetails.service_type]);
 
   // Check worker availability when booking dates change
   useEffect(() => {
@@ -305,6 +373,7 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
     return calculateWorkingDays(startDate, endDate, 'part-time');
   };
 
+
   // Determine if worker is blue-collar based on their skills
   const isBlueCollarWorker = () => {
     if (!worker?.primary_skills && !worker?.additional_skills) return false;
@@ -502,6 +571,7 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
       return;
     }
 
+
     // Validate date range
     if (bookingDetails.book_end <= bookingDetails.book_in) {
       message.error("End date must be after start date");
@@ -539,54 +609,84 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
     onSubmit(validatedDetails);
   };
 
-  // Get available service types (main skills only)
+  // Get available service types (main skills only) - same as BookModal.js
   const getAvailableServiceTypes = () => {
-    if (!worker?.primary_skills && !worker?.additional_skills) return [];
+    console.log('=== GET AVAILABLE SERVICE TYPES CALLED ===');
+    console.log('Worker object:', worker);
+    console.log('Worker primary_skills:', worker?.primary_skills);
+    console.log('Worker additional_skills:', worker?.additional_skills);
+    
+    if (!worker?.primary_skills && !worker?.additional_skills) {
+      console.log('No skills found in worker data');
+      return [];
+    }
+    
     const allSkills = [
       ...(worker.primary_skills || []),
       ...(worker.additional_skills || [])
     ];
+    
+    console.log('All skills combined:', allSkills);
     
     // Create options array for CustomDropdown with unique main skills
     const skillNames = new Set();
     const options = [];
     
     allSkills.forEach(skill => {
+      console.log('Processing skill:', skill);
       const mainSkill = skill.skill_name;
+      console.log('Skill name:', mainSkill);
       if (!skillNames.has(mainSkill)) {
         skillNames.add(mainSkill);
         options.push({
           value: mainSkill,
           label: mainSkill
         });
+        console.log('Added skill to options:', mainSkill);
       }
     });
+    
+    console.log('Available Service Types:', options);
+    console.log('Current Booking Service Type:', bookingDetails.service_type);
     
     return options;
   };
 
-  // Get sub-skills for selected service type
+  // Get sub-skills for selected service type - same as BookModal.js
   const getAvailableSubSkills = () => {
-    if (!bookingDetails.service_type) return [];
+    console.log('=== GET AVAILABLE SUB-SKILLS CALLED ===');
+    console.log('Selected service type:', bookingDetails.service_type);
+    console.log('Worker object:', worker);
+    
+    if (!bookingDetails.service_type) {
+      console.log('No service type selected');
+      return [];
+    }
     
     const allSkills = [
-      ...(worker?.primary_skills || []),
-      ...(worker?.additional_skills || [])
+      ...(worker.primary_skills || []),
+      ...(worker.additional_skills || [])
     ];
+    
+    console.log('All skills for sub-skill lookup:', allSkills);
     
     const options = [];
     
     allSkills.forEach(skill => {
+      console.log('Checking skill:', skill.skill_name, 'against:', bookingDetails.service_type);
       if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
+        console.log('Found matching skill with sub-skills:', skill.sub_skills);
         skill.sub_skills.forEach(subSkill => {
           options.push({
             value: subSkill,
             label: subSkill
           });
+          console.log('Added sub-skill:', subSkill);
         });
       }
     });
     
+    console.log('Available Sub-Skills:', options);
     return options;
   };
 

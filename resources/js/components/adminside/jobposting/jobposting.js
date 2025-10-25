@@ -4,7 +4,7 @@ import axios from "axios";
 import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaArchive, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import JobPostModal from "./JobPostModal";
 import "./../../../../sass/components/_jobposttable.scss";
@@ -101,12 +101,7 @@ const JobPostTable = () => {
               id: employer.id,
               company_name: employer.profile?.first_name + ' ' + employer.profile?.last_name || 'N/A',
               profile_id: employer.profile?.id || null,
-              street: employer.profile?.street || 'N/A',
               contact_number: employer.profile?.contact_number || 'N/A',
-              city: employer.profile?.city || 'N/A',
-              province: employer.profile?.province || 'N/A',
-              postal_code: employer.profile?.postal_code || 'N/A',
-              country: employer.profile?.country || 'N/A',
               archived: employer.archived || false,
               parsed_profile_ids: [employer.profile?.id?.toString()].filter(Boolean)
             };
@@ -144,16 +139,10 @@ const JobPostTable = () => {
       ? post.skills.join(" ").toLowerCase()
       : "";
     const description = post.description?.toLowerCase() || "";
-    const city = post.city?.toLowerCase() || "";
-    const province = post.province?.toLowerCase() || "";
-    const country = post.country?.toLowerCase() || "";
     const matchesSearch =
       jobTitle.includes(searchTerm.toLowerCase()) ||
       skills.includes(searchTerm.toLowerCase()) ||
-      description.includes(searchTerm.toLowerCase()) ||
-      city.includes(searchTerm.toLowerCase()) ||
-      province.includes(searchTerm.toLowerCase()) ||
-      country.includes(searchTerm.toLowerCase());
+      description.includes(searchTerm.toLowerCase());
     return matchesSearch;
   });
 
@@ -361,7 +350,7 @@ const JobPostTable = () => {
               <input
                 type="text"
                 className="search-input"
-                placeholder="Search by job title, skills, description, location..."
+                placeholder="Search by job title, skills, description..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -416,11 +405,6 @@ const JobPostTable = () => {
                     <th>Team Size</th>
                     <th>Work Start</th>
                     <th>Work End</th>
-                    <th>Street</th>
-                    <th>City</th>
-                    <th>Province</th>
-                    <th>Postal Code</th>
-                    <th>Country</th>
                     <th>Application Start</th>
                     <th>Application Deadline</th>
                     <th>Archived</th>
@@ -448,7 +432,7 @@ const JobPostTable = () => {
                                 onClick={() => handleRestorePost(post.id)}
                               />
                             ) : (
-                              <FaTrash
+                              <FaArchive
                                 size={16}
                                 className="delete-icon"
                                 onClick={() => handleArchiveClick(post)}
@@ -533,11 +517,6 @@ const JobPostTable = () => {
                         <td>{post.team_size || "N/A"}</td>
                         <td>{formatDate(post.work_start)}</td>
                         <td>{formatDate(post.work_end)}</td>
-                        <td>{post.street || "N/A"}</td>
-                        <td>{post.city || "N/A"}</td>
-                        <td>{post.province || "N/A"}</td>
-                        <td>{post.postal_code || "N/A"}</td>
-                        <td>{post.country || "N/A"}</td>
                         <td>{formatDate(post.application_start)}</td>
                         <td>{formatDate(post.application_deadline)}</td>
                         <td>{post.archived ? "Yes" : "No"}</td>
@@ -547,7 +526,7 @@ const JobPostTable = () => {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="26">No {showArchived ? "archived" : "active"} post jobs found</td>
+                      <td colSpan="21">No {showArchived ? "archived" : "active"} post jobs found</td>
                     </tr>
                   )}
                 </tbody>

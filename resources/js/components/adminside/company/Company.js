@@ -4,7 +4,7 @@ import axios from "axios";
 import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaArchive, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_companylist.scss";
 import CompanyModal from "./Companymodal.js";
@@ -532,7 +532,7 @@ const CompanyList = () => {
                               onClick={() => handleRestoreSkill(skill.id)}
                             />
                           ) : (
-                            <FaTrash
+                            <FaArchive
                               size={16}
                               className="delete-icon"
                               onClick={() => handleArchiveClick(skill)}

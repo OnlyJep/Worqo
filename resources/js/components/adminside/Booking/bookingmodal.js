@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
+import { IoWarningOutline } from "react-icons/io5";
 import "./../../../../sass/components/_bookingmodal.scss";
 
 const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills = [], employers = [], workers = [] }) => {
@@ -26,6 +27,11 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [availabilityStatus, setAvailabilityStatus] = useState({
+    isAvailable: true,
+    conflictMessage: '',
+    conflictingJobs: []
+  });
 
   // Function to get full name from user data
   const getFullName = (person) => {
@@ -84,6 +90,116 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
     return result;
   };
 
+  // Check worker availability for the selected dates
+  const checkWorkerAvailability = async () => {
+    try {
+      const { book_in, book_end, worker_id } = formData;
+      
+      if (!book_in || !book_end || !worker_id) {
+        setAvailabilityStatus({
+          isAvailable: true,
+          conflictMessage: '',
+          conflictingJobs: []
+        });
+        return;
+      }
+
+      // Get worker's accepted job applications (hired jobs)
+      const response = await fetch(`http://127.0.0.1:8000/api/job-applications/worker/${worker_id}?status=accepted`);
+      const acceptedJobs = await response.json() || [];
+
+      // Also get all job posts with work schedules to check for conflicts
+      const jobPostsResponse = await fetch(`http://127.0.0.1:8000/api/jobposts?worker_id=${worker_id}&include_work_schedule=true`);
+      const jobPostsData = await jobPostsResponse.json();
+      const jobPosts = jobPostsData?.job_posts?.data || [];
+
+      // Check for date conflicts
+      const requestedStart = new Date(book_in);
+      const requestedEnd = new Date(book_end);
+      const conflictingJobs = [];
+
+      // Check conflicts with accepted job applications
+      for (const job of acceptedJobs) {
+        if (job.job_post?.work_start && job.job_post?.work_end) {
+          const jobStart = new Date(job.job_post.work_start);
+          const jobEnd = new Date(job.job_post.work_end);
+
+          // Check if there's any overlap between the requested dates and job dates
+          if (
+            (requestedStart >= jobStart && requestedStart <= jobEnd) ||
+            (requestedEnd >= jobStart && requestedEnd <= jobEnd) ||
+            (requestedStart <= jobStart && requestedEnd >= jobEnd)
+          ) {
+            conflictingJobs.push({
+              jobTitle: job.job_post.job_title,
+              workStart: job.job_post.work_start,
+              workEnd: job.job_post.work_end,
+              employer: job.job_post.profile?.first_name + ' ' + job.job_post.profile?.last_name,
+              type: 'hired'
+            });
+          }
+        }
+      }
+
+      // Check conflicts with job posts that have fixed work schedules
+      for (const jobPost of jobPosts) {
+        if (jobPost.work_start && jobPost.work_end) {
+          const jobStart = new Date(jobPost.work_start);
+          const jobEnd = new Date(jobPost.work_end);
+
+          // Check if there's any overlap between the requested dates and job post work schedule
+          if (
+            (requestedStart >= jobStart && requestedStart <= jobEnd) ||
+            (requestedEnd >= jobStart && requestedEnd <= jobEnd) ||
+            (requestedStart <= jobStart && requestedEnd >= jobEnd)
+          ) {
+            conflictingJobs.push({
+              jobTitle: jobPost.job_title,
+              workStart: jobPost.work_start,
+              workEnd: jobPost.work_end,
+              employer: jobPost.profile?.first_name + ' ' + jobPost.profile?.last_name,
+              type: 'scheduled'
+            });
+          }
+        }
+      }
+
+      if (conflictingJobs.length > 0) {
+        const hiredCount = conflictingJobs.filter(job => job.type === 'hired').length;
+        const scheduledCount = conflictingJobs.filter(job => job.type === 'scheduled').length;
+        
+        let conflictMessage = 'Worker is not available during the selected period. ';
+        if (hiredCount > 0 && scheduledCount > 0) {
+          conflictMessage += `They are already hired for ${hiredCount} job(s) and have ${scheduledCount} scheduled job(s) during this time.`;
+        } else if (hiredCount > 0) {
+          conflictMessage += `They are already hired for ${hiredCount} job(s) during this time.`;
+        } else {
+          conflictMessage += `They have ${scheduledCount} scheduled job(s) during this time.`;
+        }
+
+        setAvailabilityStatus({
+          isAvailable: false,
+          conflictMessage: conflictMessage,
+          conflictingJobs: conflictingJobs
+        });
+      } else {
+        setAvailabilityStatus({
+          isAvailable: true,
+          conflictMessage: '',
+          conflictingJobs: []
+        });
+      }
+    } catch (error) {
+      console.error('Error checking worker availability:', error);
+      // On error, assume worker is available to avoid blocking legitimate bookings
+      setAvailabilityStatus({
+        isAvailable: true,
+        conflictMessage: '',
+        conflictingJobs: []
+      });
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
       if (isEdit && initialData) {
@@ -120,8 +236,26 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
         });
       }
       setErrors({});
+      setAvailabilityStatus({
+        isAvailable: true,
+        conflictMessage: '',
+        conflictingJobs: []
+      });
     }
   }, [isOpen, isEdit, initialData]);
+
+  // Check worker availability when booking dates change
+  useEffect(() => {
+    if (formData.book_in && formData.book_end && formData.worker_id) {
+      checkWorkerAvailability();
+    } else {
+      setAvailabilityStatus({
+        isAvailable: true,
+        conflictMessage: '',
+        conflictingJobs: []
+      });
+    }
+  }, [formData.book_in, formData.book_end, formData.worker_id]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -416,6 +550,37 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
               {errors.book_end && <span className="error-message">{errors.book_end}</span>}
             </div>
           </div>
+
+          {/* Availability Warning */}
+          {!availabilityStatus.isAvailable && (
+            <div className="availability-warning">
+              <div className="warning-header">
+                <IoWarningOutline style={{ color: '#ffc107', marginRight: '18px', marginTop: '8px', fontSize: '30px' }} />
+                <div className="rs-message-body">
+                  <div className="warning-message">
+                    {availabilityStatus.conflictMessage}
+                  </div>
+                  {availabilityStatus.conflictingJobs.length > 0 && (
+                    <div className="conflicting-jobs">
+                      <h5>Conflicting Jobs:</h5>
+                      <ul>
+                        {availabilityStatus.conflictingJobs.map((job, index) => (
+                          <li key={index}>
+                            <strong>{job.jobTitle}</strong> - {job.type === 'hired' ? 'Hired' : 'Scheduled'}
+                            <br />
+                            <small>
+                              {new Date(job.workStart).toLocaleDateString()} - {new Date(job.workEnd).toLocaleDateString()}
+                              {job.employer && ` (Employer: ${job.employer})`}
+                            </small>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="form-row">
             <div className="form-group">

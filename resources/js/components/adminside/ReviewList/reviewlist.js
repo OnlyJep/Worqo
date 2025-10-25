@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaTrash, FaEye } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaArchive, FaEye } from "react-icons/fa";
 import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_reviewstable.scss";
 import ReviewModal from "./reviewlistmodal.js";
@@ -498,7 +498,7 @@ const ReviewsTable = () => {
                               onClick={() => handleRestoreReview(review.id)}
                             />
                           ) : (
-                            <FaTrash
+                            <FaArchive
                               size={16}
                               className="delete-icon"
                               onClick={() => handleArchiveClick(review)}

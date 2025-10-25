@@ -18,10 +18,28 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        // Debug: Log the incoming request data
-        \Log::info('Booking request received:', $request->all());
+        \Log::info('=== BOOKING STORE REQUEST ===');
+        \Log::info('Request data: ' . json_encode($request->all()));
+        \Log::info('Employer ID from request: ' . $request->employer_id);
+        \Log::info('Worker ID from request: ' . $request->worker_id);
+        \Log::info('Request method: ' . $request->method());
+        \Log::info('Request headers: ' . json_encode($request->headers->all()));
+        \Log::info('Raw request content: ' . $request->getContent());
+        
+        // CRITICAL: Check if employer_id is actually in the request
+        if (!$request->has('employer_id')) {
+            \Log::error('CRITICAL: employer_id is missing from request!');
+            \Log::error('Available request keys: ' . json_encode(array_keys($request->all())));
+        }
+        
+        if ($request->employer_id === null || $request->employer_id === '') {
+            \Log::error('CRITICAL: employer_id is null or empty in request!');
+            \Log::error('employer_id value:', $request->employer_id);
+            \Log::error('employer_id type:', gettype($request->employer_id));
+        }
         
         $validator = Validator::make($request->all(), [
+            'employer_id' => 'nullable|exists:users,id',
             'worker_id' => 'required|exists:users,id',
             'service_type' => 'required|string|max:255',
             'sub_skill' => 'nullable|string|max:255',
@@ -32,7 +50,8 @@ class BookingController extends Controller
             'time_in' => 'nullable|string',
             'time_out' => 'nullable|string',
             'daily_rate' => 'required|numeric|min:0',
-            'total_salary' => 'nullable|numeric|min:0',
+            'total_amount' => 'required|numeric|min:0',
+            'status' => 'required|in:pending,accepted,declined,cancelled,completed'
         ]);
 
         // Custom validation for book_in to be in the future
@@ -60,7 +79,7 @@ class BookingController extends Controller
         });
 
         if ($validator->fails()) {
-                \Log::warning('Booking validation failed:', $validator->errors()->toArray());
+            \Log::warning('Booking validation failed:', $validator->errors()->toArray());
             return response()->json([
                 'success' => false,
                 'message' => 'Validation failed',
@@ -68,81 +87,74 @@ class BookingController extends Controller
             ], 422);
         }
 
-        // Get authenticated user if available (optional)
-        $authUser = Auth::user();
-        
-        // Check if user is trying to book themselves (only if authenticated)
-        if ($authUser && $authUser->id == $request->worker_id) {
+        // Ensure at least one participant is provided
+        if (!$request->employer_id && !$request->worker_id) {
             return response()->json([
                 'success' => false,
-                'message' => 'You cannot book yourself'
-            ], 400);
+                'message' => 'At least one participant (employer or worker) must be selected'
+            ], 422);
         }
 
-        // Check if there's already a pending booking between this employer and worker (only if authenticated)
-        $existingBooking = null;
-        if ($authUser) {
-            $existingBooking = Booking::where('employer_id', $authUser->id)
-                ->where('worker_id', $request->worker_id)
-                ->whereIn('status', ['pending', 'accepted'])
-                ->first();
+        // Convert profile_id to user_id for database storage
+        $bookingData = $request->all();
+        
+        \Log::info('Booking store request data: ' . json_encode($bookingData));
+        \Log::info('Original request data: ' . json_encode($request->all()));
+        
+        // Use the provided IDs directly as they should be user IDs
+        if ($request->employer_id) {
+            $bookingData['employer_id'] = $request->employer_id;
+            \Log::info('Using employer_id directly: ' . $request->employer_id);
+        } else {
+            \Log::warning('No employer_id provided in request!');
+            // FALLBACK: Try to get employer_id from request headers (from localStorage)
+            $userId = $request->header('X-User-ID') ?: $request->query('user_id');
+            if ($userId) {
+                $bookingData['employer_id'] = $userId;
+                \Log::info('FALLBACK: Using user ID from localStorage as employer_id: ' . $userId);
+            } else {
+                \Log::error('FALLBACK FAILED: No user ID found in request headers or query!');
+                // CRITICAL: If no employer_id and no user ID from localStorage, we cannot create the booking
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Cannot create booking: No employer identified from localStorage'
+                ], 422);
+            }
         }
-
-        if ($existingBooking) {
+        
+        if ($request->worker_id) {
+            $bookingData['worker_id'] = $request->worker_id;
+            \Log::info('Using worker_id directly: ' . $request->worker_id);
+        } else {
+            \Log::warning('No worker_id provided in request!');
+        }
+        
+        // Ensure employer_id is not null before creating booking
+        if (empty($bookingData['employer_id'])) {
+            \Log::error('CRITICAL: employer_id is empty! Cannot create booking.');
             return response()->json([
                 'success' => false,
-                'message' => 'You already have a pending or accepted booking with this worker'
-            ], 400);
+                'message' => 'Employer ID is required but not provided'
+            ], 422);
         }
 
-        // Calculate total amount based on daily rate (use provided total_salary if available)
-        $bookIn = Carbon::parse($request->book_in);
-        $bookEnd = Carbon::parse($request->book_end);
-        $days = $bookIn->diffInDays($bookEnd) + 1; // +1 to include both start and end days
-        $totalAmount = $request->total_salary ?? ($days * $request->daily_rate);
-
-        $booking = Booking::create([
-            'employer_id' => $authUser ? $authUser->id : null,
-            'worker_id' => $request->worker_id,
-            'service_type' => $request->service_type,
-            'sub_skill' => $request->sub_skill,
-            'work_type' => $request->work_type,
-            'description' => $request->description,
-            'book_in' => $request->book_in,
-            'book_end' => $request->book_end,
-            'time_in' => $request->time_in,
-            'time_out' => $request->time_out,
-            'daily_rate' => $request->daily_rate,
-            'total_amount' => $totalAmount,
-            'status' => 'pending',
-            'archived' => false
-        ]);
+        // Add archived field
+        $bookingData['archived'] = false;
         
-        // Create BookingRequest record with BookModal data
-        if ($authUser) {
-            $bookModalData = [
-                'service_type' => $request->service_type,
-                'sub_skill' => $request->sub_skill,
-                'work_type' => $request->work_type,
-                'book_in' => $request->book_in,
-                'book_end' => $request->book_end,
-                'time_in' => $request->time_in,
-                'time_out' => $request->time_out,
-                'description' => $request->description,
-                'daily_rate' => $request->daily_rate,
-                'total_salary' => $totalAmount,
-            ];
-            
-            \Log::info('Creating BookingRequest with data:', $bookModalData);
-            $bookingRequest = BookingRequest::createFromBookModal($bookModalData, $authUser->id, $booking->id);
-        }
+        $booking = Booking::create($bookingData);
+        
+        \Log::info('Booking created successfully with ID: ' . $booking->id);
+        \Log::info('Created booking data: ' . json_encode($booking->toArray()));
+        \Log::info('Final booking employer_id: ' . $booking->employer_id);
+        \Log::info('Final booking worker_id: ' . $booking->worker_id);
 
         // Send notification to worker about new booking
-        if ($authUser) {
-            $employerName = $authUser->profile->first_name ?? 'Someone';
+        if ($booking->employer_id) {
+            $employer = User::find($booking->employer_id);
+            $employerName = $employer && $employer->profile ? $employer->profile->first_name : 'Someone';
             NotificationController::createNotification(
-                $request->worker_id,
-                $authUser->id,
+                $booking->worker_id,
+                $booking->employer_id,
                 'booking',
                 'New Booking Request',
                 "$employerName has sent you a booking request for {$request->service_type}. Please review and respond. Click Here to go to@http://127.0.0.1:8000/profile-settings/bookings",
@@ -159,6 +171,97 @@ class BookingController extends Controller
     }
 
     /**
+     * Get booking requests for a worker (pending bookings where worker is the target)
+     */
+    public function getWorkerBookingRequests(Request $request)
+    {
+        try {
+            // Get user ID from request header or query parameter
+            $userId = $request->header('X-User-ID') ?: $request->query('user_id');
+            
+            \Log::info('getWorkerBookingRequests called with user_id: ' . $userId);
+            
+            if (!$userId) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'User ID required'
+                ], 400);
+            }
+
+            // Get all pending bookings where this user is the worker
+            $bookingRequests = Booking::with(['employer.profile.suffix', 'worker.profile.suffix'])
+                ->where('worker_id', $userId)
+                ->where('status', 'pending')
+                ->orderBy('created_at', 'desc')
+                ->get();
+
+            \Log::info('Found ' . $bookingRequests->count() . ' booking requests for worker_id: ' . $userId);
+
+            // Format the booking requests
+            $formattedRequests = $bookingRequests->map(function ($booking) {
+                $employer = $booking->employer;
+                $employerProfile = $employer ? $employer->profile : null;
+                
+                return [
+                    'id' => $booking->id,
+                    'employer_id' => $booking->employer_id,
+                    'worker_id' => $booking->worker_id,
+                    'service_type' => $booking->service_type,
+                    'sub_skill' => $booking->sub_skill,
+                    'work_type' => $booking->work_type,
+                    'description' => $booking->description,
+                    'book_in' => $booking->book_in,
+                    'book_end' => $booking->book_end,
+                    'time_in' => $booking->time_in,
+                    'time_out' => $booking->time_out,
+                    'daily_rate' => $booking->daily_rate,
+                    'total_amount' => $booking->total_amount,
+                    'status' => $booking->status,
+                    'archived' => $booking->archived,
+                    'created_at' => $booking->created_at,
+                    'updated_at' => $booking->updated_at,
+                    'employer' => [
+                        'id' => $employer ? $employer->id : null,
+                        'username' => $employer ? $employer->username : 'Unknown',
+                        'email' => $employer ? $employer->email : 'Unknown',
+                        'profile' => $employerProfile ? [
+                            'id' => $employerProfile->id,
+                            'first_name' => $employerProfile->first_name,
+                            'middlename' => $employerProfile->middlename,
+                            'last_name' => $employerProfile->last_name,
+                            'contact_number' => $employerProfile->contact_number,
+                            'street' => $employerProfile->street,
+                            'city' => $employerProfile->city,
+                            'province' => $employerProfile->province,
+                            'postal_code' => $employerProfile->postal_code,
+                            'country' => $employerProfile->country,
+                            'profile_img' => $employerProfile->profile_img,
+                            'suffix' => $employerProfile->suffix ? [
+                                'id' => $employerProfile->suffix->id,
+                                'name' => $employerProfile->suffix->name
+                            ] : null
+                        ] : null
+                    ]
+                ];
+            });
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Booking requests retrieved successfully',
+                'booking_requests' => $formattedRequests,
+                'total_count' => $formattedRequests->count()
+            ]);
+
+        } catch (\Exception $e) {
+            \Log::error('Error fetching worker booking requests: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Server error: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
      * Get bookings for a worker
      */
     public function getWorkerBookings(Request $request)
@@ -167,12 +270,26 @@ class BookingController extends Controller
             // Get user ID from request header or query parameter
             $userId = $request->header('X-User-ID') ?: $request->query('user_id');
             
+            \Log::info('getWorkerBookings called with user_id: ' . $userId);
+            
+            // Debug: Check all bookings in database first
+            $allBookings = \App\Models\Booking::all();
+            \Log::info('=== ALL BOOKINGS IN DATABASE (WORKER) ===');
+            \Log::info('Total bookings count: ' . $allBookings->count());
+            foreach ($allBookings as $booking) {
+                \Log::info('Booking ID: ' . $booking->id . ', Employer ID: ' . $booking->employer_id . ', Worker ID: ' . $booking->worker_id . ', Status: ' . $booking->status);
+            }
+            
             if (!$userId) {
                 return response()->json(['success' => false, 'message' => 'User ID required'], 400);
             }
 
+            // Use the provided user ID directly to match the database
+            $actualUserId = $userId;
+            \Log::info('Searching for bookings with worker_id: ' . $actualUserId);
+
             $bookings = Booking::with(['employer.profile', 'worker.profile'])
-                ->where('worker_id', $userId)
+                ->where('worker_id', $actualUserId)
                 ->orderBy('created_at', 'desc')
                 ->get();
 
@@ -198,6 +315,8 @@ class BookingController extends Controller
         }
     }
 
+
+
     /**
      * Get bookings for an employer
      */
@@ -207,14 +326,48 @@ class BookingController extends Controller
             // Get user ID from request header or query parameter
             $userId = $request->header('X-User-ID') ?: $request->query('user_id');
             
+            \Log::info('getEmployerBookings called with user_id: ' . $userId);
+            \Log::info('Request headers: ' . json_encode($request->headers->all()));
+            \Log::info('Request query: ' . json_encode($request->query()));
+            \Log::info('Request all: ' . json_encode($request->all()));
+            
+            // Debug: Check all bookings in database first
+            $allBookings = \App\Models\Booking::all();
+            \Log::info('=== ALL BOOKINGS IN DATABASE ===');
+            \Log::info('Total bookings count: ' . $allBookings->count());
+            foreach ($allBookings as $booking) {
+                \Log::info('Booking ID: ' . $booking->id . ', Employer ID: ' . $booking->employer_id . ', Worker ID: ' . $booking->worker_id . ', Status: ' . $booking->status);
+            }
+            
             if (!$userId) {
+                \Log::error('No user ID provided in getEmployerBookings');
                 return response()->json(['success' => false, 'message' => 'User ID required'], 400);
             }
 
+            // Use the provided user ID directly to match the database
+            $actualUserId = $userId;
+            \Log::info('Searching for bookings with employer_id: ' . $actualUserId);
+            
+            // Debug: Check what bookings exist with this employer_id
+            $debugBookings = Booking::where('employer_id', $actualUserId)->get();
+            \Log::info('Debug: Found ' . $debugBookings->count() . ' bookings with employer_id: ' . $actualUserId);
+            
+            // Debug: Show all bookings in database to see what IDs exist
+            $allBookings = Booking::select('id', 'employer_id', 'worker_id', 'service_type', 'status', 'created_at')->get();
+            \Log::info('Debug: All bookings in database: ' . json_encode($allBookings->toArray()));
+
             $bookings = Booking::with(['employer.profile', 'worker.profile'])
-                ->where('employer_id', $userId)
+                ->where('employer_id', $actualUserId)
                 ->orderBy('created_at', 'desc')
                 ->get();
+
+        \Log::info('Found ' . $bookings->count() . ' bookings for employer_id: ' . $userId);
+        \Log::info('Bookings data: ' . json_encode($bookings->toArray()));
+        
+        // Debug: Check all bookings in database
+        $allBookings = \App\Models\Booking::with(['employer.profile', 'worker.profile'])->get();
+        \Log::info('All bookings in database: ' . json_encode($allBookings->toArray()));
+        \Log::info('Total bookings count: ' . $allBookings->count());
 
             // Add review information to each booking
             $bookings->each(function ($booking) {
@@ -523,10 +676,42 @@ class BookingController extends Controller
 
                 return [
                     'id' => $booking->id,
-                    'employer_id' => $booking->employer && $booking->employer->profile ? $booking->employer->profile->id : null,
-                    'worker_id' => $booking->worker && $booking->worker->profile ? $booking->worker->profile->id : null,
+                    'employer_id' => $booking->employer_id,
+                    'worker_id' => $booking->worker_id,
                     'employer_name' => $formatFullName($booking->employer ? $booking->employer->profile : null),
                     'worker_name' => $formatFullName($booking->worker ? $booking->worker->profile : null),
+                    'employer' => $booking->employer ? [
+                        'id' => $booking->employer->id,
+                        'email' => $booking->employer->email,
+                        'profile' => $booking->employer->profile ? [
+                            'id' => $booking->employer->profile->id,
+                            'first_name' => $booking->employer->profile->first_name,
+                            'last_name' => $booking->employer->profile->last_name,
+                            'middlename' => $booking->employer->profile->middlename,
+                            'contact_number' => $booking->employer->profile->contact_number,
+                            'street' => $booking->employer->profile->street,
+                            'city' => $booking->employer->profile->city,
+                            'province' => $booking->employer->profile->province,
+                            'postal_code' => $booking->employer->profile->postal_code,
+                            'country' => $booking->employer->profile->country,
+                        ] : null
+                    ] : null,
+                    'worker' => $booking->worker ? [
+                        'id' => $booking->worker->id,
+                        'email' => $booking->worker->email,
+                        'profile' => $booking->worker->profile ? [
+                            'id' => $booking->worker->profile->id,
+                            'first_name' => $booking->worker->profile->first_name,
+                            'last_name' => $booking->worker->profile->last_name,
+                            'middlename' => $booking->worker->profile->middlename,
+                            'contact_number' => $booking->worker->profile->contact_number,
+                            'street' => $booking->worker->profile->street,
+                            'city' => $booking->worker->profile->city,
+                            'province' => $booking->worker->profile->province,
+                            'postal_code' => $booking->worker->profile->postal_code,
+                            'country' => $booking->worker->profile->country,
+                        ] : null
+                    ] : null,
                     'service_type' => $booking->service_type,
                     'sub_skill' => $booking->sub_skill,
                     'work_type' => $booking->work_type,
@@ -568,17 +753,37 @@ class BookingController extends Controller
      */
     public function create(Request $request)
     {
+        \Log::info('=== BOOKING CREATION REQUEST ===');
+        \Log::info('Request data: ' . json_encode($request->all()));
+        \Log::info('Employer ID from request: ' . $request->employer_id);
+        \Log::info('Worker ID from request: ' . $request->worker_id);
+        \Log::info('Request method: ' . $request->method());
+        \Log::info('Request headers: ' . json_encode($request->headers->all()));
+        \Log::info('Raw request content: ' . $request->getContent());
+        
+        // CRITICAL: Check if employer_id is actually in the request
+        if (!$request->has('employer_id')) {
+            \Log::error('CRITICAL: employer_id is missing from request!');
+            \Log::error('Available request keys: ' . json_encode(array_keys($request->all())));
+        }
+        
+        if ($request->employer_id === null || $request->employer_id === '') {
+            \Log::error('CRITICAL: employer_id is null or empty in request!');
+            \Log::error('employer_id value:', $request->employer_id);
+            \Log::error('employer_id type:', gettype($request->employer_id));
+        }
+        
         $validator = Validator::make($request->all(), [
-            'employer_id' => 'nullable|exists:profiles,id',
-            'worker_id' => 'nullable|exists:profiles,id',
+            'employer_id' => 'nullable|exists:users,id',
+            'worker_id' => 'nullable|exists:users,id',
             'service_type' => 'required|string|max:255',
             'sub_skill' => 'nullable|string|max:255',
             'work_type' => 'required|string|max:255',
             'description' => 'required|string',
             'book_in' => 'required|date',
             'book_end' => 'required|date|after:book_in',
-            'time_in' => 'nullable|date',
-            'time_out' => 'nullable|date',
+            'time_in' => 'nullable|string',
+            'time_out' => 'nullable|string',
             'daily_rate' => 'required|numeric|min:0',
             'total_amount' => 'required|numeric|min:0',
             'status' => 'required|in:pending,accepted,declined,cancelled,completed'
@@ -603,20 +808,55 @@ class BookingController extends Controller
         // Convert profile_id to user_id for database storage
         $bookingData = $request->all();
         
+        \Log::info('Booking creation request data: ' . json_encode($bookingData));
+        \Log::info('Original request data: ' . json_encode($request->all()));
+        
+        // Use the provided IDs directly as they should be user IDs
         if ($request->employer_id) {
-            $employerProfile = \App\Models\Profile::find($request->employer_id);
-            $bookingData['employer_id'] = $employerProfile ? $employerProfile->user_id : null;
+            $bookingData['employer_id'] = $request->employer_id;
+            \Log::info('Using employer_id directly: ' . $request->employer_id);
+        } else {
+            \Log::warning('No employer_id provided in request!');
+            // FALLBACK: Try to get employer_id from request headers (from localStorage)
+            $userId = $request->header('X-User-ID') ?: $request->query('user_id');
+            if ($userId) {
+                $bookingData['employer_id'] = $userId;
+                \Log::info('FALLBACK: Using user ID from localStorage as employer_id: ' . $userId);
+            } else {
+                \Log::error('FALLBACK FAILED: No user ID found in request headers or query!');
+                // CRITICAL: If no employer_id and no user ID from localStorage, we cannot create the booking
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Cannot create booking: No employer identified from localStorage'
+                ], 422);
+            }
         }
         
         if ($request->worker_id) {
-            $workerProfile = \App\Models\Profile::find($request->worker_id);
-            $bookingData['worker_id'] = $workerProfile ? $workerProfile->user_id : null;
+            $bookingData['worker_id'] = $request->worker_id;
+            \Log::info('Using worker_id directly: ' . $request->worker_id);
+        } else {
+            \Log::warning('No worker_id provided in request!');
+        }
+        
+        // Ensure employer_id is not null before creating booking
+        if (empty($bookingData['employer_id'])) {
+            \Log::error('CRITICAL: employer_id is empty! Cannot create booking.');
+            return response()->json([
+                'success' => false,
+                'message' => 'Employer ID is required but not provided'
+            ], 422);
         }
 
         // Add archived field
         $bookingData['archived'] = false;
         
         $booking = Booking::create($bookingData);
+        
+        \Log::info('Booking created successfully with ID: ' . $booking->id);
+        \Log::info('Created booking data: ' . json_encode($booking->toArray()));
+        \Log::info('Final booking employer_id: ' . $booking->employer_id);
+        \Log::info('Final booking worker_id: ' . $booking->worker_id);
 
         return response()->json([
             'success' => true,
@@ -631,16 +871,16 @@ class BookingController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'employer_id' => 'nullable|exists:profiles,id',
-            'worker_id' => 'nullable|exists:profiles,id',
+            'employer_id' => 'nullable|exists:users,id',
+            'worker_id' => 'nullable|exists:users,id',
             'service_type' => 'sometimes|required|string|max:255',
             'sub_skill' => 'nullable|string|max:255',
             'work_type' => 'sometimes|required|string|max:255',
             'description' => 'sometimes|required|string',
             'book_in' => 'sometimes|required|date',
             'book_end' => 'sometimes|required|date|after:book_in',
-            'time_in' => 'nullable|date',
-            'time_out' => 'nullable|date',
+            'time_in' => 'nullable|string',
+            'time_out' => 'nullable|string',
             'daily_rate' => 'sometimes|required|numeric|min:0',
             'total_amount' => 'sometimes|required|numeric|min:0',
             'status' => 'sometimes|required|in:pending,accepted,declined,cancelled,completed'
@@ -789,12 +1029,12 @@ class BookingController extends Controller
                 ->where('archived', false)
                 ->get();
 
-            \Log::info('Found users:', ['count' => $users->count()]);
+            \Log::info('Found users: ' . json_encode(['count' => $users->count()]));
             
             // Log first user details for debugging
             if ($users->count() > 0) {
                 $firstUser = $users->first();
-                \Log::info('First user details:', [
+                \Log::info('First user details: ' . json_encode([
                     'user_id' => $firstUser->id,
                     'username' => $firstUser->username,
                     'email' => $firstUser->email,
@@ -805,7 +1045,7 @@ class BookingController extends Controller
                     'last_name' => $firstUser->profile ? $firstUser->profile->last_name : 'No profile',
                     'suffix_id' => $firstUser->profile ? $firstUser->profile->suffix_id : 'No profile',
                     'suffix_name' => $firstUser->profile && $firstUser->profile->suffix ? $firstUser->profile->suffix->name : 'No suffix'
-                ]);
+                ]));
             }
 
             $formattedUsers = $users->map(function ($user) {
@@ -826,23 +1066,23 @@ class BookingController extends Controller
                 }
                 $fullName = trim($name) ?: 'N/A';
                 
-                \Log::info('Name construction for user ' . $user->id, [
+                \Log::info('Name construction for user ' . $user->id . ': ' . json_encode([
                     'first_name' => $profile->first_name,
                     'middlename' => $profile->middlename,
                     'last_name' => $profile->last_name,
                     'suffix_name' => $profile->suffix ? $profile->suffix->name : null,
                     'constructed_name' => $name,
                     'final_fullName' => $fullName
-                ]);
+                ]));
                 
-                \Log::info('Formatted name for user ' . $user->id, [
+                \Log::info('Formatted name for user ' . $user->id . ': ' . json_encode([
                     'first_name' => $profile->first_name,
                     'middlename' => $profile->middlename,
                     'last_name' => $profile->last_name,
                     'suffix_id' => $profile->suffix_id,
                     'suffix_name' => $profile->suffix ? $profile->suffix->name : null,
                     'full_name' => $fullName
-                ]);
+                ]));
 
                 return [
                     'id' => $profile->id, // Return profile_id instead of user_id
@@ -858,22 +1098,22 @@ class BookingController extends Controller
                 ];
             })->filter(); // Remove null entries
 
-            \Log::info('Formatted users:', ['count' => $formattedUsers->count()]);
+            \Log::info('Formatted users: ' . json_encode(['count' => $formattedUsers->count()]));
             
             // Log all users with their role_ids for debugging
-            \Log::info('All users with role_ids:', $formattedUsers->map(function($user) {
+            \Log::info('All users with role_ids: ' . json_encode($formattedUsers->map(function($user) {
                 return [
                     'id' => $user['id'],
                     'full_name' => $user['full_name'],
                     'role_id' => $user['role_id'],
                     'username' => $user['username']
                 ];
-            })->toArray());
+            })->toArray()));
             
             // Log the first formatted user for debugging
             if ($formattedUsers->count() > 0) {
                 $firstFormattedUser = $formattedUsers->first();
-                \Log::info('First formatted user:', $firstFormattedUser);
+                \Log::info('First formatted user: ' . json_encode($firstFormattedUser));
             }
 
             return response()->json([

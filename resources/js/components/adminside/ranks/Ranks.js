@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaPencilAlt, FaArchive, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_ranks.scss";
 import Loader from "./../../LoaderContent/loader";
@@ -398,7 +398,7 @@ const Ranks = () => {
                     className="header-button delete-all-button"
                     onClick={() => handleBulkAction("delete")}
                   >
-                    <FaTrash size={20} className="button-icon" />
+                    <FaArchive size={20} className="button-icon" />
                     <span className="button-text">Delete All</span>
                   </button>
                 </>
@@ -463,7 +463,7 @@ const Ranks = () => {
                                 onClick={() => handleRestoreRank(rank.id)}
                                 title="Restore"
                               />
-                              <FaTrash
+                              <FaArchive
                                 size={16}
                                 className="delete-icon"
                                 onClick={() => handleDeleteRank(rank.id)}
@@ -472,14 +472,14 @@ const Ranks = () => {
                             </>
                           ) : (
                             <>
-                              <FaTrash
+                              <FaArchive
                                 size={16}
                                 className="archive-icon"
                                 onClick={() => handleArchiveClick(rank)}
                                 title="Archive"
                               />
                               {rank.archived && (
-                                <FaTrash
+                                <FaArchive
                                   size={16}
                                   className="delete-icon"
                                   onClick={() => handleDeleteRank(rank.id)}

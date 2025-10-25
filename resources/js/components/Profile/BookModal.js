@@ -532,7 +532,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     const validatedDetails = {
       ...bookingDetails,
       daily_rate: parseFloat(bookingDetails.daily_rate),
-      total_salary: salaryCalculation.totalAmount,
+      total_amount: salaryCalculation.totalAmount, // Match database field name
     };
 
     onSubmit(validatedDetails); // Pass details to parent for further processing
@@ -704,7 +704,26 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
               <div className="warning-header">
                 <IoWarningOutline style={{ color: '#ffc107', marginRight: '18px', marginTop: '8px', fontSize: '30px' }} />
                 <div className="rs-message-body">
-                  Worker not free — 1 job scheduled.
+                  <div className="warning-message">
+                    {availabilityStatus.conflictMessage}
+                  </div>
+                  {availabilityStatus.conflictingJobs.length > 0 && (
+                    <div className="conflicting-jobs">
+                      <h5>Conflicting Jobs:</h5>
+                      <ul>
+                        {availabilityStatus.conflictingJobs.map((job, index) => (
+                          <li key={index}>
+                            <strong>{job.jobTitle}</strong> - {job.type === 'hired' ? 'Hired' : 'Scheduled'}
+                            <br />
+                            <small>
+                              {new Date(job.workStart).toLocaleDateString()} - {new Date(job.workEnd).toLocaleDateString()}
+                              {job.employer && ` (Employer: ${job.employer})`}
+                            </small>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

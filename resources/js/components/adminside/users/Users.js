@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaEye, FaTrash } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaEye, FaArchive } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_userlist.scss";
 import UserModal from "./Userlistmodal";
@@ -528,7 +528,7 @@ const UsersList = () => {
                               onClick={() => handleRestoreUser(user.id)}
                             />
                           ) : (
-                            <FaTrash
+                            <FaArchive
                               size={16}
                               className="delete-icon"
                               onClick={() => handleArchiveClick(user)}

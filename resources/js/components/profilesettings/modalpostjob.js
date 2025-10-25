@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { message } from "antd";
 import CustomDropdown from '../common/CustomDropdown';
@@ -25,8 +25,17 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   const [userProfile, setUserProfile] = useState(null);
   const [availableSkills, setAvailableSkills] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [isSkillsModalOpen, setIsSkillsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [jobTitleOptions, setJobTitleOptions] = useState([]);
+  const [selectedJobTitle, setSelectedJobTitle] = useState("");
+  const [isSkillsDropdownOpen, setIsSkillsDropdownOpen] = useState(false);
+  const [isSubSkillsDropdownOpen, setIsSubSkillsDropdownOpen] = useState(false);
+  const [isExperienceDropdownOpen, setIsExperienceDropdownOpen] = useState({});
+  const [availableSubSkills, setAvailableSubSkills] = useState([]);
+  const [selectedSubSkills, setSelectedSubSkills] = useState([]);
+  const skillsDropdownRef = useRef(null);
+  const subSkillsDropdownRef = useRef(null);
+  const experienceDropdownRefs = useRef({});
 
   const salaryTypeOptions = [
     { value: "hourly", label: "Hourly" },
@@ -62,6 +71,30 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     fetchSkills();
   }, []);
 
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (skillsDropdownRef.current && !skillsDropdownRef.current.contains(event.target)) {
+        setIsSkillsDropdownOpen(false);
+      }
+      if (subSkillsDropdownRef.current && !subSkillsDropdownRef.current.contains(event.target)) {
+        setIsSubSkillsDropdownOpen(false);
+      }
+      // Close all experience dropdowns
+      Object.keys(experienceDropdownRefs.current).forEach(key => {
+        const ref = experienceDropdownRefs.current[key];
+        if (ref && !ref.contains(event.target)) {
+          setIsExperienceDropdownOpen(prev => ({ ...prev, [key]: false }));
+        }
+      });
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   useEffect(() => {
     if (editingJob) {
       setFormData({
@@ -79,8 +112,31 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
         skills: editingJob.skills || [],
         skillExperiences: editingJob.skill_experiences || {}
       });
+      setSelectedSkills(editingJob.skills || []);
+      
+      // Set selected job title and sub-skills for editing
+      if (editingJob.job_title) {
+        setSelectedJobTitle(editingJob.job_title);
+        // Find the skill that matches the job title and set its sub-skills
+        const matchingSkill = availableSkills.find(skill => skill.name === editingJob.job_title);
+        if (matchingSkill && matchingSkill.sub_skills) {
+          const subSkillsOptions = matchingSkill.sub_skills.map(subSkill => ({
+            value: subSkill,
+            label: subSkill
+          }));
+          setAvailableSubSkills(subSkillsOptions);
+        }
+      }
+      
+      // Set selected sub-skills from the job's skills
+      if (editingJob.skills && editingJob.skills.length > 0) {
+        const subSkillsFromJob = editingJob.skills.map(skill => skill.name);
+        setSelectedSubSkills(subSkillsFromJob);
+        console.log("Loading editing job skills:", editingJob.skills);
+        console.log("Selected sub-skills:", subSkillsFromJob);
+      }
     }
-  }, [editingJob]);
+  }, [editingJob, availableSkills]);
 
   useEffect(() => {
     if (formData.hiringType === "team" && formData.teamSize < 2) {
@@ -99,7 +155,16 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   const fetchSkills = async () => {
     try {
       const res = await axios.get("http://127.0.0.1:8000/api/skills");
-      if (res.data) setAvailableSkills(res.data);
+      if (res.data) {
+        setAvailableSkills(res.data);
+        // Extract unique skill names for job title options
+        const uniqueSkillNames = [...new Set(res.data.map(skill => skill.name))];
+        const jobTitleOptions = uniqueSkillNames.map(skillName => ({
+          value: skillName,
+          label: skillName
+        }));
+        setJobTitleOptions(jobTitleOptions);
+      }
     } catch (error) {
       console.error("Error fetching skills:", error);
       message.error("Failed to load skills");
@@ -117,46 +182,6 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     }
   };
 
-  const openSkillsModal = () => {
-    setSelectedSkills([...formData.skills]);
-    setIsSkillsModalOpen(true);
-  };
-
-  const closeSkillsModal = () => {
-    setIsSkillsModalOpen(false);
-  };
-
-  const handleSkillToggle = (skillId, skillName) => {
-    setSelectedSkills((prev) => {
-      if (prev.some((skill) => skill.id === skillId)) {
-        return prev.filter((skill) => skill.id !== skillId);
-      } else {
-        return [...prev, { id: skillId, name: skillName, experience: "0-11-months" }];
-      }
-    });
-  };
-
-  const handleSkillExperienceChange = (skillId, experience) => {
-    setSelectedSkills((prev) =>
-      prev.map((skill) =>
-        skill.id === skillId ? { ...skill, experience: experience } : skill
-      )
-    );
-  };
-
-  const confirmSkillsSelection = () => {
-    const skillExperiences = {};
-    selectedSkills.forEach((skill) => {
-      skillExperiences[skill.id] = skill.experience;
-    });
-
-    setFormData((prev) => ({
-      ...prev,
-      skills: selectedSkills,
-      skillExperiences,
-    }));
-    setIsSkillsModalOpen(false);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -176,7 +201,23 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
 
     setIsLoading(true);
     try {
-      await onSubmit(formData);
+      // Prepare skills data with sub-skills and experience levels
+      const skillsData = selectedSubSkills.map(subSkill => ({
+        name: subSkill,
+        experience: formData.skillExperiences[subSkill] || "0-11-months"
+      }));
+
+      const jobData = {
+        ...formData,
+        skills: skillsData,
+        skillExperiences: formData.skillExperiences
+      };
+
+      console.log("Submitting job data:", jobData);
+      console.log("Selected sub-skills:", selectedSubSkills);
+      console.log("Skills data:", skillsData);
+
+      await onSubmit(jobData);
     } catch (err) {
       console.error(err);
       message.error("An error occurred while posting the job.");
@@ -186,6 +227,64 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   };
 
   const handleClose = () => onClose();
+
+  const handleJobTitleChange = (value) => {
+    setSelectedJobTitle(value);
+    setFormData((prev) => ({ ...prev, jobTitle: value }));
+    
+    // Filter sub-skills based on selected job title
+    const selectedSkill = availableSkills.find(skill => skill.name === value);
+    if (selectedSkill && selectedSkill.sub_skills) {
+      const subSkillsOptions = selectedSkill.sub_skills.map(subSkill => ({
+        value: subSkill,
+        label: subSkill
+      }));
+      setAvailableSubSkills(subSkillsOptions);
+    } else {
+      setAvailableSubSkills([]);
+    }
+    
+    // Reset selected sub-skills and skills when job title changes
+    setSelectedSubSkills([]);
+    setFormData((prev) => ({ ...prev, skills: [], skillExperiences: {} }));
+  };
+
+  const toggleSubSkillsDropdown = () => {
+    setIsSubSkillsDropdownOpen(!isSubSkillsDropdownOpen);
+  };
+
+  const toggleExperienceDropdown = (subSkill) => {
+    setIsExperienceDropdownOpen(prev => ({
+      ...prev,
+      [subSkill]: !prev[subSkill]
+    }));
+  };
+
+  const handleSubSkillToggle = (subSkill) => {
+    setSelectedSubSkills((prev) => {
+      if (prev.includes(subSkill)) {
+        return prev.filter(skill => skill !== subSkill);
+      } else {
+        return [...prev, subSkill];
+      }
+    });
+  };
+
+  const handleExperienceChange = (subSkill, experience) => {
+    setFormData((prev) => ({
+      ...prev,
+      skillExperiences: {
+        ...prev.skillExperiences,
+        [subSkill]: experience
+      }
+    }));
+    // Close the dropdown after selection
+    setIsExperienceDropdownOpen(prev => ({
+      ...prev,
+      [subSkill]: false
+    }));
+  };
+
 
   const getAvailableServiceTypes = () => {
     if (!availableSkills || availableSkills.length === 0) return [];
@@ -222,13 +321,11 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
               {/* Job Title */}
               <div className="form-group">
                 <label htmlFor="jobTitle">Job Title</label>
-                <input
-                  type="text"
-                  id="jobTitle"
-                  name="jobTitle"
+                <CustomDropdown
+                  options={jobTitleOptions}
                   value={formData.jobTitle}
-                  onChange={handleInputChange}
-                  placeholder="Enter job title"
+                  onChange={handleJobTitleChange}
+                  placeholder="Select job title"
                   className="full-width-input"
                   required
                 />
@@ -379,30 +476,125 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                 </div>
               </div>
 
-              {/* Skills */}
-              <div className="form-group">
-                <label>Desired Skills</label>
-                <div className="skills-selection-container">
-                  <button
-                    type="button"
-                    onClick={openSkillsModal}
-                    className="skills-select-button"
-                  >
-                    {formData.skills.length > 0
-                      ? `${formData.skills.length} skill(s) selected`
-                      : "Select Skills"}
-                  </button>
-                  {formData.skills.length > 0 && (
-                    <div className="selected-skills-preview">
-                      {formData.skills.map((skill, i) => (
-                        <span key={i} className="skill-tag">
-                          {skill.name} ({skill.experience})
-                        </span>
-                      ))}
+              {/* Sub-Skills */}
+              {selectedJobTitle && (
+                <div className="form-group">
+                  <label>Desired Sub-Skills</label>
+                  <div className="ant-select-selection-overflow sub-skills-multi-select">
+                    <div 
+                      className="ant-select-selection-overflow-item"
+                      onClick={toggleSubSkillsDropdown}
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          toggleSubSkillsDropdown();
+                        } else if (e.key === 'Escape') {
+                          setIsSubSkillsDropdownOpen(false);
+                        }
+                      }}
+                    >
+                      <span className="ant-select-selection-item">
+                        {selectedSubSkills.length > 0
+                          ? `${selectedSubSkills.length} sub-skill(s) selected`
+                          : "Select Sub-Skills"}
+                      </span>
+                      <span className={`ant-select-arrow ${isSubSkillsDropdownOpen ? 'open' : ''}`}>
+                        ▼
+                      </span>
                     </div>
-                  )}
+                    {isSubSkillsDropdownOpen && (
+                      <div className="ant-select-dropdown sub-skills-dropdown">
+                        {availableSubSkills.map((subSkill, index) => (
+                          <div key={index} className="ant-select-item">
+                            <label className="sub-skill-option">
+                              <input
+                                type="checkbox"
+                                checked={selectedSubSkills.includes(subSkill.value)}
+                                onChange={() => handleSubSkillToggle(subSkill.value)}
+                              />
+                              <span>{subSkill.label}</span>
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {/* Experience Levels for Selected Sub-Skills */}
+              {selectedSubSkills.length > 0 && (
+                <div className="form-group">
+                  <label>Experience Levels</label>
+                  <div className="experience-levels-container">
+                    {selectedSubSkills.map((subSkill, index) => (
+                      <div key={index} className="experience-level-item">
+                        <div className="sub-skill-name">{subSkill}</div>
+                        <div 
+                          className="ant-select-selection-overflow experience-dropdown" 
+                          ref={(el) => {
+                            if (el) {
+                              experienceDropdownRefs.current[subSkill] = el;
+                            }
+                          }}
+                        >
+                          <div 
+                            className="ant-select-selection-overflow-item"
+                            onClick={() => toggleExperienceDropdown(subSkill)}
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                toggleExperienceDropdown(subSkill);
+                              } else if (e.key === 'Escape') {
+                                setIsExperienceDropdownOpen(prev => ({ ...prev, [subSkill]: false }));
+                              }
+                            }}
+                          >
+                            <span className="ant-select-selection-item">
+                              {formData.skillExperiences[subSkill] || "Select Experience"}
+                            </span>
+                            <span className={`ant-select-arrow ${isExperienceDropdownOpen[subSkill] ? 'open' : ''}`}>
+                              ▼
+                            </span>
+                          </div>
+                          {isExperienceDropdownOpen[subSkill] && (
+                            <div className="ant-select-dropdown">
+                              {experienceOptions.map((option, optIndex) => (
+                                <div 
+                                  key={optIndex} 
+                                  className="ant-select-item"
+                                  onClick={() => handleExperienceChange(subSkill, option.value)}
+                                >
+                                  {option.label}
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Selected Skills Preview */}
+              {selectedSubSkills.length > 0 && (
+                <div className="selected-skills-preview">
+                  <h4>Selected Skills:</h4>
+                  {selectedSubSkills.map((subSkill, index) => (
+                    <div key={index} className="skill-with-experience">
+                      <span className="skill-tag">{subSkill}</span>
+                      {formData.skillExperiences[subSkill] && (
+                        <span className="experience-tag">
+                          {experienceOptions.find(opt => opt.value === formData.skillExperiences[subSkill])?.label}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Contact Info */}
               <div className="contact-info">
@@ -451,72 +643,6 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
         </form>
       </div>
 
-      {/* Skills Modal */}
-      {isSkillsModalOpen && (
-        <div className="adminmodal-overlay">
-          <div className="adminmodal skills-modal">
-            <div className="adminmodal-header">
-              <h2>Select Required Skills</h2>
-              <button type="button" className="close-button" onClick={closeSkillsModal}>
-                ×
-              </button>
-            </div>
-            <div className="adminmodal-content">
-              <div className="skills-grid">
-                {getAvailableServiceTypes().map((group, i) => (
-                  <div key={i} className="skill-category">
-                    <h4>{group.main}</h4>
-                    <div className="skill-options">
-                      {group.subSkills.length > 0
-                        ? group.subSkills.map((sub, j) => {
-                            const skillId = `${group.main} - ${sub}`;
-                            const isSelected = selectedSkills.some(
-                              (s) => s.id === skillId
-                            );
-                            const selectedSkill = selectedSkills.find(
-                              (s) => s.id === skillId
-                            );
-                            return (
-                              <div key={`${i}-${j}`} className="skill-option-with-experience">
-                                <label>
-                                  <input
-                                    type="checkbox"
-                                    checked={isSelected}
-                                    onChange={() => handleSkillToggle(skillId, sub)}
-                                  />
-                                  <span>{sub}</span>
-                                </label>
-                                {isSelected && (
-                                  <div className="experience-selector">
-                                    <CustomDropdown
-                                      options={experienceOptions}
-                                      value={selectedSkill?.experience || "0-11-months"}
-                                      onChange={(val) =>
-                                        handleSkillExperienceChange(skillId, val)
-                                      }
-                                    />
-                                  </div>
-                                )}
-                              </div>
-                            );
-                          })
-                        : null}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="adminmodal-buttons">
-              <button type="button" onClick={closeSkillsModal}>
-                Cancel
-              </button>
-              <button type="button" onClick={confirmSkillsSelection}>
-                Confirm Selection
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -282,6 +282,14 @@ const BookingRequest = () => {
               const isEmployerView = userRole === 2;
               const personData = isEmployerView ? booking.worker : booking.employer;
               const personProfile = personData?.profile;
+              
+              // For debugging - log both worker and employer data
+              console.log('=== BOOKING REQUEST PERSON DATA DEBUG ===');
+              console.log('Is Employer View:', isEmployerView);
+              console.log('Worker Data:', booking.worker);
+              console.log('Employer Data:', booking.employer);
+              console.log('Worker Profile:', booking.worker?.profile);
+              console.log('Employer Profile:', booking.employer?.profile);
 
               return (
                 <div key={booking.id} className="booking-request-card">
@@ -297,12 +305,45 @@ const BookingRequest = () => {
                         style={{ cursor: 'pointer' }}
                       >
                         <img 
-                          src={personProfile?.profile_img 
-                            ? `http://127.0.0.1:8000/storage/${personProfile.profile_img}` 
-                            : '/images/default-avatar.svg'
-                          } 
-                          alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'User'} 
+                          src={(() => {
+                            console.log('=== BOOKING REQUEST AVATAR DEBUG ===');
+                            console.log('personProfile:', personProfile);
+                            console.log('personProfile.profile_img:', personProfile?.profile_img);
+                            console.log('personData:', personData);
+                            console.log('personData.profile_img:', personData?.profile_img);
+                            
+                            // Check if personProfile has profile_img (nested profile data)
+                            if (personProfile?.profile_img && personProfile.profile_img !== null && personProfile.profile_img !== '' && personProfile.profile_img !== 'null') {
+                              console.log('Using personProfile.profile_img:', personProfile.profile_img);
+                              return `http://127.0.0.1:8000/storage/${personProfile.profile_img}`;
+                            }
+                            // Check if personData has profile_img (direct profile data)
+                            if (personData?.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
+                              console.log('Using personData.profile_img:', personData.profile_img);
+                              return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
+                            }
+                            // Check if booking has direct profile_img (for cases where data structure is different)
+                            if (booking.profile_img && booking.profile_img !== null && booking.profile_img !== '' && booking.profile_img !== 'null') {
+                              console.log('Using booking.profile_img:', booking.profile_img);
+                              return `http://127.0.0.1:8000/storage/${booking.profile_img}`;
+                            }
+                            // Additional fallback: check if the person data has a profile_img at the root level
+                            if (personData && typeof personData === 'object' && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
+                              console.log('Using personData root profile_img:', personData.profile_img);
+                              return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
+                            }
+                            // Default fallback
+                            console.log('Using default avatar: defpfp.svg');
+                            return '/images/defpfp.svg';
+                          })()} 
+                          alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 
+                               personData ? `${personData.first_name || ''} ${personData.last_name || ''}`.trim() || 'User' :
+                               'User'} 
                           className="booking-request-worker-avatar" 
+                          onError={(e) => {
+                            console.log('Image failed to load, using fallback');
+                            e.target.src = '/images/defpfp.svg';
+                          }}
                         />
                       </div>
                       <div className="booking-request-worker-details">
@@ -314,7 +355,9 @@ const BookingRequest = () => {
                           }}
                           style={{ cursor: 'pointer' }}
                         >
-                          {personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'Unknown User'}
+                          {personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 
+                           personData ? `${personData.first_name || ''} ${personData.last_name || ''}`.trim() || 'Unknown User' :
+                           'Unknown User'}
                         </h3>
                         <p className="booking-request-worker-profession">
                           {isEmployerView ? (

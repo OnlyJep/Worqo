@@ -612,8 +612,106 @@ const Profile = ({ initialServiceType }) => {
         return date.toISOString().slice(0, 19).replace('T', ' ');
       };
 
+      // Get current user data to set employer_id
+      const userData = JSON.parse(localStorage.getItem("user") || '{}');
+      
+      // Use the actual user IDs from the database
+      // The employer should be the current user's ID (directly from userData.id)
+      const employerUserId = userData.id;
+      
+      console.log('=== LOCALSTORAGE USER DATA ===');
+      console.log('localStorage user key:', localStorage.getItem("user"));
+      console.log('Parsed userData:', userData);
+      console.log('Extracted employerUserId:', employerUserId);
+      console.log('UserData type:', typeof userData);
+      console.log('UserData.id type:', typeof userData.id);
+      console.log('UserData.id value:', userData.id);
+      
+      // Validate that we have a valid user ID from localStorage
+      if (!employerUserId || employerUserId === null || employerUserId === undefined) {
+        console.error('CRITICAL ERROR: No valid user ID found in localStorage!');
+        console.error('localStorage user data:', userData);
+        message.error("Critical error: Unable to identify user from localStorage. Please refresh and log in again.");
+        return;
+      }
+      
+      // The worker ID should be the worker's user ID
+      // Try different possible worker ID fields
+      let workerUserId = worker.id || worker.user_id || worker.user?.id;
+      
+      // If still no worker ID, try to get it from the worker data structure
+      if (!workerUserId && worker.user) {
+        workerUserId = worker.user.id;
+      }
+      
+      // Final fallback: if we still don't have a worker ID, try to fetch it
+      if (!workerUserId && worker.id) {
+        try {
+          console.log('Attempting to fetch worker data for ID:', worker.id);
+          const workerResponse = await axios.get(`http://127.0.0.1:8000/api/workers/${worker.id}`);
+          if (workerResponse.data && workerResponse.data.id) {
+            workerUserId = workerResponse.data.id;
+            console.log('Fetched worker user ID from API:', workerUserId);
+          }
+        } catch (apiError) {
+          console.error('Failed to fetch worker data:', apiError);
+        }
+      }
+      
+      console.log('=== BOOKING CREATION - USING CORRECT USER IDs ===');
+      console.log('Employer User ID (from current user):', employerUserId);
+      console.log('Worker User ID (from worker profile):', workerUserId);
+      
+      console.log('=== BOOKING CREATION DEBUG ===');
+      console.log('User data from localStorage:', userData);
+      console.log('Employer user ID:', employerUserId);
+      console.log('Worker user ID:', workerUserId);
+      console.log('Worker data structure:', JSON.stringify(worker, null, 2));
+      console.log('Worker ID type:', typeof worker.id);
+      console.log('Worker ID value:', worker.id);
+      
+      // CRITICAL: Validate employer_id is not null/undefined
+      if (!employerUserId || employerUserId === null || employerUserId === undefined) {
+        console.error('CRITICAL ERROR: employerUserId is null/undefined!');
+        console.error('userData:', userData);
+        console.error('userData.id:', userData.id);
+        message.error("Critical error: Unable to identify employer. Please refresh and try again.");
+        return;
+      }
+      
+      // CRITICAL: Validate worker_id is not null/undefined  
+      if (!workerUserId || workerUserId === null || workerUserId === undefined) {
+        console.error('CRITICAL ERROR: workerUserId is null/undefined!');
+        console.error('worker:', worker);
+        console.error('worker.id:', worker.id);
+        message.error("Critical error: Unable to identify worker. Please refresh and try again.");
+        return;
+      }
+      
+      // Validate that we have valid IDs
+      if (!employerUserId) {
+        message.error("Unable to identify employer. Please refresh and try again.");
+        return;
+      }
+      
+      if (!workerUserId) {
+        message.error("Unable to identify worker. Please refresh and try again.");
+        return;
+      }
+      
+      console.log('Creating booking with employer_id:', employerUserId, 'worker_id:', workerUserId);
+      
+      // Final validation
+      console.log('Final booking data before submission:');
+      console.log('Employer ID:', employerUserId);
+      console.log('Worker ID:', workerUserId);
+      console.log('Service Type:', bookingDetails.service_type);
+      console.log('Book In:', bookingDetails.book_in);
+      console.log('Book End:', bookingDetails.book_end);
+      
       const bookingData = {
-        worker_id: worker.id,
+        employer_id: employerUserId, // Use user ID directly
+        worker_id: workerUserId, // Use user ID directly
         service_type: bookingDetails.service_type,
         sub_skill: bookingDetails.sub_skill || null,
         work_type: bookingDetails.work_type,
@@ -623,21 +721,53 @@ const Profile = ({ initialServiceType }) => {
         time_in: bookingDetails.time_in || null,
         time_out: bookingDetails.time_out || null,
         daily_rate: parseFloat(bookingDetails.daily_rate),
-        total_salary: parseFloat(bookingDetails.total_salary) || null,
+        total_amount: parseFloat(bookingDetails.total_amount) || null, // Match database field name
+        status: 'pending' // Add status field
       };
 
-      const response = await axios.post('/api/bookings', bookingData, {
+      console.log('=== FINAL BOOKING DATA VALIDATION ===');
+      console.log('bookingData.employer_id:', bookingData.employer_id);
+      console.log('bookingData.worker_id:', bookingData.worker_id);
+      console.log('bookingData.employer_id type:', typeof bookingData.employer_id);
+      console.log('bookingData.worker_id type:', typeof bookingData.worker_id);
+      console.log('bookingData.employer_id is null?', bookingData.employer_id === null);
+      console.log('bookingData.worker_id is null?', bookingData.worker_id === null);
+      console.log('Complete bookingData:', JSON.stringify(bookingData, null, 2));
+
+      // FINAL VALIDATION: Ensure employer_id is not null before sending
+      if (bookingData.employer_id === null || bookingData.employer_id === undefined) {
+        console.error('FINAL VALIDATION FAILED: employer_id is null in bookingData!');
+        message.error("Critical error: Employer ID is missing. Cannot create booking.");
+        return;
+      }
+
+      console.log('Submitting booking with data:', bookingData);
+      console.log('Auth token:', authToken);
+      
+      
+      const response = await axios.post('http://127.0.0.1:8000/api/bookings', bookingData, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          'X-User-ID': employerUserId
         }
       });
+      
+      console.log('Booking submission response:', response.data);
 
       if (response.data.success) {
         message.success("Booking request sent successfully!");
         setIsConfirmationModalOpen(false);
         setIsSuccessModalOpen(true);
+        
+        // Trigger refresh of bookings list
+        localStorage.setItem('booking_refresh_trigger', Date.now().toString());
+        
+        // Also dispatch a custom event for immediate refresh
+        window.dispatchEvent(new CustomEvent('bookingSubmitted'));
+        
+        console.log('Booking submitted successfully, triggering refresh');
       } else {
         message.error(response.data.message || "Failed to send booking request");
       }

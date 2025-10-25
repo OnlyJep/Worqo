@@ -182,6 +182,7 @@ Route::get('/dashboard-stats', [DashboardController::class, 'getDashboardStats']
 Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
 Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
 Route::get('/bookings/worker', [BookingController::class, 'getWorkerBookings'])->name('bookings.worker');
+Route::get('/bookings/worker/requests', [BookingController::class, 'getWorkerBookingRequests'])->name('bookings.worker.requests');
 Route::get('/bookings/employer', [BookingController::class, 'getEmployerBookings'])->name('bookings.employer');
 Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
 Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaPencilAlt, FaArchive, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_colorcodecollars.scss";
 import ColorCodeCollarsModal from "./ColorCodeCollarsModal";
@@ -373,7 +373,7 @@ const Collars = () => {
                               onClick={() => handleRestoreCollar(collar.id)}
                             />
                           ) : (
-                            <FaTrash
+                            <FaArchive
                               size={16}
                               className="delete-icon"
                               onClick={() => handleArchiveClick(collar)}

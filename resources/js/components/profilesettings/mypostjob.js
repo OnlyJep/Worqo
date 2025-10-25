@@ -321,11 +321,14 @@ const MyPostJob = () => {
                 <div className="job-skills">
                   <h4 className="skills-title">Skills Required</h4>
                   {job.skills && job.skills.length > 0 ? (
-                    job.skills.map((skill, index) => (
-                      <span key={index} className="skill-tag">
-                        {skill.name} ({skill.experience})
-                      </span>
-                    ))
+                    job.skills.map((skill, index) => {
+                      console.log("Rendering skill:", skill);
+                      return (
+                        <span key={index} className="skill-tag">
+                          {skill.name} ({skill.experience})
+                        </span>
+                      );
+                    })
                   ) : (
                     <span className="skill-tag">No specific skills required</span>
                   )}

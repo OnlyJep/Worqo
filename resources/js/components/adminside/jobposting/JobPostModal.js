@@ -13,11 +13,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     description: "",
     salary: "",
     job_type: "full-time",
-    street: "",
-    city: "Butuan City",
-    province: "Agusan Del Norte",
-    postal_code: "8600",
-    country: "Philippines",
     application_start: "",
     application_deadline: "",
   });
@@ -125,11 +120,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
         description: initialData.description || "",
         salary: initialData.salary || "",
         job_type: initialData.job_type || "full-time",
-        street: initialData.street || "",
-        city: initialData.city || "Butuan City",
-        province: initialData.province || "Agusan Del Norte",
-        postal_code: initialData.postal_code || "8600",
-        country: initialData.country || "Philippines",
         application_start: initialData.application_start
           ? new Date(initialData.application_start).toISOString().slice(0, 16)
           : "",
@@ -301,18 +291,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     }
     if (!formData.job_type) {
       newErrors.job_type = "Job type is required";
-    }
-    if (!formData.city) {
-      newErrors.city = "City is required";
-    }
-    if (!formData.province) {
-      newErrors.province = "Province is required";
-    }
-    if (!formData.postal_code) {
-      newErrors.postal_code = "Postal code is required";
-    }
-    if (!formData.country) {
-      newErrors.country = "Country is required";
     }
     if (!formData.application_start) {
       newErrors.application_start = "Application start date and time are required";
@@ -587,61 +565,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
               <option value="temporary">Temporary</option>
             </select>
             {errors.job_type && <span className="error">{errors.job_type}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="street">Street</label>
-            <input
-              id="street"
-              type="text"
-              value={formData.street}
-              onChange={(e) => handleInputChange(e, "street")}
-              placeholder="Enter street address"
-            />
-            {errors.street && <span className="error">{errors.street}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="city">City</label>
-            <input
-              id="city"
-              type="text"
-              value={formData.city}
-              onChange={(e) => handleInputChange(e, "city")}
-              placeholder="Enter city"
-            />
-            {errors.city && <span className="error">{errors.city}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="province">Province</label>
-            <input
-              id="province"
-              type="text"
-              value={formData.province}
-              onChange={(e) => handleInputChange(e, "province")}
-              placeholder="Enter province"
-            />
-            {errors.province && <span className="error">{errors.province}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="postal_code">Postal Code</label>
-            <input
-              id="postal_code"
-              type="text"
-              value={formData.postal_code}
-              onChange={(e) => handleInputChange(e, "postal_code")}
-              placeholder="Enter postal code"
-            />
-            {errors.postal_code && <span className="error">{errors.postal_code}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="country">Country</label>
-            <input
-              id="country"
-              type="text"
-              value={formData.country}
-              onChange={(e) => handleInputChange(e, "country")}
-              placeholder="Enter country"
-            />
-            {errors.country && <span className="error">{errors.country}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="application_start">Application Start (Date & Time)</label>

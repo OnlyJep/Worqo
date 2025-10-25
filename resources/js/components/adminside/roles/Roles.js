@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaPencilAlt, FaArchive, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import RolesModal from "./RolesModal";
 import "./../../../../sass/components/_roles.scss";
@@ -311,7 +311,7 @@ const Roles = () => {
                               onClick={() => handleRestoreRole(role.id)}
                             />
                           ) : (
-                            <FaTrash
+                            <FaArchive
                               size={16}
                               className="delete-icon"
                               onClick={() => handleArchiveClick(role)}

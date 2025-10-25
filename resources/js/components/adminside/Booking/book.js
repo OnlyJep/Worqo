@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
-import { FaSquare, FaCheckSquare, FaPencilAlt, FaTrash, FaEye, FaCheckCircle } from "react-icons/fa";
+import { FaSquare, FaCheckSquare, FaPencilAlt, FaArchive, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_book.scss";
 import Loader from "./../../LoaderContent/loader";
@@ -73,6 +73,13 @@ const Book = () => {
         signal,
         timeout: 10000,
       });
+      console.log('Admin bookings API response:', response.data);
+      console.log('Bookings data:', response.data.bookings);
+      if (response.data.bookings && response.data.bookings.length > 0) {
+        console.log('First booking data:', response.data.bookings[0]);
+        console.log('First booking employer:', response.data.bookings[0].employer);
+        console.log('First booking worker:', response.data.bookings[0].worker);
+      }
       setBooks(response.data.bookings || []);
       setPagination({
         currentPage: response.data.pagination?.currentPage || 1,
@@ -368,7 +375,7 @@ const Book = () => {
                     className="header-button delete-all-button"
                     onClick={() => handleBulkAction("delete")}
                   >
-                    <FaTrash size={20} className="button-icon" />
+                    <FaArchive size={20} className="button-icon" />
                     <span className="button-text">Delete All</span>
                   </button>
                 </>
@@ -444,7 +451,7 @@ const Book = () => {
                                 onClick={() => handleRestoreBook(book.id)}
                                 title="Restore"
                               />
-                              <FaTrash
+                              <FaArchive
                                 size={16}
                                 className="delete-icon"
                                 onClick={() => handleDeleteBook(book.id)}
@@ -453,14 +460,14 @@ const Book = () => {
                             </>
                           ) : (
                             <>
-                              <FaTrash
+                              <FaArchive
                                 size={16}
                                 className="archive-icon"
                                 onClick={() => handleArchiveClick(book)}
                                 title="Archive"
                               />
                               {book.archived && (
-                                <FaTrash
+                                <FaArchive
                                   size={16}
                                   className="delete-icon"
                                   onClick={() => handleDeleteBook(book.id)}
@@ -481,12 +488,60 @@ const Book = () => {
                           </svg>
                         </div>
                       </td>
-                      <td data-label="Employer Name">{book.employer_name || "N/A"}</td>
-                      <td data-label="Worker Name">{book.worker_name || "N/A"}</td>
+                      <td data-label="Employer Name">
+                        <div className="employer-info">
+                          <div className="name">
+                            {book.employer?.profile ? 
+                              `${book.employer.profile.first_name || ''} ${book.employer.profile.last_name || ''}`.trim() || "N/A" 
+                              : book.employer_name || "N/A"
+                            }
+                          </div>
+                          {book.employer?.profile && (
+                            <>
+                              <div className="contact">
+                                <small>📞 {book.employer.profile.contact_number || "N/A"}</small>
+                              </div>
+                              <div className="address">
+                                <small>📍 {book.employer.profile.street || ""} {book.employer.profile.city || ""} {book.employer.profile.province || ""} {book.employer.profile.postal_code || ""}</small>
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      </td>
+                      <td data-label="Worker Name">
+                        <div className="worker-info">
+                          <div className="name">
+                            {book.worker?.profile ? 
+                              `${book.worker.profile.first_name || ''} ${book.worker.profile.last_name || ''}`.trim() || "N/A" 
+                              : book.worker_name || "N/A"
+                            }
+                          </div>
+                          {book.worker?.profile && (
+                            <>
+                              <div className="contact">
+                                <small>📞 {book.worker.profile.contact_number || "N/A"}</small>
+                              </div>
+                              <div className="address">
+                                <small>📍 {book.worker.profile.street || ""} {book.worker.profile.city || ""} {book.worker.profile.province || ""} {book.worker.profile.postal_code || ""}</small>
+                              </div>
+                            </>
+                          )}
+                        </div>
+                      </td>
                       <td data-label="Service Type">{book.service_type || "N/A"}</td>
                       <td data-label="Sub Skill">{book.sub_skill || "N/A"}</td>
                       <td data-label="Work Type">{book.work_type || "N/A"}</td>
-                      <td data-label="Address">{book.address || "N/A"}</td>
+                      <td data-label="Address">
+                        <div className="address-info">
+                          {book.employer?.profile ? (
+                            <div>
+                              <small>📍 {book.employer.profile.street || ""} {book.employer.profile.city || ""} {book.employer.profile.province || ""} {book.employer.profile.postal_code || ""}</small>
+                            </div>
+                          ) : (
+                            "N/A"
+                          )}
+                        </div>
+                      </td>
                       <td data-label="Description">{book.description || "N/A"}</td>
                       <td data-label="Book In">{formatDate(book.book_in)}</td>
                       <td data-label="Book End">{formatDate(book.book_end)}</td>

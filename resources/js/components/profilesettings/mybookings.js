@@ -22,6 +22,7 @@ const MyBookings = () => {
   const [selectedWorker, setSelectedWorker] = useState(null);
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [bookings, setBookings] = useState([]);
+  const [bookingRequests, setBookingRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState(null);
 
@@ -80,8 +81,118 @@ const MyBookings = () => {
     // Get user role from localStorage
     const userData = JSON.parse(localStorage.getItem("user") || '{}');
     setUserRole(userData.role_id);
+    
+    // Test admin endpoint first to see if there are any bookings
+    testAdminEndpoint();
     fetchBookings();
+    
+    // If user is a worker, also fetch booking requests
+    if (userData.role_id === 1) {
+      fetchBookingRequests();
+    }
+    
+    // Listen for booking refresh trigger
+    const handleStorageChange = (e) => {
+      if (e.key === 'booking_refresh_trigger') {
+        console.log('Booking refresh trigger detected, refreshing bookings...');
+        fetchBookings();
+      }
+    };
+    
+    // Listen for custom booking submitted event
+    const handleBookingSubmitted = () => {
+      console.log('Booking submitted event detected, refreshing bookings...');
+      console.log('Current bookings before refresh:', bookings);
+      fetchBookings();
+    };
+    
+    // Listen for storage changes and custom events
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('bookingSubmitted', handleBookingSubmitted);
+    
+    // Also check for refresh trigger on component mount
+    const refreshTrigger = localStorage.getItem('booking_refresh_trigger');
+    if (refreshTrigger) {
+      console.log('Found booking refresh trigger on mount, refreshing bookings...');
+      fetchBookings();
+      // Clear the trigger after use
+      localStorage.removeItem('booking_refresh_trigger');
+    }
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('bookingSubmitted', handleBookingSubmitted);
+    };
   }, []);
+
+  const testAdminEndpoint = async () => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) return;
+
+      console.log('=== TESTING ADMIN ENDPOINT ===');
+      const response = await axios.get('http://127.0.0.1:8000/api/bookings', {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+      
+      console.log('Admin endpoint test response:', response.data);
+      console.log('Total bookings in database:', response.data.bookings?.length || 0);
+      
+      if (response.data.bookings && response.data.bookings.length > 0) {
+        console.log('Sample booking:', response.data.bookings[0]);
+        console.log('Sample booking employer_id:', response.data.bookings[0].employer_id);
+        console.log('Sample booking worker_id:', response.data.bookings[0].worker_id);
+      }
+    } catch (error) {
+      console.error('Admin endpoint test error:', error.response?.data || error.message);
+    }
+  };
+
+  const fetchBookingRequests = async () => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) {
+        message.error("Please log in to view booking requests");
+        return;
+      }
+
+      const userData = JSON.parse(localStorage.getItem("user") || '{}');
+      const userId = userData.id;
+
+      if (!userId) {
+        message.error("Unable to fetch booking requests - user data incomplete");
+        return;
+      }
+
+      console.log('=== FETCHING BOOKING REQUESTS ===');
+      console.log('User ID:', userId);
+
+      const response = await axios.get(`http://127.0.0.1:8000/api/bookings/worker/requests?user_id=${userId}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      console.log('=== BOOKING REQUESTS RESPONSE ===');
+      console.log('Response status:', response.status);
+      console.log('Response data:', response.data);
+
+      if (response.data.success) {
+        setBookingRequests(response.data.booking_requests || []);
+        console.log('Booking requests count:', response.data.booking_requests?.length || 0);
+      } else {
+        console.error('Failed to fetch booking requests:', response.data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching booking requests:", error.response?.data || error.message);
+    }
+  };
 
   const fetchBookings = async () => {
     try {
@@ -95,12 +206,94 @@ const MyBookings = () => {
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
       const endpoint = userData.role_id === 1 ? 'worker' : 'employer';
       
-      const response = await axios.get(`http://127.0.0.1:8000/api/bookings/${endpoint}?user_id=${userData.id}`, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-          Accept: "application/json"
+      console.log('Raw localStorage user data:', localStorage.getItem("user"));
+      console.log('Parsed user data:', userData);
+      console.log('User ID from localStorage:', userData.id);
+      console.log('Role ID from localStorage:', userData.role_id);
+      
+      // Get the profile ID from user data
+      // Check if userData has a profile_id field, otherwise use the id
+      const profileId = userData.profile_id || userData.id;
+      
+      // Validate that we have a valid user ID
+      if (!userData.id) {
+        message.error("Unable to fetch bookings - user data incomplete");
+        return;
+      }
+
+      // Make the API call to fetch bookings using the correct user_id
+      // For employers: use user_id from employers table
+      // For workers: use user_id from workers table
+      const userId = userData.id; // This should be the user_id from the database
+      
+      console.log('=== FETCHING BOOKINGS DEBUG ===');
+      console.log('User data:', userData);
+      console.log('User ID:', userId);
+      console.log('Role ID:', userData.role_id);
+      console.log('Endpoint:', endpoint);
+      console.log('API URL:', `http://127.0.0.1:8000/api/bookings/${endpoint}?user_id=${userId}`);
+      
+      // Try the specific endpoint first
+      let response;
+      try {
+        response = await axios.get(`http://127.0.0.1:8000/api/bookings/${endpoint}?user_id=${userId}`, {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        });
+        console.log('Specific endpoint response:', response.data);
+      } catch (endpointError) {
+        console.log('Specific endpoint failed, trying admin endpoint...');
+        console.log('Endpoint error:', endpointError.response?.data || endpointError.message);
+        
+        // Fallback to admin endpoint
+        response = await axios.get('http://127.0.0.1:8000/api/bookings', {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        });
+        
+        console.log('Admin endpoint response:', response.data);
+        
+        // Filter bookings for this user
+        if (response.data.bookings && response.data.bookings.length > 0) {
+          const userBookings = response.data.bookings.filter(booking => 
+            booking.employer_id == userId || booking.worker_id == userId
+          );
+          
+          console.log('Found user bookings in admin endpoint:', userBookings.length);
+          
+          if (userBookings.length > 0) {
+            const sortedBookings = userBookings.sort((a, b) => {
+              const statusOrder = { 'pending': 1, 'accepted': 2, 'completed': 3, 'declined': 4, 'cancelled': 5 };
+              return statusOrder[a.status] - statusOrder[b.status];
+            });
+            setBookings(sortedBookings);
+            setLoading(false);
+            return;
+          }
         }
-      });
+        
+        // If no bookings found, set empty array
+        setBookings([]);
+        setLoading(false);
+        return;
+      }
+      
+      console.log('=== API RESPONSE DEBUG ===');
+      console.log('Response status:', response.status);
+      console.log('Response data:', response.data);
+      console.log('Response success:', response.data.success);
+      console.log('Bookings count:', response.data.bookings?.length || 0);
+      if (response.data.bookings && response.data.bookings.length > 0) {
+        console.log('First booking:', response.data.bookings[0]);
+        console.log('First booking employer_id:', response.data.bookings[0].employer_id);
+        console.log('First booking worker_id:', response.data.bookings[0].worker_id);
+      }
 
       if (response.data.success) {
         // Sort bookings: Pending first, then Accepted, Completed, Declined, Cancelled
@@ -108,10 +301,11 @@ const MyBookings = () => {
           const statusOrder = { 'pending': 1, 'accepted': 2, 'completed': 3, 'declined': 4, 'cancelled': 5 };
           return statusOrder[a.status] - statusOrder[b.status];
         });
-        console.log('Fetched bookings for role_id', userData.role_id, ':', sortedBookings);
+        console.log('Setting bookings:', sortedBookings.length, 'bookings');
         setBookings(sortedBookings);
       } else {
-        message.error("Failed to fetch bookings");
+        console.log('API returned success: false');
+        setBookings([]);
       }
     } catch (error) {
       console.error("Error fetching bookings:", error.response?.data || error.message);
@@ -159,6 +353,10 @@ const MyBookings = () => {
       if (response.data.success) {
         message.success(`Booking ${status} successfully`);
         fetchBookings();
+        // Also refresh booking requests if user is a worker
+        if (userRole === 1) {
+          fetchBookingRequests();
+        }
       } else {
         message.error(response.data.message || `Failed to ${status} booking`);
       }
@@ -168,10 +366,64 @@ const MyBookings = () => {
     }
   };
 
+  const handleAcceptRequest = async (requestId) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${requestId}/status`, {
+        status: 'accepted'
+      }, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (response.data.success) {
+        message.success('Booking request accepted successfully!');
+        fetchBookingRequests(); // Refresh booking requests
+        fetchBookings(); // Also refresh regular bookings
+      } else {
+        message.error(response.data.message || 'Failed to accept booking request');
+      }
+    } catch (error) {
+      console.error("Error accepting booking request:", error.response?.data || error.message);
+      message.error('Failed to accept booking request');
+    }
+  };
+
+  const handleDeclineRequest = async (requestId) => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${requestId}/status`, {
+        status: 'declined'
+      }, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (response.data.success) {
+        message.success('Booking request declined');
+        fetchBookingRequests(); // Refresh booking requests
+        fetchBookings(); // Also refresh regular bookings
+      } else {
+        message.error(response.data.message || 'Failed to decline booking request');
+      }
+    } catch (error) {
+      console.error("Error declining booking request:", error.response?.data || error.message);
+      message.error('Failed to decline booking request');
+    }
+  };
+
   // Filter bookings based on active tab
   const getFilteredBookings = () => {
     if (activeTab === 'all') {
       return bookings;
+    } else if (activeTab === 'requests') {
+      return bookingRequests;
     }
     return bookings.filter(booking => 
       booking.status.toLowerCase() === activeTab
@@ -291,7 +543,8 @@ const MyBookings = () => {
     <div className="my-bookings-container">
       <div className="bookings-header">
         <h2 className="bookings-title">
-          {userRole === 1 ? 'Booking Requests' : 'My Bookings'}
+          {activeTab === 'requests' ? 'Booking Requests' : 
+           userRole === 1 ? 'My Bookings' : 'My Bookings'}
         </h2>
       </div>
 
@@ -319,8 +572,96 @@ const MyBookings = () => {
           <div className="bookings-list">
             {filteredBookings.map((booking) => {
               const isEmployerView = userRole === 2;
+              const isBookingRequest = activeTab === 'requests';
               const personData = isEmployerView ? booking.worker : booking.employer;
               const personProfile = personData?.profile;
+              
+              // For debugging - log both worker and employer data
+              console.log('=== BOOKING PERSON DATA DEBUG ===');
+              console.log('Is Employer View:', isEmployerView);
+              console.log('Worker Data:', booking.worker);
+              console.log('Employer Data:', booking.employer);
+              console.log('Worker Profile:', booking.worker?.profile);
+              console.log('Employer Profile:', booking.employer?.profile);
+              
+              // Debug: Log the booking data structure
+              console.log('=== BOOKING DATA DEBUG ===');
+              console.log('Booking ID:', booking.id);
+              console.log('Complete Booking Object:', booking);
+              console.log('Person Data:', personData);
+              console.log('Person Profile:', personProfile);
+              console.log('Person Profile Image:', personProfile?.profile_img);
+              console.log('Person Data Image:', personData?.profile_img);
+              console.log('Booking Employer:', booking.employer);
+              console.log('Booking Worker:', booking.worker);
+              console.log('Booking Employer Profile:', booking.employer?.profile);
+              console.log('Booking Worker Profile:', booking.worker?.profile);
+              
+              // If no person data, show basic booking info
+              if (!personData) {
+                return (
+                  <div key={booking.id} className="booking-card">
+                    <div className="booking-top-section">
+                      <div className="booking-worker-info">
+                        <div className="booking-worker-profile">
+                          <img 
+                            src="/images/defpfp.svg" 
+                            alt="User" 
+                            className="booking-worker-avatar" 
+                          />
+                        </div>
+                        <div className="booking-worker-details">
+                          <h3 className="booking-worker-name">Booking #{booking.id}</h3>
+                          <p className="booking-worker-profession">{booking.service_type || 'Service'}</p>
+                        </div>
+                      </div>
+                      <div className="booking-status-amount">
+                        <div className="booking-status-badge">
+                          <span className="booking-status-text" style={{ 
+                            backgroundColor: getStatusIcon(booking.status).backgroundColor,
+                            color: getStatusIcon(booking.status).color
+                          }}>
+                            {getStatusIcon(booking.status).icon}
+                            {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="booking-middle-section">
+                      <div className="booking-dates">
+                        <div className="booking-date-item">
+                          <div className="booking-date-label">Start Date</div>
+                          <div className="booking-date-value">{new Date(booking.book_in).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}</div>
+                        </div>
+                        <div className="booking-date-item">
+                          <div className="booking-date-label">End Date</div>
+                          <div className="booking-date-value">{new Date(booking.book_end).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}</div>
+                        </div>
+                      </div>
+                      <div className="booking-description">
+                        <div className="booking-description-label">Description</div>
+                        <div className="booking-description-text">
+                          {booking.description && booking.description.length > 50 
+                            ? `${booking.description.substring(0, 50)}...` 
+                            : booking.description
+                          }
+                        </div>
+                      </div>
+                      <div className="booking-salary">
+                        ₱{booking.total_amount}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
 
               return (
                 <div key={booking.id} className="booking-card">
@@ -336,12 +677,45 @@ const MyBookings = () => {
                         style={{ cursor: 'pointer' }}
                       >
                         <img 
-                          src={personProfile?.profile_img 
-                            ? `http://127.0.0.1:8000/storage/${personProfile.profile_img}` 
-                            : '/images/default-avatar.svg'
-                          } 
-                          alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'User'} 
+                          src={(() => {
+                            console.log('=== AVATAR DEBUG ===');
+                            console.log('personProfile:', personProfile);
+                            console.log('personProfile.profile_img:', personProfile?.profile_img);
+                            console.log('personData:', personData);
+                            console.log('personData.profile_img:', personData?.profile_img);
+                            
+                            // Check if personProfile has profile_img (nested profile data)
+                            if (personProfile?.profile_img && personProfile.profile_img !== null && personProfile.profile_img !== '' && personProfile.profile_img !== 'null') {
+                              console.log('Using personProfile.profile_img:', personProfile.profile_img);
+                              return `http://127.0.0.1:8000/storage/${personProfile.profile_img}`;
+                            }
+                            // Check if personData has profile_img (direct profile data)
+                            if (personData?.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
+                              console.log('Using personData.profile_img:', personData.profile_img);
+                              return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
+                            }
+                            // Check if booking has direct profile_img (for cases where data structure is different)
+                            if (booking.profile_img && booking.profile_img !== null && booking.profile_img !== '' && booking.profile_img !== 'null') {
+                              console.log('Using booking.profile_img:', booking.profile_img);
+                              return `http://127.0.0.1:8000/storage/${booking.profile_img}`;
+                            }
+                            // Additional fallback: check if the person data has a profile_img at the root level
+                            if (personData && typeof personData === 'object' && personData.profile_img && personData.profile_img !== null && personData.profile_img !== '' && personData.profile_img !== 'null') {
+                              console.log('Using personData root profile_img:', personData.profile_img);
+                              return `http://127.0.0.1:8000/storage/${personData.profile_img}`;
+                            }
+                            // Default fallback
+                            console.log('Using default avatar: defpfp.svg');
+                            return '/images/defpfp.svg';
+                          })()} 
+                          alt={personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 
+                               personData ? `${personData.first_name || ''} ${personData.last_name || ''}`.trim() || 'User' :
+                               'User'} 
                           className="booking-worker-avatar" 
+                          onError={(e) => {
+                            console.log('Image failed to load, using fallback');
+                            e.target.src = '/images/defpfp.svg';
+                          }}
                         />
                       </div>
                           <div className="booking-worker-details">
@@ -354,7 +728,9 @@ const MyBookings = () => {
                                 }}
                                 style={{ cursor: 'pointer' }}
                               >
-                                {personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 'Unknown User'}
+                                {personProfile ? `${personProfile.first_name} ${personProfile.last_name}` : 
+                                 personData ? `${personData.first_name || ''} ${personData.last_name || ''}`.trim() || 'Unknown User' :
+                                 'Unknown User'}
                               </h3>
                               {/* Edit button - positioned beside worker name */}
                               {isEmployerView && booking.status === 'pending' && (
@@ -375,7 +751,7 @@ const MyBookings = () => {
                         <p className="booking-worker-profession">
                           {isEmployerView ? (
                             <>
-                              {booking.service_type}
+                              {booking.service_type || 'Service'}
                               {booking.sub_skill && (
                                 <span className="booking-sub-skill"> - {booking.sub_skill}</span>
                               )}
@@ -522,24 +898,49 @@ const MyBookings = () => {
                             >
                               View Transaction
                             </button>
-                            <button 
-                              className="booking-accept-btn"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleStatusUpdate(booking.id, 'accepted');
-                              }}
-                            >
-                              Accept
-                            </button>
-                            <button 
-                              className="booking-decline-btn"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleStatusUpdate(booking.id, 'declined');
-                              }}
-                            >
-                              Decline
-                            </button>
+                            {isBookingRequest ? (
+                              <>
+                                <button 
+                                  className="booking-accept-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleAcceptRequest(booking.id);
+                                  }}
+                                >
+                                  Accept Request
+                                </button>
+                                <button 
+                                  className="booking-decline-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleDeclineRequest(booking.id);
+                                  }}
+                                >
+                                  Decline Request
+                                </button>
+                              </>
+                            ) : (
+                              <>
+                                <button 
+                                  className="booking-accept-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleStatusUpdate(booking.id, 'accepted');
+                                  }}
+                                >
+                                  Accept
+                                </button>
+                                <button 
+                                  className="booking-decline-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleStatusUpdate(booking.id, 'declined');
+                                  }}
+                                >
+                                  Decline
+                                </button>
+                              </>
+                            )}
                           </>
                         )}
                         
@@ -589,7 +990,9 @@ const MyBookings = () => {
             <div className="booking-empty-icon">
               <img src="/images/mybooking.svg" alt="No Bookings" />
             </div>
-            <h3 className="booking-empty-title">No Bookings Yet</h3>
+            <h3 className="booking-empty-title">
+              {activeTab === 'requests' ? 'No Booking Requests' : 'No Bookings Yet'}
+            </h3>
           </div>
         )}
       </div>

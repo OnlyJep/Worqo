@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 9998;
   overflow: auto;
 }
 
@@ -45,6 +45,15 @@
       display: flex;
       flex-direction: column;
       gap: 6px;
+      position: relative;
+      z-index: 1;
+      
+      // Ensure form inputs have lower z-index than dropdowns
+      .booking-form-input,
+      .booking-form-textarea {
+        position: relative;
+        z-index: 1;
+      }
 
       .booking-form-label {
         font-weight: 500;
@@ -88,6 +97,64 @@
         color: #6b7280;
         font-size: 12px;
         font-family: 'Inter', sans-serif;
+      }
+
+      // Custom Dropdown Styles
+      .custom-dropdown {
+        position: relative;
+        z-index: 9999;
+        
+        .dropdown-trigger {
+          position: relative;
+          z-index: 10000 !important;
+          background: #f9fafb;
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          padding: 8px;
+          width: 100%;
+          box-sizing: border-box;
+          font-size: 14px;
+          font-family: 'Inter', sans-serif;
+          cursor: pointer;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          
+          &:focus {
+            border-color: #0a2a40;
+            box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);
+            outline: none;
+          }
+        }
+        
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: #ffffff;
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          z-index: 99999 !important;
+          max-height: 200px;
+          overflow-y: auto;
+          
+          .dropdown-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: #0b0d0f;
+            border-bottom: 1px solid #f3f4f6;
+            
+            &:hover {
+              background: #f8fafc;
+            }
+            
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
       }
 
       .salary-calculation-preview {
