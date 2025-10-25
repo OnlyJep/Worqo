@@ -23,8 +23,7 @@ class JobApplicationController extends Controller
                 },
                 'worker.user' => function ($query) {
                     $query->select('id', 'email');
-                },
-                'company' // Load company relationship for team applications
+                }
             ])
             ->orderBy('created_at', 'desc')
             ->get();
@@ -37,153 +36,68 @@ class JobApplicationController extends Controller
      */
     public function applyForJob(Request $request)
     {
-        // First, get the job post to check hiring_type
-        $jobPost = JobPost::findOrFail($request->job_post_id);
-        
-        // Validate based on hiring_type
-        if ($jobPost->hiring_type === 'team') {
-            // For team hiring, company_id is optional (individual workers can apply for team jobs)
-            $validator = Validator::make($request->all(), [
-                'job_post_id' => 'required|exists:jobposts,id',
-                'company_id' => 'nullable|exists:companies,id',
-                'worker_id' => 'nullable|exists:profiles,id',
-                'cover_letter' => 'required|string',
-                'skills' => 'nullable|array',
-                'skills.*' => 'string',
-                'resume' => 'nullable|file|mimes:pdf,doc,docx|max:10240', // 10MB max
-            ]);
+        // Validate the request
+        $validator = Validator::make($request->all(), [
+            'job_post_id' => 'required|exists:jobposts,id',
+            'worker_id' => 'required|exists:profiles,id',
+            'cover_letter' => 'required|string',
+            'skills' => 'nullable|array',
+            'skills.*' => 'string',
+            'resume' => 'nullable|file|mimes:pdf,doc,docx|max:10240', // 10MB max
+        ]);
 
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()], 422);
-            }
-
-            // Check if company or worker already applied
-            $existingApplication = null;
-            if ($request->company_id) {
-                $existingApplication = JobApplication::where('job_post_id', $request->job_post_id)
-                    ->where('company_id', $request->company_id)
-                    ->first();
-            } elseif ($request->worker_id) {
-                $existingApplication = JobApplication::where('job_post_id', $request->job_post_id)
-                    ->where('worker_id', $request->worker_id)
-                    ->first();
-            }
-
-            if ($existingApplication) {
-                $message = $request->company_id ? 'This company has already applied for this job' : 'You have already applied for this job';
-                return response()->json(['message' => $message], 400);
-            }
-
-            // Handle resume upload
-            $resumePath = null;
-            if ($request->hasFile('resume')) {
-                $resumeDir = storage_path('app/public/resumes');
-                if (!file_exists($resumeDir)) {
-                    mkdir($resumeDir, 0755, true);
-                }
-                $resumePath = $request->file('resume')->store('resumes', 'public');
-            }
-
-            $application = JobApplication::create([
-                'job_post_id' => $request->job_post_id,
-                'company_id' => $request->company_id,
-                'worker_id' => $request->worker_id,
-                'cover_letter' => $request->cover_letter,
-                'skills' => $request->skills,
-                'resume_path' => $resumePath,
-                'status' => 'for_interview',
-            ]);
-
-            // Load appropriate relationship based on application type
-            if ($request->company_id) {
-                $application->load('company');
-            } else {
-                $application->load(['worker' => function ($query) {
-                    $query->select('profiles.id', 'profiles.user_id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'suffixes.suffix_name')
-                          ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
-                }]);
-            }
-
-            // Notify job owner about new application
-            $jobOwnerId = ($jobPost = JobPost::find($request->job_post_id)) ? $jobPost->profile_id : null; // adjust if using users table
-            if ($jobOwnerId) {
-                NotificationController::createNotification(
-                    $jobOwnerId,
-                    null,
-                    'job_application',
-                    'New Job Application',
-                    'A company applied to your job post.',
-                    $application->id,
-                    'job_application'
-                );
-            }
-
-            return response()->json($application, 201);
-        } else {
-            // For individual hiring, require worker_id
-            $validator = Validator::make($request->all(), [
-                'job_post_id' => 'required|exists:jobposts,id',
-                'worker_id' => 'required|exists:profiles,id',
-                'cover_letter' => 'required|string',
-                'skills' => 'nullable|array',
-                'skills.*' => 'string',
-                'resume' => 'nullable|file|mimes:pdf,doc,docx|max:10240', // 10MB max
-            ]);
-
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()], 422);
-            }
-
-            // Check if worker already applied
-            $existingApplication = JobApplication::where('job_post_id', $request->job_post_id)
-                ->where('worker_id', $request->worker_id)
-                ->first();
-
-            if ($existingApplication) {
-                return response()->json(['message' => 'You have already applied for this job'], 400);
-            }
-
-            // Handle resume upload
-            $resumePath = null;
-            if ($request->hasFile('resume')) {
-                $resumeDir = storage_path('app/public/resumes');
-                if (!file_exists($resumeDir)) {
-                    mkdir($resumeDir, 0755, true);
-                }
-                $resumePath = $request->file('resume')->store('resumes', 'public');
-            }
-
-            $application = JobApplication::create([
-                'job_post_id' => $request->job_post_id,
-                'worker_id' => $request->worker_id,
-                'company_id' => null,
-                'cover_letter' => $request->cover_letter,
-                'skills' => $request->skills,
-                'resume_path' => $resumePath,
-                'status' => 'for_interview',
-            ]);
-
-            $application->load(['worker' => function ($query) {
-                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
-                      ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
-            }]);
-
-            // Notify job owner about new application
-            $jobOwnerId = ($jobPost = JobPost::find($request->job_post_id)) ? $jobPost->profile_id : null; // adjust if using users table
-            if ($jobOwnerId) {
-                NotificationController::createNotification(
-                    $jobOwnerId,
-                    $request->worker_id,
-                    'job_application',
-                    'New Job Application',
-                    'Someone applied to your job post.',
-                    $application->id,
-                    'job_application'
-                );
-            }
-
-            return response()->json($application, 201);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
         }
+
+        // Check if worker already applied
+        $existingApplication = JobApplication::where('job_post_id', $request->job_post_id)
+            ->where('worker_id', $request->worker_id)
+            ->first();
+
+        if ($existingApplication) {
+            return response()->json(['message' => 'You have already applied for this job'], 400);
+        }
+
+        // Handle resume upload
+        $resumePath = null;
+        if ($request->hasFile('resume')) {
+            $resumeDir = storage_path('app/public/resumes');
+            if (!file_exists($resumeDir)) {
+                mkdir($resumeDir, 0755, true);
+            }
+            $resumePath = $request->file('resume')->store('resumes', 'public');
+        }
+
+        $application = JobApplication::create([
+            'job_post_id' => $request->job_post_id,
+            'worker_id' => $request->worker_id,
+            'cover_letter' => $request->cover_letter,
+            'skills' => $request->skills,
+            'resume_path' => $resumePath,
+            'status' => 'for_interview',
+        ]);
+
+        $application->load(['worker' => function ($query) {
+            $query->select('profiles.id', 'profiles.user_id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'suffixes.suffix_name')
+                  ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+        }]);
+
+        // Notify job owner about new application
+        $jobPost = JobPost::find($request->job_post_id);
+        if ($jobPost && $jobPost->profile_id) {
+            NotificationController::createNotification(
+                $jobPost->profile_id,
+                $request->worker_id,
+                'job_application',
+                'New Job Application',
+                'Someone applied to your job post.',
+                $application->id,
+                'job_application'
+            );
+        }
+
+        return response()->json($application, 201);
     }
 
     /**
