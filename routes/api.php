@@ -112,6 +112,7 @@ Route::get('/employers/archived', [EmployerController::class, 'archived']);
 Route::get('/employers/{id}', [EmployerController::class, 'show']);
 Route::post('/employers', [EmployerController::class, 'store']);
 Route::put('/employers/{id}', [EmployerController::class, 'update']);
+Route::post('/employers/{id}/update-credentials', [EmployerController::class, 'updateCredentials']);
 Route::patch('/employers/{id}/archive', [EmployerController::class, 'archive']);
 Route::patch('/employers/{id}/restore', [EmployerController::class, 'restore']);
 
@@ -217,4 +218,222 @@ Route::get('/search/suggestions', [SearchController::class, 'getSearchSuggestion
 Route::middleware('auth:api')->group(function () {
     Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('password.change');
     Route::post('/users/{id}/change-password', [PasswordController::class, 'changeUserPassword'])->name('password.change.user');
+});
+
+Route::get('/employers/{id}', [EmployerController::class, 'show']);
+
+Route::post('/employers', [EmployerController::class, 'store']);
+
+Route::put('/employers/{id}', [EmployerController::class, 'update']);
+
+Route::patch('/employers/{id}/archive', [EmployerController::class, 'archive']);
+
+Route::patch('/employers/{id}/restore', [EmployerController::class, 'restore']);
+
+
+
+// WORKER ROUTES
+
+Route::get('/workers', [WorkerController::class, 'index'])->name('workers.index');
+
+Route::get('/workers/admin', [WorkerController::class, 'adminIndex'])->name('workers.admin');
+
+Route::get('/workers/by-skills', [WorkerController::class, 'getWorkersBySkills'])->name('workers.bySkills');
+
+Route::get('/workers/archived', [WorkerController::class, 'archived'])->name('workers.archived');
+
+Route::get('/workers/{id}', [WorkerController::class, 'show'])->name('workers.show');
+
+Route::post('/workers', [WorkerController::class, 'store'])->name('workers.store');
+
+Route::put('/workers/{id}', [WorkerController::class, 'update'])->name('workers.update');
+
+Route::put('/workers/{id}/skills', [WorkerController::class, 'updateSkills'])->name('workers.updateSkills');
+
+Route::put('/workers/{id}/preferences', [WorkerController::class, 'updatePreferences'])->name('workers.updatePreferences');
+
+Route::post('/workers/{id}/update-credentials', [WorkerController::class, 'updateCredentials'])->name('workers.updateCredentials');
+
+Route::patch('/workers/{id}/archive', [WorkerController::class, 'updateArchiveStatus'])->name('workers.archive');
+
+Route::patch('/workers/{id}/review', [WorkerController::class, 'review'])->name('workers.review');
+
+Route::post('/workers/bulk-archive', [WorkerController::class, 'bulkArchive'])->name('workers.bulkArchive');
+
+Route::post('/workers/bulk-review', [WorkerController::class, 'bulkReview'])->name('workers.bulkReview');
+
+Route::post('/workers/bulk-delete-declined', [WorkerController::class, 'bulkDeleteDeclined'])->name('workers.bulkDeleteDeclined');
+
+Route::delete('/workers/{id}', [WorkerController::class, 'destroy'])->name('workers.destroy');
+
+Route::post('/workers/bulk-delete-archived', [WorkerController::class, 'bulkDeleteArchived'])->name('workers.bulkDeleteArchived');
+
+
+
+// FIXED: Only /add-skill (no /skills here – using SkillController)
+
+Route::post('/add-skill', [WorkerController::class, 'addSkill'])->name('skills.add');
+
+Route::delete('/remove-skill', [WorkerController::class, 'removeSkill'])->name('skills.remove');
+
+Route::post('/complete-profile', [WorkerController::class, 'completeProfile'])->name('profile.complete');
+
+
+
+// ADMIN ROUTES
+
+Route::get('/admins', [AdminListController::class, 'index']);
+
+Route::get('/admins/archived', [AdminListController::class, 'archived']);
+
+Route::get('/admins/{id}', [AdminListController::class, 'show']);
+
+Route::post('/admins', [AdminListController::class, 'store']);
+
+Route::put('/admins/{id}', [AdminListController::class, 'update']);
+
+Route::patch('/admins/{id}/archive', [AdminListController::class, 'archive']);
+
+Route::post('/admins/bulk-archive', [AdminListController::class, 'bulkArchive']);
+
+
+
+// COMPANY ROUTES
+
+Route::get('/companies', [CompanyController::class, 'index'])->name('companies.index');
+
+Route::get('/companies/archived', [CompanyController::class, 'archived'])->name('companies.archived');
+
+Route::get('/companies/{id}', [CompanyController::class, 'show'])->name('companies.show');
+
+Route::post('/companies', [CompanyController::class, 'store'])->name('companies.store');
+
+Route::put('/companies/{id}', [CompanyController::class, 'update'])->name('companies.update');
+
+Route::patch('/companies/{id}/archive', [CompanyController::class, 'archive'])->name('companies.archive');
+
+Route::post('/companies/bulk-archive', [CompanyController::class, 'bulkArchive'])->name('companies.bulk-archive');
+
+
+
+// JOB POST ROUTES
+
+Route::get('/jobposts', [JobPostController::class, 'index'])->name('jobposts.index');
+
+Route::get('/jobposts/{jobPost}', [JobPostController::class, 'show'])->name('jobposts.show');
+
+Route::post('/jobposts', [JobPostController::class, 'store'])->name('jobposts.store');
+
+Route::put('/jobposts/{jobPost}', [JobPostController::class, 'update'])->name('jobposts.update');
+
+Route::patch('/jobposts/{jobPost}/archive', [JobPostController::class, 'archive'])->name('jobposts.archive');
+
+Route::delete('/jobposts/{jobPost}', [JobPostController::class, 'destroy'])->name('jobposts.destroy');
+
+Route::post('/jobposts/bulk-archive', [JobPostController::class, 'bulkArchive'])->name('jobposts.bulkArchive');
+
+Route::post('/jobposts/check-expired', [JobPostController::class, 'checkExpiredJobs'])->name('jobposts.checkExpired');
+
+
+
+// JOB APPLICATION ROUTES
+
+Route::get('/job-applications/job/{jobPostId}', [JobApplicationController::class, 'getJobApplications'])->name('job-applications.job');
+
+Route::post('/job-applications/apply', [JobApplicationController::class, 'applyForJob'])->name('job-applications.apply');
+
+Route::post('/job-applications/{applicationId}/update', [JobApplicationController::class, 'updateApplication'])->name('job-applications.update');
+
+Route::patch('/job-applications/{applicationId}/status', [JobApplicationController::class, 'updateApplicationStatus'])->name('job-applications.status');
+
+Route::get('/job-applications/worker/{workerId}', [JobApplicationController::class, 'getWorkerApplications'])->name('job-applications.worker');
+
+Route::post('/job-applications/check-availability', [JobApplicationController::class, 'checkWorkerAvailability'])->name('job-applications.check-availability');
+
+
+
+// DASHBOARD STATS ROUTE    
+
+Route::get('/dashboard-stats', [DashboardController::class, 'getDashboardStats'])->name('dashboard.stats');
+
+
+
+// BOOKING ROUTES
+
+Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+
+Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+
+Route::get('/bookings/worker', [BookingController::class, 'getWorkerBookings'])->name('bookings.worker');
+
+Route::get('/bookings/worker/requests', [BookingController::class, 'getWorkerBookingRequests'])->name('bookings.worker.requests');
+
+Route::get('/bookings/employer', [BookingController::class, 'getEmployerBookings'])->name('bookings.employer');
+
+Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
+
+Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
+
+Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
+
+Route::put('/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
+
+Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->name('bookings.addReview');
+
+Route::patch('/bookings/{id}/archive', [BookingController::class, 'archive'])->name('bookings.archive');
+
+Route::post('/bookings/bulk-archive', [BookingController::class, 'bulkArchive'])->name('bookings.bulkArchive');
+
+Route::post('/bookings/bulk-delete', [BookingController::class, 'bulkDelete'])->name('bookings.bulkDelete');
+
+Route::get('/bookings/users-with-profiles', [BookingController::class, 'getAllUsersWithProfiles'])->name('bookings.usersWithProfiles');
+
+
+
+// NOTIFICATION ROUTES (no auth middleware)
+
+Route::get('/notifications', [NotificationController::class, 'index']);
+
+Route::get('/notifications/unread-count', [NotificationController::class, 'unreadCount']);
+
+Route::put('/notifications/{id}/read', [NotificationController::class, 'markAsRead']);
+
+Route::put('/notifications/{id}/unread', [NotificationController::class, 'markAsUnread']);
+
+Route::put('/notifications/mark-all-read', [NotificationController::class, 'markAllAsRead']);
+
+
+
+// MESSAGES ROUTES (no auth middleware)
+
+Route::get('/messages/conversations', [MessageController::class, 'conversations']);
+
+Route::get('/messages/thread/{otherUserId}', [MessageController::class, 'thread']);
+
+Route::post('/messages/send', [MessageController::class, 'send']);
+
+// (Removed duplicate auth:api notifications block to avoid 401)
+
+
+
+// SEARCH ROUTES
+
+Route::get('/search/jobs', [SearchController::class, 'searchJobs'])->name('search.jobs');
+
+Route::get('/search/workers', [SearchController::class, 'searchWorkers'])->name('search.workers');
+
+Route::get('/search/skills/popular', [SearchController::class, 'getPopularSkills'])->name('search.skills.popular');
+
+Route::get('/search/suggestions', [SearchController::class, 'getSearchSuggestions'])->name('search.suggestions');
+
+
+
+// PASSWORD ROUTES
+
+Route::middleware('auth:api')->group(function () {
+
+    Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('password.change');
+
+    Route::post('/users/{id}/change-password', [PasswordController::class, 'changeUserPassword'])->name('password.change.user');
+
 });

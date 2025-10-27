@@ -35,6 +35,9 @@ class EmployerController extends Controller
                             'province' => $user->profile->province ?? 'N/A',
                             'postal_code' => $user->profile->postal_code ?? 'N/A',
                             'country' => $user->profile->country ?? 'N/A',
+                            'credentials_name' => [],
+                            'credentials_photo' => [],
+                            'credentials_doc' => [],
                         ]
                     );
                 }
@@ -74,6 +77,9 @@ class EmployerController extends Controller
                             'province' => $user->profile->province ?? 'N/A',
                             'postal_code' => $user->profile->postal_code ?? 'N/A',
                             'country' => $user->profile->country ?? 'N/A',
+                            'credentials_name' => [],
+                            'credentials_photo' => [],
+                            'credentials_doc' => [],
                         ]
                     );
                 }
@@ -109,12 +115,15 @@ class EmployerController extends Controller
                         'province' => $employer->profile->province ?? 'N/A',
                         'postal_code' => $employer->profile->postal_code ?? 'N/A',
                         'country' => $employer->profile->country ?? 'N/A',
+                        'credentials_name' => [],
+                        'credentials_photo' => [],
+                        'credentials_doc' => [],
                     ]
                 );
                 $employer = User::with(['profile', 'employer'])->findOrFail($id);
             }
 
-            return response()->json($employer);
+            return response()->json(['employer' => $employer]);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Employer not found: ' . $e->getMessage()], 404);
         }
@@ -177,6 +186,9 @@ class EmployerController extends Controller
                 'province'        => $request->province ?? 'Agusan Del Norte',
                 'postal_code'     => $request->postal_code ?? '8600',
                 'country'         => $request->country ?? 'Philippines',
+                'credentials_name' => [],
+                'credentials_photo' => [],
+                'credentials_doc' => [],
             ]);
 
             return response()->json([
@@ -254,6 +266,95 @@ class EmployerController extends Controller
             ]);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Failed to update employer: ' . $e->getMessage()], 500);
+        }
+    }
+
+    // Update employer credentials
+    public function updateCredentials(Request $request, $id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            
+            // Ensure user is an employer
+            if ($user->role_id !== 2) {
+                return response()->json(['error' => 'User is not an employer'], 403);
+            }
+
+            // Get or create employer record
+            $employer = Employer::where('user_id', $user->id)->first();
+            
+            if (!$employer) {
+                // Create employer record if it doesn't exist
+                $profile = $user->profile;
+                if (!$profile) {
+                    return response()->json(['error' => 'User profile not found'], 404);
+                }
+                
+                $employer = Employer::create([
+                    'profile_id' => $profile->id,
+                    'user_id' => $user->id,
+                    'full_name' => ($profile->first_name ?? '') . ' ' . ($profile->last_name ?? ''),
+                    'gender_id' => $profile->gender_id ?? 1,
+                    'suffix_id' => $profile->suffix_id,
+                    'street' => $profile->street ?? 'N/A',
+                    'city' => $profile->city ?? 'Butuan City',
+                    'province' => $profile->province ?? 'Agusan Del Norte',
+                    'postal_code' => $profile->postal_code ?? '8600',
+                    'country' => $profile->country ?? 'Philippines',
+                    'credentials_name' => [],
+                    'credentials_photo' => [],
+                    'credentials_doc' => [],
+                ]);
+            }
+
+            // Process credentials
+            $credentialsNames = [];
+            $credentialsPhotos = [];
+            $credentialsDocs = [];
+
+            if ($request->has('credentials')) {
+                $credentials = $request->input('credentials');
+                
+                if (is_string($credentials)) {
+                    $credentials = json_decode($credentials, true);
+                }
+                
+                if (is_array($credentials)) {
+                    foreach ($credentials as $credential) {
+                        if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
+                            $credentialsNames[] = $credential['credentials_name'];
+                            
+                            // Handle file upload
+                            if (isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
+                                $file = $credential['credentials_photo'];
+                                $filename = time() . '_' . $file->getClientOriginalName();
+                                $path = $file->storeAs('employer_credentials', $filename, 'public');
+                                $credentialsPhotos[] = $path;
+                            } elseif (isset($credential['existing_photo']) && !empty($credential['existing_photo'])) {
+                                $credentialsPhotos[] = $credential['existing_photo'];
+                            } else {
+                                $credentialsPhotos[] = null;
+                            }
+                            
+                            $credentialsDocs[] = $credentialsPhotos[count($credentialsPhotos) - 1]; // Same as photo for now
+                        }
+                    }
+                }
+            }
+
+            // Update employer credentials
+            $employer->update([
+                'credentials_name' => $credentialsNames,
+                'credentials_photo' => $credentialsPhotos,
+                'credentials_doc' => $credentialsDocs,
+            ]);
+
+            return response()->json([
+                'message' => 'Employer credentials updated successfully',
+                'employer' => $employer->fresh()
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to update employer credentials: ' . $e->getMessage()], 500);
         }
     }
 

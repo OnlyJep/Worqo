@@ -72718,7 +72718,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  padding: 0 0 8px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .credentials-requirement-message {\n  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);\n  border: 1px solid #f59e0b;\n  border-radius: 12px;\n  padding: 24px;\n  margin-bottom: 20px;\n  display: flex;\n  align-items: center;\n  gap: 20px;\n  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);\n}\n.my-post-job-container .credentials-requirement-message .requirement-icon {\n  color: #f59e0b;\n  flex-shrink: 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content {\n  flex: 1;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #92400e;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n  font-size: 14px;\n  color: #92400e;\n  margin: 0 0 16px 0;\n  line-height: 1.5;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn {\n  background: #f59e0b;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:hover {\n  background: #d97706;\n  transform: translateY(-1px);\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  padding: 0 0 8px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72742,7 +72742,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.my-profile-container {\n  display: flex;\n  flex-direction: column;\n  gap: 30px;\n}\n.my-profile-container .profile-card,\n.my-profile-container .password-card,\n.my-profile-container .work-preferences-card,\n.my-profile-container .worker-skills-card,\n.my-profile-container .worker-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n  transition: box-shadow 0.3s ease;\n}\n.my-profile-container .profile-card:hover,\n.my-profile-container .password-card:hover,\n.my-profile-container .work-preferences-card:hover,\n.my-profile-container .worker-skills-card:hover,\n.my-profile-container .worker-credentials-card:hover {\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .profile-header {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 30px;\n}\n.my-profile-container .profile-header .avatar-container {\n  position: relative;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-profile-container .profile-header .avatar-container .camera-icon {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n  width: 36px;\n  height: 36px;\n  background: #001E40;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 3px solid white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon:hover {\n  background: #002a5c;\n  transform: scale(1.1);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon svg {\n  width: 18px;\n  height: 18px;\n  fill: white;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  margin-top: 10px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  padding: 8px 0;\n  min-width: 180px;\n  z-index: 1000;\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown.show {\n  opacity: 1;\n  visibility: visible;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: none;\n  border: none;\n  width: 100%;\n  text-align: left;\n  font-size: 14px;\n  color: #374151;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item svg {\n  width: 18px;\n  height: 18px;\n  fill: #6b7280;\n  transition: fill 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover {\n  background: #f3f4f6;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover svg {\n  fill: #001E40;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item {\n  color: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item svg {\n  fill: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item:hover {\n  background: #fee2e2;\n}\n.my-profile-container .profile-header .rank-display-section {\n  margin-top: 20px;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 400px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.my-profile-container .card-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 25px;\n}\n.my-profile-container .profile-form .form-row,\n.my-profile-container .password-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-row,\n  .my-profile-container .password-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 15px;\n  }\n}\n.my-profile-container .profile-form .form-group,\n.my-profile-container .password-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .profile-form .form-group label,\n.my-profile-container .password-form .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n}\n.my-profile-container .profile-form .form-group label.label-up,\n.my-profile-container .password-form .form-group label.label-up {\n  margin-bottom: 1px;\n}\n.my-profile-container .profile-form .form-group input,\n.my-profile-container .profile-form .form-group select,\n.my-profile-container .password-form .form-group input,\n.my-profile-container .password-form .form-group select {\n  height: 45px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-form .form-group input:focus,\n.my-profile-container .profile-form .form-group select:focus,\n.my-profile-container .password-form .form-group input:focus,\n.my-profile-container .password-form .form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .profile-form .form-group input:disabled,\n.my-profile-container .profile-form .form-group select:disabled,\n.my-profile-container .password-form .form-group input:disabled,\n.my-profile-container .password-form .form-group select:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .profile-form .form-group input.editing,\n.my-profile-container .profile-form .form-group select.editing,\n.my-profile-container .password-form .form-group input.editing,\n.my-profile-container .password-form .form-group select.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .profile-form .form-group input::-moz-placeholder, .my-profile-container .profile-form .form-group select::-moz-placeholder, .my-profile-container .password-form .form-group input::-moz-placeholder, .my-profile-container .password-form .form-group select::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group input::placeholder,\n.my-profile-container .profile-form .form-group select::placeholder,\n.my-profile-container .password-form .form-group input::placeholder,\n.my-profile-container .password-form .form-group select::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group .date-input-container,\n.my-profile-container .password-form .form-group .date-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator {\n  display: none;\n  -webkit-appearance: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator {\n  display: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container .calendar-icon,\n.my-profile-container .password-form .form-group .date-input-container .calendar-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  pointer-events: none;\n}\n.my-profile-container .profile-form .form-group.date-field .date-input-container input,\n.my-profile-container .password-form .form-group.date-field .date-input-container input {\n  width: 850px;\n}\n.my-profile-container .profile-form .form-group .password-input-container,\n.my-profile-container .password-form .form-group .password-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: color 0.3s ease;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn:hover,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn:hover {\n  color: #374151;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn i,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn i {\n  font-size: 16px;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle {\n  width: 100% !important;\n  height: 45px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:focus,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:hover:not(:disabled),\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:disabled,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle.editing,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle.editing {\n  background-color: white !important;\n  border: 2px solid #e5e7eb !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu,\n.my-profile-container .password-form .form-group .gender-dropdown-menu {\n  width: 100% !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:hover,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active::before,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:first-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 8px !important;\n  border-top-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:last-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 8px !important;\n  border-bottom-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-actions,\n.my-profile-container .password-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-actions,\n  .my-profile-container .password-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .profile-form .form-actions .save-btn .btn-icon,\n.my-profile-container .password-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .password-form .form-actions .save-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .password-card .edit-btn,\n.my-profile-container .password-form .form-actions .password-card .edit-btn {\n  width: 170px;\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .edit-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .profile-form .form-actions .edit-btn:hover,\n.my-profile-container .password-form .form-actions .edit-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .profile-form .form-actions .save-btn:hover,\n.my-profile-container .password-form .form-actions .save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .profile-form .form-actions .save-btn:active,\n.my-profile-container .password-form .form-actions .save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .password-card .password-form .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .work-preferences-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .work-preferences-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn {\n  width: 175px;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn:hover,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-top: 8px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  background-color: #f9fafb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox] {\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n  accent-color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:disabled {\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox .day-label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox:hover:not(.disabled) {\n  border-color: #001E40;\n  background-color: #f0f4f8;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked + .day-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked ~ * {\n  color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .character-count {\n  display: block;\n  text-align: right;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-help {\n  display: block;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n  font-style: italic;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  resize: vertical;\n  font-family: inherit;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .worker-skills-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-skills-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn:hover,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-skills-card .skills-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section {\n  margin-bottom: 30px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .section-subtitle {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[role=combobox], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[aria-expanded=true], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  position: relative;\n  z-index: 10;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input option {\n  position: relative;\n  z-index: 1000;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing {\n  margin-top: 20px;\n  padding: 15px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .skill-editing-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #001E40;\n  margin: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 28px;\n  height: 28px;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input {\n  width: 100%;\n  height: 36px;\n  padding: 8px 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 13px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));\n  gap: 8px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item {\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  padding: 8px 10px 8px 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  background: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:hover {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item input[type=checkbox] {\n  width: 14px;\n  height: 14px;\n  cursor: pointer;\n  accent-color: #001E40;\n  margin: 0;\n  flex-shrink: 0;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item .sub-skill-checkbox-label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  text-align: left;\n  flex: 1;\n  margin-left: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) .sub-skill-checkbox-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 4px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill {\n  background: none;\n  border: none;\n  color: #dc2626;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  padding: 0;\n  margin-left: 4px;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill:hover {\n  color: #b91c1c;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list {\n  display: flex;\n  flex-direction: column;\n  gap: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item {\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.primary-skill {\n  border-left: 4px solid #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.additional-skill {\n  border-left: 4px solid #3b82f6;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header .skill-name {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills {\n  flex: 1;\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-label {\n  display: inline-block;\n  font-size: 13px;\n  font-weight: 500;\n  color: #6b7280;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags .sub-skill-tag {\n  padding: 4px 10px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  font-size: 13px;\n  flex-shrink: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-label {\n  font-weight: 500;\n  color: #6b7280;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-value {\n  padding: 2px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  color: #374151;\n  font-weight: 500;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .my-profile-container .worker-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input[type=file] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialName,\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialFile {\n  width: 400px !important;\n  height: 40px !important;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: 8px;\n  padding: 8px 12px;\n  background: #f0f9ff;\n  border: 1px solid #0ea5e9;\n  border-radius: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  display: block;\n  font-size: 12px;\n  color: #0369a1;\n  font-weight: 500;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.my-profile-container .worker-credentials-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-credentials-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn:hover,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n  opacity: 0.8;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  opacity: 1;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  flex-shrink: 0;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #001E40;\n  border-radius: 8px;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon svg {\n  width: 24px;\n  height: 24px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 13px;\n  color: #3b82f6;\n  text-decoration: none;\n  font-weight: 500;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  color: #2563eb;\n  text-decoration: underline;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-weight: 400;\n  font-style: italic;\n  word-break: break-all;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #9ca3af;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n\n.image-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.7);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.image-modal-overlay .image-modal {\n  background: white;\n  border-radius: 12px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n}\n.image-modal-overlay .image-modal .image-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.image-modal-overlay .image-modal .image-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 6px;\n  transition: background 0.2s ease;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn svg {\n  fill: #6b7280;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover {\n  background: #f3f4f6;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover svg {\n  fill: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-content {\n  padding: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: auto;\n}\n.image-modal-overlay .image-modal .image-modal-content img {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n}\n\nselect:focus, select:active, select[aria-expanded=true] {\n  border-bottom-left-radius: 0 !important;\n  border-bottom-right-radius: 0 !important;\n}\nselect option {\n  position: relative;\n  z-index: 1000;\n}\n\n@media (max-width: 768px) {\n  .my-profile-container {\n    gap: 20px;\n  }\n  .my-profile-container .profile-card,\n  .my-profile-container .password-card {\n    padding: 20px;\n  }\n  .my-profile-container .profile-header {\n    margin-bottom: 20px;\n  }\n  .my-profile-container .profile-header .avatar-container .avatar-placeholder {\n    width: 80px;\n    height: 80px;\n    font-size: 32px;\n  }\n  .my-profile-container .card-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.my-profile-container {\n  display: flex;\n  flex-direction: column;\n  gap: 30px;\n}\n.my-profile-container .profile-card,\n.my-profile-container .password-card,\n.my-profile-container .work-preferences-card,\n.my-profile-container .worker-skills-card,\n.my-profile-container .worker-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n  transition: box-shadow 0.3s ease;\n}\n.my-profile-container .profile-card:hover,\n.my-profile-container .password-card:hover,\n.my-profile-container .work-preferences-card:hover,\n.my-profile-container .worker-skills-card:hover,\n.my-profile-container .worker-credentials-card:hover {\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .profile-header {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 30px;\n}\n.my-profile-container .profile-header .avatar-container {\n  position: relative;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-profile-container .profile-header .avatar-container .camera-icon {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n  width: 36px;\n  height: 36px;\n  background: #001E40;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 3px solid white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon:hover {\n  background: #002a5c;\n  transform: scale(1.1);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon svg {\n  width: 18px;\n  height: 18px;\n  fill: white;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  margin-top: 10px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  padding: 8px 0;\n  min-width: 180px;\n  z-index: 1000;\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown.show {\n  opacity: 1;\n  visibility: visible;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: none;\n  border: none;\n  width: 100%;\n  text-align: left;\n  font-size: 14px;\n  color: #374151;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item svg {\n  width: 18px;\n  height: 18px;\n  fill: #6b7280;\n  transition: fill 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover {\n  background: #f3f4f6;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover svg {\n  fill: #001E40;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item {\n  color: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item svg {\n  fill: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item:hover {\n  background: #fee2e2;\n}\n.my-profile-container .profile-header .rank-display-section {\n  margin-top: 20px;\n  padding: 12px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 400px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.my-profile-container .card-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 25px;\n}\n.my-profile-container .profile-form .form-row,\n.my-profile-container .password-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-row,\n  .my-profile-container .password-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 15px;\n  }\n}\n.my-profile-container .profile-form .form-group,\n.my-profile-container .password-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .profile-form .form-group label,\n.my-profile-container .password-form .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n}\n.my-profile-container .profile-form .form-group label.label-up,\n.my-profile-container .password-form .form-group label.label-up {\n  margin-bottom: 1px;\n}\n.my-profile-container .profile-form .form-group input,\n.my-profile-container .profile-form .form-group select,\n.my-profile-container .password-form .form-group input,\n.my-profile-container .password-form .form-group select {\n  height: 45px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-form .form-group input:focus,\n.my-profile-container .profile-form .form-group select:focus,\n.my-profile-container .password-form .form-group input:focus,\n.my-profile-container .password-form .form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .profile-form .form-group input:disabled,\n.my-profile-container .profile-form .form-group select:disabled,\n.my-profile-container .password-form .form-group input:disabled,\n.my-profile-container .password-form .form-group select:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .profile-form .form-group input.editing,\n.my-profile-container .profile-form .form-group select.editing,\n.my-profile-container .password-form .form-group input.editing,\n.my-profile-container .password-form .form-group select.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .profile-form .form-group input::-moz-placeholder, .my-profile-container .profile-form .form-group select::-moz-placeholder, .my-profile-container .password-form .form-group input::-moz-placeholder, .my-profile-container .password-form .form-group select::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group input::placeholder,\n.my-profile-container .profile-form .form-group select::placeholder,\n.my-profile-container .password-form .form-group input::placeholder,\n.my-profile-container .password-form .form-group select::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group .date-input-container,\n.my-profile-container .password-form .form-group .date-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator {\n  display: none;\n  -webkit-appearance: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator {\n  display: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container .calendar-icon,\n.my-profile-container .password-form .form-group .date-input-container .calendar-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  pointer-events: none;\n}\n.my-profile-container .profile-form .form-group.date-field .date-input-container input,\n.my-profile-container .password-form .form-group.date-field .date-input-container input {\n  width: 850px;\n}\n.my-profile-container .profile-form .form-group .password-input-container,\n.my-profile-container .password-form .form-group .password-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: color 0.3s ease;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn:hover,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn:hover {\n  color: #374151;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn i,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn i {\n  font-size: 16px;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle {\n  width: 100% !important;\n  height: 45px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:focus,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:hover:not(:disabled),\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:disabled,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle.editing,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle.editing {\n  background-color: white !important;\n  border: 2px solid #e5e7eb !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu,\n.my-profile-container .password-form .form-group .gender-dropdown-menu {\n  width: 100% !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:hover,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active::before,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:first-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 8px !important;\n  border-top-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:last-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 8px !important;\n  border-bottom-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-actions,\n.my-profile-container .password-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-actions,\n  .my-profile-container .password-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .profile-form .form-actions .save-btn .btn-icon,\n.my-profile-container .password-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .password-form .form-actions .save-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .password-card .edit-btn,\n.my-profile-container .password-form .form-actions .password-card .edit-btn {\n  width: 170px;\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .edit-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .profile-form .form-actions .edit-btn:hover,\n.my-profile-container .password-form .form-actions .edit-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .profile-form .form-actions .save-btn:hover,\n.my-profile-container .password-form .form-actions .save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .profile-form .form-actions .save-btn:active,\n.my-profile-container .password-form .form-actions .save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .password-card .password-form .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .work-preferences-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .work-preferences-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn {\n  width: 175px;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn:hover,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-top: 8px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  background-color: #f9fafb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox] {\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n  accent-color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:disabled {\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox .day-label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox:hover:not(.disabled) {\n  border-color: #001E40;\n  background-color: #f0f4f8;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked + .day-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked ~ * {\n  color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .character-count {\n  display: block;\n  text-align: right;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-help {\n  display: block;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n  font-style: italic;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  resize: vertical;\n  font-family: inherit;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .worker-skills-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-skills-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn:hover,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-skills-card .skills-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section {\n  margin-bottom: 30px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .section-subtitle {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[role=combobox], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[aria-expanded=true], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  position: relative;\n  z-index: 10;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input option {\n  position: relative;\n  z-index: 1000;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing {\n  margin-top: 20px;\n  padding: 15px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .skill-editing-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #001E40;\n  margin: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 28px;\n  height: 28px;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input {\n  width: 100%;\n  height: 36px;\n  padding: 8px 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 13px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));\n  gap: 8px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item {\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  padding: 8px 10px 8px 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  background: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:hover {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item input[type=checkbox] {\n  width: 14px;\n  height: 14px;\n  cursor: pointer;\n  accent-color: #001E40;\n  margin: 0;\n  flex-shrink: 0;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item .sub-skill-checkbox-label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  text-align: left;\n  flex: 1;\n  margin-left: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) .sub-skill-checkbox-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 4px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill {\n  background: none;\n  border: none;\n  color: #dc2626;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  padding: 0;\n  margin-left: 4px;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill:hover {\n  color: #b91c1c;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list {\n  display: flex;\n  flex-direction: column;\n  gap: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item {\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.primary-skill {\n  border-left: 4px solid #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.additional-skill {\n  border-left: 4px solid #3b82f6;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header .skill-name {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills {\n  flex: 1;\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-label {\n  display: inline-block;\n  font-size: 13px;\n  font-weight: 500;\n  color: #6b7280;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags .sub-skill-tag {\n  padding: 4px 10px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  font-size: 13px;\n  flex-shrink: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-label {\n  font-weight: 500;\n  color: #6b7280;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-value {\n  padding: 2px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  color: #374151;\n  font-weight: 500;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .my-profile-container .worker-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input[type=file] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialName,\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialFile {\n  width: 400px !important;\n  height: 40px !important;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: 8px;\n  padding: 8px 12px;\n  background: #f0f9ff;\n  border: 1px solid #0ea5e9;\n  border-radius: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  display: block;\n  font-size: 12px;\n  color: #0369a1;\n  font-weight: 500;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.my-profile-container .worker-credentials-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-credentials-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn:hover,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n  opacity: 0.8;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  opacity: 1;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  flex-shrink: 0;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #001E40;\n  border-radius: 8px;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon svg {\n  width: 24px;\n  height: 24px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 13px;\n  color: #3b82f6;\n  text-decoration: none;\n  font-weight: 500;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  color: #2563eb;\n  text-decoration: underline;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-weight: 400;\n  font-style: italic;\n  word-break: break-all;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #9ca3af;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n\n.image-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.7);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.image-modal-overlay .image-modal {\n  background: white;\n  border-radius: 12px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n}\n.image-modal-overlay .image-modal .image-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.image-modal-overlay .image-modal .image-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 6px;\n  transition: background 0.2s ease;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn svg {\n  fill: #6b7280;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover {\n  background: #f3f4f6;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover svg {\n  fill: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-content {\n  padding: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: auto;\n}\n.image-modal-overlay .image-modal .image-modal-content img {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n}\n\nselect:focus, select:active, select[aria-expanded=true] {\n  border-bottom-left-radius: 0 !important;\n  border-bottom-right-radius: 0 !important;\n}\nselect option {\n  position: relative;\n  z-index: 1000;\n}\n\n.employer-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n}\n.employer-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.employer-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.employer-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .employer-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.employer-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.employer-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info {\n  margin-top: 8px;\n  font-size: 12px;\n  color: #059669;\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  font-weight: 500;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.employer-credentials-card .form-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-save-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  background-color: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn:hover,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn:hover {\n  background-color: #e5e7eb;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.employer-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.employer-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  color: #dc2626;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  color: #001E40;\n  flex-shrink: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  min-width: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 14px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 4px;\n  display: block;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 12px;\n  color: #001E40;\n  text-decoration: none;\n  font-weight: 500;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  text-decoration: underline;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-family: monospace;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #ef4444;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .empty-state {\n  text-align: center;\n  color: #6b7280;\n  font-style: italic;\n  padding: 20px;\n  background: #f9fafb;\n  border-radius: 8px;\n  border: 2px dashed #d1d5db;\n}\n\n@media (max-width: 768px) {\n  .my-profile-container {\n    gap: 20px;\n  }\n  .my-profile-container .profile-card,\n  .my-profile-container .password-card {\n    padding: 20px;\n  }\n  .my-profile-container .profile-header {\n    margin-bottom: 20px;\n  }\n  .my-profile-container .profile-header .avatar-container .avatar-placeholder {\n    width: 80px;\n    height: 80px;\n    font-size: 32px;\n  }\n  .my-profile-container .card-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -244708,11 +244708,20 @@ var MyPostJob = function MyPostJob() {
     _useState16 = _slicedToArray(_useState15, 2),
     userProfile = _useState16[0],
     setUserProfile = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState18 = _slicedToArray(_useState17, 2),
+    employerCredentials = _useState18[0],
+    setEmployerCredentials = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState20 = _slicedToArray(_useState19, 2),
+    hasCredentials = _useState20[0],
+    setHasCredentials = _useState20[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Get user profile from localStorage
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
     setUserProfile(userData);
     fetchJobs();
+    checkEmployerCredentials();
   }, []);
   var fetchJobs = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
@@ -244805,7 +244814,78 @@ var MyPostJob = function MyPostJob() {
       return _ref.apply(this, arguments);
     };
   }();
+  var checkEmployerCredentials = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var authToken, userData, currentUser, response, employerData, credentials, hasValidCredentials, _error$response2, _t4;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            _context2.p = 0;
+            authToken = localStorage.getItem("auth_token");
+            if (authToken) {
+              _context2.n = 1;
+              break;
+            }
+            return _context2.a(2);
+          case 1:
+            userData = JSON.parse(localStorage.getItem("user") || '{}');
+            currentUser = userData.user || userData; // Only check for employers (role_id === 2)
+            if (!(currentUser.role_id !== 2 && currentUser.role_id !== '2')) {
+              _context2.n = 2;
+              break;
+            }
+            setHasCredentials(true); // Non-employers don't need credentials
+            return _context2.a(2);
+          case 2:
+            _context2.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/employers/".concat(currentUser.id), {
+              headers: {
+                Authorization: "Bearer ".concat(authToken),
+                Accept: "application/json"
+              }
+            });
+          case 3:
+            response = _context2.v;
+            if (response.ok) {
+              employerData = response.data.employer || response.data;
+              credentials = employerData.credentials_name || [];
+              console.log('Employer credentials check:', credentials);
+
+              // Check if employer has any credentials
+              hasValidCredentials = Array.isArray(credentials) && credentials.length > 0 && credentials.some(function (cred) {
+                return cred && cred.trim() !== '';
+              });
+              setHasCredentials(hasValidCredentials);
+              setEmployerCredentials(credentials);
+              console.log('Has valid credentials:', hasValidCredentials);
+            } else {
+              // If employer profile doesn't exist or has no credentials
+              setHasCredentials(false);
+              setEmployerCredentials([]);
+            }
+            _context2.n = 5;
+            break;
+          case 4:
+            _context2.p = 4;
+            _t4 = _context2.v;
+            console.error("Error checking employer credentials:", ((_error$response2 = _t4.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t4.message);
+            setHasCredentials(false);
+            setEmployerCredentials([]);
+          case 5:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[0, 4]]);
+    }));
+    return function checkEmployerCredentials() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
   var handleAddJob = function handleAddJob() {
+    // Check if employer has credentials before allowing job posting
+    if (!hasCredentials) {
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("You need to submit credentials before posting a job. Please go to Profile Settings to add your credentials.");
+      return;
+    }
     setEditingJob(null);
     setIsModalOpen(true);
   };
@@ -244823,17 +244903,17 @@ var MyPostJob = function MyPostJob() {
     setEditingJob(null);
   };
   var handleSubmitJob = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(jobData) {
-      var authToken, userData, currentUser, profileId, profileResponse, createProfileResponse, _createError$response, salaryTypeMap, jobPayload, response, _error$response2, _error$response3, errors, errorMessages, _t4, _t5, _t6;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(jobData) {
+      var authToken, userData, currentUser, profileId, profileResponse, createProfileResponse, _createError$response, salaryTypeMap, jobPayload, response, _error$response3, _error$response4, errors, errorMessages, _t5, _t6, _t7;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
           case 0:
-            _context2.p = 0;
+            _context3.p = 0;
             authToken = localStorage.getItem("auth_token");
             userData = JSON.parse(localStorage.getItem("user") || '{}'); // Get the correct user ID from the nested structure
             currentUser = userData.user || userData; // First, let's try to get the profile ID from the backend
-            _context2.p = 1;
-            _context2.n = 2;
+            _context3.p = 1;
+            _context3.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(currentUser.id), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -244841,18 +244921,18 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 2:
-            profileResponse = _context2.v;
+            profileResponse = _context3.v;
             profileId = profileResponse.data.id;
             console.log("Profile found:", profileResponse.data);
-            _context2.n = 7;
+            _context3.n = 7;
             break;
           case 3:
-            _context2.p = 3;
-            _t4 = _context2.v;
+            _context3.p = 3;
+            _t5 = _context3.v;
             console.log("Profile not found, creating profile for user:", currentUser.id);
             // Create a profile record for this user
-            _context2.p = 4;
-            _context2.n = 5;
+            _context3.p = 4;
+            _context3.n = 5;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/api/profiles', {
               user_id: currentUser.id,
               first_name: currentUser.first_name || 'Unknown',
@@ -244873,15 +244953,15 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 5:
-            createProfileResponse = _context2.v;
+            createProfileResponse = _context3.v;
             profileId = createProfileResponse.data.profile.id;
             console.log("Profile created:", createProfileResponse.data.profile);
-            _context2.n = 7;
+            _context3.n = 7;
             break;
           case 6:
-            _context2.p = 6;
-            _t5 = _context2.v;
-            console.error("Failed to create profile:", ((_createError$response = _t5.response) === null || _createError$response === void 0 ? void 0 : _createError$response.data) || _t5.message);
+            _context3.p = 6;
+            _t6 = _context3.v;
+            console.error("Failed to create profile:", ((_createError$response = _t6.response) === null || _createError$response === void 0 ? void 0 : _createError$response.data) || _t6.message);
             // Fallback to user ID
             profileId = currentUser.id;
           case 7:
@@ -244922,10 +245002,10 @@ var MyPostJob = function MyPostJob() {
             };
             console.log("Job payload being sent:", jobPayload);
             if (!editingJob) {
-              _context2.n = 9;
+              _context3.n = 9;
               break;
             }
-            _context2.n = 8;
+            _context3.n = 8;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].put("http://127.0.0.1:8000/api/jobposts/".concat(editingJob.id), jobPayload, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -244934,12 +245014,12 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 8:
-            response = _context2.v;
+            response = _context3.v;
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Job post updated successfully");
-            _context2.n = 11;
+            _context3.n = 11;
             break;
           case 9:
-            _context2.n = 10;
+            _context3.n = 10;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/api/jobposts', jobPayload, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -244948,7 +245028,7 @@ var MyPostJob = function MyPostJob() {
               }
             });
           case 10:
-            response = _context2.v;
+            response = _context3.v;
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Job post created successfully");
           case 11:
             if (response.data) {
@@ -244956,17 +245036,17 @@ var MyPostJob = function MyPostJob() {
               setIsModalOpen(false);
               setEditingJob(null);
             }
-            _context2.n = 13;
+            _context3.n = 13;
             break;
           case 12:
-            _context2.p = 12;
-            _t6 = _context2.v;
-            console.error("Error submitting job:", ((_error$response2 = _t6.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t6.message);
-            console.error("Full error response:", _t6.response);
+            _context3.p = 12;
+            _t7 = _context3.v;
+            console.error("Error submitting job:", ((_error$response3 = _t7.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t7.message);
+            console.error("Full error response:", _t7.response);
 
             // Show specific validation errors if available
-            if ((_error$response3 = _t6.response) !== null && _error$response3 !== void 0 && (_error$response3 = _error$response3.data) !== null && _error$response3 !== void 0 && _error$response3.errors) {
-              errors = _t6.response.data.errors;
+            if ((_error$response4 = _t7.response) !== null && _error$response4 !== void 0 && (_error$response4 = _error$response4.data) !== null && _error$response4 !== void 0 && _error$response4.errors) {
+              errors = _t7.response.data.errors;
               console.error("Validation errors:", errors);
               errorMessages = Object.values(errors).flat();
               antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
@@ -244975,12 +245055,12 @@ var MyPostJob = function MyPostJob() {
               antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to submit job post");
             }
           case 13:
-            return _context2.a(2);
+            return _context3.a(2);
         }
-      }, _callee2, null, [[4, 6], [1, 3], [0, 12]]);
+      }, _callee3, null, [[4, 6], [1, 3], [0, 12]]);
     }));
     return function handleSubmitJob(_x) {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
   var handleViewApplicants = function handleViewApplicants(job, e) {
@@ -245020,6 +245100,44 @@ var MyPostJob = function MyPostJob() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
           className: "btn-icon"
         }), "Add Post Job"]
+      })]
+    }), !hasCredentials && ((userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === 2 || (userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === '2') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      className: "credentials-requirement-message",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        className: "requirement-icon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
+          viewBox: "0 0 24 24",
+          width: "48",
+          height: "48",
+          fill: "currentColor",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+            d: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zM11 7h2v2h-2V7zm0 4h2v6h-2v-6z"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "requirement-content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+          className: "requirement-title",
+          children: "Credentials Required"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+          className: "requirement-description",
+          children: "You need to submit your credentials before you can post jobs. This helps build trust with potential workers and ensures a professional working environment."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
+          className: "go-to-profile-btn",
+          onClick: function onClick() {
+            // Navigate to profile settings
+            window.location.href = '/profile-settings';
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
+            viewBox: "0 0 24 24",
+            width: "20",
+            height: "20",
+            fill: "currentColor",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+              d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            })
+          }), "Go to Profile Settings"]
+        })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "jobs-list",
@@ -245180,7 +245298,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var MyProfile = function MyProfile() {
-  var _workerSkills$primary, _ref18, _availableSkills$find, _workerSkills$primary3, _workerSkills$primary4;
+  var _workerSkills$primary, _ref23, _availableSkills$find, _workerSkills$primary3, _workerSkills$primary4;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
     user = _useState2[0],
@@ -245321,7 +245439,7 @@ var MyProfile = function MyProfile() {
     selectedAdditionalSkillIds = _useState50[0],
     setSelectedAdditionalSkillIds = _useState50[1];
 
-  // Credentials states (for workers)
+  // Credentials states (for workers and employers)
   var _useState51 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState52 = _slicedToArray(_useState51, 2),
     workerCredentials = _useState52[0],
@@ -245341,8 +245459,30 @@ var MyProfile = function MyProfile() {
     _useState58 = _slicedToArray(_useState57, 2),
     showAddCredentialForm = _useState58[0],
     setShowAddCredentialForm = _useState58[1];
+
+  // Employer credentials states
+  var _useState59 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState60 = _slicedToArray(_useState59, 2),
+    employerCredentials = _useState60[0],
+    setEmployerCredentials = _useState60[1];
+  var _useState61 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState62 = _slicedToArray(_useState61, 2),
+    isEditingEmployerCredentials = _useState62[0],
+    setIsEditingEmployerCredentials = _useState62[1];
+  var _useState63 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      credentials_name: '',
+      credentials_photo: null
+    }),
+    _useState64 = _slicedToArray(_useState63, 2),
+    newEmployerCredential = _useState64[0],
+    setNewEmployerCredential = _useState64[1];
+  var _useState65 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState66 = _slicedToArray(_useState65, 2),
+    showAddEmployerCredentialForm = _useState66[0],
+    setShowAddEmployerCredentialForm = _useState66[1];
   var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var credentialFileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var employerCredentialFileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   // Credential types from SkillRatingModal
   var credentialTypes = [{
@@ -245461,7 +245601,7 @@ var MyProfile = function MyProfile() {
   // Fetch rank and reviews when user is loaded
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var isMounted = true;
-    if (user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1) {
+    if (user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1')) {
       var fetchData = /*#__PURE__*/function () {
         var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
           var _t2;
@@ -245490,6 +245630,37 @@ var MyProfile = function MyProfile() {
         };
       }();
       fetchData();
+    } else if (user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2' || (user === null || user === void 0 ? void 0 : user.role_id) === '2')) {
+      // Fetch employer data
+      var fetchEmployerData = /*#__PURE__*/function () {
+        var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+          var _t3;
+          return _regenerator().w(function (_context3) {
+            while (1) switch (_context3.p = _context3.n) {
+              case 0:
+                _context3.p = 0;
+                console.log('Fetching employer data for user:', user.id);
+                _context3.n = 1;
+                return fetchEmployerProfile(user.id);
+              case 1:
+                _context3.n = 3;
+                break;
+              case 2:
+                _context3.p = 2;
+                _t3 = _context3.v;
+                if (isMounted) {
+                  console.error('Error fetching employer data:', _t3);
+                }
+              case 3:
+                return _context3.a(2);
+            }
+          }, _callee3, null, [[0, 2]]);
+        }));
+        return function fetchEmployerData() {
+          return _ref3.apply(this, arguments);
+        };
+      }();
+      fetchEmployerData();
     }
     return function () {
       isMounted = false;
@@ -245513,7 +245684,7 @@ var MyProfile = function MyProfile() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var handleSkillsCredentialsUpdate = function handleSkillsCredentialsUpdate() {
       console.log('Skills/Credentials updated event received, refreshing worker profile...');
-      if (user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1) {
+      if (user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1')) {
         fetchWorkerProfile(user.id);
       }
     };
@@ -245527,29 +245698,35 @@ var MyProfile = function MyProfile() {
     };
   }, [user]);
   var loadUserData = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-      var storedUser, userData, currentUser, token, response, freshUserData, updatedUserData, localStorageStructure, _t3;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+      var storedUser, userData, currentUser, token, response, freshUserData, updatedUserData, localStorageStructure, _t4;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
           case 0:
             storedUser = localStorage.getItem("user");
+            console.log('Raw stored user data:', storedUser);
             if (!storedUser) {
-              _context3.n = 7;
+              _context4.n = 7;
               break;
             }
             userData = JSON.parse(storedUser);
-            currentUser = userData.user || userData; // If gender_name is null, fetch fresh user data from API
+            console.log('Parsed user data:', userData);
+            currentUser = userData.user || userData;
+            console.log('Current user:', currentUser);
+            console.log('Current user role_id:', currentUser.role_id);
+
+            // If gender_name is null, fetch fresh user data from API
             if (!(currentUser.gender_id && !currentUser.gender_name)) {
-              _context3.n = 6;
+              _context4.n = 6;
               break;
             }
-            _context3.p = 1;
+            _context4.p = 1;
             token = localStorage.getItem("auth_token");
             if (!token) {
-              _context3.n = 4;
+              _context4.n = 4;
               break;
             }
-            _context3.n = 2;
+            _context4.n = 2;
             return fetch("http://127.0.0.1:8000/api/users/".concat(currentUser.id), {
               method: "GET",
               headers: {
@@ -245557,15 +245734,15 @@ var MyProfile = function MyProfile() {
               }
             });
           case 2:
-            response = _context3.v;
+            response = _context4.v;
             if (!response.ok) {
-              _context3.n = 4;
+              _context4.n = 4;
               break;
             }
-            _context3.n = 3;
+            _context4.n = 3;
             return response.json();
           case 3:
-            freshUserData = _context3.v;
+            freshUserData = _context4.v;
             // Preserve role_id when updating user data
             updatedUserData = _objectSpread(_objectSpread({}, freshUserData), {}, {
               role_id: currentUser.role_id || freshUserData.role_id
@@ -245585,17 +245762,19 @@ var MyProfile = function MyProfile() {
               email: updatedUserData.email || "",
               gender: updatedUserData.gender_id || ""
             });
-            return _context3.a(2);
+            return _context4.a(2);
           case 4:
-            _context3.n = 6;
+            _context4.n = 6;
             break;
           case 5:
-            _context3.p = 5;
-            _t3 = _context3.v;
-            console.error("Error fetching fresh user data:", _t3);
+            _context4.p = 5;
+            _t4 = _context4.v;
+            console.error("Error fetching fresh user data:", _t4);
           case 6:
             // Use stored data if it's complete or if API fetch failed
             setUser(currentUser);
+            console.log('User loaded:', currentUser);
+            console.log('User role_id:', currentUser.role_id);
             setProfileData({
               firstName: currentUser.first_name || "",
               middleName: currentUser.middlename || "",
@@ -245605,51 +245784,15 @@ var MyProfile = function MyProfile() {
               gender: currentUser.gender_id || ""
             });
           case 7:
-            return _context3.a(2);
-        }
-      }, _callee3, null, [[1, 5]]);
-    }));
-    return function loadUserData() {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-  var fetchGenders = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var response, data, _t4;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
-          case 0:
-            _context4.p = 0;
-            _context4.n = 1;
-            return fetch('http://127.0.0.1:8000/api/genders');
-          case 1:
-            response = _context4.v;
-            if (!response.ok) {
-              _context4.n = 3;
-              break;
-            }
-            _context4.n = 2;
-            return response.json();
-          case 2:
-            data = _context4.v;
-            setGenders(data);
-          case 3:
-            _context4.n = 5;
-            break;
-          case 4:
-            _context4.p = 4;
-            _t4 = _context4.v;
-            console.error('Error fetching genders:', _t4);
-          case 5:
             return _context4.a(2);
         }
-      }, _callee4, null, [[0, 4]]);
+      }, _callee4, null, [[1, 5]]);
     }));
-    return function fetchGenders() {
+    return function loadUserData() {
       return _ref4.apply(this, arguments);
     };
   }();
-  var fetchSuffixes = /*#__PURE__*/function () {
+  var fetchGenders = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
       var response, data, _t5;
       return _regenerator().w(function (_context5) {
@@ -245657,7 +245800,7 @@ var MyProfile = function MyProfile() {
           case 0:
             _context5.p = 0;
             _context5.n = 1;
-            return fetch('http://127.0.0.1:8000/api/suffixes');
+            return fetch('http://127.0.0.1:8000/api/genders');
           case 1:
             response = _context5.v;
             if (!response.ok) {
@@ -245668,32 +245811,32 @@ var MyProfile = function MyProfile() {
             return response.json();
           case 2:
             data = _context5.v;
-            setSuffixes(data);
+            setGenders(data);
           case 3:
             _context5.n = 5;
             break;
           case 4:
             _context5.p = 4;
             _t5 = _context5.v;
-            console.error('Error fetching suffixes:', _t5);
+            console.error('Error fetching genders:', _t5);
           case 5:
             return _context5.a(2);
         }
       }, _callee5, null, [[0, 4]]);
     }));
-    return function fetchSuffixes() {
+    return function fetchGenders() {
       return _ref5.apply(this, arguments);
     };
   }();
-  var fetchWorkerReviews = /*#__PURE__*/function () {
-    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(workerId) {
-      var response, data, avgRating, numReviews, calculatedPoints, _t6;
+  var fetchSuffixes = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
+      var response, data, _t6;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
             _context6.p = 0;
             _context6.n = 1;
-            return fetch("http://127.0.0.1:8000/api/reviews/worker/".concat(workerId));
+            return fetch('http://127.0.0.1:8000/api/suffixes');
           case 1:
             response = _context6.v;
             if (!response.ok) {
@@ -245704,6 +245847,42 @@ var MyProfile = function MyProfile() {
             return response.json();
           case 2:
             data = _context6.v;
+            setSuffixes(data);
+          case 3:
+            _context6.n = 5;
+            break;
+          case 4:
+            _context6.p = 4;
+            _t6 = _context6.v;
+            console.error('Error fetching suffixes:', _t6);
+          case 5:
+            return _context6.a(2);
+        }
+      }, _callee6, null, [[0, 4]]);
+    }));
+    return function fetchSuffixes() {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+  var fetchWorkerReviews = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(workerId) {
+      var response, data, avgRating, numReviews, calculatedPoints, _t7;
+      return _regenerator().w(function (_context7) {
+        while (1) switch (_context7.p = _context7.n) {
+          case 0:
+            _context7.p = 0;
+            _context7.n = 1;
+            return fetch("http://127.0.0.1:8000/api/reviews/worker/".concat(workerId));
+          case 1:
+            response = _context7.v;
+            if (!response.ok) {
+              _context7.n = 3;
+              break;
+            }
+            _context7.n = 2;
+            return response.json();
+          case 2:
+            data = _context7.v;
             setAverageRating(data.average_rating || 0);
             setTotalReviews(data.total_reviews || 0);
 
@@ -245715,50 +245894,50 @@ var MyProfile = function MyProfile() {
 
             // Fetch rank based on total points
             fetchWorkerRank(calculatedPoints);
-            _context6.n = 4;
+            _context7.n = 4;
             break;
           case 3:
             // If fetch fails, still show rank with 0 points
             setTotalPoints(0);
             fetchWorkerRank(0);
           case 4:
-            _context6.n = 6;
+            _context7.n = 6;
             break;
           case 5:
-            _context6.p = 5;
-            _t6 = _context6.v;
-            console.error('Error fetching worker reviews:', _t6);
+            _context7.p = 5;
+            _t7 = _context7.v;
+            console.error('Error fetching worker reviews:', _t7);
             // Even on error, show rank with 0 points
             setTotalPoints(0);
             fetchWorkerRank(0);
           case 6:
-            return _context6.a(2);
+            return _context7.a(2);
         }
-      }, _callee6, null, [[0, 5]]);
+      }, _callee7, null, [[0, 5]]);
     }));
     return function fetchWorkerReviews(_x) {
-      return _ref6.apply(this, arguments);
+      return _ref7.apply(this, arguments);
     };
   }();
   var fetchWorkerRank = /*#__PURE__*/function () {
-    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(points) {
-      var response, data, ranks, sortedRanks, matchedRank, rangeSize, currentProgress, percent, _t7;
-      return _regenerator().w(function (_context7) {
-        while (1) switch (_context7.p = _context7.n) {
+    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(points) {
+      var response, data, ranks, sortedRanks, matchedRank, rangeSize, currentProgress, percent, _t8;
+      return _regenerator().w(function (_context8) {
+        while (1) switch (_context8.p = _context8.n) {
           case 0:
-            _context7.p = 0;
-            _context7.n = 1;
+            _context8.p = 0;
+            _context8.n = 1;
             return fetch('http://127.0.0.1:8000/api/ranks');
           case 1:
-            response = _context7.v;
+            response = _context8.v;
             if (!response.ok) {
-              _context7.n = 3;
+              _context8.n = 3;
               break;
             }
-            _context7.n = 2;
+            _context8.n = 2;
             return response.json();
           case 2:
-            data = _context7.v;
+            data = _context8.v;
             // Handle both array and object response formats
             ranks = Array.isArray(data) ? data : data.ranks || data.data || [];
             console.log('Fetched ranks:', ranks);
@@ -245802,28 +245981,28 @@ var MyProfile = function MyProfile() {
               setWorkerRank(null);
               setProgressPercent(0);
             }
-            _context7.n = 4;
+            _context8.n = 4;
             break;
           case 3:
             console.error('Failed to fetch ranks:', response.status);
             // Try to get a default rank anyway
             trySetDefaultRank();
           case 4:
-            _context7.n = 6;
+            _context8.n = 6;
             break;
           case 5:
-            _context7.p = 5;
-            _t7 = _context7.v;
-            console.error('Error fetching worker rank:', _t7);
+            _context8.p = 5;
+            _t8 = _context8.v;
+            console.error('Error fetching worker rank:', _t8);
             // Try to get a default rank anyway
             trySetDefaultRank();
           case 6:
-            return _context7.a(2);
+            return _context8.a(2);
         }
-      }, _callee7, null, [[0, 5]]);
+      }, _callee8, null, [[0, 5]]);
     }));
     return function fetchWorkerRank(_x2) {
-      return _ref7.apply(this, arguments);
+      return _ref8.apply(this, arguments);
     };
   }();
   var trySetDefaultRank = function trySetDefaultRank() {
@@ -245839,61 +246018,61 @@ var MyProfile = function MyProfile() {
     setProgressPercent(0);
   };
   var fetchAvailableSkills = /*#__PURE__*/function () {
-    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8() {
-      var token, response, data, _t8;
-      return _regenerator().w(function (_context8) {
-        while (1) switch (_context8.p = _context8.n) {
+    var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9() {
+      var token, response, data, _t9;
+      return _regenerator().w(function (_context9) {
+        while (1) switch (_context9.p = _context9.n) {
           case 0:
-            _context8.p = 0;
+            _context9.p = 0;
             token = localStorage.getItem("auth_token");
-            _context8.n = 1;
+            _context9.n = 1;
             return fetch('http://127.0.0.1:8000/api/skills', {
               headers: {
                 'Authorization': "Bearer ".concat(token)
               }
             });
           case 1:
-            response = _context8.v;
+            response = _context9.v;
             if (!response.ok) {
-              _context8.n = 3;
+              _context9.n = 3;
               break;
             }
-            _context8.n = 2;
+            _context9.n = 2;
             return response.json();
           case 2:
-            data = _context8.v;
+            data = _context9.v;
             setAvailableSkills(data);
           case 3:
-            _context8.n = 5;
+            _context9.n = 5;
             break;
           case 4:
-            _context8.p = 4;
-            _t8 = _context8.v;
-            console.error('Error fetching skills:', _t8);
+            _context9.p = 4;
+            _t9 = _context9.v;
+            console.error('Error fetching skills:', _t9);
           case 5:
-            return _context8.a(2);
+            return _context9.a(2);
         }
-      }, _callee8, null, [[0, 4]]);
+      }, _callee9, null, [[0, 4]]);
     }));
     return function fetchAvailableSkills() {
-      return _ref8.apply(this, arguments);
+      return _ref9.apply(this, arguments);
     };
   }();
   var fetchWorkerProfile = /*#__PURE__*/function () {
-    var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(workerId) {
-      var token, response, data, workerData, skillsData, primarySkills, additionalSkills, creds, _t9;
-      return _regenerator().w(function (_context9) {
-        while (1) switch (_context9.p = _context9.n) {
+    var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0(workerId) {
+      var token, response, data, workerData, skillsData, primarySkills, additionalSkills, creds, _t0;
+      return _regenerator().w(function (_context0) {
+        while (1) switch (_context0.p = _context0.n) {
           case 0:
-            _context9.p = 0;
+            _context0.p = 0;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context9.n = 1;
+              _context0.n = 1;
               break;
             }
-            return _context9.a(2);
+            return _context0.a(2);
           case 1:
-            _context9.n = 2;
+            _context0.n = 2;
             return fetch("http://127.0.0.1:8000/api/workers/".concat(workerId), {
               method: "GET",
               headers: {
@@ -245901,15 +246080,15 @@ var MyProfile = function MyProfile() {
               }
             });
           case 2:
-            response = _context9.v;
+            response = _context0.v;
             if (!response.ok) {
-              _context9.n = 4;
+              _context0.n = 4;
               break;
             }
-            _context9.n = 3;
+            _context0.n = 3;
             return response.json();
           case 3:
-            data = _context9.v;
+            data = _context0.v;
             workerData = data.worker || data;
             console.log('Fetched worker data:', workerData);
             console.log('Skills data:', workerData.skills_id);
@@ -245976,19 +246155,103 @@ var MyProfile = function MyProfile() {
               setWorkerCredentials([]);
             }
           case 4:
-            _context9.n = 6;
+            _context0.n = 6;
             break;
           case 5:
-            _context9.p = 5;
-            _t9 = _context9.v;
-            console.error('Error fetching worker profile:', _t9);
+            _context0.p = 5;
+            _t0 = _context0.v;
+            console.error('Error fetching worker profile:', _t0);
           case 6:
-            return _context9.a(2);
+            return _context0.a(2);
         }
-      }, _callee9, null, [[0, 5]]);
+      }, _callee0, null, [[0, 5]]);
     }));
     return function fetchWorkerProfile(_x3) {
-      return _ref9.apply(this, arguments);
+      return _ref0.apply(this, arguments);
+    };
+  }();
+  var fetchEmployerProfile = /*#__PURE__*/function () {
+    var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1(employerId) {
+      var token, response, data, employerData, employerRecord, creds, _t1;
+      return _regenerator().w(function (_context1) {
+        while (1) switch (_context1.p = _context1.n) {
+          case 0:
+            _context1.p = 0;
+            console.log('Fetching employer profile for ID:', employerId);
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context1.n = 1;
+              break;
+            }
+            return _context1.a(2);
+          case 1:
+            _context1.n = 2;
+            return fetch("http://127.0.0.1:8000/api/employers/".concat(employerId), {
+              method: "GET",
+              headers: {
+                'Authorization': "Bearer ".concat(token)
+              }
+            });
+          case 2:
+            response = _context1.v;
+            console.log('Employer profile response status:', response.status);
+            if (!response.ok) {
+              _context1.n = 4;
+              break;
+            }
+            _context1.n = 3;
+            return response.json();
+          case 3:
+            data = _context1.v;
+            employerData = data.employer || data;
+            console.log('Fetched employer data:', employerData);
+            console.log('Employer record:', employerData.employer);
+            console.log('Credentials data:', employerData.credentials_name, employerData.credentials_photo);
+
+            // Check if we have an employer record
+            if (employerData.employer) {
+              employerRecord = employerData.employer;
+              console.log('Employer record credentials:', employerRecord.credentials_name, employerRecord.credentials_photo);
+
+              // Set credentials from employer record
+              if (employerRecord.credentials_name && Array.isArray(employerRecord.credentials_name)) {
+                creds = employerRecord.credentials_name.map(function (name, index) {
+                  var _employerRecord$crede, _employerRecord$crede2;
+                  var photo = (_employerRecord$crede = employerRecord.credentials_photo) === null || _employerRecord$crede === void 0 ? void 0 : _employerRecord$crede[index];
+                  var doc = (_employerRecord$crede2 = employerRecord.credentials_doc) === null || _employerRecord$crede2 === void 0 ? void 0 : _employerRecord$crede2[index];
+                  console.log("Employer Credential ".concat(index, ": name=\"").concat(name, "\", photo=\"").concat(photo, "\", doc=\"").concat(doc, "\""));
+                  return {
+                    credentials_name: name,
+                    credentials_photo: photo || null,
+                    credentials_doc: doc || null
+                  };
+                }).filter(function (cred) {
+                  return cred.credentials_name && cred.credentials_name.trim() !== '';
+                }); // Filter out empty/null credentials
+                console.log('Setting employer credentials from backend:', creds);
+                setEmployerCredentials(creds);
+              } else {
+                console.log('No employer credentials found in backend data');
+                setEmployerCredentials([]);
+              }
+            } else {
+              console.log('No employer record found');
+              setEmployerCredentials([]);
+            }
+          case 4:
+            _context1.n = 6;
+            break;
+          case 5:
+            _context1.p = 5;
+            _t1 = _context1.v;
+            console.error('Error fetching employer profile:', _t1);
+          case 6:
+            return _context1.a(2);
+        }
+      }, _callee1, null, [[0, 5]]);
+    }));
+    return function fetchEmployerProfile(_x4) {
+      return _ref1.apply(this, arguments);
     };
   }();
   var handleProfileChange = function handleProfileChange(e) {
@@ -246079,67 +246342,67 @@ var MyProfile = function MyProfile() {
     setIsEditingWorkPreferences(true);
   };
   var handleCancelWorkPreferencesEdit = /*#__PURE__*/function () {
-    var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee0() {
-      return _regenerator().w(function (_context0) {
-        while (1) switch (_context0.n) {
+    var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee10() {
+      return _regenerator().w(function (_context10) {
+        while (1) switch (_context10.n) {
           case 0:
             setIsEditingWorkPreferences(false);
             // Reload work preferences from server
-            if (!(user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1)) {
-              _context0.n = 1;
+            if (!(user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1'))) {
+              _context10.n = 1;
               break;
             }
-            _context0.n = 1;
+            _context10.n = 1;
             return fetchWorkerProfile(user.id);
           case 1:
-            return _context0.a(2);
+            return _context10.a(2);
         }
-      }, _callee0);
+      }, _callee10);
     }));
     return function handleCancelWorkPreferencesEdit() {
-      return _ref0.apply(this, arguments);
+      return _ref10.apply(this, arguments);
     };
   }();
   var handleEditSkills = function handleEditSkills() {
     setIsEditingSkills(true);
   };
   var handleCancelSkillsEdit = /*#__PURE__*/function () {
-    var _ref1 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee1() {
-      return _regenerator().w(function (_context1) {
-        while (1) switch (_context1.n) {
+    var _ref11 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee11() {
+      return _regenerator().w(function (_context11) {
+        while (1) switch (_context11.n) {
           case 0:
             setIsEditingSkills(false);
             // Reload skills from server
-            if (!(user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1)) {
-              _context1.n = 1;
+            if (!(user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1'))) {
+              _context11.n = 1;
               break;
             }
-            _context1.n = 1;
+            _context11.n = 1;
             return fetchWorkerProfile(user.id);
           case 1:
-            return _context1.a(2);
+            return _context11.a(2);
         }
-      }, _callee1);
+      }, _callee11);
     }));
     return function handleCancelSkillsEdit() {
-      return _ref1.apply(this, arguments);
+      return _ref11.apply(this, arguments);
     };
   }();
   var handleSaveIndividualSkill = /*#__PURE__*/function () {
-    var _ref10 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee10(skillType, skillData) {
-      var token, primarySkillsData, additionalSkillsData, requestData, response, errorData, _t0;
-      return _regenerator().w(function (_context10) {
-        while (1) switch (_context10.p = _context10.n) {
+    var _ref12 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12(skillType, skillData) {
+      var token, primarySkillsData, additionalSkillsData, requestData, response, errorData, _t10;
+      return _regenerator().w(function (_context12) {
+        while (1) switch (_context12.p = _context12.n) {
           case 0:
             setIsLoading(true);
-            _context10.p = 1;
+            _context12.p = 1;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context10.n = 2;
+              _context12.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update skills");
-            return _context10.a(2);
+            return _context12.a(2);
           case 2:
             // Only include skills that have actual data
             primarySkillsData = workerSkills.primary_skills.filter(function (skill) {
@@ -246172,7 +246435,7 @@ var MyProfile = function MyProfile() {
             console.log('Primary skills count:', primarySkillsData.length);
             console.log('Additional skills count:', additionalSkillsData.length);
             console.log('Current workerSkills state:', workerSkills);
-            _context10.n = 3;
+            _context12.n = 3;
             return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/skills"), {
               method: "PUT",
               headers: {
@@ -246182,73 +246445,73 @@ var MyProfile = function MyProfile() {
               body: JSON.stringify(requestData)
             });
           case 3:
-            response = _context10.v;
+            response = _context12.v;
             if (!response.ok) {
-              _context10.n = 5;
+              _context12.n = 5;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("".concat(skillType, " skill saved successfully!"));
             // Refresh data immediately
-            _context10.n = 4;
+            _context12.n = 4;
             return fetchWorkerProfile(user.id);
           case 4:
             // Dispatch event for other components
             window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
             // Exit edit mode so saved items render cleanly
             setIsEditingSkills(false);
-            _context10.n = 7;
+            _context12.n = 7;
             break;
           case 5:
-            _context10.n = 6;
+            _context12.n = 6;
             return response.json()["catch"](function () {
               return {};
             });
           case 6:
-            errorData = _context10.v;
+            errorData = _context12.v;
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to save ".concat(skillType, " skill: ").concat(errorData.message || 'Please try again.'));
           case 7:
-            _context10.n = 9;
+            _context12.n = 9;
             break;
           case 8:
-            _context10.p = 8;
-            _t0 = _context10.v;
-            console.error("".concat(skillType, " skill save error:"), _t0);
+            _context12.p = 8;
+            _t10 = _context12.v;
+            console.error("".concat(skillType, " skill save error:"), _t10);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while saving ".concat(skillType, " skill. Please check your connection."));
           case 9:
-            _context10.p = 9;
+            _context12.p = 9;
             setIsLoading(false);
-            return _context10.f(9);
+            return _context12.f(9);
           case 10:
-            return _context10.a(2);
+            return _context12.a(2);
         }
-      }, _callee10, null, [[1, 8, 9, 10]]);
+      }, _callee12, null, [[1, 8, 9, 10]]);
     }));
-    return function handleSaveIndividualSkill(_x4, _x5) {
-      return _ref10.apply(this, arguments);
+    return function handleSaveIndividualSkill(_x5, _x6) {
+      return _ref12.apply(this, arguments);
     };
   }();
   var handleSkillsSubmit = /*#__PURE__*/function () {
-    var _ref11 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee11() {
-      var token, primarySkillsData, additionalSkillsData, requestData, response, errorData, _t1;
-      return _regenerator().w(function (_context11) {
-        while (1) switch (_context11.p = _context11.n) {
+    var _ref13 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee13() {
+      var token, primarySkillsData, additionalSkillsData, requestData, response, errorData, _t11;
+      return _regenerator().w(function (_context13) {
+        while (1) switch (_context13.p = _context13.n) {
           case 0:
             if (!(!workerSkills.primary_skills || workerSkills.primary_skills.length === 0)) {
-              _context11.n = 1;
+              _context13.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please select a primary skill");
-            return _context11.a(2);
+            return _context13.a(2);
           case 1:
             setIsLoading(true);
-            _context11.p = 2;
+            _context13.p = 2;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context11.n = 3;
+              _context13.n = 3;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update skills");
-            return _context11.a(2);
+            return _context13.a(2);
           case 3:
             // Only include skills that have actual data
             primarySkillsData = workerSkills.primary_skills.filter(function (skill) {
@@ -246278,7 +246541,7 @@ var MyProfile = function MyProfile() {
               }
             };
             console.log('Sending skills data (handleSkillsSubmit):', requestData);
-            _context11.n = 4;
+            _context13.n = 4;
             return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/skills"), {
               method: "PUT",
               headers: {
@@ -246288,48 +246551,48 @@ var MyProfile = function MyProfile() {
               body: JSON.stringify(requestData)
             });
           case 4:
-            response = _context11.v;
+            response = _context13.v;
             if (!response.ok) {
-              _context11.n = 6;
+              _context13.n = 6;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Skills updated successfully!");
             setIsEditingSkills(false);
             // Refresh data immediately
-            _context11.n = 5;
+            _context13.n = 5;
             return fetchWorkerProfile(user.id);
           case 5:
             // Dispatch event for other components
             window.dispatchEvent(new CustomEvent('workerSkillsUpdated'));
-            _context11.n = 8;
+            _context13.n = 8;
             break;
           case 6:
-            _context11.n = 7;
+            _context13.n = 7;
             return response.json()["catch"](function () {
               return {};
             });
           case 7:
-            errorData = _context11.v;
+            errorData = _context13.v;
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update skills: ".concat(errorData.message || 'Please try again.'));
           case 8:
-            _context11.n = 10;
+            _context13.n = 10;
             break;
           case 9:
-            _context11.p = 9;
-            _t1 = _context11.v;
-            console.error("Skills update error:", _t1);
+            _context13.p = 9;
+            _t11 = _context13.v;
+            console.error("Skills update error:", _t11);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating skills. Please check your connection.");
           case 10:
-            _context11.p = 10;
+            _context13.p = 10;
             setIsLoading(false);
-            return _context11.f(10);
+            return _context13.f(10);
           case 11:
-            return _context11.a(2);
+            return _context13.a(2);
         }
-      }, _callee11, null, [[2, 9, 10, 11]]);
+      }, _callee13, null, [[2, 9, 10, 11]]);
     }));
     return function handleSkillsSubmit() {
-      return _ref11.apply(this, arguments);
+      return _ref13.apply(this, arguments);
     };
   }();
   var handlePrimarySkillChange = function handlePrimarySkillChange(e) {
@@ -246438,32 +246701,32 @@ var MyProfile = function MyProfile() {
     setIsEditingCredentials(true);
   };
   var handleCancelCredentialsEdit = /*#__PURE__*/function () {
-    var _ref12 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee12() {
-      return _regenerator().w(function (_context12) {
-        while (1) switch (_context12.n) {
+    var _ref14 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee14() {
+      return _regenerator().w(function (_context14) {
+        while (1) switch (_context14.n) {
           case 0:
             setIsEditingCredentials(false);
             // Reload credentials from server
-            if (!(user !== null && user !== void 0 && user.id && (user === null || user === void 0 ? void 0 : user.role_id) === 1)) {
-              _context12.n = 1;
+            if (!(user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1'))) {
+              _context14.n = 1;
               break;
             }
-            _context12.n = 1;
+            _context14.n = 1;
             return fetchWorkerProfile(user.id);
           case 1:
-            return _context12.a(2);
+            return _context14.a(2);
         }
-      }, _callee12);
+      }, _callee14);
     }));
     return function handleCancelCredentialsEdit() {
-      return _ref12.apply(this, arguments);
+      return _ref14.apply(this, arguments);
     };
   }();
   var handleRemoveCredential = /*#__PURE__*/function () {
-    var _ref13 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee13(index) {
-      var updatedCredentials, token, formData, response, errorData, _t10;
-      return _regenerator().w(function (_context13) {
-        while (1) switch (_context13.p = _context13.n) {
+    var _ref15 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15(index) {
+      var updatedCredentials, token, formData, response, errorData, _t12;
+      return _regenerator().w(function (_context15) {
+        while (1) switch (_context15.p = _context15.n) {
           case 0:
             updatedCredentials = workerCredentials.filter(function (_, i) {
               return i !== index;
@@ -246471,14 +246734,14 @@ var MyProfile = function MyProfile() {
             setWorkerCredentials(updatedCredentials);
 
             // Auto-save the changes to backend
-            _context13.p = 1;
+            _context15.p = 1;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context13.n = 2;
+              _context15.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to delete credentials");
-            return _context13.a(2);
+            return _context15.a(2);
           case 2:
             formData = new FormData();
             formData.append('user_id', user.id);
@@ -246496,7 +246759,7 @@ var MyProfile = function MyProfile() {
                 }
               });
             }
-            _context13.n = 3;
+            _context15.n = 3;
             return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/update-credentials"), {
               method: "POST",
               headers: {
@@ -246505,45 +246768,45 @@ var MyProfile = function MyProfile() {
               body: formData
             });
           case 3:
-            response = _context13.v;
+            response = _context15.v;
             if (!response.ok) {
-              _context13.n = 5;
+              _context15.n = 5;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Credential deleted successfully!");
             // Refresh data to get updated credentials from backend
-            _context13.n = 4;
+            _context15.n = 4;
             return fetchWorkerProfile(user.id);
           case 4:
-            _context13.n = 7;
+            _context15.n = 7;
             break;
           case 5:
-            _context13.n = 6;
+            _context15.n = 6;
             return response.json()["catch"](function () {
               return {};
             });
           case 6:
-            errorData = _context13.v;
+            errorData = _context15.v;
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to delete credential: ".concat(errorData.message || errorData.error || 'Please try again.'));
             // Revert the change if backend save failed
             setWorkerCredentials(workerCredentials);
           case 7:
-            _context13.n = 9;
+            _context15.n = 9;
             break;
           case 8:
-            _context13.p = 8;
-            _t10 = _context13.v;
-            console.error("Credential deletion error:", _t10);
+            _context15.p = 8;
+            _t12 = _context15.v;
+            console.error("Credential deletion error:", _t12);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while deleting the credential. Please check your connection.");
             // Revert the change if backend save failed
             setWorkerCredentials(workerCredentials);
           case 9:
-            return _context13.a(2);
+            return _context15.a(2);
         }
-      }, _callee13, null, [[1, 8]]);
+      }, _callee15, null, [[1, 8]]);
     }));
-    return function handleRemoveCredential(_x6) {
-      return _ref13.apply(this, arguments);
+    return function handleRemoveCredential(_x7) {
+      return _ref15.apply(this, arguments);
     };
   }();
   var handleNewCredentialChange = function handleNewCredentialChange(e, field) {
@@ -246602,36 +246865,36 @@ var MyProfile = function MyProfile() {
     antd__WEBPACK_IMPORTED_MODULE_1__["default"].success('Credential added! Click "Save Changes" to save.');
   };
   var handleCredentialsSubmit = /*#__PURE__*/function () {
-    var _ref14 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee14() {
-      var token, formData, _iterator, _step, pair, response, responseData, errorData, _t11;
-      return _regenerator().w(function (_context14) {
-        while (1) switch (_context14.p = _context14.n) {
+    var _ref16 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee16() {
+      var token, formData, _iterator, _step, pair, response, responseData, errorData, _t13;
+      return _regenerator().w(function (_context16) {
+        while (1) switch (_context16.p = _context16.n) {
           case 0:
             setIsLoading(true);
-            _context14.p = 1;
+            _context16.p = 1;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context14.n = 2;
+              _context16.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update credentials");
-            return _context14.a(2);
+            return _context16.a(2);
           case 2:
             if (!(workerCredentials.length === 0)) {
-              _context14.n = 3;
+              _context16.n = 3;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please add at least one credential before saving");
             setIsLoading(false);
-            return _context14.a(2);
+            return _context16.a(2);
           case 3:
             if (!(newCredential.credentials_name || newCredential.credentials_photo)) {
-              _context14.n = 4;
+              _context16.n = 4;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please click 'Add to List' to add the credential before saving");
             setIsLoading(false);
-            return _context14.a(2);
+            return _context16.a(2);
           case 4:
             // Update credentials via API using complete-profile endpoint
             formData = new FormData();
@@ -246682,7 +246945,7 @@ var MyProfile = function MyProfile() {
                 type: _typeof(cred.credentials_photo)
               });
             });
-            _context14.n = 5;
+            _context16.n = 5;
             return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/update-credentials"), {
               method: "POST",
               headers: {
@@ -246691,15 +246954,15 @@ var MyProfile = function MyProfile() {
               body: formData
             });
           case 5:
-            response = _context14.v;
+            response = _context16.v;
             if (!response.ok) {
-              _context14.n = 8;
+              _context16.n = 8;
               break;
             }
-            _context14.n = 6;
+            _context16.n = 6;
             return response.json();
           case 6:
-            responseData = _context14.v;
+            responseData = _context16.v;
             console.log('Credentials update response:', responseData);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Credentials updated successfully!");
             setIsEditingCredentials(false);
@@ -246715,41 +246978,361 @@ var MyProfile = function MyProfile() {
 
             // Refresh data immediately to get updated credentials from backend
             console.log('Refreshing worker profile after credentials update...');
-            _context14.n = 7;
+            _context16.n = 7;
             return fetchWorkerProfile(user.id);
           case 7:
             // Dispatch event for other components
             window.dispatchEvent(new CustomEvent('workerCredentialsUpdated'));
-            _context14.n = 10;
+            _context16.n = 10;
             break;
           case 8:
-            _context14.n = 9;
+            _context16.n = 9;
             return response.json()["catch"](function () {
               return {};
             });
           case 9:
-            errorData = _context14.v;
+            errorData = _context16.v;
             console.error('Credentials update failed:', response.status, response.statusText, errorData);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update credentials: ".concat(errorData.message || errorData.error || 'Please try again.'));
           case 10:
-            _context14.n = 12;
+            _context16.n = 12;
             break;
           case 11:
-            _context14.p = 11;
-            _t11 = _context14.v;
-            console.error("Credentials update error:", _t11);
+            _context16.p = 11;
+            _t13 = _context16.v;
+            console.error("Credentials update error:", _t13);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating credentials. Please check your connection.");
           case 12:
-            _context14.p = 12;
+            _context16.p = 12;
             setIsLoading(false);
-            return _context14.f(12);
+            return _context16.f(12);
           case 13:
-            return _context14.a(2);
+            return _context16.a(2);
         }
-      }, _callee14, null, [[1, 11, 12, 13]]);
+      }, _callee16, null, [[1, 11, 12, 13]]);
     }));
     return function handleCredentialsSubmit() {
-      return _ref14.apply(this, arguments);
+      return _ref16.apply(this, arguments);
+    };
+  }();
+
+  // Employer Credential Functions
+  var handleEditEmployerCredentials = function handleEditEmployerCredentials() {
+    setIsEditingEmployerCredentials(true);
+  };
+  var handleCancelEmployerCredentialsEdit = /*#__PURE__*/function () {
+    var _ref17 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee17() {
+      return _regenerator().w(function (_context17) {
+        while (1) switch (_context17.n) {
+          case 0:
+            setIsEditingEmployerCredentials(false);
+            // Reload credentials from server
+            if (!(user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2'))) {
+              _context17.n = 1;
+              break;
+            }
+            _context17.n = 1;
+            return fetchEmployerProfile(user.id);
+          case 1:
+            return _context17.a(2);
+        }
+      }, _callee17);
+    }));
+    return function handleCancelEmployerCredentialsEdit() {
+      return _ref17.apply(this, arguments);
+    };
+  }();
+  var handleRemoveEmployerCredential = /*#__PURE__*/function () {
+    var _ref18 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee18(index) {
+      var updatedCredentials, token, formData, response, errorData, _t14;
+      return _regenerator().w(function (_context18) {
+        while (1) switch (_context18.p = _context18.n) {
+          case 0:
+            updatedCredentials = employerCredentials.filter(function (_, i) {
+              return i !== index;
+            });
+            setEmployerCredentials(updatedCredentials);
+
+            // Auto-save the changes to backend
+            _context18.p = 1;
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context18.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to delete credentials");
+            return _context18.a(2);
+          case 2:
+            formData = new FormData();
+            formData.append('user_id', user.id);
+
+            // Send updated credentials (without the deleted one)
+            if (updatedCredentials.length === 0) {
+              formData.append('credentials', JSON.stringify([]));
+            } else {
+              updatedCredentials.forEach(function (cred, credIndex) {
+                formData.append("credentials[".concat(credIndex, "][credentials_name]"), cred.credentials_name);
+                if (cred.credentials_photo instanceof File) {
+                  formData.append("credentials[".concat(credIndex, "][credentials_photo]"), cred.credentials_photo);
+                } else if (typeof cred.credentials_photo === 'string' && cred.credentials_photo.trim() !== '') {
+                  formData.append("credentials[".concat(credIndex, "][existing_photo]"), cred.credentials_photo);
+                }
+              });
+            }
+            _context18.n = 3;
+            return fetch("http://127.0.0.1:8000/api/employers/".concat(user.id, "/update-credentials"), {
+              method: "POST",
+              headers: {
+                'Authorization': "Bearer ".concat(token)
+              },
+              body: formData
+            });
+          case 3:
+            response = _context18.v;
+            if (!response.ok) {
+              _context18.n = 5;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Credential deleted successfully!");
+            // Refresh data to get updated credentials from backend
+            _context18.n = 4;
+            return fetchEmployerProfile(user.id);
+          case 4:
+            _context18.n = 7;
+            break;
+          case 5:
+            _context18.n = 6;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 6:
+            errorData = _context18.v;
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to delete credential: ".concat(errorData.message || errorData.error || 'Please try again.'));
+            // Revert the change if backend save failed
+            setEmployerCredentials(employerCredentials);
+          case 7:
+            _context18.n = 9;
+            break;
+          case 8:
+            _context18.p = 8;
+            _t14 = _context18.v;
+            console.error("Credential deletion error:", _t14);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while deleting the credential. Please check your connection.");
+            // Revert the change if backend save failed
+            setEmployerCredentials(employerCredentials);
+          case 9:
+            return _context18.a(2);
+        }
+      }, _callee18, null, [[1, 8]]);
+    }));
+    return function handleRemoveEmployerCredential(_x8) {
+      return _ref18.apply(this, arguments);
+    };
+  }();
+  var handleNewEmployerCredentialChange = function handleNewEmployerCredentialChange(e, field) {
+    if (field === 'credentials_photo') {
+      var file = e.target.files[0];
+      if (file) {
+        // Validate file type
+        var validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg'];
+        if (!validTypes.includes(file.type)) {
+          antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File must be PDF, Word, JPG, or PNG');
+          return;
+        }
+        // Validate file size (2MB)
+        if (file.size > 2 * 1024 * 1024) {
+          antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File size must not exceed 2MB');
+          return;
+        }
+        setNewEmployerCredential(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            credentials_photo: file
+          });
+        });
+      }
+    } else {
+      setNewEmployerCredential(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, e.target.value));
+      });
+    }
+  };
+  var handleAddEmployerCredential = function handleAddEmployerCredential() {
+    if (!newEmployerCredential.credentials_name.trim()) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please enter a credential name');
+      return;
+    }
+    if (!newEmployerCredential.credentials_photo) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please upload a credential document');
+      return;
+    }
+    console.log('Adding employer credential:', {
+      name: newEmployerCredential.credentials_name,
+      photo: newEmployerCredential.credentials_photo,
+      isFile: newEmployerCredential.credentials_photo instanceof File,
+      type: _typeof(newEmployerCredential.credentials_photo)
+    });
+    setEmployerCredentials(function (prev) {
+      return [].concat(_toConsumableArray(prev), [_objectSpread({}, newEmployerCredential)]);
+    });
+    setNewEmployerCredential({
+      credentials_name: '',
+      credentials_photo: null
+    });
+    setShowAddEmployerCredentialForm(false);
+    if (employerCredentialFileInputRef.current) {
+      employerCredentialFileInputRef.current.value = '';
+    }
+    antd__WEBPACK_IMPORTED_MODULE_1__["default"].success('Credential added! Click "Save Changes" to save.');
+  };
+  var handleEmployerCredentialsSubmit = /*#__PURE__*/function () {
+    var _ref19 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee19() {
+      var token, formData, _iterator2, _step2, pair, response, responseData, errorData, _t15;
+      return _regenerator().w(function (_context19) {
+        while (1) switch (_context19.p = _context19.n) {
+          case 0:
+            setIsLoading(true);
+            _context19.p = 1;
+            token = localStorage.getItem("auth_token");
+            if (token) {
+              _context19.n = 2;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update credentials");
+            return _context19.a(2);
+          case 2:
+            if (!(employerCredentials.length === 0)) {
+              _context19.n = 3;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please add at least one credential before saving");
+            setIsLoading(false);
+            return _context19.a(2);
+          case 3:
+            if (!(newEmployerCredential.credentials_name || newEmployerCredential.credentials_photo)) {
+              _context19.n = 4;
+              break;
+            }
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please click 'Add to List' to add the credential before saving");
+            setIsLoading(false);
+            return _context19.a(2);
+          case 4:
+            // Update credentials via API using complete-profile endpoint
+            formData = new FormData();
+            formData.append('user_id', user.id);
+
+            // Add credentials
+            if (employerCredentials.length > 0) {
+              // Add credentials as individual form fields
+              employerCredentials.forEach(function (cred, index) {
+                formData.append("credentials[".concat(index, "][credentials_name]"), cred.credentials_name);
+                if (cred.credentials_photo instanceof File) {
+                  // New file upload
+                  formData.append("credentials[".concat(index, "][credentials_photo]"), cred.credentials_photo);
+                  console.log("Adding new file for employer credential ".concat(index, ":"), cred.credentials_photo.name);
+                } else if (typeof cred.credentials_photo === 'string' && cred.credentials_photo.trim() !== '') {
+                  // Existing file path - keep the existing file
+                  formData.append("credentials[".concat(index, "][existing_photo]"), cred.credentials_photo);
+                  console.log("Keeping existing file for employer credential ".concat(index, ":"), cred.credentials_photo);
+                } else {
+                  // No file provided - this shouldn't happen if validation is working
+                  console.warn("No file provided for employer credential ".concat(index));
+                }
+              });
+
+              // Also add a JSON version for debugging
+              formData.append('credentials_json', JSON.stringify(employerCredentials));
+            }
+            console.log('Sending employer credentials data:', employerCredentials);
+            console.log('FormData contents:');
+            _iterator2 = _createForOfIteratorHelper(formData.entries());
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                pair = _step2.value;
+                console.log(pair[0] + ': ' + pair[1]);
+              }
+
+              // Debug: Check each credential's file type
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+            employerCredentials.forEach(function (cred, index) {
+              console.log("Employer Credential ".concat(index, ":"), {
+                name: cred.credentials_name,
+                photo: cred.credentials_photo,
+                isFile: cred.credentials_photo instanceof File,
+                type: _typeof(cred.credentials_photo)
+              });
+            });
+            _context19.n = 5;
+            return fetch("http://127.0.0.1:8000/api/employers/".concat(user.id, "/update-credentials"), {
+              method: "POST",
+              headers: {
+                'Authorization': "Bearer ".concat(token)
+              },
+              body: formData
+            });
+          case 5:
+            response = _context19.v;
+            if (!response.ok) {
+              _context19.n = 8;
+              break;
+            }
+            _context19.n = 6;
+            return response.json();
+          case 6:
+            responseData = _context19.v;
+            console.log('Employer credentials update response:', responseData);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Credentials updated successfully!");
+            setIsEditingEmployerCredentials(false);
+            setNewEmployerCredential({
+              credentials_name: '',
+              credentials_photo: null
+            });
+
+            // Clear the file input
+            if (employerCredentialFileInputRef.current) {
+              employerCredentialFileInputRef.current.value = '';
+            }
+
+            // Refresh data immediately to get updated credentials from backend
+            console.log('Refreshing employer profile after credentials update...');
+            _context19.n = 7;
+            return fetchEmployerProfile(user.id);
+          case 7:
+            // Dispatch event for other components
+            window.dispatchEvent(new CustomEvent('employerCredentialsUpdated'));
+            _context19.n = 10;
+            break;
+          case 8:
+            _context19.n = 9;
+            return response.json()["catch"](function () {
+              return {};
+            });
+          case 9:
+            errorData = _context19.v;
+            console.error('Employer credentials update failed:', response.status, response.statusText, errorData);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update credentials: ".concat(errorData.message || errorData.error || 'Please try again.'));
+          case 10:
+            _context19.n = 12;
+            break;
+          case 11:
+            _context19.p = 11;
+            _t15 = _context19.v;
+            console.error("Employer credentials update error:", _t15);
+            antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating credentials. Please check your connection.");
+          case 12:
+            _context19.p = 12;
+            setIsLoading(false);
+            return _context19.f(12);
+          case 13:
+            return _context19.a(2);
+        }
+      }, _callee19, null, [[1, 11, 12, 13]]);
+    }));
+    return function handleEmployerCredentialsSubmit() {
+      return _ref19.apply(this, arguments);
     };
   }();
   var handleProfileImageChange = function handleProfileImageChange(e) {
@@ -246826,39 +247409,39 @@ var MyProfile = function MyProfile() {
     setShowImageModal(false);
   };
   var handleProfileSubmit = /*#__PURE__*/function () {
-    var _ref15 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee15(e) {
-      var emailRegex, token, requestData, body, contentType, formData, headers, method, url, response, responseData, updatedUser, currentUserData, currentUser, finalUserData, localStorageStructure, _yield$import, clearStaleUserData, errorData, _t12, _t13, _t14;
-      return _regenerator().w(function (_context15) {
-        while (1) switch (_context15.p = _context15.n) {
+    var _ref20 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee20(e) {
+      var emailRegex, token, requestData, body, contentType, formData, headers, method, url, response, responseData, updatedUser, currentUserData, currentUser, finalUserData, localStorageStructure, _yield$import, clearStaleUserData, errorData, _t16, _t17, _t18;
+      return _regenerator().w(function (_context20) {
+        while (1) switch (_context20.p = _context20.n) {
           case 0:
             e.preventDefault();
 
             // Validate required fields
             if (!(!profileData.firstName.trim() || !profileData.lastName.trim() || !profileData.email.trim())) {
-              _context15.n = 1;
+              _context20.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all required fields (First Name, Last Name, Email)");
-            return _context15.a(2);
+            return _context20.a(2);
           case 1:
             // Validate email format
             emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (emailRegex.test(profileData.email)) {
-              _context15.n = 2;
+              _context20.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please enter a valid email address");
-            return _context15.a(2);
+            return _context20.a(2);
           case 2:
             setIsLoading(true);
-            _context15.p = 3;
+            _context20.p = 3;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context15.n = 4;
+              _context20.n = 4;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update your profile");
-            return _context15.a(2);
+            return _context20.a(2);
           case 4:
             // Prepare the request data
             requestData = {
@@ -246924,23 +247507,23 @@ var MyProfile = function MyProfile() {
               body.append('_method', 'PUT');
               method = "POST";
             }
-            _context15.n = 5;
+            _context20.n = 5;
             return fetch(url, {
               method: method,
               headers: headers,
               body: body
             });
           case 5:
-            response = _context15.v;
+            response = _context20.v;
             if (!response.ok) {
-              _context15.n = 10;
+              _context20.n = 10;
               break;
             }
-            _context15.p = 6;
-            _context15.n = 7;
+            _context20.p = 6;
+            _context20.n = 7;
             return response.json();
           case 7:
-            responseData = _context15.v;
+            responseData = _context20.v;
             updatedUser = responseData.user; // Extract user data from response
             // Preserve role_id from current user
             currentUserData = JSON.parse(localStorage.getItem("user") || '{}');
@@ -246972,114 +247555,114 @@ var MyProfile = function MyProfile() {
               });
             });
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Profile updated successfully!");
-            _context15.n = 9;
+            _context20.n = 9;
             break;
           case 8:
-            _context15.p = 8;
-            _t12 = _context15.v;
-            console.error("JSON parsing error:", _t12);
+            _context20.p = 8;
+            _t16 = _context20.v;
+            console.error("JSON parsing error:", _t16);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].warning("Profile updated but there was an issue with the response format.");
             setIsEditingProfile(false);
           case 9:
-            _context15.n = 15;
+            _context20.n = 15;
             break;
           case 10:
             if (!(response.status === 404)) {
-              _context15.n = 12;
+              _context20.n = 12;
               break;
             }
             console.error("User not found - clearing stale data");
-            _context15.n = 11;
+            _context20.n = 11;
             return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../utils/profileImageUtils.js */ "./resources/js/utils/profileImageUtils.js"));
           case 11:
-            _yield$import = _context15.v;
+            _yield$import = _context20.v;
             clearStaleUserData = _yield$import.clearStaleUserData;
             clearStaleUserData();
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Your session has expired. Please log in again.");
-            return _context15.a(2);
+            return _context20.a(2);
           case 12:
-            _context15.p = 12;
-            _context15.n = 13;
+            _context20.p = 12;
+            _context20.n = 13;
             return response.json();
           case 13:
-            errorData = _context15.v;
+            errorData = _context20.v;
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update profile: ".concat(errorData.message || 'Please try again.'));
-            _context15.n = 15;
+            _context20.n = 15;
             break;
           case 14:
-            _context15.p = 14;
-            _t13 = _context15.v;
-            console.error("Error parsing error response:", _t13);
+            _context20.p = 14;
+            _t17 = _context20.v;
+            console.error("Error parsing error response:", _t17);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update profile: Server returned ".concat(response.status, " ").concat(response.statusText));
           case 15:
-            _context15.n = 17;
+            _context20.n = 17;
             break;
           case 16:
-            _context15.p = 16;
-            _t14 = _context15.v;
-            console.error("Profile update error:", _t14);
+            _context20.p = 16;
+            _t18 = _context20.v;
+            console.error("Profile update error:", _t18);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating your profile. Please check your connection.");
           case 17:
-            _context15.p = 17;
+            _context20.p = 17;
             setIsLoading(false);
-            return _context15.f(17);
+            return _context20.f(17);
           case 18:
-            return _context15.a(2);
+            return _context20.a(2);
         }
-      }, _callee15, null, [[12, 14], [6, 8], [3, 16, 17, 18]]);
+      }, _callee20, null, [[12, 14], [6, 8], [3, 16, 17, 18]]);
     }));
-    return function handleProfileSubmit(_x7) {
-      return _ref15.apply(this, arguments);
+    return function handleProfileSubmit(_x9) {
+      return _ref20.apply(this, arguments);
     };
   }();
   var handlePasswordSubmit = /*#__PURE__*/function () {
-    var _ref16 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee16(e) {
-      var token, response, errorData, _t15, _t16;
-      return _regenerator().w(function (_context16) {
-        while (1) switch (_context16.p = _context16.n) {
+    var _ref21 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee21(e) {
+      var token, response, errorData, _t19, _t20;
+      return _regenerator().w(function (_context21) {
+        while (1) switch (_context21.p = _context21.n) {
           case 0:
             e.preventDefault();
 
             // Validate required fields
             if (!(!passwordData.currentPassword.trim() || !passwordData.newPassword.trim() || !passwordData.confirmPassword.trim())) {
-              _context16.n = 1;
+              _context21.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all password fields");
-            return _context16.a(2);
+            return _context21.a(2);
           case 1:
             if (!(passwordData.newPassword !== passwordData.confirmPassword)) {
-              _context16.n = 2;
+              _context21.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("New passwords do not match!");
-            return _context16.a(2);
+            return _context21.a(2);
           case 2:
             if (!(passwordData.newPassword.length < 6)) {
-              _context16.n = 3;
+              _context21.n = 3;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("New password must be at least 6 characters long");
-            return _context16.a(2);
+            return _context21.a(2);
           case 3:
             if (!(passwordData.currentPassword === passwordData.newPassword)) {
-              _context16.n = 4;
+              _context21.n = 4;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("New password must be different from current password");
-            return _context16.a(2);
+            return _context21.a(2);
           case 4:
             setIsLoading(true);
-            _context16.p = 5;
+            _context21.p = 5;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context16.n = 6;
+              _context21.n = 6;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to change your password");
-            return _context16.a(2);
+            return _context21.a(2);
           case 6:
-            _context16.n = 7;
+            _context21.n = 7;
             return fetch('http://127.0.0.1:8000/api/change-password', {
               method: "POST",
               headers: {
@@ -247093,9 +247676,9 @@ var MyProfile = function MyProfile() {
               })
             });
           case 7:
-            response = _context16.v;
+            response = _context21.v;
             if (!response.ok) {
-              _context16.n = 8;
+              _context21.n = 8;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Password changed successfully!");
@@ -247105,70 +247688,70 @@ var MyProfile = function MyProfile() {
               confirmPassword: ""
             });
             setIsEditingPassword(false);
-            _context16.n = 11;
+            _context21.n = 11;
             break;
           case 8:
-            _context16.p = 8;
-            _context16.n = 9;
+            _context21.p = 8;
+            _context21.n = 9;
             return response.json();
           case 9:
-            errorData = _context16.v;
+            errorData = _context21.v;
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to change password: ".concat(errorData.error || 'Please try again.'));
-            _context16.n = 11;
+            _context21.n = 11;
             break;
           case 10:
-            _context16.p = 10;
-            _t15 = _context16.v;
-            console.error("Error parsing error response:", _t15);
+            _context21.p = 10;
+            _t19 = _context21.v;
+            console.error("Error parsing error response:", _t19);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to change password: Server returned ".concat(response.status, " ").concat(response.statusText));
           case 11:
-            _context16.n = 13;
+            _context21.n = 13;
             break;
           case 12:
-            _context16.p = 12;
-            _t16 = _context16.v;
-            console.error("Password change error:", _t16);
+            _context21.p = 12;
+            _t20 = _context21.v;
+            console.error("Password change error:", _t20);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while changing your password. Please check your connection.");
           case 13:
-            _context16.p = 13;
+            _context21.p = 13;
             setIsLoading(false);
-            return _context16.f(13);
+            return _context21.f(13);
           case 14:
-            return _context16.a(2);
+            return _context21.a(2);
         }
-      }, _callee16, null, [[8, 10], [5, 12, 13, 14]]);
+      }, _callee21, null, [[8, 10], [5, 12, 13, 14]]);
     }));
-    return function handlePasswordSubmit(_x8) {
-      return _ref16.apply(this, arguments);
+    return function handlePasswordSubmit(_x0) {
+      return _ref21.apply(this, arguments);
     };
   }();
   var handleWorkPreferencesSubmit = /*#__PURE__*/function () {
-    var _ref17 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee17(e) {
-      var token, response, errorData, _t17, _t18;
-      return _regenerator().w(function (_context17) {
-        while (1) switch (_context17.p = _context17.n) {
+    var _ref22 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee22(e) {
+      var token, response, errorData, _t21, _t22;
+      return _regenerator().w(function (_context22) {
+        while (1) switch (_context22.p = _context22.n) {
           case 0:
             e.preventDefault();
 
             // Validate required fields
             if (!(!workPreferences.workType || !workPreferences.hoursPerDay || workPreferences.preferredWorkingDays.length === 0)) {
-              _context17.n = 1;
+              _context22.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all required work preference fields");
-            return _context17.a(2);
+            return _context22.a(2);
           case 1:
             setIsLoading(true);
-            _context17.p = 2;
+            _context22.p = 2;
             token = localStorage.getItem("auth_token");
             if (token) {
-              _context17.n = 3;
+              _context22.n = 3;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("You must be logged in to update work preferences");
-            return _context17.a(2);
+            return _context22.a(2);
           case 3:
-            _context17.n = 4;
+            _context22.n = 4;
             return fetch("http://127.0.0.1:8000/api/workers/".concat(user.id, "/preferences"), {
               method: "PUT",
               headers: {
@@ -247183,48 +247766,48 @@ var MyProfile = function MyProfile() {
               })
             });
           case 4:
-            response = _context17.v;
+            response = _context22.v;
             if (!response.ok) {
-              _context17.n = 5;
+              _context22.n = 5;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Work preferences updated successfully!");
             setIsEditingWorkPreferences(false);
-            _context17.n = 8;
+            _context22.n = 8;
             break;
           case 5:
-            _context17.p = 5;
-            _context17.n = 6;
+            _context22.p = 5;
+            _context22.n = 6;
             return response.json();
           case 6:
-            errorData = _context17.v;
+            errorData = _context22.v;
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update work preferences: ".concat(errorData.message || 'Please try again.'));
-            _context17.n = 8;
+            _context22.n = 8;
             break;
           case 7:
-            _context17.p = 7;
-            _t17 = _context17.v;
-            console.error("Error parsing error response:", _t17);
+            _context22.p = 7;
+            _t21 = _context22.v;
+            console.error("Error parsing error response:", _t21);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Failed to update work preferences: Server returned ".concat(response.status, " ").concat(response.statusText));
           case 8:
-            _context17.n = 10;
+            _context22.n = 10;
             break;
           case 9:
-            _context17.p = 9;
-            _t18 = _context17.v;
-            console.error("Work preferences update error:", _t18);
+            _context22.p = 9;
+            _t22 = _context22.v;
+            console.error("Work preferences update error:", _t22);
             antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("An error occurred while updating work preferences. Please check your connection.");
           case 10:
-            _context17.p = 10;
+            _context22.p = 10;
             setIsLoading(false);
-            return _context17.f(10);
+            return _context22.f(10);
           case 11:
-            return _context17.a(2);
+            return _context22.a(2);
         }
-      }, _callee17, null, [[5, 7], [2, 9, 10, 11]]);
+      }, _callee22, null, [[5, 7], [2, 9, 10, 11]]);
     }));
-    return function handleWorkPreferencesSubmit(_x9) {
-      return _ref17.apply(this, arguments);
+    return function handleWorkPreferencesSubmit(_x1) {
+      return _ref22.apply(this, arguments);
     };
   }();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -247301,7 +247884,7 @@ var MyProfile = function MyProfile() {
               }), "Delete Profile"]
             })]
           })]
-        }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "rank-display-section",
           children: workerRank ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "rank-display",
@@ -247608,7 +248191,7 @@ var MyProfile = function MyProfile() {
           })
         })]
       })]
-    }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "work-preferences-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "card-title",
@@ -247736,7 +248319,7 @@ var MyProfile = function MyProfile() {
           })
         })]
       })]
-    }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "worker-skills-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "card-title",
@@ -247815,9 +248398,9 @@ var MyProfile = function MyProfile() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   id: "primarySubSkills",
                   className: "sub-skills-checkbox-grid",
-                  children: (_ref18 = ((_availableSkills$find = availableSkills.find(function (skill) {
+                  children: (_ref23 = ((_availableSkills$find = availableSkills.find(function (skill) {
                     return skill.id === workerSkills.primary_skills[0].id;
-                  })) === null || _availableSkills$find === void 0 ? void 0 : _availableSkills$find.sub_skills) || []) === null || _ref18 === void 0 ? void 0 : _ref18.map(function (subSkill, index) {
+                  })) === null || _availableSkills$find === void 0 ? void 0 : _availableSkills$find.sub_skills) || []) === null || _ref23 === void 0 ? void 0 : _ref23.map(function (subSkill, index) {
                     var _workerSkills$primary2;
                     var isSelected = ((_workerSkills$primary2 = workerSkills.primary_skills[0].sub_skills) === null || _workerSkills$primary2 === void 0 ? void 0 : _workerSkills$primary2.includes(subSkill)) || false;
                     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
@@ -247990,7 +248573,7 @@ var MyProfile = function MyProfile() {
                 })]
               })]
             }), workerSkills.additional_skills.map(function (skill, index) {
-              var _ref19, _availableSkills$find2, _skill$sub_skills2;
+              var _ref24, _availableSkills$find2, _skill$sub_skills2;
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "skill-details-editing",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -248058,9 +248641,9 @@ var MyProfile = function MyProfile() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                     id: "additionalSubSkills".concat(skill.id),
                     className: "sub-skills-checkbox-grid",
-                    children: (_ref19 = ((_availableSkills$find2 = availableSkills.find(function (s) {
+                    children: (_ref24 = ((_availableSkills$find2 = availableSkills.find(function (s) {
                       return s.id === skill.id;
-                    })) === null || _availableSkills$find2 === void 0 ? void 0 : _availableSkills$find2.sub_skills) || []) === null || _ref19 === void 0 ? void 0 : _ref19.map(function (subSkill, subIndex) {
+                    })) === null || _availableSkills$find2 === void 0 ? void 0 : _availableSkills$find2.sub_skills) || []) === null || _ref24 === void 0 ? void 0 : _ref24.map(function (subSkill, subIndex) {
                       var _skill$sub_skills;
                       var isSelected = ((_skill$sub_skills = skill.sub_skills) === null || _skill$sub_skills === void 0 ? void 0 : _skill$sub_skills.includes(subSkill)) || false;
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
@@ -248202,7 +248785,7 @@ var MyProfile = function MyProfile() {
           })]
         })
       })]
-    }), (user === null || user === void 0 ? void 0 : user.role_id) === 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "worker-credentials-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "card-title",
@@ -248356,6 +248939,182 @@ var MyProfile = function MyProfile() {
             type: "button",
             className: "worker-credentials-save-btn",
             onClick: handleCredentialsSubmit,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
+              className: "btn-icon"
+            }), "Save Changes"]
+          })]
+        })
+      })]
+    }), console.log('Checking user for employer credentials:', user), console.log('User role_id:', user === null || user === void 0 ? void 0 : user.role_id), console.log('User role_id type:', _typeof(user === null || user === void 0 ? void 0 : user.role_id)), console.log('Should show employer credentials:', (user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2'), console.log('Should show employer credentials (string):', (user === null || user === void 0 ? void 0 : user.role_id) === '2'), user && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      style: {
+        border: '2px solid red',
+        padding: '10px',
+        margin: '10px 0',
+        backgroundColor: '#ffe6e6'
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+        children: "DEBUG INFO:"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+        children: ["User ID: ", user.id]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+        children: ["Role ID: ", user.role_id, " (type: ", _typeof(user.role_id), ")"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+        children: ["Should show employer credentials: ", (user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2' ? 'YES' : 'NO']
+      })]
+    }), ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "employer-credentials-card",
+      children: [console.log('Rendering employer credentials section for role_id:', user === null || user === void 0 ? void 0 : user.role_id), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        className: "card-title",
+        children: "Credentials"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "credentials-display",
+        children: [isEditingEmployerCredentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "add-credential-form",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+            className: "add-form-title",
+            children: "Add New Credential"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "form-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "employerCredentialName",
+                children: "Credential Type"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                id: "employerCredentialName",
+                value: newEmployerCredential.credentials_name,
+                onChange: function onChange(e) {
+                  return handleNewEmployerCredentialChange(e, 'credentials_name');
+                },
+                className: "form-input",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "",
+                  children: "Select Credential Type"
+                }), credentialTypes.map(function (credential) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    value: credential.value,
+                    children: credential.label
+                  }, credential.value);
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "form-group",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                htmlFor: "employerCredentialFile",
+                children: "Upload Document (PDF, Word, JPG, PNG - Max 2MB)"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "file",
+                id: "employerCredentialFile",
+                ref: employerCredentialFileInputRef,
+                accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png",
+                onChange: function onChange(e) {
+                  return handleNewEmployerCredentialChange(e, 'credentials_photo');
+                },
+                className: "form-input"
+              }), newEmployerCredential.credentials_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "file-selected-info",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                  className: "file-selected",
+                  children: ["Selected: ", newEmployerCredential.credentials_photo.name]
+                })
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            type: "button",
+            className: "add-credential-action-btn",
+            onClick: handleAddEmployerCredential,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+              viewBox: "0 0 24 24",
+              width: "18",
+              height: "18",
+              fill: "currentColor",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+              })
+            }), "Add to List"]
+          })]
+        }), employerCredentials && employerCredentials.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "credentials-list",
+          children: employerCredentials.map(function (credential, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "credential-item",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "credential-icon",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                  viewBox: "0 0 24 24",
+                  width: "24",
+                  height: "24",
+                  fill: "currentColor",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    d: "M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "credential-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "credential-name",
+                  children: credential.credentials_name
+                }), credential.credentials_photo || credential.credentials_doc ? typeof credential.credentials_photo === 'string' || typeof credential.credentials_doc === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "document-info",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                    href: "http://127.0.0.1:8000/storage/".concat(credential.credentials_photo || credential.credentials_doc),
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className: "view-document-link",
+                    children: "View Document"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    className: "file-path",
+                    children: (credential.credentials_photo || credential.credentials_doc).split('/').pop()
+                  })]
+                }) : credential.credentials_photo instanceof File ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                  className: "pending-upload",
+                  children: ["Pending upload: ", credential.credentials_photo.name]
+                }) : null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "no-file-uploaded",
+                  children: "No file uploaded"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                type: "button",
+                className: "remove-credential-btn",
+                onClick: function onClick() {
+                  return handleRemoveEmployerCredential(index);
+                },
+                title: "Delete this credential",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                  viewBox: "0 0 24 24",
+                  width: "18",
+                  height: "18",
+                  fill: "currentColor",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  })
+                })
+              })]
+            }, index);
+          })
+        }) : !isEditingEmployerCredentials ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "empty-state",
+          children: "No credentials added yet"
+        }) : null]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "form-actions",
+        children: !isEditingEmployerCredentials ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+          type: "button",
+          className: "employer-credentials-edit-btn",
+          onClick: handleEditEmployerCredentials,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
+            className: "btn-icon"
+          }), "Edit Credentials"]
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            type: "button",
+            className: "employer-credentials-cancel-btn",
+            onClick: handleCancelEmployerCredentialsEdit,
+            children: "Cancel"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            type: "button",
+            className: "employer-credentials-save-btn",
+            onClick: handleEmployerCredentialsSubmit,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_2__.MdEdit, {
               className: "btn-icon"
             }), "Save Changes"]

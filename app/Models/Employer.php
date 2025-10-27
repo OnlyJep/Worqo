@@ -20,6 +20,15 @@ class Employer extends Model
         'province',
         'postal_code',
         'country',
+        'credentials_name',
+        'credentials_photo',
+        'credentials_doc',
+    ];
+
+    protected $casts = [
+        'credentials_name' => 'array',
+        'credentials_photo' => 'array',
+        'credentials_doc' => 'array',
     ];
 
     public function profile()

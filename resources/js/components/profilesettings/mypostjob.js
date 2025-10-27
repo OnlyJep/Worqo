@@ -17,12 +17,15 @@ const MyPostJob = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userProfile, setUserProfile] = useState(null);
+  const [employerCredentials, setEmployerCredentials] = useState([]);
+  const [hasCredentials, setHasCredentials] = useState(false);
 
   useEffect(() => {
     // Get user profile from localStorage
     const userData = JSON.parse(localStorage.getItem("user") || '{}');
     setUserProfile(userData);
     fetchJobs();
+    checkEmployerCredentials();
   }, []);
 
   const fetchJobs = async () => {
@@ -89,7 +92,60 @@ const MyPostJob = () => {
     }
   };
 
+  const checkEmployerCredentials = async () => {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) return;
+
+      const userData = JSON.parse(localStorage.getItem("user") || '{}');
+      const currentUser = userData.user || userData;
+      
+      // Only check for employers (role_id === 2)
+      if (currentUser.role_id !== 2 && currentUser.role_id !== '2') {
+        setHasCredentials(true); // Non-employers don't need credentials
+        return;
+      }
+
+      const response = await axios.get(`http://127.0.0.1:8000/api/employers/${currentUser.id}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json"
+        }
+      });
+
+      if (response.ok) {
+        const employerData = response.data.employer || response.data;
+        const credentials = employerData.credentials_name || [];
+        
+        console.log('Employer credentials check:', credentials);
+        
+        // Check if employer has any credentials
+        const hasValidCredentials = Array.isArray(credentials) && credentials.length > 0 && 
+          credentials.some(cred => cred && cred.trim() !== '');
+        
+        setHasCredentials(hasValidCredentials);
+        setEmployerCredentials(credentials);
+        
+        console.log('Has valid credentials:', hasValidCredentials);
+      } else {
+        // If employer profile doesn't exist or has no credentials
+        setHasCredentials(false);
+        setEmployerCredentials([]);
+      }
+    } catch (error) {
+      console.error("Error checking employer credentials:", error.response?.data || error.message);
+      setHasCredentials(false);
+      setEmployerCredentials([]);
+    }
+  };
+
   const handleAddJob = () => {
+    // Check if employer has credentials before allowing job posting
+    if (!hasCredentials) {
+      message.error("You need to submit credentials before posting a job. Please go to Profile Settings to add your credentials.");
+      return;
+    }
+    
     setEditingJob(null);
     setIsModalOpen(true);
   };
@@ -276,6 +332,35 @@ const MyPostJob = () => {
           Add Post Job
         </button>
       </div>
+
+      {/* Credentials Requirement Message for Employers */}
+      {!hasCredentials && (userProfile?.role_id === 2 || userProfile?.role_id === '2') && (
+        <div className="credentials-requirement-message">
+          <div className="requirement-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zM11 7h2v2h-2V7zm0 4h2v6h-2v-6z"/>
+            </svg>
+          </div>
+          <div className="requirement-content">
+            <h3 className="requirement-title">Credentials Required</h3>
+            <p className="requirement-description">
+              You need to submit your credentials before you can post jobs. This helps build trust with potential workers and ensures a professional working environment.
+            </p>
+            <button 
+              className="go-to-profile-btn"
+              onClick={() => {
+                // Navigate to profile settings
+                window.location.href = '/profile-settings';
+              }}
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              Go to Profile Settings
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="jobs-list">
         {jobs.length > 0 ? (

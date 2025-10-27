@@ -66,14 +66,21 @@ const MyProfile = () => {
   const [selectedPrimarySkillId, setSelectedPrimarySkillId] = useState('');
   const [selectedAdditionalSkillIds, setSelectedAdditionalSkillIds] = useState([]);
   
-  // Credentials states (for workers)
+  // Credentials states (for workers and employers)
   const [workerCredentials, setWorkerCredentials] = useState([]);
   const [isEditingCredentials, setIsEditingCredentials] = useState(false);
   const [newCredential, setNewCredential] = useState({ credentials_name: '', credentials_photo: null });
   const [showAddCredentialForm, setShowAddCredentialForm] = useState(false);
   
+  // Employer credentials states
+  const [employerCredentials, setEmployerCredentials] = useState([]);
+  const [isEditingEmployerCredentials, setIsEditingEmployerCredentials] = useState(false);
+  const [newEmployerCredential, setNewEmployerCredential] = useState({ credentials_name: '', credentials_photo: null });
+  const [showAddEmployerCredentialForm, setShowAddEmployerCredentialForm] = useState(false);
+  
   const fileInputRef = useRef(null);
   const credentialFileInputRef = useRef(null);
+  const employerCredentialFileInputRef = useRef(null);
 
   // Credential types from SkillRatingModal
   const credentialTypes = [
@@ -134,7 +141,7 @@ const MyProfile = () => {
   useEffect(() => {
     let isMounted = true;
     
-    if (user?.id && user?.role_id === 1) {
+    if (user?.id && (user?.role_id === 1 || user?.role_id === '1')) {
       const fetchData = async () => {
         try {
           await Promise.all([
@@ -150,6 +157,20 @@ const MyProfile = () => {
       };
       
       fetchData();
+    } else if (user?.id && ((user?.role_id === 2 || user?.role_id === '2') || user?.role_id === '2')) {
+      // Fetch employer data
+      const fetchEmployerData = async () => {
+        try {
+          console.log('Fetching employer data for user:', user.id);
+          await fetchEmployerProfile(user.id);
+        } catch (error) {
+          if (isMounted) {
+            console.error('Error fetching employer data:', error);
+          }
+        }
+      };
+      
+      fetchEmployerData();
     }
     
     return () => {
@@ -175,7 +196,7 @@ const MyProfile = () => {
   useEffect(() => {
     const handleSkillsCredentialsUpdate = () => {
       console.log('Skills/Credentials updated event received, refreshing worker profile...');
-      if (user?.id && user?.role_id === 1) {
+      if (user?.id && (user?.role_id === 1 || user?.role_id === '1')) {
         fetchWorkerProfile(user.id);
       }
     };
@@ -192,9 +213,13 @@ const MyProfile = () => {
 
   const loadUserData = async () => {
     const storedUser = localStorage.getItem("user");
+    console.log('Raw stored user data:', storedUser);
     if (storedUser) {
       const userData = JSON.parse(storedUser);
+      console.log('Parsed user data:', userData);
       const currentUser = userData.user || userData;
+      console.log('Current user:', currentUser);
+      console.log('Current user role_id:', currentUser.role_id);
       
       // If gender_name is null, fetch fresh user data from API
       if (currentUser.gender_id && !currentUser.gender_name) {
@@ -241,6 +266,8 @@ const MyProfile = () => {
       
       // Use stored data if it's complete or if API fetch failed
       setUser(currentUser);
+      console.log('User loaded:', currentUser);
+      console.log('User role_id:', currentUser.role_id);
       setProfileData({
         firstName: currentUser.first_name || "",
         middleName: currentUser.middlename || "",
@@ -492,6 +519,63 @@ const MyProfile = () => {
     }
   };
 
+  const fetchEmployerProfile = async (employerId) => {
+    try {
+      console.log('Fetching employer profile for ID:', employerId);
+      const token = localStorage.getItem("auth_token");
+      if (!token) return;
+
+      const response = await fetch(`http://127.0.0.1:8000/api/employers/${employerId}`, {
+        method: "GET",
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+
+      console.log('Employer profile response status:', response.status);
+      if (response.ok) {
+        const data = await response.json();
+        const employerData = data.employer || data;
+        
+        console.log('Fetched employer data:', employerData);
+        console.log('Employer record:', employerData.employer);
+        console.log('Credentials data:', employerData.credentials_name, employerData.credentials_photo);
+        
+        // Check if we have an employer record
+        if (employerData.employer) {
+          const employerRecord = employerData.employer;
+          console.log('Employer record credentials:', employerRecord.credentials_name, employerRecord.credentials_photo);
+          
+          // Set credentials from employer record
+          if (employerRecord.credentials_name && Array.isArray(employerRecord.credentials_name)) {
+            const creds = employerRecord.credentials_name
+              .map((name, index) => {
+                const photo = employerRecord.credentials_photo?.[index];
+                const doc = employerRecord.credentials_doc?.[index];
+                console.log(`Employer Credential ${index}: name="${name}", photo="${photo}", doc="${doc}"`);
+                return {
+                  credentials_name: name,
+                  credentials_photo: photo || null,
+                  credentials_doc: doc || null
+                };
+              })
+              .filter(cred => cred.credentials_name && cred.credentials_name.trim() !== ''); // Filter out empty/null credentials
+            console.log('Setting employer credentials from backend:', creds);
+            setEmployerCredentials(creds);
+          } else {
+            console.log('No employer credentials found in backend data');
+            setEmployerCredentials([]);
+          }
+        } else {
+          console.log('No employer record found');
+          setEmployerCredentials([]);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching employer profile:', error);
+    }
+  };
+
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
     setProfileData(prev => ({
@@ -588,7 +672,7 @@ const MyProfile = () => {
   const handleCancelWorkPreferencesEdit = async () => {
     setIsEditingWorkPreferences(false);
     // Reload work preferences from server
-    if (user?.id && user?.role_id === 1) {
+    if (user?.id && (user?.role_id === 1 || user?.role_id === '1')) {
       await fetchWorkerProfile(user.id);
     }
   };
@@ -600,7 +684,7 @@ const MyProfile = () => {
   const handleCancelSkillsEdit = async () => {
     setIsEditingSkills(false);
     // Reload skills from server
-    if (user?.id && user?.role_id === 1) {
+    if (user?.id && (user?.role_id === 1 || user?.role_id === '1')) {
       await fetchWorkerProfile(user.id);
     }
   };
@@ -855,7 +939,7 @@ const MyProfile = () => {
   const handleCancelCredentialsEdit = async () => {
     setIsEditingCredentials(false);
     // Reload credentials from server
-    if (user?.id && user?.role_id === 1) {
+    if (user?.id && (user?.role_id === 1 || user?.role_id === '1')) {
       await fetchWorkerProfile(user.id);
     }
   };
@@ -1064,6 +1148,229 @@ const MyProfile = () => {
       }
     } catch (error) {
       console.error("Credentials update error:", error);
+      message.error("An error occurred while updating credentials. Please check your connection.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Employer Credential Functions
+  const handleEditEmployerCredentials = () => {
+    setIsEditingEmployerCredentials(true);
+  };
+
+  const handleCancelEmployerCredentialsEdit = async () => {
+    setIsEditingEmployerCredentials(false);
+    // Reload credentials from server
+    if (user?.id && (user?.role_id === 2 || user?.role_id === '2')) {
+      await fetchEmployerProfile(user.id);
+    }
+  };
+
+  const handleRemoveEmployerCredential = async (index) => {
+    const updatedCredentials = employerCredentials.filter((_, i) => i !== index);
+    setEmployerCredentials(updatedCredentials);
+    
+    // Auto-save the changes to backend
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) {
+        message.error("You must be logged in to delete credentials");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('user_id', user.id);
+      
+      // Send updated credentials (without the deleted one)
+      if (updatedCredentials.length === 0) {
+        formData.append('credentials', JSON.stringify([]));
+      } else {
+        updatedCredentials.forEach((cred, credIndex) => {
+          formData.append(`credentials[${credIndex}][credentials_name]`, cred.credentials_name);
+          if (cred.credentials_photo instanceof File) {
+            formData.append(`credentials[${credIndex}][credentials_photo]`, cred.credentials_photo);
+          } else if (typeof cred.credentials_photo === 'string' && cred.credentials_photo.trim() !== '') {
+            formData.append(`credentials[${credIndex}][existing_photo]`, cred.credentials_photo);
+          }
+        });
+      }
+
+      const response = await fetch(`http://127.0.0.1:8000/api/employers/${user.id}/update-credentials`, {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        message.success("Credential deleted successfully!");
+        // Refresh data to get updated credentials from backend
+        await fetchEmployerProfile(user.id);
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        message.error(`Failed to delete credential: ${errorData.message || errorData.error || 'Please try again.'}`);
+        // Revert the change if backend save failed
+        setEmployerCredentials(employerCredentials);
+      }
+    } catch (error) {
+      console.error("Credential deletion error:", error);
+      message.error("An error occurred while deleting the credential. Please check your connection.");
+      // Revert the change if backend save failed
+      setEmployerCredentials(employerCredentials);
+    }
+  };
+
+  const handleNewEmployerCredentialChange = (e, field) => {
+    if (field === 'credentials_photo') {
+      const file = e.target.files[0];
+      if (file) {
+        // Validate file type
+        const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg'];
+        if (!validTypes.includes(file.type)) {
+          message.error('File must be PDF, Word, JPG, or PNG');
+          return;
+        }
+        // Validate file size (2MB)
+        if (file.size > 2 * 1024 * 1024) {
+          message.error('File size must not exceed 2MB');
+          return;
+        }
+        setNewEmployerCredential(prev => ({ ...prev, credentials_photo: file }));
+      }
+    } else {
+      setNewEmployerCredential(prev => ({ ...prev, [field]: e.target.value }));
+    }
+  };
+
+  const handleAddEmployerCredential = () => {
+    if (!newEmployerCredential.credentials_name.trim()) {
+      message.error('Please enter a credential name');
+      return;
+    }
+    if (!newEmployerCredential.credentials_photo) {
+      message.error('Please upload a credential document');
+      return;
+    }
+
+    console.log('Adding employer credential:', {
+      name: newEmployerCredential.credentials_name,
+      photo: newEmployerCredential.credentials_photo,
+      isFile: newEmployerCredential.credentials_photo instanceof File,
+      type: typeof newEmployerCredential.credentials_photo
+    });
+
+    setEmployerCredentials(prev => [...prev, { ...newEmployerCredential }]);
+    setNewEmployerCredential({ credentials_name: '', credentials_photo: null });
+    setShowAddEmployerCredentialForm(false);
+    if (employerCredentialFileInputRef.current) {
+      employerCredentialFileInputRef.current.value = '';
+    }
+    message.success('Credential added! Click "Save Changes" to save.');
+  };
+
+  const handleEmployerCredentialsSubmit = async () => {
+    setIsLoading(true);
+    
+    try {
+      const token = localStorage.getItem("auth_token");
+      if (!token) {
+        message.error("You must be logged in to update credentials");
+        return;
+      }
+
+      // Validate that we have credentials to save
+      if (employerCredentials.length === 0) {
+        message.error("Please add at least one credential before saving");
+        setIsLoading(false);
+        return;
+      }
+
+      // Check if user is in the middle of adding a credential
+      if (newEmployerCredential.credentials_name || newEmployerCredential.credentials_photo) {
+        message.error("Please click 'Add to List' to add the credential before saving");
+        setIsLoading(false);
+        return;
+      }
+
+      // Update credentials via API using complete-profile endpoint
+      const formData = new FormData();
+      formData.append('user_id', user.id);
+      
+      // Add credentials
+      if (employerCredentials.length > 0) {
+        // Add credentials as individual form fields
+        employerCredentials.forEach((cred, index) => {
+          formData.append(`credentials[${index}][credentials_name]`, cred.credentials_name);
+          if (cred.credentials_photo instanceof File) {
+            // New file upload
+            formData.append(`credentials[${index}][credentials_photo]`, cred.credentials_photo);
+            console.log(`Adding new file for employer credential ${index}:`, cred.credentials_photo.name);
+          } else if (typeof cred.credentials_photo === 'string' && cred.credentials_photo.trim() !== '') {
+            // Existing file path - keep the existing file
+            formData.append(`credentials[${index}][existing_photo]`, cred.credentials_photo);
+            console.log(`Keeping existing file for employer credential ${index}:`, cred.credentials_photo);
+          } else {
+            // No file provided - this shouldn't happen if validation is working
+            console.warn(`No file provided for employer credential ${index}`);
+          }
+        });
+        
+        // Also add a JSON version for debugging
+        formData.append('credentials_json', JSON.stringify(employerCredentials));
+      }
+
+      console.log('Sending employer credentials data:', employerCredentials);
+      console.log('FormData contents:');
+      for (let pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+      }
+      
+      // Debug: Check each credential's file type
+      employerCredentials.forEach((cred, index) => {
+        console.log(`Employer Credential ${index}:`, {
+          name: cred.credentials_name,
+          photo: cred.credentials_photo,
+          isFile: cred.credentials_photo instanceof File,
+          type: typeof cred.credentials_photo
+        });
+      });
+
+      const response = await fetch(`http://127.0.0.1:8000/api/employers/${user.id}/update-credentials`, {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Employer credentials update response:', responseData);
+        
+        message.success("Credentials updated successfully!");
+        setIsEditingEmployerCredentials(false);
+        setNewEmployerCredential({ credentials_name: '', credentials_photo: null });
+        
+        // Clear the file input
+        if (employerCredentialFileInputRef.current) {
+          employerCredentialFileInputRef.current.value = '';
+        }
+        
+        // Refresh data immediately to get updated credentials from backend
+        console.log('Refreshing employer profile after credentials update...');
+        await fetchEmployerProfile(user.id);
+        
+        // Dispatch event for other components
+        window.dispatchEvent(new CustomEvent('employerCredentialsUpdated'));
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Employer credentials update failed:', response.status, response.statusText, errorData);
+        message.error(`Failed to update credentials: ${errorData.message || errorData.error || 'Please try again.'}`);
+      }
+    } catch (error) {
+      console.error("Employer credentials update error:", error);
       message.error("An error occurred while updating credentials. Please check your connection.");
     } finally {
       setIsLoading(false);
@@ -1513,7 +1820,7 @@ const MyProfile = () => {
           </div>
           
           {/* Rank Display - Only show for workers */}
-          {user?.role_id === 1 && (
+          {(user?.role_id === 1 || user?.role_id === '1') && (
             <div className="rank-display-section">
               {workerRank ? (
                 <div className="rank-display">
@@ -1778,7 +2085,7 @@ const MyProfile = () => {
       </div>
       
       {/* Work Preferences Card - Only for Workers */}
-      {user?.role_id === 1 && (
+      {(user?.role_id === 1 || user?.role_id === '1') && (
         <div className="work-preferences-card">
           <h3 className="card-title">Work Preferences</h3>
           
@@ -1877,7 +2184,7 @@ const MyProfile = () => {
       )}
 
       {/* Skills & Experience Card - Only for Workers */}
-      {user?.role_id === 1 && (
+      {(user?.role_id === 1 || user?.role_id === '1') && (
         <div className="worker-skills-card">
           <h3 className="card-title">Skills & Experience</h3>
           
@@ -2247,7 +2554,7 @@ const MyProfile = () => {
       )}
 
       {/* Credentials Card - Only for Workers */}
-      {user?.role_id === 1 && (
+      {(user?.role_id === 1 || user?.role_id === '1') && (
         <div className="worker-credentials-card">
           <h3 className="card-title">Credentials</h3>
           
@@ -2376,6 +2683,163 @@ const MyProfile = () => {
                   type="button" 
                   className="worker-credentials-save-btn"
                   onClick={handleCredentialsSubmit}
+                >
+                  <MdEdit className="btn-icon" />
+                  Save Changes
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Credentials Card - Only for Employers */}
+      {console.log('Checking user for employer credentials:', user)}
+      {console.log('User role_id:', user?.role_id)}
+      {console.log('User role_id type:', typeof user?.role_id)}
+      {console.log('Should show employer credentials:', (user?.role_id === 2 || user?.role_id === '2'))}
+      {console.log('Should show employer credentials (string):', user?.role_id === '2')}
+      
+      {/* Temporary debug section */}
+      {user && (
+        <div style={{border: '2px solid red', padding: '10px', margin: '10px 0', backgroundColor: '#ffe6e6'}}>
+          <h4>DEBUG INFO:</h4>
+          <p>User ID: {user.id}</p>
+          <p>Role ID: {user.role_id} (type: {typeof user.role_id})</p>
+          <p>Should show employer credentials: {(user?.role_id === 2 || user?.role_id === '2') ? 'YES' : 'NO'}</p>
+        </div>
+      )}
+      
+      {(user?.role_id === 2 || user?.role_id === '2') && (
+        <div className="employer-credentials-card">
+          {console.log('Rendering employer credentials section for role_id:', user?.role_id)}
+          <h3 className="card-title">Credentials</h3>
+          
+          <div className="credentials-display">
+            {/* Add Credential Form - Show when editing */}
+            {isEditingEmployerCredentials && (
+              <div className="add-credential-form">
+                <h4 className="add-form-title">Add New Credential</h4>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="employerCredentialName">Credential Type</label>
+                    <select
+                      id="employerCredentialName"
+                      value={newEmployerCredential.credentials_name}
+                      onChange={(e) => handleNewEmployerCredentialChange(e, 'credentials_name')}
+                      className="form-input"
+                    >
+                      <option value="">Select Credential Type</option>
+                      {credentialTypes.map((credential) => (
+                        <option key={credential.value} value={credential.value}>
+                          {credential.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="employerCredentialFile">Upload Document (PDF, Word, JPG, PNG - Max 2MB)</label>
+                    <input
+                      type="file"
+                      id="employerCredentialFile"
+                      ref={employerCredentialFileInputRef}
+                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                      onChange={(e) => handleNewEmployerCredentialChange(e, 'credentials_photo')}
+                      className="form-input"
+                    />
+                    {newEmployerCredential.credentials_photo && (
+                      <div className="file-selected-info">
+                        <span className="file-selected">Selected: {newEmployerCredential.credentials_photo.name}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <button 
+                  type="button" 
+                  className="add-credential-action-btn"
+                  onClick={handleAddEmployerCredential}
+                >
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                  </svg>
+                  Add to List
+                </button>
+              </div>
+            )}
+
+            {/* Existing Credentials List */}
+            {employerCredentials && employerCredentials.length > 0 ? (
+              <div className="credentials-list">
+                {employerCredentials.map((credential, index) => (
+                  <div key={index} className="credential-item">
+                    <div className="credential-icon">
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                      </svg>
+                    </div>
+                    <div className="credential-info">
+                      <span className="credential-name">{credential.credentials_name}</span>
+                      {credential.credentials_photo || credential.credentials_doc ? (
+                        typeof credential.credentials_photo === 'string' || typeof credential.credentials_doc === 'string' ? (
+                          <div className="document-info">
+                            <a 
+                              href={`http://127.0.0.1:8000/storage/${credential.credentials_photo || credential.credentials_doc}`} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="view-document-link"
+                            >
+                              View Document
+                            </a>
+                            <span className="file-path">{(credential.credentials_photo || credential.credentials_doc).split('/').pop()}</span>
+                          </div>
+                        ) : credential.credentials_photo instanceof File ? (
+                          <span className="pending-upload">Pending upload: {credential.credentials_photo.name}</span>
+                        ) : null
+                      ) : (
+                        <span className="no-file-uploaded">No file uploaded</span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      className="remove-credential-btn"
+                      onClick={() => handleRemoveEmployerCredential(index)}
+                      title="Delete this credential"
+                    >
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                      </svg>
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : !isEditingEmployerCredentials ? (
+              <p className="empty-state">No credentials added yet</p>
+            ) : null}
+          </div>
+
+          <div className="form-actions">
+            {!isEditingEmployerCredentials ? (
+              <button 
+                type="button" 
+                className="employer-credentials-edit-btn" 
+                onClick={handleEditEmployerCredentials}
+              >
+                <MdEdit className="btn-icon" />
+                Edit Credentials
+              </button>
+            ) : (
+              <>
+                <button 
+                  type="button" 
+                  className="employer-credentials-cancel-btn" 
+                  onClick={handleCancelEmployerCredentialsEdit}
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="button" 
+                  className="employer-credentials-save-btn"
+                  onClick={handleEmployerCredentialsSubmit}
                 >
                   <MdEdit className="btn-icon" />
                   Save Changes
