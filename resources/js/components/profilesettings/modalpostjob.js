@@ -28,8 +28,13 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [jobTitleOptions, setJobTitleOptions] = useState([]);
   const [selectedJobTitle, setSelectedJobTitle] = useState("");
+  const [isJobTitleOthers, setIsJobTitleOthers] = useState(false);
+  const [customJobTitle, setCustomJobTitle] = useState("");
   const [isSkillsDropdownOpen, setIsSkillsDropdownOpen] = useState(false);
   const [isSubSkillsDropdownOpen, setIsSubSkillsDropdownOpen] = useState(false);
+  const [isSubSkillOthers, setIsSubSkillOthers] = useState(false);
+  const [customSubSkill, setCustomSubSkill] = useState("");
+  const [subSkillSearchTerm, setSubSkillSearchTerm] = useState("");
   const [isExperienceDropdownOpen, setIsExperienceDropdownOpen] = useState({});
   const [availableSubSkills, setAvailableSubSkills] = useState([]);
   const [selectedSubSkills, setSelectedSubSkills] = useState([]);
@@ -163,6 +168,8 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
           value: skillName,
           label: skillName
         }));
+        // Add "Others" option at the end
+        jobTitleOptions.push({ value: 'Others', label: 'Others' });
         setJobTitleOptions(jobTitleOptions);
       }
     } catch (error) {
@@ -193,9 +200,11 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     if (!formData.applicationStart || !formData.applicationDeadline)
       return message.error("Please select application start and deadline dates");
     if (new Date(formData.applicationDeadline) <= new Date(formData.applicationStart))
-      return message.error("Deadline must be after the start date");
+      return message.error("Application deadline must be after application start date");
     if (!formData.workStart || !formData.workEnd)
       return message.error("Please select work start and end dates");
+    if (new Date(formData.workStart) < new Date(formData.applicationDeadline))
+      return message.error("Work start date must be on or after application deadline (hiring period must complete first)");
     if (new Date(formData.workEnd) <= new Date(formData.workStart))
       return message.error("Work end date must be after work start date");
 
@@ -230,18 +239,33 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
 
   const handleJobTitleChange = (value) => {
     setSelectedJobTitle(value);
-    setFormData((prev) => ({ ...prev, jobTitle: value }));
     
-    // Filter sub-skills based on selected job title
-    const selectedSkill = availableSkills.find(skill => skill.name === value);
-    if (selectedSkill && selectedSkill.sub_skills) {
-      const subSkillsOptions = selectedSkill.sub_skills.map(subSkill => ({
-        value: subSkill,
-        label: subSkill
-      }));
-      setAvailableSubSkills(subSkillsOptions);
-    } else {
+    // Check if "Others" is selected
+    if (value === 'Others') {
+      setIsJobTitleOthers(true);
+      setFormData((prev) => ({ ...prev, jobTitle: '' }));
       setAvailableSubSkills([]);
+      setIsSubSkillOthers(true); // When job title is Others, sub-skills should also be custom
+    } else {
+      setIsJobTitleOthers(false);
+      setCustomJobTitle('');
+      setIsSubSkillOthers(false);
+      setCustomSubSkill('');
+      setFormData((prev) => ({ ...prev, jobTitle: value }));
+      
+      // Filter sub-skills based on selected job title
+      const selectedSkill = availableSkills.find(skill => skill.name === value);
+      if (selectedSkill && selectedSkill.sub_skills) {
+        const subSkillsOptions = selectedSkill.sub_skills.map(subSkill => ({
+          value: subSkill,
+          label: subSkill
+        }));
+        // Add "Others" option to sub-skills
+        subSkillsOptions.push({ value: 'Others', label: 'Others' });
+        setAvailableSubSkills(subSkillsOptions);
+      } else {
+        setAvailableSubSkills([{ value: 'Others', label: 'Others' }]);
+      }
     }
     
     // Reset selected sub-skills and skills when job title changes
@@ -249,8 +273,21 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     setFormData((prev) => ({ ...prev, skills: [], skillExperiences: {} }));
   };
 
+  const handleCustomJobTitleChange = (e) => {
+    const value = e.target.value;
+    setCustomJobTitle(value);
+    setFormData((prev) => ({ ...prev, jobTitle: value }));
+  };
+
   const toggleSubSkillsDropdown = () => {
     setIsSubSkillsDropdownOpen(!isSubSkillsDropdownOpen);
+    if (!isSubSkillsDropdownOpen) {
+      setSubSkillSearchTerm(''); // Reset search when opening
+    }
+  };
+
+  const handleSubSkillSearchChange = (e) => {
+    setSubSkillSearchTerm(e.target.value);
   };
 
   const toggleExperienceDropdown = (subSkill) => {
@@ -261,6 +298,11 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   };
 
   const handleSubSkillToggle = (subSkill) => {
+    if (subSkill === 'Others') {
+      setIsSubSkillOthers(true);
+      return;
+    }
+    
     setSelectedSubSkills((prev) => {
       if (prev.includes(subSkill)) {
         return prev.filter(skill => skill !== subSkill);
@@ -268,6 +310,23 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
         return [...prev, subSkill];
       }
     });
+  };
+
+  const handleCustomSubSkillAdd = () => {
+    if (!customSubSkill.trim()) {
+      message.error('Please enter a custom sub-skill');
+      return;
+    }
+    
+    setSelectedSubSkills((prev) => [...prev, customSubSkill]);
+    setCustomSubSkill('');
+    setIsSubSkillOthers(false);
+    setIsSubSkillsDropdownOpen(false);
+    message.success(`Custom sub-skill "${customSubSkill}" added`);
+  };
+
+  const handleCustomSubSkillChange = (e) => {
+    setCustomSubSkill(e.target.value);
   };
 
   const handleExperienceChange = (subSkill, experience) => {
@@ -321,14 +380,40 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
               {/* Job Title */}
               <div className="form-group">
                 <label htmlFor="jobTitle">Job Title</label>
-                <CustomDropdown
-                  options={jobTitleOptions}
-                  value={formData.jobTitle}
-                  onChange={handleJobTitleChange}
-                  placeholder="Select job title"
-                  className="full-width-input"
-                  required
-                />
+                {!isJobTitleOthers ? (
+                  <CustomDropdown
+                    options={jobTitleOptions}
+                    value={selectedJobTitle}
+                    onChange={handleJobTitleChange}
+                    placeholder="Select job title"
+                    className="full-width-input"
+                    searchable={true}
+                    required
+                  />
+                ) : (
+                  <div className="custom-input-group">
+                    <input
+                      type="text"
+                      value={customJobTitle}
+                      onChange={handleCustomJobTitleChange}
+                      placeholder="Enter custom job title"
+                      className="full-width-input"
+                      required
+                    />
+                    <button
+                      type="button"
+                      className="back-to-select-btn"
+                      onClick={() => {
+                        setIsJobTitleOthers(false);
+                        setCustomJobTitle('');
+                        setSelectedJobTitle('');
+                        setFormData((prev) => ({ ...prev, jobTitle: '' }));
+                      }}
+                    >
+                      ← Back to Select
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Job Description */}
@@ -419,37 +504,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                 </div>
               )}
 
-               {/* Work Period */}
-               <div className="form-row">
-                 <div className="form-group">
-                   <label htmlFor="workStart">Work Start Date</label>
-                   <input
-                     type="datetime-local"
-                     id="workStart"
-                     name="workStart"
-                     value={formData.workStart}
-                     onChange={handleInputChange}
-                     className="small-input"
-                     min={new Date().toISOString().slice(0, 16)}
-                     required
-                   />
-                 </div>
-                 <div className="form-group">
-                   <label htmlFor="workEnd">Work End Date</label>
-                   <input
-                     type="datetime-local"
-                     id="workEnd"
-                     name="workEnd"
-                     value={formData.workEnd}
-                     onChange={handleInputChange}
-                     className="small-input"
-                     min={formData.workStart || new Date().toISOString().slice(0, 16)}
-                     required
-                   />
-                 </div>
-               </div>
-
-              {/* Application Period */}
+              {/* Application Period - MOVED TO TOP */}
               <div className="form-row">
                 <div className="form-group">
                   <label>Application Start</label>
@@ -458,6 +513,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                     name="applicationStart"
                     value={formData.applicationStart}
                     onChange={handleInputChange}
+                    min={new Date().toISOString().slice(0, 16)}
                     className="small-input"
                     required
                   />
@@ -472,9 +528,46 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                     min={formData.applicationStart}
                     className="small-input"
                     required
+                    disabled={!formData.applicationStart}
                   />
                 </div>
               </div>
+
+               {/* Work Period - MOVED BELOW APPLICATION PERIOD */}
+               <div className="form-row">
+                 <div className="form-group">
+                   <label htmlFor="workStart">Work Start Date</label>
+                   <input
+                     type="datetime-local"
+                     id="workStart"
+                     name="workStart"
+                     value={formData.workStart}
+                     onChange={handleInputChange}
+                     className="small-input"
+                     min={formData.applicationDeadline ? 
+                       formData.applicationDeadline
+                       : new Date().toISOString().slice(0, 16)}
+                     required
+                     disabled={!formData.applicationDeadline}
+                     title={!formData.applicationDeadline ? "Please select Application Deadline first" : "Work Start must be after Application Deadline (hiring period)"}
+                   />
+                 </div>
+                 <div className="form-group">
+                   <label htmlFor="workEnd">Work End Date</label>
+                   <input
+                     type="datetime-local"
+                     id="workEnd"
+                     name="workEnd"
+                     value={formData.workEnd}
+                     onChange={handleInputChange}
+                     className="small-input"
+                     min={formData.workStart || new Date().toISOString().slice(0, 16)}
+                     required
+                     disabled={!formData.workStart}
+                     title={!formData.workStart ? "Please select Work Start date first" : ""}
+                   />
+                 </div>
+               </div>
 
               {/* Sub-Skills */}
               {selectedJobTitle && (
@@ -504,19 +597,75 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                       </span>
                     </div>
                     {isSubSkillsDropdownOpen && (
-                      <div className="ant-select-dropdown sub-skills-dropdown">
-                        {availableSubSkills.map((subSkill, index) => (
-                          <div key={index} className="ant-select-item">
-                            <label className="sub-skill-option">
+                      <div className="ant-select-dropdown sub-skills-dropdown" ref={subSkillsDropdownRef}>
+                        {!isSubSkillOthers ? (
+                          <>
+                            <div className="dropdown-search-container">
                               <input
-                                type="checkbox"
-                                checked={selectedSubSkills.includes(subSkill.value)}
-                                onChange={() => handleSubSkillToggle(subSkill.value)}
+                                type="text"
+                                className="dropdown-search-input"
+                                placeholder="Search sub-skills..."
+                                value={subSkillSearchTerm}
+                                onChange={handleSubSkillSearchChange}
+                                onClick={(e) => e.stopPropagation()}
+                                autoFocus
                               />
-                              <span>{subSkill.label}</span>
-                            </label>
+                            </div>
+                            <div className="dropdown-options-list">
+                              {availableSubSkills
+                                .filter(subSkill => 
+                                  subSkill.label.toLowerCase().includes(subSkillSearchTerm.toLowerCase())
+                                )
+                                .map((subSkill, index) => (
+                                  <div key={index} className="ant-select-item">
+                                    <label className="sub-skill-option">
+                                      <input
+                                        type="checkbox"
+                                        checked={selectedSubSkills.includes(subSkill.value)}
+                                        onChange={() => handleSubSkillToggle(subSkill.value)}
+                                      />
+                                      <span>{subSkill.label}</span>
+                                    </label>
+                                  </div>
+                                ))}
+                              {availableSubSkills.filter(subSkill => 
+                                subSkill.label.toLowerCase().includes(subSkillSearchTerm.toLowerCase())
+                              ).length === 0 && (
+                                <div className="dropdown-no-results">No results found</div>
+                              )}
+                            </div>
+                          </>
+                        ) : (
+                          <div className="custom-sub-skill-input">
+                            <input
+                              type="text"
+                              value={customSubSkill}
+                              onChange={handleCustomSubSkillChange}
+                              placeholder="Enter custom sub-skill"
+                              className="custom-sub-skill-field"
+                              autoFocus
+                            />
+                            <div className="custom-sub-skill-actions">
+                              <button
+                                type="button"
+                                className="add-custom-btn"
+                                onClick={handleCustomSubSkillAdd}
+                              >
+                                Add
+                              </button>
+                              <button
+                                type="button"
+                                className="cancel-custom-btn"
+                                onClick={() => {
+                                  setIsSubSkillOthers(false);
+                                  setCustomSubSkill('');
+                                }}
+                              >
+                                Cancel
+                              </button>
+                            </div>
                           </div>
-                        ))}
+                        )}
                       </div>
                     )}
                   </div>

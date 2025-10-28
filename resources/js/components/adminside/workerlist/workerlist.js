@@ -2103,6 +2103,12 @@ const WorkerList = () => {
 
                   <th>Full Name</th>
 
+                  <th>Email</th>
+
+                  <th>Credentials</th>
+
+                  <th>Contact Number</th>
+
                   <th>Work Type</th>
 
                   <th>Hours/Day</th>
@@ -2111,11 +2117,7 @@ const WorkerList = () => {
 
                   <th>Skills</th>
 
-                  <th>Credentials</th>
-
                   <th>Bio</th>
-
-                  <th>Email</th>
 
                   <th>Status</th>
 
@@ -2133,7 +2135,7 @@ const WorkerList = () => {
 
                   <tr>
 
-                    <td colSpan="13" className="loading-row">Loading workers...</td>
+                    <td colSpan="14" className="loading-row">Loading workers...</td>
 
                   </tr>
 
@@ -2314,37 +2316,74 @@ const WorkerList = () => {
 
                         <td>
 
-                          {worker.profile?.profile_img ? (
+                          <img
 
-                            <img
+                            src={worker.profile?.profile_img 
+                              ? `http://127.0.0.1:8000/storage/${worker.profile.profile_img}`
+                              : "/images/defpfp.svg"}
 
-                              src={`http://127.0.0.1:8000/storage/${worker.profile.profile_img}`}
+                            alt="Profile"
 
-                              alt="Profile"
+                            className="profile-img"
 
-                              className="profile-img"
+                            style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}
 
-                              style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}
+                            onError={(e) => {
 
-                              onError={(e) => {
+                              e.target.src = "/images/defpfp.svg";
 
-                                e.target.style.display = "none";
+                            }}
 
-                                e.target.parentElement.innerHTML += `<span style="color: red;">N/A</span>`;
-
-                              }}
-
-                            />
-
-                          ) : (
-
-                            <span style={{ color: "#888" }}>N/A</span>
-
-                          )}
+                          />
 
                         </td>
 
                         <td className="fullname-cell">{getFullName(worker, suffixes)}</td>
+
+                        <td className="email-cell">{worker.email || "N/A"}</td>
+
+                        <td className="credentials-cell">
+
+                          {credentials.length > 0
+
+                            ? credentials.map((cred, index) => (
+
+                                <div key={index} className="credential-item">
+
+                                  {cred.credentials_name}:{" "}
+
+                                  {cred.credentials_photo && isImageFile(cred.credentials_photo) && (
+                                    <button
+                                      className="credential-link"
+                                      onClick={() => handlePreviewClick({...cred, credentials_photo: cred.credentials_photo, credentials_doc: null})}
+                                      style={{ marginRight: '5px' }}
+                                    >
+                                      View Photo
+                                    </button>
+                                  )}
+                                  
+                                  {cred.credentials_doc && (
+                                    <button
+                                      className="credential-link"
+                                      onClick={() => handlePreviewClick({...cred, credentials_photo: null, credentials_doc: cred.credentials_doc})}
+                                    >
+                                      {isImageFile(cred.credentials_doc) ? "View Image" : "View Document"}
+                                    </button>
+                                  )}
+
+                                </div>
+
+                              ))
+
+                            : "None"}
+
+                        </td>
+
+                        <td>
+
+                          {worker.profile?.contact_number || "N/A"}
+
+                        </td>
 
                         <td>
 
@@ -2387,43 +2426,6 @@ const WorkerList = () => {
                           })()}
                         </td>
 
-                        <td className="credentials-cell">
-
-                          {credentials.length > 0
-
-                            ? credentials.map((cred, index) => (
-
-                                <div key={index} className="credential-item">
-
-                                  {cred.credentials_name}:{" "}
-
-                                  {cred.credentials_photo && isImageFile(cred.credentials_photo) && (
-                                    <button
-                                      className="credential-link"
-                                      onClick={() => handlePreviewClick({...cred, credentials_photo: cred.credentials_photo, credentials_doc: null})}
-                                      style={{ marginRight: '5px' }}
-                                    >
-                                      View Photo
-                                    </button>
-                                  )}
-                                  
-                                  {cred.credentials_doc && (
-                                    <button
-                                      className="credential-link"
-                                      onClick={() => handlePreviewClick({...cred, credentials_photo: null, credentials_doc: cred.credentials_doc})}
-                                    >
-                                      {isImageFile(cred.credentials_doc) ? "View Image" : "View Document"}
-                                    </button>
-                                  )}
-
-                                </div>
-
-                              ))
-
-                            : "None"}
-
-                        </td>
-
                         <td className="bio-cell">
 
                           {worker.worker?.bio ? (
@@ -2445,8 +2447,6 @@ const WorkerList = () => {
                           )}
 
                         </td>
-
-                        <td className="email-cell">{worker.email || "N/A"}</td>
 
                         <td>
 
@@ -2472,7 +2472,7 @@ const WorkerList = () => {
 
                   <tr>
 
-                    <td colSpan="13">No {showArchived ? "archived" : "active"} workers found</td>
+                    <td colSpan="14">No {showArchived ? "archived" : "active"} workers found</td>
 
                   </tr>
 

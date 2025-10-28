@@ -153,6 +153,21 @@
         max-width: 100%;
       }
 
+      // DateTime inputs specific styling
+      input[type="datetime-local"] {
+        &:disabled {
+          background-color: #f3f4f6;
+          color: #9ca3af;
+          cursor: not-allowed;
+          opacity: 0.7;
+          border-color: #e5e7eb;
+          
+          &::placeholder {
+            color: #d1d5db;
+          }
+        }
+      }
+
       // Team size input specific width
       #teamSize {
         width: 752px;
@@ -1226,6 +1241,164 @@
           border-color: #0f1419;
           transform: translateY(-1px);
           box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);
+        }
+      }
+    }
+  }
+
+  // Custom Job Title Input Group
+  .custom-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    input {
+      flex: 1;
+    }
+
+    .back-to-select-btn {
+      background-color: #001E40;
+      color: white;
+      border: 1px solid #001E40;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 140px;
+      justify-content: center;
+
+      &:hover {
+        background-color: #002a5c;
+        border-color: #002a5c;
+      }
+
+      &:active {
+        background-color: #001a33;
+        border-color: #001a33;
+      }
+    }
+  }
+
+  // Search functionality for dropdowns
+  .dropdown-search-container {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f9fafb;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    .dropdown-search-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      background-color: white;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #3b82f6;
+        background-color: white;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      &::placeholder {
+        color: #9ca3af;
+      }
+    }
+  }
+
+  .dropdown-options-list {
+    max-height: 180px;
+    overflow-y: auto;
+  }
+
+  .dropdown-no-results {
+    padding: 16px 12px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  // Custom Sub-Skill Input
+  .custom-sub-skill-input {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .custom-sub-skill-field {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #f9fafb;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: #3b82f6;
+        background-color: white;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+    }
+
+    .custom-sub-skill-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+
+      button {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid;
+        min-width: 100px;
+
+        &.add-custom-btn {
+          background-color: #001E40;
+          color: white;
+          border-color: #001E40;
+
+          &:hover {
+            background-color: #002a5c;
+            border-color: #002a5c;
+          }
+
+          &:active {
+            background-color: #001a33;
+            border-color: #001a33;
+          }
+        }
+
+        &.cancel-custom-btn {
+          background-color: white;
+          color: #374151;
+          border-color: #d1d5db;
+
+          &:hover {
+            background-color: #f9fafb;
+            border-color: #9ca3af;
+          }
+
+          &:active {
+            background-color: #f3f4f6;
+            border-color: #6b7280;
+          }
         }
       }
     }

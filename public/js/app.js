@@ -72115,7 +72115,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".custom-dropdown {\n  position: relative;\n  width: 100%;\n  z-index: 10;\n}\n.custom-dropdown .dropdown-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  background: #f9fafb;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  min-height: 40px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  box-sizing: border-box;\n  outline: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  font-family: \"Inter\", sans-serif;\n}\n.custom-dropdown .dropdown-trigger:hover:not(.disabled) {\n  border-color: #0a2a40;\n  box-shadow: 0 2px 8px rgba(10, 42, 64, 0.1);\n}\n.custom-dropdown .dropdown-trigger:focus:not(.disabled) {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n}\n.custom-dropdown .dropdown-trigger:active:not(.disabled) {\n  transform: translateY(1px);\n}\n.custom-dropdown .dropdown-trigger.disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.custom-dropdown .dropdown-trigger .dropdown-value {\n  flex: 1;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.5;\n}\n.custom-dropdown .dropdown-trigger .dropdown-arrow {\n  color: #6b7280;\n  transition: transform 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 20px;\n  height: 20px;\n  pointer-events: none;\n}\n.custom-dropdown .dropdown-trigger .dropdown-arrow.open {\n  transform: rotate(180deg);\n}\n.custom-dropdown.dropdown-open {\n  z-index: 1000;\n}\n.custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-top: none;\n  border-radius: 0 0 8px 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 1001;\n  margin-top: -1px;\n  display: block;\n  max-height: 200px;\n  overflow-y: auto;\n}\n.custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #e5e7eb;\n  min-height: 36px;\n  display: flex;\n  align-items: center;\n  font-family: \"Inter\", sans-serif;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.custom-dropdown .dropdown-menu .dropdown-item.selected {\n  background: #e6f2ef;\n  color: #0a2a40;\n  font-weight: 600;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.custom-dropdown .dropdown-menu::-webkit-scrollbar {\n  width: 6px;\n}\n.custom-dropdown .dropdown-menu::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.custom-dropdown .dropdown-menu::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".custom-dropdown {\n  position: relative;\n  width: 100%;\n  z-index: 10;\n}\n.custom-dropdown .dropdown-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  background: #f9fafb;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  min-height: 40px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  box-sizing: border-box;\n  outline: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  font-family: \"Inter\", sans-serif;\n}\n.custom-dropdown .dropdown-trigger:hover:not(.disabled) {\n  border-color: #0a2a40;\n  box-shadow: 0 2px 8px rgba(10, 42, 64, 0.1);\n}\n.custom-dropdown .dropdown-trigger:focus:not(.disabled) {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n}\n.custom-dropdown .dropdown-trigger:active:not(.disabled) {\n  transform: translateY(1px);\n}\n.custom-dropdown .dropdown-trigger.disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.custom-dropdown .dropdown-trigger .dropdown-value {\n  flex: 1;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.5;\n}\n.custom-dropdown .dropdown-trigger .dropdown-arrow {\n  color: #6b7280;\n  transition: transform 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 20px;\n  height: 20px;\n  pointer-events: none;\n}\n.custom-dropdown .dropdown-trigger .dropdown-arrow.open {\n  transform: rotate(180deg);\n}\n.custom-dropdown.dropdown-open {\n  z-index: 1000;\n}\n.custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-top: none;\n  border-radius: 0 0 8px 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 1001;\n  margin-top: -1px;\n  display: block;\n  max-height: 250px;\n  overflow: hidden;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 1;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input::placeholder {\n  color: #9ca3af;\n}\n.custom-dropdown .dropdown-menu .dropdown-options-list {\n  max-height: 180px;\n  overflow-y: auto;\n}\n.custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #e5e7eb;\n  min-height: 36px;\n  display: flex;\n  align-items: center;\n  font-family: \"Inter\", sans-serif;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.custom-dropdown .dropdown-menu .dropdown-item.selected {\n  background: #e6f2ef;\n  color: #0a2a40;\n  font-weight: 600;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.custom-dropdown .dropdown-menu .dropdown-no-results {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}\n.custom-dropdown .dropdown-options-list::-webkit-scrollbar,\n.custom-dropdown .dropdown-menu::-webkit-scrollbar {\n  width: 6px;\n}\n.custom-dropdown .dropdown-options-list::-webkit-scrollbar-track,\n.custom-dropdown .dropdown-menu::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.custom-dropdown .dropdown-options-list::-webkit-scrollbar-thumb,\n.custom-dropdown .dropdown-menu::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72622,7 +72622,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  position: relative;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group #teamSize {\n  width: 752px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.sub-skills-multi-select {\n  position: relative;\n  width: 100%;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.sub-skills-multi-select .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  transition: all 0.2s ease;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option span {\n  font-size: 14px;\n  color: #374151;\n  font-weight: 500;\n}\n\n.experience-levels-container {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-top: 12px;\n}\n.experience-levels-container .experience-level-item {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item:hover {\n  background-color: #f1f5f9;\n  border-color: #3b82f6;\n}\n.experience-levels-container .experience-level-item .sub-skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n  min-width: 120px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown {\n  flex: 1;\n  max-width: 200px;\n  position: relative;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  color: #374151;\n  font-size: 14px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n\n.selected-skills-preview {\n  border: 1px solid #bae6fd;\n  margin-top: 20px;\n  padding: 20px;\n  border-radius: 8px;\n}\n.selected-skills-preview h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.selected-skills-preview h4::before {\n  content: \"✅\";\n  font-size: 18px;\n}\n.selected-skills-preview .skill-with-experience {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  margin: 4px;\n  padding: 8px 12px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  transition: all 0.2s ease;\n}\n.selected-skills-preview .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n.selected-skills-preview .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, black, #1d4ed8);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.selected-skills-preview .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #10b981, #059669);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 11px;\n  font-weight: 600;\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}\n.skills-modal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 20px;\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  background: #f8f9fa;\n}\n.skills-modal .adminmodal-buttons button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 120px;\n  font-family: \"Inter\", sans-serif;\n}\n.skills-modal .adminmodal-buttons button:first-child {\n  background: #ffffff;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .adminmodal-buttons button:first-child:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  transform: translateY(-1px);\n}\n.skills-modal .adminmodal-buttons button:last-child {\n  background: #1A2A44;\n  color: #ffffff;\n  border-color: #1A2A44;\n}\n.skills-modal .adminmodal-buttons button:last-child:hover {\n  background: #0f1419;\n  border-color: #0f1419;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  position: relative;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled {\n  background-color: #f3f4f6;\n  color: #9ca3af;\n  cursor: not-allowed;\n  opacity: 0.7;\n  border-color: #e5e7eb;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::-moz-placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group #teamSize {\n  width: 752px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.sub-skills-multi-select {\n  position: relative;\n  width: 100%;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.sub-skills-multi-select .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  transition: all 0.2s ease;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option span {\n  font-size: 14px;\n  color: #374151;\n  font-weight: 500;\n}\n\n.experience-levels-container {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-top: 12px;\n}\n.experience-levels-container .experience-level-item {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item:hover {\n  background-color: #f1f5f9;\n  border-color: #3b82f6;\n}\n.experience-levels-container .experience-level-item .sub-skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n  min-width: 120px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown {\n  flex: 1;\n  max-width: 200px;\n  position: relative;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  color: #374151;\n  font-size: 14px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n\n.selected-skills-preview {\n  border: 1px solid #bae6fd;\n  margin-top: 20px;\n  padding: 20px;\n  border-radius: 8px;\n}\n.selected-skills-preview h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.selected-skills-preview h4::before {\n  content: \"✅\";\n  font-size: 18px;\n}\n.selected-skills-preview .skill-with-experience {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  margin: 4px;\n  padding: 8px 12px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  transition: all 0.2s ease;\n}\n.selected-skills-preview .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n.selected-skills-preview .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, black, #1d4ed8);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.selected-skills-preview .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #10b981, #059669);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 11px;\n  font-weight: 600;\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}\n.skills-modal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 20px;\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  background: #f8f9fa;\n}\n.skills-modal .adminmodal-buttons button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 120px;\n  font-family: \"Inter\", sans-serif;\n}\n.skills-modal .adminmodal-buttons button:first-child {\n  background: #ffffff;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .adminmodal-buttons button:first-child:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  transform: translateY(-1px);\n}\n.skills-modal .adminmodal-buttons button:last-child {\n  background: #1A2A44;\n  color: #ffffff;\n  border-color: #1A2A44;\n}\n.skills-modal .adminmodal-buttons button:last-child:hover {\n  background: #0f1419;\n  border-color: #0f1419;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);\n}\n.skills-modal .custom-input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .custom-input-group input {\n  flex: 1;\n}\n.skills-modal .custom-input-group .back-to-select-btn {\n  background-color: #001E40;\n  color: white;\n  border: 1px solid #001E40;\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  align-self: flex-start;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-width: 140px;\n  justify-content: center;\n}\n.skills-modal .custom-input-group .back-to-select-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-input-group .back-to-select-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .dropdown-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 2;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-options-list {\n  max-height: 180px;\n  overflow-y: auto;\n}\n.skills-modal .dropdown-no-results {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}\n.skills-modal .custom-sub-skill-input {\n  padding: 12px;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field {\n  width: 100%;\n  padding: 10px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:hover {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:active {\n  background-color: #f3f4f6;\n  border-color: #6b7280;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72718,7 +72718,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .credentials-requirement-message {\n  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);\n  border: 1px solid #f59e0b;\n  border-radius: 12px;\n  padding: 24px;\n  margin-bottom: 20px;\n  display: flex;\n  align-items: center;\n  gap: 20px;\n  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);\n}\n.my-post-job-container .credentials-requirement-message .requirement-icon {\n  color: #f59e0b;\n  flex-shrink: 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content {\n  flex: 1;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #92400e;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n  font-size: 14px;\n  color: #92400e;\n  margin: 0 0 16px 0;\n  line-height: 1.5;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn {\n  background: #f59e0b;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:hover {\n  background: #d97706;\n  transform: translateY(-1px);\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  padding: 0 0 8px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".my-post-job-container {\n  background: white;\n  border-radius: 8px;\n  padding: 30px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .post-job-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .post-job-header .post-job-title {\n  font-size: 28px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.my-post-job-container .post-job-header .add-post-job-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 170px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn .btn-icon {\n  font-size: 16px;\n}\n.my-post-job-container .post-job-header .add-post-job-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.my-post-job-container .post-job-header .add-post-job-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .post-job-header .add-post-job-btn.disabled, .my-post-job-container .post-job-header .add-post-job-btn:disabled {\n  background: #9ca3af;\n  color: #d1d5db;\n  cursor: not-allowed;\n  opacity: 0.6;\n  transform: none;\n}\n.my-post-job-container .post-job-header .add-post-job-btn.disabled:hover, .my-post-job-container .post-job-header .add-post-job-btn:disabled:hover {\n  background: #9ca3af;\n  transform: none;\n}\n.my-post-job-container .credentials-requirement-message {\n  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);\n  border: 1px solid #f59e0b;\n  border-radius: 12px;\n  padding: 24px;\n  margin-bottom: 20px;\n  display: flex;\n  align-items: center;\n  gap: 20px;\n  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.1);\n}\n.my-post-job-container .credentials-requirement-message .requirement-icon {\n  color: #f59e0b;\n  flex-shrink: 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content {\n  flex: 1;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-title {\n  font-size: 20px;\n  font-weight: 700;\n  color: #92400e;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .requirement-description {\n  font-size: 14px;\n  color: #92400e;\n  margin: 0 0 16px 0;\n  line-height: 1.5;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn {\n  background: #f59e0b;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:hover {\n  background: #d97706;\n  transform: translateY(-1px);\n}\n.my-post-job-container .credentials-requirement-message .requirement-content .go-to-profile-btn:active {\n  transform: translateY(0);\n}\n.my-post-job-container .jobs-list {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n}\n.my-post-job-container .job-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  position: relative;\n  transition: all 0.3s ease;\n  cursor: pointer;\n}\n.my-post-job-container .job-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);\n}\n.my-post-job-container .job-card.expired {\n  background: #f8f9fa;\n  border-color: #dc3545;\n  opacity: 0.8;\n}\n.my-post-job-container .job-card.expired .expired-badge {\n  background: #dc3545;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  margin-left: 8px;\n}\n.my-post-job-container .job-card.expired .job-actions button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.my-post-job-container .job-card .job-card-header {\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  z-index: 1;\n}\n.my-post-job-container .job-card .job-card-header .job-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn .action-icon {\n  font-size: 18px;\n  color: #6b7280;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover {\n  background: #f3f4f6;\n}\n.my-post-job-container .job-card .job-card-header .job-actions .view-applicants-btn:hover .action-icon,\n.my-post-job-container .job-card .job-card-header .job-actions .edit-job-btn:hover .action-icon {\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n  line-height: 1.2;\n  background: none;\n  border: none;\n  padding: 0 0 8px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-post-job-container .job-card .job-content .job-metadata {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-metadata .posted-date {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .job-card .job-content .job-metadata .job-salary {\n  font-size: 16px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-post-job-container .job-card .job-content .job-description {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-description .description-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .job-card .job-content .job-description .description-text {\n  font-size: 14px;\n  color: #6b7280;\n  line-height: 1.5;\n  margin: 0;\n}\n.my-post-job-container .job-card .job-content .job-skills {\n  margin-bottom: 20px;\n}\n.my-post-job-container .job-card .job-content .job-skills .skills-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #000000;\n  margin: 0 0 12px 0;\n}\n.my-post-job-container .job-card .job-content .job-skills .skill-tag {\n  background: #f9fafb;\n  color: #60646b;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  font-weight: 400;\n  border: 1px solid #e5e7eb;\n  display: inline-block;\n  margin-right: 8px;\n  margin-bottom: 8px;\n}\n.my-post-job-container .job-card .job-content .job-timeline {\n  margin-bottom: 20px;\n  padding: 12px;\n  background: #f8f9fa;\n  border-radius: 6px;\n  border-left: 3px solid #3b82f6;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 8px;\n  font-size: 14px;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item:last-child {\n  margin-bottom: 0;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-label {\n  font-weight: 500;\n  color: #374151;\n}\n.my-post-job-container .job-card .job-content .job-timeline .timeline-item .timeline-value {\n  color: #6b7280;\n  font-weight: 400;\n}\n.my-post-job-container .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 20px;\n  text-align: center;\n}\n.my-post-job-container .empty-state .empty-icon {\n  margin-bottom: 20px;\n}\n.my-post-job-container .empty-state .empty-icon img {\n  width: 150px;\n  height: 150px;\n  opacity: 0.6;\n}\n.my-post-job-container .empty-state .empty-title {\n  font-size: 20px;\n  font-weight: 600;\n  color: #1f2937;\n  margin: 0 0 8px 0;\n}\n.my-post-job-container .empty-state .empty-description {\n  font-size: 14px;\n  color: #6b7280;\n  margin: 0;\n}\n.my-post-job-container .loading-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 60px 20px;\n}\n.my-post-job-container .loading-container p {\n  font-size: 16px;\n  color: #6b7280;\n}\n\n@media (max-width: 768px) {\n  .my-post-job-container {\n    padding: 20px;\n  }\n  .my-post-job-container .post-job-header {\n    flex-direction: column;\n    align-items: stretch;\n    gap: 16px;\n  }\n  .my-post-job-container .post-job-header .post-job-title {\n    font-size: 24px;\n    text-align: center;\n  }\n  .my-post-job-container .post-job-header .add-post-job-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .my-post-job-container .job-card {\n    padding: 20px;\n  }\n  .my-post-job-container .job-card .job-card-header {\n    position: static;\n    margin-bottom: 16px;\n    display: flex;\n    justify-content: flex-end;\n  }\n  .my-post-job-container .job-card .job-content .job-title {\n    font-size: 20px;\n  }\n  .my-post-job-container .job-card .job-content .job-metadata {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .my-post-job-container .job-card .job-content .job-skills .skill-tag {\n    font-size: 11px;\n    padding: 4px 8px;\n  }\n  .job-details {\n    margin-top: 16px;\n    font-size: 14px;\n    color: #666;\n    line-height: 1.5;\n  }\n  .job-details .job-overview {\n    margin-bottom: 16px;\n    padding: 12px;\n    background-color: #f8f9fa;\n    border-radius: 6px;\n    border-left: 3px solid #007bff;\n  }\n  .job-details .job-overview .overview-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .job-overview .overview-content {\n    font-size: 14px;\n    color: #6c757d;\n    line-height: 1.4;\n  }\n  .job-details .skills-required {\n    margin-bottom: 12px;\n  }\n  .job-details .skills-required .skills-title {\n    font-size: 13px;\n    font-weight: 600;\n    color: #495057;\n    margin-bottom: 8px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n  .job-details .skills-required .skills-list {\n    margin-top: 8px;\n    display: flex;\n    flex-wrap: wrap;\n    gap: 6px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience {\n    display: flex;\n    align-items: center;\n    gap: 4px;\n    background-color: #e3f2fd;\n    border: 1px solid #bbdefb;\n    border-radius: 4px;\n    padding: 4px 8px;\n    font-size: 12px;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .skill-name {\n    font-weight: 500;\n    color: #1976d2;\n  }\n  .job-details .skills-required .skills-list .skill-with-experience .experience-level {\n    font-size: 11px;\n    color: #666;\n    font-style: italic;\n  }\n  .job-details .job-meta {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n    font-size: 13px;\n    color: #6c757d;\n  }\n  .job-details .job-meta .meta-item {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n  }\n  .job-details .job-meta .meta-item .meta-label {\n    font-weight: 500;\n    color: #495057;\n    min-width: 100px;\n  }\n  .job-details .job-meta .meta-item .meta-value {\n    color: #6c757d;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -198507,7 +198507,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var ApplyJobModal = function ApplyJobModal(_ref) {
-  var _userProfile$profile, _userProfile$profile2, _userProfile$profile3, _userProfile$profile4, _userProfile$profile5, _userProfile$profile6, _userProfile$worker2;
+  var _userProfile$profile, _userProfile$profile2, _userProfile$profile3, _userProfile$profile4, _userProfile$profile5, _userProfile$profile6;
   var job = _ref.job,
     isOpen = _ref.isOpen,
     onClose = _ref.onClose,
@@ -198840,7 +198840,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
   };
   var validateForm = function validateForm() {
     var newErrors = {};
-    if (!formData.coverLetter) newErrors.coverLetter = 'Please explain yourself and your experience';
+    if (!formData.coverLetter) newErrors.coverLetter = 'Please explain your experience related to this job';
     if (!formData.resume) newErrors.resume = 'Resume is required';
     return newErrors;
   };
@@ -199109,17 +199109,13 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
                     children: "Location:"
                   }), " ", (_userProfile$profile5 = userProfile.profile) === null || _userProfile$profile5 === void 0 ? void 0 : _userProfile$profile5.city, ", ", (_userProfile$profile6 = userProfile.profile) === null || _userProfile$profile6 === void 0 ? void 0 : _userProfile$profile6.province]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
-                    children: "Rank:"
-                  }), " ", ((_userProfile$worker2 = userProfile.worker) === null || _userProfile$worker2 === void 0 || (_userProfile$worker2 = _userProfile$worker2.rank) === null || _userProfile$worker2 === void 0 ? void 0 : _userProfile$worker2.name) || 'Not specified']
                 })]
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              children: "Explain Yourself"
+              children: "Do you have any experience related to this job? Explain"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
               name: "coverLetter",
               value: formData.coverLetter,
@@ -199138,7 +199134,6 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
               children: "Resume/CV"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               type: "file",
-              A: true,
               name: "resume",
               accept: ".pdf,.doc,.docx",
               onChange: function onChange(e) {
@@ -217366,7 +217361,7 @@ var Admintopnavbar = function Admintopnavbar() {
   // Function to get image URL with cache busting
   var getImageUrl = function getImageUrl(profileImg) {
     if (!profileImg) {
-      return "/default-profile.png";
+      return "/images/defpfp.svg";
     }
     var imageUrl = "http://127.0.0.1:8000/storage/".concat(profileImg, "?v=").concat(imageRefreshKey);
     return imageUrl;
@@ -217377,7 +217372,7 @@ var Admintopnavbar = function Admintopnavbar() {
       className: "profile",
       ref: dropdownRef,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-        src: imageError ? "/default-profile.png" : getImageUrl(user === null || user === void 0 ? void 0 : user.profile_img),
+        src: imageError ? "/images/defpfp.svg" : getImageUrl(user === null || user === void 0 ? void 0 : user.profile_img),
         alt: "Profile",
         className: "profile-icon",
         onError: handleImageError,
@@ -233844,6 +233839,12 @@ var WorkerList = function WorkerList() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Full Name"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                  children: "Email"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                  children: "Credentials"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
+                  children: "Contact Number"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Work Type"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Hours/Day"
@@ -233852,11 +233853,7 @@ var WorkerList = function WorkerList() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Skills"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                  children: "Credentials"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Bio"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
-                  children: "Email"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
                   children: "Status"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("th", {
@@ -233868,12 +233865,12 @@ var WorkerList = function WorkerList() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tbody", {
               children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                  colSpan: "13",
+                  colSpan: "14",
                   className: "loading-row",
                   children: "Loading workers..."
                 })
               }) : currentWorkers.length > 0 ? currentWorkers.map(function (worker) {
-                var _worker$worker5, _worker$worker6, _worker$worker7, _worker$worker8, _worker$profile, _worker$worker9, _worker$worker0, _worker$worker1, _worker$worker11, _worker$worker12, _worker$worker13;
+                var _worker$worker5, _worker$worker6, _worker$worker7, _worker$worker8, _worker$profile, _worker$profile2, _worker$worker9, _worker$worker0, _worker$worker1, _worker$worker11, _worker$worker12, _worker$worker13;
                 var credentials = Array.isArray((_worker$worker5 = worker.worker) === null || _worker$worker5 === void 0 ? void 0 : _worker$worker5.credentials_name) && (Array.isArray((_worker$worker6 = worker.worker) === null || _worker$worker6 === void 0 ? void 0 : _worker$worker6.credentials_photo) || Array.isArray((_worker$worker7 = worker.worker) === null || _worker$worker7 === void 0 ? void 0 : _worker$worker7.credentials_doc)) ? worker.worker.credentials_name.map(function (name, index) {
                   var _worker$worker$creden, _worker$worker$creden2;
                   return {
@@ -233976,8 +233973,8 @@ var WorkerList = function WorkerList() {
                       })]
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    children: (_worker$profile = worker.profile) !== null && _worker$profile !== void 0 && _worker$profile.profile_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-                      src: "http://127.0.0.1:8000/storage/".concat(worker.profile.profile_img),
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                      src: (_worker$profile = worker.profile) !== null && _worker$profile !== void 0 && _worker$profile.profile_img ? "http://127.0.0.1:8000/storage/".concat(worker.profile.profile_img) : "/images/defpfp.svg",
                       alt: "Profile",
                       className: "profile-img",
                       style: {
@@ -233987,36 +233984,15 @@ var WorkerList = function WorkerList() {
                         objectFit: "cover"
                       },
                       onError: function onError(e) {
-                        e.target.style.display = "none";
-                        e.target.parentElement.innerHTML += "<span style=\"color: red;\">N/A</span>";
+                        e.target.src = "/images/defpfp.svg";
                       }
-                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-                      style: {
-                        color: "#888"
-                      },
-                      children: "N/A"
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     className: "fullname-cell",
                     children: getFullName(worker, suffixes)
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    children: (_worker$worker9 = worker.worker) !== null && _worker$worker9 !== void 0 && _worker$worker9.work_type ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, function (c) {
-                      return c.toUpperCase();
-                    }) : "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    children: (_worker$worker0 = worker.worker) !== null && _worker$worker0 !== void 0 && _worker$worker0.hours_per_day ? "".concat(worker.worker.hours_per_day, " hrs") : "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    children: (_worker$worker1 = worker.worker) !== null && _worker$worker1 !== void 0 && _worker$worker1.preferred_working_days ? Array.isArray(worker.worker.preferred_working_days) ? worker.worker.preferred_working_days.join(", ") : worker.worker.preferred_working_days : "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    className: "skills-cell",
-                    children: function (_worker$worker10) {
-                      var skillsText = getDetailedSkillNames((_worker$worker10 = worker.worker) === null || _worker$worker10 === void 0 ? void 0 : _worker$worker10.skills_id);
-                      var words = skillsText.split(' ');
-                      if (words.length > 30) {
-                        return words.slice(0, 30).join(' ') + '...';
-                      }
-                      return skillsText;
-                    }()
+                    className: "email-cell",
+                    children: worker.email || "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     className: "credentials-cell",
                     children: credentials.length > 0 ? credentials.map(function (cred, index) {
@@ -234047,6 +234023,26 @@ var WorkerList = function WorkerList() {
                       }, index);
                     }) : "None"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                    children: ((_worker$profile2 = worker.profile) === null || _worker$profile2 === void 0 ? void 0 : _worker$profile2.contact_number) || "N/A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                    children: (_worker$worker9 = worker.worker) !== null && _worker$worker9 !== void 0 && _worker$worker9.work_type ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, function (c) {
+                      return c.toUpperCase();
+                    }) : "N/A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                    children: (_worker$worker0 = worker.worker) !== null && _worker$worker0 !== void 0 && _worker$worker0.hours_per_day ? "".concat(worker.worker.hours_per_day, " hrs") : "N/A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                    children: (_worker$worker1 = worker.worker) !== null && _worker$worker1 !== void 0 && _worker$worker1.preferred_working_days ? Array.isArray(worker.worker.preferred_working_days) ? worker.worker.preferred_working_days.join(", ") : worker.worker.preferred_working_days : "N/A"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+                    className: "skills-cell",
+                    children: function (_worker$worker10) {
+                      var skillsText = getDetailedSkillNames((_worker$worker10 = worker.worker) === null || _worker$worker10 === void 0 ? void 0 : _worker$worker10.skills_id);
+                      var words = skillsText.split(' ');
+                      if (words.length > 30) {
+                        return words.slice(0, 30).join(' ') + '...';
+                      }
+                      return skillsText;
+                    }()
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
                     className: "bio-cell",
                     children: (_worker$worker11 = worker.worker) !== null && _worker$worker11 !== void 0 && _worker$worker11.bio ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                       title: worker.worker.bio,
@@ -234057,9 +234053,6 @@ var WorkerList = function WorkerList() {
                       },
                       children: "N/A"
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
-                    className: "email-cell",
-                    children: worker.email || "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
                     children: [console.log('Worker ID:', worker.id, 'is_reviewed:', (_worker$worker12 = worker.worker) === null || _worker$worker12 === void 0 ? void 0 : _worker$worker12.is_reviewed), renderStatusBadge((_worker$worker13 = worker.worker) === null || _worker$worker13 === void 0 ? void 0 : _worker$worker13.is_reviewed)]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -234070,7 +234063,7 @@ var WorkerList = function WorkerList() {
                 }, worker.id);
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("tr", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
-                  colSpan: "13",
+                  colSpan: "14",
                   children: ["No ", showArchived ? "archived" : "active", " workers found"]
                 })
               })
@@ -237231,12 +237224,19 @@ var CustomDropdown = function CustomDropdown(_ref) {
     _ref$disabled = _ref.disabled,
     disabled = _ref$disabled === void 0 ? false : _ref$disabled,
     _ref$required = _ref.required,
-    required = _ref$required === void 0 ? false : _ref$required;
+    required = _ref$required === void 0 ? false : _ref$required,
+    _ref$searchable = _ref.searchable,
+    searchable = _ref$searchable === void 0 ? false : _ref$searchable;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     isOpen = _useState2[0],
     setIsOpen = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    searchTerm = _useState4[0],
+    setSearchTerm = _useState4[1];
   var dropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var searchInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   // Close dropdown when clicking outside
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -237255,18 +237255,43 @@ var CustomDropdown = function CustomDropdown(_ref) {
     e.stopPropagation();
     if (!disabled) {
       setIsOpen(!isOpen);
+      if (!isOpen && searchable) {
+        // Focus search input when opening
+        setTimeout(function () {
+          var _searchInputRef$curre;
+          (_searchInputRef$curre = searchInputRef.current) === null || _searchInputRef$curre === void 0 || _searchInputRef$curre.focus();
+        }, 100);
+      }
     }
+  };
+  var handleSearchChange = function handleSearchChange(e) {
+    setSearchTerm(e.target.value);
   };
   var handleOptionClick = function handleOptionClick(optionValue, e) {
     e.preventDefault();
     e.stopPropagation();
     onChange(optionValue);
     setIsOpen(false);
+    setSearchTerm('');
   };
   var selectedOption = options.find(function (option) {
     return option.value === value;
   });
   var displayValue = selectedOption ? selectedOption.label : placeholder;
+
+  // Filter options based on search term
+  var filteredOptions = searchable && searchTerm ? options.filter(function (option) {
+    return option.label.toLowerCase().includes(searchTerm.toLowerCase());
+  }) : options;
+
+  // If no results found and search term exists, check if "Others" option exists
+  // and show only "Others" as fallback
+  var othersOption = options.find(function (option) {
+    return option.value === 'Others' || option.label === 'Others';
+  });
+  if (searchable && searchTerm && filteredOptions.length === 0 && othersOption) {
+    filteredOptions = [othersOption];
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "custom-dropdown ".concat(className, " ").concat(isOpen ? 'dropdown-open' : ''),
     ref: dropdownRef,
@@ -237291,24 +237316,47 @@ var CustomDropdown = function CustomDropdown(_ref) {
           size: 16
         })
       })]
-    }), isOpen && !disabled && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    }), isOpen && !disabled && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "dropdown-menu",
-      children: options.map(function (option) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "dropdown-item ".concat(value === option.value ? 'selected' : ''),
+      children: [searchable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "dropdown-search-container",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          ref: searchInputRef,
+          type: "text",
+          className: "dropdown-search-input",
+          placeholder: "Search...",
+          value: searchTerm,
+          onChange: handleSearchChange,
           onClick: function onClick(e) {
-            return handleOptionClick(option.value, e);
+            return e.stopPropagation();
           },
           onKeyDown: function onKeyDown(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              handleOptionClick(option.value, e);
+            if (e.key === 'Escape') {
+              setSearchTerm('');
+              setIsOpen(false);
             }
-          },
-          tabIndex: 0,
-          children: option.label
-        }, option.value);
-      })
+            e.stopPropagation();
+          }
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "dropdown-options-list",
+        children: filteredOptions.map(function (option) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "dropdown-item ".concat(value === option.value ? 'selected' : ''),
+            onClick: function onClick(e) {
+              return handleOptionClick(option.value, e);
+            },
+            onKeyDown: function onKeyDown(e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleOptionClick(option.value, e);
+              }
+            },
+            tabIndex: 0,
+            children: option.label
+          }, option.value);
+        })
+      })]
     })]
   });
 };
@@ -241790,24 +241838,44 @@ var ModalPostJob = function ModalPostJob(_ref) {
     setSelectedJobTitle = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState14 = _slicedToArray(_useState13, 2),
-    isSkillsDropdownOpen = _useState14[0],
-    setIsSkillsDropdownOpen = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    isJobTitleOthers = _useState14[0],
+    setIsJobTitleOthers = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState16 = _slicedToArray(_useState15, 2),
-    isSubSkillsDropdownOpen = _useState16[0],
-    setIsSubSkillsDropdownOpen = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    customJobTitle = _useState16[0],
+    setCustomJobTitle = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState18 = _slicedToArray(_useState17, 2),
-    isExperienceDropdownOpen = _useState18[0],
-    setIsExperienceDropdownOpen = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    isSkillsDropdownOpen = _useState18[0],
+    setIsSkillsDropdownOpen = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState20 = _slicedToArray(_useState19, 2),
-    availableSubSkills = _useState20[0],
-    setAvailableSubSkills = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    isSubSkillsDropdownOpen = _useState20[0],
+    setIsSubSkillsDropdownOpen = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState22 = _slicedToArray(_useState21, 2),
-    selectedSubSkills = _useState22[0],
-    setSelectedSubSkills = _useState22[1];
+    isSubSkillOthers = _useState22[0],
+    setIsSubSkillOthers = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState24 = _slicedToArray(_useState23, 2),
+    customSubSkill = _useState24[0],
+    setCustomSubSkill = _useState24[1];
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState26 = _slicedToArray(_useState25, 2),
+    subSkillSearchTerm = _useState26[0],
+    setSubSkillSearchTerm = _useState26[1];
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState28 = _slicedToArray(_useState27, 2),
+    isExperienceDropdownOpen = _useState28[0],
+    setIsExperienceDropdownOpen = _useState28[1];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState30 = _slicedToArray(_useState29, 2),
+    availableSubSkills = _useState30[0],
+    setAvailableSubSkills = _useState30[1];
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState32 = _slicedToArray(_useState31, 2),
+    selectedSubSkills = _useState32[0],
+    setSelectedSubSkills = _useState32[1];
   var skillsDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var subSkillsDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var experienceDropdownRefs = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
@@ -241978,6 +242046,10 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   value: skillName,
                   label: skillName
                 };
+              }); // Add "Others" option at the end
+              _jobTitleOptions.push({
+                value: 'Others',
+                label: 'Others'
               });
               setJobTitleOptions(_jobTitleOptions);
             }
@@ -242048,7 +242120,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
               _context2.n = 5;
               break;
             }
-            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Deadline must be after the start date"));
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Application deadline must be after application start date"));
           case 5:
             if (!(!formData.workStart || !formData.workEnd)) {
               _context2.n = 6;
@@ -242056,14 +242128,20 @@ var ModalPostJob = function ModalPostJob(_ref) {
             }
             return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select work start and end dates"));
           case 6:
-            if (!(new Date(formData.workEnd) <= new Date(formData.workStart))) {
+            if (!(new Date(formData.workStart) < new Date(formData.applicationDeadline))) {
               _context2.n = 7;
               break;
             }
-            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Work end date must be after work start date"));
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Work start date must be on or after application deadline (hiring period must complete first)"));
           case 7:
+            if (!(new Date(formData.workEnd) <= new Date(formData.workStart))) {
+              _context2.n = 8;
+              break;
+            }
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Work end date must be after work start date"));
+          case 8:
             setIsLoading(true);
-            _context2.p = 8;
+            _context2.p = 9;
             // Prepare skills data with sub-skills and experience levels
             skillsData = selectedSubSkills.map(function (subSkill) {
               return {
@@ -242078,24 +242156,24 @@ var ModalPostJob = function ModalPostJob(_ref) {
             console.log("Submitting job data:", jobData);
             console.log("Selected sub-skills:", selectedSubSkills);
             console.log("Skills data:", skillsData);
-            _context2.n = 9;
+            _context2.n = 10;
             return onSubmit(jobData);
-          case 9:
-            _context2.n = 11;
-            break;
           case 10:
-            _context2.p = 10;
+            _context2.n = 12;
+            break;
+          case 11:
+            _context2.p = 11;
             _t2 = _context2.v;
             console.error(_t2);
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("An error occurred while posting the job.");
-          case 11:
-            _context2.p = 11;
-            setIsLoading(false);
-            return _context2.f(11);
           case 12:
+            _context2.p = 12;
+            setIsLoading(false);
+            return _context2.f(12);
+          case 13:
             return _context2.a(2);
         }
-      }, _callee2, null, [[8, 10, 11, 12]]);
+      }, _callee2, null, [[9, 11, 12, 13]]);
     }));
     return function handleSubmit(_x) {
       return _ref3.apply(this, arguments);
@@ -242106,26 +242184,51 @@ var ModalPostJob = function ModalPostJob(_ref) {
   };
   var handleJobTitleChange = function handleJobTitleChange(value) {
     setSelectedJobTitle(value);
-    setFormData(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, {
-        jobTitle: value
-      });
-    });
 
-    // Filter sub-skills based on selected job title
-    var selectedSkill = availableSkills.find(function (skill) {
-      return skill.name === value;
-    });
-    if (selectedSkill && selectedSkill.sub_skills) {
-      var subSkillsOptions = selectedSkill.sub_skills.map(function (subSkill) {
-        return {
-          value: subSkill,
-          label: subSkill
-        };
+    // Check if "Others" is selected
+    if (value === 'Others') {
+      setIsJobTitleOthers(true);
+      setFormData(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          jobTitle: ''
+        });
       });
-      setAvailableSubSkills(subSkillsOptions);
-    } else {
       setAvailableSubSkills([]);
+      setIsSubSkillOthers(true); // When job title is Others, sub-skills should also be custom
+    } else {
+      setIsJobTitleOthers(false);
+      setCustomJobTitle('');
+      setIsSubSkillOthers(false);
+      setCustomSubSkill('');
+      setFormData(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          jobTitle: value
+        });
+      });
+
+      // Filter sub-skills based on selected job title
+      var selectedSkill = availableSkills.find(function (skill) {
+        return skill.name === value;
+      });
+      if (selectedSkill && selectedSkill.sub_skills) {
+        var subSkillsOptions = selectedSkill.sub_skills.map(function (subSkill) {
+          return {
+            value: subSkill,
+            label: subSkill
+          };
+        });
+        // Add "Others" option to sub-skills
+        subSkillsOptions.push({
+          value: 'Others',
+          label: 'Others'
+        });
+        setAvailableSubSkills(subSkillsOptions);
+      } else {
+        setAvailableSubSkills([{
+          value: 'Others',
+          label: 'Others'
+        }]);
+      }
     }
 
     // Reset selected sub-skills and skills when job title changes
@@ -242137,8 +242240,23 @@ var ModalPostJob = function ModalPostJob(_ref) {
       });
     });
   };
+  var handleCustomJobTitleChange = function handleCustomJobTitleChange(e) {
+    var value = e.target.value;
+    setCustomJobTitle(value);
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        jobTitle: value
+      });
+    });
+  };
   var toggleSubSkillsDropdown = function toggleSubSkillsDropdown() {
     setIsSubSkillsDropdownOpen(!isSubSkillsDropdownOpen);
+    if (!isSubSkillsDropdownOpen) {
+      setSubSkillSearchTerm(''); // Reset search when opening
+    }
+  };
+  var handleSubSkillSearchChange = function handleSubSkillSearchChange(e) {
+    setSubSkillSearchTerm(e.target.value);
   };
   var toggleExperienceDropdown = function toggleExperienceDropdown(subSkill) {
     setIsExperienceDropdownOpen(function (prev) {
@@ -242146,6 +242264,10 @@ var ModalPostJob = function ModalPostJob(_ref) {
     });
   };
   var handleSubSkillToggle = function handleSubSkillToggle(subSkill) {
+    if (subSkill === 'Others') {
+      setIsSubSkillOthers(true);
+      return;
+    }
     setSelectedSubSkills(function (prev) {
       if (prev.includes(subSkill)) {
         return prev.filter(function (skill) {
@@ -242155,6 +242277,22 @@ var ModalPostJob = function ModalPostJob(_ref) {
         return [].concat(_toConsumableArray(prev), [subSkill]);
       }
     });
+  };
+  var handleCustomSubSkillAdd = function handleCustomSubSkillAdd() {
+    if (!customSubSkill.trim()) {
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('Please enter a custom sub-skill');
+      return;
+    }
+    setSelectedSubSkills(function (prev) {
+      return [].concat(_toConsumableArray(prev), [customSubSkill]);
+    });
+    setCustomSubSkill('');
+    setIsSubSkillOthers(false);
+    setIsSubSkillsDropdownOpen(false);
+    antd__WEBPACK_IMPORTED_MODULE_2__["default"].success("Custom sub-skill \"".concat(customSubSkill, "\" added"));
+  };
+  var handleCustomSubSkillChange = function handleCustomSubSkillChange(e) {
+    setCustomSubSkill(e.target.value);
   };
   var handleExperienceChange = function handleExperienceChange(subSkill, experience) {
     setFormData(function (prev) {
@@ -242216,13 +242354,38 @@ var ModalPostJob = function ModalPostJob(_ref) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
                 htmlFor: "jobTitle",
                 children: "Job Title"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              }), !isJobTitleOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 options: jobTitleOptions,
-                value: formData.jobTitle,
+                value: selectedJobTitle,
                 onChange: handleJobTitleChange,
                 placeholder: "Select job title",
                 className: "full-width-input",
+                searchable: true,
                 required: true
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "custom-input-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                  type: "text",
+                  value: customJobTitle,
+                  onChange: handleCustomJobTitleChange,
+                  placeholder: "Enter custom job title",
+                  className: "full-width-input",
+                  required: true
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                  type: "button",
+                  className: "back-to-select-btn",
+                  onClick: function onClick() {
+                    setIsJobTitleOthers(false);
+                    setCustomJobTitle('');
+                    setSelectedJobTitle('');
+                    setFormData(function (prev) {
+                      return _objectSpread(_objectSpread({}, prev), {}, {
+                        jobTitle: ''
+                      });
+                    });
+                  },
+                  children: "\u2190 Back to Select"
+                })]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "form-group",
@@ -242337,45 +242500,13 @@ var ModalPostJob = function ModalPostJob(_ref) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                 className: "form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-                  htmlFor: "workStart",
-                  children: "Work Start Date"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-                  type: "datetime-local",
-                  id: "workStart",
-                  name: "workStart",
-                  value: formData.workStart,
-                  onChange: handleInputChange,
-                  className: "small-input",
-                  min: new Date().toISOString().slice(0, 16),
-                  required: true
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-                  htmlFor: "workEnd",
-                  children: "Work End Date"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-                  type: "datetime-local",
-                  id: "workEnd",
-                  name: "workEnd",
-                  value: formData.workEnd,
-                  onChange: handleInputChange,
-                  className: "small-input",
-                  min: formData.workStart || new Date().toISOString().slice(0, 16),
-                  required: true
-                })]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "form-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-                className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
                   children: "Application Start"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
                   type: "datetime-local",
                   name: "applicationStart",
                   value: formData.applicationStart,
                   onChange: handleInputChange,
+                  min: new Date().toISOString().slice(0, 16),
                   className: "small-input",
                   required: true
                 })]
@@ -242390,7 +242521,45 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   onChange: handleInputChange,
                   min: formData.applicationStart,
                   className: "small-input",
-                  required: true
+                  required: true,
+                  disabled: !formData.applicationStart
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "form-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                  htmlFor: "workStart",
+                  children: "Work Start Date"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                  type: "datetime-local",
+                  id: "workStart",
+                  name: "workStart",
+                  value: formData.workStart,
+                  onChange: handleInputChange,
+                  className: "small-input",
+                  min: formData.applicationDeadline ? formData.applicationDeadline : new Date().toISOString().slice(0, 16),
+                  required: true,
+                  disabled: !formData.applicationDeadline,
+                  title: !formData.applicationDeadline ? "Please select Application Deadline first" : "Work Start must be after Application Deadline (hiring period)"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "form-group",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                  htmlFor: "workEnd",
+                  children: "Work End Date"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                  type: "datetime-local",
+                  id: "workEnd",
+                  name: "workEnd",
+                  value: formData.workEnd,
+                  onChange: handleInputChange,
+                  className: "small-input",
+                  min: formData.workStart || new Date().toISOString().slice(0, 16),
+                  required: true,
+                  disabled: !formData.workStart,
+                  title: !formData.workStart ? "Please select Work Start date first" : ""
                 })]
               })]
             }), selectedJobTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -242420,22 +242589,74 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   })]
                 }), isSubSkillsDropdownOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                   className: "ant-select-dropdown sub-skills-dropdown",
-                  children: availableSubSkills.map(function (subSkill, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                      className: "ant-select-item",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
-                        className: "sub-skill-option",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-                          type: "checkbox",
-                          checked: selectedSubSkills.includes(subSkill.value),
-                          onChange: function onChange() {
-                            return handleSubSkillToggle(subSkill.value);
-                          }
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                          children: subSkill.label
-                        })]
+                  ref: subSkillsDropdownRef,
+                  children: !isSubSkillOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      className: "dropdown-search-container",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                        type: "text",
+                        className: "dropdown-search-input",
+                        placeholder: "Search sub-skills...",
+                        value: subSkillSearchTerm,
+                        onChange: handleSubSkillSearchChange,
+                        onClick: function onClick(e) {
+                          return e.stopPropagation();
+                        },
+                        autoFocus: true
                       })
-                    }, index);
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                      className: "dropdown-options-list",
+                      children: [availableSubSkills.filter(function (subSkill) {
+                        return subSkill.label.toLowerCase().includes(subSkillSearchTerm.toLowerCase());
+                      }).map(function (subSkill, index) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                          className: "ant-select-item",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+                            className: "sub-skill-option",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                              type: "checkbox",
+                              checked: selectedSubSkills.includes(subSkill.value),
+                              onChange: function onChange() {
+                                return handleSubSkillToggle(subSkill.value);
+                              }
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                              children: subSkill.label
+                            })]
+                          })
+                        }, index);
+                      }), availableSubSkills.filter(function (subSkill) {
+                        return subSkill.label.toLowerCase().includes(subSkillSearchTerm.toLowerCase());
+                      }).length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                        className: "dropdown-no-results",
+                        children: "No results found"
+                      })]
+                    })]
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "custom-sub-skill-input",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                      type: "text",
+                      value: customSubSkill,
+                      onChange: handleCustomSubSkillChange,
+                      placeholder: "Enter custom sub-skill",
+                      className: "custom-sub-skill-field",
+                      autoFocus: true
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                      className: "custom-sub-skill-actions",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                        type: "button",
+                        className: "add-custom-btn",
+                        onClick: handleCustomSubSkillAdd,
+                        children: "Add"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                        type: "button",
+                        className: "cancel-custom-btn",
+                        onClick: function onClick() {
+                          setIsSubSkillOthers(false);
+                          setCustomSubSkill('');
+                        },
+                        children: "Cancel"
+                      })]
+                    })]
                   })
                 })]
               })]
@@ -244722,6 +244943,16 @@ var MyPostJob = function MyPostJob() {
     setUserProfile(userData);
     fetchJobs();
     checkEmployerCredentials();
+
+    // Listen for credentials updates
+    var handleCredentialsUpdate = function handleCredentialsUpdate() {
+      console.log('Credentials updated, rechecking...');
+      checkEmployerCredentials();
+    };
+    window.addEventListener('employerCredentialsUpdated', handleCredentialsUpdate);
+    return function () {
+      window.removeEventListener('employerCredentialsUpdated', handleCredentialsUpdate);
+    };
   }, []);
   var fetchJobs = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
@@ -244816,7 +245047,7 @@ var MyPostJob = function MyPostJob() {
   }();
   var checkEmployerCredentials = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var authToken, userData, currentUser, response, employerData, credentials, hasValidCredentials, _error$response2, _t4;
+      var authToken, userData, currentUser, response, apiUserData, employerData, credentialsNames, credentialsPhotos, credentialsDocs, hasPhotoFiles, hasDocFiles, hasValidCredentials, _error$response2, _t4;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -244846,23 +245077,41 @@ var MyPostJob = function MyPostJob() {
             });
           case 3:
             response = _context2.v;
-            if (response.ok) {
-              employerData = response.data.employer || response.data;
-              credentials = employerData.credentials_name || [];
-              console.log('Employer credentials check:', credentials);
+            // The API returns { employer: { ...user data, employer: { ...employer data } } }
+            apiUserData = response.data.employer || response.data;
+            employerData = apiUserData.employer || apiUserData;
+            credentialsNames = employerData.credentials_name || [];
+            credentialsPhotos = employerData.credentials_photo || [];
+            credentialsDocs = employerData.credentials_doc || [];
+            console.log('Employer credentials check:', {
+              fullResponse: response.data,
+              apiUserData: apiUserData,
+              employerData: employerData,
+              names: credentialsNames,
+              photos: credentialsPhotos,
+              docs: credentialsDocs
+            });
 
-              // Check if employer has any credentials
-              hasValidCredentials = Array.isArray(credentials) && credentials.length > 0 && credentials.some(function (cred) {
-                return cred && cred.trim() !== '';
-              });
-              setHasCredentials(hasValidCredentials);
-              setEmployerCredentials(credentials);
-              console.log('Has valid credentials:', hasValidCredentials);
-            } else {
-              // If employer profile doesn't exist or has no credentials
-              setHasCredentials(false);
-              setEmployerCredentials([]);
-            }
+            // Check if employer has any actual credential files (photo or doc)
+            hasPhotoFiles = Array.isArray(credentialsPhotos) && credentialsPhotos.some(function (file) {
+              return file && typeof file === 'string' && file.trim() !== '' && file !== 'null';
+            });
+            hasDocFiles = Array.isArray(credentialsDocs) && credentialsDocs.some(function (file) {
+              return file && typeof file === 'string' && file.trim() !== '' && file !== 'null';
+            });
+            hasValidCredentials = hasPhotoFiles || hasDocFiles;
+            setHasCredentials(hasValidCredentials);
+            setEmployerCredentials(credentialsNames);
+            console.log('Has valid credentials:', hasValidCredentials, {
+              hasPhotoFiles: hasPhotoFiles,
+              hasDocFiles: hasDocFiles,
+              photoCount: credentialsPhotos.filter(function (f) {
+                return f && f.trim() !== '';
+              }).length,
+              docCount: credentialsDocs.filter(function (f) {
+                return f && f.trim() !== '';
+              }).length
+            });
             _context2.n = 5;
             break;
           case 4:
@@ -245095,8 +245344,10 @@ var MyPostJob = function MyPostJob() {
         className: "post-job-title",
         children: "My Post Job"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
-        className: "add-post-job-btn",
+        className: "add-post-job-btn ".concat(!hasCredentials && ((userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === 2 || (userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === '2') ? 'disabled' : ''),
         onClick: handleAddJob,
+        disabled: !hasCredentials && ((userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === 2 || (userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === '2'),
+        title: !hasCredentials && ((userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === 2 || (userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === '2') ? 'Please add credentials first' : 'Add a new job post',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
           className: "btn-icon"
         }), "Add Post Job"]
@@ -245271,8 +245522,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
 /* harmony import */ var _sass_components_profilesettings_myprofile_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../sass/components/profilesettings/myprofile.scss */ "./resources/sass/components/profilesettings/myprofile.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -245298,7 +245549,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var MyProfile = function MyProfile() {
-  var _workerSkills$primary, _ref23, _availableSkills$find, _workerSkills$primary3, _workerSkills$primary4;
+  var _workerSkills$primary, _ref23, _availableSkills$find, _workerSkills$primary3, _workerSkills$primary4, _ref25, _ref26;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
     user = _useState2[0],
@@ -245450,7 +245701,8 @@ var MyProfile = function MyProfile() {
     setIsEditingCredentials = _useState54[1];
   var _useState55 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       credentials_name: '',
-      credentials_photo: null
+      credentials_photo: null,
+      credentials_doc: null
     }),
     _useState56 = _slicedToArray(_useState55, 2),
     newCredential = _useState56[0],
@@ -245471,7 +245723,8 @@ var MyProfile = function MyProfile() {
     setIsEditingEmployerCredentials = _useState62[1];
   var _useState63 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       credentials_name: '',
-      credentials_photo: null
+      credentials_photo: null,
+      credentials_doc: null
     }),
     _useState64 = _slicedToArray(_useState63, 2),
     newEmployerCredential = _useState64[0],
@@ -246810,25 +247063,41 @@ var MyProfile = function MyProfile() {
     };
   }();
   var handleNewCredentialChange = function handleNewCredentialChange(e, field) {
-    if (field === 'credentials_photo') {
+    if (field === 'credentials_file') {
       var file = e.target.files[0];
       if (file) {
-        // Validate file type
-        var validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg'];
-        if (!validTypes.includes(file.type)) {
-          antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File must be PDF, Word, JPG, or PNG');
+        // Auto-detect file type and route to appropriate field
+        var imageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+        var docTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        var isImage = imageTypes.includes(file.type);
+        var isDoc = docTypes.includes(file.type);
+        if (!isImage && !isDoc) {
+          antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File must be an image (JPG, PNG, GIF, WEBP) or document (PDF, Word)');
           return;
         }
+
         // Validate file size (2MB)
         if (file.size > 2 * 1024 * 1024) {
           antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File size must not exceed 2MB');
           return;
         }
-        setNewCredential(function (prev) {
-          return _objectSpread(_objectSpread({}, prev), {}, {
-            credentials_photo: file
+
+        // Route to correct field based on file type
+        if (isImage) {
+          setNewCredential(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              credentials_photo: file,
+              credentials_doc: null
+            });
           });
-        });
+        } else if (isDoc) {
+          setNewCredential(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              credentials_doc: file,
+              credentials_photo: null
+            });
+          });
+        }
       }
     } else {
       setNewCredential(function (prev) {
@@ -246841,22 +247110,23 @@ var MyProfile = function MyProfile() {
       antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please enter a credential name');
       return;
     }
-    if (!newCredential.credentials_photo) {
+    if (!newCredential.credentials_photo && !newCredential.credentials_doc) {
       antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please upload a credential document');
       return;
     }
     console.log('Adding credential:', {
       name: newCredential.credentials_name,
       photo: newCredential.credentials_photo,
-      isFile: newCredential.credentials_photo instanceof File,
-      type: _typeof(newCredential.credentials_photo)
+      doc: newCredential.credentials_doc,
+      isFile: newCredential.credentials_photo instanceof File || newCredential.credentials_doc instanceof File
     });
     setWorkerCredentials(function (prev) {
       return [].concat(_toConsumableArray(prev), [_objectSpread({}, newCredential)]);
     });
     setNewCredential({
       credentials_name: '',
-      credentials_photo: null
+      credentials_photo: null,
+      credentials_doc: null
     });
     setShowAddCredentialForm(false);
     if (credentialFileInputRef.current) {
@@ -246888,7 +247158,7 @@ var MyProfile = function MyProfile() {
             setIsLoading(false);
             return _context16.a(2);
           case 3:
-            if (!(newCredential.credentials_name || newCredential.credentials_photo)) {
+            if (!(newCredential.credentials_name || newCredential.credentials_photo || newCredential.credentials_doc)) {
               _context16.n = 4;
               break;
             }
@@ -246913,9 +247183,15 @@ var MyProfile = function MyProfile() {
                   // Existing file path - keep the existing file
                   formData.append("credentials[".concat(index, "][existing_photo]"), cred.credentials_photo);
                   console.log("Keeping existing file for credential ".concat(index, ":"), cred.credentials_photo);
-                } else {
-                  // No file provided - this shouldn't happen if validation is working
-                  console.warn("No file provided for credential ".concat(index));
+                }
+                if (cred.credentials_doc instanceof File) {
+                  // New file upload
+                  formData.append("credentials[".concat(index, "][credentials_doc]"), cred.credentials_doc);
+                  console.log("Adding new doc for credential ".concat(index, ":"), cred.credentials_doc.name);
+                } else if (typeof cred.credentials_doc === 'string' && cred.credentials_doc.trim() !== '') {
+                  // Existing file path - keep the existing file
+                  formData.append("credentials[".concat(index, "][existing_doc]"), cred.credentials_doc);
+                  console.log("Keeping existing doc for credential ".concat(index, ":"), cred.credentials_doc);
                 }
               });
 
@@ -246941,8 +247217,8 @@ var MyProfile = function MyProfile() {
               console.log("Credential ".concat(index, ":"), {
                 name: cred.credentials_name,
                 photo: cred.credentials_photo,
-                isFile: cred.credentials_photo instanceof File,
-                type: _typeof(cred.credentials_photo)
+                doc: cred.credentials_doc,
+                isFile: cred.credentials_photo instanceof File || cred.credentials_doc instanceof File
               });
             });
             _context16.n = 5;
@@ -246968,7 +247244,8 @@ var MyProfile = function MyProfile() {
             setIsEditingCredentials(false);
             setNewCredential({
               credentials_name: '',
-              credentials_photo: null
+              credentials_photo: null,
+              credentials_doc: null
             });
 
             // Clear the file input
@@ -247130,25 +247407,41 @@ var MyProfile = function MyProfile() {
     };
   }();
   var handleNewEmployerCredentialChange = function handleNewEmployerCredentialChange(e, field) {
-    if (field === 'credentials_photo') {
+    if (field === 'credentials_file') {
       var file = e.target.files[0];
       if (file) {
-        // Validate file type
-        var validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg'];
-        if (!validTypes.includes(file.type)) {
-          antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File must be PDF, Word, JPG, or PNG');
+        // Auto-detect file type and route to appropriate field
+        var imageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+        var docTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        var isImage = imageTypes.includes(file.type);
+        var isDoc = docTypes.includes(file.type);
+        if (!isImage && !isDoc) {
+          antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File must be an image (JPG, PNG, GIF, WEBP) or document (PDF, Word)');
           return;
         }
+
         // Validate file size (2MB)
         if (file.size > 2 * 1024 * 1024) {
           antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('File size must not exceed 2MB');
           return;
         }
-        setNewEmployerCredential(function (prev) {
-          return _objectSpread(_objectSpread({}, prev), {}, {
-            credentials_photo: file
+
+        // Route to correct field based on file type
+        if (isImage) {
+          setNewEmployerCredential(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              credentials_photo: file,
+              credentials_doc: null
+            });
           });
-        });
+        } else if (isDoc) {
+          setNewEmployerCredential(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, {
+              credentials_doc: file,
+              credentials_photo: null
+            });
+          });
+        }
       }
     } else {
       setNewEmployerCredential(function (prev) {
@@ -247161,22 +247454,23 @@ var MyProfile = function MyProfile() {
       antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please enter a credential name');
       return;
     }
-    if (!newEmployerCredential.credentials_photo) {
+    if (!newEmployerCredential.credentials_photo && !newEmployerCredential.credentials_doc) {
       antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please upload a credential document');
       return;
     }
     console.log('Adding employer credential:', {
       name: newEmployerCredential.credentials_name,
       photo: newEmployerCredential.credentials_photo,
-      isFile: newEmployerCredential.credentials_photo instanceof File,
-      type: _typeof(newEmployerCredential.credentials_photo)
+      doc: newEmployerCredential.credentials_doc,
+      isFile: newEmployerCredential.credentials_photo instanceof File || newEmployerCredential.credentials_doc instanceof File
     });
     setEmployerCredentials(function (prev) {
       return [].concat(_toConsumableArray(prev), [_objectSpread({}, newEmployerCredential)]);
     });
     setNewEmployerCredential({
       credentials_name: '',
-      credentials_photo: null
+      credentials_photo: null,
+      credentials_doc: null
     });
     setShowAddEmployerCredentialForm(false);
     if (employerCredentialFileInputRef.current) {
@@ -247208,7 +247502,7 @@ var MyProfile = function MyProfile() {
             setIsLoading(false);
             return _context19.a(2);
           case 3:
-            if (!(newEmployerCredential.credentials_name || newEmployerCredential.credentials_photo)) {
+            if (!(newEmployerCredential.credentials_name || newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc)) {
               _context19.n = 4;
               break;
             }
@@ -247233,9 +247527,15 @@ var MyProfile = function MyProfile() {
                   // Existing file path - keep the existing file
                   formData.append("credentials[".concat(index, "][existing_photo]"), cred.credentials_photo);
                   console.log("Keeping existing file for employer credential ".concat(index, ":"), cred.credentials_photo);
-                } else {
-                  // No file provided - this shouldn't happen if validation is working
-                  console.warn("No file provided for employer credential ".concat(index));
+                }
+                if (cred.credentials_doc instanceof File) {
+                  // New file upload
+                  formData.append("credentials[".concat(index, "][credentials_doc]"), cred.credentials_doc);
+                  console.log("Adding new doc for employer credential ".concat(index, ":"), cred.credentials_doc.name);
+                } else if (typeof cred.credentials_doc === 'string' && cred.credentials_doc.trim() !== '') {
+                  // Existing file path - keep the existing file
+                  formData.append("credentials[".concat(index, "][existing_doc]"), cred.credentials_doc);
+                  console.log("Keeping existing doc for employer credential ".concat(index, ":"), cred.credentials_doc);
                 }
               });
 
@@ -247261,8 +247561,8 @@ var MyProfile = function MyProfile() {
               console.log("Employer Credential ".concat(index, ":"), {
                 name: cred.credentials_name,
                 photo: cred.credentials_photo,
-                isFile: cred.credentials_photo instanceof File,
-                type: _typeof(cred.credentials_photo)
+                doc: cred.credentials_doc,
+                isFile: cred.credentials_photo instanceof File || cred.credentials_doc instanceof File
               });
             });
             _context19.n = 5;
@@ -247288,7 +247588,8 @@ var MyProfile = function MyProfile() {
             setIsEditingEmployerCredentials(false);
             setNewEmployerCredential({
               credentials_name: '',
-              credentials_photo: null
+              credentials_photo: null,
+              credentials_doc: null
             });
 
             // Clear the file input
@@ -248825,21 +249126,21 @@ var MyProfile = function MyProfile() {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 htmlFor: "credentialFile",
-                children: "Upload Document (PDF, Word, JPG, PNG - Max 2MB)"
+                children: "Upload File (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                 type: "file",
                 id: "credentialFile",
                 ref: credentialFileInputRef,
-                accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png",
+                accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp",
                 onChange: function onChange(e) {
-                  return handleNewCredentialChange(e, 'credentials_photo');
+                  return handleNewCredentialChange(e, 'credentials_file');
                 },
                 className: "form-input"
-              }), newCredential.credentials_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              }), (newCredential.credentials_photo || newCredential.credentials_doc) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "file-selected-info",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
                   className: "file-selected",
-                  children: ["Selected: ", newCredential.credentials_photo.name]
+                  children: ["Selected: ", (_ref25 = newCredential.credentials_photo || newCredential.credentials_doc) === null || _ref25 === void 0 ? void 0 : _ref25.name, newCredential.credentials_photo && ' (Image)', newCredential.credentials_doc && ' (Document)']
                 })
               })]
             })]
@@ -248945,25 +249246,9 @@ var MyProfile = function MyProfile() {
           })]
         })
       })]
-    }), console.log('Checking user for employer credentials:', user), console.log('User role_id:', user === null || user === void 0 ? void 0 : user.role_id), console.log('User role_id type:', _typeof(user === null || user === void 0 ? void 0 : user.role_id)), console.log('Should show employer credentials:', (user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2'), console.log('Should show employer credentials (string):', (user === null || user === void 0 ? void 0 : user.role_id) === '2'), user && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      style: {
-        border: '2px solid red',
-        padding: '10px',
-        margin: '10px 0',
-        backgroundColor: '#ffe6e6'
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-        children: "DEBUG INFO:"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-        children: ["User ID: ", user.id]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-        children: ["Role ID: ", user.role_id, " (type: ", _typeof(user.role_id), ")"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-        children: ["Should show employer credentials: ", (user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2' ? 'YES' : 'NO']
-      })]
     }), ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "employer-credentials-card",
-      children: [console.log('Rendering employer credentials section for role_id:', user === null || user === void 0 ? void 0 : user.role_id), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "card-title",
         children: "Credentials"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -249001,21 +249286,21 @@ var MyProfile = function MyProfile() {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 htmlFor: "employerCredentialFile",
-                children: "Upload Document (PDF, Word, JPG, PNG - Max 2MB)"
+                children: "Upload File (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                 type: "file",
                 id: "employerCredentialFile",
                 ref: employerCredentialFileInputRef,
-                accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png",
+                accept: ".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp",
                 onChange: function onChange(e) {
-                  return handleNewEmployerCredentialChange(e, 'credentials_photo');
+                  return handleNewEmployerCredentialChange(e, 'credentials_file');
                 },
                 className: "form-input"
-              }), newEmployerCredential.credentials_photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              }), (newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "file-selected-info",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
                   className: "file-selected",
-                  children: ["Selected: ", newEmployerCredential.credentials_photo.name]
+                  children: ["Selected: ", (_ref26 = newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) === null || _ref26 === void 0 ? void 0 : _ref26.name, newEmployerCredential.credentials_photo && ' (Image)', newEmployerCredential.credentials_doc && ' (Document)']
                 })
               })]
             })]

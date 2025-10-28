@@ -26,6 +26,18 @@ const MyPostJob = () => {
     setUserProfile(userData);
     fetchJobs();
     checkEmployerCredentials();
+
+    // Listen for credentials updates
+    const handleCredentialsUpdate = () => {
+      console.log('Credentials updated, rechecking...');
+      checkEmployerCredentials();
+    };
+
+    window.addEventListener('employerCredentialsUpdated', handleCredentialsUpdate);
+
+    return () => {
+      window.removeEventListener('employerCredentialsUpdated', handleCredentialsUpdate);
+    };
   }, []);
 
   const fetchJobs = async () => {
@@ -113,25 +125,41 @@ const MyPostJob = () => {
         }
       });
 
-      if (response.ok) {
-        const employerData = response.data.employer || response.data;
-        const credentials = employerData.credentials_name || [];
-        
-        console.log('Employer credentials check:', credentials);
-        
-        // Check if employer has any credentials
-        const hasValidCredentials = Array.isArray(credentials) && credentials.length > 0 && 
-          credentials.some(cred => cred && cred.trim() !== '');
-        
-        setHasCredentials(hasValidCredentials);
-        setEmployerCredentials(credentials);
-        
-        console.log('Has valid credentials:', hasValidCredentials);
-      } else {
-        // If employer profile doesn't exist or has no credentials
-        setHasCredentials(false);
-        setEmployerCredentials([]);
-      }
+      // The API returns { employer: { ...user data, employer: { ...employer data } } }
+      const apiUserData = response.data.employer || response.data;
+      const employerData = apiUserData.employer || apiUserData;
+      
+      const credentialsNames = employerData.credentials_name || [];
+      const credentialsPhotos = employerData.credentials_photo || [];
+      const credentialsDocs = employerData.credentials_doc || [];
+      
+      console.log('Employer credentials check:', {
+        fullResponse: response.data,
+        apiUserData: apiUserData,
+        employerData: employerData,
+        names: credentialsNames,
+        photos: credentialsPhotos,
+        docs: credentialsDocs
+      });
+      
+      // Check if employer has any actual credential files (photo or doc)
+      const hasPhotoFiles = Array.isArray(credentialsPhotos) && 
+        credentialsPhotos.some(file => file && typeof file === 'string' && file.trim() !== '' && file !== 'null');
+      
+      const hasDocFiles = Array.isArray(credentialsDocs) && 
+        credentialsDocs.some(file => file && typeof file === 'string' && file.trim() !== '' && file !== 'null');
+      
+      const hasValidCredentials = hasPhotoFiles || hasDocFiles;
+      
+      setHasCredentials(hasValidCredentials);
+      setEmployerCredentials(credentialsNames);
+      
+      console.log('Has valid credentials:', hasValidCredentials, {
+        hasPhotoFiles,
+        hasDocFiles,
+        photoCount: credentialsPhotos.filter(f => f && f.trim() !== '').length,
+        docCount: credentialsDocs.filter(f => f && f.trim() !== '').length
+      });
     } catch (error) {
       console.error("Error checking employer credentials:", error.response?.data || error.message);
       setHasCredentials(false);
@@ -327,7 +355,12 @@ const MyPostJob = () => {
     <div className="my-post-job-container">
       <div className="post-job-header">
         <h2 className="post-job-title">My Post Job</h2>
-        <button className="add-post-job-btn" onClick={handleAddJob}>
+        <button 
+          className={`add-post-job-btn ${!hasCredentials && (userProfile?.role_id === 2 || userProfile?.role_id === '2') ? 'disabled' : ''}`}
+          onClick={handleAddJob}
+          disabled={!hasCredentials && (userProfile?.role_id === 2 || userProfile?.role_id === '2')}
+          title={!hasCredentials && (userProfile?.role_id === 2 || userProfile?.role_id === '2') ? 'Please add credentials first' : 'Add a new job post'}
+        >
           <FaPlus className="btn-icon" />
           Add Post Job
         </button>

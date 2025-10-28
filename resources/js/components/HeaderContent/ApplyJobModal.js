@@ -259,7 +259,7 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.coverLetter) newErrors.coverLetter = 'Please explain yourself and your experience';
+    if (!formData.coverLetter) newErrors.coverLetter = 'Please explain your experience related to this job';
     if (!formData.resume) newErrors.resume = 'Resume is required';
     return newErrors;
   };
@@ -483,13 +483,12 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
                     <p><strong>Email:</strong> {userProfile.email}</p>
                     <p><strong>Contact Number:</strong> {userContact?.contact_number || 'Not provided'}</p>
                     <p><strong>Location:</strong> {userProfile.profile?.city}, {userProfile.profile?.province}</p>
-                    <p><strong>Rank:</strong> {userProfile.worker?.rank?.name || 'Not specified'}</p>
                   </div>
                 </div>
               </div>
 
               <div className="form-group">
-                <label>Explain Yourself</label>
+                <label>Do you have any experience related to this job? Explain</label>
                 <textarea
                   name="coverLetter"
                   value={formData.coverLetter}
@@ -502,7 +501,7 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
               <div className="form-group">
                 <label>Resume/CV</label>
                 <input
-                  type="file"A
+                  type="file"
                   name="resume"
                   accept=".pdf,.doc,.docx"
                   onChange={(e) => setFormData(prev => ({ ...prev, resume: e.target.files[0] }))}

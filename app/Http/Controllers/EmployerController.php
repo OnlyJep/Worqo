@@ -273,6 +273,13 @@ class EmployerController extends Controller
     public function updateCredentials(Request $request, $id)
     {
         try {
+            // Validate credentials
+            $request->validate([
+                'credentials.*.credentials_name' => 'required|string',
+                'credentials.*.credentials_photo' => 'nullable|file|mimes:jpeg,jpg,png,gif,webp|max:2048',
+                'credentials.*.credentials_doc' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+            ]);
+            
             $user = User::findOrFail($id);
             
             // Ensure user is an employer
@@ -320,14 +327,14 @@ class EmployerController extends Controller
                 }
                 
                 if (is_array($credentials)) {
-                    foreach ($credentials as $credential) {
+                    foreach ($credentials as $index => $credential) {
                         if (isset($credential['credentials_name']) && !empty($credential['credentials_name'])) {
                             $credentialsNames[] = $credential['credentials_name'];
                             
-                            // Handle file upload
-                            if (isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
-                                $file = $credential['credentials_photo'];
-                                $filename = time() . '_' . $file->getClientOriginalName();
+                            // Handle credentials_photo file upload
+                            if ($request->hasFile("credentials.{$index}.credentials_photo")) {
+                                $file = $request->file("credentials.{$index}.credentials_photo");
+                                $filename = time() . '_' . $index . '_photo_' . $file->getClientOriginalName();
                                 $path = $file->storeAs('employer_credentials', $filename, 'public');
                                 $credentialsPhotos[] = $path;
                             } elseif (isset($credential['existing_photo']) && !empty($credential['existing_photo'])) {
@@ -336,7 +343,17 @@ class EmployerController extends Controller
                                 $credentialsPhotos[] = null;
                             }
                             
-                            $credentialsDocs[] = $credentialsPhotos[count($credentialsPhotos) - 1]; // Same as photo for now
+                            // Handle credentials_doc file upload
+                            if ($request->hasFile("credentials.{$index}.credentials_doc")) {
+                                $file = $request->file("credentials.{$index}.credentials_doc");
+                                $filename = time() . '_' . $index . '_doc_' . $file->getClientOriginalName();
+                                $path = $file->storeAs('employer_credentials', $filename, 'public');
+                                $credentialsDocs[] = $path;
+                            } elseif (isset($credential['existing_doc']) && !empty($credential['existing_doc'])) {
+                                $credentialsDocs[] = $credential['existing_doc'];
+                            } else {
+                                $credentialsDocs[] = null;
+                            }
                         }
                     }
                 }

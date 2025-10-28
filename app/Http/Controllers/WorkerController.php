@@ -2272,6 +2272,13 @@ class WorkerController extends Controller
     public function updateCredentials(Request $request, $id): JsonResponse
     {
         try {
+            // Validate credentials
+            $request->validate([
+                'credentials.*.credentials_name' => 'required|string',
+                'credentials.*.credentials_photo' => 'nullable|file|mimes:jpeg,jpg,png,gif,webp|max:2048',
+                'credentials.*.credentials_doc' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
+            ]);
+            
             Log::info('Update credentials request data', [
                 'id' => $id, 
                 'input' => $request->all(),
@@ -2290,6 +2297,7 @@ class WorkerController extends Controller
 
             $credentialsNames = [];
             $credentialsPhotos = [];
+            $credentialsDocs = [];
 
             // Handle credentials data - check for both formats
             $credentialsData = [];
@@ -2299,12 +2307,16 @@ class WorkerController extends Controller
             while ($request->has("credentials[{$credentialIndex}][credentials_name]")) {
                 $credentialName = $request->input("credentials[{$credentialIndex}][credentials_name]");
                 $credentialPhoto = $request->file("credentials[{$credentialIndex}][credentials_photo]");
+                $credentialDoc = $request->file("credentials[{$credentialIndex}][credentials_doc]");
                 $existingPhoto = $request->input("credentials[{$credentialIndex}][existing_photo]");
+                $existingDoc = $request->input("credentials[{$credentialIndex}][existing_doc]");
                 
                 $credentialsData[] = [
                     'credentials_name' => $credentialName,
                     'credentials_photo' => $credentialPhoto,
-                    'existing_photo' => $existingPhoto
+                    'credentials_doc' => $credentialDoc,
+                    'existing_photo' => $existingPhoto,
+                    'existing_doc' => $existingDoc
                 ];
                 $credentialIndex++;
             }
@@ -2330,6 +2342,9 @@ class WorkerController extends Controller
                         if (isset($fileGroup['credentials_photo']) && isset($credentialsData[$index])) {
                             $credentialsData[$index]['credentials_photo'] = $fileGroup['credentials_photo'];
                         }
+                        if (isset($fileGroup['credentials_doc']) && isset($credentialsData[$index])) {
+                            $credentialsData[$index]['credentials_doc'] = $fileGroup['credentials_doc'];
+                        }
                     }
                 }
             }
@@ -2346,30 +2361,54 @@ class WorkerController extends Controller
                 if (isset($credential['credentials_name'])) {
                     $credentialsNames[] = $credential['credentials_name'];
                     
-                    // Handle file upload - check multiple possible formats
-                    $fileProcessed = false;
+                    // Handle credentials_photo file upload
+                    $photoProcessed = false;
                     
                     // Check if it's an UploadedFile object
                     if (isset($credential['credentials_photo']) && $credential['credentials_photo'] instanceof \Illuminate\Http\UploadedFile) {
                         $file = $credential['credentials_photo'];
-                        $filename = time() . '_' . $index . '_' . $file->getClientOriginalName();
+                        $filename = time() . '_' . $index . '_photo_' . $file->getClientOriginalName();
                         $path = $file->storeAs('credentials', $filename, 'public');
                         $credentialsPhotos[] = $path;
-                        $fileProcessed = true;
-                        Log::info('File uploaded successfully', ['path' => $path, 'filename' => $filename]);
+                        $photoProcessed = true;
+                        Log::info('Photo uploaded successfully', ['path' => $path, 'filename' => $filename]);
                     }
                     
                     // Check if it's an existing photo path
-                    if (!$fileProcessed && isset($credential['existing_photo']) && !empty($credential['existing_photo'])) {
+                    if (!$photoProcessed && isset($credential['existing_photo']) && !empty($credential['existing_photo'])) {
                         $credentialsPhotos[] = $credential['existing_photo'];
-                        $fileProcessed = true;
+                        $photoProcessed = true;
                         Log::info('Using existing photo', ['path' => $credential['existing_photo']]);
                     }
                     
-                    // If no file was processed, set to null
-                    if (!$fileProcessed) {
+                    // If no photo was processed, set to null
+                    if (!$photoProcessed) {
                         $credentialsPhotos[] = null;
-                        Log::warning('No file processed for credential', ['index' => $index, 'credential' => $credential]);
+                    }
+                    
+                    // Handle credentials_doc file upload
+                    $docProcessed = false;
+                    
+                    // Check if it's an UploadedFile object
+                    if (isset($credential['credentials_doc']) && $credential['credentials_doc'] instanceof \Illuminate\Http\UploadedFile) {
+                        $file = $credential['credentials_doc'];
+                        $filename = time() . '_' . $index . '_doc_' . $file->getClientOriginalName();
+                        $path = $file->storeAs('credentials', $filename, 'public');
+                        $credentialsDocs[] = $path;
+                        $docProcessed = true;
+                        Log::info('Doc uploaded successfully', ['path' => $path, 'filename' => $filename]);
+                    }
+                    
+                    // Check if it's an existing doc path
+                    if (!$docProcessed && isset($credential['existing_doc']) && !empty($credential['existing_doc'])) {
+                        $credentialsDocs[] = $credential['existing_doc'];
+                        $docProcessed = true;
+                        Log::info('Using existing doc', ['path' => $credential['existing_doc']]);
+                    }
+                    
+                    // If no doc was processed, set to null
+                    if (!$docProcessed) {
+                        $credentialsDocs[] = null;
                     }
                 }
             }
@@ -2378,6 +2417,7 @@ class WorkerController extends Controller
             $user->worker->update([
                 'credentials_name' => $credentialsNames,
                 'credentials_photo' => $credentialsPhotos,
+                'credentials_doc' => $credentialsDocs,
             ]);
 
             Log::info('Worker credentials updated', [
@@ -2385,6 +2425,7 @@ class WorkerController extends Controller
                 'credentials_count' => count($credentialsNames),
                 'credentials_names' => $credentialsNames,
                 'credentials_photos' => $credentialsPhotos,
+                'credentials_docs' => $credentialsDocs,
                 'raw_credentials_data' => $credentialsData,
             ]);
 

@@ -69,13 +69,13 @@ const MyProfile = () => {
   // Credentials states (for workers and employers)
   const [workerCredentials, setWorkerCredentials] = useState([]);
   const [isEditingCredentials, setIsEditingCredentials] = useState(false);
-  const [newCredential, setNewCredential] = useState({ credentials_name: '', credentials_photo: null });
+  const [newCredential, setNewCredential] = useState({ credentials_name: '', credentials_photo: null, credentials_doc: null });
   const [showAddCredentialForm, setShowAddCredentialForm] = useState(false);
   
   // Employer credentials states
   const [employerCredentials, setEmployerCredentials] = useState([]);
   const [isEditingEmployerCredentials, setIsEditingEmployerCredentials] = useState(false);
-  const [newEmployerCredential, setNewEmployerCredential] = useState({ credentials_name: '', credentials_photo: null });
+  const [newEmployerCredential, setNewEmployerCredential] = useState({ credentials_name: '', credentials_photo: null, credentials_doc: null });
   const [showAddEmployerCredentialForm, setShowAddEmployerCredentialForm] = useState(false);
   
   const fileInputRef = useRef(null);
@@ -1000,21 +1000,33 @@ const MyProfile = () => {
   };
 
   const handleNewCredentialChange = (e, field) => {
-    if (field === 'credentials_photo') {
+    if (field === 'credentials_file') {
       const file = e.target.files[0];
       if (file) {
-        // Validate file type
-        const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg'];
-        if (!validTypes.includes(file.type)) {
-          message.error('File must be PDF, Word, JPG, or PNG');
+        // Auto-detect file type and route to appropriate field
+        const imageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+        const docTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        
+        const isImage = imageTypes.includes(file.type);
+        const isDoc = docTypes.includes(file.type);
+        
+        if (!isImage && !isDoc) {
+          message.error('File must be an image (JPG, PNG, GIF, WEBP) or document (PDF, Word)');
           return;
         }
+        
         // Validate file size (2MB)
         if (file.size > 2 * 1024 * 1024) {
           message.error('File size must not exceed 2MB');
           return;
         }
-        setNewCredential(prev => ({ ...prev, credentials_photo: file }));
+        
+        // Route to correct field based on file type
+        if (isImage) {
+          setNewCredential(prev => ({ ...prev, credentials_photo: file, credentials_doc: null }));
+        } else if (isDoc) {
+          setNewCredential(prev => ({ ...prev, credentials_doc: file, credentials_photo: null }));
+        }
       }
     } else {
       setNewCredential(prev => ({ ...prev, [field]: e.target.value }));
@@ -1026,7 +1038,7 @@ const MyProfile = () => {
       message.error('Please enter a credential name');
       return;
     }
-    if (!newCredential.credentials_photo) {
+    if (!newCredential.credentials_photo && !newCredential.credentials_doc) {
       message.error('Please upload a credential document');
       return;
     }
@@ -1034,12 +1046,12 @@ const MyProfile = () => {
     console.log('Adding credential:', {
       name: newCredential.credentials_name,
       photo: newCredential.credentials_photo,
-      isFile: newCredential.credentials_photo instanceof File,
-      type: typeof newCredential.credentials_photo
+      doc: newCredential.credentials_doc,
+      isFile: newCredential.credentials_photo instanceof File || newCredential.credentials_doc instanceof File
     });
 
     setWorkerCredentials(prev => [...prev, { ...newCredential }]);
-    setNewCredential({ credentials_name: '', credentials_photo: null });
+    setNewCredential({ credentials_name: '', credentials_photo: null, credentials_doc: null });
     setShowAddCredentialForm(false);
     if (credentialFileInputRef.current) {
       credentialFileInputRef.current.value = '';
@@ -1065,7 +1077,7 @@ const MyProfile = () => {
       }
 
       // Check if user is in the middle of adding a credential
-      if (newCredential.credentials_name || newCredential.credentials_photo) {
+      if (newCredential.credentials_name || newCredential.credentials_photo || newCredential.credentials_doc) {
         message.error("Please click 'Add to List' to add the credential before saving");
         setIsLoading(false);
         return;
@@ -1088,9 +1100,16 @@ const MyProfile = () => {
             // Existing file path - keep the existing file
             formData.append(`credentials[${index}][existing_photo]`, cred.credentials_photo);
             console.log(`Keeping existing file for credential ${index}:`, cred.credentials_photo);
-          } else {
-            // No file provided - this shouldn't happen if validation is working
-            console.warn(`No file provided for credential ${index}`);
+          }
+          
+          if (cred.credentials_doc instanceof File) {
+            // New file upload
+            formData.append(`credentials[${index}][credentials_doc]`, cred.credentials_doc);
+            console.log(`Adding new doc for credential ${index}:`, cred.credentials_doc.name);
+          } else if (typeof cred.credentials_doc === 'string' && cred.credentials_doc.trim() !== '') {
+            // Existing file path - keep the existing file
+            formData.append(`credentials[${index}][existing_doc]`, cred.credentials_doc);
+            console.log(`Keeping existing doc for credential ${index}:`, cred.credentials_doc);
           }
         });
         
@@ -1109,8 +1128,8 @@ const MyProfile = () => {
         console.log(`Credential ${index}:`, {
           name: cred.credentials_name,
           photo: cred.credentials_photo,
-          isFile: cred.credentials_photo instanceof File,
-          type: typeof cred.credentials_photo
+          doc: cred.credentials_doc,
+          isFile: cred.credentials_photo instanceof File || cred.credentials_doc instanceof File
         });
       });
 
@@ -1128,7 +1147,7 @@ const MyProfile = () => {
         
         message.success("Credentials updated successfully!");
         setIsEditingCredentials(false);
-        setNewCredential({ credentials_name: '', credentials_photo: null });
+        setNewCredential({ credentials_name: '', credentials_photo: null, credentials_doc: null });
         
         // Clear the file input
         if (credentialFileInputRef.current) {
@@ -1223,21 +1242,33 @@ const MyProfile = () => {
   };
 
   const handleNewEmployerCredentialChange = (e, field) => {
-    if (field === 'credentials_photo') {
+    if (field === 'credentials_file') {
       const file = e.target.files[0];
       if (file) {
-        // Validate file type
-        const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png', 'image/jpg'];
-        if (!validTypes.includes(file.type)) {
-          message.error('File must be PDF, Word, JPG, or PNG');
+        // Auto-detect file type and route to appropriate field
+        const imageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+        const docTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        
+        const isImage = imageTypes.includes(file.type);
+        const isDoc = docTypes.includes(file.type);
+        
+        if (!isImage && !isDoc) {
+          message.error('File must be an image (JPG, PNG, GIF, WEBP) or document (PDF, Word)');
           return;
         }
+        
         // Validate file size (2MB)
         if (file.size > 2 * 1024 * 1024) {
           message.error('File size must not exceed 2MB');
           return;
         }
-        setNewEmployerCredential(prev => ({ ...prev, credentials_photo: file }));
+        
+        // Route to correct field based on file type
+        if (isImage) {
+          setNewEmployerCredential(prev => ({ ...prev, credentials_photo: file, credentials_doc: null }));
+        } else if (isDoc) {
+          setNewEmployerCredential(prev => ({ ...prev, credentials_doc: file, credentials_photo: null }));
+        }
       }
     } else {
       setNewEmployerCredential(prev => ({ ...prev, [field]: e.target.value }));
@@ -1249,7 +1280,7 @@ const MyProfile = () => {
       message.error('Please enter a credential name');
       return;
     }
-    if (!newEmployerCredential.credentials_photo) {
+    if (!newEmployerCredential.credentials_photo && !newEmployerCredential.credentials_doc) {
       message.error('Please upload a credential document');
       return;
     }
@@ -1257,12 +1288,12 @@ const MyProfile = () => {
     console.log('Adding employer credential:', {
       name: newEmployerCredential.credentials_name,
       photo: newEmployerCredential.credentials_photo,
-      isFile: newEmployerCredential.credentials_photo instanceof File,
-      type: typeof newEmployerCredential.credentials_photo
+      doc: newEmployerCredential.credentials_doc,
+      isFile: newEmployerCredential.credentials_photo instanceof File || newEmployerCredential.credentials_doc instanceof File
     });
 
     setEmployerCredentials(prev => [...prev, { ...newEmployerCredential }]);
-    setNewEmployerCredential({ credentials_name: '', credentials_photo: null });
+    setNewEmployerCredential({ credentials_name: '', credentials_photo: null, credentials_doc: null });
     setShowAddEmployerCredentialForm(false);
     if (employerCredentialFileInputRef.current) {
       employerCredentialFileInputRef.current.value = '';
@@ -1288,7 +1319,7 @@ const MyProfile = () => {
       }
 
       // Check if user is in the middle of adding a credential
-      if (newEmployerCredential.credentials_name || newEmployerCredential.credentials_photo) {
+      if (newEmployerCredential.credentials_name || newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) {
         message.error("Please click 'Add to List' to add the credential before saving");
         setIsLoading(false);
         return;
@@ -1311,9 +1342,16 @@ const MyProfile = () => {
             // Existing file path - keep the existing file
             formData.append(`credentials[${index}][existing_photo]`, cred.credentials_photo);
             console.log(`Keeping existing file for employer credential ${index}:`, cred.credentials_photo);
-          } else {
-            // No file provided - this shouldn't happen if validation is working
-            console.warn(`No file provided for employer credential ${index}`);
+          }
+          
+          if (cred.credentials_doc instanceof File) {
+            // New file upload
+            formData.append(`credentials[${index}][credentials_doc]`, cred.credentials_doc);
+            console.log(`Adding new doc for employer credential ${index}:`, cred.credentials_doc.name);
+          } else if (typeof cred.credentials_doc === 'string' && cred.credentials_doc.trim() !== '') {
+            // Existing file path - keep the existing file
+            formData.append(`credentials[${index}][existing_doc]`, cred.credentials_doc);
+            console.log(`Keeping existing doc for employer credential ${index}:`, cred.credentials_doc);
           }
         });
         
@@ -1332,8 +1370,8 @@ const MyProfile = () => {
         console.log(`Employer Credential ${index}:`, {
           name: cred.credentials_name,
           photo: cred.credentials_photo,
-          isFile: cred.credentials_photo instanceof File,
-          type: typeof cred.credentials_photo
+          doc: cred.credentials_doc,
+          isFile: cred.credentials_photo instanceof File || cred.credentials_doc instanceof File
         });
       });
 
@@ -1351,7 +1389,7 @@ const MyProfile = () => {
         
         message.success("Credentials updated successfully!");
         setIsEditingEmployerCredentials(false);
-        setNewEmployerCredential({ credentials_name: '', credentials_photo: null });
+        setNewEmployerCredential({ credentials_name: '', credentials_photo: null, credentials_doc: null });
         
         // Clear the file input
         if (employerCredentialFileInputRef.current) {
@@ -2581,18 +2619,22 @@ const MyProfile = () => {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="credentialFile">Upload Document (PDF, Word, JPG, PNG - Max 2MB)</label>
+                    <label htmlFor="credentialFile">Upload File (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)</label>
                     <input
                       type="file"
                       id="credentialFile"
                       ref={credentialFileInputRef}
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                      onChange={(e) => handleNewCredentialChange(e, 'credentials_photo')}
+                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp"
+                      onChange={(e) => handleNewCredentialChange(e, 'credentials_file')}
                       className="form-input"
                     />
-                    {newCredential.credentials_photo && (
+                    {(newCredential.credentials_photo || newCredential.credentials_doc) && (
                       <div className="file-selected-info">
-                        <span className="file-selected">Selected: {newCredential.credentials_photo.name}</span>
+                        <span className="file-selected">
+                          Selected: {(newCredential.credentials_photo || newCredential.credentials_doc)?.name}
+                          {newCredential.credentials_photo && ' (Image)'}
+                          {newCredential.credentials_doc && ' (Document)'}
+                        </span>
                       </div>
                     )}
                   </div>
@@ -2694,25 +2736,8 @@ const MyProfile = () => {
       )}
 
       {/* Credentials Card - Only for Employers */}
-      {console.log('Checking user for employer credentials:', user)}
-      {console.log('User role_id:', user?.role_id)}
-      {console.log('User role_id type:', typeof user?.role_id)}
-      {console.log('Should show employer credentials:', (user?.role_id === 2 || user?.role_id === '2'))}
-      {console.log('Should show employer credentials (string):', user?.role_id === '2')}
-      
-      {/* Temporary debug section */}
-      {user && (
-        <div style={{border: '2px solid red', padding: '10px', margin: '10px 0', backgroundColor: '#ffe6e6'}}>
-          <h4>DEBUG INFO:</h4>
-          <p>User ID: {user.id}</p>
-          <p>Role ID: {user.role_id} (type: {typeof user.role_id})</p>
-          <p>Should show employer credentials: {(user?.role_id === 2 || user?.role_id === '2') ? 'YES' : 'NO'}</p>
-        </div>
-      )}
-      
       {(user?.role_id === 2 || user?.role_id === '2') && (
         <div className="employer-credentials-card">
-          {console.log('Rendering employer credentials section for role_id:', user?.role_id)}
           <h3 className="card-title">Credentials</h3>
           
           <div className="credentials-display">
@@ -2738,18 +2763,22 @@ const MyProfile = () => {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="employerCredentialFile">Upload Document (PDF, Word, JPG, PNG - Max 2MB)</label>
+                    <label htmlFor="employerCredentialFile">Upload File (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)</label>
                     <input
                       type="file"
                       id="employerCredentialFile"
                       ref={employerCredentialFileInputRef}
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                      onChange={(e) => handleNewEmployerCredentialChange(e, 'credentials_photo')}
+                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp"
+                      onChange={(e) => handleNewEmployerCredentialChange(e, 'credentials_file')}
                       className="form-input"
                     />
-                    {newEmployerCredential.credentials_photo && (
+                    {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) && (
                       <div className="file-selected-info">
-                        <span className="file-selected">Selected: {newEmployerCredential.credentials_photo.name}</span>
+                        <span className="file-selected">
+                          Selected: {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc)?.name}
+                          {newEmployerCredential.credentials_photo && ' (Image)'}
+                          {newEmployerCredential.credentials_doc && ' (Document)'}
+                        </span>
                       </div>
                     )}
                   </div>
