@@ -24,7 +24,7 @@ const MessageEmployer = () => {
   const messageInputRef = useRef(null);
 
   useEffect(() => {
-    fetchConversations();
+    fetchConversations(true);
     fetchActiveWorkers();
     
     // Get user role from localStorage
@@ -33,6 +33,15 @@ const MessageEmployer = () => {
     if (roleId) {
       setUserRole(roleId === 1 ? 'worker' : 'employer');
     }
+  }, []);
+
+  // Poll for new messages every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchConversations();
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   // Close chat menu when clicking outside
@@ -52,16 +61,16 @@ const MessageEmployer = () => {
     };
   }, [showChatMenu]);
 
-  const fetchConversations = async () => {
+  const fetchConversations = async (showLoading = false) => {
     try {
-      setLoading(true);
+      if (showLoading) setLoading(true);
       const token = localStorage.getItem('auth_token');
       const stored = JSON.parse(localStorage.getItem('user') || '{}');
       const userId = stored?.id || stored?.user?.id;
       
       if (!userId) {
         console.error('User ID not found');
-        setLoading(false);
+        if (showLoading) setLoading(false);
         return;
       }
       
@@ -98,7 +107,7 @@ const MessageEmployer = () => {
     } catch (error) {
       console.error('Error fetching conversations:', error.response?.data || error.message);
     } finally {
-      setLoading(false);
+      if (showLoading) setLoading(false);
     }
   };
 
@@ -140,6 +149,11 @@ const MessageEmployer = () => {
     
     // Exclude current user from the list
     if (worker.user_id == currentUserId) {
+      return false;
+    }
+    
+    // Filter only workers (role_id === 1)
+    if (worker.role_id !== 1) {
       return false;
     }
     
@@ -243,6 +257,9 @@ const MessageEmployer = () => {
         }));
         
         setMessageInput('');
+        
+        // Trigger message update event for header badge
+        window.dispatchEvent(new Event('messageUpdated'));
         
         // If this is a new conversation (no selectedConversation), update conversations list
         if (!selectedConversation) {
@@ -387,7 +404,7 @@ const MessageEmployer = () => {
               <span className="search-icon"></span>
               <input
                 type="text"
-                placeholder="Search Contacts"
+                placeholder="Search Workers"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -395,25 +412,59 @@ const MessageEmployer = () => {
           </div>
           
           <div className={`conversation-list ${userRole ? `conversation-list-${userRole}` : ''}`}>
-            {filteredActiveWorkers.map((worker) => (
+            {/* Render existing conversations first */}
+            {conversations.map((conv) => (
+              <div
+                key={conv.user_id}
+                className={`conversation-item ${conv.unread_count > 0 ? 'unread' : ''} ${selectedConversation?.user_id === conv.user_id ? 'active' : ''}`}
+                onClick={() => handleConversationSelect(conv)}
+              >
+                <div className="conversation-avatar">
+                  <div className="avatar-placeholder">
+                    {conv.name?.charAt(0) || 'U'}
+                  </div>
+                  {conv.unread_count > 0 && (
+                    <span className="unread-indicator">{conv.unread_count}</span>
+                  )}
+                </div>
+                
+                <div className="conversation-details">
+                  <div className="conversation-header">
+                    <span className="conversation-name">{conv.name || 'Unknown User'}</span>
+                    <span className="conversation-time">
+                      {conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
+                    </span>
+                  </div>
+                  <div className="employer-conversation-preview">
+                    {conv.last_message && (() => {
+                      const stored = JSON.parse(localStorage.getItem('user') || '{}');
+                      const currentUserId = stored?.id || stored?.user?.id;
+                      const isSentByMe = conv.last_message.sender_id == currentUserId;
+                      const maxLength = 50;
+                      const preview = conv.last_message.content.length > maxLength 
+                        ? conv.last_message.content.substring(0, maxLength) + '...' 
+                        : conv.last_message.content;
+                      return isSentByMe ? `You: ${preview}` : preview;
+                    })()}
+                  </div>
+                </div>
+              </div>
+            ))}
+            
+            {/* Render active workers that don't have conversations yet */}
+            {filteredActiveWorkers
+              .filter(worker => !conversations.find(c => c.user_id == worker.user_id))
+              .map((worker) => (
               <div
                 key={worker.user_id}
                 className={`conversation-item ${selectedConversation?.user_id === worker.user_id ? 'active' : ''}`}
                 onClick={() => {
-                  // Find or create conversation for this worker
-                  const existingConv = conversations.find(c => c.user_id == worker.user_id);
-                  if (existingConv) {
-                    handleConversationSelect(existingConv);
-                  } else {
-                    // Create a temporary conversation object
-                    const tempConv = {
-                      user_id: worker.user_id,
-                      name: worker.full_name
-                    };
-                    setSelectedConversation(tempConv);
-                    // Store target user ID for sending first message
-                    localStorage.setItem('message_target_user_id', String(worker.user_id));
-                  }
+                  const tempConv = {
+                    user_id: worker.user_id,
+                    name: worker.full_name
+                  };
+                  setSelectedConversation(tempConv);
+                  localStorage.setItem('message_target_user_id', String(worker.user_id));
                 }}
               >
                 <div className="conversation-avatar">
@@ -425,10 +476,9 @@ const MessageEmployer = () => {
                 <div className="conversation-details">
                   <div className="conversation-header">
                     <span className="conversation-name">{worker.full_name || 'Unknown User'}</span>
-                    <span className="conversation-time">11:24 AM</span>
                   </div>
-                  <div className="conversation-preview">
-                    How are you doing today?
+                  <div className="employer-conversation-preview">
+                    Start new conversation
                   </div>
                 </div>
               </div>

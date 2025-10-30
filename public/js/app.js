@@ -71252,7 +71252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-container .message-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 10px;\n}\n.message-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -2px;\n  right: -2px;\n  width: 12px;\n  height: 12px;\n  background-color: #dc3545;\n  border-radius: 50%;\n  border: 2px solid white;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 15px;\n  border: 2px solid #0a2a44;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details {\n  flex: 1;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n  margin: 0 0 5px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .verified-badge {\n  background-color: #28a745;\n  color: white;\n  padding: 3px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.online {\n  background-color: #28a745;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.offline {\n  background-color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-text {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-label {\n  font-weight: 600;\n  margin-right: 10px;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-value {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar h4, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank h4 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-image {\n  width: 30px;\n  height: 30px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-right: 10px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-name {\n  font-size: 14px;\n  font-weight: 500;\n  color: #555;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn {\n  background-color: #0a2a44;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn:hover {\n  background-color: #1a3a54;\n}\n.message-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n}\n.message-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-container .message-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-container .message-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .employer-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 15px;\n  border: 2px solid #0a2a44;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details {\n  flex: 1;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n  margin: 0 0 5px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .verified-badge {\n  background-color: #28a745;\n  color: white;\n  padding: 3px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.online {\n  background-color: #28a745;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.offline {\n  background-color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-text {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-label {\n  font-weight: 600;\n  margin-right: 10px;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-value {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar h4, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank h4 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-image {\n  width: 30px;\n  height: 30px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-right: 10px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-name {\n  font-size: 14px;\n  font-weight: 500;\n  color: #555;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn {\n  background-color: #0a2a44;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn:hover {\n  background-color: #1a3a54;\n}\n.message-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n}\n.message-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-container .message-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71276,7 +71276,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-worker-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-worker-container .message-worker-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 10px;\n}\n.message-worker-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-worker-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-worker-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -2px;\n  right: -2px;\n  width: 12px;\n  height: 12px;\n  background-color: #dc3545;\n  border-radius: 50%;\n  border: 2px solid white;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-worker-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-worker-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-worker-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-worker-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-worker-container .message-worker-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-worker-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-worker-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-worker-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-worker-container .message-worker-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-worker-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-worker-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-worker-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .worker-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-worker-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-worker-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-worker-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-worker-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-worker-container .message-worker-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-worker-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-worker-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -202208,30 +202208,34 @@ var Headerz = function Headerz() {
     _useState6 = _slicedToArray(_useState5, 2),
     unreadCount = _useState6[0],
     setUnreadCount = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState8 = _slicedToArray(_useState7, 2),
-    isLoggedIn = _useState8[0],
-    setIsLoggedIn = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    unreadMessageCount = _useState8[0],
+    setUnreadMessageCount = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState0 = _slicedToArray(_useState9, 2),
-    user = _useState0[0],
-    setUser = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    isLoggedIn = _useState0[0],
+    setIsLoggedIn = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState10 = _slicedToArray(_useState1, 2),
-    isDropdownOpen = _useState10[0],
-    setIsDropdownOpen = _useState10[1];
+    user = _useState10[0],
+    setUser = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState12 = _slicedToArray(_useState11, 2),
-    imageError = _useState12[0],
-    setImageError = _useState12[1];
+    isDropdownOpen = _useState12[0],
+    setIsDropdownOpen = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState14 = _slicedToArray(_useState13, 2),
-    isSwitching = _useState14[0],
-    setIsSwitching = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    imageError = _useState14[0],
+    setImageError = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState16 = _slicedToArray(_useState15, 2),
-    targetRole = _useState16[0],
-    setTargetRole = _useState16[1];
+    isSwitching = _useState16[0],
+    setIsSwitching = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState18 = _slicedToArray(_useState17, 2),
+    targetRole = _useState18[0],
+    setTargetRole = _useState18[1];
   var dropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
 
@@ -202291,6 +202295,8 @@ var Headerz = function Headerz() {
         setUser(userData);
         // Fetch unread notifications count
         fetchUnreadCount();
+        // Fetch unread messages count
+        fetchUnreadMessageCount();
       } catch (error) {
         console.error('Error parsing user data:', error);
         localStorage.removeItem('auth_token');
@@ -202315,6 +202321,7 @@ var Headerz = function Headerz() {
     if (!isLoggedIn) return;
     var interval = setInterval(function () {
       fetchUnreadCount();
+      fetchUnreadMessageCount();
       updateUserStatus();
     }, 30000); // 30 seconds
 
@@ -202369,6 +202376,59 @@ var Headerz = function Headerz() {
     };
   }();
 
+  // Fetch unread messages count
+  var fetchUnreadMessageCount = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+      var _userData$user2, storedUser, userData, userId, token, config, response, _t3;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
+          case 0:
+            _context3.p = 0;
+            storedUser = localStorage.getItem('user');
+            if (storedUser) {
+              _context3.n = 1;
+              break;
+            }
+            return _context3.a(2);
+          case 1:
+            userData = JSON.parse(storedUser);
+            userId = (userData === null || userData === void 0 ? void 0 : userData.id) || (userData === null || userData === void 0 || (_userData$user2 = userData.user) === null || _userData$user2 === void 0 ? void 0 : _userData$user2.id);
+            if (userId) {
+              _context3.n = 2;
+              break;
+            }
+            return _context3.a(2);
+          case 2:
+            token = localStorage.getItem('auth_token');
+            config = token ? {
+              headers: {
+                'Authorization': "Bearer ".concat(token),
+                'X-User-Id': userId
+              }
+            } : {};
+            _context3.n = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_7__["default"].get("http://127.0.0.1:8000/api/messages/unread-count", config);
+          case 3:
+            response = _context3.v;
+            if (response.data.success) {
+              setUnreadMessageCount(response.data.unread_count || 0);
+            }
+            _context3.n = 5;
+            break;
+          case 4:
+            _context3.p = 4;
+            _t3 = _context3.v;
+            console.error('Error fetching unread message count:', _t3);
+          case 5:
+            return _context3.a(2);
+        }
+      }, _callee3, null, [[0, 4]]);
+    }));
+    return function fetchUnreadMessageCount() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
   // Listen for profile image updates
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var handleProfileImageUpdate = function handleProfileImageUpdate(event) {
@@ -202390,6 +202450,17 @@ var Headerz = function Headerz() {
     window.addEventListener('notificationUpdated', handleNotificationUpdate);
     return function () {
       window.removeEventListener('notificationUpdated', handleNotificationUpdate);
+    };
+  }, []);
+
+  // Listen for message updates
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var handleMessageUpdate = function handleMessageUpdate() {
+      fetchUnreadMessageCount();
+    };
+    window.addEventListener('messageUpdated', handleMessageUpdate);
+    return function () {
+      window.removeEventListener('messageUpdated', handleMessageUpdate);
     };
   }, []);
 
@@ -202476,34 +202547,34 @@ var Headerz = function Headerz() {
     }, 800);
   };
   var goToBookings = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
       var targetRoleId,
         authToken,
         response,
         data,
         updatedUser,
-        _args3 = arguments,
-        _t3;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
+        _args4 = arguments,
+        _t4;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
           case 0:
-            targetRoleId = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : null;
+            targetRoleId = _args4.length > 0 && _args4[0] !== undefined ? _args4[0] : null;
             if (user) {
-              _context3.n = 1;
+              _context4.n = 1;
               break;
             }
-            return _context3.a(2);
+            return _context4.a(2);
           case 1:
             setIsLoading(true);
 
             // If a target role is specified and it's different from current role, switch roles
             if (!(targetRoleId && user.role_id !== targetRoleId)) {
-              _context3.n = 7;
+              _context4.n = 7;
               break;
             }
-            _context3.p = 2;
+            _context4.p = 2;
             authToken = localStorage.getItem('auth_token'); // Call backend API to update role in database
-            _context3.n = 3;
+            _context4.n = 3;
             return fetch('http://127.0.0.1:8000/api/users/switch-role', {
               method: 'POST',
               headers: {
@@ -202517,17 +202588,17 @@ var Headerz = function Headerz() {
               })
             });
           case 3:
-            response = _context3.v;
+            response = _context4.v;
             if (!response.ok) {
-              _context3.n = 5;
+              _context4.n = 5;
               break;
             }
-            _context3.n = 4;
+            _context4.n = 4;
             return response.json();
           case 4:
-            data = _context3.v;
+            data = _context4.v;
             if (!data.success) {
-              _context3.n = 5;
+              _context4.n = 5;
               break;
             }
             // Update localStorage with the new user data from backend
@@ -202543,14 +202614,14 @@ var Headerz = function Headerz() {
               navigate('/profile-settings/bookings');
               setIsLoading(false);
             }, 1000);
-            return _context3.a(2);
+            return _context4.a(2);
           case 5:
-            _context3.n = 7;
+            _context4.n = 7;
             break;
           case 6:
-            _context3.p = 6;
-            _t3 = _context3.v;
-            console.error('Role switch error:', _t3);
+            _context4.p = 6;
+            _t4 = _context4.v;
+            console.error('Role switch error:', _t4);
           case 7:
             // If no role switch needed or failed, navigate directly
             setTimeout(function () {
@@ -202558,12 +202629,12 @@ var Headerz = function Headerz() {
               setIsLoading(false);
             }, 800);
           case 8:
-            return _context3.a(2);
+            return _context4.a(2);
         }
-      }, _callee3, null, [[2, 6]]);
+      }, _callee4, null, [[2, 6]]);
     }));
     return function goToBookings() {
-      return _ref3.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
   var goToLogin = function goToLogin() {
@@ -202582,25 +202653,25 @@ var Headerz = function Headerz() {
     }, 800);
   };
   var handleSwitchAccount = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var newRoleId, targetRoleName, authToken, response, data, updatedUser, errorMessage, errorData, _t4, _t5;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
+      var newRoleId, targetRoleName, authToken, response, data, updatedUser, errorMessage, errorData, _t5, _t6;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
           case 0:
             if (user) {
-              _context4.n = 1;
+              _context5.n = 1;
               break;
             }
-            return _context4.a(2);
+            return _context5.a(2);
           case 1:
             newRoleId = user.role_id === 1 ? 2 : 1;
             targetRoleName = newRoleId === 1 ? 'Worker' : 'Employer';
             setTargetRole(targetRoleName);
             setIsSwitching(true);
             setIsDropdownOpen(false);
-            _context4.p = 2;
+            _context5.p = 2;
             authToken = localStorage.getItem('auth_token'); // Call backend API to update role in database
-            _context4.n = 3;
+            _context5.n = 3;
             return fetch('http://127.0.0.1:8000/api/users/switch-role', {
               method: 'POST',
               headers: {
@@ -202614,15 +202685,15 @@ var Headerz = function Headerz() {
               })
             });
           case 3:
-            response = _context4.v;
+            response = _context5.v;
             if (!response.ok) {
-              _context4.n = 5;
+              _context5.n = 5;
               break;
             }
-            _context4.n = 4;
+            _context5.n = 4;
             return response.json();
           case 4:
-            data = _context4.v;
+            data = _context5.v;
             if (data.success) {
               // Update localStorage with the new user data from backend
               updatedUser = _objectSpread(_objectSpread({}, user), {}, {
@@ -202642,52 +202713,52 @@ var Headerz = function Headerz() {
               alert('Failed to switch role: ' + (data.message || 'Unknown error'));
               setIsSwitching(false);
             }
-            _context4.n = 10;
+            _context5.n = 10;
             break;
           case 5:
             errorMessage = 'Failed to switch role';
-            _context4.p = 6;
-            _context4.n = 7;
+            _context5.p = 6;
+            _context5.n = 7;
             return response.json();
           case 7:
-            errorData = _context4.v;
+            errorData = _context5.v;
             errorMessage = errorData.message || errorMessage;
-            _context4.n = 9;
+            _context5.n = 9;
             break;
           case 8:
-            _context4.p = 8;
-            _t4 = _context4.v;
+            _context5.p = 8;
+            _t5 = _context5.v;
             errorMessage = "Server error (".concat(response.status, "): ").concat(response.statusText);
           case 9:
             console.error('API error:', errorMessage);
             alert('Error: ' + errorMessage);
             setIsSwitching(false);
           case 10:
-            _context4.n = 12;
+            _context5.n = 12;
             break;
           case 11:
-            _context4.p = 11;
-            _t5 = _context4.v;
-            console.error('Switch account error:', _t5.message);
-            alert('Network error: ' + _t5.message);
+            _context5.p = 11;
+            _t6 = _context5.v;
+            console.error('Switch account error:', _t6.message);
+            alert('Network error: ' + _t6.message);
             setIsSwitching(false);
           case 12:
-            return _context4.a(2);
+            return _context5.a(2);
         }
-      }, _callee4, null, [[6, 8], [2, 11]]);
+      }, _callee5, null, [[6, 8], [2, 11]]);
     }));
     return function handleSwitchAccount() {
-      return _ref4.apply(this, arguments);
+      return _ref5.apply(this, arguments);
     };
   }();
   var handleLogout = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
-      var token, storedUser, userData, updatedUser, response, profileCompleteFlags, keys, _profileCompleteFlags, _keys, _t6;
-      return _regenerator().w(function (_context5) {
-        while (1) switch (_context5.p = _context5.n) {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
+      var token, storedUser, userData, updatedUser, response, profileCompleteFlags, keys, _profileCompleteFlags, _keys, _t7;
+      return _regenerator().w(function (_context6) {
+        while (1) switch (_context6.p = _context6.n) {
           case 0:
             setIsLoading(true);
-            _context5.p = 1;
+            _context6.p = 1;
             token = localStorage.getItem('auth_token'); // Update user status to offline (is_online = 0) before logout
             storedUser = localStorage.getItem('user');
             if (storedUser) {
@@ -202698,7 +202769,7 @@ var Headerz = function Headerz() {
               });
               localStorage.setItem('user', JSON.stringify(updatedUser));
             }
-            _context5.n = 2;
+            _context6.n = 2;
             return fetch('http://127.0.0.1:8000/api/logout', {
               method: 'POST',
               headers: {
@@ -202707,7 +202778,7 @@ var Headerz = function Headerz() {
               }
             });
           case 2:
-            response = _context5.v;
+            response = _context6.v;
             if (response.ok) {
               localStorage.clear();
               setIsLoggedIn(false);
@@ -202739,12 +202810,12 @@ var Headerz = function Headerz() {
                 replace: true
               });
             }
-            _context5.n = 4;
+            _context6.n = 4;
             break;
           case 3:
-            _context5.p = 3;
-            _t6 = _context5.v;
-            console.error('Logout error:', _t6.message);
+            _context6.p = 3;
+            _t7 = _context6.v;
+            console.error('Logout error:', _t7.message);
             // Preserve profile completion flags before clearing localStorage
             _profileCompleteFlags = {};
             _keys = Object.keys(localStorage);
@@ -202766,16 +202837,16 @@ var Headerz = function Headerz() {
               replace: true
             });
           case 4:
-            _context5.p = 4;
+            _context6.p = 4;
             setIsLoading(false);
-            return _context5.f(4);
+            return _context6.f(4);
           case 5:
-            return _context5.a(2);
+            return _context6.a(2);
         }
-      }, _callee5, null, [[1, 3, 4, 5]]);
+      }, _callee6, null, [[1, 3, 4, 5]]);
     }));
     return function handleLogout() {
-      return _ref5.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     };
   }();
 
@@ -202846,15 +202917,21 @@ var Headerz = function Headerz() {
               className: "notification-badge",
               children: unreadCount
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            size: 24,
-            className: "header-icon message-icon",
-            style: {
-              cursor: 'pointer'
-            },
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "notification-wrapper",
             onClick: function onClick() {
               return navigate('/message');
-            }
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              size: 24,
+              className: "header-icon message-icon",
+              style: {
+                cursor: 'pointer'
+              }
+            }), unreadMessageCount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+              className: "notification-badge",
+              children: unreadMessageCount
+            })]
           })]
         }), isLoggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "profile",
@@ -203426,7 +203503,7 @@ var MessageEmployer = function MessageEmployer() {
   var messageInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _stored$user;
-    fetchConversations();
+    fetchConversations(true);
     fetchActiveWorkers();
 
     // Get user role from localStorage
@@ -203435,6 +203512,16 @@ var MessageEmployer = function MessageEmployer() {
     if (roleId) {
       setUserRole(roleId === 1 ? 'worker' : 'employer');
     }
+  }, []);
+
+  // Poll for new messages every 5 seconds
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var interval = setInterval(function () {
+      fetchConversations();
+    }, 5000);
+    return function () {
+      return clearInterval(interval);
+    };
   }, []);
 
   // Close chat menu when clicking outside
@@ -203453,23 +203540,36 @@ var MessageEmployer = function MessageEmployer() {
   }, [showChatMenu]);
   var fetchConversations = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var _stored$user2, token, stored, userId, config, targetUserId, response, fetchedConversations, existingConversation, _error$response, _t;
+      var showLoading,
+        _stored$user2,
+        token,
+        stored,
+        userId,
+        config,
+        targetUserId,
+        response,
+        fetchedConversations,
+        existingConversation,
+        _error$response,
+        _args = arguments,
+        _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
-            _context.p = 0;
-            setLoading(true);
+            showLoading = _args.length > 0 && _args[0] !== undefined ? _args[0] : false;
+            _context.p = 1;
+            if (showLoading) setLoading(true);
             token = localStorage.getItem('auth_token');
             stored = JSON.parse(localStorage.getItem('user') || '{}');
             userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user2 = stored.user) === null || _stored$user2 === void 0 ? void 0 : _stored$user2.id);
             if (userId) {
-              _context.n = 1;
+              _context.n = 2;
               break;
             }
             console.error('User ID not found');
-            setLoading(false);
+            if (showLoading) setLoading(false);
             return _context.a(2);
-          case 1:
+          case 2:
             config = token ? {
               headers: {
                 'Authorization': "Bearer ".concat(token),
@@ -203477,13 +203577,13 @@ var MessageEmployer = function MessageEmployer() {
               }
             } : {}; // Check if there's a target user ID in localStorage (set when navigating from booking)
             targetUserId = localStorage.getItem('message_target_user_id');
-            _context.n = 2;
+            _context.n = 3;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('http://127.0.0.1:8000/api/messages/conversations', _objectSpread(_objectSpread({}, config), {}, {
               params: {
                 user_id: userId
               }
             }));
-          case 2:
+          case 3:
             response = _context.v;
             if (response.data.success) {
               fetchedConversations = response.data.conversations || [];
@@ -203502,20 +203602,20 @@ var MessageEmployer = function MessageEmployer() {
                 localStorage.removeItem('message_target_user_id');
               }
             }
-            _context.n = 4;
+            _context.n = 5;
             break;
-          case 3:
-            _context.p = 3;
-            _t = _context.v;
-            console.error('Error fetching conversations:', ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
           case 4:
             _context.p = 4;
-            setLoading(false);
-            return _context.f(4);
+            _t = _context.v;
+            console.error('Error fetching conversations:', ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
           case 5:
+            _context.p = 5;
+            if (showLoading) setLoading(false);
+            return _context.f(5);
+          case 6:
             return _context.a(2);
         }
-      }, _callee, null, [[0, 3, 4, 5]]);
+      }, _callee, null, [[1, 4, 5, 6]]);
     }));
     return function fetchConversations() {
       return _ref.apply(this, arguments);
@@ -203575,6 +203675,11 @@ var MessageEmployer = function MessageEmployer() {
 
     // Exclude current user from the list
     if (worker.user_id == currentUserId) {
+      return false;
+    }
+
+    // Filter only workers (role_id === 1)
+    if (worker.role_id !== 1) {
       return false;
     }
 
@@ -203711,6 +203816,9 @@ var MessageEmployer = function MessageEmployer() {
               return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, recipientId, [].concat(_toConsumableArray(prev[recipientId] || []), [newMsg])));
             });
             setMessageInput('');
+
+            // Trigger message update event for header badge
+            window.dispatchEvent(new Event('messageUpdated'));
 
             // If this is a new conversation (no selectedConversation), update conversations list
             if (selectedConversation) {
@@ -203880,36 +203988,73 @@ var MessageEmployer = function MessageEmployer() {
               className: "search-icon"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
               type: "text",
-              placeholder: "Search Contacts",
+              placeholder: "Search Workers",
               value: searchQuery,
               onChange: function onChange(e) {
                 return setSearchQuery(e.target.value);
               }
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "conversation-list ".concat(userRole ? "conversation-list-".concat(userRole) : ''),
-          children: filteredActiveWorkers.map(function (worker) {
+          children: [conversations.map(function (conv) {
+            var _conv$name;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "conversation-item ".concat(conv.unread_count > 0 ? 'unread' : '', " ").concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === conv.user_id ? 'active' : ''),
+              onClick: function onClick() {
+                return handleConversationSelect(conv);
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "conversation-avatar",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "avatar-placeholder",
+                  children: ((_conv$name = conv.name) === null || _conv$name === void 0 ? void 0 : _conv$name.charAt(0)) || 'U'
+                }), conv.unread_count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  className: "unread-indicator",
+                  children: conv.unread_count
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "conversation-details",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                  className: "conversation-header",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                    className: "conversation-name",
+                    children: conv.name || 'Unknown User'
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                    className: "conversation-time",
+                    children: conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    }) : ''
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "employer-conversation-preview",
+                  children: conv.last_message && function (_stored$user7) {
+                    var stored = JSON.parse(localStorage.getItem('user') || '{}');
+                    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user7 = stored.user) === null || _stored$user7 === void 0 ? void 0 : _stored$user7.id);
+                    var isSentByMe = conv.last_message.sender_id == currentUserId;
+                    var maxLength = 50;
+                    var preview = conv.last_message.content.length > maxLength ? conv.last_message.content.substring(0, maxLength) + '...' : conv.last_message.content;
+                    return isSentByMe ? "You: ".concat(preview) : preview;
+                  }()
+                })]
+              })]
+            }, conv.user_id);
+          }), filteredActiveWorkers.filter(function (worker) {
+            return !conversations.find(function (c) {
+              return c.user_id == worker.user_id;
+            });
+          }).map(function (worker) {
             var _worker$full_name;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "conversation-item ".concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === worker.user_id ? 'active' : ''),
               onClick: function onClick() {
-                // Find or create conversation for this worker
-                var existingConv = conversations.find(function (c) {
-                  return c.user_id == worker.user_id;
-                });
-                if (existingConv) {
-                  handleConversationSelect(existingConv);
-                } else {
-                  // Create a temporary conversation object
-                  var tempConv = {
-                    user_id: worker.user_id,
-                    name: worker.full_name
-                  };
-                  setSelectedConversation(tempConv);
-                  // Store target user ID for sending first message
-                  localStorage.setItem('message_target_user_id', String(worker.user_id));
-                }
+                var tempConv = {
+                  user_id: worker.user_id,
+                  name: worker.full_name
+                };
+                setSelectedConversation(tempConv);
+                localStorage.setItem('message_target_user_id', String(worker.user_id));
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "conversation-avatar",
@@ -203919,22 +204064,19 @@ var MessageEmployer = function MessageEmployer() {
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "conversation-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                   className: "conversation-header",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                     className: "conversation-name",
                     children: worker.full_name || 'Unknown User'
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                    className: "conversation-time",
-                    children: "11:24 AM"
-                  })]
+                  })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "conversation-preview",
-                  children: "How are you doing today?"
+                  className: "employer-conversation-preview",
+                  children: "Start new conversation"
                 })]
               })]
             }, worker.user_id);
-          })
+          })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "chat-area ".concat(userRole ? "chat-area-".concat(userRole) : ''),
@@ -204151,8 +204293,18 @@ var MessageWorker = function MessageWorker() {
   var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var messageInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    fetchConversations();
+    fetchConversations(true);
     fetchActiveUsers();
+  }, []);
+
+  // Poll for new messages every 5 seconds
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var interval = setInterval(function () {
+      fetchConversations();
+    }, 5000);
+    return function () {
+      return clearInterval(interval);
+    };
   }, []);
 
   // Close chat menu when clicking outside
@@ -204171,23 +204323,36 @@ var MessageWorker = function MessageWorker() {
   }, [showChatMenu]);
   var fetchConversations = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var _stored$user, token, stored, userId, config, targetUserId, response, fetchedConversations, existingConversation, _error$response, _t;
+      var showLoading,
+        _stored$user,
+        token,
+        stored,
+        userId,
+        config,
+        targetUserId,
+        response,
+        fetchedConversations,
+        existingConversation,
+        _error$response,
+        _args = arguments,
+        _t;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
-            _context.p = 0;
-            setLoading(true);
+            showLoading = _args.length > 0 && _args[0] !== undefined ? _args[0] : false;
+            _context.p = 1;
+            if (showLoading) setLoading(true);
             token = localStorage.getItem('auth_token');
             stored = JSON.parse(localStorage.getItem('user') || '{}');
             userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.id);
             if (userId) {
-              _context.n = 1;
+              _context.n = 2;
               break;
             }
             console.error('User ID not found');
-            setLoading(false);
+            if (showLoading) setLoading(false);
             return _context.a(2);
-          case 1:
+          case 2:
             config = token ? {
               headers: {
                 'Authorization': "Bearer ".concat(token),
@@ -204195,13 +204360,13 @@ var MessageWorker = function MessageWorker() {
               }
             } : {}; // Check if there's a target user ID in localStorage (set when navigating from booking)
             targetUserId = localStorage.getItem('message_target_user_id');
-            _context.n = 2;
+            _context.n = 3;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('http://127.0.0.1:8000/api/messages/conversations', _objectSpread(_objectSpread({}, config), {}, {
               params: {
                 user_id: userId
               }
             }));
-          case 2:
+          case 3:
             response = _context.v;
             if (response.data.success) {
               fetchedConversations = response.data.conversations || [];
@@ -204220,20 +204385,20 @@ var MessageWorker = function MessageWorker() {
                 localStorage.removeItem('message_target_user_id');
               }
             }
-            _context.n = 4;
+            _context.n = 5;
             break;
-          case 3:
-            _context.p = 3;
-            _t = _context.v;
-            console.error('Error fetching conversations:', ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
           case 4:
             _context.p = 4;
-            setLoading(false);
-            return _context.f(4);
+            _t = _context.v;
+            console.error('Error fetching conversations:', ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
           case 5:
+            _context.p = 5;
+            if (showLoading) setLoading(false);
+            return _context.f(5);
+          case 6:
             return _context.a(2);
         }
-      }, _callee, null, [[0, 3, 4, 5]]);
+      }, _callee, null, [[1, 4, 5, 6]]);
     }));
     return function fetchConversations() {
       return _ref.apply(this, arguments);
@@ -204293,6 +204458,11 @@ var MessageWorker = function MessageWorker() {
 
     // Exclude current user from the list
     if (user.user_id == currentUserId) {
+      return false;
+    }
+
+    // Filter only employers (role_id === 2)
+    if (user.role_id !== 2) {
       return false;
     }
 
@@ -204430,6 +204600,9 @@ var MessageWorker = function MessageWorker() {
             });
             setMessageInput('');
 
+            // Trigger message update event for header badge
+            window.dispatchEvent(new Event('messageUpdated'));
+
             // If this is a new conversation (no selectedConversation), update conversations list
             if (selectedConversation) {
               _context4.n = 8;
@@ -204550,36 +204723,73 @@ var MessageWorker = function MessageWorker() {
               className: "search-icon"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
               type: "text",
-              placeholder: "Search Contacts",
+              placeholder: "Search Employers",
               value: searchQuery,
               onChange: function onChange(e) {
                 return setSearchQuery(e.target.value);
               }
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "conversation-list",
-          children: filteredActiveUsers.map(function (user) {
+          children: [conversations.map(function (conv) {
+            var _conv$name;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              className: "conversation-item ".concat(conv.unread_count > 0 ? 'unread' : '', " ").concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === conv.user_id ? 'active' : ''),
+              onClick: function onClick() {
+                return handleConversationSelect(conv);
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "conversation-avatar",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "avatar-placeholder",
+                  children: ((_conv$name = conv.name) === null || _conv$name === void 0 ? void 0 : _conv$name.charAt(0)) || 'U'
+                }), conv.unread_count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  className: "unread-indicator",
+                  children: conv.unread_count
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                className: "conversation-details",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                  className: "conversation-header",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                    className: "conversation-name",
+                    children: conv.name || 'Unknown User'
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                    className: "conversation-time",
+                    children: conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    }) : ''
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  className: "worker-conversation-preview",
+                  children: conv.last_message && function (_stored$user6) {
+                    var stored = JSON.parse(localStorage.getItem('user') || '{}');
+                    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user6 = stored.user) === null || _stored$user6 === void 0 ? void 0 : _stored$user6.id);
+                    var isSentByMe = conv.last_message.sender_id == currentUserId;
+                    var maxLength = 50;
+                    var preview = conv.last_message.content.length > maxLength ? conv.last_message.content.substring(0, maxLength) + '...' : conv.last_message.content;
+                    return isSentByMe ? "You: ".concat(preview) : preview;
+                  }()
+                })]
+              })]
+            }, conv.user_id);
+          }), filteredActiveUsers.filter(function (user) {
+            return !conversations.find(function (c) {
+              return c.user_id == user.user_id;
+            });
+          }).map(function (user) {
             var _user$full_name;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "conversation-item ".concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === user.user_id ? 'active' : ''),
               onClick: function onClick() {
-                // Find or create conversation for this user
-                var existingConv = conversations.find(function (c) {
-                  return c.user_id == user.user_id;
-                });
-                if (existingConv) {
-                  handleConversationSelect(existingConv);
-                } else {
-                  // Create a temporary conversation object
-                  var tempConv = {
-                    user_id: user.user_id,
-                    name: user.full_name
-                  };
-                  setSelectedConversation(tempConv);
-                  // Store target user ID for sending first message
-                  localStorage.setItem('message_target_user_id', String(user.user_id));
-                }
+                var tempConv = {
+                  user_id: user.user_id,
+                  name: user.full_name
+                };
+                setSelectedConversation(tempConv);
+                localStorage.setItem('message_target_user_id', String(user.user_id));
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "conversation-avatar",
@@ -204589,22 +204799,19 @@ var MessageWorker = function MessageWorker() {
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "conversation-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                   className: "conversation-header",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                     className: "conversation-name",
                     children: user.full_name || 'Unknown User'
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                    className: "conversation-time",
-                    children: "11:24 AM"
-                  })]
+                  })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "conversation-preview",
-                  children: "How are you doing today?"
+                  className: "worker-conversation-preview",
+                  children: "Start new conversation"
                 })]
               })]
             }, user.user_id);
-          })
+          })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "chat-area",

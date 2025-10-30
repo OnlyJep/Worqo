@@ -206,12 +206,28 @@ class MessageController extends Controller
             ->orderByDesc('last_message_at')
             ->get();
 
-        $result = $conversations->map(function ($row) {
+        $result = $conversations->map(function ($row) use ($userId) {
             $other = User::with('profile')->find($row->other_user_id);
             $profile = $other ? $other->profile : null;
             
             // Get detailed user info
             $detailedUserInfo = $this->getDetailedUserInfo($row->other_user_id);
+            
+            // Count unread messages from this conversation
+            $unreadCount = Message::where('sender_id', $row->other_user_id)
+                ->where('recipient_id', $userId)
+                ->where('is_read', false)
+                ->count();
+            
+            // Get the last message content and sender
+            $lastMessage = Message::where(function ($q) use ($userId, $row) {
+                $q->where('sender_id', $userId)->where('recipient_id', $row->other_user_id);
+            })
+            ->orWhere(function ($q) use ($userId, $row) {
+                $q->where('sender_id', $row->other_user_id)->where('recipient_id', $userId);
+            })
+            ->orderBy('created_at', 'desc')
+            ->first();
             
             return [
                 'user_id' => $other ? $other->id : null,
@@ -219,6 +235,11 @@ class MessageController extends Controller
                 'profile_img' => $profile->profile_img ?? null,
                 'last_message_at' => $row->last_message_at,
                 'detailed_info' => $detailedUserInfo,
+                'unread_count' => $unreadCount,
+                'last_message' => $lastMessage ? [
+                    'content' => $lastMessage->content,
+                    'sender_id' => $lastMessage->sender_id,
+                ] : null,
             ];
         });
 
@@ -298,5 +319,22 @@ class MessageController extends Controller
         ]);
 
         return response()->json(['success' => true, 'message' => $message], 201);
+    }
+
+    /**
+     * Get unread messages count for the authenticated user
+     */
+    public function unreadCount(Request $request)
+    {
+        $userId = $this->resolveUserId($request);
+        if (!$userId) {
+            return response()->json(['success' => false, 'message' => 'Missing user_id'], 400);
+        }
+
+        $count = Message::where('recipient_id', $userId)
+            ->where('is_read', false)
+            ->count();
+
+        return response()->json(['success' => true, 'unread_count' => $count]);
     }
 }

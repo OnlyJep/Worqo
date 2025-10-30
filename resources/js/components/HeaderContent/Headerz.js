@@ -11,6 +11,7 @@ const Headerz = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [unreadMessageCount, setUnreadMessageCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -47,6 +48,8 @@ const Headerz = () => {
         setUser(userData);
         // Fetch unread notifications count
         fetchUnreadCount();
+        // Fetch unread messages count
+        fetchUnreadMessageCount();
       } catch (error) {
         console.error('Error parsing user data:', error);
         localStorage.removeItem('auth_token');
@@ -70,6 +73,7 @@ const Headerz = () => {
 
     const interval = setInterval(() => {
       fetchUnreadCount();
+      fetchUnreadMessageCount();
       updateUserStatus();
     }, 30000); // 30 seconds
 
@@ -92,6 +96,33 @@ const Headerz = () => {
       }
     } catch (error) {
       console.error('Error fetching unread count:', error);
+    }
+  };
+
+  // Fetch unread messages count
+  const fetchUnreadMessageCount = async () => {
+    try {
+      const storedUser = localStorage.getItem('user');
+      if (!storedUser) return;
+      const userData = JSON.parse(storedUser);
+      const userId = userData?.id || userData?.user?.id;
+      if (!userId) return;
+
+      const token = localStorage.getItem('auth_token');
+      const config = token ? { 
+        headers: { 
+          'Authorization': `Bearer ${token}`,
+          'X-User-Id': userId
+        } 
+      } : {};
+
+      const response = await axios.get(`http://127.0.0.1:8000/api/messages/unread-count`, config);
+
+      if (response.data.success) {
+        setUnreadMessageCount(response.data.unread_count || 0);
+      }
+    } catch (error) {
+      console.error('Error fetching unread message count:', error);
     }
   };
 
@@ -118,6 +149,18 @@ const Headerz = () => {
     window.addEventListener('notificationUpdated', handleNotificationUpdate);
     return () => {
       window.removeEventListener('notificationUpdated', handleNotificationUpdate);
+    };
+  }, []);
+
+  // Listen for message updates
+  useEffect(() => {
+    const handleMessageUpdate = () => {
+      fetchUnreadMessageCount();
+    };
+
+    window.addEventListener('messageUpdated', handleMessageUpdate);
+    return () => {
+      window.removeEventListener('messageUpdated', handleMessageUpdate);
     };
   }, []);
 
@@ -484,12 +527,16 @@ const Headerz = () => {
                   <span className="notification-badge">{unreadCount}</span>
                 )}
               </div>
-              <IconMessageCircle
-                size={24}
-                className="header-icon message-icon"
-                style={{ cursor: 'pointer' }}
-                onClick={() => navigate('/message')}
-              />
+              <div className="notification-wrapper" onClick={() => navigate('/message')}>
+                <IconMessageCircle
+                  size={24}
+                  className="header-icon message-icon"
+                  style={{ cursor: 'pointer' }}
+                />
+                {unreadMessageCount > 0 && (
+                  <span className="notification-badge">{unreadMessageCount}</span>
+                )}
+              </div>
             </>
           )}
           {isLoggedIn ? (
