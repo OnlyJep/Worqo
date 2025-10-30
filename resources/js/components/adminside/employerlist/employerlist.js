@@ -434,28 +434,30 @@ const EmployerList = () => {
                         </div>
                       </td>
                       <td data-label="Profile Image">
-                        {employer.profile?.profile_img ? (
-                          <img 
-                            src={`http://127.0.0.1:8000/storage/${employer.profile.profile_img}`} 
-                            alt="Profile" 
-                            style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
-                          />
-                        ) : (
-                          <div style={{ 
-                            width: '40px', 
-                            height: '40px', 
-                            borderRadius: '50%', 
-                            backgroundColor: '#E5E7EB', 
-                            display: 'flex', 
-                            alignItems: 'center', 
-                            justifyContent: 'center',
-                            color: '#6B7280',
-                            fontSize: '14px',
-                            fontWeight: '600'
-                          }}>
-                            {employer.profile?.first_name?.charAt(0) || 'N'}
-                          </div>
-                        )}
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                          {employer.profile?.profile_img ? (
+                            <img 
+                              src={`http://127.0.0.1:8000/storage/${employer.profile.profile_img}`} 
+                              alt="Profile" 
+                              style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
+                            />
+                          ) : (
+                            <div style={{ 
+                              width: '40px', 
+                              height: '40px', 
+                              borderRadius: '50%', 
+                              backgroundColor: '#E5E7EB', 
+                              display: 'flex', 
+                              alignItems: 'center', 
+                              justifyContent: 'center',
+                              color: '#6B7280',
+                              fontSize: '14px',
+                              fontWeight: '600'
+                            }}>
+                              {employer.profile?.first_name?.charAt(0) || 'N'}
+                            </div>
+                          )}
+                        </div>
                       </td>
                       <td data-label="Full Name" className="owner-cell">{getFullName({ ...employer.profile, suffixes })}</td>
                       <td data-label="Email">{employer.email || "N/A"}</td>

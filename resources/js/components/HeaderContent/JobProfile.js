@@ -88,7 +88,7 @@ const JobProfile = () => {
     }
     
     // Store the target user ID in localStorage
-    localStorage.setItem('message_target_user_id', job.user_id);
+    localStorage.setItem('message_target_user_id', String(job.user_id));
     // Navigate to messages page
     window.location.href = '/message';
   };

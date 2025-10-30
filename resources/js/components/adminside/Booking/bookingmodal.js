@@ -19,8 +19,6 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
     description: "",
     book_in: "",
     book_end: "",
-    time_in: "",
-    time_out: "",
     daily_rate: "",
     total_amount: "",
     status: "pending"
@@ -32,6 +30,8 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
     conflictMessage: '',
     conflictingJobs: []
   });
+  const [serviceTypeSearch, setServiceTypeSearch] = useState("");
+  const [subSkillSearch, setSubSkillSearch] = useState("");
 
   // Function to get full name from user data
   const getFullName = (person) => {
@@ -212,8 +212,6 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
           description: initialData.description || "",
           book_in: initialData.book_in ? new Date(initialData.book_in).toISOString().slice(0, 16) : "",
           book_end: initialData.book_end ? new Date(initialData.book_end).toISOString().slice(0, 16) : "",
-          time_in: initialData.time_in ? new Date(initialData.time_in).toISOString().slice(0, 16) : "",
-          time_out: initialData.time_out ? new Date(initialData.time_out).toISOString().slice(0, 16) : "",
           daily_rate: initialData.daily_rate || "",
           total_amount: initialData.total_amount || "",
           status: initialData.status || "pending"
@@ -228,8 +226,6 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
           description: "",
           book_in: "",
           book_end: "",
-          time_in: "",
-          time_out: "",
           daily_rate: "",
           total_amount: "",
           status: "pending"
@@ -424,44 +420,56 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="service_type">Service Type *</label>
-              <select
+              <input
+                list="service_type_list"
                 id="service_type"
                 name="service_type"
                 value={formData.service_type}
                 onChange={handleInputChange}
+                onInput={(e) => setServiceTypeSearch(e.target.value)}
                 className={errors.service_type ? "error" : ""}
                 disabled={isSubmitting}
-              >
-                <option value="">Select Service Type</option>
-                {skills.map((skill) => (
-                  <option key={skill.id} value={skill.name}>
-                    {skill.name}
-                  </option>
-                ))}
-              </select>
+                autoComplete="off"
+              />
+              <datalist id="service_type_list">
+                {skills
+                  .filter(skill => 
+                    !serviceTypeSearch || 
+                    skill.name.toLowerCase().startsWith(serviceTypeSearch.toLowerCase())
+                  )
+                  .map((skill) => (
+                    <option key={skill.id} value={skill.name} />
+                  ))}
+              </datalist>
               {errors.service_type && <span className="error-message">{errors.service_type}</span>}
             </div>
 
             <div className="form-group">
               <label htmlFor="sub_skill">Sub Skill</label>
-              <select
+              <input
+                list="sub_skill_list"
                 id="sub_skill"
                 name="sub_skill"
                 value={formData.sub_skill}
                 onChange={handleInputChange}
+                onInput={(e) => setSubSkillSearch(e.target.value)}
                 disabled={isSubmitting}
-              >
-                <option value="">Select Sub Skill</option>
+                autoComplete="off"
+              />
+              <datalist id="sub_skill_list">
                 {skills.map((skill) => 
                   skill.sub_skills && skill.sub_skills.length > 0 ? (
-                    skill.sub_skills.map((subSkill, index) => (
-                      <option key={`${skill.id}-${index}`} value={subSkill}>
-                        {subSkill}
-                      </option>
-                    ))
+                    skill.sub_skills
+                      .filter(subSkill => 
+                        !subSkillSearch || 
+                        subSkill.toLowerCase().startsWith(subSkillSearch.toLowerCase())
+                      )
+                      .map((subSkill, index) => (
+                        <option key={`${skill.id}-${index}`} value={subSkill} />
+                      ))
                   ) : null
                 )}
-              </select>
+              </datalist>
             </div>
           </div>
 
@@ -479,9 +487,6 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
                 <option value="">Select Work Type</option>
                 <option value="full-time">Full Time</option>
                 <option value="part-time">Part Time</option>
-                <option value="contract">Contract</option>
-                <option value="temporary">Temporary</option>
-                <option value="freelance">Freelance</option>
               </select>
               {errors.work_type && <span className="error-message">{errors.work_type}</span>}
             </div>
@@ -581,32 +586,6 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
               </div>
             </div>
           )}
-
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="time_in">Time In Date & Time</label>
-              <input
-                type="datetime-local"
-                id="time_in"
-                name="time_in"
-                value={formData.time_in}
-                onChange={handleInputChange}
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="time_out">Time Out Date & Time</label>
-              <input
-                type="datetime-local"
-                id="time_out"
-                name="time_out"
-                value={formData.time_out}
-                onChange={handleInputChange}
-                disabled={isSubmitting}
-              />
-            </div>
-          </div>
 
           <div className="form-row">
             <div className="form-group">

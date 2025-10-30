@@ -285,7 +285,7 @@ const Profile = ({ initialServiceType }) => {
     }
     
     // Store the target user ID in localStorage
-    localStorage.setItem('message_target_user_id', worker.id);
+    localStorage.setItem('message_target_user_id', String(worker.id));
     // Navigate to messages page
     window.location.href = '/message';
   };

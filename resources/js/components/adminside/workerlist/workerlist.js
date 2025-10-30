@@ -1175,8 +1175,6 @@ const WorkerList = () => {
 
       worker: {
 
-        work_type: "part-time",
-
         skills_id: [],
 
         credentials_name: [],
@@ -1268,8 +1266,6 @@ const WorkerList = () => {
         },
 
         worker: {
-
-          work_type: response.data.worker?.work_type || "part-time",
 
           hours_per_day: response.data.worker?.hours_per_day || 4,
 
@@ -2109,8 +2105,6 @@ const WorkerList = () => {
 
                   <th>Contact Number</th>
 
-                  <th>Work Type</th>
-
                   <th>Hours/Day</th>
 
                   <th>Preferred Days</th>
@@ -2350,26 +2344,30 @@ const WorkerList = () => {
 
                                 <div key={index} className="credential-item">
 
-                                  {cred.credentials_name}:{" "}
-
-                                  {cred.credentials_photo && isImageFile(cred.credentials_photo) && (
-                                    <button
-                                      className="credential-link"
-                                      onClick={() => handlePreviewClick({...cred, credentials_photo: cred.credentials_photo, credentials_doc: null})}
-                                      style={{ marginRight: '5px' }}
-                                    >
-                                      View Photo
-                                    </button>
-                                  )}
+                                  <div className="credential-name-row">
+                                    {cred.credentials_name}
+                                  </div>
                                   
-                                  {cred.credentials_doc && (
-                                    <button
-                                      className="credential-link"
-                                      onClick={() => handlePreviewClick({...cred, credentials_photo: null, credentials_doc: cred.credentials_doc})}
-                                    >
-                                      {isImageFile(cred.credentials_doc) ? "View Image" : "View Document"}
-                                    </button>
-                                  )}
+                                  <div className="credential-links-row">
+                                    {cred.credentials_photo && isImageFile(cred.credentials_photo) && (
+                                      <button
+                                        className="credential-link"
+                                        onClick={() => handlePreviewClick({...cred, credentials_photo: cred.credentials_photo, credentials_doc: null})}
+                                        style={{ marginRight: '5px' }}
+                                      >
+                                        Photo
+                                      </button>
+                                    )}
+                                    
+                                    {cred.credentials_doc && (
+                                      <button
+                                        className="credential-link"
+                                        onClick={() => handlePreviewClick({...cred, credentials_photo: null, credentials_doc: cred.credentials_doc})}
+                                      >
+                                        {isImageFile(cred.credentials_doc) ? "Document (Image)" : "Document"}
+                                      </button>
+                                    )}
+                                  </div>
 
                                 </div>
 
@@ -2382,16 +2380,6 @@ const WorkerList = () => {
                         <td>
 
                           {worker.profile?.contact_number || "N/A"}
-
-                        </td>
-
-                        <td>
-
-                          {worker.worker?.work_type
-
-                            ? worker.worker.work_type.replace('-', ' ').replace(/\b\w/g, (c) => c.toUpperCase())
-
-                            : "N/A"}
 
                         </td>
 

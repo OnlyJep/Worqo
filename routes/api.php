@@ -185,15 +185,15 @@ Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.st
 Route::get('/bookings/worker', [BookingController::class, 'getWorkerBookings'])->name('bookings.worker');
 Route::get('/bookings/worker/requests', [BookingController::class, 'getWorkerBookingRequests'])->name('bookings.worker.requests');
 Route::get('/bookings/employer', [BookingController::class, 'getEmployerBookings'])->name('bookings.employer');
+Route::get('/bookings/users-with-profiles', [BookingController::class, 'getAllUsersWithProfiles'])->name('bookings.usersWithProfiles');
+Route::post('/bookings/bulk-archive', [BookingController::class, 'bulkArchive'])->name('bookings.bulkArchive');
+Route::post('/bookings/bulk-delete', [BookingController::class, 'bulkDelete'])->name('bookings.bulkDelete');
 Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
 Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
 Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 Route::put('/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
 Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->name('bookings.addReview');
 Route::patch('/bookings/{id}/archive', [BookingController::class, 'archive'])->name('bookings.archive');
-Route::post('/bookings/bulk-archive', [BookingController::class, 'bulkArchive'])->name('bookings.bulkArchive');
-Route::post('/bookings/bulk-delete', [BookingController::class, 'bulkDelete'])->name('bookings.bulkDelete');
-Route::get('/bookings/users-with-profiles', [BookingController::class, 'getAllUsersWithProfiles'])->name('bookings.usersWithProfiles');
 
 // NOTIFICATION ROUTES (no auth middleware)
 Route::get('/notifications', [NotificationController::class, 'index']);
@@ -370,6 +370,12 @@ Route::get('/bookings/worker/requests', [BookingController::class, 'getWorkerBoo
 
 Route::get('/bookings/employer', [BookingController::class, 'getEmployerBookings'])->name('bookings.employer');
 
+Route::get('/bookings/users-with-profiles', [BookingController::class, 'getAllUsersWithProfiles'])->name('bookings.usersWithProfiles');
+
+Route::post('/bookings/bulk-archive', [BookingController::class, 'bulkArchive'])->name('bookings.bulkArchive');
+
+Route::post('/bookings/bulk-delete', [BookingController::class, 'bulkDelete'])->name('bookings.bulkDelete');
+
 Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
 
 Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
@@ -381,12 +387,6 @@ Route::put('/bookings/{id}/status', [BookingController::class, 'updateStatus'])-
 Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->name('bookings.addReview');
 
 Route::patch('/bookings/{id}/archive', [BookingController::class, 'archive'])->name('bookings.archive');
-
-Route::post('/bookings/bulk-archive', [BookingController::class, 'bulkArchive'])->name('bookings.bulkArchive');
-
-Route::post('/bookings/bulk-delete', [BookingController::class, 'bulkDelete'])->name('bookings.bulkDelete');
-
-Route::get('/bookings/users-with-profiles', [BookingController::class, 'getAllUsersWithProfiles'])->name('bookings.usersWithProfiles');
 
 
 

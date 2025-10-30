@@ -451,7 +451,6 @@ class WorkerController extends Controller
             if (!$user->worker && $user->profile) {
                 Worker::create([
                     'profile_id' => $user->profile->id,
-                    'work_type' => 'part-time',
                     'skills_id' => [],
                     'credentials_name' => [],
                     'archived' => $user->archived,
@@ -507,7 +506,6 @@ class WorkerController extends Controller
                     'gender_id' => 'required|integer|exists:genders,id',
                     'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
                     'street' => 'nullable|string|max:255',
-                    'work_type' => 'required|in:part-time,full-time,one-time',
                     'hours_per_day' => 'nullable|integer|min:1|max:24',
                     'preferred_working_hours' => 'nullable|array',
                     'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
@@ -661,7 +659,6 @@ class WorkerController extends Controller
 
             $worker = Worker::create([
                 'profile_id' => $profile->id,
-                'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'preferred_working_hours' => $preferredWorkingHours,
                 'preferred_working_days' => $preferredWorkingHours,
@@ -677,7 +674,6 @@ class WorkerController extends Controller
             Log::info('Worker created', [
                 'worker_id' => $worker->id,
                 'profile_id' => $profile->id,
-                'work_type' => $request->work_type,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
             ]);
@@ -702,7 +698,12 @@ class WorkerController extends Controller
 
             $user = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
-                ->findOrFail($id);
+                ->find($id);
+
+            if (!$user) {
+                Log::warning('User not found for update', ['id' => $id]);
+                return response()->json(['error' => 'Worker not found'], 404);
+            }
 
             if (!$user->profile) {
                 $user->profile()->create([
@@ -721,7 +722,6 @@ class WorkerController extends Controller
             if (!$user->worker) {
                 Worker::create([
                     'profile_id' => $user->profile->id,
-                    'work_type' => $request->work_type ?? 'part-time',
                     'skills_id' => [],
                     'credentials_name' => [],
                     'archived' => $user->archived,
@@ -762,7 +762,6 @@ class WorkerController extends Controller
                     'gender_id' => 'required|integer|exists:genders,id',
                     'contact_number' => 'nullable|string|max:20|regex:/^\+?[\d\s-]{7,20}$/',
                     'street' => 'nullable|string|max:255',
-                    'work_type' => 'required|in:part-time,full-time,one-time-job',
                     'hours_per_day' => 'nullable|integer|min:1|max:24',
                     'preferred_working_hours' => 'nullable|array',
                     'preferred_working_hours.*' => 'string|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
@@ -885,7 +884,6 @@ class WorkerController extends Controller
             }
 
             $user->worker->update([
-                'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'preferred_working_hours' => $preferredWorkingHours,
                 'preferred_working_days' => $preferredWorkingHours,
@@ -900,7 +898,6 @@ class WorkerController extends Controller
 
             Log::info('Worker updated', [
                 'worker_id' => $user->worker->id,
-                'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'preferred_working_hours' => $preferredWorkingHours,
                 'preferred_working_days' => $preferredWorkingHours,
@@ -929,7 +926,12 @@ class WorkerController extends Controller
 
             $user = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
-                ->findOrFail($id);
+                ->find($id);
+
+            if (!$user) {
+                Log::warning('User not found for update skills', ['id' => $id]);
+                return response()->json(['error' => 'Worker not found'], 404);
+            }
 
             if (!$user->worker) {
                 return response()->json(['error' => 'Worker record not found'], 404);
@@ -1087,7 +1089,12 @@ class WorkerController extends Controller
 
             $user = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
-                ->findOrFail($id);
+                ->find($id);
+
+            if (!$user) {
+                Log::warning('User not found for update archive', ['id' => $id]);
+                return response()->json(['error' => 'Worker not found'], 404);
+            }
 
             $newStatus = $request->input('archived');
             if ($user->archived === $newStatus) {
@@ -1581,7 +1588,12 @@ class WorkerController extends Controller
 
             $user = User::with(['worker'])
                 ->where('role_id', 1)
-                ->findOrFail($id);
+                ->find($id);
+
+            if (!$user) {
+                Log::warning('User not found for review', ['id' => $id]);
+                return response()->json(['error' => 'Worker not found'], 404);
+            }
 
             if (!$user->worker) {
                 return response()->json(['error' => 'Worker record not found'], 404);
@@ -1600,6 +1612,11 @@ class WorkerController extends Controller
                 'worker' => $this->formatWorker($user->load(['profile', 'worker'])),
             ], 200);
         } catch (\Exception $e) {
+            // Check if it's a ModelNotFoundException and return 404 instead of 500
+            if ($e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException || strpos($e->getMessage(), 'No query results for model') !== false) {
+                Log::warning('Model not found for review', ['id' => $id, 'error' => $e->getMessage()]);
+                return response()->json(['error' => 'Worker not found'], 404);
+            }
             Log::error('Error updating worker review status: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
             return response()->json(['error' => 'Failed to update worker review status: ' . $e->getMessage()], 500);
         }
@@ -1792,14 +1809,17 @@ class WorkerController extends Controller
         $skillsId = $this->parseArray($user->worker->skills_id);
         $credentialsName = $this->parseArray($user->worker->credentials_name);
         $credentialsPhoto = $this->parseArray($user->worker->credentials_photo);
+        $credentialsDoc = $this->parseArray($user->worker->credentials_doc);
         
         // Debug logging for credentials
         Log::info('formatWorker credentials debug', [
             'user_id' => $user->id,
             'raw_credentials_name' => $user->worker->credentials_name,
             'raw_credentials_photo' => $user->worker->credentials_photo,
+            'raw_credentials_doc' => $user->worker->credentials_doc,
             'parsed_credentials_name' => $credentialsName,
             'parsed_credentials_photo' => $credentialsPhoto,
+            'parsed_credentials_doc' => $credentialsDoc,
         ]);
 
         // Ensure $skillsId is an array of arrays
@@ -1913,7 +1933,6 @@ class WorkerController extends Controller
                 'profile_img' => $user->profile->profile_img ? $user->profile->profile_img : null,
             ] : null,
             'worker' => [
-                'work_type' => $user->worker->work_type,
                 'hours_per_day' => $user->worker->hours_per_day,
                 'preferred_working_hours' => $user->worker->preferred_working_hours,
                 'preferred_working_days' => $user->worker->preferred_working_days,
@@ -1921,6 +1940,7 @@ class WorkerController extends Controller
                 'skills_id' => $structuredSkillsId,
                 'credentials_name' => $credentialsName,
                 'credentials_photo' => $credentialsPhoto,
+                'credentials_doc' => $credentialsDoc,
                 'archived' => $user->worker->archived,
                 'is_reviewed' => $user->worker->is_reviewed,
                 'verified' => $user->worker->verified ?? false,
@@ -1945,7 +1965,6 @@ class WorkerController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'profile_id' => 'required|integer|exists:profiles,id',
-                'work_type' => 'required|in:part-time,full-time,one-time',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
                 'preferred_working_hours' => 'nullable|string',
                 'bio' => 'nullable|string|max:1000',
@@ -1980,7 +1999,6 @@ class WorkerController extends Controller
             if (!$user->worker) {
                 Worker::create([
                     'profile_id' => $profileId,
-                    'work_type' => $request->work_type,
                     'skills_id' => [],
                     'credentials_name' => [],
                     'archived' => false,
@@ -2072,7 +2090,6 @@ class WorkerController extends Controller
             }
 
             $user->worker->update([
-                'work_type' => $request->work_type,
                 'hours_per_day' => $request->hours_per_day,
                 'preferred_working_hours' => $preferredWorkingHours,
                 'preferred_working_days' => $preferredWorkingHours,
@@ -2087,7 +2104,6 @@ class WorkerController extends Controller
             Log::info('Worker profile completed', [
                 'worker_id' => $user->worker->id,
                 'profile_id' => $profileId,
-                'work_type' => $request->work_type,
                 'skills_id' => $skillsId,
                 'credentials_name' => $credentials_name,
                 'credentials_photo' => $credentials_photo,
@@ -2214,7 +2230,12 @@ class WorkerController extends Controller
 
             $user = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
-                ->findOrFail($id);
+                ->find($id);
+
+            if (!$user) {
+                Log::warning('User not found for update preferences', ['id' => $id]);
+                return response()->json(['error' => 'Worker not found'], 404);
+            }
 
             if (!$user->worker) {
                 return response()->json(['error' => 'Worker record not found'], 404);
@@ -2222,7 +2243,6 @@ class WorkerController extends Controller
 
             // Validate the request
             $request->validate([
-                'work_type' => 'nullable|string|max:255',
                 'hours_per_day' => 'nullable|integer|min:1|max:24',
                 'preferred_working_hours' => 'nullable|string',
                 'preferred_working_days' => 'nullable|string',
@@ -2231,10 +2251,6 @@ class WorkerController extends Controller
 
             // Update worker preferences
             $updateData = [];
-            
-            if ($request->has('work_type')) {
-                $updateData['work_type'] = $request->input('work_type');
-            }
             
             if ($request->has('hours_per_day')) {
                 $updateData['hours_per_day'] = $request->input('hours_per_day');
@@ -2289,7 +2305,12 @@ class WorkerController extends Controller
 
             $user = User::with(['profile', 'worker'])
                 ->where('role_id', 1)
-                ->findOrFail($id);
+                ->find($id);
+
+            if (!$user) {
+                Log::warning('User not found for update credentials', ['id' => $id]);
+                return response()->json(['error' => 'Worker not found'], 404);
+            }
 
             if (!$user->worker) {
                 return response()->json(['error' => 'Worker record not found'], 404);

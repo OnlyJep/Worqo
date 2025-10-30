@@ -412,11 +412,10 @@ const Book = () => {
                   <th>Sub Skill</th>
                   <th>Work Type</th>
                   <th>Address</th>
+                  <th>Contact Number</th>
                   <th>Description</th>
                   <th>Book In</th>
                   <th>Book End</th>
-                  <th>Time In</th>
-                  <th>Time Out</th>
                   <th>Daily Rate</th>
                   <th>Total Amount</th>
                   <th>Status</th>
@@ -427,7 +426,7 @@ const Book = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="17" className="loading-row">
+                    <td colSpan="16" className="loading-row">
                       <Loader />
                     </td>
                   </tr>
@@ -496,16 +495,6 @@ const Book = () => {
                               : book.employer_name || "N/A"
                             }
                           </div>
-                          {book.employer?.profile && (
-                            <>
-                              <div className="contact">
-                                <small>📞 {book.employer.profile.contact_number || "N/A"}</small>
-                              </div>
-                              <div className="address">
-                                <small>📍 {book.employer.profile.street || ""} {book.employer.profile.city || ""} {book.employer.profile.province || ""} {book.employer.profile.postal_code || ""}</small>
-                              </div>
-                            </>
-                          )}
                         </div>
                       </td>
                       <td data-label="Worker Name">
@@ -516,16 +505,6 @@ const Book = () => {
                               : book.worker_name || "N/A"
                             }
                           </div>
-                          {book.worker?.profile && (
-                            <>
-                              <div className="contact">
-                                <small>📞 {book.worker.profile.contact_number || "N/A"}</small>
-                              </div>
-                              <div className="address">
-                                <small>📍 {book.worker.profile.street || ""} {book.worker.profile.city || ""} {book.worker.profile.province || ""} {book.worker.profile.postal_code || ""}</small>
-                              </div>
-                            </>
-                          )}
                         </div>
                       </td>
                       <td data-label="Service Type">{book.service_type || "N/A"}</td>
@@ -535,18 +514,19 @@ const Book = () => {
                         <div className="address-info">
                           {book.employer?.profile ? (
                             <div>
-                              <small>📍 {book.employer.profile.street || ""} {book.employer.profile.city || ""} {book.employer.profile.province || ""} {book.employer.profile.postal_code || ""}</small>
+                              <small> {book.employer.profile.street || ""} {book.employer.profile.city || ""} {book.employer.profile.province || ""} {book.employer.profile.postal_code || ""}</small>
                             </div>
                           ) : (
                             "N/A"
                           )}
                         </div>
                       </td>
+                      <td data-label="Contact Number">
+                        {book.employer?.profile?.contact_number || "N/A"}
+                      </td>
                       <td data-label="Description">{book.description || "N/A"}</td>
                       <td data-label="Book In">{formatDate(book.book_in)}</td>
                       <td data-label="Book End">{formatDate(book.book_end)}</td>
-                      <td data-label="Time In">{book.time_in ? formatDate(book.time_in) : "N/A"}</td>
-                      <td data-label="Time Out">{book.time_out ? formatDate(book.time_out) : "N/A"}</td>
                       <td data-label="Daily Rate">${book.daily_rate || "0.00"}</td>
                       <td data-label="Total Amount">${book.total_amount || "0.00"}</td>
                       <td data-label="Status">
@@ -560,7 +540,7 @@ const Book = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="17">No {showArchived ? "archived" : "active"} bookings found</td>
+                    <td colSpan="16">No {showArchived ? "archived" : "active"} bookings found</td>
                   </tr>
                 )}
               </tbody>

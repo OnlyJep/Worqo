@@ -38,6 +38,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   const [isExperienceDropdownOpen, setIsExperienceDropdownOpen] = useState({});
   const [availableSubSkills, setAvailableSubSkills] = useState([]);
   const [selectedSubSkills, setSelectedSubSkills] = useState([]);
+  const [subSkillsInputValue, setSubSkillsInputValue] = useState("");
   const skillsDropdownRef = useRef(null);
   const subSkillsDropdownRef = useRef(null);
   const experienceDropdownRefs = useRef({});
@@ -53,8 +54,6 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   const jobTypeOptions = [
     { value: "full-time", label: "Full Time" },
     { value: "part-time", label: "Part Time" },
-    { value: "contract", label: "Contract" },
-    { value: "freelance", label: "Freelance" },
   ];
 
   const hiringTypeOptions = [
@@ -137,6 +136,8 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
       if (editingJob.skills && editingJob.skills.length > 0) {
         const subSkillsFromJob = editingJob.skills.map(skill => skill.name);
         setSelectedSubSkills(subSkillsFromJob);
+        // Set the input value to display comma-separated sub-skills
+        setSubSkillsInputValue(subSkillsFromJob.join(', '));
         console.log("Loading editing job skills:", editingJob.skills);
         console.log("Selected sub-skills:", subSkillsFromJob);
       }
@@ -327,6 +328,14 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
 
   const handleCustomSubSkillChange = (e) => {
     setCustomSubSkill(e.target.value);
+  };
+
+  const handleSubSkillsInputChange = (e) => {
+    const value = e.target.value;
+    setSubSkillsInputValue(value);
+    // Split by comma and update selectedSubSkills
+    const skills = value.split(',').map(s => s.trim()).filter(s => s !== '');
+    setSelectedSubSkills(skills);
   };
 
   const handleExperienceChange = (subSkill, experience) => {
@@ -573,102 +582,35 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
               {selectedJobTitle && (
                 <div className="form-group">
                   <label>Desired Sub-Skills</label>
-                  <div className="ant-select-selection-overflow sub-skills-multi-select">
-                    <div 
-                      className="ant-select-selection-overflow-item"
-                      onClick={toggleSubSkillsDropdown}
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          toggleSubSkillsDropdown();
-                        } else if (e.key === 'Escape') {
-                          setIsSubSkillsDropdownOpen(false);
-                        }
-                      }}
-                    >
-                      <span className="ant-select-selection-item">
-                        {selectedSubSkills.length > 0
-                          ? `${selectedSubSkills.length} sub-skill(s) selected`
-                          : "Select Sub-Skills"}
-                      </span>
-                      <span className={`ant-select-arrow ${isSubSkillsDropdownOpen ? 'open' : ''}`}>
-                        ▼
-                      </span>
-                    </div>
-                    {isSubSkillsDropdownOpen && (
-                      <div className="ant-select-dropdown sub-skills-dropdown" ref={subSkillsDropdownRef}>
-                        {!isSubSkillOthers ? (
-                          <>
-                            <div className="dropdown-search-container">
-                              <input
-                                type="text"
-                                className="dropdown-search-input"
-                                placeholder="Search sub-skills..."
-                                value={subSkillSearchTerm}
-                                onChange={handleSubSkillSearchChange}
-                                onClick={(e) => e.stopPropagation()}
-                                autoFocus
-                              />
-                            </div>
-                            <div className="dropdown-options-list">
-                              {availableSubSkills
-                                .filter(subSkill => 
-                                  subSkill.label.toLowerCase().includes(subSkillSearchTerm.toLowerCase())
-                                )
-                                .map((subSkill, index) => (
-                                  <div key={index} className="ant-select-item">
-                                    <label className="sub-skill-option">
-                                      <input
-                                        type="checkbox"
-                                        checked={selectedSubSkills.includes(subSkill.value)}
-                                        onChange={() => handleSubSkillToggle(subSkill.value)}
-                                      />
-                                      <span>{subSkill.label}</span>
-                                    </label>
-                                  </div>
-                                ))}
-                              {availableSubSkills.filter(subSkill => 
-                                subSkill.label.toLowerCase().includes(subSkillSearchTerm.toLowerCase())
-                              ).length === 0 && (
-                                <div className="dropdown-no-results">No results found</div>
-                              )}
-                            </div>
-                          </>
-                        ) : (
-                          <div className="custom-sub-skill-input">
-                            <input
-                              type="text"
-                              value={customSubSkill}
-                              onChange={handleCustomSubSkillChange}
-                              placeholder="Enter custom sub-skill"
-                              className="custom-sub-skill-field"
-                              autoFocus
-                            />
-                            <div className="custom-sub-skill-actions">
-                              <button
-                                type="button"
-                                className="add-custom-btn"
-                                onClick={handleCustomSubSkillAdd}
-                              >
-                                Add
-                              </button>
-                              <button
-                                type="button"
-                                className="cancel-custom-btn"
-                                onClick={() => {
-                                  setIsSubSkillOthers(false);
-                                  setCustomSubSkill('');
-                                }}
-                              >
-                                Cancel
-                              </button>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
+                  <input
+                    list="sub_skills_list"
+                    type="text"
+                    value={subSkillsInputValue}
+                    onChange={handleSubSkillsInputChange}
+                    onInput={(e) => {
+                      const value = e.target.value;
+                      setSubSkillSearchTerm(value);
+                    }}
+                    placeholder="Type desiredsub-skills..."
+                    className="full-width-input"
+                    autoComplete="off"
+                  />
+                  <datalist id="sub_skills_list">
+                    {availableSubSkills
+                      .filter(subSkill => {
+                        if (!subSkillSearchTerm) return true;
+                        const searchLower = subSkillSearchTerm.toLowerCase();
+                        const labelLower = subSkill.label.toLowerCase();
+                        const words = labelLower.split(' ');
+                        return words.some(word => word.startsWith(searchLower));
+                      })
+                      .map((subSkill, index) => (
+                        <option key={index} value={subSkill.value} />
+                      ))}
+                  </datalist>
+                  <small style={{ fontSize: '12px', color: '#666' }}>
+                    Separate multiple sub-skills with commas
+                  </small>
                 </div>
               )}
 

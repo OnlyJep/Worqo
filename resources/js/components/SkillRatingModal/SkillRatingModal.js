@@ -58,12 +58,6 @@ const credentialOptions = [
   { value: "Valid Government ID", label: "Valid Government ID (e.g., Passport, Driver's License, Voter's ID, UMID, National ID)" },
 ];
 
-const workTypeOptions = [
-  { value: "part-time", label: "Part-time" },
-  { value: "full-time", label: "Full-time" },
-  { value: "one-time", label: "One-time" },
-];
-
 const experienceOptions = [
   { value: "no-experience", label: "No Experience" },
   { value: "0-11-months", label: "0 to 11 months" },
@@ -111,15 +105,14 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const [isProfileComplete, setIsProfileComplete] = useState(false);
   const [skillsStepCompleted, setSkillsStepCompleted] = useState(false);
   const [workPreferencesCompleted, setWorkPreferencesCompleted] = useState(false);
-  const [workType, setWorkType] = useState('part-time');
   const [hoursPerDay, setHoursPerDay] = useState(4);
   const [preferredWorkingHours, setPreferredWorkingHours] = useState([]);
   const [bio, setBio] = useState('');
-  const [isWorkTypeDropdownOpen, setIsWorkTypeDropdownOpen] = useState(false);
+  const [isPrimarySkillsDropdownOpen, setIsPrimarySkillsDropdownOpen] = useState(false);
   const [isAdditionalSkillsDropdownOpen, setIsAdditionalSkillsDropdownOpen] = useState(false);
   const [isWorkingDaysDropdownOpen, setIsWorkingDaysDropdownOpen] = useState(false);
   const credentialFileRef = useRef(null);
-  const workTypeDropdownRef = useRef(null);
+  const primarySkillsDropdownRef = useRef(null);
   const additionalSkillsDropdownRef = useRef(null);
   const workingDaysDropdownRef = useRef(null);
   const navigate = useNavigate();
@@ -182,8 +175,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   // Handle click outside dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (workTypeDropdownRef.current && !workTypeDropdownRef.current.contains(event.target)) {
-        setIsWorkTypeDropdownOpen(false);
+      if (primarySkillsDropdownRef.current && !primarySkillsDropdownRef.current.contains(event.target)) {
+        setIsPrimarySkillsDropdownOpen(false);
       }
       if (additionalSkillsDropdownRef.current && !additionalSkillsDropdownRef.current.contains(event.target)) {
         setIsAdditionalSkillsDropdownOpen(false);
@@ -693,11 +686,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
   const handleWorkingDayToggle = (day) => {
     console.log('Toggling working day:', day);
     
-    // Prevent changes for full-time work
-    if (workType === 'full-time') {
-      return;
-    }
-    
     const isSelected = preferredWorkingHours.includes(day);
     
     if (isSelected) {
@@ -707,9 +695,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
       // Add day
       setPreferredWorkingHours(prev => [...prev, day]);
     }
-    
-    // Close the dropdown after selection
-    setIsWorkingDaysDropdownOpen(false);
   };
 
   const handleSkillItemClick = (skill, action) => {
@@ -1289,7 +1274,6 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
 
     const submitData = new FormData();
     submitData.append('profile_id', profileId);
-    submitData.append('work_type', workType);
     submitData.append('hours_per_day', hoursPerDay);
     submitData.append('preferred_working_days', JSON.stringify(preferredWorkingHours));
     submitData.append('bio', bio);
@@ -1333,7 +1317,8 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
     try {
       console.log('Submitting complete profile data:', {
         profile_id: profileId,
-        work_type: 'part-time',
+        hours_per_day: hoursPerDay,
+        preferred_working_days: preferredWorkingHours,
         skills_id: skillsId,
         credentials_count: credentials.length,
       });
@@ -1453,142 +1438,67 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                 
                 <div className="form-row">
                   <div className="form-group">
-                    <label className="form-label">Work Type <span className="required">*</span></label>
-                    <div className="custom-dropdown" ref={workTypeDropdownRef}>
-                      <div 
-                        className="dropdown-trigger"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          console.log('Dropdown clicked, current state:', isWorkTypeDropdownOpen);
-                          setIsWorkTypeDropdownOpen(!isWorkTypeDropdownOpen);
-                        }}
-                      >
-                        <span className="dropdown-value">
-                          {workTypeOptions.find(option => option.value === workType)?.label || 'Select work type'}
-                        </span>
-                        <span className={`dropdown-arrow ${isWorkTypeDropdownOpen ? 'open' : ''}`}>
-                          <IconChevronDown size={16} />
-                        </span>
-                      </div>
-                      {isWorkTypeDropdownOpen && (
-                        <div className="dropdown-menu">
-                          {workTypeOptions.map(option => (
-                            <div
-                              key={option.value}
-                              className={`dropdown-item ${workType === option.value ? 'selected' : ''}`}
-                                onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                console.log('Option clicked:', option.label);
-                                setWorkType(option.value);
-                                setIsWorkTypeDropdownOpen(false);
-                        
-                        // Auto-set hours per day and working days based on work type
-                                if (option.value === 'full-time') {
-                          setHoursPerDay(8); // 8 hours per day for full-time
-                          setPreferredWorkingHours(['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']);
-                        } else if (option.value === 'part-time') {
-                          setHoursPerDay(4);
-                          // Reset working days for part-time to allow fresh selection
-                          setPreferredWorkingHours([]);
-                        } else if (option.value === 'one-time') {
-                          setHoursPerDay(1);
-                          // Reset working days for one-time to allow fresh selection
-                          setPreferredWorkingHours([]);
-                        }
-                      }}
-                    >
-                          {option.label}
-                            </div>
-                      ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">
-                      {workType === 'full-time' ? 'Hours Per Day' : 
-                       workType === 'part-time' ? 'Hours Per Day' : 
-                       'Hours Per Day'}
-                    </label>
+                    <label className="form-label">Hours Per Day <span className="required">*</span></label>
                     <Input
                       type="number"
                       value={hoursPerDay}
                       onChange={(e) => setHoursPerDay(parseInt(e.target.value) || 1)}
                       min="1"
-                      max={workType === 'full-time' ? '8' : workType === 'part-time' ? '8' : '24'}
+                      max="24"
                       className="form-input"
-                      disabled={workType === 'full-time'}
                     />
-                    {workType === 'full-time' && (
-                      <span className="form-help">Full-time automatically set to 8 hours per day (Monday-Saturday)</span>
-                    )}
-                    {workType === 'part-time' && (
-                      <span className="form-help">Part-time: 4 hours per day (1-8 hours, flexible days)</span>
-                    )}
-                    {workType === 'one-time' && (
-                      <span className="form-help">One-time: Set your preferred hours (1-24 hours, flexible days)</span>
-                    )}
+                    <span className="form-help">How long you are willing or able to work each day</span>
                   </div>
-                </div>
 
-                <div className="form-group">
-                  <label className="form-label">Preferred Working Days</label>
-                  <div className={`custom-multi-dropdown ${workType === 'full-time' ? 'disabled' : ''}`} ref={workingDaysDropdownRef}>
-                    <div 
-                      className={`multi-dropdown-trigger ${workType === 'full-time' ? 'disabled' : ''}`}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        if (workType === 'full-time') return; // Disable for full-time
-                        console.log('Working days dropdown clicked, current state:', isWorkingDaysDropdownOpen);
-                        setIsWorkingDaysDropdownOpen(!isWorkingDaysDropdownOpen);
-                      }}
-                    >
-                      <div className="multi-dropdown-value">
-                        {workType === 'full-time' 
-                          ? 'Monday - Saturday' 
-                          : preferredWorkingHours.length > 0 
+                  <div className="form-group">
+                    <label className="form-label">Preferred Working Days <span className="required">*</span></label>
+                    <div className="custom-multi-dropdown" ref={workingDaysDropdownRef}>
+                      <div 
+                        className="multi-dropdown-trigger"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          console.log('Working days dropdown clicked, current state:', isWorkingDaysDropdownOpen);
+                          setIsWorkingDaysDropdownOpen(!isWorkingDaysDropdownOpen);
+                        }}
+                      >
+                        <div className="multi-dropdown-value">
+                          {preferredWorkingHours.length > 0 
                             ? formatPreferredWorkingDays(preferredWorkingHours)
-                            : 'Select your preferred working days'
-                        }
-                      </div>
-                      <span className={`dropdown-arrow ${isWorkingDaysDropdownOpen ? 'open' : ''}`}>
-                        <IconChevronDown size={16} />
-                      </span>
-                    </div>
-                    {isWorkingDaysDropdownOpen && (
-                      <div className="multi-dropdown-menu">
-                        <div className="dropdown-items">
-                          {workingDaysOptions.map(option => {
-                            const isSelected = preferredWorkingHours.includes(option.value);
-                            
-                            return (
-                              <div
-                                key={option.value}
-                                className={`multi-dropdown-item ${isSelected ? 'selected' : ''}`}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  handleWorkingDayToggle(option.value);
-                                }}
-                              >
-                                <span className="item-text">{option.label}</span>
-                                {isSelected && <span className="checkmark">✓</span>}
-                              </div>
-                            );
-                          })}
+                            : 'Select preferred working days'
+                          }
                         </div>
+                        <span className={`dropdown-arrow ${isWorkingDaysDropdownOpen ? 'open' : ''}`}>
+                          <IconChevronDown size={16} />
+                        </span>
                       </div>
-                    )}
+                      {isWorkingDaysDropdownOpen && (
+                        <div className="multi-dropdown-menu">
+                          <div className="dropdown-items">
+                            {workingDaysOptions.map(option => {
+                              const isSelected = preferredWorkingHours.includes(option.value);
+                              
+                              return (
+                                <div
+                                  key={option.value}
+                                  className={`multi-dropdown-item ${isSelected ? 'selected' : ''}`}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    handleWorkingDayToggle(option.value);
+                                  }}
+                                >
+                                  <span className="item-text">{option.label}</span>
+                                  {isSelected && <span className="checkmark">✓</span>}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <span className="form-help">Select your preferred working days</span>
                   </div>
-                  <span className="form-help">
-                    {workType === 'full-time' ? 'Full-time: Monday-Saturday (automatically set)' :
-                     workType === 'part-time' ? 'Part-time: Select your preferred working days' :
-                     'One-time: Select your preferred working days'}
-                  </span>
                 </div>
 
                 <div className="form-group full-width">
@@ -1647,11 +1557,11 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
               handleSaveSkill={handleSaveSkill}
               handleRemoveSkill={handleRemoveSkill}
               handleModalClose={handleModalClose}
-              isWorkTypeDropdownOpen={isWorkTypeDropdownOpen}
-              setIsWorkTypeDropdownOpen={setIsWorkTypeDropdownOpen}
+              isWorkTypeDropdownOpen={isPrimarySkillsDropdownOpen}
+              setIsWorkTypeDropdownOpen={setIsPrimarySkillsDropdownOpen}
               isAdditionalSkillsDropdownOpen={isAdditionalSkillsDropdownOpen}
               setIsAdditionalSkillsDropdownOpen={setIsAdditionalSkillsDropdownOpen}
-              workTypeDropdownRef={workTypeDropdownRef}
+              workTypeDropdownRef={primarySkillsDropdownRef}
               additionalSkillsDropdownRef={additionalSkillsDropdownRef}
               fetchSkills={fetchSkills}
               handleNextStep={handleNextStep}
@@ -1888,7 +1798,7 @@ const SkillRatingModal = ({ isOpen, onClose, onComplete, user }) => {
                   className="work-preferences-next-btn"
                   onClick={() => {
                     // Validate Work Preferences
-                    if (workType && hoursPerDay && preferredWorkingHours.length > 0) {
+                    if (hoursPerDay && preferredWorkingHours.length > 0) {
                       setWorkPreferencesCompleted(true);
                       setStep(4);
                     } else {

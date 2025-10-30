@@ -1,8 +1,8 @@
-.message-container {
+.message-worker-container {
   min-height: 100vh;
   background-color: #f8f9fa;
   
-  .message-content {
+  .message-worker-content {
     display: flex;
     min-height: 50px;
     margin-top: 10px; // Adjust based on header height
@@ -255,146 +255,6 @@
           }
         }
       }
-      
-      // User Profile Info
-      .user-profile-info {
-        padding: 20px;
-        border-bottom: 1px solid #e9ecef;
-        background-color: #f8f9fa;
-        
-        .user-profile-header {
-          display: flex;
-          align-items: center;
-          margin-bottom: 15px;
-          
-          .user-profile-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 2px solid #0a2a44;
-          }
-          
-          .user-profile-details {
-            flex: 1;
-            
-            .user-name {
-              margin: 0 0 5px 0;
-              font-size: 18px;
-              font-weight: 600;
-              color: #333;
-            }
-            
-            .verified-badge {
-              background-color: #28a745;
-              color: white;
-              padding: 3px 8px;
-              border-radius: 12px;
-              font-size: 12px;
-              font-weight: 500;
-              display: inline-block;
-              margin-bottom: 8px;
-            }
-            
-            .user-status {
-              display: flex;
-              align-items: center;
-              
-              .status-indicator {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                margin-right: 8px;
-                
-                &.online {
-                  background-color: #28a745;
-                }
-                
-                &.offline {
-                  background-color: #6c757d;
-                }
-              }
-              
-              .status-text {
-                font-size: 14px;
-                color: #6c757d;
-              }
-            }
-          }
-        }
-        
-        .user-contact-info {
-          margin-bottom: 15px;
-          
-          .contact-number {
-            display: flex;
-            align-items: center;
-            
-            .contact-label {
-              font-weight: 600;
-              margin-right: 10px;
-              color: #333;
-            }
-            
-            .contact-value {
-              font-size: 14px;
-              color: #6c757d;
-            }
-          }
-        }
-        
-        .user-worker-details {
-          margin-bottom: 15px;
-          
-          .user-collar, .user-rank {
-            margin-bottom: 15px;
-            
-            h4 {
-              margin: 0 0 8px 0;
-              font-size: 14px;
-              font-weight: 600;
-              color: #333;
-            }
-            
-            .collar-info, .rank-info {
-              display: flex;
-              align-items: center;
-              
-              .collar-image, .rank-image {
-                width: 30px;
-                height: 30px;
-                object-fit: contain;
-                margin-right: 10px;
-              }
-              
-              .collar-name, .rank-name {
-                font-size: 14px;
-                font-weight: 500;
-                color: #555;
-              }
-            }
-          }
-        }
-        
-        .profile-actions {
-          .view-profile-btn {
-            background-color: #0a2a44;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            
-            &:hover {
-              background-color: #1a3a54;
-            }
-          }
-        }
-      }
 
       .chat-messages {
         flex: 1;
@@ -587,8 +447,8 @@
 
 // Responsive Design
 @media (max-width: 768px) {
-  .message-container {
-    .message-content {
+  .message-worker-container {
+    .message-worker-content {
       flex-direction: column;
       height: calc(100vh - 80px);
     }
@@ -605,3 +465,4 @@
     }
   }
 }
+

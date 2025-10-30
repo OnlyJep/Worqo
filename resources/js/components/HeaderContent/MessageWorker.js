@@ -5,9 +5,9 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { MdOutlineKeyboardVoice } from "react-icons/md";
 import { GoPlus } from "react-icons/go";
 import { IoMdSend } from "react-icons/io";
-import './../../../sass/components/Message.scss';
+import './../../../sass/components/MessageWorker.scss';
 
-const MessageEmployer = () => {
+const MessageWorker = () => {
   const [selectedConversation, setSelectedConversation] = useState(null);
   const [messageInput, setMessageInput] = useState('');
   const [conversations, setConversations] = useState([]);
@@ -15,24 +15,15 @@ const MessageEmployer = () => {
   const [otherUserInfo, setOtherUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeWorkers, setActiveWorkers] = useState([]);
-  const [userRole, setUserRole] = useState(null);
+  const [activeUsers, setActiveUsers] = useState([]);
   const [showChatMenu, setShowChatMenu] = useState(false);
-  const [showProfileInfo, setShowProfileInfo] = useState(true);
   const chatMenuRef = useRef(null);
   const fileInputRef = useRef(null);
   const messageInputRef = useRef(null);
 
   useEffect(() => {
     fetchConversations();
-    fetchActiveWorkers();
-    
-    // Get user role from localStorage
-    const stored = JSON.parse(localStorage.getItem('user') || '{}');
-    const roleId = stored?.role_id || stored?.user?.role_id;
-    if (roleId) {
-      setUserRole(roleId === 1 ? 'worker' : 'employer');
-    }
+    fetchActiveUsers();
   }, []);
 
   // Close chat menu when clicking outside
@@ -102,7 +93,7 @@ const MessageEmployer = () => {
     }
   };
 
-  const fetchActiveWorkers = async () => {
+  const fetchActiveUsers = async () => {
     try {
       const token = localStorage.getItem('auth_token');
       const stored = JSON.parse(localStorage.getItem('user') || '{}');
@@ -123,29 +114,29 @@ const MessageEmployer = () => {
       // Fetch all users with profiles
       const response = await axios.get('http://127.0.0.1:8000/api/bookings/users-with-profiles', config);
       
-      console.log('Active workers response:', response.data);
+      console.log('Active users response:', response.data);
       
       if (response.data && response.data.users) {
-        setActiveWorkers(response.data.users);
-        console.log('Set active workers count:', response.data.users.length);
+        setActiveUsers(response.data.users);
+        console.log('Set active users count:', response.data.users.length);
       }
     } catch (error) {
-      console.error('Error fetching active workers:', error.response?.data || error.message);
+      console.error('Error fetching active users:', error.response?.data || error.message);
     }
   };
 
-  const filteredActiveWorkers = activeWorkers.filter((worker) => {
+  const filteredActiveUsers = activeUsers.filter((user) => {
     const stored = JSON.parse(localStorage.getItem('user') || '{}');
     const currentUserId = stored?.id || stored?.user?.id;
     
     // Exclude current user from the list
-    if (worker.user_id == currentUserId) {
+    if (user.user_id == currentUserId) {
       return false;
     }
     
     // Filter by search query
     if (!searchQuery.trim()) return true;
-    const name = (worker.full_name || '').toLowerCase();
+    const name = (user.full_name || '').toLowerCase();
     return name.includes(searchQuery.toLowerCase());
   });
 
@@ -306,50 +297,6 @@ const MessageEmployer = () => {
     return userInfo.name || 'Unknown User';
   };
 
-  // Function to render user collar
-  const renderUserCollar = (collar) => {
-    if (!collar) return null;
-    
-    return (
-      <div className="user-collar">
-        <h4>Collar</h4>
-        <div className="collar-info">
-          {collar.image && (
-            <img 
-              src={`http://127.0.0.1:8000/storage/${collar.image}`} 
-              alt={collar.name} 
-              className="collar-image"
-              onError={(e) => { e.target.src = '/images/defpfp.svg'; }}
-            />
-          )}
-          <span className="collar-name">{collar.name}</span>
-        </div>
-      </div>
-    );
-  };
-
-  // Function to render user rank
-  const renderUserRank = (rank) => {
-    if (!rank) return null;
-    
-    return (
-      <div className="user-rank">
-        <h4>Rank</h4>
-        <div className="rank-info">
-          {rank.image && (
-            <img 
-              src={`http://127.0.0.1:8000/storage/${rank.image}`} 
-              alt={rank.name} 
-              className="rank-image"
-              onError={(e) => { e.target.src = '/images/defpfp.svg'; }}
-            />
-          )}
-          <span className="rank-name">{rank.name}</span>
-        </div>
-      </div>
-    );
-  };
-
   // Function to handle View Profile button click
   const handleViewProfile = (userId) => {
     // Navigate to the user's profile page
@@ -358,9 +305,9 @@ const MessageEmployer = () => {
 
   if (loading) {
     return (
-      <div className={`message-container ${userRole ? `message-container-${userRole}` : ''}`}>
+      <div className="message-worker-container">
         <Headerz />
-        <div className="message-content">
+        <div className="message-worker-content">
           <div className="loading-container">
             <p>Loading messages...</p>
           </div>
@@ -370,10 +317,10 @@ const MessageEmployer = () => {
   }
 
   return (
-    <div className={`message-container ${userRole ? `message-container-${userRole}` : ''}`}>
+    <div className="message-worker-container">
       <Headerz />
       
-      <div className="message-content">
+      <div className="message-worker-content">
         {/* Conversation Sidebar */}
         <div className="conversation-sidebar">
           <div className="sidebar-header">
@@ -394,37 +341,37 @@ const MessageEmployer = () => {
             </div>
           </div>
           
-          <div className={`conversation-list ${userRole ? `conversation-list-${userRole}` : ''}`}>
-            {filteredActiveWorkers.map((worker) => (
+          <div className="conversation-list">
+            {filteredActiveUsers.map((user) => (
               <div
-                key={worker.user_id}
-                className={`conversation-item ${selectedConversation?.user_id === worker.user_id ? 'active' : ''}`}
+                key={user.user_id}
+                className={`conversation-item ${selectedConversation?.user_id === user.user_id ? 'active' : ''}`}
                 onClick={() => {
-                  // Find or create conversation for this worker
-                  const existingConv = conversations.find(c => c.user_id == worker.user_id);
+                  // Find or create conversation for this user
+                  const existingConv = conversations.find(c => c.user_id == user.user_id);
                   if (existingConv) {
                     handleConversationSelect(existingConv);
                   } else {
                     // Create a temporary conversation object
                     const tempConv = {
-                      user_id: worker.user_id,
-                      name: worker.full_name
+                      user_id: user.user_id,
+                      name: user.full_name
                     };
                     setSelectedConversation(tempConv);
                     // Store target user ID for sending first message
-                    localStorage.setItem('message_target_user_id', String(worker.user_id));
+                    localStorage.setItem('message_target_user_id', String(user.user_id));
                   }
                 }}
               >
                 <div className="conversation-avatar">
                   <div className="avatar-placeholder">
-                    {worker.full_name?.charAt(0) || 'U'}
+                    {user.full_name?.charAt(0) || 'U'}
                   </div>
                 </div>
                 
                 <div className="conversation-details">
                   <div className="conversation-header">
-                    <span className="conversation-name">{worker.full_name || 'Unknown User'}</span>
+                    <span className="conversation-name">{user.full_name || 'Unknown User'}</span>
                     <span className="conversation-time">11:24 AM</span>
                   </div>
                   <div className="conversation-preview">
@@ -437,7 +384,7 @@ const MessageEmployer = () => {
         </div>
 
         {/* Chat Area */}
-        <div className={`chat-area ${userRole ? `chat-area-${userRole}` : ''}`}>
+        <div className="chat-area">
           {selectedConversation || localStorage.getItem('message_target_user_id') ? (
             <div className="chat-content">
               <div className="chat-header">
@@ -470,7 +417,7 @@ const MessageEmployer = () => {
                 </div>
               </div>
               
-              <div className={`chat-messages ${userRole ? `chat-messages-${userRole}` : ''}`}>
+              <div className="chat-messages">
                 {selectedConversation && messages[selectedConversation.user_id] && messages[selectedConversation.user_id].length > 0 ? (
                   <div className="messages-list">
                     {messages[selectedConversation.user_id].map((message) => (
@@ -532,4 +479,5 @@ const MessageEmployer = () => {
   );
 };
 
-export default MessageEmployer;
+export default MessageWorker;
+

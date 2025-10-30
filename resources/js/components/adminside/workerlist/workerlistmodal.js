@@ -188,7 +188,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     postal_code: "8600",
     country: "Philippines",
     profile_img: null,
-    work_type: "",
     hours_per_day: 4,
     preferred_working_hours: [],
     bio: "",
@@ -398,7 +397,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
           postal_code: initialData.profile?.postal_code || "8600",
           country: initialData.profile?.country || "Philippines",
           profile_img: initialData.profile?.profile_img || null,
-          work_type: initialData.worker?.work_type || "",
           hours_per_day: initialData.worker?.hours_per_day || 4,
           preferred_working_hours: preferredWorkingDays,
           bio: initialData.worker?.bio || "",
@@ -814,22 +812,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
       setFormData((prev) => {
         const newData = { ...prev, [field]: value };
         
-        // Auto-set hours per day and preferred working days based on work type
-        if (field === "work_type") {
-          if (value === "full-time") {
-            newData.hours_per_day = 8;
-            newData.preferred_working_hours = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-          } else if (value === "part-time") {
-            newData.hours_per_day = 4;
-            // Clear preferred working days for part-time to let user choose
-            newData.preferred_working_hours = [];
-          } else if (value === "one-time") {
-            newData.hours_per_day = 1;
-            // Clear preferred working days for one-time to let user choose
-            newData.preferred_working_hours = [];
-          }
-        }
-        
         return newData;
       });
       setErrors((prev) => ({ ...prev, [field]: "" }));
@@ -978,9 +960,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     } else if (formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
       newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit.";
     }
-    // Gender is optional - removed required validation
-    if (!formData.work_type) newErrors.work_type = "Work type is required.";
-    
     // Validate hours per day
     if (!formData.hours_per_day || formData.hours_per_day < 1 || formData.hours_per_day > 24) {
       newErrors.hours_per_day = "Hours per day must be between 1 and 24.";
@@ -1007,7 +986,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
     submitData.append("last_name", formData.last_name || "");
     submitData.append("email", formData.email || "");
     submitData.append("gender_id", formData.gender_id || "");
-    submitData.append("work_type", formData.work_type || "");
     submitData.append("hours_per_day", formData.hours_per_day || "");
     submitData.append("preferred_working_days", JSON.stringify(formData.preferred_working_hours || []));
     submitData.append("bio", formData.bio || "");
@@ -1272,31 +1250,7 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                 <h3>Work Details</h3>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="work_type">Work Type <span className="required">*</span></label>
-                    <select
-                      id="work_type"
-                      value={formData.work_type}
-                      onChange={(e) => handleInputChange(e, "work_type")}
-                      className="credential-dropdown"
-                      required
-                    >
-                      <option value="">Select Work Type</option>
-                      <option value="part-time">Part Time</option>
-                      <option value="full-time">Full Time</option>
-                      <option value="one-time">One Time </option>
-                    </select>
-                    {errors.work_type && <span className="error">{errors.work_type}</span>}
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="role_id">Role</label>
-                    <select id="role_id" value={formData.role_id} disabled className="credential-dropdown">
-                      <option value="1">Worker</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="hours_per_day">Hours Per Day</label>
+                    <label htmlFor="hours_per_day">Hours Per Day <span className="required">*</span></label>
                     <input
                       id="hours_per_day"
                       type="number"
@@ -1327,13 +1281,19 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                       min="1"
                       max="24"
                       step="1"
-                      disabled={formData.work_type === 'full-time'}
+                      required
                     />
-                    {formData.work_type === 'full-time' && (
-                      <span className="help-text">Full-time automatically set to 8 hours per day</span>
-                    )}
+                    <span className="help-text">Set your preferred hours per day (1-24 hours)</span>
                     {errors.hours_per_day && <span className="error">{errors.hours_per_day}</span>}
                   </div>
+                  <div className="form-group">
+                    <label htmlFor="role_id">Role</label>
+                    <select id="role_id" value={formData.role_id} disabled className="credential-dropdown">
+                      <option value="1">Worker</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-row">
                   <div className="form-group preferred-working-days worker-modal-form-work-info">
                     <label htmlFor="preferred_working_days">Preferred Working Days</label>
                      <SafeSelect
@@ -1418,8 +1378,6 @@ const WorkerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffixes
                      )}
                     {errors.preferred_working_hours && <span className="error">{errors.preferred_working_hours}</span>}
                   </div>
-                </div>
-                <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="is_reviewed">Status</label>
                     <select

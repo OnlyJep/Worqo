@@ -265,19 +265,31 @@ class MessageController extends Controller
      */
     public function send(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'recipient_id' => 'required|exists:users,id|different:sender_id',
-            'content' => 'required|string|max:5000',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
-        }
-
+        \Log::info('Message send request:', $request->all());
+        
         $userId = $this->resolveUserId($request);
         if (!$userId) {
             return response()->json(['success' => false, 'message' => 'Missing user_id'], 400);
         }
+        
+        $validator = Validator::make($request->all(), [
+            'recipient_id' => 'required|integer|exists:users,id',
+            'content' => 'required|string|max:5000',
+        ]);
+        
+        // Custom validation: recipient_id must be different from sender_id
+        $validator->after(function ($validator) use ($userId, $request) {
+            if ($request->recipient_id == $userId) {
+                $validator->errors()->add('recipient_id', 'You cannot send a message to yourself.');
+            }
+        });
+
+        if ($validator->fails()) {
+            \Log::error('Validation failed:', $validator->errors()->toArray());
+            return response()->json(['success' => false, 'errors' => $validator->errors()], 422);
+        }
+        
+        \Log::info('Creating message with sender_id: ' . $userId . ', recipient_id: ' . $request->recipient_id);
         
         $message = Message::create([
             'sender_id' => $userId,
