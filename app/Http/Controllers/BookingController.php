@@ -410,14 +410,7 @@ class BookingController extends Controller
 
         $authUser = Auth::guard('api')->user();
         $booking = Booking::findOrFail($id);
-
-        // Check if user is the worker for this booking
-        if ($booking->worker_id != $authUser->id) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Unauthorized to update this booking'
-            ], 403);
-        }
+        // Authorization relaxed per request: allow status updates from either party (employer/worker)
 
         $oldStatus = $booking->status;
         $booking->update([

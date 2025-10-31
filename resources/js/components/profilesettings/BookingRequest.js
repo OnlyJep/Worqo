@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import ModalFeedback from './modalfeedback';
 import TransactionModal from './TransactionModal';
 import '../../../sass/components/profilesettings/BookingRequest.scss';
+import '../../../sass/components/profilesettings/confirmmodal.scss';
 
 const BookingRequest = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const BookingRequest = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState(null);
+  const [confirmState, setConfirmState] = useState({ open: false, action: null, booking: null });
 
   const bookingCategories = [
     { id: 'all', label: 'All Bookings' },
@@ -162,6 +164,15 @@ const BookingRequest = () => {
       console.error("Error updating booking status:", error.response?.data || error.message);
       message.error(`Failed to ${status} booking`);
     }
+  };
+
+  const openConfirm = (booking, action) => setConfirmState({ open: true, action, booking });
+  const closeConfirm = () => setConfirmState({ open: false, action: null, booking: null });
+  const proceedConfirm = () => {
+    if (confirmState.booking && confirmState.action) {
+      handleStatusUpdate(confirmState.booking.id, confirmState.action);
+    }
+    closeConfirm();
   };
 
   // Filter bookings based on active tab
@@ -508,21 +519,15 @@ const BookingRequest = () => {
                             >
                               View Transaction
                             </button>
-                            <button 
+                                <button 
                               className="booking-request-accept-btn"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleStatusUpdate(booking.id, 'accepted');
-                              }}
+                              onClick={(e) => { e.stopPropagation(); openConfirm(booking, 'accepted'); }}
                             >
                               Accept
                             </button>
                             <button 
                               className="booking-request-decline-btn"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleStatusUpdate(booking.id, 'declined');
-                              }}
+                              onClick={(e) => { e.stopPropagation(); openConfirm(booking, 'declined'); }}
                             >
                               Decline
                             </button>
@@ -597,7 +602,32 @@ const BookingRequest = () => {
           booking={selectedBooking}
         />
       )}
-    </div>
+    {/* Confirm Modal */}
+    {confirmState.open && (
+      <div className="confirm-modal-overlay" onClick={closeConfirm}>
+        <div className="confirm-modal" onClick={(e) => e.stopPropagation()}>
+          <div className="confirm-modal-header">
+            <h3>Confirm Action</h3>
+            <button className="close-btn" onClick={closeConfirm}>×</button>
+          </div>
+          <div className="confirm-modal-content">
+            <p>
+              Are you sure you want to {confirmState.action === 'accepted' ? 'accept booking from' : 'decline booking from'}{' '}
+              {confirmState.booking?.employer?.profile 
+                ? `${confirmState.booking.employer.profile.first_name || ''} ${confirmState.booking.employer.profile.last_name || ''}`.trim()
+                : (confirmState.booking?.employer?.name || confirmState.booking?.employer_name || 'this employer')}?
+            </p>
+          </div>
+          <div className="confirm-modal-actions">
+            <button className="confirm-btn" onClick={proceedConfirm}>
+              {confirmState.action === 'accepted' ? 'Accept' : 'Decline'}
+            </button>
+            <button className="cancel-btn" onClick={closeConfirm}>Cancel</button>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
   );
 };
 

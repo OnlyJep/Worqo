@@ -144,35 +144,19 @@ class MessageController extends Controller
             }
         }
         
-        // Check online status based on last activity
-        $isOnline = false;
+        // Derive online status: prefer explicit is_online flag; compute humanized last_active_text from last_activity
+        $isOnline = (bool) ($user->is_online ?? false);
         $lastActiveText = 'Offline';
-        if ($user->last_activity) {
-            $lastActivity = $user->last_activity;
-            $minutesAgo = $lastActivity->diffInMinutes(now());
-            
-            if ($minutesAgo < 5) {
-                $isOnline = true;
-                $lastActiveText = 'Online';
+        $reference = $user->last_activity ?? $user->updated_at;
+        if ($reference) {
+            $minutesAgo = $reference->diffInMinutes(now());
+            if ($minutesAgo < 1) {
+                $lastActiveText = 'Offline';
             } else if ($minutesAgo < 60) {
                 $lastActiveText = "Active {$minutesAgo} minute" . ($minutesAgo == 1 ? '' : 's') . " ago";
             } else {
                 $hoursAgo = floor($minutesAgo / 60);
                 $lastActiveText = "Active {$hoursAgo} hour" . ($hoursAgo == 1 ? '' : 's') . " ago";
-            }
-        } else {
-            // Fallback to updated_at if last_activity is not set
-            if ($user->updated_at) {
-                $minutesAgo = $user->updated_at->diffInMinutes(now());
-                if ($minutesAgo < 15) {
-                    $isOnline = true;
-                    $lastActiveText = 'Online';
-                } else if ($minutesAgo < 60) {
-                    $lastActiveText = "Active {$minutesAgo} minute" . ($minutesAgo == 1 ? '' : 's') . " ago";
-                } else {
-                    $hoursAgo = floor($minutesAgo / 60);
-                    $lastActiveText = "Active {$hoursAgo} hour" . ($hoursAgo == 1 ? '' : 's') . " ago";
-                }
             }
         }
         

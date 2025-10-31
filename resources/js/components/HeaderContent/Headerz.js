@@ -6,6 +6,7 @@ import { IconBell, IconMenu2, IconMessageCircle } from '@tabler/icons-react';
 import axios from 'axios';
 import './../../../sass/components/Headerz.scss';
 import Loader from '../LoaderContent/loader';
+import { getProfileImageUrl } from '../../utils/profileImageUtils';
 
 const Headerz = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,8 +45,10 @@ const Headerz = () => {
     if (token && storedUser) {
       try {
         const userData = JSON.parse(storedUser);
+        // Handle both direct user data and wrapped user data
+        const currentUser = userData.user || userData;
         setIsLoggedIn(true);
-        setUser(userData);
+        setUser(currentUser);
         // Fetch unread notifications count
         fetchUnreadCount();
         // Fetch unread messages count
@@ -129,7 +132,7 @@ const Headerz = () => {
    // Listen for profile image updates
   useEffect(() => {
     const handleProfileImageUpdate = (event) => {
-      const updatedUser = event.detail.user;
+      const updatedUser = event.detail.user || event.detail;
       setUser(updatedUser);
       setImageError(false); // Reset image error state
     };
@@ -473,8 +476,12 @@ const Headerz = () => {
   };
 
   // Handle image load error
-  const handleImageError = () => {
+  const handleImageError = (e) => {
     setImageError(true);
+    // Fallback to default profile image if load fails
+    if (e.target.src !== 'images/defpfp.svg') {
+      e.target.src = 'images/defpfp.svg';
+    }
   };
 
   return (
@@ -542,7 +549,7 @@ const Headerz = () => {
           {isLoggedIn ? (
             <div className="profile" ref={dropdownRef}>
               <img
-                src={imageError || !user?.profile_img || user.profile_img === null ? 'images/defpfp.svg' : (user.profile_img.startsWith('images/') ? user.profile_img : `http://127.0.0.1:8000/storage/${user.profile_img}`)}
+                src={getProfileImageUrl(user?.profile_img, 'images/defpfp.svg')}
                 alt="Profile"
                 className="profile-icon"
                 onError={handleImageError}

@@ -2,10 +2,11 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Headerz from './Headerz';
 import { HiOutlineDotsVertical } from "react-icons/hi";
-import { MdOutlineKeyboardVoice } from "react-icons/md";
-import { GoPlus } from "react-icons/go";
 import { IoMdSend } from "react-icons/io";
+// send icon imported above
 import './../../../sass/components/Message.scss';
+import { getProfileImageUrl } from '../../utils/profileImageUtils';
+import Loader from '../LoaderContent/loader';
 
 const MessageEmployer = () => {
   const [selectedConversation, setSelectedConversation] = useState(null);
@@ -20,12 +21,43 @@ const MessageEmployer = () => {
   const [showChatMenu, setShowChatMenu] = useState(false);
   const [showProfileInfo, setShowProfileInfo] = useState(true);
   const chatMenuRef = useRef(null);
-  const fileInputRef = useRef(null);
   const messageInputRef = useRef(null);
+
+  // Periodically refresh selected conversation's profile status (online/last active)
+  useEffect(() => {
+    if (!selectedConversation) return;
+
+    const token = localStorage.getItem('auth_token');
+    const stored = JSON.parse(localStorage.getItem('user') || '{}');
+    const userId = stored?.id || stored?.user?.id;
+
+    const refresh = async () => {
+      try {
+        const config = token ? { 
+          headers: { 
+            'Authorization': `Bearer ${token}`,
+            'X-User-Id': userId
+          } 
+        } : {};
+        const res = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${selectedConversation.user_id}`, {
+          ...config,
+          params: { user_id: userId }
+        });
+        if (res.data?.other_user_info) {
+          setOtherUserInfo(res.data.other_user_info);
+        }
+      } catch (e) {
+        // ignore
+      }
+    };
+
+    refresh();
+    const interval = setInterval(refresh, 10000);
+    return () => clearInterval(interval);
+  }, [selectedConversation]);
 
   useEffect(() => {
     fetchConversations(true);
-    fetchActiveWorkers();
     
     // Get user role from localStorage
     const stored = JSON.parse(localStorage.getItem('user') || '{}');
@@ -99,6 +131,40 @@ const MessageEmployer = () => {
           if (existingConversation) {
             // Select existing conversation
             handleConversationSelect(existingConversation);
+          } else {
+            // No existing conversation, fetch user info directly to show their profile
+            try {
+              const threadResponse = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${targetUserId}`, {
+                ...config,
+                params: { user_id: userId }
+              });
+              
+              if (threadResponse.data.success) {
+                // Create a temporary conversation object
+                const tempConversation = {
+                  user_id: parseInt(targetUserId),
+                  name: threadResponse.data.other_user_info?.name || 'Unknown User',
+                  profile_img: threadResponse.data.other_user_info?.profile_img || null,
+                  last_message_at: null,
+                  detailed_info: threadResponse.data.other_user_info,
+                  unread_count: 0,
+                  last_message: null
+                };
+                
+                // Set messages (empty array if no messages yet)
+                setMessages(prev => ({ ...prev, [targetUserId]: threadResponse.data.messages || [] }));
+                
+                // Set other user info
+                if (threadResponse.data.other_user_info) {
+                  setOtherUserInfo(threadResponse.data.other_user_info);
+                }
+                
+                // Set selected conversation
+                setSelectedConversation(tempConversation);
+              }
+            } catch (error) {
+              console.error('Error fetching user info:', error.response?.data || error.message);
+            }
           }
           // Remove the target user ID from localStorage so it doesn't persist
           localStorage.removeItem('message_target_user_id');
@@ -299,23 +365,7 @@ const MessageEmployer = () => {
     }
   };
 
-  const handleAttachClick = () => {
-    fileInputRef.current?.click();
-  };
-
-  const handleFileChange = (e) => {
-    const files = e.target.files;
-    if (files && files.length > 0) {
-      // Handle file attachment
-      console.log('Files selected:', files);
-      // You can add file handling logic here
-    }
-  };
-
-  const handleVoiceClick = () => {
-    console.log('Voice recording clicked');
-    // You can add voice recording logic here
-  };
+  // Attachments and voice features disabled per request
 
   // Function to format user name
   const formatUserName = (userInfo) => {
@@ -379,7 +429,7 @@ const MessageEmployer = () => {
         <Headerz />
         <div className="message-content">
           <div className="loading-container">
-            <p>Loading messages...</p>
+            <Loader />
           </div>
         </div>
       </div>
@@ -420,9 +470,12 @@ const MessageEmployer = () => {
                 onClick={() => handleConversationSelect(conv)}
               >
                 <div className="conversation-avatar">
-                  <div className="avatar-placeholder">
-                    {conv.name?.charAt(0) || 'U'}
-                  </div>
+                  <img 
+                    src={getProfileImageUrl(conv?.detailed_info?.profile_img, 'images/defpfp.svg')} 
+                    alt={conv.name || 'User'} 
+                    className="avatar-image"
+                    onError={(e)=>{e.currentTarget.src='images/defpfp.svg';}}
+                  />
                   {conv.unread_count > 0 && (
                     <span className="unread-indicator">{conv.unread_count}</span>
                   )}
@@ -430,7 +483,25 @@ const MessageEmployer = () => {
                 
                 <div className="conversation-details">
                   <div className="conversation-header">
-                    <span className="conversation-name">{conv.name || 'Unknown User'}</span>
+                    <span className="conversation-name" style={{display:'inline-flex',alignItems:'center',gap:6}}>
+                      <span>{conv.name || 'Unknown User'}</span>
+                      {conv?.detailed_info?.worker?.collar?.image && (
+                        <img 
+                          src={`http://127.0.0.1:8000/storage/${conv.detailed_info.worker.collar.image}`} 
+                          alt="collar" 
+                          style={{width:16,height:16,borderRadius:3}}
+                          onError={(e)=>{e.currentTarget.style.display='none';}}
+                        />
+                      )}
+                      {(conv?.detailed_info?.worker?.verified === true || conv?.detailed_info?.worker?.verified === 1) && (
+                        <img 
+                          src={'/images/verified.png'} 
+                          alt="verified" 
+                          style={{width:14,height:14}}
+                          onError={(e)=>{e.currentTarget.style.display='none';}}
+                        />
+                      )}
+                    </span>
                     <span className="conversation-time">
                       {conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}
                     </span>
@@ -451,38 +522,7 @@ const MessageEmployer = () => {
               </div>
             ))}
             
-            {/* Render active workers that don't have conversations yet */}
-            {filteredActiveWorkers
-              .filter(worker => !conversations.find(c => c.user_id == worker.user_id))
-              .map((worker) => (
-              <div
-                key={worker.user_id}
-                className={`conversation-item ${selectedConversation?.user_id === worker.user_id ? 'active' : ''}`}
-                onClick={() => {
-                  const tempConv = {
-                    user_id: worker.user_id,
-                    name: worker.full_name
-                  };
-                  setSelectedConversation(tempConv);
-                  localStorage.setItem('message_target_user_id', String(worker.user_id));
-                }}
-              >
-                <div className="conversation-avatar">
-                  <div className="avatar-placeholder">
-                    {worker.full_name?.charAt(0) || 'U'}
-                  </div>
-                </div>
-                
-                <div className="conversation-details">
-                  <div className="conversation-header">
-                    <span className="conversation-name">{worker.full_name || 'Unknown User'}</span>
-                  </div>
-                  <div className="employer-conversation-preview">
-                    Start new conversation
-                  </div>
-                </div>
-              </div>
-            ))}
+            {/* Additional contacts disabled: only show started conversations */}
           </div>
         </div>
 
@@ -492,10 +532,32 @@ const MessageEmployer = () => {
             <div className="chat-content">
               <div className="chat-header">
                 <h3>
-                  {selectedConversation ? selectedConversation.name : 'New Conversation'}
+                  {selectedConversation ? (
+                    <span style={{display:'inline-flex',alignItems:'center',gap:8}}>
+                      <span>{selectedConversation.name}</span>
+                      {otherUserInfo?.worker?.collar?.image && (
+                        <img 
+                          src={`http://127.0.0.1:8000/storage/${otherUserInfo.worker.collar.image}`} 
+                          alt="collar" 
+                          style={{width:20,height:20,borderRadius:4}}
+                          onError={(e)=>{e.currentTarget.style.display='none';}}
+                        />
+                      )}
+                      {(otherUserInfo?.worker?.verified === true || otherUserInfo?.worker?.verified === 1) && (
+                        <img 
+                          src={'/images/verified.png'} 
+                          alt="verified" 
+                          style={{width:18,height:18}}
+                          onError={(e)=>{e.currentTarget.style.display='none';}}
+                        />
+                      )}
+                    </span>
+                  ) : 'New Conversation'}
                 </h3>
                 <div className="chat-header-actions">
-                  <span className="online-status">Online</span>
+                  <span className={`online-status ${otherUserInfo?.is_online ? 'online' : 'offline'}`}>
+                    {otherUserInfo?.is_online ? 'Online' : (otherUserInfo?.last_active_text || 'Offline')}
+                  </span>
                   <div className="chat-menu-wrapper" ref={chatMenuRef}>
                     <HiOutlineDotsVertical 
                       className="chat-menu-icon" 
@@ -544,10 +606,6 @@ const MessageEmployer = () => {
                 )}
               </div>
               <form onSubmit={handleSendMessage} className="chat-input">
-                <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} />
-                <button type="button" className="icon-btn attach-btn" onClick={handleAttachClick}>
-                  <GoPlus />
-                </button>
                 <div className="input-wrapper">
                   <input 
                     ref={messageInputRef}
@@ -558,9 +616,6 @@ const MessageEmployer = () => {
                     onChange={(e) => setMessageInput(e.target.value)}
                     onKeyPress={handleKeyPress}
                   />
-                  <button type="button" className="icon-btn voice-btn" onClick={handleVoiceClick}>
-                    <MdOutlineKeyboardVoice />
-                  </button>
                 </div>
                 <button type="submit" className="send-button" disabled={!messageInput.trim()}>
                   <IoMdSend />

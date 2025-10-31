@@ -71252,7 +71252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-container .message-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .employer-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 15px;\n  border: 2px solid #0a2a44;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details {\n  flex: 1;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n  margin: 0 0 5px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .verified-badge {\n  background-color: #28a745;\n  color: white;\n  padding: 3px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.online {\n  background-color: #28a745;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.offline {\n  background-color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-text {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-label {\n  font-weight: 600;\n  margin-right: 10px;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-value {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar h4, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank h4 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-image {\n  width: 30px;\n  height: 30px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-right: 10px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-name {\n  font-size: 14px;\n  font-weight: 500;\n  color: #555;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn {\n  background-color: #0a2a44;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn:hover {\n  background-color: #1a3a54;\n}\n.message-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n}\n.message-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-container .message-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-container .message-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #e9ecef;\n  background: #fff;\n  display: block;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .employer-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status.offline {\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 15px;\n  border: 2px solid #0a2a44;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details {\n  flex: 1;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n  margin: 0 0 5px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .verified-badge {\n  background-color: #28a745;\n  color: white;\n  padding: 3px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.online {\n  background-color: #28a745;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.offline {\n  background-color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-text {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-label {\n  font-weight: 600;\n  margin-right: 10px;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-value {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar h4, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank h4 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-image {\n  width: 30px;\n  height: 30px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-right: 10px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-name {\n  font-size: 14px;\n  font-weight: 500;\n  color: #555;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn {\n  background-color: #0a2a44;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn:hover {\n  background-color: #1a3a54;\n}\n.message-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n}\n.message-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-container .message-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72527,6 +72527,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".cancel-job-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.cancel-job-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  max-width: 500px;\n  width: 100%;\n  max-height: 90vh;\n  overflow-y: auto;\n  animation: modalSlideIn 0.3s ease-out;\n}\n\n@keyframes modalSlideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.cancel-job-modal-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 24px 24px 16px 24px;\n  border-bottom: 1px solid #e5e7eb;\n  position: relative;\n}\n\n.warning-icon {\n  position: absolute;\n  left: 24px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #f59e0b;\n  font-size: 24px;\n}\n\n.cancel-job-modal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #111827;\n  text-align: center;\n  flex: 1;\n  padding-left: 40px;\n}\n\n.close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n\n.close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n\n.cancel-job-modal-content {\n  padding: 24px;\n}\n\n.warning-message {\n  text-align: center;\n}\n\n.warning-message p {\n  margin: 0 0 16px 0;\n  color: #6b7280;\n  font-size: 16px;\n  line-height: 1.5;\n}\n\n.job-title {\n  margin: 0 0 20px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #111827;\n  padding: 12px 16px;\n  background-color: #f9fafb;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n\n.warning-text {\n  color: #dc2626;\n  font-weight: 500;\n  font-size: 14px;\n  background-color: #fef2f2;\n  padding: 12px 16px;\n  border-radius: 8px;\n  border: 1px solid #fecaca;\n}\n\n.cancel-job-modal-actions {\n  display: flex;\n  gap: 12px;\n  padding: 16px 24px 24px 24px;\n  justify-content: flex-end;\n}\n\n.cancel-btn {\n  background-color: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  min-width: 120px;\n}\n\n.cancel-btn:hover {\n  background-color: #e5e7eb;\n  border-color: #9ca3af;\n}\n\n.confirm-cancel-btn {\n  background-color: #dc2626;\n  color: white;\n  border: 1px solid #dc2626;\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  min-width: 160px;\n}\n\n.confirm-cancel-btn:hover {\n  background-color: #b91c1c;\n  border-color: #b91c1c;\n}\n\n.confirm-cancel-btn:active {\n  transform: translateY(1px);\n}\n\n/* Responsive design */\n@media (max-width: 640px) {\n  .cancel-job-modal {\n    margin: 20px;\n    max-width: none;\n  }\n  .cancel-job-modal-header {\n    padding: 20px 20px 12px 20px;\n  }\n  .cancel-job-modal-header h2 {\n    font-size: 18px;\n    padding-left: 36px;\n  }\n  .warning-icon {\n    left: 20px;\n    font-size: 20px;\n  }\n  .cancel-job-modal-content {\n    padding: 20px;\n  }\n  .cancel-job-modal-actions {\n    padding: 12px 20px 20px 20px;\n    flex-direction: column;\n  }\n  .cancel-btn,\n  .confirm-cancel-btn {\n    width: 100%;\n    min-width: auto;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/confirmmodal.scss":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/confirmmodal.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #ffffff;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 600px;\n  max-height: 80vh;\n  overflow-y: auto;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n\n.confirm-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e0e0e0;\n  background: #0a2a44; /* dark blue header to match theme */\n  color: #ffffff;\n}\n\n.confirm-modal-header h3 {\n  margin: 0;\n  color: #ffffff;\n  font-size: 1.2rem;\n  font-weight: 600;\n}\n\n.confirm-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: #ffffff;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n}\n\n.confirm-modal-content {\n  padding: 24px;\n  color: #333;\n}\n\n.confirm-modal-actions {\n  padding: 20px 24px;\n  border-top: 1px solid #e0e0e0;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n\n.confirm-modal-actions .confirm-btn {\n  background: #1A2A44; /* dark blue primary */\n  color: white;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.confirm-modal-actions .cancel-btn {\n  background: #e9ecef;\n  color: #0a2a44;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n}\n\n@media (max-width: 768px) {\n  .confirm-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .confirm-modal-header,\n  .confirm-modal-content,\n  .confirm-modal-actions {\n    padding: 16px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -202169,7 +202193,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var _sass_components_Headerz_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../sass/components/Headerz.scss */ "./resources/sass/components/Headerz.scss");
 /* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/profileImageUtils */ "./resources/js/utils/profileImageUtils.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -202186,6 +202211,7 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -202291,8 +202317,10 @@ var Headerz = function Headerz() {
     if (token && storedUser) {
       try {
         var userData = JSON.parse(storedUser);
+        // Handle both direct user data and wrapped user data
+        var currentUser = userData.user || userData;
         setIsLoggedIn(true);
-        setUser(userData);
+        setUser(currentUser);
         // Fetch unread notifications count
         fetchUnreadCount();
         // Fetch unread messages count
@@ -202432,7 +202460,7 @@ var Headerz = function Headerz() {
   // Listen for profile image updates
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var handleProfileImageUpdate = function handleProfileImageUpdate(event) {
-      var updatedUser = event.detail.user;
+      var updatedUser = event.detail.user || event.detail;
       setUser(updatedUser);
       setImageError(false); // Reset image error state
     };
@@ -202851,127 +202879,131 @@ var Headerz = function Headerz() {
   }();
 
   // Handle image load error
-  var handleImageError = function handleImageError() {
+  var handleImageError = function handleImageError(e) {
     setImageError(true);
+    // Fallback to default profile image if load fails
+    if (e.target.src !== 'images/defpfp.svg') {
+      e.target.src = 'images/defpfp.svg';
+    }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("header", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("header", {
     className: "headerz",
-    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__["default"], {}), isSwitching && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    children: [isLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__["default"], {}), isSwitching && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "switching-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "switching-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "switching-spinner"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("h3", {
           children: ["Switching to ", targetRole, "..."]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
           children: "Please wait while we update your account"
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
       className: "headerz-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "mobile-menu",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
           size: 24,
           onClick: toggleMenu,
           className: "menu-icon"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "logo",
         onClick: goToHome,
         style: {
           cursor: 'pointer'
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("nav", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("nav", {
         className: "nav-links ".concat(isMenuOpen ? 'open' : ''),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToHome,
           children: "Home"
-        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToServices,
           children: "Services"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToAbout,
           children: "About Us"
-        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 2) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 2) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToFindJobs,
           children: "Find Jobs"
-        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToPostJobs,
           children: "Post Jobs"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "header-actions",
-        children: [isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        children: [isLoggedIn && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "notification-wrapper",
             onClick: goToNotifications,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
               size: 24,
               className: "header-icon",
               style: {
                 cursor: 'pointer'
               }
-            }), unreadCount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+            }), unreadCount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
               className: "notification-badge",
               children: unreadCount
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "notification-wrapper",
             onClick: function onClick() {
               return navigate('/message');
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_4__["default"], {
               size: 24,
               className: "header-icon message-icon",
               style: {
                 cursor: 'pointer'
               }
-            }), unreadMessageCount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+            }), unreadMessageCount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
               className: "notification-badge",
               children: unreadMessageCount
             })]
           })]
-        }), isLoggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+        }), isLoggedIn ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "profile",
           ref: dropdownRef,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
-            src: imageError || !(user !== null && user !== void 0 && user.profile_img) || user.profile_img === null ? 'images/defpfp.svg' : user.profile_img.startsWith('images/') ? user.profile_img : "http://127.0.0.1:8000/storage/".concat(user.profile_img),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+            src: (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_10__.getProfileImageUrl)(user === null || user === void 0 ? void 0 : user.profile_img, 'images/defpfp.svg'),
             alt: "Profile",
             className: "profile-icon",
             onError: handleImageError
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "dropdown-toggle ".concat(isDropdownOpen ? 'open' : ''),
             onClick: toggleDropdown,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_3__.IoMdArrowDropdown, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_3__.IoMdArrowDropdown, {
               className: "dropdown-icon",
               style: {
                 color: 'white'
               }
-            }), isDropdownOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            }), isDropdownOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
               className: "dropdown-menu",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("ul", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("ul", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
                   onClick: handleProfileSettings,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaUserCog, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaUserCog, {
                     className: "menu-icon"
                   }), " Profile Settings"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("li", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
                   onClick: handleSwitchAccount,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaUserCog, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaUserCog, {
                     className: "menu-icon"
                   }), " Switch to ", (user === null || user === void 0 ? void 0 : user.role_id) === 1 ? 'Employer' : 'Worker']
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("li", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
                   onClick: handleLogout,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaSignOutAlt, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaSignOutAlt, {
                     className: "menu-icon"
                   }), " Logout"]
                 })]
               })
             })]
           })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
           className: "login-btn",
           onClick: goToLogin,
           children: "Login/Signup"
@@ -203001,11 +203033,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_components_jobprofile_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../sass/components/jobprofile.scss */ "./resources/sass/components/jobprofile.scss");
 /* harmony import */ var _HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../HeaderContent/Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
 /* harmony import */ var _FooterContent_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../FooterContent/footer */ "./resources/js/components/FooterContent/footer.js");
-/* harmony import */ var _resources_sass_img_pfp_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../resources/sass/img/pfp.svg */ "./resources/sass/img/pfp.svg");
-/* harmony import */ var _resources_sass_img_coverphoto_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../resources/sass/img/coverphoto.svg */ "./resources/sass/img/coverphoto.svg");
-/* harmony import */ var _ApplyJobModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ApplyJobModal */ "./resources/js/components/HeaderContent/ApplyJobModal.js");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var _resources_sass_img_coverphoto_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../resources/sass/img/coverphoto.svg */ "./resources/sass/img/coverphoto.svg");
+/* harmony import */ var _ApplyJobModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ApplyJobModal */ "./resources/js/components/HeaderContent/ApplyJobModal.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
+/* harmony import */ var _utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/profileImageUtils */ "./resources/js/utils/profileImageUtils.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -203035,8 +203067,9 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+var defpfp = '/images/defpfp.svg';
 var JobProfile = function JobProfile() {
-  var _job$profile, _job$profile2, _job$profile3, _job$profile4;
+  var _job$profile, _job$profile2, _job$profile3, _job$profile4, _job$profile5;
   var _useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useLocation)(),
     state = _useLocation.state;
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
@@ -203137,22 +203170,6 @@ var JobProfile = function JobProfile() {
     }
     setIsApplyModalOpen(true);
   };
-  var handleMessageClick = function handleMessageClick() {
-    var authToken = localStorage.getItem("auth_token");
-    if (!authToken) {
-      alert('Please login to send messages');
-      window.location.href = '/login';
-      return;
-    }
-
-    // Store the target user ID in localStorage
-    localStorage.setItem('message_target_user_id', String(job.user_id));
-    // Navigate to messages page
-    window.location.href = '/message';
-  };
-  var handleTabClick = function handleTabClick(tab) {
-    setActiveTab(tab);
-  };
   var handleModalClose = function handleModalClose() {
     setIsApplyModalOpen(false);
   };
@@ -203224,7 +203241,7 @@ var JobProfile = function JobProfile() {
       className: "job-profile-page",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_9__["default"], {})
       })]
     });
   }
@@ -203253,13 +203270,13 @@ var JobProfile = function JobProfile() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "job-cover-photo",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-          src: _resources_sass_img_coverphoto_svg__WEBPACK_IMPORTED_MODULE_7__["default"],
+          src: _resources_sass_img_coverphoto_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
           alt: "Cover"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "job-profile-photo-wrapper",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-          src: _resources_sass_img_pfp_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
+          src: job !== null && job !== void 0 && (_job$profile = job.profile) !== null && _job$profile !== void 0 && _job$profile.profile_img ? (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_10__.getProfileImageUrl)(job.profile.profile_img, defpfp) : defpfp,
           alt: "Job Logo",
           className: "job-profile-photo"
         })
@@ -203272,31 +203289,29 @@ var JobProfile = function JobProfile() {
           className: "job-profile-info",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
             children: job.job_title
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "job-status-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-              className: "job-status-dot"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
-              className: "job-status",
-              children: job.archived ? 'Archived' : 'Available Now'
-            })]
+            children: job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                className: "job-status-dot"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
+                className: "job-status",
+                children: "Archived"
+              })]
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
             className: "job-location",
-            children: ["Posted by: ", (_job$profile = job.profile) === null || _job$profile === void 0 ? void 0 : _job$profile.first_name, " ", (_job$profile2 = job.profile) === null || _job$profile2 === void 0 ? void 0 : _job$profile2.middlename, " ", (_job$profile3 = job.profile) === null || _job$profile3 === void 0 ? void 0 : _job$profile3.last_name, " ", (_job$profile4 = job.profile) === null || _job$profile4 === void 0 || (_job$profile4 = _job$profile4.suffix) === null || _job$profile4 === void 0 ? void 0 : _job$profile4.suffix_name]
+            children: ["Posted by: ", (_job$profile2 = job.profile) === null || _job$profile2 === void 0 ? void 0 : _job$profile2.first_name, " ", (_job$profile3 = job.profile) === null || _job$profile3 === void 0 ? void 0 : _job$profile3.middlename, " ", (_job$profile4 = job.profile) === null || _job$profile4 === void 0 ? void 0 : _job$profile4.last_name, " ", (_job$profile5 = job.profile) === null || _job$profile5 === void 0 || (_job$profile5 = _job$profile5.suffix) === null || _job$profile5 === void 0 ? void 0 : _job$profile5.suffix_name]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
             className: "job-member-since",
             children: ["POSTED SINCE: ", new Date(job.created_at).toLocaleDateString()]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "profile-actions",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
               className: "job-apply-button",
               onClick: handleApplyJob,
               children: "Apply Job"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-              className: "message-button",
-              onClick: handleMessageClick,
-              children: "MESSAGE EMPLOYER"
-            })]
+            })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "job-stats",
@@ -203327,14 +203342,14 @@ var JobProfile = function JobProfile() {
             className: "job-application-list",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "job-date-item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_9__.MdDateRange, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdDateRange, {
                 className: "job-date-icon"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                 children: ["Start: ", formatDate(job.application_start)]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "job-date-item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_9__.MdDateRange, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdDateRange, {
                 className: "job-date-icon"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                 children: ["Deadline: ", formatDate(job.application_deadline)]
@@ -203349,14 +203364,14 @@ var JobProfile = function JobProfile() {
             className: "job-application-list",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "job-date-item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_9__.MdAccessTime, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdAccessTime, {
                 className: "job-work-icon"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                 children: ["Work Start: ", formatDate(job.work_start)]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "job-date-item",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_9__.MdAccessTime, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_8__.MdAccessTime, {
                 className: "job-work-icon"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                 children: ["Work End: ", formatDate(job.work_end)]
@@ -203391,7 +203406,7 @@ var JobProfile = function JobProfile() {
           })]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_FooterContent_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ApplyJobModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_FooterContent_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ApplyJobModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
       job: job,
       isOpen: isApplyModalOpen,
       onClose: handleModalClose,
@@ -203419,10 +203434,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var _Headerz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Headerz */ "./resources/js/components/HeaderContent/Headerz.js");
 /* harmony import */ var react_icons_hi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/hi */ "./node_modules/react-icons/hi/index.mjs");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.mjs");
-/* harmony import */ var react_icons_go__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/go */ "./node_modules/react-icons/go/index.mjs");
-/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/io */ "./node_modules/react-icons/io/index.mjs");
-/* harmony import */ var _sass_components_Message_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../sass/components/Message.scss */ "./resources/sass/components/Message.scss");
+/* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/io */ "./node_modules/react-icons/io/index.mjs");
+/* harmony import */ var _sass_components_Message_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/Message.scss */ "./resources/sass/components/Message.scss");
+/* harmony import */ var _utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/profileImageUtils */ "./resources/js/utils/profileImageUtils.js");
+/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -203449,11 +203464,13 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+// send icon imported above
 
 
 
 
 var MessageEmployer = function MessageEmployer() {
+  var _otherUserInfo$worker, _otherUserInfo$worker2, _otherUserInfo$worker3;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState2 = _slicedToArray(_useState, 2),
     selectedConversation = _useState2[0],
@@ -203499,16 +203516,66 @@ var MessageEmployer = function MessageEmployer() {
     showProfileInfo = _useState20[0],
     setShowProfileInfo = _useState20[1];
   var chatMenuRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var messageInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  // Periodically refresh selected conversation's profile status (online/last active)
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _stored$user;
+    if (!selectedConversation) return;
+    var token = localStorage.getItem('auth_token');
+    var stored = JSON.parse(localStorage.getItem('user') || '{}');
+    var userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.id);
+    var refresh = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var _res$data, config, res, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              _context.p = 0;
+              config = token ? {
+                headers: {
+                  'Authorization': "Bearer ".concat(token),
+                  'X-User-Id': userId
+                }
+              } : {};
+              _context.n = 1;
+              return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/messages/thread/".concat(selectedConversation.user_id), _objectSpread(_objectSpread({}, config), {}, {
+                params: {
+                  user_id: userId
+                }
+              }));
+            case 1:
+              res = _context.v;
+              if ((_res$data = res.data) !== null && _res$data !== void 0 && _res$data.other_user_info) {
+                setOtherUserInfo(res.data.other_user_info);
+              }
+              _context.n = 3;
+              break;
+            case 2:
+              _context.p = 2;
+              _t = _context.v;
+            case 3:
+              return _context.a(2);
+          }
+        }, _callee, null, [[0, 2]]);
+      }));
+      return function refresh() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+    refresh();
+    var interval = setInterval(refresh, 10000);
+    return function () {
+      return clearInterval(interval);
+    };
+  }, [selectedConversation]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var _stored$user2;
     fetchConversations(true);
-    fetchActiveWorkers();
 
     // Get user role from localStorage
     var stored = JSON.parse(localStorage.getItem('user') || '{}');
-    var roleId = (stored === null || stored === void 0 ? void 0 : stored.role_id) || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.role_id);
+    var roleId = (stored === null || stored === void 0 ? void 0 : stored.role_id) || (stored === null || stored === void 0 || (_stored$user2 = stored.user) === null || _stored$user2 === void 0 ? void 0 : _stored$user2.role_id);
     if (roleId) {
       setUserRole(roleId === 1 ? 'worker' : 'employer');
     }
@@ -203539,9 +203606,9 @@ var MessageEmployer = function MessageEmployer() {
     };
   }, [showChatMenu]);
   var fetchConversations = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
       var showLoading,
-        _stored$user2,
+        _stored$user3,
         token,
         stored,
         userId,
@@ -203550,25 +203617,31 @@ var MessageEmployer = function MessageEmployer() {
         response,
         fetchedConversations,
         existingConversation,
+        threadResponse,
+        _threadResponse$data$,
+        _threadResponse$data$2,
+        tempConversation,
         _error$response,
-        _args = arguments,
-        _t;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.p = _context.n) {
+        _error$response2,
+        _args2 = arguments,
+        _t2,
+        _t3;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
           case 0:
-            showLoading = _args.length > 0 && _args[0] !== undefined ? _args[0] : false;
-            _context.p = 1;
+            showLoading = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : false;
+            _context2.p = 1;
             if (showLoading) setLoading(true);
             token = localStorage.getItem('auth_token');
             stored = JSON.parse(localStorage.getItem('user') || '{}');
-            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user2 = stored.user) === null || _stored$user2 === void 0 ? void 0 : _stored$user2.id);
+            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user3 = stored.user) === null || _stored$user3 === void 0 ? void 0 : _stored$user3.id);
             if (userId) {
-              _context.n = 2;
+              _context2.n = 2;
               break;
             }
             console.error('User ID not found');
             if (showLoading) setLoading(false);
-            return _context.a(2);
+            return _context2.a(2);
           case 2:
             config = token ? {
               headers: {
@@ -203577,66 +203650,115 @@ var MessageEmployer = function MessageEmployer() {
               }
             } : {}; // Check if there's a target user ID in localStorage (set when navigating from booking)
             targetUserId = localStorage.getItem('message_target_user_id');
-            _context.n = 3;
+            _context2.n = 3;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('http://127.0.0.1:8000/api/messages/conversations', _objectSpread(_objectSpread({}, config), {}, {
               params: {
                 user_id: userId
               }
             }));
           case 3:
-            response = _context.v;
-            if (response.data.success) {
-              fetchedConversations = response.data.conversations || [];
-              setConversations(fetchedConversations);
-
-              // If there's a target user ID, try to find or create a conversation with them
-              if (targetUserId) {
-                existingConversation = fetchedConversations.find(function (conv) {
-                  return conv.user_id == targetUserId;
-                });
-                if (existingConversation) {
-                  // Select existing conversation
-                  handleConversationSelect(existingConversation);
-                }
-                // Remove the target user ID from localStorage so it doesn't persist
-                localStorage.removeItem('message_target_user_id');
-              }
+            response = _context2.v;
+            if (!response.data.success) {
+              _context2.n = 8;
+              break;
             }
-            _context.n = 5;
+            fetchedConversations = response.data.conversations || [];
+            setConversations(fetchedConversations);
+
+            // If there's a target user ID, try to find or create a conversation with them
+            if (!targetUserId) {
+              _context2.n = 8;
+              break;
+            }
+            existingConversation = fetchedConversations.find(function (conv) {
+              return conv.user_id == targetUserId;
+            });
+            if (!existingConversation) {
+              _context2.n = 4;
+              break;
+            }
+            // Select existing conversation
+            handleConversationSelect(existingConversation);
+            _context2.n = 7;
             break;
           case 4:
-            _context.p = 4;
-            _t = _context.v;
-            console.error('Error fetching conversations:', ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
+            _context2.p = 4;
+            _context2.n = 5;
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/messages/thread/".concat(targetUserId), _objectSpread(_objectSpread({}, config), {}, {
+              params: {
+                user_id: userId
+              }
+            }));
           case 5:
-            _context.p = 5;
-            if (showLoading) setLoading(false);
-            return _context.f(5);
+            threadResponse = _context2.v;
+            if (threadResponse.data.success) {
+              // Create a temporary conversation object
+              tempConversation = {
+                user_id: parseInt(targetUserId),
+                name: ((_threadResponse$data$ = threadResponse.data.other_user_info) === null || _threadResponse$data$ === void 0 ? void 0 : _threadResponse$data$.name) || 'Unknown User',
+                profile_img: ((_threadResponse$data$2 = threadResponse.data.other_user_info) === null || _threadResponse$data$2 === void 0 ? void 0 : _threadResponse$data$2.profile_img) || null,
+                last_message_at: null,
+                detailed_info: threadResponse.data.other_user_info,
+                unread_count: 0,
+                last_message: null
+              }; // Set messages (empty array if no messages yet)
+              setMessages(function (prev) {
+                return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, targetUserId, threadResponse.data.messages || []));
+              });
+
+              // Set other user info
+              if (threadResponse.data.other_user_info) {
+                setOtherUserInfo(threadResponse.data.other_user_info);
+              }
+
+              // Set selected conversation
+              setSelectedConversation(tempConversation);
+            }
+            _context2.n = 7;
+            break;
           case 6:
-            return _context.a(2);
+            _context2.p = 6;
+            _t2 = _context2.v;
+            console.error('Error fetching user info:', ((_error$response = _t2.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t2.message);
+          case 7:
+            // Remove the target user ID from localStorage so it doesn't persist
+            localStorage.removeItem('message_target_user_id');
+          case 8:
+            _context2.n = 10;
+            break;
+          case 9:
+            _context2.p = 9;
+            _t3 = _context2.v;
+            console.error('Error fetching conversations:', ((_error$response2 = _t3.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t3.message);
+          case 10:
+            _context2.p = 10;
+            if (showLoading) setLoading(false);
+            return _context2.f(10);
+          case 11:
+            return _context2.a(2);
         }
-      }, _callee, null, [[1, 4, 5, 6]]);
+      }, _callee2, null, [[4, 6], [1, 9, 10, 11]]);
     }));
     return function fetchConversations() {
-      return _ref.apply(this, arguments);
+      return _ref2.apply(this, arguments);
     };
   }();
   var fetchActiveWorkers = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var _stored$user3, token, stored, userId, config, response, _error$response2, _t2;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+      var _stored$user4, token, stored, userId, config, response, _error$response3, _t4;
+      return _regenerator().w(function (_context3) {
+        while (1) switch (_context3.p = _context3.n) {
           case 0:
-            _context2.p = 0;
+            _context3.p = 0;
             token = localStorage.getItem('auth_token');
             stored = JSON.parse(localStorage.getItem('user') || '{}');
-            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user3 = stored.user) === null || _stored$user3 === void 0 ? void 0 : _stored$user3.id);
+            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user4 = stored.user) === null || _stored$user4 === void 0 ? void 0 : _stored$user4.id);
             if (userId) {
-              _context2.n = 1;
+              _context3.n = 1;
               break;
             }
             console.error('User ID not found');
-            return _context2.a(2);
+            return _context3.a(2);
           case 1:
             config = token ? {
               headers: {
@@ -203644,34 +203766,34 @@ var MessageEmployer = function MessageEmployer() {
                 'X-User-Id': userId
               }
             } : {}; // Fetch all users with profiles
-            _context2.n = 2;
+            _context3.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get('http://127.0.0.1:8000/api/bookings/users-with-profiles', config);
           case 2:
-            response = _context2.v;
+            response = _context3.v;
             console.log('Active workers response:', response.data);
             if (response.data && response.data.users) {
               setActiveWorkers(response.data.users);
               console.log('Set active workers count:', response.data.users.length);
             }
-            _context2.n = 4;
+            _context3.n = 4;
             break;
           case 3:
-            _context2.p = 3;
-            _t2 = _context2.v;
-            console.error('Error fetching active workers:', ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
+            _context3.p = 3;
+            _t4 = _context3.v;
+            console.error('Error fetching active workers:', ((_error$response3 = _t4.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t4.message);
           case 4:
-            return _context2.a(2);
+            return _context3.a(2);
         }
-      }, _callee2, null, [[0, 3]]);
+      }, _callee3, null, [[0, 3]]);
     }));
     return function fetchActiveWorkers() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
   var filteredActiveWorkers = activeWorkers.filter(function (worker) {
-    var _stored$user4;
+    var _stored$user5;
     var stored = JSON.parse(localStorage.getItem('user') || '{}');
-    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user4 = stored.user) === null || _stored$user4 === void 0 ? void 0 : _stored$user4.id);
+    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user5 = stored.user) === null || _stored$user5 === void 0 ? void 0 : _stored$user5.id);
 
     // Exclude current user from the list
     if (worker.user_id == currentUserId) {
@@ -203689,38 +203811,38 @@ var MessageEmployer = function MessageEmployer() {
     return name.includes(searchQuery.toLowerCase());
   });
   var handleConversationSelect = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(conversation) {
-      var _stored$user5;
-      var token, stored, userId, config, response, _error$response3, _t3;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
+    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(conversation) {
+      var _stored$user6;
+      var token, stored, userId, config, response, _error$response4, _t5;
+      return _regenerator().w(function (_context4) {
+        while (1) switch (_context4.p = _context4.n) {
           case 0:
             setSelectedConversation(conversation);
             token = localStorage.getItem('auth_token');
             stored = JSON.parse(localStorage.getItem('user') || '{}');
-            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user5 = stored.user) === null || _stored$user5 === void 0 ? void 0 : _stored$user5.id);
+            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user6 = stored.user) === null || _stored$user6 === void 0 ? void 0 : _stored$user6.id);
             if (userId) {
-              _context3.n = 1;
+              _context4.n = 1;
               break;
             }
             console.error('User ID not found');
-            return _context3.a(2);
+            return _context4.a(2);
           case 1:
-            _context3.p = 1;
+            _context4.p = 1;
             config = token ? {
               headers: {
                 'Authorization': "Bearer ".concat(token),
                 'X-User-Id': userId
               }
             } : {};
-            _context3.n = 2;
+            _context4.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/messages/thread/".concat(conversation.user_id), _objectSpread(_objectSpread({}, config), {}, {
               params: {
                 user_id: userId
               }
             }));
           case 2:
-            response = _context3.v;
+            response = _context4.v;
             if (response.data.success) {
               setMessages(function (prev) {
                 return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, conversation.user_id, response.data.messages || []));
@@ -203731,63 +203853,63 @@ var MessageEmployer = function MessageEmployer() {
                 setOtherUserInfo(response.data.other_user_info);
               }
             }
-            _context3.n = 4;
+            _context4.n = 4;
             break;
           case 3:
-            _context3.p = 3;
-            _t3 = _context3.v;
-            console.error('Error fetching conversation:', ((_error$response3 = _t3.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t3.message);
+            _context4.p = 3;
+            _t5 = _context4.v;
+            console.error('Error fetching conversation:', ((_error$response4 = _t5.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t5.message);
           case 4:
-            return _context3.a(2);
+            return _context4.a(2);
         }
-      }, _callee3, null, [[1, 3]]);
+      }, _callee4, null, [[1, 3]]);
     }));
     return function handleConversationSelect(_x) {
-      return _ref3.apply(this, arguments);
+      return _ref4.apply(this, arguments);
     };
   }();
   var handleSendMessage = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(e) {
-      var _stored$user6;
-      var content, token, stored, userId, recipientId, payload, config, response, newMsg, updatedConversations, newConversation, userResponse, _error$response4, _error$response5, _t4;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
+    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(e) {
+      var _stored$user7;
+      var content, token, stored, userId, recipientId, payload, config, response, newMsg, updatedConversations, newConversation, userResponse, _error$response5, _error$response6, _t6;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
           case 0:
             e === null || e === void 0 || e.preventDefault();
             content = messageInput.trim();
             if (content) {
-              _context4.n = 1;
+              _context5.n = 1;
               break;
             }
-            return _context4.a(2);
+            return _context5.a(2);
           case 1:
             token = localStorage.getItem('auth_token');
             stored = JSON.parse(localStorage.getItem('user') || '{}');
-            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user6 = stored.user) === null || _stored$user6 === void 0 ? void 0 : _stored$user6.id);
+            userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user7 = stored.user) === null || _stored$user7 === void 0 ? void 0 : _stored$user7.id);
             if (userId) {
-              _context4.n = 2;
+              _context5.n = 2;
               break;
             }
             console.error('User ID not found');
-            return _context4.a(2);
+            return _context5.a(2);
           case 2:
-            _context4.p = 2;
+            _context5.p = 2;
             if (!selectedConversation) {
-              _context4.n = 3;
+              _context5.n = 3;
               break;
             }
             recipientId = selectedConversation.user_id;
-            _context4.n = 4;
+            _context5.n = 4;
             break;
           case 3:
             // Check if there's a target user ID from localStorage
             recipientId = localStorage.getItem('message_target_user_id');
             if (recipientId) {
-              _context4.n = 4;
+              _context5.n = 4;
               break;
             }
             console.error('No recipient specified');
-            return _context4.a(2);
+            return _context5.a(2);
           case 4:
             payload = {
               recipient_id: parseInt(recipientId),
@@ -203803,12 +203925,12 @@ var MessageEmployer = function MessageEmployer() {
                 'Content-Type': 'application/json'
               }
             } : {};
-            _context4.n = 5;
+            _context5.n = 5;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/messages/send', payload, config);
           case 5:
-            response = _context4.v;
+            response = _context5.v;
             if (!response.data.success) {
-              _context4.n = 8;
+              _context5.n = 8;
               break;
             }
             newMsg = response.data.message; // Update messages state
@@ -203822,10 +203944,10 @@ var MessageEmployer = function MessageEmployer() {
 
             // If this is a new conversation (no selectedConversation), update conversations list
             if (selectedConversation) {
-              _context4.n = 8;
+              _context5.n = 8;
               break;
             }
-            _context4.n = 6;
+            _context5.n = 6;
             return fetchConversations();
           case 6:
             // Find and select the new conversation
@@ -203834,40 +203956,40 @@ var MessageEmployer = function MessageEmployer() {
               return conv.user_id == recipientId;
             });
             if (!newConversation) {
-              _context4.n = 8;
+              _context5.n = 8;
               break;
             }
             setSelectedConversation(newConversation);
 
             // Get detailed user info for the new conversation
-            _context4.n = 7;
+            _context5.n = 7;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/messages/thread/".concat(recipientId), _objectSpread(_objectSpread({}, config), {}, {
               params: {
                 user_id: userId
               }
             }));
           case 7:
-            userResponse = _context4.v;
+            userResponse = _context5.v;
             if (userResponse.data.success && userResponse.data.other_user_info) {
               setOtherUserInfo(userResponse.data.other_user_info);
             }
           case 8:
-            _context4.n = 10;
+            _context5.n = 10;
             break;
           case 9:
-            _context4.p = 9;
-            _t4 = _context4.v;
-            console.error('Error sending message:', ((_error$response4 = _t4.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t4.message);
-            if ((_error$response5 = _t4.response) !== null && _error$response5 !== void 0 && (_error$response5 = _error$response5.data) !== null && _error$response5 !== void 0 && _error$response5.errors) {
-              console.error('Validation errors:', _t4.response.data.errors);
+            _context5.p = 9;
+            _t6 = _context5.v;
+            console.error('Error sending message:', ((_error$response5 = _t6.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t6.message);
+            if ((_error$response6 = _t6.response) !== null && _error$response6 !== void 0 && (_error$response6 = _error$response6.data) !== null && _error$response6 !== void 0 && _error$response6.errors) {
+              console.error('Validation errors:', _t6.response.data.errors);
             }
           case 10:
-            return _context4.a(2);
+            return _context5.a(2);
         }
-      }, _callee4, null, [[2, 9]]);
+      }, _callee5, null, [[2, 9]]);
     }));
     return function handleSendMessage(_x2) {
-      return _ref4.apply(this, arguments);
+      return _ref5.apply(this, arguments);
     };
   }();
   var handleKeyPress = function handleKeyPress(e) {
@@ -203876,22 +203998,8 @@ var MessageEmployer = function MessageEmployer() {
       handleSendMessage();
     }
   };
-  var handleAttachClick = function handleAttachClick() {
-    var _fileInputRef$current;
-    (_fileInputRef$current = fileInputRef.current) === null || _fileInputRef$current === void 0 || _fileInputRef$current.click();
-  };
-  var handleFileChange = function handleFileChange(e) {
-    var files = e.target.files;
-    if (files && files.length > 0) {
-      // Handle file attachment
-      console.log('Files selected:', files);
-      // You can add file handling logic here
-    }
-  };
-  var handleVoiceClick = function handleVoiceClick() {
-    console.log('Voice recording clicked');
-    // You can add voice recording logic here
-  };
+
+  // Attachments and voice features disabled per request
 
   // Function to format user name
   var formatUserName = function formatUserName(userInfo) {
@@ -203959,9 +204067,7 @@ var MessageEmployer = function MessageEmployer() {
         className: "message-content",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "loading-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-            children: "Loading messages..."
-          })
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_7__["default"], {})
         })
       })]
     });
@@ -203995,10 +204101,10 @@ var MessageEmployer = function MessageEmployer() {
               }
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "conversation-list ".concat(userRole ? "conversation-list-".concat(userRole) : ''),
-          children: [conversations.map(function (conv) {
-            var _conv$name;
+          children: conversations.map(function (conv) {
+            var _conv$detailed_info, _conv$detailed_info2, _conv$detailed_info3, _conv$detailed_info4;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "conversation-item ".concat(conv.unread_count > 0 ? 'unread' : '', " ").concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === conv.user_id ? 'active' : ''),
               onClick: function onClick() {
@@ -204006,9 +204112,13 @@ var MessageEmployer = function MessageEmployer() {
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "conversation-avatar",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "avatar-placeholder",
-                  children: ((_conv$name = conv.name) === null || _conv$name === void 0 ? void 0 : _conv$name.charAt(0)) || 'U'
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_6__.getProfileImageUrl)(conv === null || conv === void 0 || (_conv$detailed_info = conv.detailed_info) === null || _conv$detailed_info === void 0 ? void 0 : _conv$detailed_info.profile_img, 'images/defpfp.svg'),
+                  alt: conv.name || 'User',
+                  className: "avatar-image",
+                  onError: function onError(e) {
+                    e.currentTarget.src = 'images/defpfp.svg';
+                  }
                 }), conv.unread_count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                   className: "unread-indicator",
                   children: conv.unread_count
@@ -204017,9 +204127,37 @@ var MessageEmployer = function MessageEmployer() {
                 className: "conversation-details",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                   className: "conversation-header",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
                     className: "conversation-name",
-                    children: conv.name || 'Unknown User'
+                    style: {
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 6
+                    },
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                      children: conv.name || 'Unknown User'
+                    }), (conv === null || conv === void 0 || (_conv$detailed_info2 = conv.detailed_info) === null || _conv$detailed_info2 === void 0 || (_conv$detailed_info2 = _conv$detailed_info2.worker) === null || _conv$detailed_info2 === void 0 || (_conv$detailed_info2 = _conv$detailed_info2.collar) === null || _conv$detailed_info2 === void 0 ? void 0 : _conv$detailed_info2.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                      src: "http://127.0.0.1:8000/storage/".concat(conv.detailed_info.worker.collar.image),
+                      alt: "collar",
+                      style: {
+                        width: 16,
+                        height: 16,
+                        borderRadius: 3
+                      },
+                      onError: function onError(e) {
+                        e.currentTarget.style.display = 'none';
+                      }
+                    }), ((conv === null || conv === void 0 || (_conv$detailed_info3 = conv.detailed_info) === null || _conv$detailed_info3 === void 0 || (_conv$detailed_info3 = _conv$detailed_info3.worker) === null || _conv$detailed_info3 === void 0 ? void 0 : _conv$detailed_info3.verified) === true || (conv === null || conv === void 0 || (_conv$detailed_info4 = conv.detailed_info) === null || _conv$detailed_info4 === void 0 || (_conv$detailed_info4 = _conv$detailed_info4.worker) === null || _conv$detailed_info4 === void 0 ? void 0 : _conv$detailed_info4.verified) === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                      src: '/images/verified.png',
+                      alt: "verified",
+                      style: {
+                        width: 14,
+                        height: 14
+                      },
+                      onError: function onError(e) {
+                        e.currentTarget.style.display = 'none';
+                      }
+                    })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                     className: "conversation-time",
                     children: conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], {
@@ -204029,9 +204167,9 @@ var MessageEmployer = function MessageEmployer() {
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                   className: "employer-conversation-preview",
-                  children: conv.last_message && function (_stored$user7) {
+                  children: conv.last_message && function (_stored$user8) {
                     var stored = JSON.parse(localStorage.getItem('user') || '{}');
-                    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user7 = stored.user) === null || _stored$user7 === void 0 ? void 0 : _stored$user7.id);
+                    var currentUserId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user8 = stored.user) === null || _stored$user8 === void 0 ? void 0 : _stored$user8.id);
                     var isSentByMe = conv.last_message.sender_id == currentUserId;
                     var maxLength = 50;
                     var preview = conv.last_message.content.length > maxLength ? conv.last_message.content.substring(0, maxLength) + '...' : conv.last_message.content;
@@ -204040,43 +204178,7 @@ var MessageEmployer = function MessageEmployer() {
                 })]
               })]
             }, conv.user_id);
-          }), filteredActiveWorkers.filter(function (worker) {
-            return !conversations.find(function (c) {
-              return c.user_id == worker.user_id;
-            });
-          }).map(function (worker) {
-            var _worker$full_name;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "conversation-item ".concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === worker.user_id ? 'active' : ''),
-              onClick: function onClick() {
-                var tempConv = {
-                  user_id: worker.user_id,
-                  name: worker.full_name
-                };
-                setSelectedConversation(tempConv);
-                localStorage.setItem('message_target_user_id', String(worker.user_id));
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "conversation-avatar",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "avatar-placeholder",
-                  children: ((_worker$full_name = worker.full_name) === null || _worker$full_name === void 0 ? void 0 : _worker$full_name.charAt(0)) || 'U'
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                className: "conversation-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "conversation-header",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                    className: "conversation-name",
-                    children: worker.full_name || 'Unknown User'
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  className: "employer-conversation-preview",
-                  children: "Start new conversation"
-                })]
-              })]
-            }, worker.user_id);
-          })]
+          })
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "chat-area ".concat(userRole ? "chat-area-".concat(userRole) : ''),
@@ -204085,12 +204187,42 @@ var MessageEmployer = function MessageEmployer() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "chat-header",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
-              children: selectedConversation ? selectedConversation.name : 'New Conversation'
+              children: selectedConversation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+                style: {
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  children: selectedConversation.name
+                }), (otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker = otherUserInfo.worker) === null || _otherUserInfo$worker === void 0 || (_otherUserInfo$worker = _otherUserInfo$worker.collar) === null || _otherUserInfo$worker === void 0 ? void 0 : _otherUserInfo$worker.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: "http://127.0.0.1:8000/storage/".concat(otherUserInfo.worker.collar.image),
+                  alt: "collar",
+                  style: {
+                    width: 20,
+                    height: 20,
+                    borderRadius: 4
+                  },
+                  onError: function onError(e) {
+                    e.currentTarget.style.display = 'none';
+                  }
+                }), ((otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker2 = otherUserInfo.worker) === null || _otherUserInfo$worker2 === void 0 ? void 0 : _otherUserInfo$worker2.verified) === true || (otherUserInfo === null || otherUserInfo === void 0 || (_otherUserInfo$worker3 = otherUserInfo.worker) === null || _otherUserInfo$worker3 === void 0 ? void 0 : _otherUserInfo$worker3.verified) === 1) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+                  src: '/images/verified.png',
+                  alt: "verified",
+                  style: {
+                    width: 18,
+                    height: 18
+                  },
+                  onError: function onError(e) {
+                    e.currentTarget.style.display = 'none';
+                  }
+                })]
+              }) : 'New Conversation'
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "chat-header-actions",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "online-status",
-                children: "Online"
+                className: "online-status ".concat(otherUserInfo !== null && otherUserInfo !== void 0 && otherUserInfo.is_online ? 'online' : 'offline'),
+                children: otherUserInfo !== null && otherUserInfo !== void 0 && otherUserInfo.is_online ? 'Online' : (otherUserInfo === null || otherUserInfo === void 0 ? void 0 : otherUserInfo.last_active_text) || 'Offline'
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
                 className: "chat-menu-wrapper",
                 ref: chatMenuRef,
@@ -204144,21 +204276,9 @@ var MessageEmployer = function MessageEmployer() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
             onSubmit: handleSendMessage,
             className: "chat-input",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
-              type: "file",
-              ref: fileInputRef,
-              style: {
-                display: 'none'
-              },
-              onChange: handleFileChange
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-              type: "button",
-              className: "icon-btn attach-btn",
-              onClick: handleAttachClick,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_go__WEBPACK_IMPORTED_MODULE_5__.GoPlus, {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "input-wrapper",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                 ref: messageInputRef,
                 type: "text",
                 placeholder: "Write your message here...",
@@ -204168,17 +204288,12 @@ var MessageEmployer = function MessageEmployer() {
                   return setMessageInput(e.target.value);
                 },
                 onKeyPress: handleKeyPress
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
-                type: "button",
-                className: "icon-btn voice-btn",
-                onClick: handleVoiceClick,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_4__.MdOutlineKeyboardVoice, {})
-              })]
+              })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
               type: "submit",
               className: "send-button",
               disabled: !messageInput.trim(),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_6__.IoMdSend, {})
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_4__.IoMdSend, {})
             })]
           })]
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -209201,6 +209316,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -209243,7 +209363,7 @@ var Profile = function Profile(_ref) {
     var now = new Date();
     var lastActive = new Date(lastActivity);
     var diffInMinutes = Math.floor((now - lastActive) / (1000 * 60));
-    if (diffInMinutes < 1) return 'Active now';
+    if (diffInMinutes < 1) return 'Offline';
     if (diffInMinutes < 60) return "Active ".concat(diffInMinutes, " minute").concat(diffInMinutes > 1 ? 's' : '', " ago");
     var diffInHours = Math.floor(diffInMinutes / 60);
     if (diffInHours < 24) return "Active ".concat(diffInHours, " hour").concat(diffInHours > 1 ? 's' : '', " ago");
@@ -209255,8 +209375,7 @@ var Profile = function Profile(_ref) {
 
   // Function to check if status should be green (only when actually online)
   var isStatusGreen = function isStatusGreen() {
-    // Only show green if user is actually online
-    return isUserOnline();
+    return !!(worker !== null && worker !== void 0 && worker.is_online);
   };
   var resolvedWorkerId = function () {
     // If route param is not a valid id (e.g., 'profile'), fallback to current user id
@@ -209620,8 +209739,13 @@ var Profile = function Profile(_ref) {
       window.location.href = '/login';
       return;
     }
+    if (!worker || !worker.id) {
+      console.error('Worker data not available');
+      alert('Unable to start message. Please try again.');
+      return;
+    }
 
-    // Store the target user ID in localStorage
+    // Store the target user ID in localStorage (worker.id is the user_id from the API)
     localStorage.setItem('message_target_user_id', String(worker.id));
     // Navigate to messages page
     window.location.href = '/message';
@@ -209738,7 +209862,7 @@ var Profile = function Profile(_ref) {
                 id: workerData.id,
                 name: fullName,
                 email: workerData.email,
-                status: workerData.last_active_text || (workerData.is_online ? "Online" : "Offline"),
+                status: workerData.is_online ? "Online" : workerData.last_active_text || "Offline",
                 is_online: workerData.is_online,
                 last_active_text: workerData.last_active_text,
                 last_activity: workerData.last_activity,
@@ -209811,6 +209935,64 @@ var Profile = function Profile(_ref) {
     };
   }, [workerId]);
 
+  // Live status refresh (match Message.js behavior)
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!(worker !== null && worker !== void 0 && worker.id)) return;
+    var token = localStorage.getItem('auth_token');
+    var fetchStatus = /*#__PURE__*/function () {
+      var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
+        var _stored$user, stored, userId, config, res, info, _t5;
+        return _regenerator().w(function (_context4) {
+          while (1) switch (_context4.p = _context4.n) {
+            case 0:
+              _context4.p = 0;
+              stored = JSON.parse(localStorage.getItem('user') || '{}');
+              userId = (stored === null || stored === void 0 ? void 0 : stored.id) || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.id);
+              config = token ? {
+                headers: {
+                  Authorization: "Bearer ".concat(token),
+                  'X-User-Id': userId
+                }
+              } : {};
+              _context4.n = 1;
+              return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/messages/thread/".concat(worker.id), _objectSpread(_objectSpread({}, config), {}, {
+                params: {
+                  user_id: userId
+                }
+              }));
+            case 1:
+              res = _context4.v;
+              if (res && res.data && res.data.other_user_info) {
+                info = res.data.other_user_info;
+                setWorker(function (prev) {
+                  return _objectSpread(_objectSpread({}, prev || {}), {}, {
+                    is_online: info.is_online,
+                    last_active_text: info.last_active_text,
+                    last_activity: info.last_activity || (prev === null || prev === void 0 ? void 0 : prev.last_activity)
+                  });
+                });
+              }
+              _context4.n = 3;
+              break;
+            case 2:
+              _context4.p = 2;
+              _t5 = _context4.v;
+            case 3:
+              return _context4.a(2);
+          }
+        }, _callee4, null, [[0, 2]]);
+      }));
+      return function fetchStatus() {
+        return _ref5.apply(this, arguments);
+      };
+    }();
+    fetchStatus();
+    var interval = setInterval(fetchStatus, 10000);
+    return function () {
+      return clearInterval(interval);
+    };
+  }, [worker === null || worker === void 0 ? void 0 : worker.id]);
+
   // Fetch collar data on component mount
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchCollarData();
@@ -209836,23 +210018,23 @@ var Profile = function Profile(_ref) {
 
   // Fetch worker reviews
   var fetchWorkerReviews = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var response, avgRating, numReviews, calculatedPoints, _t5;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
+    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
+      var response, avgRating, numReviews, calculatedPoints, _t6;
+      return _regenerator().w(function (_context5) {
+        while (1) switch (_context5.p = _context5.n) {
           case 0:
-            _context4.p = 0;
+            _context5.p = 0;
             setReviewsLoading(true);
-            _context4.n = 1;
+            _context5.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/reviews/worker/".concat(resolvedWorkerId), {
               headers: {
                 Accept: "application/json"
               }
             });
           case 1:
-            response = _context4.v;
+            response = _context5.v;
             if (!response.data.success) {
-              _context4.n = 3;
+              _context5.n = 3;
               break;
             }
             setReviews(response.data.reviews);
@@ -209866,61 +210048,61 @@ var Profile = function Profile(_ref) {
             setTotalPoints(calculatedPoints);
 
             // Determine rank based on total points
-            _context4.n = 2;
+            _context5.n = 2;
             return fetchWorkerRank(calculatedPoints);
           case 2:
-            _context4.n = 4;
+            _context5.n = 4;
             break;
           case 3:
             // If fetch fails, still show rank with 0 points
             setTotalPoints(0);
-            _context4.n = 4;
+            _context5.n = 4;
             return fetchWorkerRank(0);
           case 4:
-            _context4.n = 6;
+            _context5.n = 6;
             break;
           case 5:
-            _context4.p = 5;
-            _t5 = _context4.v;
-            console.error("Error fetching reviews:", _t5);
+            _context5.p = 5;
+            _t6 = _context5.v;
+            console.error("Error fetching reviews:", _t6);
             // Even on error, show rank with 0 points
             setTotalPoints(0);
-            _context4.n = 6;
+            _context5.n = 6;
             return fetchWorkerRank(0);
           case 6:
-            _context4.p = 6;
+            _context5.p = 6;
             setReviewsLoading(false);
-            return _context4.f(6);
+            return _context5.f(6);
           case 7:
-            return _context4.a(2);
+            return _context5.a(2);
         }
-      }, _callee4, null, [[0, 5, 6, 7]]);
+      }, _callee5, null, [[0, 5, 6, 7]]);
     }));
     return function fetchWorkerReviews() {
-      return _ref5.apply(this, arguments);
+      return _ref6.apply(this, arguments);
     };
   }();
 
   // Fetch worker rank based on total points
   var fetchWorkerRank = /*#__PURE__*/function () {
-    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(points) {
-      var response, ranks, matchedRank, i, rank, minPoints, maxPoints, currentMinPoints, currentMaxPoints, rangeSize, pointsInRange, progress, _t6;
-      return _regenerator().w(function (_context5) {
-        while (1) switch (_context5.p = _context5.n) {
+    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(points) {
+      var response, ranks, matchedRank, i, rank, minPoints, maxPoints, currentMinPoints, currentMaxPoints, rangeSize, pointsInRange, progress, _t7;
+      return _regenerator().w(function (_context6) {
+        while (1) switch (_context6.p = _context6.n) {
           case 0:
-            _context5.p = 0;
+            _context6.p = 0;
             if (!(points >= 0)) {
-              _context5.n = 6;
+              _context6.n = 6;
               break;
             }
-            _context5.n = 1;
+            _context6.n = 1;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('/api/ranks', {
               headers: {
                 Accept: "application/json"
               }
             });
           case 1:
-            response = _context5.v;
+            response = _context6.v;
             // Get all ranks sorted by min_points
             ranks = (response.data.ranks || []).sort(function (a, b) {
               return a.min_points - b.min_points;
@@ -209929,32 +210111,32 @@ var Profile = function Profile(_ref) {
             i = 0;
           case 2:
             if (!(i < ranks.length)) {
-              _context5.n = 5;
+              _context6.n = 5;
               break;
             }
             rank = ranks[i];
             minPoints = rank.min_points || 0;
             maxPoints = rank.max_points;
             if (!(maxPoints === null || maxPoints === undefined)) {
-              _context5.n = 3;
+              _context6.n = 3;
               break;
             }
             // This is the highest rank (no max limit)
             if (points >= minPoints) {
               matchedRank = rank;
             }
-            _context5.n = 4;
+            _context6.n = 4;
             break;
           case 3:
             if (!(points >= minPoints && points <= maxPoints)) {
-              _context5.n = 4;
+              _context6.n = 4;
               break;
             }
             matchedRank = rank;
-            return _context5.a(3, 5);
+            return _context6.a(3, 5);
           case 4:
             i++;
-            _context5.n = 2;
+            _context6.n = 2;
             break;
           case 5:
             if (matchedRank) {
@@ -209979,19 +210161,19 @@ var Profile = function Profile(_ref) {
               setProgressPercent(0);
             }
           case 6:
-            _context5.n = 8;
+            _context6.n = 8;
             break;
           case 7:
-            _context5.p = 7;
-            _t6 = _context5.v;
-            console.error("Error fetching worker rank:", _t6);
+            _context6.p = 7;
+            _t7 = _context6.v;
+            console.error("Error fetching worker rank:", _t7);
           case 8:
-            return _context5.a(2);
+            return _context6.a(2);
         }
-      }, _callee5, null, [[0, 7]]);
+      }, _callee6, null, [[0, 7]]);
     }));
     return function fetchWorkerRank(_x) {
-      return _ref6.apply(this, arguments);
+      return _ref7.apply(this, arguments);
     };
   }();
   var handleTabClick = function handleTabClick(tab) {
@@ -210004,36 +210186,36 @@ var Profile = function Profile(_ref) {
     setIsConfirmationModalOpen(true);
   };
   var handleConfirmBooking = /*#__PURE__*/function () {
-    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6() {
-      var _JSON$parse, _worker$user, authToken, currentUserId, formatDateTime, userData, employerUserId, workerUserId, workerResponse, bookingData, response, _error$response2, _error$response3, _error$response$data, errors, errorMessages, _error$response$data2, _error$response4, errorMessage, _t7, _t8;
-      return _regenerator().w(function (_context6) {
-        while (1) switch (_context6.p = _context6.n) {
+    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7() {
+      var _JSON$parse, _worker$user, authToken, currentUserId, formatDateTime, userData, employerUserId, workerUserId, workerResponse, bookingData, response, _error$response2, _error$response3, _error$response$data, errors, errorMessages, _error$response$data2, _error$response4, errorMessage, _t8, _t9;
+      return _regenerator().w(function (_context7) {
+        while (1) switch (_context7.p = _context7.n) {
           case 0:
-            _context6.p = 0;
+            _context7.p = 0;
             authToken = localStorage.getItem("auth_token");
             if (authToken) {
-              _context6.n = 1;
+              _context7.n = 1;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Please log in to book this worker");
             setIsLoginModalOpen(true);
-            return _context6.a(2);
+            return _context7.a(2);
           case 1:
             // Check if user is trying to book themselves
             currentUserId = (_JSON$parse = JSON.parse(localStorage.getItem("user"))) === null || _JSON$parse === void 0 ? void 0 : _JSON$parse.id;
             if (!(currentUserId && currentUserId === worker.id)) {
-              _context6.n = 2;
+              _context7.n = 2;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("You cannot book yourself");
-            return _context6.a(2);
+            return _context7.a(2);
           case 2:
             if (!(!worker || !worker.id)) {
-              _context6.n = 3;
+              _context7.n = 3;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Worker information is missing. Please refresh the page and try again.");
-            return _context6.a(2);
+            return _context7.a(2);
           case 3:
             // Convert datetime-local format to proper date format for backend
             formatDateTime = function formatDateTime(dateTimeString) {
@@ -210055,13 +210237,13 @@ var Profile = function Profile(_ref) {
 
             // Validate that we have a valid user ID from localStorage
             if (!(!employerUserId || employerUserId === null || employerUserId === undefined)) {
-              _context6.n = 4;
+              _context7.n = 4;
               break;
             }
             console.error('CRITICAL ERROR: No valid user ID found in localStorage!');
             console.error('localStorage user data:', userData);
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Critical error: Unable to identify user from localStorage. Please refresh and log in again.");
-            return _context6.a(2);
+            return _context7.a(2);
           case 4:
             // The worker ID should be the worker's user ID
             // Try different possible worker ID fields
@@ -210072,25 +210254,25 @@ var Profile = function Profile(_ref) {
 
             // Final fallback: if we still don't have a worker ID, try to fetch it
             if (!(!workerUserId && worker.id)) {
-              _context6.n = 8;
+              _context7.n = 8;
               break;
             }
-            _context6.p = 5;
+            _context7.p = 5;
             console.log('Attempting to fetch worker data for ID:', worker.id);
-            _context6.n = 6;
+            _context7.n = 6;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/workers/".concat(worker.id));
           case 6:
-            workerResponse = _context6.v;
+            workerResponse = _context7.v;
             if (workerResponse.data && workerResponse.data.id) {
               workerUserId = workerResponse.data.id;
               console.log('Fetched worker user ID from API:', workerUserId);
             }
-            _context6.n = 8;
+            _context7.n = 8;
             break;
           case 7:
-            _context6.p = 7;
-            _t7 = _context6.v;
-            console.error('Failed to fetch worker data:', _t7);
+            _context7.p = 7;
+            _t8 = _context7.v;
+            console.error('Failed to fetch worker data:', _t8);
           case 8:
             console.log('=== BOOKING CREATION - USING CORRECT USER IDs ===');
             console.log('Employer User ID (from current user):', employerUserId);
@@ -210105,38 +210287,38 @@ var Profile = function Profile(_ref) {
 
             // CRITICAL: Validate employer_id is not null/undefined
             if (!(!employerUserId || employerUserId === null || employerUserId === undefined)) {
-              _context6.n = 9;
+              _context7.n = 9;
               break;
             }
             console.error('CRITICAL ERROR: employerUserId is null/undefined!');
             console.error('userData:', userData);
             console.error('userData.id:', userData.id);
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Critical error: Unable to identify employer. Please refresh and try again.");
-            return _context6.a(2);
+            return _context7.a(2);
           case 9:
             if (!(!workerUserId || workerUserId === null || workerUserId === undefined)) {
-              _context6.n = 10;
+              _context7.n = 10;
               break;
             }
             console.error('CRITICAL ERROR: workerUserId is null/undefined!');
             console.error('worker:', worker);
             console.error('worker.id:', worker.id);
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Critical error: Unable to identify worker. Please refresh and try again.");
-            return _context6.a(2);
+            return _context7.a(2);
           case 10:
             if (employerUserId) {
-              _context6.n = 11;
+              _context7.n = 11;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Unable to identify employer. Please refresh and try again.");
-            return _context6.a(2);
+            return _context7.a(2);
           case 11:
             if (workerUserId) {
-              _context6.n = 12;
+              _context7.n = 12;
               break;
             }
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Unable to identify worker. Please refresh and try again.");
-            return _context6.a(2);
+            return _context7.a(2);
           case 12:
             console.log('Creating booking with employer_id:', employerUserId, 'worker_id:', workerUserId);
 
@@ -210176,16 +210358,16 @@ var Profile = function Profile(_ref) {
 
             // FINAL VALIDATION: Ensure employer_id is not null before sending
             if (!(bookingData.employer_id === null || bookingData.employer_id === undefined)) {
-              _context6.n = 13;
+              _context7.n = 13;
               break;
             }
             console.error('FINAL VALIDATION FAILED: employer_id is null in bookingData!');
             antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Critical error: Employer ID is missing. Cannot create booking.");
-            return _context6.a(2);
+            return _context7.a(2);
           case 13:
             console.log('Submitting booking with data:', bookingData);
             console.log('Auth token:', authToken);
-            _context6.n = 14;
+            _context7.n = 14;
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post('http://127.0.0.1:8000/api/bookings', bookingData, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -210195,7 +210377,7 @@ var Profile = function Profile(_ref) {
               }
             });
           case 14:
-            response = _context6.v;
+            response = _context7.v;
             console.log('Booking submission response:', response.data);
             if (response.data.success) {
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].success("Booking request sent successfully!");
@@ -210211,32 +210393,32 @@ var Profile = function Profile(_ref) {
             } else {
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(response.data.message || "Failed to send booking request");
             }
-            _context6.n = 16;
+            _context7.n = 16;
             break;
           case 15:
-            _context6.p = 15;
-            _t8 = _context6.v;
-            console.error("Booking error:", ((_error$response2 = _t8.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t8.message);
-            if (((_error$response3 = _t8.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 422) {
+            _context7.p = 15;
+            _t9 = _context7.v;
+            console.error("Booking error:", ((_error$response2 = _t9.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t9.message);
+            if (((_error$response3 = _t9.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 422) {
               // Handle validation errors
-              errors = (_error$response$data = _t8.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.errors;
+              errors = (_error$response$data = _t9.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.errors;
               if (errors) {
                 errorMessages = Object.values(errors).flat();
                 antd__WEBPACK_IMPORTED_MODULE_11__["default"].error("Validation failed: ".concat(errorMessages.join(', ')));
               } else {
-                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response$data2 = _t8.response.data) === null || _error$response$data2 === void 0 ? void 0 : _error$response$data2.message) || "Validation failed");
+                antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(((_error$response$data2 = _t9.response.data) === null || _error$response$data2 === void 0 ? void 0 : _error$response$data2.message) || "Validation failed");
               }
             } else {
-              errorMessage = ((_error$response4 = _t8.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.message) || "Failed to send booking request";
+              errorMessage = ((_error$response4 = _t9.response) === null || _error$response4 === void 0 || (_error$response4 = _error$response4.data) === null || _error$response4 === void 0 ? void 0 : _error$response4.message) || "Failed to send booking request";
               antd__WEBPACK_IMPORTED_MODULE_11__["default"].error(errorMessage);
             }
           case 16:
-            return _context6.a(2);
+            return _context7.a(2);
         }
-      }, _callee6, null, [[5, 7], [0, 15]]);
+      }, _callee7, null, [[5, 7], [0, 15]]);
     }));
     return function handleConfirmBooking() {
-      return _ref7.apply(this, arguments);
+      return _ref8.apply(this, arguments);
     };
   }();
   if (loading) {
@@ -210343,7 +210525,7 @@ var Profile = function Profile(_ref) {
               className: "profile-status-dot ".concat(isStatusGreen() ? 'online' : 'offline')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
               className: "profile-status ".concat(isStatusGreen() ? 'online' : 'offline'),
-              children: isUserOnline() ? 'Online' : getLastActiveText(worker.last_activity, worker.is_online)
+              children: worker !== null && worker !== void 0 && worker.is_online ? 'Online' : (worker === null || worker === void 0 ? void 0 : worker.last_active_text) || getLastActiveText(worker === null || worker === void 0 ? void 0 : worker.last_activity, false)
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
             className: "profile-location",
@@ -241540,7 +241722,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modalfeedback__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modalfeedback */ "./resources/js/components/profilesettings/modalfeedback.js");
 /* harmony import */ var _TransactionModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./TransactionModal */ "./resources/js/components/profilesettings/TransactionModal.js");
 /* harmony import */ var _sass_components_profilesettings_BookingRequest_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../sass/components/profilesettings/BookingRequest.scss */ "./resources/sass/components/profilesettings/BookingRequest.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_profilesettings_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../sass/components/profilesettings/confirmmodal.scss */ "./resources/sass/components/profilesettings/confirmmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -241564,8 +241747,9 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
 var BookingRequest = function BookingRequest() {
-  var _selectedWorker$worke;
+  var _selectedWorker$worke, _confirmState$booking, _confirmState$booking2, _confirmState$booking3;
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useNavigate)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('all'),
     _useState2 = _slicedToArray(_useState, 2),
@@ -241599,6 +241783,14 @@ var BookingRequest = function BookingRequest() {
     _useState14 = _slicedToArray(_useState13, 2),
     userRole = _useState14[0],
     setUserRole = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      open: false,
+      action: null,
+      booking: null
+    }),
+    _useState16 = _slicedToArray(_useState15, 2),
+    confirmState = _useState16[0],
+    setConfirmState = _useState16[1];
   var bookingCategories = [{
     id: 'all',
     label: 'All Bookings'
@@ -241624,7 +241816,7 @@ var BookingRequest = function BookingRequest() {
     switch (status.toLowerCase()) {
       case 'pending':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
             size: 14
           }),
           backgroundColor: '#ffa500',
@@ -241632,7 +241824,7 @@ var BookingRequest = function BookingRequest() {
         };
       case 'accepted':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_3__.IoMdCheckmarkCircleOutline, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_3__.IoMdCheckmarkCircleOutline, {
             size: 14
           }),
           backgroundColor: '#4CAF50',
@@ -241640,7 +241832,7 @@ var BookingRequest = function BookingRequest() {
         };
       case 'completed':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineVerified, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineVerified, {
             size: 14
           }),
           backgroundColor: '#2196F3',
@@ -241648,7 +241840,7 @@ var BookingRequest = function BookingRequest() {
         };
       case 'declined':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
             size: 14
           }),
           backgroundColor: '#f44336',
@@ -241656,7 +241848,7 @@ var BookingRequest = function BookingRequest() {
         };
       case 'cancelled':
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdOutlineCancel, {
             size: 14
           }),
           backgroundColor: '#9e9e9e',
@@ -241664,7 +241856,7 @@ var BookingRequest = function BookingRequest() {
         };
       default:
         return {
-          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
+          icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_ci__WEBPACK_IMPORTED_MODULE_2__.CiClock2, {
             size: 14
           }),
           backgroundColor: '#9e9e9e',
@@ -241823,6 +242015,26 @@ var BookingRequest = function BookingRequest() {
       return _ref3.apply(this, arguments);
     };
   }();
+  var openConfirm = function openConfirm(booking, action) {
+    return setConfirmState({
+      open: true,
+      action: action,
+      booking: booking
+    });
+  };
+  var closeConfirm = function closeConfirm() {
+    return setConfirmState({
+      open: false,
+      action: null,
+      booking: null
+    });
+  };
+  var proceedConfirm = function proceedConfirm() {
+    if (confirmState.booking && confirmState.action) {
+      handleStatusUpdate(confirmState.booking.id, confirmState.action);
+    }
+    closeConfirm();
+  };
 
   // Filter bookings based on active tab
   var getFilteredBookings = function getFilteredBookings() {
@@ -241908,30 +242120,30 @@ var BookingRequest = function BookingRequest() {
     }
   };
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "booking-request-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
           children: "Loading bookings..."
         })
       })
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
     className: "booking-request-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "booking-request-header",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
         className: "booking-request-title",
         children: userRole === 1 ? 'Booking Requests' : 'My Bookings'
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "booking-request-navigation",
       children: bookingCategories.map(function (category) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "booking-request-tab-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
             type: "button",
             className: "booking-request-tab ".concat(activeTab === category.id ? 'active' : ''),
             onClick: function onClick(e) {
@@ -241946,9 +242158,9 @@ var BookingRequest = function BookingRequest() {
           })
         }, category.id);
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
       className: "booking-request-content",
-      children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "booking-request-list",
         children: filteredBookings.map(function (booking) {
           var _booking$worker, _booking$employer;
@@ -241963,13 +242175,13 @@ var BookingRequest = function BookingRequest() {
           console.log('Employer Data:', booking.employer);
           console.log('Worker Profile:', (_booking$worker = booking.worker) === null || _booking$worker === void 0 ? void 0 : _booking$worker.profile);
           console.log('Employer Profile:', (_booking$employer = booking.employer) === null || _booking$employer === void 0 ? void 0 : _booking$employer.profile);
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "booking-request-card",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "booking-request-top-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "booking-request-worker-info",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "booking-request-worker-profile",
                   onClick: function onClick(e) {
                     e.stopPropagation();
@@ -241978,7 +242190,7 @@ var BookingRequest = function BookingRequest() {
                   style: {
                     cursor: 'pointer'
                   },
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
                     src: function () {
                       console.log('=== BOOKING REQUEST AVATAR DEBUG ===');
                       console.log('personProfile:', personProfile);
@@ -242017,9 +242229,9 @@ var BookingRequest = function BookingRequest() {
                       e.target.src = '/images/defpfp.svg';
                     }
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                   className: "booking-request-worker-details",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
                     className: "booking-request-worker-name",
                     onClick: function onClick(e) {
                       e.stopPropagation();
@@ -242029,31 +242241,31 @@ var BookingRequest = function BookingRequest() {
                       cursor: 'pointer'
                     },
                     children: personProfile ? "".concat(personProfile.first_name, " ").concat(personProfile.last_name) : personData ? "".concat(personData.first_name || '', " ").concat(personData.last_name || '').trim() || 'Unknown User' : 'Unknown User'
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
                     className: "booking-request-worker-profession",
-                    children: isEmployerView ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-                      children: [booking.service_type, booking.sub_skill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
+                    children: isEmployerView ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                      children: [booking.service_type, booking.sub_skill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                         className: "booking-request-sub-skill",
                         children: [" - ", booking.sub_skill]
                       })]
                     }) : 'Employer'
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                     className: "booking-request-worker-badges",
-                    children: (personData === null || personData === void 0 ? void 0 : personData.verified) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                    children: (personData === null || personData === void 0 ? void 0 : personData.verified) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                       className: "booking-request-verified-badge",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdVerified, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_1__.MdVerified, {
                         className: "booking-request-verified-icon"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
                         children: "Verified"
                       })]
                     })
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                 className: "booking-request-status-amount",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "booking-request-status-badge",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("span", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
                     className: "booking-request-status-text",
                     style: {
                       backgroundColor: getStatusIcon(booking.status).backgroundColor,
@@ -242063,16 +242275,16 @@ var BookingRequest = function BookingRequest() {
                   })
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "booking-request-middle-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "booking-request-dates",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                   className: "booking-request-date-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                     className: "booking-request-date-label",
                     children: "Start Date"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                     className: "booking-request-date-value",
                     children: new Date(booking.book_in).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -242080,12 +242292,12 @@ var BookingRequest = function BookingRequest() {
                       day: 'numeric'
                     })
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                   className: "booking-request-date-item",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                     className: "booking-request-date-label",
                     children: "End Date"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                     className: "booking-request-date-value",
                     children: new Date(booking.book_end).toLocaleDateString('en-US', {
                       year: 'numeric',
@@ -242094,31 +242306,31 @@ var BookingRequest = function BookingRequest() {
                     })
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "booking-request-description",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "booking-request-description-label",
                   children: "Description"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                   className: "booking-request-description-text",
                   children: booking.description && booking.description.length > 50 ? "".concat(booking.description.substring(0, 50), "...") : booking.description
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                 className: "booking-request-salary",
                 children: ["\u20B1", booking.total_amount]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
               className: "booking-request-actions",
-              children: [isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+              children: [isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-view-transaction-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
                       handleViewTransaction(booking);
                     },
                     children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-cancel-booking-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
@@ -242126,22 +242338,22 @@ var BookingRequest = function BookingRequest() {
                     },
                     children: "Cancel Booking"
                   })]
-                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                   className: "booking-request-view-transaction-btn",
                   onClick: function onClick(e) {
                     e.stopPropagation();
                     handleViewTransaction(booking);
                   },
                   children: "View Transaction"
-                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-view-transaction-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
                       handleViewTransaction(booking);
                     },
                     children: "View Transaction"
-                  }), !booking.has_review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                  }), !booking.has_review && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-give-feedback-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
@@ -242150,39 +242362,39 @@ var BookingRequest = function BookingRequest() {
                     children: "Give Feedback"
                   })]
                 })]
-              }), !isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+              }), !isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-view-transaction-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
                       handleViewTransaction(booking);
                     },
                     children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-accept-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
-                      handleStatusUpdate(booking.id, 'accepted');
+                      openConfirm(booking, 'accepted');
                     },
                     children: "Accept"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-decline-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
-                      handleStatusUpdate(booking.id, 'declined');
+                      openConfirm(booking, 'declined');
                     },
                     children: "Decline"
                   })]
-                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                }), booking.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-view-transaction-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
                       handleViewTransaction(booking);
                     },
                     children: "View Transaction"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                     className: "booking-request-complete-btn",
                     onClick: function onClick(e) {
                       e.stopPropagation();
@@ -242190,7 +242402,7 @@ var BookingRequest = function BookingRequest() {
                     },
                     children: "Mark as Completed"
                   })]
-                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                }), booking.status === 'completed' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
                   className: "booking-request-view-transaction-btn",
                   onClick: function onClick(e) {
                     e.stopPropagation();
@@ -242202,27 +242414,62 @@ var BookingRequest = function BookingRequest() {
             })]
           }, booking.id);
         })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "booking-request-empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
           className: "booking-request-empty-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
             src: "/images/mybooking.svg",
             alt: "No Bookings"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
           className: "booking-request-empty-title",
           children: "No Bookings Yet"
         })]
       })
-    }), isFeedbackModalOpen && selectedWorker && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_modalfeedback__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }), isFeedbackModalOpen && selectedWorker && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_modalfeedback__WEBPACK_IMPORTED_MODULE_7__["default"], {
       onClose: handleCloseFeedbackModal,
       onSubmit: handleSubmitFeedback,
       workerName: (_selectedWorker$worke = selectedWorker.worker) !== null && _selectedWorker$worke !== void 0 && _selectedWorker$worke.profile ? "".concat(selectedWorker.worker.profile.first_name, " ").concat(selectedWorker.worker.profile.last_name) : 'Worker'
-    }), isTransactionModalOpen && selectedBooking && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_TransactionModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), isTransactionModalOpen && selectedBooking && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_TransactionModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
       isOpen: isTransactionModalOpen,
       onClose: handleCloseTransactionModal,
       booking: selectedBooking
+    }), confirmState.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+      className: "confirm-modal-overlay",
+      onClick: closeConfirm,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        className: "confirm-modal",
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          className: "confirm-modal-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
+            children: "Confirm Action"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+            className: "close-btn",
+            onClick: closeConfirm,
+            children: "\xD7"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          className: "confirm-modal-content",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("p", {
+            children: ["Are you sure you want to ", confirmState.action === 'accepted' ? 'accept booking from' : 'decline booking from', ' ', (_confirmState$booking = confirmState.booking) !== null && _confirmState$booking !== void 0 && (_confirmState$booking = _confirmState$booking.employer) !== null && _confirmState$booking !== void 0 && _confirmState$booking.profile ? "".concat(confirmState.booking.employer.profile.first_name || '', " ").concat(confirmState.booking.employer.profile.last_name || '').trim() : ((_confirmState$booking2 = confirmState.booking) === null || _confirmState$booking2 === void 0 || (_confirmState$booking2 = _confirmState$booking2.employer) === null || _confirmState$booking2 === void 0 ? void 0 : _confirmState$booking2.name) || ((_confirmState$booking3 = confirmState.booking) === null || _confirmState$booking3 === void 0 ? void 0 : _confirmState$booking3.employer_name) || 'this employer', "?"]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          className: "confirm-modal-actions",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+            className: "confirm-btn",
+            onClick: proceedConfirm,
+            children: confirmState.action === 'accepted' ? 'Accept' : 'Decline'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+            className: "cancel-btn",
+            onClick: closeConfirm,
+            children: "Cancel"
+          })]
+        })]
+      })
     })]
   });
 };
@@ -243807,8 +244054,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa6 */ "./node_modules/react-icons/fa6/index.mjs");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var _sass_components_profilesettings_jobapplicationsmodal_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../sass/components/profilesettings/jobapplicationsmodal.scss */ "./resources/sass/components/profilesettings/jobapplicationsmodal.scss");
-/* harmony import */ var _ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ViewWorkersApplicationModal */ "./resources/js/components/profilesettings/ViewWorkersApplicationModal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_profilesettings_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/confirmmodal.scss */ "./resources/sass/components/profilesettings/confirmmodal.scss");
+/* harmony import */ var _ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ViewWorkersApplicationModal */ "./resources/js/components/profilesettings/ViewWorkersApplicationModal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -243825,6 +244073,7 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -243856,6 +244105,14 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
     _useState0 = _slicedToArray(_useState9, 2),
     showViewWorkersModal = _useState0[0],
     setShowViewWorkersModal = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      open: false,
+      action: null,
+      application: null
+    }),
+    _useState10 = _slicedToArray(_useState1, 2),
+    confirmState = _useState10[0],
+    setConfirmState = _useState10[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchJobPost();
     fetchApplications();
@@ -243977,6 +244234,26 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
       return _ref4.apply(this, arguments);
     };
   }();
+  var openConfirm = function openConfirm(application, status) {
+    setConfirmState({
+      open: true,
+      action: status,
+      application: application
+    });
+  };
+  var closeConfirm = function closeConfirm() {
+    return setConfirmState({
+      open: false,
+      action: null,
+      application: null
+    });
+  };
+  var proceedConfirm = function proceedConfirm() {
+    if (confirmState.open && confirmState.application && confirmState.action) {
+      handleApplicationStatus(confirmState.application.id, confirmState.action);
+    }
+    closeConfirm();
+  };
   var getWorkerName = function getWorkerName(worker) {
     // Filter out empty/null middle names to avoid double names
     var nameParts = [worker.first_name, worker.middlename, worker.last_name].filter(function (part) {
@@ -244009,50 +244286,50 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
   var handleCloseViewWorkersModal = function handleCloseViewWorkersModal() {
     setShowViewWorkersModal(false);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "job-applications-modal-overlay",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "job-applications-modal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "modal-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h2", {
           children: ["Employee Applications - ", jobTitle]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "header-actions",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
             className: "close-btn",
             onClick: onClose,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
           })
         })]
-      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "loading-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "spinner"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
           children: "Loading applications..."
         })]
-      }) : applications.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      }) : applications.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUser, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUser, {
           className: "empty-icon"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
           children: "No Applications Yet"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
           children: "No one has applied for this job yet."
         })]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "filter-section",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "filter-buttons",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
               className: filterStatus === 'all' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('all');
               },
               children: ["All (", applications.length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
               className: filterStatus === 'for_interview' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('for_interview');
@@ -244060,7 +244337,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               children: ["For Interview (", applications.filter(function (app) {
                 return app.status === 'for_interview';
               }).length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
               className: filterStatus === 'accepted' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('accepted');
@@ -244068,7 +244345,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               children: ["Hired (", applications.filter(function (app) {
                 return app.status === 'accepted';
               }).length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
               className: filterStatus === 'declined' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('declined');
@@ -244078,20 +244355,20 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               }).length, ")"]
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "applications-list",
           children: filteredApplications.map(function (application) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "application-card",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "application-header",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                   className: "worker-info",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                     className: "avatar-container",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                       className: "avatar-placeholder",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
                         src: application.worker.profile_img && application.worker.profile_img !== 'img/defaultpfp.jpg' ? "http://127.0.0.1:8000/storage/".concat(application.worker.profile_img, "?v=").concat(Date.now()) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
                         alt: "".concat(getWorkerName(application.worker), "'s avatar"),
                         onError: function onError(e) {
@@ -244099,59 +244376,59 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                         }
                       })
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                     className: "worker-details",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
                       className: "worker-name",
                       children: getWorkerName(application.worker)
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
                       className: "application-date",
                       children: ["Applied on ", new Date(application.created_at).toLocaleDateString()]
                     })]
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                   className: "application-status",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                     className: "status-container",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                       className: "status-badge ".concat(application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : application.status === 'declined' ? 'status-declined' : 'status-fired'),
                       children: application.status === 'for_interview' ? 'For Interview' : application.status === 'accepted' ? 'Hired' : application.status === 'declined' ? 'Declined' : application.status === 'fired' ? 'Fired' : application.status
-                    }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__.FaUsersViewfinder, {
+                    }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__.FaUsersViewfinder, {
                       className: "interview-icon",
                       onClick: function onClick() {
                         return handleViewApplicationDetails(application);
                       },
                       title: "View Application Details"
                     })]
-                  }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                     className: "status-actions",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
                       className: "accept-btn-small",
                       onClick: function onClick() {
-                        return handleApplicationStatus(application.id, 'accepted');
+                        return openConfirm(application, 'accepted');
                       },
                       title: "Accept Application",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheck, {})
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheck, {})
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
                       className: "decline-btn-small",
                       onClick: function onClick() {
-                        return handleApplicationStatus(application.id, 'declined');
+                        return openConfirm(application, 'declined');
                       },
                       title: "Decline Application",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
                     })]
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 style: {
                   marginTop: '8px'
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                   style: {
                     color: '#333'
                   },
                   children: "Want to message this applicant? "
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
                   href: "#",
                   onClick: (/*#__PURE__*/function () {
                     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(e) {
@@ -244212,70 +244489,105 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                   },
                   children: "Click here"
                 })]
-              }), application.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), application.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "cover-letter",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h5", {
                   children: "Cover Letter:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
                   children: application.cover_letter
                 })]
-              }), application.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), application.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "resume-section",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h5", {
                   children: "Resume/CV:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
                   className: "download-resume-btn",
                   onClick: function onClick() {
                     return downloadResume(application.resume_path);
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFilePdf, {}), " Download Resume"]
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFilePdf, {}), " Download Resume"]
                 })]
-              }), application.skills && application.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), application.skills && application.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "worker-skills",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h5", {
                   children: "Skills:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                   className: "skills-list",
                   children: application.skills.map(function (skill, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                       className: "skill-tag",
                       children: skill
                     }, index);
                   })
                 })]
-              }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "application-actions",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
                   className: "accept-btn",
                   onClick: function onClick() {
-                    return handleApplicationStatus(application.id, 'accepted');
+                    return openConfirm(application, 'accepted');
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheck, {}), " Hire"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheck, {}), " Hire"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
                   className: "decline-btn",
                   onClick: function onClick() {
-                    return handleApplicationStatus(application.id, 'declined');
+                    return openConfirm(application, 'declined');
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {}), " Decline"]
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {}), " Decline"]
                 })]
-              }), application.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), application.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "application-actions",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
                   className: "fire-btn",
                   onClick: function onClick() {
                     return handleApplicationStatus(application.id, 'fired');
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFire, {}), " Fire"]
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFire, {}), " Fire"]
                 })
               })]
             }, application.id);
           })
         })]
       })]
-    }), showViewWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), showViewWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
       jobPostId: jobPostId,
       jobTitle: jobTitle,
       onClose: handleCloseViewWorkersModal
+    }), confirmState.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      className: "confirm-modal-overlay",
+      onClick: closeConfirm,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        className: "confirm-modal",
+        onClick: function onClick(e) {
+          return e.stopPropagation();
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          className: "confirm-modal-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+            children: "Confirm Action"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            className: "close-btn",
+            onClick: closeConfirm,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "confirm-modal-content",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+            children: ["Are you sure you want to ", confirmState.action === 'accepted' ? 'hire' : 'decline', ' ', confirmState.application ? getWorkerName(confirmState.application.worker) : 'this worker', "?"]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          className: "confirm-modal-actions",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            className: "confirm-btn",
+            onClick: proceedConfirm,
+            children: confirmState.action === 'accepted' ? 'Hire' : 'Decline'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+            className: "cancel-btn",
+            onClick: closeConfirm,
+            children: "Cancel"
+          })]
+        })]
+      })
     })]
   });
 };
@@ -247013,6 +247325,10 @@ var MyBookings = function MyBookings() {
     _useState18 = _slicedToArray(_useState17, 2),
     userRole = _useState18[0],
     setUserRole = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState20 = _slicedToArray(_useState19, 2),
+    currentUserId = _useState20[0],
+    setCurrentUserId = _useState20[1];
   var bookingCategories = [{
     id: 'all',
     label: 'All Bookings'
@@ -247090,6 +247406,7 @@ var MyBookings = function MyBookings() {
     // Get user role from localStorage
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
     setUserRole(userData.role_id);
+    setCurrentUserId(userData.id);
 
     // Test admin endpoint first to see if there are any bookings
     testAdminEndpoint();
@@ -247399,17 +247716,20 @@ var MyBookings = function MyBookings() {
   }();
   var handleCancelBooking = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(bookingId) {
-      var authToken, response, _error$response4, _t5;
+      var authToken, response, _error$response4, _error$response5, _error$response$data, _error$response6, _t5;
       return _regenerator().w(function (_context4) {
         while (1) switch (_context4.p = _context4.n) {
           case 0:
             _context4.p = 0;
             authToken = localStorage.getItem("auth_token");
             _context4.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].patch("http://127.0.0.1:8000/api/bookings/".concat(bookingId, "/cancel"), {}, {
+            return axios__WEBPACK_IMPORTED_MODULE_6__["default"].put("http://127.0.0.1:8000/api/bookings/".concat(bookingId, "/status"), {
+              status: 'cancelled'
+            }, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
-                Accept: "application/json"
+                Accept: "application/json",
+                "Content-Type": "application/json"
               }
             });
           case 1:
@@ -247426,7 +247746,11 @@ var MyBookings = function MyBookings() {
             _context4.p = 2;
             _t5 = _context4.v;
             console.error("Error cancelling booking:", ((_error$response4 = _t5.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.data) || _t5.message);
-            antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to cancel booking");
+            if ((_t5 === null || _t5 === void 0 || (_error$response5 = _t5.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.status) === 403) {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(((_error$response$data = _t5.response.data) === null || _error$response$data === void 0 ? void 0 : _error$response$data.message) || "Unauthorized to cancel this booking");
+            } else {
+              antd__WEBPACK_IMPORTED_MODULE_5__["default"].error(((_error$response6 = _t5.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.message) || "Failed to cancel booking");
+            }
           case 3:
             return _context4.a(2);
         }
@@ -247438,7 +247762,7 @@ var MyBookings = function MyBookings() {
   }();
   var handleStatusUpdate = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(bookingId, status) {
-      var authToken, response, _error$response5, _t6;
+      var authToken, response, _error$response7, _t6;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
@@ -247471,7 +247795,7 @@ var MyBookings = function MyBookings() {
           case 2:
             _context5.p = 2;
             _t6 = _context5.v;
-            console.error("Error updating booking status:", ((_error$response5 = _t6.response) === null || _error$response5 === void 0 ? void 0 : _error$response5.data) || _t6.message);
+            console.error("Error updating booking status:", ((_error$response7 = _t6.response) === null || _error$response7 === void 0 ? void 0 : _error$response7.data) || _t6.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to ".concat(status, " booking"));
           case 3:
             return _context5.a(2);
@@ -247482,9 +247806,16 @@ var MyBookings = function MyBookings() {
       return _ref5.apply(this, arguments);
     };
   }();
+  var confirmAndUpdate = function confirmAndUpdate(booking, status) {
+    var _booking$worker, _booking$worker2;
+    var name = booking !== null && booking !== void 0 && (_booking$worker = booking.worker) !== null && _booking$worker !== void 0 && _booking$worker.profile ? "".concat(booking.worker.profile.first_name || '', " ").concat(booking.worker.profile.last_name || '').trim() : (booking === null || booking === void 0 || (_booking$worker2 = booking.worker) === null || _booking$worker2 === void 0 ? void 0 : _booking$worker2.name) || (booking === null || booking === void 0 ? void 0 : booking.worker_name) || 'this worker';
+    var verb = status === 'accepted' ? 'hire' : status === 'declined' ? 'decline' : status;
+    if (!window.confirm("Are you sure you want to ".concat(verb, " ").concat(name, "?"))) return;
+    handleStatusUpdate(booking.id, status);
+  };
   var handleAcceptRequest = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(requestId) {
-      var authToken, response, _error$response6, _t7;
+      var authToken, response, _error$response8, _t7;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
@@ -247514,7 +247845,7 @@ var MyBookings = function MyBookings() {
           case 2:
             _context6.p = 2;
             _t7 = _context6.v;
-            console.error("Error accepting booking request:", ((_error$response6 = _t7.response) === null || _error$response6 === void 0 ? void 0 : _error$response6.data) || _t7.message);
+            console.error("Error accepting booking request:", ((_error$response8 = _t7.response) === null || _error$response8 === void 0 ? void 0 : _error$response8.data) || _t7.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error('Failed to accept booking request');
           case 3:
             return _context6.a(2);
@@ -247527,7 +247858,7 @@ var MyBookings = function MyBookings() {
   }();
   var handleDeclineRequest = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(requestId) {
-      var authToken, response, _error$response7, _t8;
+      var authToken, response, _error$response9, _t8;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
           case 0:
@@ -247557,7 +247888,7 @@ var MyBookings = function MyBookings() {
           case 2:
             _context7.p = 2;
             _t8 = _context7.v;
-            console.error("Error declining booking request:", ((_error$response7 = _t8.response) === null || _error$response7 === void 0 ? void 0 : _error$response7.data) || _t8.message);
+            console.error("Error declining booking request:", ((_error$response9 = _t8.response) === null || _error$response9 === void 0 ? void 0 : _error$response9.data) || _t8.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error('Failed to decline booking request');
           case 3:
             return _context7.a(2);
@@ -247606,7 +247937,7 @@ var MyBookings = function MyBookings() {
   };
   var handleSubmitFeedback = /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(feedbackData) {
-      var authToken, response, _error$response8, _t9;
+      var authToken, response, _error$response0, _t9;
       return _regenerator().w(function (_context8) {
         while (1) switch (_context8.p = _context8.n) {
           case 0:
@@ -247638,7 +247969,7 @@ var MyBookings = function MyBookings() {
           case 2:
             _context8.p = 2;
             _t9 = _context8.v;
-            console.error("Error submitting review:", ((_error$response8 = _t9.response) === null || _error$response8 === void 0 ? void 0 : _error$response8.data) || _t9.message);
+            console.error("Error submitting review:", ((_error$response0 = _t9.response) === null || _error$response0 === void 0 ? void 0 : _error$response0.data) || _t9.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to submit review");
           case 3:
             return _context8.a(2);
@@ -247664,7 +247995,7 @@ var MyBookings = function MyBookings() {
   };
   var handleUpdateBooking = /*#__PURE__*/function () {
     var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(updatedDetails) {
-      var authToken, response, _error$response9, _t0;
+      var authToken, response, _error$response1, _t0;
       return _regenerator().w(function (_context9) {
         while (1) switch (_context9.p = _context9.n) {
           case 0:
@@ -247693,7 +248024,7 @@ var MyBookings = function MyBookings() {
           case 2:
             _context9.p = 2;
             _t0 = _context9.v;
-            console.error("Error updating booking:", ((_error$response9 = _t0.response) === null || _error$response9 === void 0 ? void 0 : _error$response9.data) || _t0.message);
+            console.error("Error updating booking:", ((_error$response1 = _t0.response) === null || _error$response1 === void 0 ? void 0 : _error$response1.data) || _t0.message);
             antd__WEBPACK_IMPORTED_MODULE_5__["default"].error("Failed to update booking");
           case 3:
             return _context9.a(2);
@@ -247748,7 +248079,7 @@ var MyBookings = function MyBookings() {
       children: filteredBookings.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
         className: "bookings-list",
         children: filteredBookings.map(function (booking) {
-          var _booking$worker, _booking$employer, _booking$employer2, _booking$worker2;
+          var _booking$worker3, _booking$employer, _booking$employer2, _booking$worker4, _booking$employer3;
           var isEmployerView = userRole === 2;
           var isBookingRequest = activeTab === 'requests';
           var personData = isEmployerView ? booking.worker : booking.employer;
@@ -247759,7 +248090,7 @@ var MyBookings = function MyBookings() {
           console.log('Is Employer View:', isEmployerView);
           console.log('Worker Data:', booking.worker);
           console.log('Employer Data:', booking.employer);
-          console.log('Worker Profile:', (_booking$worker = booking.worker) === null || _booking$worker === void 0 ? void 0 : _booking$worker.profile);
+          console.log('Worker Profile:', (_booking$worker3 = booking.worker) === null || _booking$worker3 === void 0 ? void 0 : _booking$worker3.profile);
           console.log('Employer Profile:', (_booking$employer = booking.employer) === null || _booking$employer === void 0 ? void 0 : _booking$employer.profile);
 
           // Debug: Log the booking data structure
@@ -247773,7 +248104,7 @@ var MyBookings = function MyBookings() {
           console.log('Booking Employer:', booking.employer);
           console.log('Booking Worker:', booking.worker);
           console.log('Booking Employer Profile:', (_booking$employer2 = booking.employer) === null || _booking$employer2 === void 0 ? void 0 : _booking$employer2.profile);
-          console.log('Booking Worker Profile:', (_booking$worker2 = booking.worker) === null || _booking$worker2 === void 0 ? void 0 : _booking$worker2.profile);
+          console.log('Booking Worker Profile:', (_booking$worker4 = booking.worker) === null || _booking$worker4 === void 0 ? void 0 : _booking$worker4.profile);
 
           // If no person data, show basic booking info
           if (!personData) {
@@ -248024,7 +248355,7 @@ var MyBookings = function MyBookings() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
               className: "booking-actions",
               children: [isEmployerView && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-                children: [booking.status === 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+                children: [booking.status === 'pending' && (((_booking$employer3 = booking.employer) === null || _booking$employer3 === void 0 ? void 0 : _booking$employer3.id) == currentUserId || booking.employer_id == currentUserId) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
                     className: "booking-view-transaction-btn",
                     onClick: function onClick(e) {
@@ -248094,14 +248425,14 @@ var MyBookings = function MyBookings() {
                       className: "booking-accept-btn",
                       onClick: function onClick(e) {
                         e.stopPropagation();
-                        handleStatusUpdate(booking.id, 'accepted');
+                        confirmAndUpdate(booking, 'accepted');
                       },
                       children: "Accept"
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
                       className: "booking-decline-btn",
                       onClick: function onClick(e) {
                         e.stopPropagation();
-                        handleStatusUpdate(booking.id, 'declined');
+                        confirmAndUpdate(booking, 'declined');
                       },
                       children: "Decline"
                     })]
@@ -253421,7 +253752,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
 /* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/CaretDownOutlined.js");
 /* harmony import */ var _sass_components_register_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../sass/components/_register.scss */ "./resources/sass/components/_register.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -253448,7 +253780,12 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
 var Register = function Register() {
+  var _message$useMessage = antd__WEBPACK_IMPORTED_MODULE_6__["default"].useMessage(),
+    _message$useMessage2 = _slicedToArray(_message$useMessage, 2),
+    msgApi = _message$useMessage2[0],
+    contextHolder = _message$useMessage2[1];
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       firstName: "",
       middleName: "",
@@ -253584,6 +253921,7 @@ var Register = function Register() {
               _t = _context.v;
               console.error("Failed to fetch data:", _t);
               setError("Failed to load registration data: ".concat(_t.message));
+              msgApi.error("Failed to load data: ".concat(_t.message));
             case 11:
               _context.p = 11;
               setIsLoading(false);
@@ -253623,6 +253961,7 @@ var Register = function Register() {
               break;
             }
             setError("Please fill in all required fields.");
+            msgApi.warning('Please fill in all required fields.');
             return _context2.a(2);
           case 1:
             if (!passwordError) {
@@ -253630,6 +253969,7 @@ var Register = function Register() {
               break;
             }
             setError("Please fix password errors.");
+            msgApi.warning('Please fix password errors.');
             return _context2.a(2);
           case 2:
             setIsLoading(true);
@@ -253662,6 +254002,7 @@ var Register = function Register() {
               // Handle validation errors or other errors
               errorMessage = data.errors ? Object.values(data.errors).flat().join(", ") : data.error || "Registration failed";
               setError(errorMessage);
+              msgApi.error(errorMessage);
             } else {
               setFormData({
                 firstName: "",
@@ -253673,6 +254014,7 @@ var Register = function Register() {
                 role: "",
                 gender: ""
               });
+              msgApi.success('Registration successful! Redirecting to login...');
               // Navigate to login page after 2 seconds
               setTimeout(function () {
                 return navigate("/login");
@@ -253685,6 +254027,7 @@ var Register = function Register() {
             _t2 = _context2.v;
             console.error("Registration error:", _t2);
             setError("Registration failed: Network error");
+            msgApi.error('Registration failed: Network error');
           case 7:
             _context2.p = 7;
             setIsLoading(false);
@@ -253698,37 +254041,37 @@ var Register = function Register() {
       return _ref2.apply(this, arguments);
     };
   }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
     className: "register-wrapper",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "register-card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "register-image-section"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "register-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        children: [contextHolder, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "register-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
             className: "register-title",
             children: "Create Your Account"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
             className: "register-subtitle",
             children: "Join us to get started"
           })]
-        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
           className: "register-error",
           children: error
-        }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+        }), passwordError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
           className: "register-error",
           children: passwordError
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
           onSubmit: handleRegister,
           className: "register-form-container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "register-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "register-input-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                 type: "text",
                 name: "firstName",
                 placeholder: "First Name",
@@ -253736,9 +254079,9 @@ var Register = function Register() {
                 onChange: handleChange,
                 required: true
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "register-input-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                 type: "text",
                 name: "middleName",
                 placeholder: "Middle Name (optional)",
@@ -253746,11 +254089,11 @@ var Register = function Register() {
                 onChange: handleChange
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "register-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "register-input-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                 type: "text",
                 name: "lastName",
                 placeholder: "Last Name",
@@ -253758,26 +254101,26 @@ var Register = function Register() {
                 onChange: handleChange,
                 required: true
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: "register-input-group",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
                 name: "suffix",
                 value: formData.suffix,
                 onChange: handleChange,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                   value: "",
                   children: "Suffix (optional)"
                 }), suffixes.map(function (suffix) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                     value: suffix.suffix_name,
                     children: suffix.suffix_name
                   }, suffix.id);
                 })]
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
             className: "register-input-group",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
               type: "email",
               name: "email",
               placeholder: "Email",
@@ -253785,69 +254128,69 @@ var Register = function Register() {
               onChange: handleChange,
               required: true
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "register-password-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
               type: showPassword ? "text" : "password",
               name: "password",
               placeholder: "Password",
               value: formData.password,
               onChange: handleChange,
               required: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
               className: "password-toggle",
               onClick: function onClick() {
                 return setShowPassword(!showPassword);
               },
-              children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEye, {})
+              children: showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEyeSlash, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__.FaEye, {})
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "register-select-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("select", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("select", {
               name: "role",
               value: formData.role,
               onChange: handleChange,
               required: true,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                 value: "",
                 disabled: true,
                 children: "Select Role"
               }), roles.map(function (role) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                   value: role.id,
                   children: role.role_name
                 }, role.id);
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
               className: "select-icon"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "register-select-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("select", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("select", {
               name: "gender",
               value: formData.gender,
               onChange: handleChange,
               required: true,
               children: genders.map(function (option) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                   value: option.value,
                   disabled: option.disabled,
                   children: option.label
                 }, option.value);
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {
               className: "select-icon"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
             type: "submit",
             className: "register-submit-btn",
             disabled: isLoading,
             children: isLoading ? "Registering..." : "Register"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "register-login",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-            children: ["Already have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+            children: ["Already have an account?", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
               to: "/login",
               className: "register-login-link",
               children: "Login"
@@ -255770,6 +256113,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_canceljobapplicationmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/profilesettings/confirmmodal.scss":
+/*!*********************************************************************!*\
+  !*** ./resources/sass/components/profilesettings/confirmmodal.scss ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./confirmmodal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/confirmmodal.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

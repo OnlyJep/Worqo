@@ -3,6 +3,7 @@ import { FaTimes, FaUser, FaCheck, FaTimes as FaX, FaCalendar, FaFilePdf, FaFire
 import { FaUsersViewfinder } from 'react-icons/fa6';
 import axios from 'axios';
 import '../../../sass/components/profilesettings/jobapplicationsmodal.scss';
+import '../../../sass/components/profilesettings/confirmmodal.scss';
 import ViewWorkersApplicationModal from './ViewWorkersApplicationModal';
 
 const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
@@ -11,6 +12,7 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
   const [filterStatus, setFilterStatus] = useState('all');
   const [jobPost, setJobPost] = useState(null);
   const [showViewWorkersModal, setShowViewWorkersModal] = useState(false);
+  const [confirmState, setConfirmState] = useState({ open: false, action: null, application: null });
 
   useEffect(() => {
     fetchJobPost();
@@ -73,6 +75,19 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
     } catch (error) {
       console.error('Error updating application status:', error);
     }
+  };
+
+  const openConfirm = (application, status) => {
+    setConfirmState({ open: true, action: status, application });
+  };
+
+  const closeConfirm = () => setConfirmState({ open: false, action: null, application: null });
+
+  const proceedConfirm = () => {
+    if (confirmState.open && confirmState.application && confirmState.action) {
+      handleApplicationStatus(confirmState.application.id, confirmState.action);
+    }
+    closeConfirm();
   };
 
 
@@ -216,14 +231,14 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                         <div className="status-actions">
                           <button 
                             className="accept-btn-small"
-                            onClick={() => handleApplicationStatus(application.id, 'accepted')}
+                            onClick={() => openConfirm(application, 'accepted')}
                             title="Accept Application"
                           >
                             <FaCheck />
                           </button>
                           <button 
                             className="decline-btn-small"
-                            onClick={() => handleApplicationStatus(application.id, 'declined')}
+                            onClick={() => openConfirm(application, 'declined')}
                             title="Decline Application"
                           >
                             <FaX />
@@ -297,13 +312,13 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                     <div className="application-actions">
                       <button 
                         className="accept-btn"
-                        onClick={() => handleApplicationStatus(application.id, 'accepted')}
+                        onClick={() => openConfirm(application, 'accepted')}
                       >
                         <FaCheck /> Hire
                       </button>
                       <button 
                         className="decline-btn"
-                        onClick={() => handleApplicationStatus(application.id, 'declined')}
+                        onClick={() => openConfirm(application, 'declined')}
                       >
                         <FaX /> Decline
                       </button>
@@ -335,6 +350,32 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
           jobTitle={jobTitle}
           onClose={handleCloseViewWorkersModal}
         />
+      )}
+
+      {/* Confirm Action Modal */}
+      {confirmState.open && (
+        <div className="confirm-modal-overlay" onClick={closeConfirm}>
+          <div className="confirm-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="confirm-modal-header">
+              <h3>Confirm Action</h3>
+              <button className="close-btn" onClick={closeConfirm}>
+                <FaTimes />
+              </button>
+            </div>
+            <div className="confirm-modal-content">
+              <p>
+                Are you sure you want to {confirmState.action === 'accepted' ? 'hire' : 'decline'}{' '}
+                {confirmState.application ? getWorkerName(confirmState.application.worker) : 'this worker'}?
+              </p>
+            </div>
+            <div className="confirm-modal-actions">
+              <button className="confirm-btn" onClick={proceedConfirm}>
+                {confirmState.action === 'accepted' ? 'Hire' : 'Decline'}
+              </button>
+              <button className="cancel-btn" onClick={closeConfirm}>Cancel</button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

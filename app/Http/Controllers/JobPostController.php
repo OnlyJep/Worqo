@@ -39,6 +39,8 @@ class JobPostController extends Controller
         } else {
             // For public job listings (like FindJob), only show non-archived jobs
             $query->where('archived', $showArchived);
+            // Only show jobs where application_start has already passed
+            $query->where('application_start', '<=', Carbon::now('Asia/Manila'));
         }
 
         // Auto-archive expired job posts (using Philippine Standard Time GMT+8)
@@ -48,7 +50,7 @@ class JobPostController extends Controller
 
         $jobPosts = $query->with([
             'profile' => function ($query) {
-                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
+                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name', 'profiles.profile_img')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             },
             'applications' => function ($query) {
@@ -144,7 +146,7 @@ class JobPostController extends Controller
 
         $jobPost->load([
             'profile' => function ($query) {
-                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
+                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name', 'profiles.profile_img')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }
         ]);
@@ -175,7 +177,7 @@ class JobPostController extends Controller
     {
         $jobPost->load([
             'profile' => function ($query) {
-                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
+                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name', 'profiles.profile_img')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }
         ]);
@@ -249,7 +251,7 @@ class JobPostController extends Controller
 
         $jobPost->load([
             'profile' => function ($query) {
-                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
+                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name', 'profiles.profile_img')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }
         ]);
@@ -288,7 +290,7 @@ class JobPostController extends Controller
 
         $jobPost->load([
             'profile' => function ($query) {
-                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
+                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name', 'profiles.profile_img')
                       ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
             }
         ]);

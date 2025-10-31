@@ -3,8 +3,10 @@ import { Link, useNavigate } from "react-router-dom"; // Added useNavigate
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { CaretDownOutlined } from '@ant-design/icons';
 import "./../../../sass/components/_register.scss";
+import { message } from 'antd';
 
 const Register = () => {
+  const [msgApi, contextHolder] = message.useMessage();
   const [formData, setFormData] = useState({
     firstName: "",
     middleName: "",
@@ -71,6 +73,7 @@ const Register = () => {
       } catch (error) {
         console.error("Failed to fetch data:", error);
         setError(`Failed to load registration data: ${error.message}`);
+        msgApi.error(`Failed to load data: ${error.message}`);
       } finally {
         setIsLoading(false);
       }
@@ -111,10 +114,12 @@ const Register = () => {
       !formData.gender
     ) {
       setError("Please fill in all required fields.");
+      msgApi.warning('Please fill in all required fields.');
       return;
     }
     if (passwordError) {
       setError("Please fix password errors.");
+      msgApi.warning('Please fix password errors.');
       return;
     }
 
@@ -145,6 +150,7 @@ const Register = () => {
           ? Object.values(data.errors).flat().join(", ")
           : data.error || "Registration failed";
         setError(errorMessage);
+        msgApi.error(errorMessage);
       } else {
         setFormData({
           firstName: "",
@@ -156,12 +162,14 @@ const Register = () => {
           role: "",
           gender: "",
         });
+        msgApi.success('Registration successful! Redirecting to login...');
         // Navigate to login page after 2 seconds
         setTimeout(() => navigate("/login"), 2000);
       }
     } catch (error) {
       console.error("Registration error:", error);
       setError("Registration failed: Network error");
+      msgApi.error('Registration failed: Network error');
     } finally {
       setIsLoading(false);
     }
@@ -172,6 +180,7 @@ const Register = () => {
         <div className="register-card">
           <div className="register-image-section"></div>
           <div className="register-content">
+            {contextHolder}
             {/* Ant Design message is used instead of inline alerts */}
             <div className="register-header">
               <h2 className="register-title">Create Your Account</h2>

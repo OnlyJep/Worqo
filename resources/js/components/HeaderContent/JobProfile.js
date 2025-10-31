@@ -4,11 +4,13 @@ import axios from 'axios';
 import './../../../sass/components/jobprofile.scss';
 import Headerz from "../HeaderContent/Headerz";
 import Footer from "../FooterContent/footer";
-import profilePhoto from '../../../../resources/sass/img/pfp.svg';
 import coverPhoto from '../../../../resources/sass/img/coverphoto.svg';
 import ApplyJobModal from './ApplyJobModal';
 import { MdDateRange, MdAccessTime } from "react-icons/md";
 import Loader from "../LoaderContent/loader";
+import { getProfileImageUrl } from '../../utils/profileImageUtils';
+
+const defpfp = '/images/defpfp.svg';
 
 const JobProfile = () => {
   const { state } = useLocation();
@@ -77,24 +79,6 @@ const JobProfile = () => {
     }
     
     setIsApplyModalOpen(true);
-  };
-
-  const handleMessageClick = () => {
-    const authToken = localStorage.getItem("auth_token");
-    if (!authToken) {
-      alert('Please login to send messages');
-      window.location.href = '/login';
-      return;
-    }
-    
-    // Store the target user ID in localStorage
-    localStorage.setItem('message_target_user_id', String(job.user_id));
-    // Navigate to messages page
-    window.location.href = '/message';
-  };
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
   };
 
   const handleModalClose = () => {
@@ -187,7 +171,11 @@ const JobProfile = () => {
           <img src={coverPhoto} alt="Cover" />
         </div>
         <div className="job-profile-photo-wrapper">
-          <img src={profilePhoto} alt="Job Logo" className="job-profile-photo" />
+          <img 
+            src={job?.profile?.profile_img ? getProfileImageUrl(job.profile.profile_img, defpfp) : defpfp} 
+            alt="Job Logo" 
+            className="job-profile-photo" 
+          />
         </div>
       </div>
 
@@ -196,17 +184,18 @@ const JobProfile = () => {
           <div className="job-profile-info">
             <h2>{job.job_title}</h2>
             <div className="job-status-container">
-              <span className="job-status-dot"></span>
-              <p className="job-status">{job.archived ? 'Archived' : 'Available Now'}</p>
+              {job.archived && (
+                <>
+                  <span className="job-status-dot"></span>
+                  <p className="job-status">Archived</p>
+                </>
+              )}
             </div>
             <p className="job-location">Posted by: {job.profile?.first_name} {job.profile?.middlename} {job.profile?.last_name} {job.profile?.suffix?.suffix_name}</p>
             <p className="job-member-since">POSTED SINCE: {new Date(job.created_at).toLocaleDateString()}</p>
             <div className="profile-actions">
               <button className="job-apply-button" onClick={handleApplyJob}>
                 Apply Job
-              </button>
-              <button className="message-button" onClick={handleMessageClick}>
-                MESSAGE EMPLOYER
               </button>
             </div>
           </div>

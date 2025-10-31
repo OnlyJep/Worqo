@@ -25,6 +25,7 @@ const MyBookings = () => {
   const [bookingRequests, setBookingRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState(null);
+  const [currentUserId, setCurrentUserId] = useState(null);
 
   const bookingCategories = [
     { id: 'all', label: 'All Bookings' },
@@ -81,6 +82,7 @@ const MyBookings = () => {
     // Get user role from localStorage
     const userData = JSON.parse(localStorage.getItem("user") || '{}');
     setUserRole(userData.role_id);
+    setCurrentUserId(userData.id);
     
     // Test admin endpoint first to see if there are any bookings
     testAdminEndpoint();
@@ -318,10 +320,13 @@ const MyBookings = () => {
   const handleCancelBooking = async (bookingId) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.patch(`http://127.0.0.1:8000/api/bookings/${bookingId}/cancel`, {}, {
+      const response = await axios.put(`http://127.0.0.1:8000/api/bookings/${bookingId}/status`, {
+        status: 'cancelled'
+      }, {
         headers: {
           Authorization: `Bearer ${authToken}`,
-          Accept: "application/json"
+          Accept: "application/json",
+          "Content-Type": "application/json"
         }
       });
 
@@ -333,7 +338,11 @@ const MyBookings = () => {
       }
     } catch (error) {
       console.error("Error cancelling booking:", error.response?.data || error.message);
-      message.error("Failed to cancel booking");
+      if (error?.response?.status === 403) {
+        message.error(error.response.data?.message || "Unauthorized to cancel this booking");
+      } else {
+        message.error(error.response?.data?.message || "Failed to cancel booking");
+      }
     }
   };
 
@@ -364,6 +373,15 @@ const MyBookings = () => {
       console.error("Error updating booking status:", error.response?.data || error.message);
       message.error(`Failed to ${status} booking`);
     }
+  };
+
+  const confirmAndUpdate = (booking, status) => {
+    const name = booking?.worker?.profile
+      ? `${booking.worker.profile.first_name || ''} ${booking.worker.profile.last_name || ''}`.trim()
+      : (booking?.worker?.name || booking?.worker_name || 'this worker');
+    const verb = status === 'accepted' ? 'hire' : status === 'declined' ? 'decline' : status;
+    if (!window.confirm(`Are you sure you want to ${verb} ${name}?`)) return;
+    handleStatusUpdate(booking.id, status);
   };
 
   const handleAcceptRequest = async (requestId) => {
@@ -822,7 +840,7 @@ const MyBookings = () => {
                     {/* Employer Actions */}
                     {isEmployerView && (
                       <>
-                        {booking.status === 'pending' && (
+                        {booking.status === 'pending' && (booking.employer?.id == currentUserId || booking.employer_id == currentUserId) && (
                           <>
                             <button 
                               className="booking-view-transaction-btn"
@@ -925,7 +943,7 @@ const MyBookings = () => {
                                   className="booking-accept-btn"
                                   onClick={(e) => {
                                     e.stopPropagation();
-                                    handleStatusUpdate(booking.id, 'accepted');
+                                    confirmAndUpdate(booking, 'accepted');
                                   }}
                                 >
                                   Accept
@@ -934,7 +952,7 @@ const MyBookings = () => {
                                   className="booking-decline-btn"
                                   onClick={(e) => {
                                     e.stopPropagation();
-                                    handleStatusUpdate(booking.id, 'declined');
+                                    confirmAndUpdate(booking, 'declined');
                                   }}
                                 >
                                   Decline

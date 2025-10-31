@@ -26,7 +26,7 @@ const Profile = ({ initialServiceType }) => {
     const lastActive = new Date(lastActivity);
     const diffInMinutes = Math.floor((now - lastActive) / (1000 * 60));
     
-    if (diffInMinutes < 1) return 'Active now';
+    if (diffInMinutes < 1) return 'Offline';
     if (diffInMinutes < 60) return `Active ${diffInMinutes} minute${diffInMinutes > 1 ? 's' : ''} ago`;
     
     const diffInHours = Math.floor(diffInMinutes / 60);
@@ -41,8 +41,7 @@ const Profile = ({ initialServiceType }) => {
 
   // Function to check if status should be green (only when actually online)
   const isStatusGreen = () => {
-    // Only show green if user is actually online
-    return isUserOnline();
+    return !!worker?.is_online;
   };
   const resolvedWorkerId = (() => {
     // If route param is not a valid id (e.g., 'profile'), fallback to current user id
@@ -284,7 +283,13 @@ const Profile = ({ initialServiceType }) => {
       return;
     }
     
-    // Store the target user ID in localStorage
+    if (!worker || !worker.id) {
+      console.error('Worker data not available');
+      alert('Unable to start message. Please try again.');
+      return;
+    }
+    
+    // Store the target user ID in localStorage (worker.id is the user_id from the API)
     localStorage.setItem('message_target_user_id', String(worker.id));
     // Navigate to messages page
     window.location.href = '/message';
@@ -386,7 +391,7 @@ const Profile = ({ initialServiceType }) => {
           id: workerData.id,
           name: fullName,
           email: workerData.email,
-          status: workerData.last_active_text || (workerData.is_online ? "Online" : "Offline"),
+          status: workerData.is_online ? "Online" : (workerData.last_active_text || "Offline"),
           is_online: workerData.is_online,
           last_active_text: workerData.last_active_text,
           last_activity: workerData.last_activity,
@@ -455,6 +460,44 @@ const Profile = ({ initialServiceType }) => {
       isMounted = false;
     };
   }, [workerId]);
+
+  // Live status refresh (match Message.js behavior)
+  useEffect(() => {
+    if (!worker?.id) return;
+
+    const token = localStorage.getItem('auth_token');
+    const fetchStatus = async () => {
+      try {
+        const stored = JSON.parse(localStorage.getItem('user') || '{}');
+        const userId = stored?.id || stored?.user?.id;
+        const config = token ? {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'X-User-Id': userId,
+          }
+        } : {};
+        const res = await axios.get(`http://127.0.0.1:8000/api/messages/thread/${worker.id}`, {
+          ...config,
+          params: { user_id: userId }
+        });
+        if (res && res.data && res.data.other_user_info) {
+          const info = res.data.other_user_info;
+          setWorker(prev => ({
+            ...(prev || {}),
+            is_online: info.is_online,
+            last_active_text: info.last_active_text,
+            last_activity: info.last_activity || prev?.last_activity,
+          }));
+        }
+      } catch (e) {
+        // silent fail
+      }
+    };
+
+    fetchStatus();
+    const interval = setInterval(fetchStatus, 10000);
+    return () => clearInterval(interval);
+  }, [worker?.id]);
 
   // Fetch collar data on component mount
   useEffect(() => {
@@ -890,7 +933,7 @@ const Profile = ({ initialServiceType }) => {
             <div className="profile-status-container">
               <span className={`profile-status-dot ${isStatusGreen() ? 'online' : 'offline'}`}></span>
               <p className={`profile-status ${isStatusGreen() ? 'online' : 'offline'}`}>
-                {isUserOnline() ? 'Online' : getLastActiveText(worker.last_activity, worker.is_online)}
+                {worker?.is_online ? 'Online' : (worker?.last_active_text || getLastActiveText(worker?.last_activity, false))}
               </p>
             </div>
             <p className="profile-location">{worker.location}</p>
