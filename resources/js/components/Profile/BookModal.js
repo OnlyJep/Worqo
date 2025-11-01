@@ -10,13 +10,12 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
   const [bookingDetails, setBookingDetails] = useState({
     service_type: serviceType || '',
     sub_skill: '',
-    work_type: worker?.work_type || 'part-time',
+    work_type: '', // Employer will choose work type
     book_in: '',
     book_end: '',
-    time_in: '',
-    time_out: '',
+    hours_per_day: '', // Hours per day
     description: '',
-    daily_rate: '', // Changed from salary to daily_rate
+    daily_rate: '', // Rate per day
   });
 
   const [availabilityStatus, setAvailabilityStatus] = useState({
@@ -30,11 +29,10 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
       setBookingDetails({
         service_type: serviceType || '',
         sub_skill: '',
-        work_type: worker?.work_type || 'part-time',
+        work_type: '', // Employer will choose work type
         book_in: '',
         book_end: '',
-        time_in: '',
-        time_out: '',
+        hours_per_day: '', // Hours per day
         description: '',
         daily_rate: '',
       });
@@ -44,7 +42,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
         conflictingJobs: []
       });
     }
-  }, [isOpen, worker, serviceType]);
+  }, [isOpen, serviceType]);
 
   // Check worker availability when booking dates change
   useEffect(() => {
@@ -55,67 +53,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
-    // Auto-populate time_in and time_out when book_in or book_end changes
-    if (name === 'book_in' || name === 'book_end') {
-      setBookingDetails((prev) => {
-        const updated = { ...prev, [name]: value };
-        
-        // Extract time from book_in and book_end
-        if (updated.book_in && updated.book_end) {
-          const startTime = new Date(updated.book_in);
-          const endTime = new Date(updated.book_end);
-          
-          // Get start time (from book_in) and add 1 hour for time_in
-          const startHour = startTime.getHours();
-          const startMinute = startTime.getMinutes();
-          
-          // Time In: Start time + 1 hour
-          let timeInHour = startHour + 1;
-          let timeInMinute = startMinute;
-          
-          // Handle hour overflow for time_in (if > 23)
-          if (timeInHour >= 24) {
-            timeInHour = timeInHour - 24;
-          }
-          
-          // Set default hours per day based on work type
-          let hoursPerDay = 8; // Default
-          switch (updated.work_type) {
-            case 'full-time':
-              hoursPerDay = 8; // 8 hours per day (40 hours/week)
-              break;
-            case 'part-time':
-              hoursPerDay = 6; // 6 hours per day (30 hours/week)
-              break;
-            case 'one-time':
-              hoursPerDay = 8; // 8 hours for one-time jobs
-              break;
-          }
-          
-          // Time Out: Time In + working hours
-          let timeOutHour = timeInHour + hoursPerDay;
-          let timeOutMinute = timeInMinute;
-          
-          // Handle hour overflow for time_out (if > 23)
-          if (timeOutHour >= 24) {
-            timeOutHour = timeOutHour - 24;
-          }
-          
-          // Format times
-          const timeInStr = `${timeInHour.toString().padStart(2, '0')}:${timeInMinute.toString().padStart(2, '0')}`;
-          const timeOutStr = `${timeOutHour.toString().padStart(2, '0')}:${timeOutMinute.toString().padStart(2, '0')}`;
-          
-          // Auto-populate time fields
-          updated.time_in = timeInStr;
-          updated.time_out = timeOutStr;
-        }
-        
-        return updated;
-      });
-    } else {
     setBookingDetails((prev) => ({ ...prev, [name]: value }));
-    }
   };
 
   const calculateDuration = (startDate, endDate) => {
@@ -134,9 +72,6 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
       case 'part-time':
         workingDays = calculateFullTimeWorkingDays(start, end); // Same as full-time but different hours
         break;
-      case 'one-time':
-        workingDays = 1;
-        break;
       default:
         workingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     }
@@ -144,41 +79,18 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     return { hours: diffHours, days: workingDays };
   };
 
-  // Calculate actual working hours based on time in/out
-  const calculateActualHours = () => {
-    const { time_in, time_out } = bookingDetails;
-    
-    if (!time_in || !time_out) {
-      return 0;
-    }
-    
-    const [startHour, startMinute] = time_in.split(':').map(Number);
-    const [endHour, endMinute] = time_out.split(':').map(Number);
-    
-    const startTime = startHour * 60 + startMinute; // Convert to minutes
-    const endTime = endHour * 60 + endMinute; // Convert to minutes
-    
-    let diffMinutes = endTime - startTime;
-    
-    // Handle overnight shifts (if end time is before start time)
-    if (diffMinutes < 0) {
-      diffMinutes += 24 * 60; // Add 24 hours
-    }
-    
-    return diffMinutes / 60; // Convert back to hours
-  };
 
   const calculateSalary = () => {
-    const { book_in, book_end, daily_rate, work_type, time_in, time_out } = bookingDetails;
+    const { book_in, book_end, daily_rate, work_type, hours_per_day } = bookingDetails;
     
-    if (!book_in || !book_end || !daily_rate) {
+    if (!book_in || !book_end || !daily_rate || !hours_per_day) {
       return { 
         dailyRate: 0,
         totalAmount: 0, 
         workingDays: 0, 
         totalHours: 0,
         hourlyRate: 0,
-        explanation: 'Please fill in booking dates and daily rate'
+        explanation: 'Please fill in all required fields'
       };
     }
 
@@ -187,44 +99,29 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     
     // Calculate working days based on work type
     let workingDays = 0;
-    let hoursPerDay = 0;
+    const hoursPerDay = parseFloat(hours_per_day) || 0;
     let totalHours = 0;
     let explanation = '';
 
-    // Calculate actual hours per day if time in/out is provided
-    const actualHoursPerDay = calculateActualHours();
-
     switch (work_type) {
       case 'full-time':
-        // Full-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 8 hours per day
+        // Full-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri)
         workingDays = calculateFullTimeWorkingDays(startDate, endDate);
-        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
         totalHours = workingDays * hoursPerDay;
         const fullTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
         explanation = `Full-time: ${hoursPerDay} hours/day, ${fullTimeDays}. Total: ${workingDays} working days`;
         break;
         
       case 'part-time':
-        // Part-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 6 hours per day
+        // Part-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri)
         workingDays = calculatePreferredWorkingDays(startDate, endDate);
-        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 6; // Use actual hours or default 6
         totalHours = workingDays * hoursPerDay;
         const partTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
-        const weeklyHours = isBlueCollarWorker() ? '36 hours/week' : '30 hours/week';
-        explanation = `Part-time: ${hoursPerDay} hours/day, ${partTimeDays} (${weeklyHours}). Total: ${workingDays} working days`;
-        break;
-        
-      case 'one-time':
-        // One-time: Fixed project payment, hours depend on employer's needs
-        workingDays = 1;
-        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
-        totalHours = hoursPerDay;
-        explanation = `One-time project: ${hoursPerDay} hours (adjustable by employer)`;
+        explanation = `Part-time: ${hoursPerDay} hours/day, ${partTimeDays}. Total: ${workingDays} working days`;
         break;
         
       default:
         workingDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8;
         totalHours = workingDays * hoursPerDay;
         explanation = `Standard calculation: ${workingDays} working days`;
     }
@@ -261,11 +158,8 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     while (currentDate < end) {
       const dayOfWeek = currentDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
       
-      // Determine working days based on work type and collar type
-      if (workType === 'one-time') {
-        // One-time jobs: count all days
-        workingDaysCount++;
-      } else if (isBlueCollarWorker()) {
+      // Determine working days based on collar type
+      if (isBlueCollarWorker()) {
         // Blue-collar workers: work Monday-Saturday (6 days per week)
         if (dayOfWeek >= 1 && dayOfWeek <= 6) { // Monday to Saturday
           workingDaysCount++;
@@ -448,45 +342,23 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
   };
 
   const getSalaryInfo = () => {
-    const workType = bookingDetails.work_type;
-    const isBlueCollar = isBlueCollarWorker();
-    
-    switch (workType) {
-      case 'part-time':
-        const partTimeDays = isBlueCollar ? 'Monday-Saturday' : 'Monday-Friday';
-        const partTimeWeeklyHours = isBlueCollar ? '36 hours/week' : '30 hours/week';
-        return {
-          label: 'Daily Rate (Part-time)',
-          placeholder: 'Enter daily rate amount',
-          description: `6 hours per day, ${partTimeDays} (${partTimeWeeklyHours})`
-        };
-      case 'full-time':
-        const fullTimeDays = isBlueCollar ? 'Monday-Saturday' : 'Monday-Friday';
-        const fullTimeWeeklyHours = isBlueCollar ? '48 hours/week' : '40 hours/week';
-        return {
-          label: 'Daily Rate (Full-time)',
-          placeholder: 'Enter daily rate amount',
-          description: `8 hours per day, ${fullTimeDays} (${fullTimeWeeklyHours})`
-        };
-      case 'one-time':
-        return {
-          label: 'Project Rate (One-time)',
-          placeholder: 'Enter project rate amount',
-          description: 'One-time project payment (or set custom hours below)'
-        };
-      default:
-        return {
-          label: 'Daily Rate',
-          placeholder: 'Enter daily rate amount',
-          description: ''
-        };
-    }
+    return {
+      label: 'Daily Rate',
+      placeholder: 'Enter daily rate',
+      description: ''
+    };
   };
 
   const handleSubmit = () => {
     // Validate required fields before submitting
-    if (!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate) {
+    if (!bookingDetails.service_type || !bookingDetails.work_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.hours_per_day || !bookingDetails.description || !bookingDetails.daily_rate) {
       message.error("Please fill in all required fields");
+      return;
+    }
+
+    // Validate hours per day
+    if (!bookingDetails.hours_per_day || parseFloat(bookingDetails.hours_per_day) <= 0) {
+      message.error("Please enter valid hours per day");
       return;
     }
 
@@ -585,7 +457,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     return options;
   };
 
-  // Get sub-skills for selected service type
+  // Get ALL sub-skills from ALL service types
   const getAvailableSubSkills = () => {
     if (!bookingDetails.service_type) return [];
     
@@ -595,14 +467,20 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     ];
     
     const options = [];
+    const uniqueSubSkills = new Set(); // To avoid duplicates
     
     allSkills.forEach(skill => {
-      if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
+      // Get sub-skills from ALL skills, not just the selected service type
+      if (skill.sub_skills && Array.isArray(skill.sub_skills)) {
         skill.sub_skills.forEach(subSkill => {
-          options.push({
-            value: subSkill,
-            label: subSkill
-          });
+          // Only add if not already in the set (avoid duplicates)
+          if (!uniqueSubSkills.has(subSkill)) {
+            uniqueSubSkills.add(subSkill);
+            options.push({
+              value: subSkill,
+              label: subSkill
+            });
+          }
         });
       }
     });
@@ -655,15 +533,19 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
           )}
           <div className="booking-form-field">
             <label className="booking-form-label" htmlFor="work_type">Work Type</label>
-            <input
-              type="text"
-              id="work_type"
-              name="work_type"
+            <CustomDropdown
+              options={[
+                { value: 'full-time', label: 'Full-time' },
+                { value: 'part-time', label: 'Part-time' }
+              ]}
               value={bookingDetails.work_type}
-              className="booking-form-input booking-form-input-disabled"
-              readOnly
-              disabled
+              onChange={(value) => setBookingDetails(prev => ({ ...prev, work_type: value }))}
+              placeholder="Select work-type"
+              required
             />
+            <small>
+              Choose the employment type for this booking
+            </small>
           </div>
           <div className="booking-form-field">
             <label className="booking-form-label" htmlFor="book_in">Book In</label>
@@ -729,42 +611,6 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
             </div>
           )}
           
-          {/* Time In/Out Fields - Only show when both Book In and Book End are filled */}
-          {bookingDetails.book_in && bookingDetails.book_end && (
-            <>
-              <div className="booking-form-field">
-                <label className="booking-form-label" htmlFor="time_in">Time In</label>
-                <input
-                  type="time"
-                  id="time_in"
-                  name="time_in"
-                  value={bookingDetails.time_in}
-                  onChange={handleChange}
-                  className="booking-form-input"
-                  placeholder="Select start time"
-                />
-                <small>
-                  Auto-populated: Book In time + 1 hour (or set custom time)
-                </small>
-              </div>
-              
-              <div className="booking-form-field">
-                <label className="booking-form-label" htmlFor="time_out">Time Out</label>
-                <input
-                  type="time"
-                  id="time_out"
-                  name="time_out"
-                  value={bookingDetails.time_out}
-                  onChange={handleChange}
-                  className="booking-form-input"
-                  placeholder="Select end time"
-                />
-                <small>
-                  Auto-populated: Time In + working hours (or set custom time)
-                </small>
-              </div>
-            </>
-          )}
           <div className="booking-form-field">
             <label className="booking-form-label" htmlFor="description">Description</label>
             <textarea
@@ -777,6 +623,27 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
               required
             />
           </div>
+          
+          <div className="booking-form-field">
+            <label className="booking-form-label" htmlFor="hours_per_day">Hours per day</label>
+            <input
+              type="number"
+              id="hours_per_day"
+              name="hours_per_day"
+              value={bookingDetails.hours_per_day}
+              onChange={handleChange}
+              className="booking-form-input"
+              placeholder="Enter hours per day (e.g., 8)"
+              min="1"
+              max="24"
+              step="0.5"
+              required
+            />
+            <small>
+              Specify the number of working hours per day
+            </small>
+          </div>
+          
           <div className="booking-form-field">
             <label className="booking-form-label" htmlFor="daily_rate">{getSalaryInfo().label}</label>
             <input
@@ -791,45 +658,32 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
               step="0.01"
               required
             />
-            {getSalaryInfo().description && (
-              <small>
-                {getSalaryInfo().description}
-              </small>
-            )}
           </div>
-          
-          {/* Salary Calculation Preview */}
-          {bookingDetails.daily_rate && bookingDetails.book_in && bookingDetails.book_end && (
-            <div className="booking-form-field">
-              <label className="booking-form-label">Salary Calculation Preview</label>
-              <div className="salary-calculation-preview">
-                <div className="calculation-row">
-                  <span className="calculation-label">Daily Rate:</span>
-                  <span className="calculation-value">₱{calculateSalary().dailyRate}</span>
-                </div>
-                <div className="calculation-row">
-                  <span className="calculation-label">Hours Per Day:</span>
-                  <span className="calculation-value">{calculateSalary().hoursPerDay} hours</span>
-                </div>
-                <div className="calculation-row">
-                  <span className="calculation-label">Working Days:</span>
-                  <span className="calculation-value">{calculateSalary().workingDays} days</span>
-                </div>
-                <div className="calculation-row">
-                  <span className="calculation-label">Total Hours:</span>
-                  <span className="calculation-value">{calculateSalary().totalHours} hours</span>
-                </div>
-                <div className="calculation-row">
-                  <span className="calculation-label">Hourly Rate:</span>
-                  <span className="calculation-value">₱{calculateSalary().hourlyRate}/hour</span>
-                </div>
-                <div className="calculation-row total-row">
-                  <span className="calculation-label">Total Salary:</span>
-                  <span className="calculation-value">₱{calculateSalary().totalAmount}</span>
-                </div>
-            <div>
-                  <small>{calculateSalary().explanation}</small>
-                </div>
+
+          {/* Salary Calculation Display */}
+          {bookingDetails.daily_rate && bookingDetails.hours_per_day && bookingDetails.book_in && bookingDetails.book_end && bookingDetails.work_type && (
+            <div className="salary-calculation-section">
+              <h3 className="salary-calculation-title">Salary Calculation</h3>
+              <div className="salary-calculation-details">
+                {(() => {
+                  const salaryInfo = calculateSalary();
+                  return (
+                    <>
+                      <div className="salary-row">
+                        <span className="salary-label">Hourly Rate:</span>
+                        <span className="salary-value">₱{parseFloat(salaryInfo.hourlyRate).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}/hour</span>
+                      </div>
+                      <div className="salary-row">
+                        <span className="salary-label">Total Hours:</span>
+                        <span className="salary-value">{salaryInfo.totalHours} hours</span>
+                      </div>
+                      <div className="salary-row">
+                        <span className="salary-label">Overall Salary:</span>
+                        <span className="salary-value">₱{salaryInfo.totalAmount.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                      </div>
+                    </>
+                  );
+                })()}
               </div>
             </div>
           )}
@@ -841,7 +695,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
           <button
             className="booking-btn booking-btn-submit"
             onClick={handleSubmit}
-            disabled={!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in) || !availabilityStatus.isAvailable}
+            disabled={!bookingDetails.service_type || !bookingDetails.work_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.hours_per_day || !bookingDetails.description || !bookingDetails.daily_rate || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in) || !availabilityStatus.isAvailable}
           >
             Submit Hiring Request
           </button>

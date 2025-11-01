@@ -26,7 +26,28 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
     conflictingJobs: []
   });
 
+  // Load all active skills from backend for service type dropdown
+  const [allSkills, setAllSkills] = useState([]);
+  const [skillsLoaded, setSkillsLoaded] = useState(false);
+
   useEffect(() => {
+    if (isOpen) {
+      // Fetch all service types/skills from API
+      const loadSkills = async () => {
+        try {
+          const resp = await axios.get('http://127.0.0.1:8000/api/skills');
+          const skills = Array.isArray(resp.data) ? resp.data : [];
+          setAllSkills(skills);
+        } catch (e) {
+          console.error('Failed to load skills:', e);
+          setAllSkills([]);
+        } finally {
+          setSkillsLoaded(true);
+        }
+      };
+      loadSkills();
+    }
+
     if (isOpen && booking) {
       // Debug logging for booking data
       console.log('=== EDIT BOOKING INITIALIZATION DEBUG ===');
@@ -103,28 +124,18 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
     }
   }, [isOpen, booking]);
 
-  // Ensure service type is properly set when worker data is available
+  // Ensure service type is valid against loaded skills
   useEffect(() => {
-    if (worker) {
-      console.log('=== WORKER DATA AVAILABLE - CHECKING SERVICE TYPES ===');
-      console.log('Worker:', worker);
-      console.log('Available service types:', getAvailableServiceTypes());
-      
-      if (bookingDetails.service_type && getAvailableServiceTypes().length > 0) {
-        console.log('=== SERVICE TYPE VALIDATION ===');
-        console.log('Current service type:', bookingDetails.service_type);
-        console.log('Available service types:', getAvailableServiceTypes());
-        
-        const availableTypes = getAvailableServiceTypes();
+    if (skillsLoaded) {
+      const availableTypes = getAvailableServiceTypes();
+      if (bookingDetails.service_type && availableTypes.length > 0) {
         const isServiceTypeValid = availableTypes.some(option => option.value === bookingDetails.service_type);
-        
         if (!isServiceTypeValid) {
-          console.log('Service type not found in available options, resetting...');
           setBookingDetails(prev => ({ ...prev, service_type: '', sub_skill: '' }));
         }
       }
     }
-  }, [worker, bookingDetails.service_type]);
+  }, [skillsLoaded, allSkills, bookingDetails.service_type]);
 
   // Check worker availability when booking dates change
   useEffect(() => {
@@ -609,85 +620,21 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
     onSubmit(validatedDetails);
   };
 
-  // Get available service types (main skills only) - same as BookModal.js
+  // Get available service types (from skills API)
   const getAvailableServiceTypes = () => {
-    console.log('=== GET AVAILABLE SERVICE TYPES CALLED ===');
-    console.log('Worker object:', worker);
-    console.log('Worker primary_skills:', worker?.primary_skills);
-    console.log('Worker additional_skills:', worker?.additional_skills);
-    
-    if (!worker?.primary_skills && !worker?.additional_skills) {
-      console.log('No skills found in worker data');
-      return [];
-    }
-    
-    const allSkills = [
-      ...(worker.primary_skills || []),
-      ...(worker.additional_skills || [])
-    ];
-    
-    console.log('All skills combined:', allSkills);
-    
-    // Create options array for CustomDropdown with unique main skills
-    const skillNames = new Set();
-    const options = [];
-    
-    allSkills.forEach(skill => {
-      console.log('Processing skill:', skill);
-      const mainSkill = skill.skill_name;
-      console.log('Skill name:', mainSkill);
-      if (!skillNames.has(mainSkill)) {
-        skillNames.add(mainSkill);
-        options.push({
-          value: mainSkill,
-          label: mainSkill
-        });
-        console.log('Added skill to options:', mainSkill);
-      }
-    });
-    
-    console.log('Available Service Types:', options);
-    console.log('Current Booking Service Type:', bookingDetails.service_type);
-    
+    const options = (allSkills || []).map((skill) => ({
+      value: skill.name,
+      label: skill.name
+    }));
     return options;
   };
 
-  // Get sub-skills for selected service type - same as BookModal.js
+  // Get sub-skills for selected service type (from skills API)
   const getAvailableSubSkills = () => {
-    console.log('=== GET AVAILABLE SUB-SKILLS CALLED ===');
-    console.log('Selected service type:', bookingDetails.service_type);
-    console.log('Worker object:', worker);
-    
-    if (!bookingDetails.service_type) {
-      console.log('No service type selected');
-      return [];
-    }
-    
-    const allSkills = [
-      ...(worker.primary_skills || []),
-      ...(worker.additional_skills || [])
-    ];
-    
-    console.log('All skills for sub-skill lookup:', allSkills);
-    
-    const options = [];
-    
-    allSkills.forEach(skill => {
-      console.log('Checking skill:', skill.skill_name, 'against:', bookingDetails.service_type);
-      if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
-        console.log('Found matching skill with sub-skills:', skill.sub_skills);
-        skill.sub_skills.forEach(subSkill => {
-          options.push({
-            value: subSkill,
-            label: subSkill
-          });
-          console.log('Added sub-skill:', subSkill);
-        });
-      }
-    });
-    
-    console.log('Available Sub-Skills:', options);
-    return options;
+    if (!bookingDetails.service_type) return [];
+    const skill = (allSkills || []).find(s => s.name === bookingDetails.service_type);
+    const subs = Array.isArray(skill?.sub_skills) ? skill.sub_skills : [];
+    return subs.map(ss => ({ value: ss, label: ss }));
   };
 
   // Date validation: Ensure book_end is not before book_in

@@ -20,7 +20,8 @@
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
-  overflow-y: auto;
+  // Allow dropdown menus to render above without being clipped
+  overflow: visible;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
@@ -218,7 +219,8 @@
 // CustomDropdown specific styles
 .booking-form-field {
   position: relative;
-  z-index: 1;
+  // Avoid creating an unnecessary stacking context so dropdowns can overlay siblings
+  z-index: auto;
   
   // Ensure dropdown has proper z-index
   .custom-dropdown {
@@ -255,7 +257,8 @@
       border: 1px solid #d1d5db;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      z-index: 99999 !important;
+      // Ensure menu is always on top of other contents
+      z-index: 2147483647 !important;
       max-height: 200px;
       overflow-y: auto;
       

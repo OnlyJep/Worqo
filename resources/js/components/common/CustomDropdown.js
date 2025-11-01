@@ -13,8 +13,22 @@ const CustomDropdown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0, width: 0 });
   const dropdownRef = useRef(null);
   const searchInputRef = useRef(null);
+  const triggerRef = useRef(null);
+
+  // Calculate dropdown menu position when opening
+  useEffect(() => {
+    if (isOpen && triggerRef.current) {
+      const rect = triggerRef.current.getBoundingClientRect();
+      setMenuPosition({
+        top: rect.bottom + 2, // 2px margin
+        left: rect.left,
+        width: rect.width
+      });
+    }
+  }, [isOpen]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -29,6 +43,30 @@ const CustomDropdown = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+  
+  // Recalculate position on scroll or resize
+  useEffect(() => {
+    if (!isOpen) return;
+    
+    const updatePosition = () => {
+      if (triggerRef.current) {
+        const rect = triggerRef.current.getBoundingClientRect();
+        setMenuPosition({
+          top: rect.bottom + 2,
+          left: rect.left,
+          width: rect.width
+        });
+      }
+    };
+    
+    window.addEventListener('scroll', updatePosition, true);
+    window.addEventListener('resize', updatePosition);
+    
+    return () => {
+      window.removeEventListener('scroll', updatePosition, true);
+      window.removeEventListener('resize', updatePosition);
+    };
+  }, [isOpen]);
 
   const handleToggle = (e) => {
     e.preventDefault();
@@ -76,6 +114,7 @@ const CustomDropdown = ({
   return (
     <div className={`custom-dropdown ${className} ${isOpen ? 'dropdown-open' : ''}`} ref={dropdownRef}>
       <div 
+        ref={triggerRef}
         className={`dropdown-trigger ${disabled ? 'disabled' : ''}`}
         onClick={handleToggle}
         tabIndex={disabled ? -1 : 0}
@@ -96,7 +135,14 @@ const CustomDropdown = ({
         </span>
       </div>
       {isOpen && !disabled && (
-        <div className="dropdown-menu">
+        <div 
+          className="dropdown-menu"
+          style={{
+            top: `${menuPosition.top}px`,
+            left: `${menuPosition.left}px`,
+            width: `${menuPosition.width}px`
+          }}
+        >
           {searchable && (
             <div className="dropdown-search-container">
               <input

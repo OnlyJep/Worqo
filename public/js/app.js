@@ -71126,7 +71126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9998;\n  overflow: auto;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown {\n  position: relative;\n  z-index: 9999;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger {\n  position: relative;\n  z-index: 10000 !important;\n  background: #f9fafb;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  padding: 8px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 99999 !important;\n  max-height: 200px;\n  overflow-y: auto;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  cursor: pointer;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  color: #0b0d0f;\n  border-bottom: 1px solid #f3f4f6;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 2px solid #0a2a40;\n  margin-top: 8px;\n  padding-top: 8px;\n  font-weight: 600;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation {\n  margin-top: 12px;\n  padding-top: 8px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: #ffffff;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #062541;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #6b7280;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f7f9fc;\n  color: #0b0d0f;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n.booking-modal-container .availability-warning {\n  background: #fef2f2;\n  border: 1px solid #e1ec68;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.booking-modal-container .availability-warning .warning-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 8px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n}\n.booking-modal-container .availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.booking-modal-container .availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}\n.booking-modal-container .rs-message-body {\n  text-align: left !important;\n  margin-top: 8px;\n  font-size: 14px;\n}\n@media (max-width: 600px) {\n  .booking-modal-container .booking-modal-container {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .booking-modal-container .booking-modal-title {\n    font-size: 20px;\n  }\n  .booking-modal-container .booking-modal-form-content {\n    gap: 10px;\n  }\n  .booking-modal-container .booking-form-field {\n    gap: 4px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-input,\n  .booking-modal-container .booking-form-field .booking-form-select,\n  .booking-modal-container .booking-form-field .booking-form-textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .booking-modal-container .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .booking-modal-container .booking-modal-actions .booking-btn {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9998;\n  overflow: auto;\n}\n.booking-modal-overlay .dropdown-menu {\n  z-index: 9999999 !important;\n}\n.booking-modal-overlay .dropdown-options-list {\n  z-index: 9999998 !important;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  position: relative;\n  z-index: 9999;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  position: relative;\n  isolation: auto;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown {\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown.dropdown-open {\n  z-index: 999999 !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger {\n  position: relative;\n  background: #f9fafb;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  padding: 8px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n  pointer-events: auto;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu {\n  position: fixed !important;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);\n  z-index: 9999999 !important;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 2px;\n  min-width: 200px;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-search-container {\n  position: sticky;\n  top: 0;\n  z-index: 10000000 !important;\n  background: #f9fafb;\n  pointer-events: auto;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-options-list {\n  position: relative;\n  z-index: 9999998 !important;\n  background: #ffffff;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  cursor: pointer;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  color: #0b0d0f;\n  border-bottom: 1px solid #f3f4f6;\n  position: relative;\n  z-index: 9999997 !important;\n  background: #ffffff;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item.selected {\n  background: #e6f2ef;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 2px solid #0a2a40;\n  margin-top: 8px;\n  padding-top: 8px;\n  font-weight: 600;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation {\n  margin-top: 12px;\n  padding-top: 8px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .salary-calculation-section {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 16px;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #6b7280;\n  margin: 0 0 16px 0;\n  font-family: \"Inter\", sans-serif;\n  text-align: left;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row .salary-label {\n  color: #6b7280;\n  font-size: 14px;\n  font-weight: 400;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row .salary-value {\n  color: #374151;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: #ffffff;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #062541;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #6b7280;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f7f9fc;\n  color: #0b0d0f;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n.booking-modal-container .availability-warning {\n  background: #fef2f2;\n  border: 1px solid #e1ec68;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.booking-modal-container .availability-warning .warning-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 8px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n}\n.booking-modal-container .availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.booking-modal-container .availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}\n.booking-modal-container .rs-message-body {\n  text-align: left !important;\n  margin-top: 8px;\n  font-size: 14px;\n}\n@media (max-width: 600px) {\n  .booking-modal-container .booking-modal-container {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .booking-modal-container .booking-modal-title {\n    font-size: 20px;\n  }\n  .booking-modal-container .booking-modal-form-content {\n    gap: 10px;\n  }\n  .booking-modal-container .booking-form-field {\n    gap: 4px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-input,\n  .booking-modal-container .booking-form-field .booking-form-select,\n  .booking-modal-container .booking-form-field .booking-form-textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .booking-modal-container .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .booking-modal-container .booking-modal-actions .booking-btn {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72478,7 +72478,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9998;\n  padding: 20px;\n}\n\n.booking-modal-container {\n  background: white;\n  border-radius: 12px;\n  padding: 32px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  overflow-y: auto;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n}\n\n.booking-modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 24px 0;\n  text-align: center;\n}\n\n.booking-modal-form-content {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 32px;\n}\n\n.booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.booking-form-field .booking-form-input,\n.booking-form-field .booking-form-textarea {\n  position: relative;\n  z-index: 1;\n}\n\n.booking-form-label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0;\n}\n\n.booking-form-input {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  transition: border-color 0.2s ease;\n}\n.booking-form-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-input.booking-form-input-disabled {\n  background: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.booking-form-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-input::placeholder {\n  color: #9ca3af;\n}\n\n.booking-form-textarea {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  min-height: 100px;\n  resize: vertical;\n  font-family: inherit;\n  transition: border-color 0.2s ease;\n}\n.booking-form-textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-textarea::placeholder {\n  color: #9ca3af;\n}\n\n.availability-warning {\n  background: #fef3cd;\n  border: 1px solid #fde68a;\n  border-radius: 8px;\n  padding: 16px;\n  margin: 8px 0;\n}\n.availability-warning .warning-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 12px;\n}\n.availability-warning .warning-header .rs-message-body {\n  color: #92400e;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.4;\n}\n\n.salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  font-size: 14px;\n}\n.salary-calculation-preview .calculation-row.total-row {\n  border-top: 1px solid #e2e8f0;\n  padding-top: 8px;\n  margin-top: 8px;\n  font-weight: 600;\n  font-size: 16px;\n}\n.salary-calculation-preview .calculation-row .calculation-label {\n  color: #64748b;\n  font-weight: 500;\n}\n.salary-calculation-preview .calculation-row .calculation-value {\n  color: #1e293b;\n  font-weight: 600;\n}\n.salary-calculation-preview small {\n  color: #64748b;\n  font-size: 12px;\n  margin-top: 8px;\n  display: block;\n}\n\n.booking-modal-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  padding-top: 24px;\n  border-top: 1px solid #e5e7eb;\n}\n\n.booking-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-btn.booking-btn-cancel {\n  background: #f3f4f6;\n  color: #374151;\n  border: 2px solid #e5e7eb;\n}\n.booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #d1d5db;\n}\n.booking-btn.booking-btn-submit {\n  background: #3b82f6;\n  color: white;\n}\n.booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #2563eb;\n}\n.booking-btn.booking-btn-submit:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n}\n\n.booking-form-field {\n  position: relative;\n  z-index: 1;\n}\n.booking-form-field .custom-dropdown {\n  position: relative;\n  z-index: 9999;\n}\n.booking-form-field .custom-dropdown .dropdown-trigger {\n  position: relative;\n  z-index: 10000 !important;\n  background: #f9fafb;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  padding: 8px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-form-field .custom-dropdown .dropdown-trigger:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-form-field .custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 99999 !important;\n  max-height: 200px;\n  overflow-y: auto;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  cursor: pointer;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  color: #0b0d0f;\n  border-bottom: 1px solid #f3f4f6;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n\n@media (max-width: 768px) {\n  .booking-modal-overlay {\n    padding: 10px;\n  }\n  .booking-modal-container {\n    padding: 24px;\n    max-height: 95vh;\n  }\n  .booking-modal-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n  .booking-modal-form-content {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-form-input,\n  .booking-form-textarea {\n    padding: 10px 12px;\n    font-size: 12px;\n  }\n  .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n    padding-top: 20px;\n  }\n  .booking-btn {\n    padding: 10px 20px;\n    font-size: 12px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9998;\n  padding: 20px;\n}\n\n.booking-modal-container {\n  background: white;\n  border-radius: 12px;\n  padding: 32px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  overflow: visible;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n}\n\n.booking-modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0 0 24px 0;\n  text-align: center;\n}\n\n.booking-modal-form-content {\n  display: flex;\n  flex-direction: column;\n  gap: 20px;\n  margin-bottom: 32px;\n}\n\n.booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.booking-form-field .booking-form-input,\n.booking-form-field .booking-form-textarea {\n  position: relative;\n  z-index: 1;\n}\n\n.booking-form-label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0;\n}\n\n.booking-form-input {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  transition: border-color 0.2s ease;\n}\n.booking-form-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-input.booking-form-input-disabled {\n  background: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.booking-form-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-input::placeholder {\n  color: #9ca3af;\n}\n\n.booking-form-textarea {\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  color: #374151;\n  background: white;\n  min-height: 100px;\n  resize: vertical;\n  font-family: inherit;\n  transition: border-color 0.2s ease;\n}\n.booking-form-textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.booking-form-textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.booking-form-textarea::placeholder {\n  color: #9ca3af;\n}\n\n.availability-warning {\n  background: #fef3cd;\n  border: 1px solid #fde68a;\n  border-radius: 8px;\n  padding: 16px;\n  margin: 8px 0;\n}\n.availability-warning .warning-header {\n  display: flex;\n  align-items: flex-start;\n  gap: 12px;\n}\n.availability-warning .warning-header .rs-message-body {\n  color: #92400e;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.4;\n}\n\n.salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  font-size: 14px;\n}\n.salary-calculation-preview .calculation-row.total-row {\n  border-top: 1px solid #e2e8f0;\n  padding-top: 8px;\n  margin-top: 8px;\n  font-weight: 600;\n  font-size: 16px;\n}\n.salary-calculation-preview .calculation-row .calculation-label {\n  color: #64748b;\n  font-weight: 500;\n}\n.salary-calculation-preview .calculation-row .calculation-value {\n  color: #1e293b;\n  font-weight: 600;\n}\n.salary-calculation-preview small {\n  color: #64748b;\n  font-size: 12px;\n  margin-top: 8px;\n  display: block;\n}\n\n.booking-modal-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  padding-top: 24px;\n  border-top: 1px solid #e5e7eb;\n}\n\n.booking-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-btn.booking-btn-cancel {\n  background: #f3f4f6;\n  color: #374151;\n  border: 2px solid #e5e7eb;\n}\n.booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #d1d5db;\n}\n.booking-btn.booking-btn-submit {\n  background: #3b82f6;\n  color: white;\n}\n.booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #2563eb;\n}\n.booking-btn.booking-btn-submit:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n}\n\n.booking-form-field {\n  position: relative;\n  z-index: auto;\n}\n.booking-form-field .custom-dropdown {\n  position: relative;\n  z-index: 9999;\n}\n.booking-form-field .custom-dropdown .dropdown-trigger {\n  position: relative;\n  z-index: 10000 !important;\n  background: #f9fafb;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  padding: 8px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-form-field .custom-dropdown .dropdown-trigger:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-form-field .custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 2147483647 !important;\n  max-height: 200px;\n  overflow-y: auto;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  cursor: pointer;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  color: #0b0d0f;\n  border-bottom: 1px solid #f3f4f6;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n}\n.booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n\n@media (max-width: 768px) {\n  .booking-modal-overlay {\n    padding: 10px;\n  }\n  .booking-modal-container {\n    padding: 24px;\n    max-height: 95vh;\n  }\n  .booking-modal-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n  .booking-modal-form-content {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-form-input,\n  .booking-form-textarea {\n    padding: 10px 12px;\n    font-size: 12px;\n  }\n  .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n    padding-top: 20px;\n  }\n  .booking-btn {\n    padding: 10px 20px;\n    font-size: 12px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72670,7 +72670,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  position: relative;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled {\n  background-color: #f3f4f6;\n  color: #9ca3af;\n  cursor: not-allowed;\n  opacity: 0.7;\n  border-color: #e5e7eb;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::-moz-placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group #teamSize {\n  width: 752px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.sub-skills-multi-select {\n  position: relative;\n  width: 100%;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.sub-skills-multi-select .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  transition: all 0.2s ease;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option span {\n  font-size: 14px;\n  color: #374151;\n  font-weight: 500;\n}\n\n.experience-levels-container {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-top: 12px;\n}\n.experience-levels-container .experience-level-item {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item:hover {\n  background-color: #f1f5f9;\n  border-color: #3b82f6;\n}\n.experience-levels-container .experience-level-item .sub-skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n  min-width: 120px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown {\n  flex: 1;\n  max-width: 200px;\n  position: relative;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  color: #374151;\n  font-size: 14px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n\n.selected-skills-preview {\n  border: 1px solid #bae6fd;\n  margin-top: 20px;\n  padding: 20px;\n  border-radius: 8px;\n}\n.selected-skills-preview h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.selected-skills-preview h4::before {\n  content: \"✅\";\n  font-size: 18px;\n}\n.selected-skills-preview .skill-with-experience {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  margin: 4px;\n  padding: 8px 12px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  transition: all 0.2s ease;\n}\n.selected-skills-preview .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n.selected-skills-preview .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, black, #1d4ed8);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.selected-skills-preview .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #10b981, #059669);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 11px;\n  font-weight: 600;\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}\n.skills-modal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 20px;\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  background: #f8f9fa;\n}\n.skills-modal .adminmodal-buttons button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 120px;\n  font-family: \"Inter\", sans-serif;\n}\n.skills-modal .adminmodal-buttons button:first-child {\n  background: #ffffff;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .adminmodal-buttons button:first-child:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  transform: translateY(-1px);\n}\n.skills-modal .adminmodal-buttons button:last-child {\n  background: #1A2A44;\n  color: #ffffff;\n  border-color: #1A2A44;\n}\n.skills-modal .adminmodal-buttons button:last-child:hover {\n  background: #0f1419;\n  border-color: #0f1419;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);\n}\n.skills-modal .custom-input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .custom-input-group input {\n  flex: 1;\n}\n.skills-modal .custom-input-group .back-to-select-btn {\n  background-color: #001E40;\n  color: white;\n  border: 1px solid #001E40;\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  align-self: flex-start;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-width: 140px;\n  justify-content: center;\n}\n.skills-modal .custom-input-group .back-to-select-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-input-group .back-to-select-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .dropdown-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 2;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-options-list {\n  max-height: 180px;\n  overflow-y: auto;\n}\n.skills-modal .dropdown-no-results {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}\n.skills-modal .custom-sub-skill-input {\n  padding: 12px;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field {\n  width: 100%;\n  padding: 10px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:hover {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:active {\n  background-color: #f3f4f6;\n  border-color: #6b7280;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.modal-overlay .dropdown-menu {\n  z-index: 99999999 !important;\n}\n.modal-overlay .dropdown-options-list {\n  z-index: 99999998 !important;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  position: relative;\n  z-index: 10000;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .custom-dropdown {\n  z-index: 1;\n}\n.modal-post-job .custom-dropdown.dropdown-open {\n  z-index: 999999 !important;\n}\n.modal-post-job .dropdown-trigger {\n  pointer-events: auto;\n  z-index: 1;\n}\n.modal-post-job .dropdown-menu {\n  position: fixed !important;\n  z-index: 99999999 !important;\n  pointer-events: auto !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);\n}\n.modal-post-job .dropdown-search-container {\n  z-index: 100000000 !important;\n  pointer-events: auto;\n}\n.modal-post-job .dropdown-options-list {\n  z-index: 99999998 !important;\n  pointer-events: auto !important;\n}\n.modal-post-job .dropdown-item {\n  z-index: 99999997 !important;\n  pointer-events: auto !important;\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n  isolation: auto;\n  position: relative;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled {\n  background-color: #f3f4f6;\n  color: #9ca3af;\n  cursor: not-allowed;\n  opacity: 0.7;\n  border-color: #e5e7eb;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::-moz-placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group #teamSize {\n  width: 752px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.sub-skills-multi-select {\n  position: relative;\n  width: 100%;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.sub-skills-multi-select .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  transition: all 0.2s ease;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option span {\n  font-size: 14px;\n  color: #374151;\n  font-weight: 500;\n}\n\n.experience-levels-container {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-top: 12px;\n}\n.experience-levels-container .experience-level-item {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item:hover {\n  background-color: #f1f5f9;\n  border-color: #3b82f6;\n}\n.experience-levels-container .experience-level-item .sub-skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n  min-width: 120px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown {\n  flex: 1;\n  max-width: 200px;\n  position: relative;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  color: #374151;\n  font-size: 14px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n\n.selected-skills-preview {\n  border: 1px solid #bae6fd;\n  margin-top: 20px;\n  padding: 20px;\n  border-radius: 8px;\n}\n.selected-skills-preview h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.selected-skills-preview h4::before {\n  content: \"✅\";\n  font-size: 18px;\n}\n.selected-skills-preview .skill-with-experience {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  margin: 4px;\n  padding: 8px 12px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  transition: all 0.2s ease;\n}\n.selected-skills-preview .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n.selected-skills-preview .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, black, #1d4ed8);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.selected-skills-preview .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #10b981, #059669);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 11px;\n  font-weight: 600;\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}\n.skills-modal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 20px;\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  background: #f8f9fa;\n}\n.skills-modal .adminmodal-buttons button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 120px;\n  font-family: \"Inter\", sans-serif;\n}\n.skills-modal .adminmodal-buttons button:first-child {\n  background: #ffffff;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .adminmodal-buttons button:first-child:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  transform: translateY(-1px);\n}\n.skills-modal .adminmodal-buttons button:last-child {\n  background: #1A2A44;\n  color: #ffffff;\n  border-color: #1A2A44;\n}\n.skills-modal .adminmodal-buttons button:last-child:hover {\n  background: #0f1419;\n  border-color: #0f1419;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);\n}\n.skills-modal .custom-input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .custom-input-group input {\n  flex: 1;\n}\n.skills-modal .custom-input-group .back-to-select-btn {\n  background-color: #001E40;\n  color: white;\n  border: 1px solid #001E40;\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  align-self: flex-start;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-width: 140px;\n  justify-content: center;\n}\n.skills-modal .custom-input-group .back-to-select-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-input-group .back-to-select-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .dropdown-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 2;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-options-list {\n  max-height: 180px;\n  overflow-y: auto;\n}\n.skills-modal .dropdown-no-results {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}\n.skills-modal .custom-sub-skill-input {\n  padding: 12px;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field {\n  width: 100%;\n  padding: 10px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:hover {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:active {\n  background-color: #f3f4f6;\n  border-color: #6b7280;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -208152,13 +208152,14 @@ var BookModal = function BookModal(_ref) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       service_type: serviceType || '',
       sub_skill: '',
-      work_type: (worker === null || worker === void 0 ? void 0 : worker.work_type) || 'part-time',
+      work_type: '',
+      // Employer will choose work type
       book_in: '',
       book_end: '',
-      time_in: '',
-      time_out: '',
+      hours_per_day: '',
+      // Hours per day
       description: '',
-      daily_rate: '' // Changed from salary to daily_rate
+      daily_rate: '' // Rate per day
     }),
     _useState2 = _slicedToArray(_useState, 2),
     bookingDetails = _useState2[0],
@@ -208176,11 +208177,12 @@ var BookModal = function BookModal(_ref) {
       setBookingDetails({
         service_type: serviceType || '',
         sub_skill: '',
-        work_type: (worker === null || worker === void 0 ? void 0 : worker.work_type) || 'part-time',
+        work_type: '',
+        // Employer will choose work type
         book_in: '',
         book_end: '',
-        time_in: '',
-        time_out: '',
+        hours_per_day: '',
+        // Hours per day
         description: '',
         daily_rate: ''
       });
@@ -208190,7 +208192,7 @@ var BookModal = function BookModal(_ref) {
         conflictingJobs: []
       });
     }
-  }, [isOpen, worker, serviceType]);
+  }, [isOpen, serviceType]);
 
   // Check worker availability when booking dates change
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -208202,68 +208204,9 @@ var BookModal = function BookModal(_ref) {
     var _e$target = e.target,
       name = _e$target.name,
       value = _e$target.value;
-
-    // Auto-populate time_in and time_out when book_in or book_end changes
-    if (name === 'book_in' || name === 'book_end') {
-      setBookingDetails(function (prev) {
-        var updated = _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
-
-        // Extract time from book_in and book_end
-        if (updated.book_in && updated.book_end) {
-          var startTime = new Date(updated.book_in);
-          var endTime = new Date(updated.book_end);
-
-          // Get start time (from book_in) and add 1 hour for time_in
-          var startHour = startTime.getHours();
-          var startMinute = startTime.getMinutes();
-
-          // Time In: Start time + 1 hour
-          var timeInHour = startHour + 1;
-          var timeInMinute = startMinute;
-
-          // Handle hour overflow for time_in (if > 23)
-          if (timeInHour >= 24) {
-            timeInHour = timeInHour - 24;
-          }
-
-          // Set default hours per day based on work type
-          var hoursPerDay = 8; // Default
-          switch (updated.work_type) {
-            case 'full-time':
-              hoursPerDay = 8; // 8 hours per day (40 hours/week)
-              break;
-            case 'part-time':
-              hoursPerDay = 6; // 6 hours per day (30 hours/week)
-              break;
-            case 'one-time':
-              hoursPerDay = 8; // 8 hours for one-time jobs
-              break;
-          }
-
-          // Time Out: Time In + working hours
-          var timeOutHour = timeInHour + hoursPerDay;
-          var timeOutMinute = timeInMinute;
-
-          // Handle hour overflow for time_out (if > 23)
-          if (timeOutHour >= 24) {
-            timeOutHour = timeOutHour - 24;
-          }
-
-          // Format times
-          var timeInStr = "".concat(timeInHour.toString().padStart(2, '0'), ":").concat(timeInMinute.toString().padStart(2, '0'));
-          var timeOutStr = "".concat(timeOutHour.toString().padStart(2, '0'), ":").concat(timeOutMinute.toString().padStart(2, '0'));
-
-          // Auto-populate time fields
-          updated.time_in = timeInStr;
-          updated.time_out = timeOutStr;
-        }
-        return updated;
-      });
-    } else {
-      setBookingDetails(function (prev) {
-        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
-      });
-    }
+    setBookingDetails(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, name, value));
+    });
   };
   var calculateDuration = function calculateDuration(startDate, endDate) {
     if (!startDate || !endDate) return {
@@ -208284,9 +208227,6 @@ var BookModal = function BookModal(_ref) {
       case 'part-time':
         workingDays = calculateFullTimeWorkingDays(start, end); // Same as full-time but different hours
         break;
-      case 'one-time':
-        workingDays = 1;
-        break;
       default:
         workingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     }
@@ -208295,48 +208235,20 @@ var BookModal = function BookModal(_ref) {
       days: workingDays
     };
   };
-
-  // Calculate actual working hours based on time in/out
-  var calculateActualHours = function calculateActualHours() {
-    var time_in = bookingDetails.time_in,
-      time_out = bookingDetails.time_out;
-    if (!time_in || !time_out) {
-      return 0;
-    }
-    var _time_in$split$map = time_in.split(':').map(Number),
-      _time_in$split$map2 = _slicedToArray(_time_in$split$map, 2),
-      startHour = _time_in$split$map2[0],
-      startMinute = _time_in$split$map2[1];
-    var _time_out$split$map = time_out.split(':').map(Number),
-      _time_out$split$map2 = _slicedToArray(_time_out$split$map, 2),
-      endHour = _time_out$split$map2[0],
-      endMinute = _time_out$split$map2[1];
-    var startTime = startHour * 60 + startMinute; // Convert to minutes
-    var endTime = endHour * 60 + endMinute; // Convert to minutes
-
-    var diffMinutes = endTime - startTime;
-
-    // Handle overnight shifts (if end time is before start time)
-    if (diffMinutes < 0) {
-      diffMinutes += 24 * 60; // Add 24 hours
-    }
-    return diffMinutes / 60; // Convert back to hours
-  };
   var calculateSalary = function calculateSalary() {
     var book_in = bookingDetails.book_in,
       book_end = bookingDetails.book_end,
       daily_rate = bookingDetails.daily_rate,
       work_type = bookingDetails.work_type,
-      time_in = bookingDetails.time_in,
-      time_out = bookingDetails.time_out;
-    if (!book_in || !book_end || !daily_rate) {
+      hours_per_day = bookingDetails.hours_per_day;
+    if (!book_in || !book_end || !daily_rate || !hours_per_day) {
       return {
         dailyRate: 0,
         totalAmount: 0,
         workingDays: 0,
         totalHours: 0,
         hourlyRate: 0,
-        explanation: 'Please fill in booking dates and daily rate'
+        explanation: 'Please fill in all required fields'
       };
     }
     var startDate = new Date(book_in);
@@ -208344,40 +208256,26 @@ var BookModal = function BookModal(_ref) {
 
     // Calculate working days based on work type
     var workingDays = 0;
-    var hoursPerDay = 0;
+    var hoursPerDay = parseFloat(hours_per_day) || 0;
     var totalHours = 0;
     var explanation = '';
-
-    // Calculate actual hours per day if time in/out is provided
-    var actualHoursPerDay = calculateActualHours();
     switch (work_type) {
       case 'full-time':
-        // Full-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 8 hours per day
+        // Full-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri)
         workingDays = calculateFullTimeWorkingDays(startDate, endDate);
-        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
         totalHours = workingDays * hoursPerDay;
         var fullTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
         explanation = "Full-time: ".concat(hoursPerDay, " hours/day, ").concat(fullTimeDays, ". Total: ").concat(workingDays, " working days");
         break;
       case 'part-time':
-        // Part-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri), 6 hours per day
+        // Part-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri)
         workingDays = calculatePreferredWorkingDays(startDate, endDate);
-        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 6; // Use actual hours or default 6
         totalHours = workingDays * hoursPerDay;
         var partTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
-        var weeklyHours = isBlueCollarWorker() ? '36 hours/week' : '30 hours/week';
-        explanation = "Part-time: ".concat(hoursPerDay, " hours/day, ").concat(partTimeDays, " (").concat(weeklyHours, "). Total: ").concat(workingDays, " working days");
-        break;
-      case 'one-time':
-        // One-time: Fixed project payment, hours depend on employer's needs
-        workingDays = 1;
-        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8; // Use actual hours or default 8
-        totalHours = hoursPerDay;
-        explanation = "One-time project: ".concat(hoursPerDay, " hours (adjustable by employer)");
+        explanation = "Part-time: ".concat(hoursPerDay, " hours/day, ").concat(partTimeDays, ". Total: ").concat(workingDays, " working days");
         break;
       default:
         workingDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-        hoursPerDay = actualHoursPerDay > 0 ? actualHoursPerDay : 8;
         totalHours = workingDays * hoursPerDay;
         explanation = "Standard calculation: ".concat(workingDays, " working days");
     }
@@ -208410,11 +208308,8 @@ var BookModal = function BookModal(_ref) {
     while (currentDate < end) {
       var dayOfWeek = currentDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
 
-      // Determine working days based on work type and collar type
-      if (workType === 'one-time') {
-        // One-time jobs: count all days
-        workingDaysCount++;
-      } else if (isBlueCollarWorker()) {
+      // Determine working days based on collar type
+      if (isBlueCollarWorker()) {
         // Blue-collar workers: work Monday-Saturday (6 days per week)
         if (dayOfWeek >= 1 && dayOfWeek <= 6) {
           // Monday to Saturday
@@ -208594,43 +208489,22 @@ var BookModal = function BookModal(_ref) {
     };
   }();
   var getSalaryInfo = function getSalaryInfo() {
-    var workType = bookingDetails.work_type;
-    var isBlueCollar = isBlueCollarWorker();
-    switch (workType) {
-      case 'part-time':
-        var partTimeDays = isBlueCollar ? 'Monday-Saturday' : 'Monday-Friday';
-        var partTimeWeeklyHours = isBlueCollar ? '36 hours/week' : '30 hours/week';
-        return {
-          label: 'Daily Rate (Part-time)',
-          placeholder: 'Enter daily rate amount',
-          description: "6 hours per day, ".concat(partTimeDays, " (").concat(partTimeWeeklyHours, ")")
-        };
-      case 'full-time':
-        var fullTimeDays = isBlueCollar ? 'Monday-Saturday' : 'Monday-Friday';
-        var fullTimeWeeklyHours = isBlueCollar ? '48 hours/week' : '40 hours/week';
-        return {
-          label: 'Daily Rate (Full-time)',
-          placeholder: 'Enter daily rate amount',
-          description: "8 hours per day, ".concat(fullTimeDays, " (").concat(fullTimeWeeklyHours, ")")
-        };
-      case 'one-time':
-        return {
-          label: 'Project Rate (One-time)',
-          placeholder: 'Enter project rate amount',
-          description: 'One-time project payment (or set custom hours below)'
-        };
-      default:
-        return {
-          label: 'Daily Rate',
-          placeholder: 'Enter daily rate amount',
-          description: ''
-        };
-    }
+    return {
+      label: 'Daily Rate',
+      placeholder: 'Enter daily rate',
+      description: ''
+    };
   };
   var handleSubmit = function handleSubmit() {
     // Validate required fields before submitting
-    if (!bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate) {
+    if (!bookingDetails.service_type || !bookingDetails.work_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.hours_per_day || !bookingDetails.description || !bookingDetails.daily_rate) {
       antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please fill in all required fields");
+      return;
+    }
+
+    // Validate hours per day
+    if (!bookingDetails.hours_per_day || parseFloat(bookingDetails.hours_per_day) <= 0) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Please enter valid hours per day");
       return;
     }
 
@@ -208720,18 +208594,25 @@ var BookModal = function BookModal(_ref) {
     return options;
   };
 
-  // Get sub-skills for selected service type
+  // Get ALL sub-skills from ALL service types
   var getAvailableSubSkills = function getAvailableSubSkills() {
     if (!bookingDetails.service_type) return [];
     var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
     var options = [];
+    var uniqueSubSkills = new Set(); // To avoid duplicates
+
     allSkills.forEach(function (skill) {
-      if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
+      // Get sub-skills from ALL skills, not just the selected service type
+      if (skill.sub_skills && Array.isArray(skill.sub_skills)) {
         skill.sub_skills.forEach(function (subSkill) {
-          options.push({
-            value: subSkill,
-            label: subSkill
-          });
+          // Only add if not already in the set (avoid duplicates)
+          if (!uniqueSubSkills.has(subSkill)) {
+            uniqueSubSkills.add(subSkill);
+            options.push({
+              value: subSkill,
+              label: subSkill
+            });
+          }
         });
       }
     });
@@ -208798,14 +208679,26 @@ var BookModal = function BookModal(_ref) {
             className: "booking-form-label",
             htmlFor: "work_type",
             children: "Work Type"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-            type: "text",
-            id: "work_type",
-            name: "work_type",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            options: [{
+              value: 'full-time',
+              label: 'Full-time'
+            }, {
+              value: 'part-time',
+              label: 'Part-time'
+            }],
             value: bookingDetails.work_type,
-            className: "booking-form-input booking-form-input-disabled",
-            readOnly: true,
-            disabled: true
+            onChange: function onChange(value) {
+              return setBookingDetails(function (prev) {
+                return _objectSpread(_objectSpread({}, prev), {}, {
+                  work_type: value
+                });
+              });
+            },
+            placeholder: "Select work-type",
+            required: true
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
+            children: "Choose the employment type for this booking"
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
@@ -208878,42 +208771,6 @@ var BookModal = function BookModal(_ref) {
               })]
             })]
           })
-        }), bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "booking-form-field",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-              className: "booking-form-label",
-              htmlFor: "time_in",
-              children: "Time In"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-              type: "time",
-              id: "time_in",
-              name: "time_in",
-              value: bookingDetails.time_in,
-              onChange: handleChange,
-              className: "booking-form-input",
-              placeholder: "Select start time"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
-              children: "Auto-populated: Book In time + 1 hour (or set custom time)"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "booking-form-field",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-              className: "booking-form-label",
-              htmlFor: "time_out",
-              children: "Time Out"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-              type: "time",
-              id: "time_out",
-              name: "time_out",
-              value: bookingDetails.time_out,
-              onChange: handleChange,
-              className: "booking-form-input",
-              placeholder: "Select end time"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
-              children: "Auto-populated: Time In + working hours (or set custom time)"
-            })]
-          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
@@ -208933,6 +208790,27 @@ var BookModal = function BookModal(_ref) {
           className: "booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "booking-form-label",
+            htmlFor: "hours_per_day",
+            children: "Hours per day"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+            type: "number",
+            id: "hours_per_day",
+            name: "hours_per_day",
+            value: bookingDetails.hours_per_day,
+            onChange: handleChange,
+            className: "booking-form-input",
+            placeholder: "Enter hours per day (e.g., 8)",
+            min: "1",
+            max: "24",
+            step: "0.5",
+            required: true
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
+            children: "Specify the number of working hours per day"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "booking-form-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+            className: "booking-form-label",
             htmlFor: "daily_rate",
             children: getSalaryInfo().label
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
@@ -208946,75 +208824,53 @@ var BookModal = function BookModal(_ref) {
             min: "0",
             step: "0.01",
             required: true
-          }), getSalaryInfo().description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
-            children: getSalaryInfo().description
           })]
-        }), bookingDetails.daily_rate && bookingDetails.book_in && bookingDetails.book_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "booking-form-field",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-            className: "booking-form-label",
-            children: "Salary Calculation Preview"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "salary-calculation-preview",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "calculation-label",
-                children: "Daily Rate:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                className: "calculation-value",
-                children: ["\u20B1", calculateSalary().dailyRate]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "calculation-label",
-                children: "Hours Per Day:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                className: "calculation-value",
-                children: [calculateSalary().hoursPerDay, " hours"]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "calculation-label",
-                children: "Working Days:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                className: "calculation-value",
-                children: [calculateSalary().workingDays, " days"]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "calculation-label",
-                children: "Total Hours:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                className: "calculation-value",
-                children: [calculateSalary().totalHours, " hours"]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "calculation-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "calculation-label",
-                children: "Hourly Rate:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                className: "calculation-value",
-                children: ["\u20B1", calculateSalary().hourlyRate, "/hour"]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "calculation-row total-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-                className: "calculation-label",
-                children: "Total Salary:"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
-                className: "calculation-value",
-                children: ["\u20B1", calculateSalary().totalAmount]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
-                children: calculateSalary().explanation
-              })
-            })]
+        }), bookingDetails.daily_rate && bookingDetails.hours_per_day && bookingDetails.book_in && bookingDetails.book_end && bookingDetails.work_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "salary-calculation-section",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+            className: "salary-calculation-title",
+            children: "Salary Calculation"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "salary-calculation-details",
+            children: function () {
+              var salaryInfo = calculateSalary();
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "salary-row",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "salary-label",
+                    children: "Hourly Rate:"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                    className: "salary-value",
+                    children: ["\u20B1", parseFloat(salaryInfo.hourlyRate).toLocaleString('en-PH', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2
+                    }), "/hour"]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "salary-row",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "salary-label",
+                    children: "Total Hours:"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                    className: "salary-value",
+                    children: [salaryInfo.totalHours, " hours"]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "salary-row",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "salary-label",
+                    children: "Overall Salary:"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+                    className: "salary-value",
+                    children: ["\u20B1", salaryInfo.totalAmount.toLocaleString('en-PH', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2
+                    })]
+                  })]
+                })]
+              });
+            }()
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -209026,7 +208882,7 @@ var BookModal = function BookModal(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
           className: "booking-btn booking-btn-submit",
           onClick: handleSubmit,
-          disabled: !bookingDetails.service_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.description || !bookingDetails.daily_rate || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in) || !availabilityStatus.isAvailable,
+          disabled: !bookingDetails.service_type || !bookingDetails.work_type || !bookingDetails.book_in || !bookingDetails.book_end || !bookingDetails.hours_per_day || !bookingDetails.description || !bookingDetails.daily_rate || !isValidEndDate(bookingDetails.book_end) || !validateBookInTime(bookingDetails.book_in) || !availabilityStatus.isAvailable,
           children: "Submit Hiring Request"
         })]
       })]
@@ -211323,7 +211179,6 @@ var Browse = function Browse() {
 
   // Filter states
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      employmentType: 'Any',
       minHours: 0,
       maxHours: 24,
       minSalary: 0,
@@ -211887,7 +211742,6 @@ var Browse = function Browse() {
       skills: allSkills,
       experience: "Experience varies",
       profile_img: profile.profile_img,
-      work_type: worker.work_type,
       hours_per_day: worker.hours_per_day,
       verified: worker.verified === true || worker.verified === 1,
       rank: worker.rank || null,
@@ -211941,16 +211795,13 @@ var Browse = function Browse() {
       // Search term filter
       var matchesSearch = searchTerm === '' || worker.name.toLowerCase().includes(searchTerm.toLowerCase());
 
-      // Employment type filter (more lenient)
-      var matchesEmploymentType = filters.employmentType === 'Any' || worker.work_type && worker.work_type.toLowerCase().includes(filters.employmentType.toLowerCase());
-
       // Hours per day filter (more lenient - allow workers with no hours specified)
       var workerHours = worker.hours_per_day || 4;
       var matchesHours = workerHours >= filters.minHours && workerHours <= filters.maxHours;
 
       // Salary range filter (more lenient)
       var matchesSalary = worker.hourlyRate >= filters.minSalary && worker.hourlyRate <= filters.maxSalary;
-      var matches = matchesSearch && matchesEmploymentType && matchesHours && matchesSalary;
+      var matches = matchesSearch && matchesHours && matchesSalary;
       return matches;
     });
 
@@ -212068,29 +211919,6 @@ var Browse = function Browse() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h4", {
             className: "filters-title",
             children: "ACTIVE SKILL FILTERS"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-            className: "filter-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-              children: "EMPLOYMENT TYPE"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("select", {
-              value: filters.employmentType,
-              onChange: function onChange(e) {
-                return handleFilterChange('employmentType', e.target.value);
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                value: "Any",
-                children: "Any"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                value: "full-time",
-                children: "Full-time"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                value: "part-time",
-                children: "Part-time"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                value: "one-time",
-                children: "One-time job"
-              })]
-            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "filter-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
@@ -212244,10 +212072,10 @@ var Browse = function Browse() {
                       className: "info-block",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
                         className: "label",
-                        children: "LOOKING FOR"
+                        children: "RATE"
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
                         className: "value",
-                        children: [worker.work_type || 'Part-time', " work", worker.hours_per_day ? " (".concat(worker.hours_per_day, " hours/day)") : ' (4 hours/day)', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("br", {}), "at \u20B1", worker.hourlyRate, "/hour", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("br", {}), "(\u20B1", Math.round(worker.hourlyRate * (worker.hours_per_day || 4) * 30), "/month)"]
+                        children: ["\u20B1", worker.hourlyRate, "/hour", worker.hours_per_day ? " (".concat(worker.hours_per_day, " hours/day)") : ' (4 hours/day)', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("br", {}), "(\u20B1", Math.round(worker.hourlyRate * (worker.hours_per_day || 4) * 30), "/month)"]
                       })]
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
@@ -241228,8 +241056,30 @@ var CustomDropdown = function CustomDropdown(_ref) {
     _useState4 = _slicedToArray(_useState3, 2),
     searchTerm = _useState4[0],
     setSearchTerm = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      top: 0,
+      left: 0,
+      width: 0
+    }),
+    _useState6 = _slicedToArray(_useState5, 2),
+    menuPosition = _useState6[0],
+    setMenuPosition = _useState6[1];
   var dropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var searchInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var triggerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  // Calculate dropdown menu position when opening
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (isOpen && triggerRef.current) {
+      var rect = triggerRef.current.getBoundingClientRect();
+      setMenuPosition({
+        top: rect.bottom + 2,
+        // 2px margin
+        left: rect.left,
+        width: rect.width
+      });
+    }
+  }, [isOpen]);
 
   // Close dropdown when clicking outside
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -241243,6 +241093,27 @@ var CustomDropdown = function CustomDropdown(_ref) {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // Recalculate position on scroll or resize
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (!isOpen) return;
+    var updatePosition = function updatePosition() {
+      if (triggerRef.current) {
+        var rect = triggerRef.current.getBoundingClientRect();
+        setMenuPosition({
+          top: rect.bottom + 2,
+          left: rect.left,
+          width: rect.width
+        });
+      }
+    };
+    window.addEventListener('scroll', updatePosition, true);
+    window.addEventListener('resize', updatePosition);
+    return function () {
+      window.removeEventListener('scroll', updatePosition, true);
+      window.removeEventListener('resize', updatePosition);
+    };
+  }, [isOpen]);
   var handleToggle = function handleToggle(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -241289,6 +241160,7 @@ var CustomDropdown = function CustomDropdown(_ref) {
     className: "custom-dropdown ".concat(className, " ").concat(isOpen ? 'dropdown-open' : ''),
     ref: dropdownRef,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      ref: triggerRef,
       className: "dropdown-trigger ".concat(disabled ? 'disabled' : ''),
       onClick: handleToggle,
       tabIndex: disabled ? -1 : 0,
@@ -241311,6 +241183,11 @@ var CustomDropdown = function CustomDropdown(_ref) {
       })]
     }), isOpen && !disabled && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "dropdown-menu",
+      style: {
+        top: "".concat(menuPosition.top, "px"),
+        left: "".concat(menuPosition.left, "px"),
+        width: "".concat(menuPosition.width, "px")
+      },
       children: [searchable && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "dropdown-search-container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
@@ -242574,11 +242451,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_components_profilesettings_EditMyBooking_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/EditMyBooking.scss */ "./resources/sass/components/profilesettings/EditMyBooking.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -242588,6 +242461,10 @@ function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t =
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -242633,7 +242510,54 @@ var EditMyBooking = function EditMyBooking(_ref) {
     _useState6 = _slicedToArray(_useState5, 2),
     availabilityStatus = _useState6[0],
     setAvailabilityStatus = _useState6[1];
+
+  // Load all active skills from backend for service type dropdown
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState8 = _slicedToArray(_useState7, 2),
+    allSkills = _useState8[0],
+    setAllSkills = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState0 = _slicedToArray(_useState9, 2),
+    skillsLoaded = _useState0[0],
+    setSkillsLoaded = _useState0[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (isOpen) {
+      // Fetch all service types/skills from API
+      var loadSkills = /*#__PURE__*/function () {
+        var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+          var resp, skills, _t;
+          return _regenerator().w(function (_context) {
+            while (1) switch (_context.p = _context.n) {
+              case 0:
+                _context.p = 0;
+                _context.n = 1;
+                return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/skills');
+              case 1:
+                resp = _context.v;
+                skills = Array.isArray(resp.data) ? resp.data : [];
+                setAllSkills(skills);
+                _context.n = 3;
+                break;
+              case 2:
+                _context.p = 2;
+                _t = _context.v;
+                console.error('Failed to load skills:', _t);
+                setAllSkills([]);
+              case 3:
+                _context.p = 3;
+                setSkillsLoaded(true);
+                return _context.f(3);
+              case 4:
+                return _context.a(2);
+            }
+          }, _callee, null, [[0, 2, 3, 4]]);
+        }));
+        return function loadSkills() {
+          return _ref2.apply(this, arguments);
+        };
+      }();
+      loadSkills();
+    }
     if (isOpen && booking) {
       var _booking$worker, _booking$worker2, _booking$worker3, _booking$worker4, _booking$worker5, _booking$worker6, _booking$worker7, _booking$worker8, _booking$worker9, _booking$worker0, _booking$worker1, _booking$worker10, _booking$worker11, _booking$worker12, _booking$worker13, _booking$worker14, _booking$worker15, _booking$worker16, _booking$worker17, _booking$worker18, _booking$worker19, _booking$worker20, _booking$worker21, _booking$worker22, _booking$worker23;
       // Debug logging for booking data
@@ -242699,22 +242623,15 @@ var EditMyBooking = function EditMyBooking(_ref) {
     }
   }, [isOpen, booking]);
 
-  // Ensure service type is properly set when worker data is available
+  // Ensure service type is valid against loaded skills
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (worker) {
-      console.log('=== WORKER DATA AVAILABLE - CHECKING SERVICE TYPES ===');
-      console.log('Worker:', worker);
-      console.log('Available service types:', getAvailableServiceTypes());
-      if (bookingDetails.service_type && getAvailableServiceTypes().length > 0) {
-        console.log('=== SERVICE TYPE VALIDATION ===');
-        console.log('Current service type:', bookingDetails.service_type);
-        console.log('Available service types:', getAvailableServiceTypes());
-        var availableTypes = getAvailableServiceTypes();
+    if (skillsLoaded) {
+      var availableTypes = getAvailableServiceTypes();
+      if (bookingDetails.service_type && availableTypes.length > 0) {
         var isServiceTypeValid = availableTypes.some(function (option) {
           return option.value === bookingDetails.service_type;
         });
         if (!isServiceTypeValid) {
-          console.log('Service type not found in available options, resetting...');
           setBookingDetails(function (prev) {
             return _objectSpread(_objectSpread({}, prev), {}, {
               service_type: '',
@@ -242724,7 +242641,7 @@ var EditMyBooking = function EditMyBooking(_ref) {
         }
       }
     }
-  }, [worker, bookingDetails.service_type]);
+  }, [skillsLoaded, allSkills, bookingDetails.service_type]);
 
   // Check worker availability when booking dates change
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -242994,15 +242911,15 @@ var EditMyBooking = function EditMyBooking(_ref) {
 
   // Check worker availability for the selected dates
   var checkWorkerAvailability = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var _jobPostsResponse$dat, book_in, book_end, response, acceptedJobs, jobPostsResponse, jobPosts, requestedStart, requestedEnd, conflictingJobs, _iterator, _step, _job$job_post, _job$job_post2, job, jobStart, jobEnd, _job$job_post$profile, _job$job_post$profile2, _iterator2, _step2, jobPost, _jobStart, _jobEnd, _jobPost$profile, _jobPost$profile2, hiredCount, scheduledCount, conflictMessage, _t;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.p = _context.n) {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var _jobPostsResponse$dat, book_in, book_end, response, acceptedJobs, jobPostsResponse, jobPosts, requestedStart, requestedEnd, conflictingJobs, _iterator, _step, _job$job_post, _job$job_post2, job, jobStart, jobEnd, _job$job_post$profile, _job$job_post$profile2, _iterator2, _step2, jobPost, _jobStart, _jobEnd, _jobPost$profile, _jobPost$profile2, hiredCount, scheduledCount, conflictMessage, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
           case 0:
-            _context.p = 0;
+            _context2.p = 0;
             book_in = bookingDetails.book_in, book_end = bookingDetails.book_end;
             if (!(!book_in || !book_end || !(worker !== null && worker !== void 0 && worker.id))) {
-              _context.n = 1;
+              _context2.n = 1;
               break;
             }
             setAvailabilityStatus({
@@ -243010,17 +242927,17 @@ var EditMyBooking = function EditMyBooking(_ref) {
               conflictMessage: '',
               conflictingJobs: []
             });
-            return _context.a(2);
+            return _context2.a(2);
           case 1:
-            _context.n = 2;
+            _context2.n = 2;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/job-applications/worker/".concat(worker.id, "?status=accepted"));
           case 2:
-            response = _context.v;
+            response = _context2.v;
             acceptedJobs = response.data || []; // Also get all job posts with work schedules to check for conflicts
-            _context.n = 3;
+            _context2.n = 3;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/jobposts?worker_id=".concat(worker.id, "&include_work_schedule=true"));
           case 3:
-            jobPostsResponse = _context.v;
+            jobPostsResponse = _context2.v;
             jobPosts = ((_jobPostsResponse$dat = jobPostsResponse.data) === null || _jobPostsResponse$dat === void 0 || (_jobPostsResponse$dat = _jobPostsResponse$dat.job_posts) === null || _jobPostsResponse$dat === void 0 ? void 0 : _jobPostsResponse$dat.data) || []; // Check for date conflicts
             requestedStart = new Date(book_in);
             requestedEnd = new Date(book_end);
@@ -243100,12 +243017,12 @@ var EditMyBooking = function EditMyBooking(_ref) {
                 conflictingJobs: []
               });
             }
-            _context.n = 5;
+            _context2.n = 5;
             break;
           case 4:
-            _context.p = 4;
-            _t = _context.v;
-            console.error('Error checking worker availability:', _t);
+            _context2.p = 4;
+            _t2 = _context2.v;
+            console.error('Error checking worker availability:', _t2);
             // On error, assume worker is available to avoid blocking legitimate bookings
             setAvailabilityStatus({
               isAvailable: true,
@@ -243113,12 +243030,12 @@ var EditMyBooking = function EditMyBooking(_ref) {
               conflictingJobs: []
             });
           case 5:
-            return _context.a(2);
+            return _context2.a(2);
         }
-      }, _callee, null, [[0, 4]]);
+      }, _callee2, null, [[0, 4]]);
     }));
     return function checkWorkerAvailability() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
   var getSalaryInfo = function getSalaryInfo() {
@@ -243202,67 +243119,30 @@ var EditMyBooking = function EditMyBooking(_ref) {
     onSubmit(validatedDetails);
   };
 
-  // Get available service types (main skills only) - same as BookModal.js
+  // Get available service types (from skills API)
   var getAvailableServiceTypes = function getAvailableServiceTypes() {
-    console.log('=== GET AVAILABLE SERVICE TYPES CALLED ===');
-    console.log('Worker object:', worker);
-    console.log('Worker primary_skills:', worker === null || worker === void 0 ? void 0 : worker.primary_skills);
-    console.log('Worker additional_skills:', worker === null || worker === void 0 ? void 0 : worker.additional_skills);
-    if (!(worker !== null && worker !== void 0 && worker.primary_skills) && !(worker !== null && worker !== void 0 && worker.additional_skills)) {
-      console.log('No skills found in worker data');
-      return [];
-    }
-    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
-    console.log('All skills combined:', allSkills);
-
-    // Create options array for CustomDropdown with unique main skills
-    var skillNames = new Set();
-    var options = [];
-    allSkills.forEach(function (skill) {
-      console.log('Processing skill:', skill);
-      var mainSkill = skill.skill_name;
-      console.log('Skill name:', mainSkill);
-      if (!skillNames.has(mainSkill)) {
-        skillNames.add(mainSkill);
-        options.push({
-          value: mainSkill,
-          label: mainSkill
-        });
-        console.log('Added skill to options:', mainSkill);
-      }
+    var options = (allSkills || []).map(function (skill) {
+      return {
+        value: skill.name,
+        label: skill.name
+      };
     });
-    console.log('Available Service Types:', options);
-    console.log('Current Booking Service Type:', bookingDetails.service_type);
     return options;
   };
 
-  // Get sub-skills for selected service type - same as BookModal.js
+  // Get sub-skills for selected service type (from skills API)
   var getAvailableSubSkills = function getAvailableSubSkills() {
-    console.log('=== GET AVAILABLE SUB-SKILLS CALLED ===');
-    console.log('Selected service type:', bookingDetails.service_type);
-    console.log('Worker object:', worker);
-    if (!bookingDetails.service_type) {
-      console.log('No service type selected');
-      return [];
-    }
-    var allSkills = [].concat(_toConsumableArray(worker.primary_skills || []), _toConsumableArray(worker.additional_skills || []));
-    console.log('All skills for sub-skill lookup:', allSkills);
-    var options = [];
-    allSkills.forEach(function (skill) {
-      console.log('Checking skill:', skill.skill_name, 'against:', bookingDetails.service_type);
-      if (skill.skill_name === bookingDetails.service_type && skill.sub_skills && Array.isArray(skill.sub_skills)) {
-        console.log('Found matching skill with sub-skills:', skill.sub_skills);
-        skill.sub_skills.forEach(function (subSkill) {
-          options.push({
-            value: subSkill,
-            label: subSkill
-          });
-          console.log('Added sub-skill:', subSkill);
-        });
-      }
+    if (!bookingDetails.service_type) return [];
+    var skill = (allSkills || []).find(function (s) {
+      return s.name === bookingDetails.service_type;
     });
-    console.log('Available Sub-Skills:', options);
-    return options;
+    var subs = Array.isArray(skill === null || skill === void 0 ? void 0 : skill.sub_skills) ? skill.sub_skills : [];
+    return subs.map(function (ss) {
+      return {
+        value: ss,
+        label: ss
+      };
+    });
   };
 
   // Date validation: Ensure book_end is not before book_in
@@ -246486,7 +246366,6 @@ var ModalPostJob = function ModalPostJob(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-                htmlFor: "jobTitle",
                 children: "Job Title"
               }), !isJobTitleOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 options: jobTitleOptions,
@@ -246557,7 +246436,6 @@ var ModalPostJob = function ModalPostJob(_ref) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                 className: "form-group",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
-                  htmlFor: "salaryType",
                   children: "Salary Type"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   options: salaryTypeOptions,
@@ -246709,7 +246587,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   var value = e.target.value;
                   setSubSkillSearchTerm(value);
                 },
-                placeholder: "Type desiredsub-skills...",
+                placeholder: "Type desired sub-skills...",
                 className: "full-width-input",
                 autoComplete: "off"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("datalist", {

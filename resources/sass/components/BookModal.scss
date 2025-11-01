@@ -10,6 +10,15 @@
   align-items: center;
   z-index: 9998;
   overflow: auto;
+  
+  // Ensure dropdowns in this modal always appear on top
+  .dropdown-menu {
+    z-index: 9999999 !important;
+  }
+  
+  .dropdown-options-list {
+    z-index: 9999998 !important;
+  }
 }
 
 .booking-modal-container {
@@ -23,6 +32,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
+  z-index: 9999;
 
   .booking-modal-title {
     margin: 0 0 16px;
@@ -46,7 +57,8 @@
       flex-direction: column;
       gap: 6px;
       position: relative;
-      z-index: 1;
+      // No z-index here to avoid creating stacking context that traps dropdowns
+      isolation: auto; // Ensure no isolation context is created
       
       // Ensure form inputs have lower z-index than dropdowns
       .booking-form-input,
@@ -102,11 +114,15 @@
       // Custom Dropdown Styles
       .custom-dropdown {
         position: relative;
-        z-index: 9999;
+        z-index: 1; // Base z-index for closed dropdowns
+        
+        // When dropdown is open, increase z-index to appear above everything
+        &.dropdown-open {
+          z-index: 999999 !important;
+        }
         
         .dropdown-trigger {
           position: relative;
-          z-index: 10000 !important;
           background: #f9fafb;
           border: 1px solid #d1d5db;
           border-radius: 8px;
@@ -117,6 +133,8 @@
           font-family: 'Inter', sans-serif;
           cursor: pointer;
           transition: border-color 0.2s ease, box-shadow 0.2s ease;
+          pointer-events: auto;
+          z-index: 1;
           
           &:focus {
             border-color: #0a2a40;
@@ -126,17 +144,34 @@
         }
         
         .dropdown-menu {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
+          position: fixed !important; // Fixed position to break out of overflow container
+          // Note: position will be set via JS based on trigger element position
           background: #ffffff;
           border: 1px solid #d1d5db;
           border-radius: 8px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          z-index: 99999 !important;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+          z-index: 9999999 !important; // Extremely high z-index
           max-height: 200px;
           overflow-y: auto;
+          margin-top: 2px;
+          min-width: 200px; // Ensure minimum width
+          pointer-events: auto !important; // Ensure dropdown is always clickable
+          
+          .dropdown-search-container {
+            position: sticky;
+            top: 0;
+            z-index: 10000000 !important;
+            background: #f9fafb;
+            pointer-events: auto;
+          }
+          
+          // Ensure dropdown-options-list (sub-skills) is also on top
+          .dropdown-options-list {
+            position: relative;
+            z-index: 9999998 !important;
+            background: #ffffff;
+            pointer-events: auto !important; // Ensure list is always clickable
+          }
           
           .dropdown-item {
             padding: 8px 12px;
@@ -145,9 +180,17 @@
             font-family: 'Inter', sans-serif;
             color: #0b0d0f;
             border-bottom: 1px solid #f3f4f6;
+            position: relative;
+            z-index: 9999997 !important;
+            background: #ffffff;
+            pointer-events: auto !important; // Ensure each item is clickable
             
             &:hover {
               background: #f8fafc;
+            }
+            
+            &.selected {
+              background: #e6f2ef;
             }
             
             &:last-child {
@@ -208,6 +251,50 @@
             font-style: italic;
             font-family: 'Inter', sans-serif;
           }
+        }
+      }
+    }
+  }
+
+  // Salary Calculation Section (Outside form-content for full width display)
+  .salary-calculation-section {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 16px;
+
+    .salary-calculation-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #6b7280;
+      margin: 0 0 16px 0;
+      font-family: 'Inter', sans-serif;
+      text-align: left;
+    }
+
+    .salary-calculation-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .salary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+
+        .salary-label {
+          color: #6b7280;
+          font-size: 14px;
+          font-weight: 400;
+          font-family: 'Inter', sans-serif;
+        }
+
+        .salary-value {
+          color: #374151;
+          font-size: 14px;
+          font-weight: 600;
+          font-family: 'Inter', sans-serif;
         }
       }
     }

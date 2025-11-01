@@ -42,7 +42,6 @@ const Browse = () => {
 
   // Filter states
   const [filters, setFilters] = useState({
-    employmentType: 'Any',
     minHours: 0,
     maxHours: 24,
     minSalary: 0,
@@ -457,7 +456,6 @@ const Browse = () => {
       skills: allSkills,
       experience: "Experience varies",
       profile_img: profile.profile_img,
-      work_type: worker.work_type,
       hours_per_day: worker.hours_per_day,
       verified: worker.verified === true || worker.verified === 1,
       rank: worker.rank || null,
@@ -504,10 +502,6 @@ const Browse = () => {
       // Search term filter
       const matchesSearch = searchTerm === '' || worker.name.toLowerCase().includes(searchTerm.toLowerCase());
       
-      // Employment type filter (more lenient)
-      const matchesEmploymentType = filters.employmentType === 'Any' || 
-        (worker.work_type && worker.work_type.toLowerCase().includes(filters.employmentType.toLowerCase()));
-      
       // Hours per day filter (more lenient - allow workers with no hours specified)
       const workerHours = worker.hours_per_day || 4;
       const matchesHours = workerHours >= filters.minHours && workerHours <= filters.maxHours;
@@ -515,7 +509,7 @@ const Browse = () => {
       // Salary range filter (more lenient)
       const matchesSalary = worker.hourlyRate >= filters.minSalary && worker.hourlyRate <= filters.maxSalary;
       
-      const matches = matchesSearch && matchesEmploymentType && matchesHours && matchesSalary;
+      const matches = matchesSearch && matchesHours && matchesSalary;
       
       return matches;
     });
@@ -624,18 +618,6 @@ const Browse = () => {
         <div className="content-layout">
           <aside className="filters-sidebar">
             <h4 className="filters-title">ACTIVE SKILL FILTERS</h4>
-            <div className="filter-group">
-              <label>EMPLOYMENT TYPE</label>
-              <select 
-                value={filters.employmentType} 
-                onChange={(e) => handleFilterChange('employmentType', e.target.value)}
-              >
-                <option value="Any">Any</option>
-                <option value="full-time">Full-time</option>
-                <option value="part-time">Part-time</option>
-                <option value="one-time">One-time job</option>
-              </select>
-            </div>
             <div className="filter-group">
               <label>AVAILABILITY (HOURS PER DAY)</label>
               <div className="range">
@@ -772,11 +754,10 @@ const Browse = () => {
                     )}
                     <div className="info-row">
                       <div className="info-block">
-                        <div className="label">LOOKING FOR</div>
+                        <div className="label">RATE</div>
                         <div className="value">
-                          {worker.work_type || 'Part-time'} work 
+                          ₱{worker.hourlyRate}/hour
                           {worker.hours_per_day ? ` (${worker.hours_per_day} hours/day)` : ' (4 hours/day)'}
-                          <br/>at ₱{worker.hourlyRate}/hour
                           <br/>(₱{Math.round(worker.hourlyRate * (worker.hours_per_day || 4) * 30)}/month)
                       </div>
                       </div>

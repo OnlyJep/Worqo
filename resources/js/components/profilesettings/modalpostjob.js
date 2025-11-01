@@ -388,7 +388,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
             <div className="form-column">
               {/* Job Title */}
               <div className="form-group">
-                <label htmlFor="jobTitle">Job Title</label>
+                <label>Job Title</label>
                 {!isJobTitleOthers ? (
                   <CustomDropdown
                     options={jobTitleOptions}
@@ -457,7 +457,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="salaryType">Salary Type</label>
+                  <label>Salary Type</label>
                   <CustomDropdown
                     options={salaryTypeOptions}
                     value={formData.salaryType}
@@ -591,7 +591,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                       const value = e.target.value;
                       setSubSkillSearchTerm(value);
                     }}
-                    placeholder="Type desiredsub-skills..."
+                    placeholder="Type desired sub-skills..."
                     className="full-width-input"
                     autoComplete="off"
                   />
