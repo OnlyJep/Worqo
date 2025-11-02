@@ -40,10 +40,10 @@ const MyJobs = () => {
       const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${currentUser.id}`);
       console.log('My applications API response:', response.data);
       
-      // Sort applications: For Interview first, then Hired, Declined, Fired
+      // Sort applications: For Interview first, then Hired, Declined
       const sortedApplications = response.data.sort((a, b) => {
-        const statusOrder = { 'for_interview': 1, 'accepted': 2, 'declined': 3, 'fired': 4 };
-        return statusOrder[a.status] - statusOrder[b.status];
+        const statusOrder = { 'for_interview': 1, 'accepted': 2, 'declined': 3 };
+        return (statusOrder[a.status] || 99) - (statusOrder[b.status] || 99);
       });
       
       setApplications(sortedApplications);
@@ -60,8 +60,7 @@ const MyJobs = () => {
       pending: { class: 'status-pending', text: 'Pending', icon: '⏳' },
       for_interview: { class: 'status-interview', text: 'For Interview', icon: '📞' },
       accepted: { class: 'status-accepted', text: 'Hired', icon: '✅' },
-      declined: { class: 'status-declined', text: 'Declined', icon: '❌' },
-      fired: { class: 'status-fired', text: 'Fired', icon: '🔥' }
+      declined: { class: 'status-declined', text: 'Declined', icon: '❌' }
     };
     
     const config = statusConfig[status] || statusConfig.pending;

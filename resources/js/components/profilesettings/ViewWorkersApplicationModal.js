@@ -138,11 +138,10 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
                       </div>
                     </div>
                     <div className="application-status">
-                      <span className={`status-badge ${application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : application.status === 'declined' ? 'status-declined' : 'status-fired'}`}>
+                      <span className={`status-badge ${application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : 'status-declined'}`}>
                         {application.status === 'for_interview' ? 'For Interview' :
                          application.status === 'accepted' ? 'Hired' :
-                         application.status === 'declined' ? 'Declined' :
-                         application.status === 'fired' ? 'Fired' : application.status}
+                         'Declined'}
                       </span>
                     </div>
                   </div>

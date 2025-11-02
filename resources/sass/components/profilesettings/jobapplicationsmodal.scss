@@ -357,6 +357,7 @@
       overflow-y: auto;
 
       .application-card {
+        position: relative;
         display: flex;
         align-items: center;
         background: #f9fafb;
@@ -377,15 +378,14 @@
 
         .application-header {
           display: flex;
-          align-items: center;
-          flex: 1;
+          align-items: flex-start;
           gap: 16px;
 
           .worker-info {
             display: flex;
             align-items: center;
-            gap: 16px;
             flex: 1;
+            gap: 16px;
 
             .avatar-container {
               position: relative;
@@ -438,6 +438,7 @@
                   font-size: 18px;
                   font-weight: 700;
                   color: #1f2937;
+                  margin-bottom: 0;
                 }
 
                 .collar-badges {
@@ -468,71 +469,24 @@
               }
 
               .application-date {
-                margin: 0;
+                margin: 4px 0 0 0;
                 font-size: 14px;
                 color: #6b7280;
                 display: flex;
                 align-items: center;
                 gap: 4px;
               }
-            }
-          }
 
-            .application-status {
-              display: flex;
-              flex-direction: column;
-              align-items: flex-end;
-              gap: 8px;
-
-              .status-container {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-
-                .interview-icon {
-                  color: #2563eb;
-                  font-size: 20px;
-                  width: 30px;
-                  height: 30px;
-                  cursor: pointer;
-                  transition: all 0.2s ease;
-                  padding: 4px;
-                  border-radius: 4px;
-
-                  &:hover {
-                    color: #1d4ed8;
-                    background-color: rgba(37, 99, 235, 0.1);
-                    transform: scale(1.1);
-                  }
-                }
-
-                .hired-icon {
-                  color: #2563eb;
-                  font-size: 20px;
-                  width: 30px;
-                  height: 30px;
-                  cursor: pointer;
-                  transition: all 0.2s ease;
-                  padding: 4px;
-                  border-radius: 4px;
-
-                  &:hover {
-                    color: #1d4ed8;
-                    background-color: rgba(37, 99, 235, 0.1);
-                    transform: scale(1.1);
-                  }
-                }
-              }
-
-              .declined-icon {
+              .interview-icon-name,
+              .hired-icon-name,
+              .declined-icon-name {
                 color: #2563eb;
-                font-size: 20px;
-                width: 30px;
-                height: 30px;
+                font-size: 16px;
+                width: 24px;
+                height: 24px;
                 cursor: pointer;
                 transition: all 0.2s ease;
-                padding: 4px;
-                border-radius: 4px;
+                flex-shrink: 0;
 
                 &:hover {
                   color: #1d4ed8;
@@ -540,86 +494,39 @@
                   transform: scale(1.1);
                 }
               }
+            }
+          }
+
+          .application-status {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-shrink: 0;
 
             .status-badge {
-              padding: 0;
-              border-radius: 0;
-              font-size: 12px;
+              padding: 4px 12px;
+              border-radius: 20px;
+              font-size: 11px;
               font-weight: 600;
               text-transform: uppercase;
               letter-spacing: 0.5px;
               white-space: nowrap;
-              background: none;
-              border: none;
-              color: #374151;
-
-              &.status-pending {
-                background: none;
-                color: #d97706;
-              }
-
-              &.status-accepted {
-                background: none;
-                color: #059669;
-              }
-
-              &.status-declined {
-                background: none;
-                color: #dc2626;
-              }
 
               &.status-interview {
-                background: none;
                 color: #2563eb;
               }
 
-              &.status-fired {
-                background: none;
-                color: #d97706;
-              }
-            }
+              &.status-accepted {
 
-            .status-actions {
-              display: flex;
-              gap: 6px;
-
-              .accept-btn-small,
-              .decline-btn-small {
-                border: none;
-                border-radius: 6px;
-                padding: 6px 8px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: all 0.2s ease;
-                font-size: 12px;
-                font-weight: 600;
-                min-width: 28px;
-                height: 28px;
-
-                &:hover {
-                  transform: translateY(-1px);
-                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                }
+                color: #065f46;
               }
 
-              .accept-btn-small {
-                background: #1A2A44;
-                color: white;
+              &.status-declined {
 
-                &:hover {
-                  background: #2a3a54;
-                }
-              }
-
-              .decline-btn-small {
-                background: #6b7280;
-                color: white;
-
-                &:hover {
-                  background: #4b5563;
-                }
+                color: #991b1b;
               }
             }
           }
