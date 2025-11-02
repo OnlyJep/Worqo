@@ -72599,7 +72599,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".job-applications-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 900px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info {\n  display: flex;\n  align-items: center;\n  margin-left: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge {\n  padding: 4px 12px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge.individual {\n  background-color: #fef3c7;\n  color: #92400e;\n  border: 1px solid #f59e0b;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge.team {\n  background-color: #dbeafe;\n  color: #1e40af;\n  border: 1px solid #3b82f6;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section {\n  margin-bottom: 20px;\n  padding: 0 24px 20px 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button {\n  padding: 8px 16px;\n  border: 1px solid #d1d5db;\n  background: white;\n  color: #6b7280;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button:hover {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button.active {\n  background: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 100px;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 2000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  gap: 16px;\n  align-items: flex-start;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  color: #4b5563;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background-color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 30px;\n  text-align: center;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state p {\n  margin: 0;\n  font-size: 15px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  margin-bottom: 20px;\n  padding: 0 24px;\n  flex: 1;\n  overflow-y: auto;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card {\n  display: flex;\n  align-items: center;\n  background: #f9fafb;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card:hover {\n  background-color: white;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  transform: translateY(-1px);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  gap: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container {\n  position: relative;\n  flex-shrink: 0;\n  width: 60px;\n  height: 60px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n  display: block;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .worker-name {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  background: #e5e7eb;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 10px;\n  color: #6b7280;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 14px;\n  color: #6b7280;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-container {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-container .interview-icon {\n  color: #2563eb;\n  font-size: 20px;\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 4px;\n  border-radius: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-container .interview-icon:hover {\n  color: #1d4ed8;\n  background-color: rgba(37, 99, 235, 0.1);\n  transform: scale(1.1);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .declined-icon {\n  color: #dc2626;\n  font-size: 16px;\n  margin-top: 4px;\n  opacity: 0.8;\n  transition: opacity 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .declined-icon:hover {\n  opacity: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  white-space: nowrap;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-pending {\n  background: none;\n  color: #d97706;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #059669;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #dc2626;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-fired {\n  background: none;\n  color: #d97706;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions {\n  display: flex;\n  gap: 6px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .accept-btn-small,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .decline-btn-small {\n  border: none;\n  border-radius: 6px;\n  padding: 6px 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n  font-size: 12px;\n  font-weight: 600;\n  min-width: 28px;\n  height: 28px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .accept-btn-small:hover,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .decline-btn-small:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .accept-btn-small {\n  background: #1A2A44;\n  color: white;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .accept-btn-small:hover {\n  background: #2a3a54;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .decline-btn-small {\n  background: #6b7280;\n  color: white;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .decline-btn-small:hover {\n  background: #4b5563;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .cover-letter,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .resume-section,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .worker-skills,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions {\n  display: none;\n}\n\n@media (max-width: 768px) {\n  .job-applications-modal-overlay {\n    padding: 15px;\n  }\n  .job-applications-modal-overlay .job-applications-modal {\n    max-width: 98%;\n    width: 98%;\n    max-height: 85vh;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header {\n    padding: 12px 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state {\n    padding: 30px 20px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state .empty-icon {\n    font-size: 40px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state h3 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state p {\n    font-size: 14px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list {\n    padding: 0 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card {\n    padding: 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions {\n    flex-direction: column;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .accept-btn,\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .decline-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .job-applications-modal-overlay .job-applications-modal .filter-section {\n    padding: 0 12px 20px 12px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".job-applications-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 900px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info {\n  display: flex;\n  align-items: center;\n  margin-left: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge {\n  padding: 4px 12px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge.individual {\n  background-color: #fef3c7;\n  color: #92400e;\n  border: 1px solid #f59e0b;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .hiring-type-info .hiring-type-badge.team {\n  background-color: #dbeafe;\n  color: #1e40af;\n  border: 1px solid #3b82f6;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.job-applications-modal-overlay .job-applications-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section {\n  margin-bottom: 20px;\n  padding: 0 24px 20px 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button {\n  padding: 8px 16px;\n  border: 1px solid #d1d5db;\n  background: white;\n  color: #6b7280;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button:hover {\n  background: #f3f4f6;\n  border-color: #9ca3af;\n}\n.job-applications-modal-overlay .job-applications-modal .filter-section .filter-buttons button.active {\n  background: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 100px;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 2000;\n  padding: 20px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 80vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  gap: 16px;\n  align-items: flex-start;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  color: #4b5563;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 24px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.job-applications-modal-overlay .job-applications-modal .loading-state .application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background-color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 40px 30px;\n  text-align: center;\n  color: #6b7280;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .empty-state p {\n  margin: 0;\n  font-size: 15px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  margin-bottom: 20px;\n  padding: 0 24px;\n  flex: 1;\n  overflow-y: auto;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card {\n  display: flex;\n  align-items: center;\n  background: #f9fafb;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card:hover {\n  background-color: white;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  transform: translateY(-1px);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header {\n  display: flex;\n  align-items: center;\n  flex: 1;\n  gap: 16px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container {\n  position: relative;\n  flex-shrink: 0;\n  width: 60px;\n  height: 60px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n  overflow: hidden;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n  display: block;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .worker-name {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  width: 20px;\n  height: 20px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name-with-collar .collar-badges .collar-badge .collar-icon-placeholder {\n  background: #e5e7eb;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 10px;\n  color: #6b7280;\n  font-weight: 600;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 14px;\n  color: #6b7280;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-container {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-container .interview-icon {\n  color: #2563eb;\n  font-size: 20px;\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 4px;\n  border-radius: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-container .interview-icon:hover {\n  color: #1d4ed8;\n  background-color: rgba(37, 99, 235, 0.1);\n  transform: scale(1.1);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-container .hired-icon {\n  color: #2563eb;\n  font-size: 20px;\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 4px;\n  border-radius: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-container .hired-icon:hover {\n  color: #1d4ed8;\n  background-color: rgba(37, 99, 235, 0.1);\n  transform: scale(1.1);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .declined-icon {\n  color: #2563eb;\n  font-size: 20px;\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 4px;\n  border-radius: 4px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .declined-icon:hover {\n  color: #1d4ed8;\n  background-color: rgba(37, 99, 235, 0.1);\n  transform: scale(1.1);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 12px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  white-space: nowrap;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-pending {\n  background: none;\n  color: #d97706;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #059669;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #dc2626;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-badge.status-fired {\n  background: none;\n  color: #d97706;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions {\n  display: flex;\n  gap: 6px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .accept-btn-small,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .decline-btn-small {\n  border: none;\n  border-radius: 6px;\n  padding: 6px 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n  font-size: 12px;\n  font-weight: 600;\n  min-width: 28px;\n  height: 28px;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .accept-btn-small:hover,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .decline-btn-small:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .accept-btn-small {\n  background: #1A2A44;\n  color: white;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .accept-btn-small:hover {\n  background: #2a3a54;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .decline-btn-small {\n  background: #6b7280;\n  color: white;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status .status-actions .decline-btn-small:hover {\n  background: #4b5563;\n}\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .cover-letter,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .resume-section,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .worker-skills,\n.job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions {\n  display: none;\n}\n\n@media (max-width: 768px) {\n  .job-applications-modal-overlay {\n    padding: 15px;\n  }\n  .job-applications-modal-overlay .job-applications-modal {\n    max-width: 98%;\n    width: 98%;\n    max-height: 85vh;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header {\n    padding: 12px 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .modal-header h2 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state {\n    padding: 30px 20px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state .empty-icon {\n    font-size: 40px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state h3 {\n    font-size: 16px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .empty-state p {\n    font-size: 14px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list {\n    padding: 0 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card {\n    padding: 12px;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    gap: 8px;\n    align-items: flex-start;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions {\n    flex-direction: column;\n  }\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .accept-btn,\n  .job-applications-modal-overlay .job-applications-modal .applications-list .application-card .application-actions .decline-btn {\n    width: 100%;\n    justify-content: center;\n  }\n  .job-applications-modal-overlay .job-applications-modal .filter-section {\n    padding: 0 12px 20px 12px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72888,6 +72888,54 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".transaction-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.transaction-modal {\n  background: white;\n  border-radius: 12px;\n  width: 90%;\n  max-width: 600px;\n  max-height: 80vh;\n  overflow-y: auto;\n  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);\n}\n\n.transaction-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid #e0e0e0;\n}\n.transaction-modal-header h2 {\n  margin: 0;\n  color: #333;\n  font-size: 1.5rem;\n  font-weight: 600;\n}\n.transaction-modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  cursor: pointer;\n  color: white;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n}\n\n.transaction-modal-content {\n  padding: 24px;\n}\n\n.transaction-section {\n  margin-bottom: 24px;\n}\n.transaction-section:last-child {\n  margin-bottom: 0;\n}\n.transaction-section h3 {\n  margin: 0 0 16px 0;\n  color: #333;\n  font-size: 1.1rem;\n  font-weight: 600;\n  border-bottom: 2px solid #f0f0f0;\n  padding-bottom: 8px;\n  position: relative;\n}\n.transaction-section h3::after {\n  content: \"\";\n  position: absolute;\n  bottom: -2px;\n  left: 0;\n  width: 30px;\n  height: 2px;\n  background-color: #1A2A44;\n}\n\n.detail-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  padding: 8px 0;\n  border-bottom: 1px solid #f5f5f5;\n}\n.detail-row:last-child {\n  border-bottom: none;\n}\n.detail-row .label {\n  font-weight: 500;\n  color: #666;\n  min-width: 140px;\n  flex-shrink: 0;\n}\n.detail-row .value {\n  color: #333;\n  text-align: justify;\n  flex: 1;\n  word-break: break-word;\n  line-height: 1.4;\n}\n.detail-row .value.description-value {\n  text-align: justify;\n  padding-left: 8px;\n}\n.detail-row.total-row {\n  background-color: #f8f9fa;\n  padding: 12px;\n  border-radius: 8px;\n  border: 2px solid #e9ecef;\n  margin-top: 8px;\n}\n.detail-row.total-row .label {\n  font-weight: 600;\n  color: #333;\n}\n.detail-row.total-row .total-amount {\n  font-weight: 700;\n  font-size: 1.1rem;\n  color: #28a745;\n}\n\n.status-pending {\n  color: #ffa500;\n  font-weight: 600;\n}\n\n.status-accepted {\n  color: #4CAF50;\n  font-weight: 600;\n}\n\n.status-completed {\n  color: #2196F3;\n  font-weight: 600;\n}\n\n.status-declined {\n  color: #f44336;\n  font-weight: 600;\n}\n\n.status-cancelled {\n  color: #9e9e9e;\n  font-weight: 600;\n}\n\n.notes-content {\n  background-color: #f8f9fa;\n  padding: 12px;\n  border-radius: 8px;\n  border-left: 4px solid #007bff;\n}\n.notes-content p {\n  margin: 0;\n  color: #333;\n  line-height: 1.5;\n}\n\n.star {\n  color: #ddd;\n  font-size: 1.2rem;\n}\n.star.filled {\n  color: #ffc107;\n}\n\n.transaction-modal-footer {\n  padding: 20px 24px;\n  border-top: 1px solid #e0e0e0;\n  display: flex;\n  justify-content: flex-end;\n}\n.transaction-modal-footer .close-button {\n  background: #1A2A44;\n  color: white;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n}\n\n.transaction-details {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  background-color: #fafafa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n\n.detail-row:hover {\n  background-color: rgba(0, 123, 255, 0.05);\n  border-radius: 4px;\n  padding: 8px 4px;\n  margin: 0 -4px;\n}\n\n.salary-calculation-display {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.salary-calculation-display .salary-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.salary-calculation-display .salary-row:last-child {\n  border-bottom: none;\n  font-weight: 600;\n  padding-top: 12px;\n  border-top: 2px solid #0a2a40;\n}\n.salary-calculation-display .salary-row:last-child .salary-value {\n  color: #28a745;\n  font-size: 1.1rem;\n  font-weight: 700;\n}\n.salary-calculation-display .salary-row .salary-label {\n  color: #6b7280;\n  font-size: 14px;\n  font-weight: 400;\n  font-family: \"Inter\", sans-serif;\n}\n.salary-calculation-display .salary-row .salary-value {\n  color: #374151;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n\n@media (max-width: 768px) {\n  .transaction-modal {\n    width: 95%;\n    margin: 20px;\n  }\n  .transaction-modal-header,\n  .transaction-modal-content,\n  .transaction-modal-footer {\n    padding: 16px;\n  }\n  .transaction-details {\n    padding: 12px;\n  }\n  .detail-row {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 4px;\n  }\n  .detail-row .label {\n    min-width: auto;\n    font-weight: 600;\n    color: #333;\n  }\n  .detail-row .value {\n    text-align: justify;\n    padding-left: 0;\n  }\n  .salary-calculation-display {\n    padding: 12px;\n  }\n  .salary-calculation-display .salary-row {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 4px;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/viewdeclinedworkersmodal.scss":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/viewdeclinedworkersmodal.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".view-declined-workers-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 1000px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  text-align: center;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 16px;\n  transition: all 0.2s ease;\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card:hover {\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 13px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #991b1b;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #065f46;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-fired {\n  background: none;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info {\n  margin-bottom: 20px;\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info h5 {\n  margin: 0 0 12px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter {\n  margin-bottom: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section {\n  margin-bottom: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section .download-resume-btn {\n  background: none;\n  color: #3b82f6;\n  border: none;\n  padding: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  text-decoration: underline;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section .download-resume-btn:hover {\n  color: #2563eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #001E40;\n  border: 1px solid #001E40;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions .view-profile-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n}\n\n.application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1001;\n  padding: 20px;\n}\n.application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  align-items: flex-start;\n  gap: 15px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media (max-width: 768px) {\n  .view-declined-workers-modal-overlay {\n    padding: 10px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal {\n    width: 100%;\n    max-height: 90vh;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header {\n    padding: 16px 16px 0 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header h2 {\n    font-size: 20px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list {\n    padding: 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card {\n    padding: 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info {\n    width: 100%;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions {\n    justify-content: center;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/viewhiredworkersmodal.scss":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/viewhiredworkersmodal.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".view-hired-workers-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 1000px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  text-align: center;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 16px;\n  transition: all 0.2s ease;\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card:hover {\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 13px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #065f46;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #991b1b;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-fired {\n  background: none;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info {\n  margin-bottom: 20px;\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info h5 {\n  margin: 0 0 12px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter {\n  margin-bottom: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section {\n  margin-bottom: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section .download-resume-btn {\n  background: none;\n  color: #3b82f6;\n  border: none;\n  padding: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  text-decoration: underline;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section .download-resume-btn:hover {\n  color: #2563eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #001E40;\n  border: 1px solid #001E40;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions .view-profile-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n}\n\n.application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1001;\n  padding: 20px;\n}\n.application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  align-items: flex-start;\n  gap: 15px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media (max-width: 768px) {\n  .view-hired-workers-modal-overlay {\n    padding: 10px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal {\n    width: 100%;\n    max-height: 90vh;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header {\n    padding: 16px 16px 0 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header h2 {\n    font-size: 20px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list {\n    padding: 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card {\n    padding: 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info {\n    width: 100%;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions {\n    justify-content: center;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -204161,7 +204209,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
   }, [isOpen]);
   var fetchUserProfile = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var userData, userSkills, response, _userProfile, _t, _t2;
+      var userData, currentUser, userSkills, profileId, authToken, response, finalProfileId, _userProfile, _t, _t2;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -204169,43 +204217,64 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
             setLoading(true);
             // Get user data from localStorage
             userData = JSON.parse(localStorage.getItem("user") || '{}');
-            userSkills = JSON.parse(localStorage.getItem("userSkills_".concat(userData.id)) || '{}');
-            if (!userData.id) {
+            currentUser = userData.user || userData || {};
+            userSkills = JSON.parse(localStorage.getItem("userSkills_".concat(currentUser.id)) || '{}');
+            if (!currentUser.id) {
               _context.n = 5;
               break;
             }
-            if (!(!userSkills.primary_skills || userSkills.primary_skills.length === 0)) {
+            profileId = currentUser.profile_id; // If localStorage skills are empty OR profile_id is missing, try to fetch from API
+            if (!(!userSkills.primary_skills || userSkills.primary_skills.length === 0 || !profileId)) {
               _context.n = 4;
               break;
             }
-            console.log('No skills in localStorage, fetching from API...');
+            console.log('Fetching worker data from API...');
             _context.p = 1;
+            authToken = localStorage.getItem("auth_token");
             _context.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/workers/".concat(userData.id));
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/workers/".concat(currentUser.id), {
+              headers: {
+                'Authorization': "Bearer ".concat(authToken),
+                'Accept': 'application/json'
+              }
+            });
           case 2:
             response = _context.v;
-            if (response.data && response.data.worker && response.data.worker.skills_id) {
-              response.data.worker.skills_id, _readOnlyError("userSkills");
-              console.log('Skills fetched from API:', userSkills);
+            if (response.data) {
+              // Get profile_id from API response if missing
+              if (!profileId && response.data.profile && response.data.profile.id) {
+                profileId = response.data.profile.id;
+                console.log('Profile ID fetched from API:', profileId);
+              }
+
+              // Get skills from API response if missing
+              if ((!userSkills.primary_skills || userSkills.primary_skills.length === 0) && response.data.worker && response.data.worker.skills_id) {
+                response.data.worker.skills_id, _readOnlyError("userSkills");
+                console.log('Skills fetched from API:', userSkills);
+              }
             }
             _context.n = 4;
             break;
           case 3:
             _context.p = 3;
             _t = _context.v;
-            console.log('Could not fetch skills from API, using localStorage data');
+            console.log('Could not fetch data from API, using localStorage data');
           case 4:
-            // Construct user profile from localStorage data
+            // If profile_id is still missing, use user id as fallback
+            // Note: This may fail backend validation if user id is not a valid profile id
+            finalProfileId = profileId || currentUser.id; // Construct user profile from localStorage data
             _userProfile = {
-              id: userData.id,
-              email: userData.email,
+              id: currentUser.id,
+              profile_id: finalProfileId,
+              // Use profile_id from API or localStorage
+              email: currentUser.email,
               profile: {
-                first_name: userData.first_name,
-                middlename: userData.middlename,
-                last_name: userData.last_name,
-                city: userData.city,
-                province: userData.province,
-                profile_img: userData.profile_img
+                first_name: currentUser.first_name,
+                middlename: currentUser.middlename,
+                last_name: currentUser.last_name,
+                city: currentUser.city,
+                province: currentUser.province,
+                profile_img: currentUser.profile_img
               },
               worker: {
                 skills_id: userSkills
@@ -204462,7 +204531,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
   };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-      var newErrors, now, applicationStart, applicationDeadline, timeDiff, hoursUntilStart, skillCheck, _userProfile$worker, applicationData, skillsArray, skillsData, authToken, response, _error$response, _error$response2, _error$response3, _error$response4, errorMessages, _t4;
+      var newErrors, now, applicationStart, applicationDeadline, timeDiff, hoursUntilStart, skillCheck, _userProfile$worker, workerId, applicationData, skillsArray, skillsData, authToken, response, _error$response, _error$response2, _error$response3, _error$response4, errorMessages, _t4;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
@@ -204553,10 +204622,19 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
             _context3.p = 6;
             showNotification('Submitting application...', 'processing');
 
+            // Use profile_id for worker_id (must exist in profiles table)
+            workerId = userProfile.profile_id || userProfile.id;
+            if (workerId) {
+              _context3.n = 7;
+              break;
+            }
+            showNotification('Unable to determine worker profile. Please log in again.', 'error');
+            return _context3.a(2);
+          case 7:
             // Prepare application data with user profile
             applicationData = new FormData();
             applicationData.append('job_post_id', job.id);
-            applicationData.append('worker_id', userProfile.id);
+            applicationData.append('worker_id', workerId);
             applicationData.append('cover_letter', formData.coverLetter);
 
             // Convert skills object to array format
@@ -204592,7 +204670,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
             }
             console.log('Submitting application data:', {
               job_post_id: job.id,
-              worker_id: userProfile.id,
+              worker_id: workerId,
               cover_letter: formData.coverLetter,
               skills: skillsArray,
               resume: formData.resume ? formData.resume.name : 'No resume'
@@ -204600,7 +204678,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
 
             // Submit application to backend
             authToken = localStorage.getItem("auth_token");
-            _context3.n = 7;
+            _context3.n = 8;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/job-applications/apply', applicationData, {
               headers: {
                 'Content-Type': 'multipart/form-data',
@@ -204608,7 +204686,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                 'Accept': 'application/json'
               }
             });
-          case 7:
+          case 8:
             response = _context3.v;
             if (response.status === 201) {
               // Show success message
@@ -204618,10 +204696,10 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                 onClose();
               }, 2000);
             }
-            _context3.n = 9;
+            _context3.n = 10;
             break;
-          case 8:
-            _context3.p = 8;
+          case 9:
+            _context3.p = 9;
             _t4 = _context3.v;
             console.error('Error submitting application:', _t4);
             console.error('Error response:', _t4.response);
@@ -204636,10 +204714,10 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
             } else {
               showNotification('Failed to submit application. Please try again.', 'error');
             }
-          case 9:
+          case 10:
             return _context3.a(2);
         }
-      }, _callee3, null, [[6, 8]]);
+      }, _callee3, null, [[6, 9]]);
     }));
     return function handleSubmit() {
       return _ref4.apply(this, arguments);
@@ -249250,7 +249328,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_components_profilesettings_jobapplicationsmodal_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../sass/components/profilesettings/jobapplicationsmodal.scss */ "./resources/sass/components/profilesettings/jobapplicationsmodal.scss");
 /* harmony import */ var _sass_components_profilesettings_confirmmodal_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/confirmmodal.scss */ "./resources/sass/components/profilesettings/confirmmodal.scss");
 /* harmony import */ var _ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ViewWorkersApplicationModal */ "./resources/js/components/profilesettings/ViewWorkersApplicationModal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _ViewHiredWorkersModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ViewHiredWorkersModal */ "./resources/js/components/profilesettings/ViewHiredWorkersModal.js");
+/* harmony import */ var _ViewDeclinedWorkersModal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ViewDeclinedWorkersModal */ "./resources/js/components/profilesettings/ViewDeclinedWorkersModal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
@@ -249267,6 +249347,8 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
 
 
 
@@ -249299,14 +249381,22 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
     _useState0 = _slicedToArray(_useState9, 2),
     showViewWorkersModal = _useState0[0],
     setShowViewWorkersModal = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState10 = _slicedToArray(_useState1, 2),
+    showViewHiredWorkersModal = _useState10[0],
+    setShowViewHiredWorkersModal = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    showViewDeclinedWorkersModal = _useState12[0],
+    setShowViewDeclinedWorkersModal = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       open: false,
       action: null,
       application: null
     }),
-    _useState10 = _slicedToArray(_useState1, 2),
-    confirmState = _useState10[0],
-    setConfirmState = _useState10[1];
+    _useState14 = _slicedToArray(_useState13, 2),
+    confirmState = _useState14[0],
+    setConfirmState = _useState14[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     fetchJobPost();
     fetchApplications();
@@ -249480,50 +249570,62 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
   var handleCloseViewWorkersModal = function handleCloseViewWorkersModal() {
     setShowViewWorkersModal(false);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  var handleViewHiredWorkers = function handleViewHiredWorkers() {
+    setShowViewHiredWorkersModal(true);
+  };
+  var handleCloseViewHiredWorkersModal = function handleCloseViewHiredWorkersModal() {
+    setShowViewHiredWorkersModal(false);
+  };
+  var handleViewDeclinedWorkers = function handleViewDeclinedWorkers() {
+    setShowViewDeclinedWorkersModal(true);
+  };
+  var handleCloseViewDeclinedWorkersModal = function handleCloseViewDeclinedWorkersModal() {
+    setShowViewDeclinedWorkersModal(false);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: "job-applications-modal-overlay",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "job-applications-modal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "modal-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("h2", {
           children: ["Employee Applications - ", jobTitle]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "header-actions",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
             className: "close-btn",
             onClick: onClose,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
           })
         })]
-      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "loading-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "spinner"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
           children: "Loading applications..."
         })]
-      }) : applications.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }) : applications.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUser, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUser, {
           className: "empty-icon"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
           children: "No Applications Yet"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
           children: "No one has applied for this job yet."
         })]
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "filter-section",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "filter-buttons",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
               className: filterStatus === 'all' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('all');
               },
               children: ["All (", applications.length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
               className: filterStatus === 'for_interview' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('for_interview');
@@ -249531,7 +249633,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               children: ["For Interview (", applications.filter(function (app) {
                 return app.status === 'for_interview';
               }).length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
               className: filterStatus === 'accepted' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('accepted');
@@ -249539,7 +249641,7 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               children: ["Hired (", applications.filter(function (app) {
                 return app.status === 'accepted';
               }).length, ")"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
               className: filterStatus === 'declined' ? 'active' : '',
               onClick: function onClick() {
                 return setFilterStatus('declined');
@@ -249549,20 +249651,20 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
               }).length, ")"]
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "applications-list",
           children: filteredApplications.map(function (application) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "application-card",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "application-header",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                   className: "worker-info",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                     className: "avatar-container",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                       className: "avatar-placeholder",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
                         src: application.worker.profile_img && application.worker.profile_img !== 'img/defaultpfp.jpg' ? "http://127.0.0.1:8000/storage/".concat(application.worker.profile_img, "?v=").concat(Date.now()) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
                         alt: "".concat(getWorkerName(application.worker), "'s avatar"),
                         onError: function onError(e) {
@@ -249570,212 +249672,250 @@ var JobApplicationsModal = function JobApplicationsModal(_ref) {
                         }
                       })
                     })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "worker-details",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
                       className: "worker-name",
                       children: getWorkerName(application.worker)
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("p", {
                       className: "application-date",
                       children: ["Applied on ", new Date(application.created_at).toLocaleDateString()]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                      style: {
+                        marginTop: '8px'
+                      },
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                        style: {
+                          color: '#333'
+                        },
+                        children: "Want to message this applicant? "
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+                        href: "#",
+                        onClick: (/*#__PURE__*/function () {
+                          var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(e) {
+                            var stored, currentRole, targetRole, _stored$user, authToken, updated, _t4;
+                            return _regenerator().w(function (_context4) {
+                              while (1) switch (_context4.p = _context4.n) {
+                                case 0:
+                                  e.preventDefault();
+                                  stored = JSON.parse(localStorage.getItem('user') || '{}');
+                                  currentRole = stored === null || stored === void 0 ? void 0 : stored.role_id;
+                                  targetRole = 2; // employer role to chat as employer
+                                  _context4.p = 1;
+                                  if (!(currentRole && currentRole !== targetRole)) {
+                                    _context4.n = 3;
+                                    break;
+                                  }
+                                  authToken = localStorage.getItem('auth_token');
+                                  _context4.n = 2;
+                                  return fetch('http://127.0.0.1:8000/api/users/switch-role', {
+                                    method: 'POST',
+                                    headers: {
+                                      'Authorization': "Bearer ".concat(authToken),
+                                      'Content-Type': 'application/json',
+                                      'Accept': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                      user_id: stored.id || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.id),
+                                      role_id: targetRole
+                                    })
+                                  })["catch"](function () {});
+                                case 2:
+                                  updated = _objectSpread(_objectSpread({}, stored.user || stored), {}, {
+                                    role_id: targetRole
+                                  });
+                                  localStorage.setItem('user', JSON.stringify(stored.user ? {
+                                    user: updated
+                                  } : updated));
+                                case 3:
+                                  _context4.n = 5;
+                                  break;
+                                case 4:
+                                  _context4.p = 4;
+                                  _t4 = _context4.v;
+                                case 5:
+                                  window.location.href = '/message';
+                                case 6:
+                                  return _context4.a(2);
+                              }
+                            }, _callee4, null, [[1, 4]]);
+                          }));
+                          return function (_x3) {
+                            return _ref5.apply(this, arguments);
+                          };
+                        }()),
+                        style: {
+                          color: '#1a73e8',
+                          textDecoration: 'underline'
+                        },
+                        children: "Click here"
+                      })]
                     })]
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                   className: "application-status",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "status-container",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                       className: "status-badge ".concat(application.status === 'for_interview' ? 'status-interview' : application.status === 'accepted' ? 'status-accepted' : application.status === 'declined' ? 'status-declined' : 'status-fired'),
                       children: application.status === 'for_interview' ? 'For Interview' : application.status === 'accepted' ? 'Hired' : application.status === 'declined' ? 'Declined' : application.status === 'fired' ? 'Fired' : application.status
-                    }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__.FaUsersViewfinder, {
+                    }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa6__WEBPACK_IMPORTED_MODULE_2__.FaUsersViewfinder, {
                       className: "interview-icon",
                       onClick: function onClick() {
                         return handleViewApplicationDetails(application);
                       },
                       title: "View Application Details"
+                    }), application.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
+                      className: "hired-icon",
+                      title: "View Hired Workers",
+                      onClick: function onClick() {
+                        return handleViewHiredWorkers();
+                      },
+                      style: {
+                        cursor: 'pointer'
+                      },
+                      viewBox: "0 0 640 512",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
+                        d: "M48 48l88 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L32 0C14.3 0 0 14.3 0 32L0 136c0 13.3 10.7 24 24 24s24-10.7 24-24l0-88zM175.8 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-26.5 32C119.9 256 96 279.9 96 309.3c0 14.7 11.9 26.7 26.7 26.7l56.1 0c8-34.1 32.8-61.7 65.2-73.6c-7.5-4.1-16.2-6.4-25.3-6.4l-69.3 0zm368 80c14.7 0 26.7-11.9 26.7-26.7c0-29.5-23.9-53.3-53.3-53.3l-69.3 0c-9.2 0-17.8 2.3-25.3 6.4c32.4 11.9 57.2 39.5 65.2 73.6l56.1 0zm-89.4 0c-8.6-24.3-29.9-42.6-55.9-47c-3.9-.7-7.9-1-12-1l-80 0c-4.1 0-8.1 .3-12 1c-26 4.4-47.3 22.7-55.9 47c-2.7 7.5-4.1 15.6-4.1 24c0 13.3 10.7 24 24 24l176 0c13.3 0 24-10.7 24-24c0-8.4-1.4-16.5-4.1-24zM464 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-80-32a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zM504 48l88 0 0 88c0 13.3 10.7 24 24 24s24-10.7 24-24l0-104c0-17.7-14.3-32-32-32L504 0c-13.3 0-24 10.7-24 24s10.7 24 24 24zM48 464l0-88c0-13.3-10.7-24-24-24s-24 10.7-24 24L0 480c0 17.7 14.3 32 32 32l104 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-88 0zm456 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l104 0c17.7 0 32-14.3 32-32l0-104c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 88-88 0z",
+                        fill: "currentColor"
+                      })
+                    }), application.status === 'declined' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
+                      className: "declined-icon",
+                      title: "View Declined Workers",
+                      onClick: function onClick() {
+                        return handleViewDeclinedWorkers();
+                      },
+                      style: {
+                        cursor: 'pointer'
+                      },
+                      viewBox: "0 0 640 512",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
+                        d: "M48 48l88 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L32 0C14.3 0 0 14.3 0 32L0 136c0 13.3 10.7 24 24 24s24-10.7 24-24l0-88zM175.8 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-26.5 32C119.9 256 96 279.9 96 309.3c0 14.7 11.9 26.7 26.7 26.7l56.1 0c8-34.1 32.8-61.7 65.2-73.6c-7.5-4.1-16.2-6.4-25.3-6.4l-69.3 0zm368 80c14.7 0 26.7-11.9 26.7-26.7c0-29.5-23.9-53.3-53.3-53.3l-69.3 0c-9.2 0-17.8 2.3-25.3 6.4c32.4 11.9 57.2 39.5 65.2 73.6l56.1 0zm-89.4 0c-8.6-24.3-29.9-42.6-55.9-47c-3.9-.7-7.9-1-12-1l-80 0c-4.1 0-8.1 .3-12 1c-26 4.4-47.3 22.7-55.9 47c-2.7 7.5-4.1 15.6-4.1 24c0 13.3 10.7 24 24 24l176 0c13.3 0 24-10.7 24-24c0-8.4-1.4-16.5-4.1-24zM464 224a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-80-32a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zM504 48l88 0 0 88c0 13.3 10.7 24 24 24s24-10.7 24-24l0-104c0-17.7-14.3-32-32-32L504 0c-13.3 0-24 10.7-24 24s10.7 24 24 24zM48 464l0-88c0-13.3-10.7-24-24-24s-24 10.7-24 24L0 480c0 17.7 14.3 32 32 32l104 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-88 0zm456 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l104 0c17.7 0 32-14.3 32-32l0-104c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 88-88 0z",
+                        fill: "currentColor"
+                      })
                     })]
-                  }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                  }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "status-actions",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
                       className: "accept-btn-small",
                       onClick: function onClick() {
                         return openConfirm(application, 'accepted');
                       },
                       title: "Accept Application",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheck, {})
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheck, {})
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
                       className: "decline-btn-small",
                       onClick: function onClick() {
                         return openConfirm(application, 'declined');
                       },
                       title: "Decline Application",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
                     })]
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-                style: {
-                  marginTop: '8px'
-                },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                  style: {
-                    color: '#333'
-                  },
-                  children: "Want to message this applicant? "
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
-                  href: "#",
-                  onClick: (/*#__PURE__*/function () {
-                    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4(e) {
-                      var stored, currentRole, targetRole, _stored$user, authToken, updated, _t4;
-                      return _regenerator().w(function (_context4) {
-                        while (1) switch (_context4.p = _context4.n) {
-                          case 0:
-                            e.preventDefault();
-                            stored = JSON.parse(localStorage.getItem('user') || '{}');
-                            currentRole = stored === null || stored === void 0 ? void 0 : stored.role_id;
-                            targetRole = 2; // employer role to chat as employer
-                            _context4.p = 1;
-                            if (!(currentRole && currentRole !== targetRole)) {
-                              _context4.n = 3;
-                              break;
-                            }
-                            authToken = localStorage.getItem('auth_token');
-                            _context4.n = 2;
-                            return fetch('http://127.0.0.1:8000/api/users/switch-role', {
-                              method: 'POST',
-                              headers: {
-                                'Authorization': "Bearer ".concat(authToken),
-                                'Content-Type': 'application/json',
-                                'Accept': 'application/json'
-                              },
-                              body: JSON.stringify({
-                                user_id: stored.id || (stored === null || stored === void 0 || (_stored$user = stored.user) === null || _stored$user === void 0 ? void 0 : _stored$user.id),
-                                role_id: targetRole
-                              })
-                            })["catch"](function () {});
-                          case 2:
-                            updated = _objectSpread(_objectSpread({}, stored.user || stored), {}, {
-                              role_id: targetRole
-                            });
-                            localStorage.setItem('user', JSON.stringify(stored.user ? {
-                              user: updated
-                            } : updated));
-                          case 3:
-                            _context4.n = 5;
-                            break;
-                          case 4:
-                            _context4.p = 4;
-                            _t4 = _context4.v;
-                          case 5:
-                            window.location.href = '/message';
-                          case 6:
-                            return _context4.a(2);
-                        }
-                      }, _callee4, null, [[1, 4]]);
-                    }));
-                    return function (_x3) {
-                      return _ref5.apply(this, arguments);
-                    };
-                  }()),
-                  style: {
-                    color: '#1a73e8',
-                    textDecoration: 'underline'
-                  },
-                  children: "Click here"
-                })]
-              }), application.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              }), application.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "cover-letter",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h5", {
                   children: "Cover Letter:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                   children: application.cover_letter
                 })]
-              }), application.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              }), application.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "resume-section",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h5", {
                   children: "Resume/CV:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
                   className: "download-resume-btn",
                   onClick: function onClick() {
                     return downloadResume(application.resume_path);
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFilePdf, {}), " Download Resume"]
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFilePdf, {}), " Download Resume"]
                 })]
-              }), application.skills && application.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              }), application.skills && application.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "worker-skills",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h5", {
                   children: "Skills:"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "skills-list",
                   children: application.skills.map(function (skill, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                       className: "skill-tag",
                       children: skill
                     }, index);
                   })
                 })]
-              }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              }), application.status === 'for_interview' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "application-actions",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
                   className: "accept-btn",
                   onClick: function onClick() {
                     return openConfirm(application, 'accepted');
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheck, {}), " Hire"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaCheck, {}), " Hire"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
                   className: "decline-btn",
                   onClick: function onClick() {
                     return openConfirm(application, 'declined');
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {}), " Decline"]
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {}), " Decline"]
                 })]
-              }), application.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), application.status === 'accepted' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                 className: "application-actions",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("button", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
                   className: "fire-btn",
                   onClick: function onClick() {
                     return handleApplicationStatus(application.id, 'fired');
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFire, {}), " Fire"]
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaFire, {}), " Fire"]
                 })
               })]
             }, application.id);
           })
         })]
       })]
-    }), showViewWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), showViewWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ViewWorkersApplicationModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
       jobPostId: jobPostId,
       jobTitle: jobTitle,
       onClose: handleCloseViewWorkersModal
-    }), confirmState.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    }), showViewHiredWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ViewHiredWorkersModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      jobPostId: jobPostId,
+      jobTitle: jobTitle,
+      onClose: handleCloseViewHiredWorkersModal
+    }), showViewDeclinedWorkersModal && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ViewDeclinedWorkersModal__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      jobPostId: jobPostId,
+      jobTitle: jobTitle,
+      onClose: handleCloseViewDeclinedWorkersModal
+    }), confirmState.open && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
       className: "confirm-modal-overlay",
       onClick: closeConfirm,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "confirm-modal",
         onClick: function onClick(e) {
           return e.stopPropagation();
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "confirm-modal-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
             children: "Confirm Action"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
             className: "close-btn",
             onClick: closeConfirm,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "confirm-modal-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("p", {
             children: ["Are you sure you want to ", confirmState.action === 'accepted' ? 'hire' : 'decline', ' ', confirmState.application ? getWorkerName(confirmState.application.worker) : 'this worker', "?"]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "confirm-modal-actions",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
             className: "confirm-btn",
             onClick: proceedConfirm,
             children: confirmState.action === 'accepted' ? 'Hire' : 'Decline'
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
             className: "cancel-btn",
             onClick: closeConfirm,
             children: "Cancel"
@@ -250421,6 +250561,820 @@ var TransactionModal = function TransactionModal(_ref) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TransactionModal);
+
+/***/ }),
+
+/***/ "./resources/js/components/profilesettings/ViewDeclinedWorkersModal.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/profilesettings/ViewDeclinedWorkersModal.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var react_icons_lu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/lu */ "./node_modules/react-icons/lu/index.mjs");
+/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _sass_components_profilesettings_viewdeclinedworkersmodal_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/viewdeclinedworkersmodal.scss */ "./resources/sass/components/profilesettings/viewdeclinedworkersmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+
+
+
+
+var ViewDeclinedWorkersModal = function ViewDeclinedWorkersModal(_ref) {
+  var _selectedApplication$, _selectedApplication$2, _selectedApplication$3;
+  var jobPostId = _ref.jobPostId,
+    jobTitle = _ref.jobTitle,
+    onClose = _ref.onClose;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    applications = _useState2[0],
+    setApplications = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState4 = _slicedToArray(_useState3, 2),
+    loading = _useState4[0],
+    setLoading = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState6 = _slicedToArray(_useState5, 2),
+    jobPost = _useState6[0],
+    setJobPost = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState8 = _slicedToArray(_useState7, 2),
+    selectedApplication = _useState8[0],
+    setSelectedApplication = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState0 = _slicedToArray(_useState9, 2),
+    showApplicationDetails = _useState0[0],
+    setShowApplicationDetails = _useState0[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchJobPost();
+    fetchApplications();
+  }, [jobPostId]);
+  var fetchJobPost = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var response, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            _context.p = 0;
+            _context.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("http://127.0.0.1:8000/api/jobposts/".concat(jobPostId));
+          case 1:
+            response = _context.v;
+            setJobPost(response.data.data || response.data);
+            _context.n = 3;
+            break;
+          case 2:
+            _context.p = 2;
+            _t = _context.v;
+            console.error('Error fetching job post:', _t);
+          case 3:
+            return _context.a(2);
+        }
+      }, _callee, null, [[0, 2]]);
+    }));
+    return function fetchJobPost() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var fetchApplications = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var response, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            _context2.p = 0;
+            setLoading(true);
+            _context2.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("http://127.0.0.1:8000/api/job-applications/job/".concat(jobPostId));
+          case 1:
+            response = _context2.v;
+            console.log('Applications API Response:', response.data);
+            setApplications(response.data);
+            _context2.n = 3;
+            break;
+          case 2:
+            _context2.p = 2;
+            _t2 = _context2.v;
+            console.error('Error fetching applications:', _t2);
+            setApplications([]);
+          case 3:
+            _context2.p = 3;
+            setLoading(false);
+            return _context2.f(3);
+          case 4:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[0, 2, 3, 4]]);
+    }));
+    return function fetchApplications() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+  var getWorkerName = function getWorkerName(worker) {
+    // Filter out empty/null middle names to avoid double names
+    var nameParts = [worker.first_name, worker.middlename, worker.last_name].filter(function (part) {
+      return part && part.trim() !== '';
+    }).join(' ');
+    return worker.suffix_name ? "".concat(nameParts, " ").concat(worker.suffix_name) : nameParts;
+  };
+  var filteredApplications = applications.filter(function (app) {
+    return app.status === 'declined';
+  });
+  var downloadResume = function downloadResume(resumePath) {
+    if (resumePath) {
+      window.open("http://127.0.0.1:8000/storage/".concat(resumePath), '_blank');
+    }
+  };
+  var handleViewProfile = function handleViewProfile(application) {
+    // Check if current user is a worker trying to view another worker's profile
+    var userData = JSON.parse(localStorage.getItem("user") || '{}');
+    var currentUser = userData.user || userData;
+    if ((currentUser === null || currentUser === void 0 ? void 0 : currentUser.role_id) === 1) {
+      alert("Workers cannot view other worker profiles. Please switch to employer role to hire workers.");
+      return;
+    }
+
+    // Debug: Log the application data to see the structure
+    console.log('Application data:', application);
+    console.log('Worker data:', application.worker);
+    console.log('Worker ID:', application.worker.id);
+
+    // Use the worker's ID for the profile route
+    var workerId = application.worker.id;
+    console.log('Opening profile for worker ID:', workerId);
+    window.open("/profile/".concat(workerId), '_blank');
+  };
+  var handleViewApplicationDetails = function handleViewApplicationDetails(application) {
+    setSelectedApplication(application);
+    setShowApplicationDetails(true);
+  };
+  var handleCloseApplicationDetails = function handleCloseApplicationDetails() {
+    setShowApplicationDetails(false);
+    setSelectedApplication(null);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "view-declined-workers-modal-overlay",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "view-declined-workers-modal",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "modal-header",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h2", {
+          children: ["Declined Workers - ", jobTitle]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "header-actions",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            className: "close-btn",
+            onClick: onClose,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+          })
+        })]
+      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "loading-state",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "spinner"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          children: "Loading applications..."
+        })]
+      }) : filteredApplications.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "empty-state",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUser, {
+          className: "empty-icon"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+          children: "No Declined Workers"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          children: "No workers have been declined for this job yet."
+        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "applications-list",
+          children: filteredApplications.map(function (application) {
+            var _application$worker, _application$worker2, _application$worker3;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "application-card",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "application-header",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "worker-info",
+                  onClick: function onClick() {
+                    return handleViewApplicationDetails(application);
+                  },
+                  style: {
+                    cursor: 'pointer'
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "worker-avatar",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: application.worker.profile_img && application.worker.profile_img !== 'img/defaultpfp.jpg' ? "http://127.0.0.1:8000/storage/".concat(application.worker.profile_img, "?v=").concat(Date.now()) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
+                      alt: "".concat(getWorkerName(application.worker), "'s avatar"),
+                      className: "profile-image",
+                      onError: function onError(e) {
+                        e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                      }
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "worker-details",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+                      className: "worker-name",
+                      children: getWorkerName(application.worker)
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                      className: "application-date",
+                      children: ["Applied on ", new Date(application.created_at).toLocaleDateString()]
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "application-status",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "status-badge status-declined",
+                    children: "Declined"
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "profile-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                  children: "Profile Information"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "profile-details",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "profile-text-details",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                        children: "Email:"
+                      }), " ", ((_application$worker = application.worker) === null || _application$worker === void 0 || (_application$worker = _application$worker.user) === null || _application$worker === void 0 ? void 0 : _application$worker.email) || 'Not provided']
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                        children: "Location:"
+                      }), " ", ((_application$worker2 = application.worker) === null || _application$worker2 === void 0 ? void 0 : _application$worker2.city) || 'Not specified', ", ", ((_application$worker3 = application.worker) === null || _application$worker3 === void 0 ? void 0 : _application$worker3.province) || 'Not specified']
+                    })]
+                  })
+                })]
+              }), application.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "cover-letter",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                  children: "Cover Letter:"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                  children: application.cover_letter
+                })]
+              }), application.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "resume-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h5", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_lu__WEBPACK_IMPORTED_MODULE_2__.LuFileSearch, {}), " Resume/CV:"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                  className: "download-resume-btn",
+                  onClick: function onClick() {
+                    return downloadResume(application.resume_path);
+                  },
+                  children: "View Resume"
+                })]
+              }), application.skills && application.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "worker-skills",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                  children: "Skills:"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "skills-list",
+                  children: application.skills.map(function (skill, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                      className: "skill-tag",
+                      children: skill
+                    }, index);
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "application-actions",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+                  className: "view-profile-btn",
+                  onClick: function onClick() {
+                    return handleViewProfile(application);
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_3__.IoEyeSharp, {}), " View Profile"]
+                })
+              })]
+            }, application.id);
+          })
+        })
+      })]
+    }), showApplicationDetails && selectedApplication && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "application-details-modal-overlay",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "application-details-modal",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "modal-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h3", {
+            children: ["Application Details - ", getWorkerName(selectedApplication.worker)]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            className: "close-btn",
+            onClick: handleCloseApplicationDetails,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "application-details-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "profile-info",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Worker Profile Information"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "profile-details",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "profile-image-section",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                  src: selectedApplication.worker.profile_img && selectedApplication.worker.profile_img !== 'img/defaultpfp.jpg' ? "http://127.0.0.1:8000/storage/".concat(selectedApplication.worker.profile_img, "?v=").concat(Date.now()) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
+                  alt: "".concat(getWorkerName(selectedApplication.worker), "'s avatar"),
+                  className: "profile-image",
+                  onError: function onError(e) {
+                    e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                  }
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "profile-text-details",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Name:"
+                  }), " ", getWorkerName(selectedApplication.worker)]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Email:"
+                  }), " ", ((_selectedApplication$ = selectedApplication.worker) === null || _selectedApplication$ === void 0 || (_selectedApplication$ = _selectedApplication$.user) === null || _selectedApplication$ === void 0 ? void 0 : _selectedApplication$.email) || 'Not provided']
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Location:"
+                  }), " ", ((_selectedApplication$2 = selectedApplication.worker) === null || _selectedApplication$2 === void 0 ? void 0 : _selectedApplication$2.city) || 'Not specified', ", ", ((_selectedApplication$3 = selectedApplication.worker) === null || _selectedApplication$3 === void 0 ? void 0 : _selectedApplication$3.province) || 'Not specified']
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Applied on:"
+                  }), " ", new Date(selectedApplication.created_at).toLocaleDateString()]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Status:"
+                  }), " Declined"]
+                })]
+              })]
+            })]
+          }), selectedApplication.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "cover-letter-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Cover Letter"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "cover-letter-content",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                children: selectedApplication.cover_letter
+              })
+            })]
+          }), selectedApplication.skills && selectedApplication.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "skills-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Skills"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "skills-list",
+              children: selectedApplication.skills.map(function (skill, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "skill-tag",
+                  children: skill
+                }, index);
+              })
+            })]
+          }), selectedApplication.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "resume-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_lu__WEBPACK_IMPORTED_MODULE_2__.LuFileSearch, {}), " Resume/CV"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+              className: "download-resume-btn",
+              onClick: function onClick() {
+                return downloadResume(selectedApplication.resume_path);
+              },
+              children: "View Resume"
+            })]
+          })]
+        })]
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ViewDeclinedWorkersModal);
+
+/***/ }),
+
+/***/ "./resources/js/components/profilesettings/ViewHiredWorkersModal.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/profilesettings/ViewHiredWorkersModal.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var react_icons_lu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/lu */ "./node_modules/react-icons/lu/index.mjs");
+/* harmony import */ var react_icons_io5__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.mjs");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _sass_components_profilesettings_viewhiredworkersmodal_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/viewhiredworkersmodal.scss */ "./resources/sass/components/profilesettings/viewhiredworkersmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+
+
+
+
+var ViewHiredWorkersModal = function ViewHiredWorkersModal(_ref) {
+  var _selectedApplication$, _selectedApplication$2, _selectedApplication$3;
+  var jobPostId = _ref.jobPostId,
+    jobTitle = _ref.jobTitle,
+    onClose = _ref.onClose;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    applications = _useState2[0],
+    setApplications = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState4 = _slicedToArray(_useState3, 2),
+    loading = _useState4[0],
+    setLoading = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState6 = _slicedToArray(_useState5, 2),
+    jobPost = _useState6[0],
+    setJobPost = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState8 = _slicedToArray(_useState7, 2),
+    selectedApplication = _useState8[0],
+    setSelectedApplication = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState0 = _slicedToArray(_useState9, 2),
+    showApplicationDetails = _useState0[0],
+    setShowApplicationDetails = _useState0[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchJobPost();
+    fetchApplications();
+  }, [jobPostId]);
+  var fetchJobPost = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var response, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            _context.p = 0;
+            _context.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("http://127.0.0.1:8000/api/jobposts/".concat(jobPostId));
+          case 1:
+            response = _context.v;
+            setJobPost(response.data.data || response.data);
+            _context.n = 3;
+            break;
+          case 2:
+            _context.p = 2;
+            _t = _context.v;
+            console.error('Error fetching job post:', _t);
+          case 3:
+            return _context.a(2);
+        }
+      }, _callee, null, [[0, 2]]);
+    }));
+    return function fetchJobPost() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var fetchApplications = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+      var response, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            _context2.p = 0;
+            setLoading(true);
+            _context2.n = 1;
+            return axios__WEBPACK_IMPORTED_MODULE_4__["default"].get("http://127.0.0.1:8000/api/job-applications/job/".concat(jobPostId));
+          case 1:
+            response = _context2.v;
+            console.log('Applications API Response:', response.data);
+            setApplications(response.data);
+            _context2.n = 3;
+            break;
+          case 2:
+            _context2.p = 2;
+            _t2 = _context2.v;
+            console.error('Error fetching applications:', _t2);
+            setApplications([]);
+          case 3:
+            _context2.p = 3;
+            setLoading(false);
+            return _context2.f(3);
+          case 4:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[0, 2, 3, 4]]);
+    }));
+    return function fetchApplications() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+  var getWorkerName = function getWorkerName(worker) {
+    // Filter out empty/null middle names to avoid double names
+    var nameParts = [worker.first_name, worker.middlename, worker.last_name].filter(function (part) {
+      return part && part.trim() !== '';
+    }).join(' ');
+    return worker.suffix_name ? "".concat(nameParts, " ").concat(worker.suffix_name) : nameParts;
+  };
+  var filteredApplications = applications.filter(function (app) {
+    return app.status === 'accepted';
+  });
+  var downloadResume = function downloadResume(resumePath) {
+    if (resumePath) {
+      window.open("http://127.0.0.1:8000/storage/".concat(resumePath), '_blank');
+    }
+  };
+  var handleViewProfile = function handleViewProfile(application) {
+    // Check if current user is a worker trying to view another worker's profile
+    var userData = JSON.parse(localStorage.getItem("user") || '{}');
+    var currentUser = userData.user || userData;
+    if ((currentUser === null || currentUser === void 0 ? void 0 : currentUser.role_id) === 1) {
+      alert("Workers cannot view other worker profiles. Please switch to employer role to hire workers.");
+      return;
+    }
+
+    // Debug: Log the application data to see the structure
+    console.log('Application data:', application);
+    console.log('Worker data:', application.worker);
+    console.log('Worker ID:', application.worker.id);
+
+    // Use the worker's ID for the profile route
+    var workerId = application.worker.id;
+    console.log('Opening profile for worker ID:', workerId);
+    window.open("/profile/".concat(workerId), '_blank');
+  };
+  var handleViewApplicationDetails = function handleViewApplicationDetails(application) {
+    setSelectedApplication(application);
+    setShowApplicationDetails(true);
+  };
+  var handleCloseApplicationDetails = function handleCloseApplicationDetails() {
+    setShowApplicationDetails(false);
+    setSelectedApplication(null);
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "view-hired-workers-modal-overlay",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "view-hired-workers-modal",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "modal-header",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h2", {
+          children: ["Hired Workers - ", jobTitle]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "header-actions",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            className: "close-btn",
+            onClick: onClose,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+          })
+        })]
+      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "loading-state",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "spinner"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          children: "Loading applications..."
+        })]
+      }) : filteredApplications.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "empty-state",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUser, {
+          className: "empty-icon"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+          children: "No Hired Workers"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          children: "No workers have been hired for this job yet."
+        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "applications-list",
+          children: filteredApplications.map(function (application) {
+            var _application$worker, _application$worker2, _application$worker3;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "application-card",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "application-header",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  className: "worker-info",
+                  onClick: function onClick() {
+                    return handleViewApplicationDetails(application);
+                  },
+                  style: {
+                    cursor: 'pointer'
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    className: "worker-avatar",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                      src: application.worker.profile_img && application.worker.profile_img !== 'img/defaultpfp.jpg' ? "http://127.0.0.1:8000/storage/".concat(application.worker.profile_img, "?v=").concat(Date.now()) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
+                      alt: "".concat(getWorkerName(application.worker), "'s avatar"),
+                      className: "profile-image",
+                      onError: function onError(e) {
+                        e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                      }
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "worker-details",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+                      className: "worker-name",
+                      children: getWorkerName(application.worker)
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                      className: "application-date",
+                      children: ["Applied on ", new Date(application.created_at).toLocaleDateString()]
+                    })]
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "application-status",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    className: "status-badge status-accepted",
+                    children: "Hired"
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "profile-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                  children: "Profile Information"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "profile-details",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    className: "profile-text-details",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                        children: "Email:"
+                      }), " ", ((_application$worker = application.worker) === null || _application$worker === void 0 || (_application$worker = _application$worker.user) === null || _application$worker === void 0 ? void 0 : _application$worker.email) || 'Not provided']
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                        children: "Location:"
+                      }), " ", ((_application$worker2 = application.worker) === null || _application$worker2 === void 0 ? void 0 : _application$worker2.city) || 'Not specified', ", ", ((_application$worker3 = application.worker) === null || _application$worker3 === void 0 ? void 0 : _application$worker3.province) || 'Not specified']
+                    })]
+                  })
+                })]
+              }), application.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "cover-letter",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                  children: "Cover Letter:"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                  children: application.cover_letter
+                })]
+              }), application.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "resume-section",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h5", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_lu__WEBPACK_IMPORTED_MODULE_2__.LuFileSearch, {}), " Resume/CV:"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                  className: "download-resume-btn",
+                  onClick: function onClick() {
+                    return downloadResume(application.resume_path);
+                  },
+                  children: "View Resume"
+                })]
+              }), application.skills && application.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "worker-skills",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h5", {
+                  children: "Skills:"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                  className: "skills-list",
+                  children: application.skills.map(function (skill, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                      className: "skill-tag",
+                      children: skill
+                    }, index);
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "application-actions",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+                  className: "view-profile-btn",
+                  onClick: function onClick() {
+                    return handleViewProfile(application);
+                  },
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_3__.IoEyeSharp, {}), " View Profile"]
+                })
+              })]
+            }, application.id);
+          })
+        })
+      })]
+    }), showApplicationDetails && selectedApplication && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "application-details-modal-overlay",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "application-details-modal",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "modal-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h3", {
+            children: ["Application Details - ", getWorkerName(selectedApplication.worker)]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+            className: "close-btn",
+            onClick: handleCloseApplicationDetails,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {})
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          className: "application-details-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "profile-info",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Worker Profile Information"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              className: "profile-details",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                className: "profile-image-section",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                  src: selectedApplication.worker.profile_img && selectedApplication.worker.profile_img !== 'img/defaultpfp.jpg' ? "http://127.0.0.1:8000/storage/".concat(selectedApplication.worker.profile_img, "?v=").concat(Date.now()) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
+                  alt: "".concat(getWorkerName(selectedApplication.worker), "'s avatar"),
+                  className: "profile-image",
+                  onError: function onError(e) {
+                    e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                  }
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                className: "profile-text-details",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Name:"
+                  }), " ", getWorkerName(selectedApplication.worker)]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Email:"
+                  }), " ", ((_selectedApplication$ = selectedApplication.worker) === null || _selectedApplication$ === void 0 || (_selectedApplication$ = _selectedApplication$.user) === null || _selectedApplication$ === void 0 ? void 0 : _selectedApplication$.email) || 'Not provided']
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Location:"
+                  }), " ", ((_selectedApplication$2 = selectedApplication.worker) === null || _selectedApplication$2 === void 0 ? void 0 : _selectedApplication$2.city) || 'Not specified', ", ", ((_selectedApplication$3 = selectedApplication.worker) === null || _selectedApplication$3 === void 0 ? void 0 : _selectedApplication$3.province) || 'Not specified']
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Applied on:"
+                  }), " ", new Date(selectedApplication.created_at).toLocaleDateString()]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
+                    children: "Status:"
+                  }), " Hired"]
+                })]
+              })]
+            })]
+          }), selectedApplication.cover_letter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "cover-letter-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Cover Letter"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "cover-letter-content",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                children: selectedApplication.cover_letter
+              })
+            })]
+          }), selectedApplication.skills && selectedApplication.skills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "skills-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: "Skills"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              className: "skills-list",
+              children: selectedApplication.skills.map(function (skill, index) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  className: "skill-tag",
+                  children: skill
+                }, index);
+              })
+            })]
+          }), selectedApplication.resume_path && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "resume-section",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_lu__WEBPACK_IMPORTED_MODULE_2__.LuFileSearch, {}), " Resume/CV"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+              className: "download-resume-btn",
+              onClick: function onClick() {
+                return downloadResume(selectedApplication.resume_path);
+              },
+              children: "View Resume"
+            })]
+          })]
+        })]
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ViewHiredWorkersModal);
 
 /***/ }),
 
@@ -262005,6 +262959,66 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_transactionmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/profilesettings/viewdeclinedworkersmodal.scss":
+/*!*********************************************************************************!*\
+  !*** ./resources/sass/components/profilesettings/viewdeclinedworkersmodal.scss ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_viewdeclinedworkersmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./viewdeclinedworkersmodal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/viewdeclinedworkersmodal.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_viewdeclinedworkersmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_viewdeclinedworkersmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/sass/components/profilesettings/viewhiredworkersmodal.scss":
+/*!******************************************************************************!*\
+  !*** ./resources/sass/components/profilesettings/viewhiredworkersmodal.scss ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_viewhiredworkersmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./viewhiredworkersmodal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/profilesettings/viewhiredworkersmodal.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_viewhiredworkersmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_viewhiredworkersmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

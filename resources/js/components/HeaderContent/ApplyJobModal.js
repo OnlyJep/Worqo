@@ -29,34 +29,59 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
       setLoading(true);
       // Get user data from localStorage
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
-      const userSkills = JSON.parse(localStorage.getItem(`userSkills_${userData.id}`) || '{}');
+      const currentUser = userData.user || userData || {};
+      const userSkills = JSON.parse(localStorage.getItem(`userSkills_${currentUser.id}`) || '{}');
       
-      if (userData.id) {
-        // If localStorage skills are empty, try to fetch from API
-        if (!userSkills.primary_skills || userSkills.primary_skills.length === 0) {
-          console.log('No skills in localStorage, fetching from API...');
+      if (currentUser.id) {
+        let profileId = currentUser.profile_id;
+        
+        // If localStorage skills are empty OR profile_id is missing, try to fetch from API
+        if (!userSkills.primary_skills || userSkills.primary_skills.length === 0 || !profileId) {
+          console.log('Fetching worker data from API...');
           try {
-            const response = await axios.get(`/api/workers/${userData.id}`);
-            if (response.data && response.data.worker && response.data.worker.skills_id) {
-              userSkills = response.data.worker.skills_id;
-              console.log('Skills fetched from API:', userSkills);
+            const authToken = localStorage.getItem("auth_token");
+            const response = await axios.get(`/api/workers/${currentUser.id}`, {
+              headers: {
+                'Authorization': `Bearer ${authToken}`,
+                'Accept': 'application/json'
+              }
+            });
+            
+            if (response.data) {
+              // Get profile_id from API response if missing
+              if (!profileId && response.data.profile && response.data.profile.id) {
+                profileId = response.data.profile.id;
+                console.log('Profile ID fetched from API:', profileId);
+              }
+              
+              // Get skills from API response if missing
+              if ((!userSkills.primary_skills || userSkills.primary_skills.length === 0) && 
+                  response.data.worker && response.data.worker.skills_id) {
+                userSkills = response.data.worker.skills_id;
+                console.log('Skills fetched from API:', userSkills);
+              }
             }
           } catch (apiError) {
-            console.log('Could not fetch skills from API, using localStorage data');
+            console.log('Could not fetch data from API, using localStorage data');
           }
         }
         
+        // If profile_id is still missing, use user id as fallback
+        // Note: This may fail backend validation if user id is not a valid profile id
+        const finalProfileId = profileId || currentUser.id;
+        
         // Construct user profile from localStorage data
         const userProfile = {
-          id: userData.id,
-          email: userData.email,
+          id: currentUser.id,
+          profile_id: finalProfileId, // Use profile_id from API or localStorage
+          email: currentUser.email,
           profile: {
-            first_name: userData.first_name,
-            middlename: userData.middlename,
-            last_name: userData.last_name,
-            city: userData.city,
-            province: userData.province,
-            profile_img: userData.profile_img
+            first_name: currentUser.first_name,
+            middlename: currentUser.middlename,
+            last_name: currentUser.last_name,
+            city: currentUser.city,
+            province: currentUser.province,
+            profile_img: currentUser.profile_img
           },
           worker: {
             skills_id: userSkills
@@ -348,10 +373,18 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
     try {
       showNotification('Submitting application...', 'processing');
       
+      // Use profile_id for worker_id (must exist in profiles table)
+      const workerId = userProfile.profile_id || userProfile.id;
+      
+      if (!workerId) {
+        showNotification('Unable to determine worker profile. Please log in again.', 'error');
+        return;
+      }
+      
       // Prepare application data with user profile
       const applicationData = new FormData();
       applicationData.append('job_post_id', job.id);
-      applicationData.append('worker_id', userProfile.id);
+      applicationData.append('worker_id', workerId);
       applicationData.append('cover_letter', formData.coverLetter);
       
       // Convert skills object to array format
@@ -390,7 +423,7 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
       
       console.log('Submitting application data:', {
         job_post_id: job.id,
-        worker_id: userProfile.id,
+        worker_id: workerId,
         cover_letter: formData.coverLetter,
         skills: skillsArray,
         resume: formData.resume ? formData.resume.name : 'No resume'
