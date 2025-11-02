@@ -19,6 +19,7 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
     description: "",
     book_in: "",
     book_end: "",
+    hours_per_day: "",
     daily_rate: "",
     total_amount: "",
     status: "pending"
@@ -203,6 +204,18 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
   useEffect(() => {
     if (isOpen) {
       if (isEdit && initialData) {
+        // If hours_per_day is not available (old bookings), calculate it from time_in/time_out or use default
+        let hoursPerDay = initialData.hours_per_day || '';
+        if (!hoursPerDay && initialData.time_in && initialData.time_out) {
+          // Calculate hours from time_in and time_out if available
+          const [startHour, startMinute] = initialData.time_in.split(':').map(Number);
+          const [endHour, endMinute] = initialData.time_out.split(':').map(Number);
+          const startTime = startHour + startMinute / 60;
+          const endTime = endHour + endMinute / 60;
+          hoursPerDay = endTime - startTime;
+          if (hoursPerDay < 0) hoursPerDay += 24; // Handle overnight shifts
+        }
+        
         setFormData({
           employer_id: initialData.employer_id || "",
           worker_id: initialData.worker_id || "",
@@ -212,6 +225,7 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
           description: initialData.description || "",
           book_in: initialData.book_in ? new Date(initialData.book_in).toISOString().slice(0, 16) : "",
           book_end: initialData.book_end ? new Date(initialData.book_end).toISOString().slice(0, 16) : "",
+          hours_per_day: hoursPerDay,
           daily_rate: initialData.daily_rate || "",
           total_amount: initialData.total_amount || "",
           status: initialData.status || "pending"
@@ -226,6 +240,7 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
           description: "",
           book_in: "",
           book_end: "",
+          hours_per_day: "",
           daily_rate: "",
           total_amount: "",
           status: "pending"
@@ -253,13 +268,178 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
     }
   }, [formData.book_in, formData.book_end, formData.worker_id]);
 
+  // Determine if worker is blue-collar based on their skills or service type (matching BookModal.js logic)
+  const isBlueCollarWorker = () => {
+    // First check if worker is selected and has skills
+    if (formData.worker_id) {
+      const selectedWorker = workers.find(w => w.id === parseInt(formData.worker_id));
+      if (selectedWorker) {
+        // Check worker skills from different possible data structures
+        const primarySkills = selectedWorker.primary_skills || selectedWorker.worker?.primary_skills || [];
+        const additionalSkills = selectedWorker.additional_skills || selectedWorker.worker?.additional_skills || [];
+        
+        const allSkills = [...primarySkills, ...additionalSkills];
+        
+        if (allSkills.length > 0) {
+          // Blue-collar skill names (manual labor, construction, maintenance, etc.)
+          const blueCollarSkills = [
+            'plumbing', 'electrical', 'carpentry', 'welding', 'masonry', 'painting',
+            'construction', 'maintenance', 'mechanical', 'automotive', 'gardening',
+            'landscaping', 'housekeeping', 'cleaning', 'security', 'machine operation',
+            'appliance repair', 'hvac', 'roofing', 'flooring', 'tiling', 'concrete work',
+            'excavation', 'heavy machinery', 'forklift', 'crane', 'welding', 'fabrication',
+            'pipe fitting', 'drain cleaning', 'leak repair', 'fixture installation',
+            'system maintenance', 'equipment repair', 'preventive maintenance',
+            'building maintenance', 'hvac maintenance', 'plumbing maintenance',
+            'electrical maintenance', 'carpentry repairs', 'painting touch-ups',
+            'safety inspections', 'janitorial', 'sanitization', 'deep cleaning',
+            'window cleaning', 'carpet cleaning', 'laundry service', 'organization',
+            'eco-friendly cleaning', 'plant care', 'lawn maintenance', 'tree trimming',
+            'garden design', 'irrigation systems', 'pest control', 'fertilizing',
+            'pruning', 'landscape installation', 'seasonal cleanup', 'building security',
+            'event security', 'retail security', 'residential security', 'crowd control',
+            'patrol services', 'access control', 'emergency response', 'surveillance',
+            'safety protocols', 'tailor', 'dressmaker', 'barber', 'hairdresser',
+            'cook', 'chef', 'baker', 'driver', 'delivery', 'transportation'
+          ];
+          
+          const isBlueCollar = allSkills.some(skill => {
+            const skillName = (skill.skill_name || skill.name || skill || '').toLowerCase();
+            return blueCollarSkills.some(blueCollarSkill => 
+              skillName.includes(blueCollarSkill) || blueCollarSkill.includes(skillName)
+            );
+          });
+          
+          if (isBlueCollar) return true;
+        }
+      }
+    }
+    
+    // If worker skills don't indicate blue-collar, check service type as fallback
+    if (formData.service_type) {
+      const serviceTypeLower = formData.service_type.toLowerCase();
+      const blueCollarServiceTypes = [
+        'plumbing', 'electrical', 'carpentry', 'welding', 'masonry', 'painting',
+        'construction', 'maintenance', 'mechanical', 'automotive', 'gardening',
+        'landscaping', 'housekeeping', 'cleaning', 'security', 'machine operation',
+        'appliance repair', 'hvac', 'roofing', 'flooring', 'tiling', 'concrete work',
+        'excavation', 'heavy machinery', 'forklift', 'crane', 'welding', 'fabrication',
+        'pipe fitting', 'drain cleaning', 'leak repair', 'fixture installation',
+        'system maintenance', 'equipment repair', 'preventive maintenance',
+        'building maintenance', 'hvac maintenance', 'plumbing maintenance',
+        'electrical maintenance', 'carpentry repairs', 'painting touch-ups',
+        'safety inspections', 'janitorial', 'sanitization', 'deep cleaning',
+        'window cleaning', 'carpet cleaning', 'laundry service', 'organization',
+        'eco-friendly cleaning', 'plant care', 'lawn maintenance', 'tree trimming',
+        'garden design', 'irrigation systems', 'pest control', 'fertilizing',
+        'pruning', 'landscape installation', 'seasonal cleanup', 'building security',
+        'event security', 'retail security', 'residential security', 'crowd control',
+        'patrol services', 'access control', 'emergency response', 'surveillance',
+        'safety protocols', 'tailor', 'dressmaker', 'barber', 'hairdresser',
+        'cook', 'chef', 'baker', 'driver', 'delivery', 'transportation'
+      ];
+      
+      return blueCollarServiceTypes.some(blueCollarService => 
+        serviceTypeLower.includes(blueCollarService) || blueCollarService.includes(serviceTypeLower)
+      );
+    }
+    
+    // Default to false (white-collar) if we can't determine
+    return false;
+  };
+
+  // Calculate working days based on work type and collar type (including Sunday)
+  const calculateWorkingDays = (startDate, endDate, workType) => {
+    let workingDaysCount = 0;
+    
+    // Reset time to midnight to avoid time comparison issues
+    const currentDate = new Date(startDate);
+    currentDate.setHours(0, 0, 0, 0);
+    
+    const end = new Date(endDate);
+    end.setHours(0, 0, 0, 0);
+    
+    // Add 1 day to end date to include the end date itself
+    end.setDate(end.getDate() + 1);
+    
+    while (currentDate < end) {
+      const dayOfWeek = currentDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+      
+      // Determine working days based on collar type (including Sunday)
+      if (isBlueCollarWorker()) {
+        // Blue-collar workers: work Monday-Sunday (7 days per week)
+        // Include all days: Sunday (0), Monday-Saturday (1-6)
+        if (dayOfWeek >= 0 && dayOfWeek <= 6) { // Sunday to Saturday (all days)
+          workingDaysCount++;
+        }
+      } else {
+        // White-collar/Pink-collar workers: work Monday-Friday and Sunday (6 days per week)
+        // Monday-Friday (1-5) + Sunday (0)
+        if (dayOfWeek === 0 || (dayOfWeek >= 1 && dayOfWeek <= 5)) { // Sunday and Monday to Friday
+          workingDaysCount++;
+        }
+      }
+      
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    
+    return workingDaysCount;
+  };
+
+  // Calculate total amount based on daily_rate and working days (matching BookModal.js)
+  const calculateTotalAmount = () => {
+    const { book_in, book_end, daily_rate, work_type } = formData;
+    
+    if (!book_in || !book_end || !daily_rate || !work_type) {
+      return 0;
+    }
+
+    const startDate = new Date(book_in);
+    const endDate = new Date(book_end);
+    
+    // Calculate working days based on work type and collar type (matching BookModal.js)
+    const workingDays = calculateWorkingDays(startDate, endDate, work_type);
+    
+    // Calculate total amount: daily_rate * working_days (matching BookModal.js)
+    const dailyRateValue = parseFloat(daily_rate) || 0;
+    const totalAmount = dailyRateValue * workingDays;
+    
+    return totalAmount;
+  };
+
+  // Auto-calculate total_amount when relevant fields change (matching BookModal.js)
+  useEffect(() => {
+    if (formData.book_in && formData.book_end && formData.daily_rate && formData.work_type) {
+      const calculatedTotal = calculateTotalAmount();
+      setFormData(prev => ({
+        ...prev,
+        total_amount: calculatedTotal > 0 ? calculatedTotal.toFixed(2) : ""
+      }));
+    } else {
+      // Clear total_amount if required fields are missing
+      setFormData(prev => ({
+        ...prev,
+        total_amount: ""
+      }));
+    }
+  }, [formData.book_in, formData.book_end, formData.daily_rate, formData.work_type, formData.worker_id, formData.service_type]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    // If service type changes, clear sub_skill since it should match the new service type
+    if (name === 'service_type') {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value,
+        sub_skill: '' // Clear sub_skill when service type changes
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
     
     // Clear error when user starts typing
     if (errors[name]) {
@@ -307,12 +487,12 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
       }
     }
 
-    if (!formData.daily_rate || formData.daily_rate <= 0) {
-      newErrors.daily_rate = "Daily rate must be greater than 0";
+    if (!formData.hours_per_day || formData.hours_per_day <= 0) {
+      newErrors.hours_per_day = "Hours per day must be greater than 0";
     }
 
-    if (!formData.total_amount || formData.total_amount <= 0) {
-      newErrors.total_amount = "Total amount must be greater than 0";
+    if (!formData.daily_rate || formData.daily_rate <= 0) {
+      newErrors.daily_rate = "Daily rate must be greater than 0";
     }
 
     if (!formData.status) {
@@ -457,17 +637,35 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
                 autoComplete="off"
               />
               <datalist id="sub_skill_list">
-                {skills.map((skill) => 
-                  skill.sub_skills && skill.sub_skills.length > 0 ? (
-                    skill.sub_skills
-                      .filter(subSkill => 
-                        !subSkillSearch || 
-                        subSkill.toLowerCase().startsWith(subSkillSearch.toLowerCase())
-                      )
-                      .map((subSkill, index) => (
-                        <option key={`${skill.id}-${index}`} value={subSkill} />
-                      ))
-                  ) : null
+                {formData.service_type ? (
+                  skills
+                    .filter(skill => skill.name === formData.service_type)
+                    .map((skill) => 
+                      skill.sub_skills && skill.sub_skills.length > 0 ? (
+                        skill.sub_skills
+                          .filter(subSkill => 
+                            !subSkillSearch || 
+                            subSkill.toLowerCase().startsWith(subSkillSearch.toLowerCase())
+                          )
+                          .map((subSkill, index) => (
+                            <option key={`${skill.id}-${index}`} value={subSkill} />
+                          ))
+                      ) : null
+                    )
+                ) : (
+                  // If no service type selected, show all sub-skills
+                  skills.map((skill) => 
+                    skill.sub_skills && skill.sub_skills.length > 0 ? (
+                      skill.sub_skills
+                        .filter(subSkill => 
+                          !subSkillSearch || 
+                          subSkill.toLowerCase().startsWith(subSkillSearch.toLowerCase())
+                        )
+                        .map((subSkill, index) => (
+                          <option key={`${skill.id}-${index}`} value={subSkill} />
+                        ))
+                    ) : null
+                  )
                 )}
               </datalist>
             </div>
@@ -589,6 +787,24 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
 
           <div className="form-row">
             <div className="form-group">
+              <label htmlFor="hours_per_day">Hours per Day *</label>
+              <input
+                type="number"
+                id="hours_per_day"
+                name="hours_per_day"
+                value={formData.hours_per_day}
+                onChange={handleInputChange}
+                className={errors.hours_per_day ? "error" : ""}
+                disabled={isSubmitting}
+                min="1"
+                max="24"
+                step="0.5"
+                placeholder="e.g., 8"
+              />
+              {errors.hours_per_day && <span className="error-message">{errors.hours_per_day}</span>}
+            </div>
+
+            <div className="form-group">
               <label htmlFor="daily_rate">Daily Rate *</label>
               <input
                 type="number"
@@ -604,7 +820,9 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
               />
               {errors.daily_rate && <span className="error-message">{errors.daily_rate}</span>}
             </div>
+          </div>
 
+          <div className="form-row">
             <div className="form-group">
               <label htmlFor="total_amount">Total Amount *</label>
               <input
@@ -612,14 +830,15 @@ const BookingModal = ({ isOpen, onClose, onSubmit, isEdit, initialData, skills =
                 id="total_amount"
                 name="total_amount"
                 value={formData.total_amount}
-                onChange={handleInputChange}
-                className={errors.total_amount ? "error" : ""}
-                disabled={isSubmitting}
-                min="0"
-                step="0.01"
-                placeholder="0.00"
+                onChange={() => {}} // Read-only, auto-calculated
+                className="readonly"
+                disabled={true}
+                placeholder="Auto-calculated"
+                style={{ backgroundColor: '#f5f5f5', cursor: 'not-allowed' }}
               />
-              {errors.total_amount && <span className="error-message">{errors.total_amount}</span>}
+              <small style={{ color: '#666', fontSize: '0.875rem', marginTop: '4px', display: 'block' }}>
+                Automatically calculated from daily rate and working days
+              </small>
             </div>
           </div>
 

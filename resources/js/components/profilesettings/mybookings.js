@@ -648,7 +648,7 @@ const MyBookings = () => {
                     <div className="booking-middle-section">
                       <div className="booking-dates">
                         <div className="booking-date-item">
-                          <div className="booking-date-label">Start Date</div>
+                          <div className="booking-date-label">Book In</div>
                           <div className="booking-date-value">{new Date(booking.book_in).toLocaleDateString('en-US', { 
                             year: 'numeric', 
                             month: 'short', 
@@ -656,7 +656,7 @@ const MyBookings = () => {
                           })}</div>
                         </div>
                         <div className="booking-date-item">
-                          <div className="booking-date-label">End Date</div>
+                          <div className="booking-date-label">Book End</div>
                           <div className="booking-date-value">{new Date(booking.book_end).toLocaleDateString('en-US', { 
                             year: 'numeric', 
                             month: 'short', 

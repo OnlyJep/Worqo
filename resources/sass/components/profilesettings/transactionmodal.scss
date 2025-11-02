@@ -221,6 +221,51 @@
   }
 }
 
+// Salary Calculation Display (matching BookModal style)
+.salary-calculation-display {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .salary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e5e7eb;
+    
+    &:last-child {
+      border-bottom: none;
+      font-weight: 600;
+      padding-top: 12px;
+      border-top: 2px solid #0a2a40;
+      
+      .salary-value {
+        color: #28a745;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+    }
+
+    .salary-label {
+      color: #6b7280;
+      font-size: 14px;
+      font-weight: 400;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .salary-value {
+      color: #374151;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+  }
+}
+
 // Responsive design
 @media (max-width: 768px) {
   .transaction-modal {
@@ -252,6 +297,16 @@
     .value {
       text-align: justify;
       padding-left: 0;
+    }
+  }
+  
+  .salary-calculation-display {
+    padding: 12px;
+    
+    .salary-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
     }
   }
 }

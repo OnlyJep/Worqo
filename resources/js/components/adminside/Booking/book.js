@@ -411,6 +411,7 @@ const Book = () => {
                   <th>Service Type</th>
                   <th>Sub Skill</th>
                   <th>Work Type</th>
+                  <th>Hours/Day</th>
                   <th>Address</th>
                   <th>Contact Number</th>
                   <th>Description</th>
@@ -426,7 +427,7 @@ const Book = () => {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan="16" className="loading-row">
+                    <td colSpan="17" className="loading-row">
                       <Loader />
                     </td>
                   </tr>
@@ -509,7 +510,17 @@ const Book = () => {
                       </td>
                       <td data-label="Service Type">{book.service_type || "N/A"}</td>
                       <td data-label="Sub Skill">{book.sub_skill || "N/A"}</td>
-                      <td data-label="Work Type">{book.work_type || "N/A"}</td>
+                      <td data-label="Work Type">
+                        {book.work_type ? 
+                          book.work_type.split('-').map(word => 
+                            word.charAt(0).toUpperCase() + word.slice(1)
+                          ).join('-') 
+                          : "N/A"
+                        }
+                      </td>
+                      <td data-label="Hours/Day">
+                        {book.hours_per_day ? `${book.hours_per_day} hrs` : "N/A"}
+                      </td>
                       <td data-label="Address">
                         <div className="address-info">
                           {book.employer?.profile ? (
@@ -527,8 +538,12 @@ const Book = () => {
                       <td data-label="Description">{book.description || "N/A"}</td>
                       <td data-label="Book In">{formatDate(book.book_in)}</td>
                       <td data-label="Book End">{formatDate(book.book_end)}</td>
-                      <td data-label="Daily Rate">${book.daily_rate || "0.00"}</td>
-                      <td data-label="Total Amount">${book.total_amount || "0.00"}</td>
+                      <td data-label="Daily Rate">
+                        ₱{book.daily_rate ? Number(book.daily_rate).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "0.00"}
+                      </td>
+                      <td data-label="Total Amount">
+                        ₱{book.total_amount ? Number(book.total_amount).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "0.00"}
+                      </td>
                       <td data-label="Status">
                         <span className={`status-badge status-${book.status}`}>
                           {book.status || "N/A"}
@@ -540,7 +555,7 @@ const Book = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="16">No {showArchived ? "archived" : "active"} bookings found</td>
+                    <td colSpan="17">No {showArchived ? "archived" : "active"} bookings found</td>
                   </tr>
                 )}
               </tbody>

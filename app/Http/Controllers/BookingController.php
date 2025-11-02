@@ -214,6 +214,7 @@ class BookingController extends Controller
                     'book_end' => $booking->book_end,
                     'time_in' => $booking->time_in,
                     'time_out' => $booking->time_out,
+                    'hours_per_day' => $booking->hours_per_day,
                     'daily_rate' => $booking->daily_rate,
                     'total_amount' => $booking->total_amount,
                     'status' => $booking->status,
@@ -714,6 +715,7 @@ class BookingController extends Controller
                     'book_end' => $booking->book_end,
                     'time_in' => $booking->time_in,
                     'time_out' => $booking->time_out,
+                    'hours_per_day' => $booking->hours_per_day,
                     'daily_rate' => $booking->daily_rate,
                     'total_amount' => $booking->total_amount,
                     'status' => $booking->status,
@@ -777,6 +779,7 @@ class BookingController extends Controller
             'book_end' => 'required|date|after:book_in',
             'time_in' => 'nullable|string',
             'time_out' => 'nullable|string',
+            'hours_per_day' => 'nullable|numeric|min:0|max:24',
             'daily_rate' => 'required|numeric|min:0',
             'total_amount' => 'required|numeric|min:0',
             'status' => 'required|in:pending,accepted,declined,cancelled,completed'
@@ -874,6 +877,7 @@ class BookingController extends Controller
             'book_end' => 'sometimes|required|date|after:book_in',
             'time_in' => 'nullable|string',
             'time_out' => 'nullable|string',
+            'hours_per_day' => 'nullable|numeric|min:0|max:24',
             'daily_rate' => 'sometimes|required|numeric|min:0',
             'total_amount' => 'sometimes|required|numeric|min:0',
             'status' => 'sometimes|required|in:pending,accepted,declined,cancelled,completed'

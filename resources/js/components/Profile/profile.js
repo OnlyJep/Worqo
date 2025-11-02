@@ -399,7 +399,6 @@ const Profile = ({ initialServiceType }) => {
             ? parseFloat(workerData.worker.skills_id.primary_skills[0].hourly_rate) 
             : 150.00,
           description: workerData.worker?.bio || "No bio available",
-          work_type: workerData.worker?.work_type || 'part-time',
           hours_per_day: workerData.worker?.hours_per_day || 4,
           location: fullAddress || 'Address not specified',
           profile_img: workerData.profile?.profile_img,
@@ -999,10 +998,6 @@ const Profile = ({ initialServiceType }) => {
             )}
           </div>
           <div className="profile-stats">
-            <div className="profile-stat-item">
-              <span className="profile-stat-label">Work Type</span>
-              <span className="profile-stat-number">{worker.work_type || 'Part-time'}</span>
-            </div>
             <div className="profile-stat-item">
               <span className="profile-stat-label">Preferred Working Days</span>
               <span className="profile-stat-number">

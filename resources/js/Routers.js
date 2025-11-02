@@ -37,6 +37,7 @@ import Notif from "./components/HeaderContent/Notif";
 import Services from "./components/adminside/services/Services";
 import Company from "./components/adminside/company/Company.js";
 import Book from "./components/adminside/Booking/book";
+import PostHiringTable from "./components/adminside/posthiring/posthiring";
 import ProfileSettings from "./components/profilesettings/profilesettings";
 import AdminProfileSetting from "./components/AdminSetting/AdminProfileSetting.js";
 import SkillRatingModal from "./components/SkillRatingModal/SkillRatingModal";
@@ -363,6 +364,14 @@ export default function Routers() {
           element={
             <ProtectedRoute allowedRoles={[3]}>
               <Book />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/post-hiring"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <PostHiringTable />
             </ProtectedRoute>
           }
         />

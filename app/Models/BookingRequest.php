@@ -21,6 +21,7 @@ class BookingRequest extends Model
         'book_end',
         'time_in',
         'time_out',
+        'hours_per_day',
         'description',
         'daily_rate',
         'total_amount',
@@ -32,6 +33,7 @@ class BookingRequest extends Model
         'book_end' => 'datetime',
         'time_in' => 'datetime',
         'time_out' => 'datetime',
+        'hours_per_day' => 'decimal:2',
         'daily_rate' => 'decimal:2',
         'total_amount' => 'decimal:2',
         'created_at' => 'datetime',
@@ -110,9 +112,10 @@ class BookingRequest extends Model
             'book_end' => $bookModalData['book_end'] ?? null,
             'time_in' => $bookModalData['time_in'] ?? null,
             'time_out' => $bookModalData['time_out'] ?? null,
+            'hours_per_day' => $bookModalData['hours_per_day'] ?? null,
             'description' => $bookModalData['description'] ?? null,
             'daily_rate' => $bookModalData['daily_rate'] ?? null,
-            'total_amount' => $bookModalData['total_salary'] ?? null,
+            'total_amount' => $bookModalData['total_amount'] ?? $bookModalData['total_salary'] ?? null,
             'status' => 'pending', // Default status
         ]);
     }

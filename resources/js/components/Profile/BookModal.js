@@ -105,18 +105,18 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
 
     switch (work_type) {
       case 'full-time':
-        // Full-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri)
+        // Full-time: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
         workingDays = calculateFullTimeWorkingDays(startDate, endDate);
         totalHours = workingDays * hoursPerDay;
-        const fullTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        const fullTimeDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
         explanation = `Full-time: ${hoursPerDay} hours/day, ${fullTimeDays}. Total: ${workingDays} working days`;
         break;
         
       case 'part-time':
-        // Part-time: Based on collar type - Blue-collar (Mon-Sat) or White/Pink-collar (Mon-Fri)
+        // Part-time: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
         workingDays = calculatePreferredWorkingDays(startDate, endDate);
         totalHours = workingDays * hoursPerDay;
-        const partTimeDays = isBlueCollarWorker() ? 'Monday-Saturday' : 'Monday-Friday';
+        const partTimeDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
         explanation = `Part-time: ${hoursPerDay} hours/day, ${partTimeDays}. Total: ${workingDays} working days`;
         break;
         
@@ -141,7 +141,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     };
   };
 
-  // Calculate working days based on work type and collar type
+  // Calculate working days based on work type and collar type (including Sunday)
   const calculateWorkingDays = (startDate, endDate, workType) => {
     let workingDaysCount = 0;
     
@@ -158,15 +158,17 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     while (currentDate < end) {
       const dayOfWeek = currentDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
       
-      // Determine working days based on collar type
+      // Determine working days based on collar type (including Sunday)
       if (isBlueCollarWorker()) {
-        // Blue-collar workers: work Monday-Saturday (6 days per week)
-        if (dayOfWeek >= 1 && dayOfWeek <= 6) { // Monday to Saturday
+        // Blue-collar workers: work Monday-Sunday (7 days per week)
+        // Include all days: Sunday (0), Monday-Saturday (1-6)
+        if (dayOfWeek >= 0 && dayOfWeek <= 6) { // Sunday to Saturday (all days)
           workingDaysCount++;
         }
       } else {
-        // White-collar/Pink-collar workers: work Monday-Friday (5 days per week)
-        if (dayOfWeek >= 1 && dayOfWeek <= 5) { // Monday to Friday
+        // White-collar/Pink-collar workers: work Monday-Friday and Sunday (6 days per week)
+        // Monday-Friday (1-5) + Sunday (0)
+        if (dayOfWeek === 0 || (dayOfWeek >= 1 && dayOfWeek <= 5)) { // Sunday and Monday to Friday
           workingDaysCount++;
         }
       }

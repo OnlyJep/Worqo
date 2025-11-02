@@ -22,6 +22,7 @@ class Booking extends Model
         'book_end',
         'time_in',
         'time_out',
+        'hours_per_day',
         'daily_rate',
         'total_amount',
         'status',
@@ -31,6 +32,7 @@ class Booking extends Model
     protected $casts = [
         'book_in' => 'datetime',
         'book_end' => 'datetime',
+        'hours_per_day' => 'decimal:2',
         'daily_rate' => 'decimal:2',
         'total_amount' => 'decimal:2',
         'archived' => 'boolean'
@@ -102,6 +104,7 @@ class Booking extends Model
             'book_end' => $this->book_end,
             'time_in' => $this->time_in,
             'time_out' => $this->time_out,
+            'hours_per_day' => $this->hours_per_day,
             'description' => $this->description,
             'daily_rate' => $this->daily_rate,
             'total_amount' => $this->total_amount,
