@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../../../sass/components/profilesettings/profilesettingsidebar.scss';
 
 const ProfileSettingsSidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   
   // Get user role from localStorage and convert to number
   const userData = JSON.parse(localStorage.getItem("user") || '{}');
@@ -67,6 +68,13 @@ const ProfileSettingsSidebar = () => {
     });
   }
 
+  const handleLinkClick = (e, path) => {
+    e.preventDefault();
+    e.stopPropagation();
+    // Navigate using React Router - stays in same tab
+    navigate(path, { replace: false });
+  };
+
   return (
     <div className="profile-settings-sidebar">
       <div className="sidebar-container">
@@ -74,6 +82,7 @@ const ProfileSettingsSidebar = () => {
           <Link
             key={item.id}
             to={item.path}
+            onClick={(e) => handleLinkClick(e, item.path)}
             className={`sidebar-item ${item.isActive ? 'active' : ''}`}
           >
             <img src={item.icon} alt={item.label} className="sidebar-icon" />

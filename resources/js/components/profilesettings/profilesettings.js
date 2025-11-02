@@ -22,9 +22,10 @@ const ProfileSettings = () => {
   const [userRole, setUserRole] = useState(null);
 
   useEffect(() => {
-    // Get user role from localStorage
+    // Get user role from localStorage immediately to avoid redirects
     const userData = JSON.parse(localStorage.getItem("user") || '{}');
-    setUserRole(Number(userData.role_id));
+    const roleId = Number(userData.role_id);
+    setUserRole(roleId);
   }, []);
 
   // Determine which bookings component to use based on user role
@@ -32,7 +33,11 @@ const ProfileSettings = () => {
 
   // Role-based route protection component
   const RoleProtectedRoute = ({ children, allowedRoles }) => {
-    if (!userRole || !allowedRoles.includes(userRole)) {
+    // Don't redirect if userRole is still loading (null), wait for it to be set
+    if (userRole === null) {
+      return null; // or a loading spinner
+    }
+    if (!allowedRoles.includes(userRole)) {
       return <Navigate to="/profile-settings" replace />;
     }
     return children;

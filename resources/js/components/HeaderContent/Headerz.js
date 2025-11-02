@@ -228,17 +228,28 @@ const Headerz = () => {
     navigate('/find-jobs');
   };
   
-  const goToPostJobs = () => {
+  const goToPostJobs = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (!isLoggedIn) {
       alert('Please login to post jobs');
-      navigate('/login');
+      navigate('/login', { replace: true });
       return;
     }
-    if (user?.role_id === 1) {
+    const userRoleId = Number(user?.role_id);
+    if (userRoleId === 1) {
       alert('Workers cannot post jobs. Please switch to Employer account.');
       return;
     }
-    navigate('/post-jobs');
+    if (userRoleId !== 2) {
+      alert('Only Employers can post jobs.');
+      return;
+    }
+    // Navigate directly to post job page in profile settings - no intermediate stops
+    // Use replace to avoid going to /profile-settings first
+    navigate('/profile-settings/post-job', { replace: true });
   };
 
   const goToPostHiring = () => {
@@ -571,7 +582,21 @@ const Headerz = () => {
           )}
           {/* Show Post Jobs only for Employers (role_id = 2) */}
           {isLoggedIn && user?.role_id === 2 && (
-            <span onClick={goToPostJobs}>Post Jobs</span>
+            <span 
+              onClick={goToPostJobs}
+              onMouseDown={(e) => e.preventDefault()}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  goToPostJobs(e);
+                }
+              }}
+            >
+              Post Jobs
+            </span>
           )}
           {/* Show Post Hiring only for Contractors (role_id = 4) */}
           {isLoggedIn && user?.role_id === 4 && (

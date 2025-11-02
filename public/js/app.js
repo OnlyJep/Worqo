@@ -205170,17 +205170,32 @@ var Headerz = function Headerz() {
     }
     navigate('/find-jobs');
   };
-  var goToPostJobs = function goToPostJobs() {
+  var goToPostJobs = function goToPostJobs(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (!isLoggedIn) {
       alert('Please login to post jobs');
-      navigate('/login');
+      navigate('/login', {
+        replace: true
+      });
       return;
     }
-    if ((user === null || user === void 0 ? void 0 : user.role_id) === 1) {
+    var userRoleId = Number(user === null || user === void 0 ? void 0 : user.role_id);
+    if (userRoleId === 1) {
       alert('Workers cannot post jobs. Please switch to Employer account.');
       return;
     }
-    navigate('/post-jobs');
+    if (userRoleId !== 2) {
+      alert('Only Employers can post jobs.');
+      return;
+    }
+    // Navigate directly to post job page in profile settings - no intermediate stops
+    // Use replace to avoid going to /profile-settings first
+    navigate('/profile-settings/post-job', {
+      replace: true
+    });
   };
   var goToPostHiring = function goToPostHiring() {
     if (!isLoggedIn) {
@@ -205594,6 +205609,21 @@ var Headerz = function Headerz() {
           children: "Find Jobs"
         }), isLoggedIn && (user === null || user === void 0 ? void 0 : user.role_id) === 2 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToPostJobs,
+          onMouseDown: function onMouseDown(e) {
+            return e.preventDefault();
+          },
+          style: {
+            cursor: 'pointer',
+            userSelect: 'none'
+          },
+          role: "button",
+          tabIndex: 0,
+          onKeyDown: function onKeyDown(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              goToPostJobs(e);
+            }
+          },
           children: "Post Jobs"
         }), isLoggedIn && (user === null || user === void 0 ? void 0 : user.role_id) === 4 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToPostHiring,
@@ -258959,9 +258989,10 @@ var ProfileSettings = function ProfileSettings() {
     userRole = _useState2[0],
     setUserRole = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // Get user role from localStorage
+    // Get user role from localStorage immediately to avoid redirects
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
-    setUserRole(Number(userData.role_id));
+    var roleId = Number(userData.role_id);
+    setUserRole(roleId);
   }, []);
 
   // Determine which bookings component to use based on user role
@@ -258971,7 +259002,11 @@ var ProfileSettings = function ProfileSettings() {
   var RoleProtectedRoute = function RoleProtectedRoute(_ref) {
     var children = _ref.children,
       allowedRoles = _ref.allowedRoles;
-    if (!userRole || !allowedRoles.includes(userRole)) {
+    // Don't redirect if userRole is still loading (null), wait for it to be set
+    if (userRole === null) {
+      return null; // or a loading spinner
+    }
+    if (!allowedRoles.includes(userRole)) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Navigate, {
         to: "/profile-settings",
         replace: true
@@ -259045,6 +259080,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ProfileSettingsSidebar = function ProfileSettingsSidebar() {
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
 
   // Get user role from localStorage and convert to number
   var userData = JSON.parse(localStorage.getItem("user") || '{}');
@@ -259101,6 +259137,14 @@ var ProfileSettingsSidebar = function ProfileSettingsSidebar() {
       isActive: location.pathname === '/profile-settings/post-hiring'
     });
   }
+  var handleLinkClick = function handleLinkClick(e, path) {
+    e.preventDefault();
+    e.stopPropagation();
+    // Navigate using React Router - stays in same tab
+    navigate(path, {
+      replace: false
+    });
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "profile-settings-sidebar",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -259108,6 +259152,9 @@ var ProfileSettingsSidebar = function ProfileSettingsSidebar() {
       children: menuItems.map(function (item) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: item.path,
+          onClick: function onClick(e) {
+            return handleLinkClick(e, item.path);
+          },
           className: "sidebar-item ".concat(item.isActive ? 'active' : ''),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
             src: item.icon,
