@@ -6,9 +6,9 @@ import '../../../sass/components/profilesettings/profilesettingsidebar.scss';
 const ProfileSettingsSidebar = () => {
   const location = useLocation();
   
-  // Get user role from localStorage
+  // Get user role from localStorage and convert to number
   const userData = JSON.parse(localStorage.getItem("user") || '{}');
-  const userRole = userData.role_id;
+  const userRole = Number(userData.role_id);
 
   const menuItems = [
     {
@@ -53,6 +53,17 @@ const ProfileSettingsSidebar = () => {
       icon: '/images/postjob.svg',
       label: 'Post Job',
       isActive: location.pathname === '/profile-settings/post-job'
+    });
+  }
+
+  // Only add Post Hiring for contractors (role_id 4)
+  if (userRole === 4) {
+    menuItems.push({
+      id: 'post-hiring',
+      path: '/profile-settings/post-hiring',
+      icon: '/images/postjob.svg',
+      label: 'Post Hiring',
+      isActive: location.pathname === '/profile-settings/post-hiring'
     });
   }
 

@@ -21,6 +21,7 @@ import Adminlist from "./components/adminside/Adminlist/adminlist";
 import JobPost from "./components/adminside/jobposting/jobposting";
 import Workerlists from "./components/adminside/workerlist/workerlist";
 import Employerlists from "./components/adminside/employerlist/employerlist";
+import ContractorList from "./components/adminside/contractorlist/contractorlist";
 import ReviewList from "./components/adminside/ReviewList/reviewlist";
 import Categories from "./components/adminside/categories/Categories";
 import Roles from "./components/adminside/roles/Roles";
@@ -284,6 +285,14 @@ export default function Routers() {
           element={
             <ProtectedRoute allowedRoles={[3]}>
               <Employerlists />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/contractorlist"
+          element={
+            <ProtectedRoute allowedRoles={[3]}>
+              <ContractorList />
             </ProtectedRoute>
           }
         />

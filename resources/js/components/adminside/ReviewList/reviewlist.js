@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaArchive, FaEye } from "react-icons/fa";
 import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_reviewstable.scss";
 import ReviewModal from "./reviewlistmodal.js";
+import Loader from "./../../LoaderContent/loader";
 
 const API_BASE_URL = "/api";
 
@@ -148,7 +150,9 @@ const ReviewsTable = () => {
       if (axios.isCancel(err)) {
         console.log("Reviews fetch canceled:", err.message);
       } else {
-        setError(err.response?.data?.error || "Failed to fetch reviews. Please try again.");
+        const errorMsg = err.response?.data?.error || "Failed to fetch reviews. Please try again.";
+        setError(errorMsg);
+        message.error(errorMsg);
         console.error(err);
       }
     } finally {
@@ -206,8 +210,11 @@ const ReviewsTable = () => {
       await fetchReviews();
       setIsConfirmModalOpen(false);
       setReviewToArchive(null);
+      message.success("Review archived successfully!");
     } catch (err) {
-      setError(err.response?.data?.error || "Failed to archive review. Please try again.");
+      const errorMsg = err.response?.data?.error || "Failed to archive review. Please try again.";
+      setError(errorMsg);
+      message.error(errorMsg);
       console.error(err);
     } finally {
       setLoading(false);
@@ -220,8 +227,11 @@ const ReviewsTable = () => {
     try {
       await axios.patch(`${API_BASE_URL}/reviews/${reviewId}/restore`);
       await fetchReviews();
+      message.success("Review restored successfully!");
     } catch (err) {
-      setError(err.response?.data?.error || "Failed to restore review. Please try again.");
+      const errorMsg = err.response?.data?.error || "Failed to restore review. Please try again.";
+      setError(errorMsg);
+      message.error(errorMsg);
       console.error(err);
     } finally {
       setLoading(false);
@@ -229,7 +239,10 @@ const ReviewsTable = () => {
   };
 
   const handleBulkAction = async (action) => {
-    if (selectedReviews.length === 0) return;
+    if (selectedReviews.length === 0) {
+      message.warning("No reviews selected.");
+      return;
+    }
     setLoading(true);
     setError(null);
     try {
@@ -239,8 +252,11 @@ const ReviewsTable = () => {
       });
       await fetchReviews();
       setSelectedReviews([]);
+      message.success(`${selectedReviews.length} review(s) ${action === 'archive' ? 'archived' : 'restored'} successfully!`);
     } catch (err) {
-      setError(err.response?.data?.error || `Failed to perform bulk ${action}. Please try again.`);
+      const errorMsg = err.response?.data?.error || `Failed to perform bulk ${action}. Please try again.`;
+      setError(errorMsg);
+      message.error(errorMsg);
       console.error(err);
     } finally {
       setLoading(false);
@@ -390,18 +406,7 @@ const ReviewsTable = () => {
               {error}
             </div>
           )}
-          {loading && (
-            <div className="loading-message" style={{ 
-              background: '#e3f2fd', 
-              color: '#1976d2', 
-              padding: '12px', 
-              borderRadius: '4px', 
-              marginBottom: '16px',
-              border: '1px solid #bbdefb'
-            }}>
-              Loading...
-            </div>
-          )}
+          {loading && <Loader />}
           {!dataLoaded && !loading && (
             <div style={{ 
               background: '#fff3e0', 

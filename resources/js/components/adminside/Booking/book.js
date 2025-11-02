@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaArchive, FaEye, FaCheckCircle } from "react-icons/fa";
@@ -89,8 +90,10 @@ const Book = () => {
       setError("");
     } catch (error) {
       if (error.name === "AbortError" || error.code === "ERR_CANCELED") return;
-      console.error("Error fetching bookings:", error.response?.data?.error || error.message);
-      setError("Failed to fetch bookings. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to fetch bookings. Please try again.";
+      console.error("Error fetching bookings:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -183,10 +186,13 @@ const Book = () => {
       setBookToArchive(null);
       await fetchBooks(new AbortController().signal);
       setError("");
+      message.success("Booking archived successfully!");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error archiving book:", error.response?.data?.error || error.message);
-      setError("Failed to archive book. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to archive book. Please try again.";
+      console.error("Error archiving book:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -195,10 +201,13 @@ const Book = () => {
       await axios.patch(`/api/bookings/${bookId}/archive`, { archived: false }, { timeout: 5000 });
       await fetchBooks(new AbortController().signal);
       setError("");
+      message.success("Booking restored successfully!");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error restoring book:", error.response?.data?.error || error.message);
-      setError("Failed to restore book. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to restore book. Please try again.";
+      console.error("Error restoring book:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -207,10 +216,13 @@ const Book = () => {
       await axios.delete(`/api/bookings/${bookId}`, { timeout: 5000 });
       await fetchBooks(new AbortController().signal);
       setError("");
+      message.success("Booking deleted successfully!");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error deleting book:", error.response?.data?.error || error.message);
-      setError("Failed to delete book. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to delete book. Please try again.";
+      console.error("Error deleting book:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -233,10 +245,13 @@ const Book = () => {
       setSelectedBooks([]);
       await fetchBooks(new AbortController().signal);
       setError("");
+      message.success(`${selectedBooks.length} booking(s) ${action === 'archive' ? 'archived' : action === 'delete' ? 'deleted' : 'restored'} successfully!`);
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error(`Error performing bulk ${action}:`, error.response?.data?.error || error.message);
-      setError(`Failed to perform bulk ${action}. Please try again.`);
+      const errorMsg = error.response?.data?.error || `Failed to perform bulk ${action}. Please try again.`;
+      console.error(`Error performing bulk ${action}:`, errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -345,7 +360,8 @@ const Book = () => {
 
   return (
     <div className="app">
-      <AdminSidebar activeItem="Books" />
+      {loading && <Loader />}
+        <AdminSidebar activeItem="Books" />
       <TopNavbar />
       <div className="book-dashboard">
         <div className="book-content">

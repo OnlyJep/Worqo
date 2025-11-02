@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaArchive, FaEye, FaCheckCircle } from "react-icons/fa";
@@ -77,8 +78,10 @@ const Ranks = () => {
       setError("");
     } catch (error) {
       if (error.name === "AbortError" || error.code === "ERR_CANCELED") return;
-      console.error("Error fetching ranks:", error.response?.data?.error || error.message);
-      setError("Failed to fetch ranks. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to fetch ranks. Please try again.";
+      console.error("Error fetching ranks:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -117,10 +120,13 @@ const Ranks = () => {
       setRankToArchive(null);
       await fetchRanks(new AbortController().signal);
       setError("");
+      message.success("Rank archived successfully!");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error archiving rank:", error.response?.data?.error || error.message);
-      setError("Failed to archive rank. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to archive rank. Please try again.";
+      console.error("Error archiving rank:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -129,10 +135,13 @@ const Ranks = () => {
       await axios.patch(`/api/ranks/${rankId}/archive`, { archived: false }, { timeout: 5000 });
       await fetchRanks(new AbortController().signal);
       setError("");
+      message.success("Rank restored successfully!");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error restoring rank:", error.response?.data?.error || error.message);
-      setError("Failed to restore rank. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to restore rank. Please try again.";
+      console.error("Error restoring rank:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -141,15 +150,21 @@ const Ranks = () => {
       await axios.delete(`/api/ranks/${rankId}`, { timeout: 5000 });
       await fetchRanks(new AbortController().signal);
       setError("");
+      message.success("Rank deleted successfully!");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error deleting rank:", error.response?.data?.error || error.message);
-      setError("Failed to delete rank. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to delete rank. Please try again.";
+      console.error("Error deleting rank:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
   const handleBulkAction = async (action) => {
-    if (selectedRanks.length === 0) return;
+    if (selectedRanks.length === 0) {
+      message.warning("No ranks selected.");
+      return;
+    }
     try {
       if (action === "delete") {
         await axios.post(
@@ -167,10 +182,13 @@ const Ranks = () => {
       setSelectedRanks([]);
       await fetchRanks(new AbortController().signal);
       setError("");
+      message.success(`${selectedRanks.length} rank(s) ${action === 'archive' ? 'archived' : action === 'delete' ? 'deleted' : 'restored'} successfully!`);
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error(`Error performing bulk ${action}:`, error.response?.data?.error || error.message);
-      setError(`Failed to perform bulk ${action}. Please try again.`);
+      const errorMsg = error.response?.data?.error || `Failed to perform bulk ${action}. Please try again.`;
+      console.error(`Error performing bulk ${action}:`, errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -230,12 +248,15 @@ const Ranks = () => {
       setRankToEdit(null);
       await fetchRanks(new AbortController().signal);
       setError("");
+      message.success(isEditMode ? "Rank updated successfully!" : "Rank added successfully!");
     } catch (error) {
       if (error.name === "AbortError") {
         console.log("Request was aborted");
         return;
       }
-      console.error("Error saving rank:", error.response?.data?.error || error.message);
+      const errorMsg = error.response?.data?.error || "Failed to save rank. Please try again.";
+      console.error("Error saving rank:", errorMsg);
+      message.error(errorMsg);
       throw error; // Re-throw to prevent modal from closing
     }
   };
@@ -368,6 +389,7 @@ const Ranks = () => {
 
   return (
     <div className="app">
+      {loading && <Loader />}
       <AdminSidebar activeItem="Ranks" />
       <TopNavbar />
       <div className="ranks-dashboard">

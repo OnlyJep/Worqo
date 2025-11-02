@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { FaUser, FaBriefcase, FaUserShield, FaClipboardList, FaBuilding } from 'react-icons/fa';
+import { message } from 'antd';
 import Chart from 'chart.js/auto';
 import AdminSidebar from './../adminsidebar/adminsidebar';
 import TopNavbar from './../admintopnavbar/admintopnavbar';
+import Loader from './../../LoaderContent/loader';
 import './../../../../sass/components/admin_dashboard.scss';
 
 const AdminDashboard = () => {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
     total_workers: 0,
     total_employers: 0,
@@ -27,6 +30,7 @@ const AdminDashboard = () => {
 
   // Fetch data from API
   useEffect(() => {
+    setLoading(true);
     fetch('/api/dashboard-stats')
       .then(response => response.json())
       .then(data => {
@@ -34,7 +38,11 @@ const AdminDashboard = () => {
         setWorkerChartData(data.worker_chart_data);
         setEmployerChartData(data.employer_chart_data);
       })
-      .catch(error => console.error('Error fetching dashboard stats:', error));
+      .catch(error => {
+        console.error('Error fetching dashboard stats:', error);
+        message.error('Failed to load dashboard statistics. Please refresh the page.');
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   // Initialize Worker Registration Chart
@@ -111,6 +119,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="app">
+      {loading && <Loader />}
       <TopNavbar />
       <div className="main-container">
         <AdminSidebar

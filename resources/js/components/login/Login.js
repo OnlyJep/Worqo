@@ -56,6 +56,12 @@ const Login = () => {
           localStorage.removeItem('remembered_email');
         }
 
+        // Store original role if logging in as Contractor (role_id = 4)
+        // Only store if not already set (preserves original role for role switching)
+        if (data.user.role_id === 4 && !localStorage.getItem('original_role')) {
+          localStorage.setItem('original_role', '4');
+        }
+
         // Update user status to online (is_online = 1)
         const updatedUser = {
           ...data.user,
@@ -69,8 +75,15 @@ const Login = () => {
           detail: { user: updatedUser }
         }));
 
-        const userRole = data.user.role_id;
-        console.log('User Role:', userRole);
+        const userRole = Number(data.user.role_id);
+        console.log('User Role:', userRole, 'Type:', typeof userRole);
+        
+        // Check if user role is valid and redirect accordingly
+        if (!userRole || isNaN(userRole)) {
+          setError('Invalid role: Role ID is missing or invalid');
+          setIsLoading(false);
+          return;
+        }
         
         // Check if user is a worker (role_id 1) and redirect to homepage first
         if (userRole === 1) {
@@ -83,13 +96,21 @@ const Login = () => {
             navigate('/homepage', { replace: true });
             setIsLoading(false);
           }, 500);
+        } else if (userRole === 4) {
+          // Contractor role - redirect to homepage
+          setTimeout(() => {
+            navigate('/homepage', { replace: true });
+            setIsLoading(false);
+          }, 500);
         } else if (userRole === 3) {
+          // Admin role - redirect to admin panel
           setTimeout(() => {
             navigate('/admin', { replace: true });
             setIsLoading(false);
           }, 500);
         } else {
-          setError('Invalid role');
+          setError(`Invalid role: Unknown role ID ${userRole}`);
+          console.error('Unknown role_id:', userRole, 'Full user data:', data.user);
           setIsLoading(false);
         }
       } else {

@@ -4,6 +4,7 @@ import { message } from "antd";
 import Admintopnavbar from "../adminside/admintopnavbar/admintopnavbar";
 import Adminsidebar from "../adminside/adminsidebar/adminsidebar";
 import { dispatchProfileImageUpdate, getProfileImageUrl } from "../../utils/profileImageUtils";
+import defpfp from "/images/defpfp.svg";
 
 const AdminProfileSetting = () => {
   const [user, setUser] = useState(null);
@@ -517,12 +518,12 @@ const AdminProfileSetting = () => {
         <div className="profile-card">
           <div className="profile-header">
             <div className="avatar-container">
-              <div className={`avatar-placeholder ${!profileImagePreview && (!user?.profile_img || user?.profile_img === 'img/defaultpfp.jpg') ? 'no-image' : ''}`}>
+              <div className={`avatar-placeholder ${!profileImagePreview && !user?.profile_img ? 'no-image' : ''}`}>
                 <img 
-                  src={profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : "img/defaultpfp.jpg")} 
+                  src={profileImagePreview || (user?.profile_img ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : defpfp)} 
                   alt="Profile" 
                   onError={(e) => {
-                    e.target.src = "img/defaultpfp.jpg";
+                    e.target.src = defpfp;
                     e.target.parentElement.classList.add('no-image');
                   }}
                 />
@@ -563,7 +564,7 @@ const AdminProfileSetting = () => {
                     Change Profile
                   </button>
                   
-                  {(profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg')) && (
+                  {(profileImagePreview || user?.profile_img) && (
                     <button type="button" className="dropdown-item delete-item" onClick={handleDeleteProfile}>
                       <svg viewBox="0 0 24 24">
                         <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
@@ -823,10 +824,10 @@ const AdminProfileSetting = () => {
             </div>
             <div className="image-modal-content">
               <img 
-                src={profileImagePreview || (user?.profile_img && user.profile_img !== 'img/defaultpfp.jpg' ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : "img/defaultpfp.jpg")} 
+                src={profileImagePreview || (user?.profile_img ? `http://127.0.0.1:8000/storage/${user.profile_img}?v=${Date.now()}` : defpfp)} 
                 alt="Profile" 
                 onError={(e) => {
-                  e.target.src = "img/defaultpfp.jpg";
+                  e.target.src = defpfp;
                 }}
               />
             </div>

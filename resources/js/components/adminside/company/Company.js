@@ -9,21 +9,7 @@ import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_companylist.scss";
 import CompanyModal from "./Companymodal.js";
 
-const Loader = () => (
-  <div className="loader" style={{
-    position: "fixed",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    padding: "20px",
-    background: "rgba(0, 0, 0, 0.7)",
-    color: "white",
-    borderRadius: "5px",
-    zIndex: 1000
-  }}>
-    Loading...
-  </div>
-);
+import Loader from "./../../LoaderContent/loader";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -118,7 +104,9 @@ const CompanyList = () => {
       setError("");
     } catch (err) {
       if (err.name === "AbortError") return;
-      setError(err.response?.data?.error || "Failed to fetch skills.");
+      const errorMsg = err.response?.data?.error || "Failed to fetch skills.";
+      setError(errorMsg);
+      message.error(errorMsg);
       console.error("Fetch skills error:", err.response?.data || err.message);
     }
   };

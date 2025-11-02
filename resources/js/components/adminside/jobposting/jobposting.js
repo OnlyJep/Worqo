@@ -7,6 +7,7 @@ import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaArchive, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import JobPostModal from "./JobPostModal";
+import Loader from "./../../LoaderContent/loader";
 import "./../../../../sass/components/_jobposttable.scss";
 
 class ErrorBoundary extends React.Component {
@@ -67,10 +68,12 @@ const JobPostTable = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [postToEdit, setPostToEdit] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const fetchJobPosts = async () => {
     try {
+      setLoading(true);
       const response = await axios.get("http://127.0.0.1:8000/api/jobposts", {
         params: {
           search: searchTerm,
@@ -125,6 +128,8 @@ const JobPostTable = () => {
       });
       message.error("Failed to load post jobs. Please try again.");
       setError("Failed to load post jobs. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -339,6 +344,7 @@ const JobPostTable = () => {
 
   return (
     <div className="app">
+      {loading && <Loader />}
       <AdminSidebar activeItem="post jobs" />
       <TopNavbar />
       <div className="jobposttable-dashboard">

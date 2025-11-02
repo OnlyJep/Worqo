@@ -77,6 +77,10 @@ const AdminSidebar = ({ children }) => {
               <TeamOutlined className="icon" />
               {isSidebarExpanded && <span>Employer</span>}
             </li>
+            <li className={isActive('/admin/contractorlist')} onClick={() => navigate('/admin/contractorlist')}>
+              <TeamOutlined className="icon" />
+              {isSidebarExpanded && <span>Contractor</span>}
+            </li>
             <li className={isActive('/admin/reviews')} onClick={() => navigate('/admin/reviews')}>
               <StarOutlined className="icon" />
               {isSidebarExpanded && <span>Reviews</span>}

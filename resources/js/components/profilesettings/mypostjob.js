@@ -19,11 +19,13 @@ const MyPostJob = () => {
   const [userProfile, setUserProfile] = useState(null);
   const [employerCredentials, setEmployerCredentials] = useState([]);
   const [hasCredentials, setHasCredentials] = useState(false);
+  const [userRole, setUserRole] = useState(null);
 
   useEffect(() => {
     // Get user profile from localStorage
     const userData = JSON.parse(localStorage.getItem("user") || '{}');
     setUserProfile(userData);
+    setUserRole(Number(userData.role_id));
     fetchJobs();
     checkEmployerCredentials();
 
@@ -112,42 +114,77 @@ const MyPostJob = () => {
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
       const currentUser = userData.user || userData;
       
-      // Only check for employers (role_id === 2)
-      if (currentUser.role_id !== 2 && currentUser.role_id !== '2') {
-        setHasCredentials(true); // Non-employers don't need credentials
+      // Only check for employers (role_id === 2) and contractors (role_id === 4)
+      const roleId = Number(currentUser.role_id);
+      if (roleId !== 2 && roleId !== 4) {
+        setHasCredentials(true); // Non-employers and non-contractors don't need credentials
         return;
       }
 
-      const response = await axios.get(`http://127.0.0.1:8000/api/employers/${currentUser.id}`, {
+      // Use appropriate API endpoint based on role
+      const apiEndpoint = roleId === 4 
+        ? `http://127.0.0.1:8000/api/contractors/${currentUser.id}`
+        : `http://127.0.0.1:8000/api/employers/${currentUser.id}`;
+
+      const response = await axios.get(apiEndpoint, {
         headers: {
           Authorization: `Bearer ${authToken}`,
           Accept: "application/json"
         }
       });
 
-      // The API returns { employer: { ...user data, employer: { ...employer data } } }
-      const apiUserData = response.data.employer || response.data;
-      const employerData = apiUserData.employer || apiUserData;
+      // The API returns { employer: { ...user data, employer: { ...employer data } } } or { contractor: { ...user data, contractor: { ...contractor data } } }
+      const apiUserData = response.data.employer || response.data.contractor || response.data;
       
-      const credentialsNames = employerData.credentials_name || [];
-      const credentialsPhotos = employerData.credentials_photo || [];
-      const credentialsDocs = employerData.credentials_doc || [];
+      // The User model has a contractor/employer relationship, so we need to access it
+      // Structure: { contractor: { id: ..., contractor: { credentials_name: [...] } } }
+      let contractorRecord = null;
+      let employerRecord = null;
       
-      console.log('Employer credentials check:', {
+      if (apiUserData.contractor) {
+        contractorRecord = apiUserData.contractor;
+      } else if (apiUserData.employer) {
+        employerRecord = apiUserData.employer;
+      }
+      
+      // Get credentials from the actual contractor/employer record
+      const credentialsNames = contractorRecord?.credentials_name || employerRecord?.credentials_name || [];
+      const credentialsPhotos = contractorRecord?.credentials_photo || employerRecord?.credentials_photo || [];
+      const credentialsDocs = contractorRecord?.credentials_doc || employerRecord?.credentials_doc || [];
+      
+      console.log(`${roleId === 4 ? 'Contractor' : 'Employer'} credentials check:`, {
         fullResponse: response.data,
         apiUserData: apiUserData,
-        employerData: employerData,
+        contractorRecord: contractorRecord,
+        employerRecord: employerRecord,
         names: credentialsNames,
         photos: credentialsPhotos,
-        docs: credentialsDocs
+        docs: credentialsDocs,
+        photosType: typeof credentialsPhotos,
+        photosIsArray: Array.isArray(credentialsPhotos),
+        docsType: typeof credentialsDocs,
+        docsIsArray: Array.isArray(credentialsDocs),
+        photoArray: JSON.stringify(credentialsPhotos),
+        docArray: JSON.stringify(credentialsDocs)
       });
       
-      // Check if employer has any actual credential files (photo or doc)
+      // Helper function to check if a value is a valid credential file
+      const isValidCredentialFile = (file) => {
+        if (!file) return false;
+        if (file === null || file === 'null' || file === 'NULL') return false;
+        if (typeof file === 'string') {
+          const trimmed = file.trim();
+          return trimmed !== '' && trimmed !== 'null' && trimmed !== 'NULL';
+        }
+        return true;
+      };
+      
+      // Check if employer/contractor has any actual credential files (photo or doc)
       const hasPhotoFiles = Array.isArray(credentialsPhotos) && 
-        credentialsPhotos.some(file => file && typeof file === 'string' && file.trim() !== '' && file !== 'null');
+        credentialsPhotos.some(file => isValidCredentialFile(file));
       
       const hasDocFiles = Array.isArray(credentialsDocs) && 
-        credentialsDocs.some(file => file && typeof file === 'string' && file.trim() !== '' && file !== 'null');
+        credentialsDocs.some(file => isValidCredentialFile(file));
       
       const hasValidCredentials = hasPhotoFiles || hasDocFiles;
       
@@ -161,16 +198,19 @@ const MyPostJob = () => {
         docCount: credentialsDocs.filter(f => f && f.trim() !== '').length
       });
     } catch (error) {
-      console.error("Error checking employer credentials:", error.response?.data || error.message);
+      console.error(`Error checking ${Number(currentUser?.role_id) === 4 ? 'contractor' : 'employer'} credentials:`, error.response?.data || error.message);
       setHasCredentials(false);
       setEmployerCredentials([]);
     }
   };
 
   const handleAddJob = () => {
-    // Check if employer has credentials before allowing job posting
+    // Check if employer/contractor has credentials before allowing job/hiring posting
     if (!hasCredentials) {
-      message.error("You need to submit credentials before posting a job. Please go to Profile Settings to add your credentials.");
+      const errorMessage = isContractor 
+        ? "You need to submit credentials before posting hiring. Please go to Profile Settings to add your credentials."
+        : "You need to submit credentials before posting a job. Please go to Profile Settings to add your credentials.";
+      message.error(errorMessage);
       return;
     }
     
@@ -341,33 +381,57 @@ const MyPostJob = () => {
   };
 
 
+  // Determine labels based on user role
+  const isContractor = userRole === 4;
+
+  // Animated loading dots state
+  const [loadingDots, setLoadingDots] = useState('.');
+
+  useEffect(() => {
+    if (loading) {
+      const dotSequence = ['.', '..', '...', '.', '..', '...'];
+      let currentIndex = 0;
+      
+      const interval = setInterval(() => {
+        setLoadingDots(dotSequence[currentIndex]);
+        currentIndex = (currentIndex + 1) % dotSequence.length;
+      }, 500); // Change every 500ms
+
+      return () => clearInterval(interval);
+    }
+  }, [loading]);
+
   if (loading) {
+    const loadingText = isContractor ? 'Loading post hiring' : 'Loading job posts';
     return (
       <div className="my-post-job-container">
         <div className="loading-container">
-          <p>Loading job posts...</p>
+          <p>{loadingText}{loadingDots}</p>
         </div>
       </div>
     );
   }
+  const pageTitle = isContractor ? 'My Post Hiring' : 'My Post Job';
+  const addButtonText = isContractor ? 'Add Post Hiring' : 'Add Post Job';
+  const requiresCredentials = userRole === 2 || userRole === 4;
 
   return (
     <div className="my-post-job-container">
       <div className="post-job-header">
-        <h2 className="post-job-title">My Post Job</h2>
+        <h2 className="post-job-title">{pageTitle}</h2>
         <button 
-          className={`add-post-job-btn ${!hasCredentials && (userProfile?.role_id === 2 || userProfile?.role_id === '2') ? 'disabled' : ''}`}
+          className={`add-post-job-btn ${!hasCredentials && requiresCredentials ? 'disabled' : ''}`}
           onClick={handleAddJob}
-          disabled={!hasCredentials && (userProfile?.role_id === 2 || userProfile?.role_id === '2')}
-          title={!hasCredentials && (userProfile?.role_id === 2 || userProfile?.role_id === '2') ? 'Please add credentials first' : 'Add a new job post'}
+          disabled={!hasCredentials && requiresCredentials}
+          title={!hasCredentials && requiresCredentials ? 'Please add credentials first' : `Add a new ${isContractor ? 'hiring post' : 'job post'}`}
         >
           <FaPlus className="btn-icon" />
-          Add Post Job
+          {addButtonText}
         </button>
       </div>
 
-      {/* Credentials Requirement Message for Employers */}
-      {!hasCredentials && (userProfile?.role_id === 2 || userProfile?.role_id === '2') && (
+      {/* Credentials Requirement Message for Employers and Contractors */}
+      {!hasCredentials && requiresCredentials && (
         <div className="credentials-requirement-message">
           <div className="requirement-icon">
             <svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor">
@@ -377,7 +441,7 @@ const MyPostJob = () => {
           <div className="requirement-content">
             <h3 className="requirement-title">Credentials Required</h3>
             <p className="requirement-description">
-              You need to submit your credentials before you can post jobs. This helps build trust with potential workers and ensures a professional working environment.
+              You need to submit your credentials before you can {isContractor ? 'post hiring' : 'post jobs'}. This helps build trust with potential workers and ensures a professional working environment.
             </p>
             <button 
               className="go-to-profile-btn"
@@ -457,10 +521,10 @@ const MyPostJob = () => {
         ) : (
           <div className="empty-state">
             <div className="empty-icon">
-              <img src="/images/mybooking.svg" alt="No Job Posts" />
+              <img src="/images/mybooking.svg" alt={isContractor ? "No Hiring Posts" : "No Job Posts"} />
             </div>
-            <h3 className="empty-title">No Job Posts Yet</h3>
-            <p className="empty-description">Create your first job post to start hiring workers.</p>
+            <h3 className="empty-title">{isContractor ? 'No Hiring Posts Yet' : 'No Job Posts Yet'}</h3>
+            <p className="empty-description">Create your first {isContractor ? 'hiring post' : 'job post'} to start hiring workers.</p>
           </div>
         )}
       </div>

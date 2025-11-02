@@ -562,7 +562,7 @@ public function bulkArchive(Request $request): JsonResponse
 
             // Validate the new role_id
             $validator = Validator::make($request->all(), [
-                'role_id' => 'required|integer|in:1,2'
+                'role_id' => 'required|integer|in:1,2,4'
             ]);
 
             if ($validator->fails()) {
@@ -589,7 +589,7 @@ public function bulkArchive(Request $request): JsonResponse
 
             // Get the role name
             $role = Role::find($newRoleId);
-            $roleName = $role ? $role->role_name : ($newRoleId == 1 ? 'Worker' : 'Employer');
+            $roleName = $role ? $role->role_name : ($newRoleId == 1 ? 'Worker' : ($newRoleId == 2 ? 'Employer' : ($newRoleId == 4 ? 'Contractor' : 'Unknown')));
 
             // Return updated user data
             return response()->json([

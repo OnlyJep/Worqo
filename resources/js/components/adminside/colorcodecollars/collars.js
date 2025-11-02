@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { message } from "antd";
 import AdminSidebar from "./../adminsidebar/adminsidebar";
 import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaPencilAlt, FaArchive, FaEye, FaCheckCircle } from "react-icons/fa";
 import { IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_colorcodecollars.scss";
 import ColorCodeCollarsModal from "./ColorCodeCollarsModal";
+import Loader from "./../../LoaderContent/loader";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -33,6 +35,7 @@ const Collars = () => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [collarToEdit, setCollarToEdit] = useState(null);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,6 +46,7 @@ const Collars = () => {
 
   const fetchCollars = async (signal) => {
     try {
+      setLoading(true);
       const response = await axios.get("/api/collars", {
         params: {
           search: searchTerm,
@@ -62,8 +66,12 @@ const Collars = () => {
       setError("");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error fetching collars:", error.response?.data?.error || error.message);
-      setError("Failed to fetch collars. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to fetch collars. Please try again.";
+      console.error("Error fetching collars:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -100,10 +108,13 @@ const Collars = () => {
       setCollarToArchive(null);
       await fetchCollars(new AbortController().signal);
       setError("");
+      message.success("Collar archived successfully!");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error archiving collar:", error.response?.data?.error || error.message);
-      setError("Failed to archive collar. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to archive collar. Please try again.";
+      console.error("Error archiving collar:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -112,15 +123,21 @@ const Collars = () => {
       await axios.patch(`/api/collars/${collarId}/archive`, { archived: false }, { timeout: 5000 });
       await fetchCollars(new AbortController().signal);
       setError("");
+      message.success("Collar restored successfully!");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error restoring collar:", error.response?.data?.error || error.message);
-      setError("Failed to restore collar. Please try again.");
+      const errorMsg = error.response?.data?.error || "Failed to restore collar. Please try again.";
+      console.error("Error restoring collar:", errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
   const handleBulkAction = async (action) => {
-    if (selectedCollars.length === 0) return;
+    if (selectedCollars.length === 0) {
+      message.warning("No collars selected.");
+      return;
+    }
     try {
       await axios.post(
         "/api/collars/bulk-archive",
@@ -130,10 +147,13 @@ const Collars = () => {
       setSelectedCollars([]);
       await fetchCollars(new AbortController().signal);
       setError("");
+      message.success(`${selectedCollars.length} collar(s) ${action === 'archive' ? 'archived' : 'restored'} successfully!`);
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error(`Error performing bulk ${action}:`, error.response?.data?.error || error.message);
-      setError(`Failed to perform bulk ${action}. Please try again.`);
+      const errorMsg = error.response?.data?.error || `Failed to perform bulk ${action}. Please try again.`;
+      console.error(`Error performing bulk ${action}:`, errorMsg);
+      setError(errorMsg);
+      message.error(errorMsg);
     }
   };
 
@@ -183,6 +203,7 @@ const Collars = () => {
       setIsModalOpen(false);
       await fetchCollars(new AbortController().signal);
       setError("");
+      message.success("Collar added successfully!");
       return response.data;
     } catch (error) {
       if (error.name === "AbortError") {
@@ -217,6 +238,7 @@ const Collars = () => {
       setCollarToEdit(null);
       await fetchCollars(new AbortController().signal);
       setError("");
+      message.success("Collar updated successfully!");
       return response.data;
     } catch (error) {
       if (error.name === "AbortError") {
@@ -291,6 +313,7 @@ const Collars = () => {
 
   return (
     <div className="app">
+      {loading && <Loader />}
       <AdminSidebar activeItem="Collars" />
       <TopNavbar />
       <div className="colorcodecollars-dashboard">

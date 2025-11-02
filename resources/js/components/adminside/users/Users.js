@@ -10,6 +10,7 @@ import UserModal from "./Userlistmodal";
 import Loader from "./../../LoaderContent/loader";
 import { message } from "antd"; // Import Ant Design message
 import { dispatchProfileImageUpdate } from "../../../utils/profileImageUtils";
+import defpfp from "/images/defpfp.svg";
 
 const formatDate = (dateString) => {
   if (!dateString) return "N/A";
@@ -550,7 +551,12 @@ const UsersList = () => {
                             style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}
                           />
                         ) : (
-                          "N/A"
+                          <img
+                            src={defpfp}
+                            alt="Default Profile"
+                            className="profile-img"
+                            style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }}
+                          />
                         )}
                       </td>
                       <td className="fullname-cell">{getFullName(user)}</td>

@@ -240,6 +240,25 @@ const Headerz = () => {
     }
     navigate('/post-jobs');
   };
+
+  const goToPostHiring = () => {
+    if (!isLoggedIn) {
+      alert('Please login to post hiring');
+      navigate('/login');
+      return;
+    }
+    const userRoleId = Number(user?.role_id);
+    if (userRoleId !== 4) {
+      alert('Only Contractors can post hiring. Please switch to Contractor account.');
+      return;
+    }
+    // Navigate to post hiring page in profile settings
+    setIsLoading(true);
+    setTimeout(() => {
+      navigate('/profile-settings/post-hiring');
+      setIsLoading(false);
+    }, 800);
+  };
   const goToNotifications = () => {
     setIsLoading(true);
     setTimeout(() => {
@@ -326,8 +345,36 @@ const Headerz = () => {
   const handleSwitchAccount = async () => {
     if (!user) return;
     
-    const newRoleId = user.role_id === 1 ? 2 : 1;
-    const targetRoleName = newRoleId === 1 ? 'Worker' : 'Employer';
+    let newRoleId;
+    let targetRoleName;
+    
+    // Role switching logic:
+    // Worker (1) <-> Employer (2)
+    // Contractor (4) <-> Employer (2)
+    if (user.role_id === 1) {
+      // Worker can switch to Employer
+      newRoleId = 2;
+      targetRoleName = 'Employer';
+    } else if (user.role_id === 2) {
+      // Employer can switch to Worker (if originally Worker) or Contractor
+      // For now, we'll check if user has original_role stored, otherwise default to Worker
+      const originalRole = localStorage.getItem('original_role');
+      if (originalRole === '4' || originalRole === 'Contractor') {
+        newRoleId = 4;
+        targetRoleName = 'Contractor';
+      } else {
+        newRoleId = 1;
+        targetRoleName = 'Worker';
+      }
+    } else if (user.role_id === 4) {
+      // Contractor can only switch to Employer
+      newRoleId = 2;
+      targetRoleName = 'Employer';
+    } else {
+      // Default fallback
+      newRoleId = user.role_id === 1 ? 2 : 1;
+      targetRoleName = newRoleId === 1 ? 'Worker' : 'Employer';
+    }
     
     setTargetRole(targetRoleName);
     setIsSwitching(true);
@@ -354,6 +401,11 @@ const Headerz = () => {
         const data = await response.json();
         
         if (data.success) {
+          // Store original role if switching from Contractor to Employer (for switching back)
+          if (user.role_id === 4 && newRoleId === 2) {
+            localStorage.setItem('original_role', '4');
+          }
+          
           // Update localStorage with the new user data from backend
           const updatedUser = {
             ...user,
@@ -513,13 +565,17 @@ const Headerz = () => {
             <span onClick={goToServices}>Services</span>
           )}
           <span onClick={goToAbout}>About Us</span>
-          {/* Hide Find Jobs for Employers (role_id = 2) */}
-          {(!isLoggedIn || user?.role_id !== 2) && (
+          {/* Hide Find Jobs for Employers (role_id = 2) and Contractors (role_id = 4) */}
+          {(!isLoggedIn || (user?.role_id !== 2 && user?.role_id !== 4)) && (
             <span onClick={goToFindJobs}>Find Jobs</span>
           )}
-          {/* Hide Post Jobs for Workers (role_id = 1) */}
-          {(!isLoggedIn || user?.role_id !== 1) && (
+          {/* Show Post Jobs only for Employers (role_id = 2) */}
+          {isLoggedIn && user?.role_id === 2 && (
             <span onClick={goToPostJobs}>Post Jobs</span>
+          )}
+          {/* Show Post Hiring only for Contractors (role_id = 4) */}
+          {isLoggedIn && user?.role_id === 4 && (
+            <span onClick={goToPostHiring}>Post Hiring</span>
           )}
           {/* Additional navigation items */}
         </nav>
@@ -566,7 +622,7 @@ const Headerz = () => {
                         <FaUserCog className="menu-icon" /> Profile Settings
                       </li>
                       <li onClick={handleSwitchAccount}>
-                        <FaUserCog className="menu-icon" /> Switch to {user?.role_id === 1 ? 'Employer' : 'Worker'}
+                        <FaUserCog className="menu-icon" /> Switch to {user?.role_id === 1 ? 'Employer' : user?.role_id === 4 ? 'Employer' : (localStorage.getItem('original_role') === '4' ? 'Contractor' : 'Worker')}
                       </li>
                       <li onClick={handleLogout}>
                         <FaSignOutAlt className="menu-icon" /> Logout

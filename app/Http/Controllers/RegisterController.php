@@ -36,7 +36,7 @@ class RegisterController extends Controller
                 'suffix' => ['nullable', Rule::exists('suffixes', 'suffix_name')],
                 'email' => 'required|email|unique:users,email|max:255',
                 'password' => 'required|string|min:8|max:255|regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
-                'role_id' => ['required', 'integer', Rule::in(Role::whereIn('id', [1, 2])->pluck('id')->toArray())],
+                'role_id' => ['required', 'integer', Rule::in(Role::whereIn('id', [1, 2, 4])->pluck('id')->toArray())],
             ];
 
             // Validate input
@@ -175,7 +175,7 @@ class RegisterController extends Controller
      */
     public function getRoles()
     {
-        $roles = Role::whereIn('id', [1, 2])->select('id', 'role_name')->get();
+        $roles = Role::whereIn('id', [1, 2, 4])->select('id', 'role_name')->get();
         return response()->json($roles, 200); // Return flat array for frontend compatibility
     }
 }

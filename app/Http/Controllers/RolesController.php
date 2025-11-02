@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Validator;
 class RolesController extends Controller
 {
     /**
-     * Fetch roles with IDs 1 and 2 (for specific use case).
+     * Fetch roles with IDs 1, 2, and 4 (Worker, Employer, Contractor).
      *
      * @return JsonResponse
      */
     public function index(): JsonResponse
     {
-        $roles = Role::whereIn('id', [1, 2])->get(['id', 'role_name']);
+        $roles = Role::whereIn('id', [1, 2, 4])->get(['id', 'role_name']);
         return response()->json($roles, 200);
     }
 

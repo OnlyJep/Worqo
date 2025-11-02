@@ -12,35 +12,7 @@ import WorkerModal from "./workerlistmodal.js";
 
 
 
-const Loader = () => (
-
-  <div className="loader" style={{
-
-    position: "fixed",
-
-    top: "50%",
-
-    left: "50%",
-
-    transform: "translate(-50%, -50%)",
-
-    padding: "20px",
-
-    background: "rgba(0, 0, 0, 0.7)",
-
-    color: "white",
-
-    borderRadius: "5px",
-
-    zIndex: 1000
-
-  }}>
-
-    Loading...
-
-  </div>
-
-);
+import Loader from "./../../LoaderContent/loader";
 
 
 

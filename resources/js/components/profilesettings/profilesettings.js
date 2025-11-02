@@ -24,11 +24,19 @@ const ProfileSettings = () => {
   useEffect(() => {
     // Get user role from localStorage
     const userData = JSON.parse(localStorage.getItem("user") || '{}');
-    setUserRole(userData.role_id);
+    setUserRole(Number(userData.role_id));
   }, []);
 
   // Determine which bookings component to use based on user role
   const BookingsComponent = userRole === 1 ? BookingRequest : MyBookings;
+
+  // Role-based route protection component
+  const RoleProtectedRoute = ({ children, allowedRoles }) => {
+    if (!userRole || !allowedRoles.includes(userRole)) {
+      return <Navigate to="/profile-settings" replace />;
+    }
+    return children;
+  };
 
   return (
     <div className="profile-settings-container">
@@ -40,8 +48,33 @@ const ProfileSettings = () => {
             <Route path="/" element={<MyProfile />} />
             <Route path="/addresses" element={<MyAddress />} />
             <Route path="/bookings" element={<BookingsComponent />} />
-            <Route path="/my-jobs" element={<MyJobs />} />
-            <Route path="/post-job" element={<MyPostJob />} />
+            {/* My Jobs - only for Workers (role_id 1) */}
+            <Route 
+              path="/my-jobs" 
+              element={
+                <RoleProtectedRoute allowedRoles={[1]}>
+                  <MyJobs />
+                </RoleProtectedRoute>
+              } 
+            />
+            {/* Post Job - only for Employers (role_id 2) */}
+            <Route 
+              path="/post-job" 
+              element={
+                <RoleProtectedRoute allowedRoles={[2]}>
+                  <MyPostJob />
+                </RoleProtectedRoute>
+              } 
+            />
+            {/* Post Hiring - only for Contractors (role_id 4) */}
+            <Route 
+              path="/post-hiring" 
+              element={
+                <RoleProtectedRoute allowedRoles={[4]}>
+                  <MyPostJob />
+                </RoleProtectedRoute>
+              } 
+            />
           </Routes>
         </div>
       </div>

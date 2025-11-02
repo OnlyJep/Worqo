@@ -7,8 +7,8 @@ import TopNavbar from "./../admintopnavbar/admintopnavbar";
 import { FaSquare, FaCheckSquare, FaEdit, FaCheckCircle, FaArchive, FaEye } from "react-icons/fa";
 import { IconSearch, IconPlus, IconArchive } from "@tabler/icons-react";
 import "./../../../../sass/components/_employerlist.scss";
-import EmployerModal from "./employerlistmodal.js";
 import Loader from "./../../LoaderContent/loader";
+import ContractorModal from "./contractorlistmodal.js";
 import defpfp from "/images/defpfp.svg";
 
 const formatDate = (dateString) => {
@@ -34,46 +34,46 @@ const getFullName = (person) => {
   return fullName.trim() || "N/A";
 };
 
-const EmployerList = () => {
-  const [employers, setEmployers] = useState([]);
+const ContractorList = () => {
+  const [contractors, setContractors] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showArchived, setShowArchived] = useState(false);
-  const [selectedEmployers, setSelectedEmployers] = useState([]);
+  const [selectedContractors, setSelectedContractors] = useState([]);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [employerToArchive, setEmployerToArchive] = useState(null);
+  const [contractorToArchive, setContractorToArchive] = useState(null);
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [employerToEdit, setEmployerToEdit] = useState(null);
-  const [genders, setGenders] = useState([]);
-  const [suffixes, setSuffixes] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [contractorToEdit, setContractorToEdit] = useState(null);
+  const [genders, setGenders] = useState([]);
+  const [suffixes, setSuffixes] = useState([]);
   const navigate = useNavigate();
 
-  // Fetch employers, genders, and suffixes
+  // Fetch contractors, genders, and suffixes
   useEffect(() => {
     const controller = new AbortController();
-    fetchEmployers(controller.signal);
+    fetchContractors(controller.signal);
     fetchGenders(controller.signal);
     fetchSuffixes(controller.signal);
 
     return () => controller.abort();
   }, [showArchived]);
 
-  const fetchEmployers = async (signal) => {
+  const fetchContractors = async (signal) => {
     try {
       setLoading(true);
       const response = await axios.get(
-        showArchived ? "/api/employers/archived" : "/api/employers",
+        showArchived ? "/api/contractors/archived" : "/api/contractors",
         { signal, timeout: 10000 }
       );
-      setEmployers(response.data);
+      setContractors(response.data);
       setError("");
     } catch (error) {
       if (error.name === "AbortError") return;
-      console.error("Error fetching employers:", error);
-      setError("Failed to fetch employers. Please try again.");
+      console.error("Error fetching contractors:", error);
+      setError("Failed to fetch contractors. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -101,85 +101,86 @@ const EmployerList = () => {
     }
   };
 
-  const filteredEmployers = employers.filter((employer) => {
-    const ownerFullName = getFullName({ ...employer.profile, suffixes }).toLowerCase();
+  const filteredContractors = contractors.filter((contractor) => {
+    const ownerFullName = getFullName(contractor.profile).toLowerCase();
     const matchesSearch =
-      (employer.employer?.company_name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (employer.email || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (contractor.email || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
       ownerFullName.includes(searchTerm.toLowerCase());
     return matchesSearch;
   });
 
-  const toggleSelectEmployer = (employerId) => {
-    setSelectedEmployers((prev) =>
-      prev.includes(employerId)
-        ? prev.filter((id) => id !== employerId)
-        : [...prev, employerId]
+  const toggleSelectContractor = (contractorId) => {
+    setSelectedContractors((prev) =>
+      prev.includes(contractorId)
+        ? prev.filter((id) => id !== contractorId)
+        : [...prev, contractorId]
     );
   };
 
   const toggleSelectAll = () => {
-    if (selectedEmployers.length === filteredEmployers.length) {
-      setSelectedEmployers([]);
+    if (selectedContractors.length === filteredContractors.length) {
+      setSelectedContractors([]);
     } else {
-      setSelectedEmployers(filteredEmployers.map((employer) => employer.id));
+      setSelectedContractors(filteredContractors.map((contractor) => contractor.id));
     }
   };
 
   const handleToggleArchived = () => {
     setShowArchived((prev) => !prev);
     setPagination({ currentPage: 1, totalPages: 1 });
-    setSelectedEmployers([]);
+    setSelectedContractors([]);
   };
 
-  const handleArchiveClick = (employer) => {
-    setEmployerToArchive(employer);
+  const handleArchiveClick = (contractor) => {
+    setContractorToArchive(contractor);
     setIsConfirmModalOpen(true);
   };
 
   const handleArchiveConfirm = async () => {
-    if (!employerToArchive) return;
+    if (!contractorToArchive) return;
     try {
-      await axios.patch(`/api/employers/${employerToArchive.id}/archive`, {}, { timeout: 5000 });
-      await fetchEmployers(new AbortController().signal);
+      await axios.patch(`/api/contractors/${contractorToArchive.id}/archive`, {}, { timeout: 5000 });
+      await fetchContractors(new AbortController().signal);
       setIsConfirmModalOpen(false);
-      setEmployerToArchive(null);
+      setContractorToArchive(null);
       setError("");
-      message.success("Employer archived successfully!");
+      message.success("Contractor archived successfully!");
     } catch (error) {
-      const errorMsg = "Failed to archive employer. Please try again.";
-      console.error("Error archiving employer:", error);
-      setError(errorMsg);
-      message.error(errorMsg);
+      console.error("Error archiving contractor:", error);
+      setError("Failed to archive contractor. Please try again.");
+      message.error("Failed to archive contractor. Please try again.");
     }
   };
 
-  const handleRestoreEmployer = async (employerId) => {
+  const handleRestoreContractor = async (contractorId) => {
     try {
-      await axios.patch(`/api/employers/${employerId}/restore`, {}, { timeout: 5000 });
-      await fetchEmployers(new AbortController().signal);
+      await axios.patch(`/api/contractors/${contractorId}/restore`, {}, { timeout: 5000 });
+      await fetchContractors(new AbortController().signal);
       setError("");
-      message.success("Employer restored successfully!");
+      message.success("Contractor restored successfully!");
     } catch (error) {
-      const errorMsg = "Failed to restore employer. Please try again.";
-      console.error("Error restoring employer:", error);
-      setError(errorMsg);
-      message.error(errorMsg);
+      console.error("Error restoring contractor:", error);
+      setError("Failed to restore contractor. Please try again.");
+      message.error("Failed to restore contractor. Please try again.");
     }
   };
 
   const handleBulkAction = async (action) => {
-    if (selectedEmployers.length === 0) return;
+    if (selectedContractors.length === 0) {
+      message.warning("No contractors selected.");
+      return;
+    }
+    const count = selectedContractors.length;
     try {
       await Promise.all(
-        selectedEmployers.map((id) =>
-          axios.patch(`/api/employers/${id}/${action}`, {}, { timeout: 5000 })
+        selectedContractors.map((id) =>
+          axios.patch(`/api/contractors/${id}/${action}`, {}, { timeout: 5000 })
         )
       );
-      await fetchEmployers(new AbortController().signal);
-      setSelectedEmployers([]);
+      await fetchContractors(new AbortController().signal);
+      setSelectedContractors([]);
       setError("");
-      message.success(`${selectedEmployers.length} employer(s) ${action === 'archive' ? 'archived' : 'restored'} successfully!`);
+      message.success(`${count} contractor(s) ${action === 'archive' ? 'archived' : 'restored'} successfully!`);
     } catch (error) {
       const errorMsg = `Failed to perform bulk ${action}. Please try again.`;
       console.error(`Error performing bulk ${action}:`, error);
@@ -188,112 +189,11 @@ const EmployerList = () => {
     }
   };
 
-  const handleAddNewClick = () => {
-    setIsEditMode(false);
-    setEmployerToEdit(null);
-    setIsModalOpen(true);
-    setError("");
-  };
-
-  const handleEditClick = async (employer) => {
-    try {
-      const response = await axios.get(`/api/employers/${employer.id}`, { timeout: 5000 });
-      console.log("Fetched employer data:", response.data); // Debug API response
-      setEmployerToEdit({
-        id: response.data.id,
-        company_name: response.data.employer?.company_name || "",
-        company_phone: response.data.employer?.company_phone || "",
-        company_email: response.data.employer?.company_email || "",
-        company_address: response.data.employer?.company_address || "",
-        email: response.data.email || "",
-        username: response.data.username || "",
-        first_name: response.data.profile?.first_name || "",
-        middlename: response.data.profile?.middlename || "",
-        last_name: response.data.profile?.last_name || "",
-        suffix_id: response.data.profile?.suffix_id || "",
-        gender_id: response.data.profile?.gender_id || "",
-        contact_number: response.data.profile?.contact_number || "",
-        street: response.data.profile?.street || "",
-        city: response.data.profile?.city || "Butuan City",
-        province: response.data.profile?.province || "Agusan Del Norte",
-        postal_code: response.data.profile?.postal_code || "8600",
-        country: response.data.profile?.country || "Philippines",
-        role_id: "2",
-        profile_img: null,
-      });
-      setIsEditMode(true);
-      setIsModalOpen(true);
-      setError("");
-    } catch (error) {
-      console.error("Error fetching employer details:", error);
-      setError("Failed to fetch employer details. Please try again.");
-    }
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setEmployerToEdit(null);
-    setError("");
-  };
-
-  const handleEmployerAdd = async (formData, signal) => {
-    try {
-      formData.append("role_id", "2");
-      const response = await axios.post("/api/employers", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-        timeout: 10000,
-        signal,
-      });
-      await fetchEmployers(new AbortController().signal);
-      setIsModalOpen(false);
-      setError("");
-      message.success("Employer added successfully!");
-      return response.data;
-    } catch (error) {
-      if (error.name === "AbortError") {
-        console.log("Add request was aborted");
-        return;
-      }
-      console.error("Error adding employer:", error);
-      throw error;
-    }
-  };
-
-  const handleEmployerUpdate = async (formData, signal) => {
-    try {
-      formData.append("role_id", "2");
-      console.log("Sending update request with FormData:", formData); // Debug request
-      const response = await axios.post(`/api/employers/${employerToEdit.id}?_method=PUT`, formData, {
-        headers: { 
-          "Content-Type": "multipart/form-data",
-          "Accept": "application/json"
-        },
-        timeout: 10000,
-        signal,
-      });
-      await fetchEmployers(new AbortController().signal);
-      setIsModalOpen(false);
-      setIsEditMode(false);
-      setEmployerToEdit(null);
-      setError("");
-      message.success("Employer updated successfully!");
-      return response.data;
-    } catch (error) {
-      if (error.name === "AbortError") {
-        console.log("Update request was aborted");
-        return;
-      }
-      console.error("Error updating employer:", error);
-      throw error;
-    }
-  };
-
-  const employersPerPage = 5;
-  const totalPages = Math.ceil(filteredEmployers.length / employersPerPage);
-  const currentEmployers = filteredEmployers.slice(
-    (pagination.currentPage - 1) * employersPerPage,
-    pagination.currentPage * employersPerPage
+  const contractorsPerPage = 5;
+  const totalPages = Math.ceil(filteredContractors.length / contractorsPerPage);
+  const currentContractors = filteredContractors.slice(
+    (pagination.currentPage - 1) * contractorsPerPage,
+    pagination.currentPage * contractorsPerPage
   );
 
   const handlePageChange = (page) => {
@@ -357,27 +257,140 @@ const EmployerList = () => {
     return pageNumbers;
   };
 
+  const handleAddNewClick = () => {
+    setIsEditMode(false);
+    setContractorToEdit(null);
+    setIsModalOpen(true);
+    setError("");
+  };
+
+  const handleEditClick = async (contractor) => {
+    try {
+      const response = await axios.get(`/api/contractors/${contractor.id}`, { timeout: 5000 });
+      console.log("Fetched contractor data:", response.data);
+      
+      // Extract contractor data from response - API returns {contractor: user}
+      const contractorData = response.data.contractor || response.data;
+      
+      if (!contractorData || !contractorData.id) {
+        throw new Error("Invalid contractor data received from server");
+      }
+      
+      setContractorToEdit({
+        id: contractorData.id,
+        email: contractorData.email || "",
+        username: contractorData.username || "",
+        first_name: contractorData.profile?.first_name || "",
+        middlename: contractorData.profile?.middlename || "",
+        last_name: contractorData.profile?.last_name || "",
+        suffix_id: contractorData.profile?.suffix_id || "",
+        gender_id: contractorData.profile?.gender_id || "",
+        contact_number: contractorData.profile?.contact_number || "",
+        street: contractorData.profile?.street || "",
+        city: contractorData.profile?.city || "Butuan City",
+        province: contractorData.profile?.province || "Agusan Del Norte",
+        postal_code: contractorData.profile?.postal_code || "8600",
+        country: contractorData.profile?.country || "Philippines",
+        role_id: "4",
+        profile_img: null,
+      });
+      setIsEditMode(true);
+      setIsModalOpen(true);
+      setError("");
+    } catch (error) {
+      console.error("Error fetching contractor details:", error);
+      const errorMsg = error.response?.data?.error || error.message || "Failed to fetch contractor details. Please try again.";
+      setError(errorMsg);
+      message.error(errorMsg);
+    }
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setIsEditMode(false);
+    setContractorToEdit(null);
+    setError("");
+  };
+
+  const handleContractorAdd = async (formData, signal) => {
+    try {
+      formData.append("role_id", "4");
+      const response = await axios.post("/api/contractors", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        timeout: 10000,
+        signal,
+      });
+      await fetchContractors(new AbortController().signal);
+      setIsModalOpen(false);
+      setError("");
+      message.success("Contractor added successfully!");
+      return response.data;
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Add request was aborted");
+        return;
+      }
+      console.error("Error adding contractor:", error);
+      throw error;
+    }
+  };
+
+  const handleContractorUpdate = async (formData, signal) => {
+    try {
+      if (!contractorToEdit || !contractorToEdit.id) {
+        throw new Error("Contractor ID is missing. Please try editing again.");
+      }
+      
+      formData.append("role_id", "4");
+      console.log("Sending update request with FormData for contractor ID:", contractorToEdit.id);
+      const response = await axios.post(`/api/contractors/${contractorToEdit.id}?_method=PUT`, formData, {
+        headers: { 
+          "Content-Type": "multipart/form-data",
+          "Accept": "application/json"
+        },
+        timeout: 10000,
+        signal,
+      });
+      await fetchContractors(new AbortController().signal);
+      setIsModalOpen(false);
+      setIsEditMode(false);
+      setContractorToEdit(null);
+      setError("");
+      message.success("Contractor updated successfully!");
+      return response.data;
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("Update request was aborted");
+        return;
+      }
+      const errorMsg = error.response?.data?.error || error.response?.data?.message || error.message || "Failed to update contractor. Please try again.";
+      console.error("Error updating contractor:", errorMsg, error);
+      message.error(errorMsg);
+      throw error;
+    }
+  };
+
   return (
     <div className="app">
       {loading && <Loader />}
-      <AdminSidebar activeItem="Employer List" />
+      <AdminSidebar activeItem="Contractor List" />
       <TopNavbar />
       <div className="employerlist-dashboard">
         <div className="employerlist-content">
-          <h2>{showArchived ? "Archived Employers" : "Employer List"}</h2>
+          <h2>{showArchived ? "Archived Contractors" : "Contractor List"}</h2>
           {error && <div className="error">{error}</div>}
           <div className="employerlist-header">
             <div className="left-actions">
               <input
                 type="text"
                 className="search-input"
-                placeholder="Search Employers"
+                placeholder="Search Contractors"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
             <div className="right-actions">
-              {selectedEmployers.length > 0 && (
+              {selectedContractors.length > 0 && (
                 <button
                   className="header-button archive-all-button"
                   onClick={() => handleBulkAction(showArchived ? "restore" : "archive")}
@@ -403,7 +416,7 @@ const EmployerList = () => {
                   <th>
                     <div className="header-actions-icon">
                       <span onClick={toggleSelectAll} style={{ cursor: "pointer" }}>
-                        {selectedEmployers.length === filteredEmployers.length && filteredEmployers.length > 0 ? (
+                        {selectedContractors.length === filteredContractors.length && filteredContractors.length > 0 ? (
                           <FaCheckSquare className="checkbox-icon" />
                         ) : (
                           <FaSquare className="checkbox-icon" />
@@ -420,13 +433,13 @@ const EmployerList = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentEmployers.length > 0 ? (
-                  currentEmployers.map((employer) => (
-                    <tr key={employer.id}>
+                {currentContractors.length > 0 ? (
+                  currentContractors.map((contractor) => (
+                    <tr key={contractor.id}>
                       <td data-label="Actions">
                         <div className="action-icons">
-                          <span onClick={() => toggleSelectEmployer(employer.id)} style={{ cursor: "pointer" }}>
-                            {selectedEmployers.includes(employer.id) ? (
+                          <span onClick={() => toggleSelectContractor(contractor.id)} style={{ cursor: "pointer" }}>
+                            {selectedContractors.includes(contractor.id) ? (
                               <FaCheckSquare className="checkbox-icon" size={16} />
                             ) : (
                               <FaSquare className="checkbox-icon" size={16} />
@@ -436,27 +449,29 @@ const EmployerList = () => {
                             <FaCheckCircle
                               size={16}
                               className="restore-icon"
-                              onClick={() => handleRestoreEmployer(employer.id)}
+                              onClick={() => handleRestoreContractor(contractor.id)}
                             />
                           ) : (
-                            <FaArchive
-                              size={16}
-                              className="delete-icon"
-                              onClick={() => handleArchiveClick(employer)}
-                            />
+                            <>
+                              <FaArchive
+                                size={16}
+                                className="delete-icon"
+                                onClick={() => handleArchiveClick(contractor)}
+                              />
+                              <FaEdit
+                                size={16}
+                                className="edit-icon"
+                                onClick={() => handleEditClick(contractor)}
+                              />
+                            </>
                           )}
-                          <FaEdit
-                            size={16}
-                            className="edit-icon"
-                            onClick={() => handleEditClick(employer)}
-                          />
                         </div>
                       </td>
                       <td data-label="Profile Image">
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                          {employer.profile?.profile_img ? (
+                          {contractor.profile?.profile_img ? (
                             <img 
-                              src={`http://127.0.0.1:8000/storage/${employer.profile.profile_img}`} 
+                              src={`http://127.0.0.1:8000/storage/${contractor.profile.profile_img}`} 
                               alt="Profile" 
                               style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }}
                             />
@@ -469,15 +484,15 @@ const EmployerList = () => {
                           )}
                         </div>
                       </td>
-                      <td data-label="Full Name" className="owner-cell">{getFullName({ ...employer.profile, suffixes })}</td>
-                      <td data-label="Email">{employer.email || "N/A"}</td>
-                      <td data-label="Created At">{formatDate(employer.created_at)}</td>
-                      <td data-label="Updated At">{formatDate(employer.updated_at)}</td>
+                      <td data-label="Full Name" className="owner-cell">{getFullName(contractor.profile)}</td>
+                      <td data-label="Email">{contractor.email || "N/A"}</td>
+                      <td data-label="Created At">{formatDate(contractor.created_at)}</td>
+                      <td data-label="Updated At">{formatDate(contractor.updated_at)}</td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="6">No {showArchived ? "archived" : "active"} employers found</td>
+                    <td colSpan="6">No {showArchived ? "archived" : "active"} contractors found</td>
                   </tr>
                 )}
               </tbody>
@@ -505,7 +520,7 @@ const EmployerList = () => {
         <div className="confirm-modal-overlay">
           <div className="confirm-modal">
             <h3>Are you sure?</h3>
-            <p>Do you want to archive "{employerToArchive?.employer?.company_name || "N/A"}"?</p>
+            <p>Do you want to archive "{getFullName(contractorToArchive?.profile)}"?</p>
             <div className="confirm-modal-buttons">
               <button className="confirm-button" onClick={handleArchiveConfirm}>
                 Yes, Archive
@@ -518,11 +533,11 @@ const EmployerList = () => {
         </div>
       )}
       {isModalOpen && (
-        <EmployerModal
+        <ContractorModal
           onClose={handleModalClose}
-          onSubmit={isEditMode ? handleEmployerUpdate : handleEmployerAdd}
+          onSubmit={isEditMode ? handleContractorUpdate : handleContractorAdd}
           isEdit={isEditMode}
-          initialData={employerToEdit}
+          initialData={contractorToEdit}
           genders={genders}
           suffixes={suffixes}
         />
@@ -531,4 +546,5 @@ const EmployerList = () => {
   );
 };
 
-export default EmployerList;
+export default ContractorList;
+

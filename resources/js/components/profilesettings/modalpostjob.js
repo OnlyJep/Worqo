@@ -23,6 +23,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   });
 
   const [userProfile, setUserProfile] = useState(null);
+  const [userRole, setUserRole] = useState(null);
   const [availableSkills, setAvailableSkills] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -72,6 +73,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user") || "{}");
     setUserProfile(userData);
+    setUserRole(Number(userData.role_id));
     fetchSkills();
   }, []);
 
@@ -193,6 +195,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const isContractorUser = Number(userProfile?.role_id) === 4;
 
     if (!formData.jobTitle.trim()) return message.error("Please fill in the job title");
     if (!formData.jobDescription.trim()) return message.error("Please fill in the job description");
@@ -230,7 +233,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
       await onSubmit(jobData);
     } catch (err) {
       console.error(err);
-      message.error("An error occurred while posting the job.");
+      message.error(`An error occurred while ${isContractorUser ? 'posting the hiring' : 'posting the job'}.`);
     } finally {
       setIsLoading(false);
     }
@@ -373,11 +376,18 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     return Object.values(skillStructure);
   };
 
+  // Determine if user is Contractor
+  const isContractor = userRole === 4;
+  const modalTitle = isContractor ? 'Post Hiring Information' : 'Post Job Information';
+  const postButtonText = isContractor 
+    ? (editingJob ? 'Update Hiring' : 'Post Hiring') 
+    : (editingJob ? 'Update Job' : 'Post Job');
+
   return (
     <div className="modal-overlay">
       <div className="modal-post-job">
         <div className="modal-header">
-          <h2 className="modal-title">Post Job Information</h2>
+          <h2 className="modal-title">{modalTitle}</h2>
           <button className="close-btn" onClick={handleClose}>
             <span>&times;</span>
           </button>
@@ -728,7 +738,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
               Cancel
             </button>
             <button type="submit" className="post-job-btn" disabled={isLoading}>
-              {isLoading ? "Posting..." : editingJob ? "Update Job" : "Post Job"}
+              {isLoading ? "Posting..." : postButtonText}
             </button>
           </div>
         </form>
