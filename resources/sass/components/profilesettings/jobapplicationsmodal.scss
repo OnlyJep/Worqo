@@ -482,11 +482,16 @@
               .declined-icon-name {
                 color: #2563eb;
                 font-size: 16px;
-                width: 24px;
-                height: 24px;
+                width: 15px;
+                height: 25px;
                 cursor: pointer;
                 transition: all 0.2s ease;
                 flex-shrink: 0;
+                align-self: flex-start;
+                margin-top: -2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 &:hover {
                   color: #1d4ed8;
@@ -520,12 +525,10 @@
               }
 
               &.status-accepted {
-
                 color: #065f46;
               }
 
               &.status-declined {
-
                 color: #991b1b;
               }
             }
