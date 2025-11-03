@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Skill;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
@@ -13,11 +14,28 @@ class SkillController extends Controller
     {
         $skills = Skill::active()->get(['id', 'skill_name', 'sub_skills', 'created_at', 'updated_at']);
         Log::info('Active Skills Raw:', $skills->toArray());
-        $skills = $skills->map(function ($skill) {
+        
+        // Pre-load all services with collars to avoid N+1 queries
+        $services = Service::with('collar')->whereNotNull('skills_id')->get();
+        
+        $skills = $skills->map(function ($skill) use ($services) {
+            // Find services that use this skill and get the collar
+            $collarName = null;
+            foreach ($services as $service) {
+                $skillIds = json_decode($service->skills_id, true) ?? [];
+                if (in_array($skill->id, $skillIds)) {
+                    if ($service->collar) {
+                        $collarName = $service->collar->name;
+                        break; // Use the first matching collar
+                    }
+                }
+            }
+            
             return [
                 'id' => $skill->id,
                 'name' => $skill->skill_name,
                 'sub_skills' => $skill->sub_skills ?? [],
+                'collar' => $collarName,
                 'created_at' => $skill->created_at,
                 'updated_at' => $skill->updated_at,
             ];
@@ -29,11 +47,28 @@ class SkillController extends Controller
     {
         $skills = Skill::archived()->get(['id', 'skill_name', 'sub_skills', 'created_at', 'updated_at']);
         Log::info('Archived Skills Raw:', $skills->toArray());
-        $skills = $skills->map(function ($skill) {
+        
+        // Pre-load all services with collars to avoid N+1 queries
+        $services = Service::with('collar')->whereNotNull('skills_id')->get();
+        
+        $skills = $skills->map(function ($skill) use ($services) {
+            // Find services that use this skill and get the collar
+            $collarName = null;
+            foreach ($services as $service) {
+                $skillIds = json_decode($service->skills_id, true) ?? [];
+                if (in_array($skill->id, $skillIds)) {
+                    if ($service->collar) {
+                        $collarName = $service->collar->name;
+                        break; // Use the first matching collar
+                    }
+                }
+            }
+            
             return [
                 'id' => $skill->id,
                 'name' => $skill->skill_name,
                 'sub_skills' => $skill->sub_skills ?? [],
+                'collar' => $collarName,
                 'created_at' => $skill->created_at,
                 'updated_at' => $skill->updated_at,
             ];

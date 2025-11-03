@@ -227139,7 +227139,7 @@ var CompanyList = function CompanyList() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: Array.isArray(skill.sub_skills) && skill.sub_skills.length > 0 ? skill.sub_skills.length > 3 ? skill.sub_skills.slice(0, 3).join(", ") + "..." : skill.sub_skills.join(", ") : "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                    children: "N/A"
+                    children: skill.collar || "N/A"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                     children: formatDate(skill.created_at)
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
@@ -237360,7 +237360,9 @@ var ServiceModal = function ServiceModal(_ref) {
     _useState16 = _slicedToArray(_useState15, 2),
     colorCollarsError = _useState16[0],
     setColorCollarsError = _useState16[1];
+  var isMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    isMountedRef.current = true;
     var controller = new AbortController();
     var fetchColorCollars = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
@@ -237369,15 +237371,21 @@ var ServiceModal = function ServiceModal(_ref) {
           while (1) switch (_context.p = _context.n) {
             case 0:
               _context.p = 0;
-              setColorCollarsLoading(true);
-              authToken = localStorage.getItem("auth_token");
-              if (authToken) {
+              if (isMountedRef.current) {
                 _context.n = 1;
                 break;
               }
-              throw new Error("No auth token found. Please log in.");
+              return _context.a(2);
             case 1:
-              _context.n = 2;
+              setColorCollarsLoading(true);
+              authToken = localStorage.getItem("auth_token");
+              if (authToken) {
+                _context.n = 2;
+                break;
+              }
+              throw new Error("No auth token found. Please log in.");
+            case 2:
+              _context.n = 3;
               return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/collars", {
                 headers: {
                   Authorization: "Bearer ".concat(authToken),
@@ -237386,34 +237394,48 @@ var ServiceModal = function ServiceModal(_ref) {
                 signal: controller.signal,
                 timeout: 15000
               });
-            case 2:
-              response = _context.v;
-              collarsData = Array.isArray(response.data.collars) ? response.data.collars : [];
-              setColorCollars(collarsData);
-              setColorCollarsError("");
-              console.log("Color Collars fetched in ServiceModal:", collarsData);
-              _context.n = 5;
-              break;
             case 3:
-              _context.p = 3;
-              _t = _context.v;
-              if (!(_t.name === "AbortError")) {
+              response = _context.v;
+              if (isMountedRef.current) {
                 _context.n = 4;
                 break;
               }
               return _context.a(2);
             case 4:
+              collarsData = Array.isArray(response.data.collars) ? response.data.collars : [];
+              setColorCollars(collarsData);
+              setColorCollarsError("");
+              console.log("Color Collars fetched in ServiceModal:", collarsData);
+              _context.n = 8;
+              break;
+            case 5:
+              _context.p = 5;
+              _t = _context.v;
+              if (!(_t.name === "AbortError" || _t.name === "CanceledError" || _t.code === "ERR_CANCELED")) {
+                _context.n = 6;
+                break;
+              }
+              return _context.a(2);
+            case 6:
+              if (isMountedRef.current) {
+                _context.n = 7;
+                break;
+              }
+              return _context.a(2);
+            case 7:
               console.error("Error fetching color collars:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
               setColorCollarsError("Failed to fetch color collars. Please try again.");
               antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch color collars. Please try again.");
-            case 5:
-              _context.p = 5;
-              setColorCollarsLoading(false);
-              return _context.f(5);
-            case 6:
+            case 8:
+              _context.p = 8;
+              if (isMountedRef.current) {
+                setColorCollarsLoading(false);
+              }
+              return _context.f(8);
+            case 9:
               return _context.a(2);
           }
-        }, _callee, null, [[0, 3, 5, 6]]);
+        }, _callee, null, [[0, 5, 8, 9]]);
       }));
       return function fetchColorCollars() {
         return _ref2.apply(this, arguments);
@@ -237426,15 +237448,21 @@ var ServiceModal = function ServiceModal(_ref) {
           while (1) switch (_context2.p = _context2.n) {
             case 0:
               _context2.p = 0;
-              setSkillsLoading(true);
-              authToken = localStorage.getItem("auth_token");
-              if (authToken) {
+              if (isMountedRef.current) {
                 _context2.n = 1;
                 break;
               }
-              throw new Error("No auth token found. Please log in.");
+              return _context2.a(2);
             case 1:
-              _context2.n = 2;
+              setSkillsLoading(true);
+              authToken = localStorage.getItem("auth_token");
+              if (authToken) {
+                _context2.n = 2;
+                break;
+              }
+              throw new Error("No auth token found. Please log in.");
+            case 2:
+              _context2.n = 3;
               return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/skills", {
                 headers: {
                   Authorization: "Bearer ".concat(authToken),
@@ -237443,34 +237471,48 @@ var ServiceModal = function ServiceModal(_ref) {
                 signal: controller.signal,
                 timeout: 15000
               });
-            case 2:
-              response = _context2.v;
-              skillsData = Array.isArray(response.data) ? response.data : response.data.skills || [];
-              setSkills(skillsData);
-              setSkillsError("");
-              console.log("Skills fetched in ServiceModal:", skillsData);
-              _context2.n = 5;
-              break;
             case 3:
-              _context2.p = 3;
-              _t2 = _context2.v;
-              if (!(_t2.name === "AbortError")) {
+              response = _context2.v;
+              if (isMountedRef.current) {
                 _context2.n = 4;
                 break;
               }
               return _context2.a(2);
             case 4:
+              skillsData = Array.isArray(response.data) ? response.data : response.data.skills || [];
+              setSkills(skillsData);
+              setSkillsError("");
+              console.log("Skills fetched in ServiceModal:", skillsData);
+              _context2.n = 8;
+              break;
+            case 5:
+              _context2.p = 5;
+              _t2 = _context2.v;
+              if (!(_t2.name === "AbortError" || _t2.name === "CanceledError" || _t2.code === "ERR_CANCELED")) {
+                _context2.n = 6;
+                break;
+              }
+              return _context2.a(2);
+            case 6:
+              if (isMountedRef.current) {
+                _context2.n = 7;
+                break;
+              }
+              return _context2.a(2);
+            case 7:
               console.error("Error fetching skills:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
               setSkillsError("Failed to fetch skills. Please try again.");
               antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch skills. Please try again.");
-            case 5:
-              _context2.p = 5;
-              setSkillsLoading(false);
-              return _context2.f(5);
-            case 6:
+            case 8:
+              _context2.p = 8;
+              if (isMountedRef.current) {
+                setSkillsLoading(false);
+              }
+              return _context2.f(8);
+            case 9:
               return _context2.a(2);
           }
-        }, _callee2, null, [[0, 3, 5, 6]]);
+        }, _callee2, null, [[0, 5, 8, 9]]);
       }));
       return function fetchSkills() {
         return _ref3.apply(this, arguments);
@@ -237479,18 +237521,35 @@ var ServiceModal = function ServiceModal(_ref) {
     if (!propSkills || propSkills.length === 0) {
       fetchSkills();
     } else {
-      setSkills(propSkills);
-      setSkillsLoading(false);
-      console.log("Using propSkills in ServiceModal:", propSkills);
+      if (isMountedRef.current) {
+        setSkills(propSkills);
+        setSkillsLoading(false);
+        console.log("Using propSkills in ServiceModal:", propSkills);
+      }
     }
     fetchColorCollars();
     return function () {
+      isMountedRef.current = false;
       controller.abort();
       if (formData.image_url && formData.service_image instanceof File) {
         URL.revokeObjectURL(formData.image_url);
       }
     };
-  }, [formData.image_url, formData.service_image, propSkills]);
+  }, [propSkills]);
+
+  // Update formData when initialData changes
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (initialData) {
+      setFormData({
+        name: initialData.name || "",
+        description: initialData.description || "",
+        color_collar_id: initialData.color_collar_id || "",
+        skill_ids: initialData.skill_ids || [],
+        service_image: initialData.service_image || null,
+        image_url: initialData.image_url || null
+      });
+    }
+  }, [initialData]);
   var handleInputChange = function handleInputChange(e) {
     var _e$target = e.target,
       name = _e$target.name,
@@ -237573,34 +237632,54 @@ var ServiceModal = function ServiceModal(_ref) {
           case 1:
             controller = new AbortController();
             _context3.p = 2;
-            setLoading(true);
-            _context3.n = 3;
-            return onSubmit(formData, controller.signal);
+            if (isMountedRef.current) {
+              _context3.n = 3;
+              break;
+            }
+            return _context3.a(2);
           case 3:
-            onClose();
-            _context3.n = 6;
-            break;
+            setLoading(true);
+            _context3.n = 4;
+            return onSubmit(formData, controller.signal);
           case 4:
-            _context3.p = 4;
-            _t3 = _context3.v;
-            if (!(_t3.name === "AbortError")) {
+            if (isMountedRef.current) {
               _context3.n = 5;
               break;
             }
             return _context3.a(2);
           case 5:
+            onClose();
+            _context3.n = 9;
+            break;
+          case 6:
+            _context3.p = 6;
+            _t3 = _context3.v;
+            if (!(_t3.name === "AbortError" || _t3.name === "CanceledError" || _t3.code === "ERR_CANCELED")) {
+              _context3.n = 7;
+              break;
+            }
+            return _context3.a(2);
+          case 7:
+            if (isMountedRef.current) {
+              _context3.n = 8;
+              break;
+            }
+            return _context3.a(2);
+          case 8:
             console.error("Submit error:", ((_error$response3 = _t3.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.data) || _t3.message);
             errorMessage = (_error$response4 = _t3.response) !== null && _error$response4 !== void 0 && (_error$response4 = _error$response4.data) !== null && _error$response4 !== void 0 && _error$response4.errors ? Object.values(_t3.response.data.errors).flat().join(", ") : ((_error$response5 = _t3.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.error) || "Failed to submit service. Please try again.";
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].error(errorMessage);
-          case 6:
-            _context3.p = 6;
-            setLoading(false);
+          case 9:
+            _context3.p = 9;
+            if (isMountedRef.current) {
+              setLoading(false);
+            }
             controller.abort();
-            return _context3.f(6);
-          case 7:
+            return _context3.f(9);
+          case 10:
             return _context3.a(2);
         }
-      }, _callee3, null, [[2, 4, 6, 7]]);
+      }, _callee3, null, [[2, 6, 9, 10]]);
     }));
     return function handleSubmit(_x) {
       return _ref4.apply(this, arguments);
@@ -237685,12 +237764,13 @@ var ServiceModal = function ServiceModal(_ref) {
             className: "form-group",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
               htmlFor: "skill_ids",
-              children: "What skills should we fetch inside the services?"
+              children: "Skills"
             }), skillsError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "error",
               children: skillsError
             }) : skills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
               id: "skill_ids",
+              name: "skill_ids",
               mode: "multiple",
               value: formData.skill_ids,
               onChange: handleSkillChange,

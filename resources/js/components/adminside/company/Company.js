@@ -539,7 +539,7 @@ const CompanyList = () => {
                           skill.sub_skills.slice(0, 3).join(", ") + "..." : 
                           skill.sub_skills.join(", ")
                         ) : "N/A"}</td>
-                      <td>N/A</td>
+                      <td>{skill.collar || "N/A"}</td>
                       <td>{formatDate(skill.created_at)}</td>
                       <td>{formatDate(skill.updated_at)}</td>
                     </tr>

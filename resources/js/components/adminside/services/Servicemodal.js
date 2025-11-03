@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { message, Select } from "antd";
 import "./../../../../sass/components/_servicemodal.scss";
@@ -22,12 +22,15 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
   const [skillsError, setSkillsError] = useState("");
   const [colorCollarsLoading, setColorCollarsLoading] = useState(true);
   const [colorCollarsError, setColorCollarsError] = useState("");
+  const isMountedRef = useRef(true);
 
   useEffect(() => {
+    isMountedRef.current = true;
     const controller = new AbortController();
 
     const fetchColorCollars = async () => {
       try {
+        if (!isMountedRef.current) return;
         setColorCollarsLoading(true);
         const authToken = localStorage.getItem("auth_token");
         if (!authToken) {
@@ -38,22 +41,27 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
           signal: controller.signal,
           timeout: 15000,
         });
+        if (!isMountedRef.current) return;
         const collarsData = Array.isArray(response.data.collars) ? response.data.collars : [];
         setColorCollars(collarsData);
         setColorCollarsError("");
         console.log("Color Collars fetched in ServiceModal:", collarsData);
       } catch (error) {
-        if (error.name === "AbortError") return;
+        if (error.name === "AbortError" || error.name === "CanceledError" || error.code === "ERR_CANCELED") return;
+        if (!isMountedRef.current) return;
         console.error("Error fetching color collars:", error.response?.data || error.message);
         setColorCollarsError("Failed to fetch color collars. Please try again.");
         message.error("Failed to fetch color collars. Please try again.");
       } finally {
-        setColorCollarsLoading(false);
+        if (isMountedRef.current) {
+          setColorCollarsLoading(false);
+        }
       }
     };
 
     const fetchSkills = async () => {
       try {
+        if (!isMountedRef.current) return;
         setSkillsLoading(true);
         const authToken = localStorage.getItem("auth_token");
         if (!authToken) {
@@ -64,37 +72,58 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
           signal: controller.signal,
           timeout: 15000,
         });
+        if (!isMountedRef.current) return;
         const skillsData = Array.isArray(response.data) ? response.data : response.data.skills || [];
         setSkills(skillsData);
         setSkillsError("");
         console.log("Skills fetched in ServiceModal:", skillsData);
       } catch (error) {
-        if (error.name === "AbortError") return;
+        if (error.name === "AbortError" || error.name === "CanceledError" || error.code === "ERR_CANCELED") return;
+        if (!isMountedRef.current) return;
         console.error("Error fetching skills:", error.response?.data || error.message);
         setSkillsError("Failed to fetch skills. Please try again.");
         message.error("Failed to fetch skills. Please try again.");
       } finally {
-        setSkillsLoading(false);
+        if (isMountedRef.current) {
+          setSkillsLoading(false);
+        }
       }
     };
 
     if (!propSkills || propSkills.length === 0) {
       fetchSkills();
     } else {
-      setSkills(propSkills);
-      setSkillsLoading(false);
-      console.log("Using propSkills in ServiceModal:", propSkills);
+      if (isMountedRef.current) {
+        setSkills(propSkills);
+        setSkillsLoading(false);
+        console.log("Using propSkills in ServiceModal:", propSkills);
+      }
     }
 
     fetchColorCollars();
 
     return () => {
+      isMountedRef.current = false;
       controller.abort();
       if (formData.image_url && formData.service_image instanceof File) {
         URL.revokeObjectURL(formData.image_url);
       }
     };
-  }, [formData.image_url, formData.service_image, propSkills]);
+  }, [propSkills]);
+
+  // Update formData when initialData changes
+  useEffect(() => {
+    if (initialData) {
+      setFormData({
+        name: initialData.name || "",
+        description: initialData.description || "",
+        color_collar_id: initialData.color_collar_id || "",
+        skill_ids: initialData.skill_ids || [],
+        service_image: initialData.service_image || null,
+        image_url: initialData.image_url || null,
+      });
+    }
+  }, [initialData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -154,18 +183,23 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
 
     const controller = new AbortController();
     try {
+      if (!isMountedRef.current) return;
       setLoading(true);
       await onSubmit(formData, controller.signal);
+      if (!isMountedRef.current) return;
       onClose();
     } catch (error) {
-      if (error.name === "AbortError") return;
+      if (error.name === "AbortError" || error.name === "CanceledError" || error.code === "ERR_CANCELED") return;
+      if (!isMountedRef.current) return;
       console.error("Submit error:", error.response?.data || error.message);
       const errorMessage = error.response?.data?.errors
         ? Object.values(error.response.data.errors).flat().join(", ")
         : error.response?.data?.error || "Failed to submit service. Please try again.";
       message.error(errorMessage);
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) {
+        setLoading(false);
+      }
       controller.abort();
     }
   };
@@ -228,12 +262,13 @@ const ServiceModal = ({ onClose, onSubmit, isEdit, initialData, skills: propSkil
               {errors.color_collar_id && <span className="error">{errors.color_collar_id}</span>}
             </div>
             <div className="form-group">
-              <label htmlFor="skill_ids">What skills should we fetch inside the services?</label>
+              <label htmlFor="skill_ids">Skills</label>
               {skillsError ? (
                 <div className="error">{skillsError}</div>
               ) : skills.length > 0 ? (
                 <Select
                   id="skill_ids"
+                  name="skill_ids"
                   mode="multiple"
                   value={formData.skill_ids}
                   onChange={handleSkillChange}
