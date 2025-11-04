@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { message } from "antd";
 import CustomDropdown from '../common/CustomDropdown';
+import { convertToPhilippinesTime, getCurrentPhilippinesTime } from '../../utils/dateUtils';
 import '../../../sass/components/profilesettings/modalpostjob.scss';
 import '../../../sass/components/common/CustomDropdown.scss';
 
@@ -14,10 +15,10 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     typeOfEmployment: editingJob?.job_type || "full-time",
     hiringType: editingJob?.hiring_type || "individual",
     teamSize: editingJob?.team_size || (editingJob?.hiring_type === 'team' ? 2 : 1),
-    workStart: editingJob?.work_start ? new Date(editingJob.work_start).toISOString().slice(0, 16) : "",
-    workEnd: editingJob?.work_end ? new Date(editingJob.work_end).toISOString().slice(0, 16) : "",
-    applicationStart: editingJob?.application_start ? new Date(editingJob.application_start).toISOString().slice(0, 16) : "",
-    applicationDeadline: editingJob?.application_deadline ? new Date(editingJob.application_deadline).toISOString().slice(0, 16) : "",
+    workStart: editingJob?.work_start ? convertToPhilippinesTime(editingJob.work_start) : "",
+    workEnd: editingJob?.work_end ? convertToPhilippinesTime(editingJob.work_end) : "",
+    applicationStart: editingJob?.application_start ? convertToPhilippinesTime(editingJob.application_start) : "",
+    applicationDeadline: editingJob?.application_deadline ? convertToPhilippinesTime(editingJob.application_deadline) : "",
     skills: editingJob?.skills || [],
     skillExperiences: editingJob?.skill_experiences || {}
   });
@@ -111,10 +112,10 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
         typeOfEmployment: editingJob.job_type || "full-time",
         hiringType: editingJob.hiring_type || "individual",
         teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
-        workStart: editingJob.work_start ? new Date(editingJob.work_start).toISOString().slice(0, 16) : "",
-        workEnd: editingJob.work_end ? new Date(editingJob.work_end).toISOString().slice(0, 16) : "",
-        applicationStart: editingJob.application_start ? new Date(editingJob.application_start).toISOString().slice(0, 16) : "",
-        applicationDeadline: editingJob.application_deadline ? new Date(editingJob.application_deadline).toISOString().slice(0, 16) : "",
+        workStart: editingJob.work_start ? convertToPhilippinesTime(editingJob.work_start) : "",
+        workEnd: editingJob.work_end ? convertToPhilippinesTime(editingJob.work_end) : "",
+        applicationStart: editingJob.application_start ? convertToPhilippinesTime(editingJob.application_start) : "",
+        applicationDeadline: editingJob.application_deadline ? convertToPhilippinesTime(editingJob.application_deadline) : "",
         skills: editingJob.skills || [],
         skillExperiences: editingJob.skill_experiences || {}
       });
@@ -195,7 +196,6 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const isContractorUser = Number(userProfile?.role_id) === 4;
 
     if (!formData.jobTitle.trim()) return message.error("Please fill in the job title");
     if (!formData.jobDescription.trim()) return message.error("Please fill in the job description");
@@ -203,13 +203,21 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
       return message.error("Please enter a valid salary");
     if (!formData.applicationStart || !formData.applicationDeadline)
       return message.error("Please select application start and deadline dates");
-    if (new Date(formData.applicationDeadline) <= new Date(formData.applicationStart))
+    
+    // Compare datetime-local strings (assumed to be in Philippines time)
+    // datetime-local format: YYYY-MM-DDTHH:mm
+    if (formData.applicationDeadline <= formData.applicationStart)
       return message.error("Application deadline must be after application start date");
+    
     if (!formData.workStart || !formData.workEnd)
       return message.error("Please select work start and end dates");
-    if (new Date(formData.workStart) < new Date(formData.applicationDeadline))
+    
+    // Work start must be on or after application deadline
+    if (formData.workStart < formData.applicationDeadline)
       return message.error("Work start date must be on or after application deadline (hiring period must complete first)");
-    if (new Date(formData.workEnd) <= new Date(formData.workStart))
+    
+    // Work end must be after work start
+    if (formData.workEnd <= formData.workStart)
       return message.error("Work end date must be after work start date");
 
     setIsLoading(true);
@@ -233,7 +241,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
       await onSubmit(jobData);
     } catch (err) {
       console.error(err);
-      message.error(`An error occurred while ${isContractorUser ? 'posting the hiring' : 'posting the job'}.`);
+      message.error('An error occurred while posting the job.');
     } finally {
       setIsLoading(false);
     }
@@ -376,12 +384,9 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     return Object.values(skillStructure);
   };
 
-  // Determine if user is Contractor
-  const isContractor = userRole === 4;
-  const modalTitle = isContractor ? 'Post Hiring Information' : 'Post Job Information';
-  const postButtonText = isContractor 
-    ? (editingJob ? 'Update Hiring' : 'Post Hiring') 
-    : (editingJob ? 'Update Job' : 'Post Job');
+  // Determine modal title and button text
+  const modalTitle = 'Post Job Information';
+  const postButtonText = editingJob ? 'Update Job' : 'Post Job';
 
   return (
     <div className="modal-overlay">
@@ -532,7 +537,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                     name="applicationStart"
                     value={formData.applicationStart}
                     onChange={handleInputChange}
-                    min={new Date().toISOString().slice(0, 16)}
+                    min={getCurrentPhilippinesTime()}
                     className="small-input"
                     required
                   />
@@ -563,9 +568,9 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                      value={formData.workStart}
                      onChange={handleInputChange}
                      className="small-input"
-                     min={formData.applicationDeadline ? 
-                       formData.applicationDeadline
-                       : new Date().toISOString().slice(0, 16)}
+                    min={formData.applicationDeadline ? 
+                      formData.applicationDeadline
+                      : getCurrentPhilippinesTime()}
                      required
                      disabled={!formData.applicationDeadline}
                      title={!formData.applicationDeadline ? "Please select Application Deadline first" : "Work Start must be after Application Deadline (hiring period)"}
@@ -580,7 +585,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                      value={formData.workEnd}
                      onChange={handleInputChange}
                      className="small-input"
-                     min={formData.workStart || new Date().toISOString().slice(0, 16)}
+                     min={formData.workStart || getCurrentPhilippinesTime()}
                      required
                      disabled={!formData.workStart}
                      title={!formData.workStart ? "Please select Work Start date first" : ""}

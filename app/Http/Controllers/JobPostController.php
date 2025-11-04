@@ -39,12 +39,16 @@ class JobPostController extends Controller
         } else {
             // For public job listings (like FindJob), only show non-archived jobs
             $query->where('archived', $showArchived);
-            // Only show jobs where application_start has already passed
-            $query->where('application_start', '<=', Carbon::now('Asia/Manila'));
+            // Only show jobs where application_start has already passed (Philippines time)
+            // Compare UTC times - application_start is stored in UTC but represents Philippines time
+            $now = Carbon::now('Asia/Manila');
+            $query->where('application_start', '<=', $now->utc());
         }
 
         // Auto-archive expired job posts (using Philippine Standard Time GMT+8)
-        JobPost::where('application_deadline', '<', Carbon::now('Asia/Manila'))
+        // Compare UTC times - application_deadline is stored in UTC but represents Philippines time
+        $now = Carbon::now('Asia/Manila');
+        JobPost::where('application_deadline', '<', $now->utc())
             ->where('archived', false)
             ->update(['archived' => true]);
 
@@ -126,6 +130,16 @@ class JobPostController extends Controller
         $validated = $validator->validated();
 
 
+         // Parse dates - they come as ISO strings from frontend
+         // The ISO string represents a moment in time that was entered as Philippines time
+         // For example: user enters "2025-04-11T10:15" (Philippines time)
+         // Frontend converts to "2025-04-11T02:15:00.000Z" (UTC, 8 hours earlier)
+         // We parse as UTC and store - when retrieved, we'll convert back to Philippines time
+         $workStart = Carbon::parse($validated['work_start'], 'UTC');
+         $workEnd = Carbon::parse($validated['work_end'], 'UTC');
+         $applicationStart = Carbon::parse($validated['application_start'], 'UTC');
+         $applicationDeadline = Carbon::parse($validated['application_deadline'], 'UTC');
+         
          $jobPost = JobPost::create([
              'profile_id' => $validated['profile_id'],
              'job_title' => $validated['job_title'],
@@ -137,10 +151,10 @@ class JobPostController extends Controller
              'job_type' => $validated['job_type'],
              'hiring_type' => $validated['hiring_type'],
              'team_size' => $validated['team_size'] ?? ($validated['hiring_type'] === 'team' ? 2 : 1),
-             'work_start' => Carbon::parse($validated['work_start'], 'Asia/Manila'),
-             'work_end' => Carbon::parse($validated['work_end'], 'Asia/Manila'),
-             'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
-             'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
+             'work_start' => $workStart,
+             'work_end' => $workEnd,
+             'application_start' => $applicationStart,
+             'application_deadline' => $applicationDeadline,
              'archived' => false, // Don't auto-archive on creation
          ]);
 
@@ -230,6 +244,15 @@ class JobPostController extends Controller
 
         $validated = $validator->validated();
 
+        // Parse dates - they come as ISO strings from frontend
+        // The ISO string represents a moment in time that was entered as Philippines time
+        // For example: user enters "2025-04-11T10:15" (Philippines time)
+        // Frontend converts to "2025-04-11T02:15:00.000Z" (UTC, 8 hours earlier)
+        // We parse as UTC and store - when retrieved, we'll convert back to Philippines time
+        $workStart = Carbon::parse($validated['work_start'], 'UTC');
+        $workEnd = Carbon::parse($validated['work_end'], 'UTC');
+        $applicationStart = Carbon::parse($validated['application_start'], 'UTC');
+        $applicationDeadline = Carbon::parse($validated['application_deadline'], 'UTC');
 
         $jobPost->update([
             'profile_id' => $validated['profile_id'],
@@ -242,11 +265,11 @@ class JobPostController extends Controller
             'job_type' => $validated['job_type'],
             'hiring_type' => $validated['hiring_type'],
             'team_size' => $validated['team_size'] ?? ($validated['hiring_type'] === 'team' ? 2 : 1),
-            'work_start' => Carbon::parse($validated['work_start'], 'Asia/Manila'),
-            'work_end' => Carbon::parse($validated['work_end'], 'Asia/Manila'),
-            'application_start' => Carbon::parse($validated['application_start'], 'Asia/Manila'),
-             'application_deadline' => Carbon::parse($validated['application_deadline'], 'Asia/Manila'),
-            'archived' => $validated['archived'] ?? Carbon::parse($validated['application_deadline'], 'Asia/Manila')->isPast(),
+            'work_start' => $workStart,
+            'work_end' => $workEnd,
+            'application_start' => $applicationStart,
+            'application_deadline' => $applicationDeadline,
+            'archived' => $validated['archived'] ?? $applicationDeadline->isPast(),
         ]);
 
         $jobPost->load([
@@ -324,7 +347,9 @@ class JobPostController extends Controller
      */
     public function checkExpiredJobs()
     {
-        $expiredCount = JobPost::where('application_deadline', '<', Carbon::now('Asia/Manila'))
+        // Compare UTC times - application_deadline is stored in UTC but represents Philippines time
+        $now = Carbon::now('Asia/Manila');
+        $expiredCount = JobPost::where('application_deadline', '<', $now->utc())
             ->where('archived', false)
             ->update(['archived' => true]);
 

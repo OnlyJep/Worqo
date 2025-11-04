@@ -71,15 +71,6 @@ const ProfileSettings = () => {
                 </RoleProtectedRoute>
               } 
             />
-            {/* Post Hiring - only for Contractors (role_id 4) */}
-            <Route 
-              path="/post-hiring" 
-              element={
-                <RoleProtectedRoute allowedRoles={[4]}>
-                  <MyPostJob />
-                </RoleProtectedRoute>
-              } 
-            />
           </Routes>
         </div>
       </div>

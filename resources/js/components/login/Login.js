@@ -56,11 +56,6 @@ const Login = () => {
           localStorage.removeItem('remembered_email');
         }
 
-        // Store original role if logging in as Contractor (role_id = 4)
-        // Only store if not already set (preserves original role for role switching)
-        if (data.user.role_id === 4 && !localStorage.getItem('original_role')) {
-          localStorage.setItem('original_role', '4');
-        }
 
         // Update user status to online (is_online = 1)
         const updatedUser = {
@@ -92,12 +87,6 @@ const Login = () => {
             setIsLoading(false);
           }, 500);
         } else if (userRole === 2) {
-          setTimeout(() => {
-            navigate('/homepage', { replace: true });
-            setIsLoading(false);
-          }, 500);
-        } else if (userRole === 4) {
-          // Contractor role - redirect to homepage
           setTimeout(() => {
             navigate('/homepage', { replace: true });
             setIsLoading(false);

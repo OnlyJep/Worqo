@@ -50,18 +50,6 @@ class User extends Authenticatable
         );
     }
 
-    // Relationship with contractors table through profiles
-    public function contractor()
-    {
-        return $this->hasOneThrough(
-            Contractor::class, // Target model
-            Profile::class,    // Intermediate model
-            'user_id',         // Foreign key on Profile table
-            'profile_id',      // Foreign key on Contractor table
-            'id',              // Local key on User table
-            'id'               // Local key on Profile table
-        );
-    }
 
     // Relationship with workers table through profiles
     public function worker()

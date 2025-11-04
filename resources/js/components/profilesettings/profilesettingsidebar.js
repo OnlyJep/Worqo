@@ -57,16 +57,6 @@ const ProfileSettingsSidebar = () => {
     });
   }
 
-  // Only add Post Hiring for contractors (role_id 4)
-  if (userRole === 4) {
-    menuItems.push({
-      id: 'post-hiring',
-      path: '/profile-settings/post-hiring',
-      icon: '/images/postjob.svg',
-      label: 'Post Hiring',
-      isActive: location.pathname === '/profile-settings/post-hiring'
-    });
-  }
 
   const handleLinkClick = (e, path) => {
     e.preventDefault();

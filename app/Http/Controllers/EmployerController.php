@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profile;
 use App\Models\Employer;
-use App\Models\Contractor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
@@ -98,11 +97,11 @@ class EmployerController extends Controller
         }
     }
 
-    // Show employer or contractor details
+    // Show employer details
     public function show($id)
     {
         try {
-            $user = User::with(['profile', 'employer', 'contractor'])->findOrFail($id);
+            $user = User::with(['profile', 'employer'])->findOrFail($id);
 
             if ($user->role_id === 2) {
                 // Handle employer (role_id = 2)
@@ -127,40 +126,17 @@ class EmployerController extends Controller
                     $user = User::with(['profile', 'employer'])->findOrFail($id);
                 }
                 return response()->json(['employer' => $user]);
-            } else if ($user->role_id === 4) {
-                // Handle contractor (role_id = 4)
-                if (!$user->contractor && $user->profile) {
-                    Contractor::updateOrCreate(
-                        ['profile_id' => $user->profile->id],
-                        [
-                            'user_id' => $user->id,
-                            'full_name' => $user->profile->first_name . ' ' . $user->profile->last_name,
-                            'gender_id' => $user->profile->gender_id,
-                            'suffix_id' => $user->profile->suffix_id,
-                            'street' => $user->profile->street ?? 'N/A',
-                            'city' => $user->profile->city ?? 'N/A',
-                            'province' => $user->profile->province ?? 'N/A',
-                            'postal_code' => $user->profile->postal_code ?? 'N/A',
-                            'country' => $user->profile->country ?? 'N/A',
-                            'credentials_name' => [],
-                            'credentials_photo' => [],
-                            'credentials_doc' => [],
-                        ]
-                    );
-                    $user = User::with(['profile', 'contractor'])->findOrFail($id);
-                }
-                return response()->json(['contractor' => $user]);
             } else {
-                return response()->json(['error' => 'User is not an employer or contractor'], 403);
+                return response()->json(['error' => 'User is not an employer'], 403);
             }
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return response()->json(['error' => 'Contractor not found'], 404);
+            return response()->json(['error' => 'Employer not found'], 404);
         } catch (\Exception $e) {
-            Log::error('Error fetching contractor: ' . $e->getMessage(), [
+            Log::error('Error fetching employer: ' . $e->getMessage(), [
                 'id' => $id ?? 'unknown',
                 'trace' => $e->getTraceAsString()
             ]);
-            return response()->json(['error' => 'Failed to fetch contractor: ' . $e->getMessage()], 500);
+            return response()->json(['error' => 'Failed to fetch employer: ' . $e->getMessage()], 500);
         }
     }
 
@@ -304,207 +280,6 @@ class EmployerController extends Controller
         }
     }
 
-    // Store new contractor
-    public function storeContractor(Request $request)
-    {
-        try {
-            $validator = Validator::make($request->all(), [
-                'email'          => 'required|email|unique:users,email',
-                'password'       => 'required|min:6',
-                'first_name'     => 'required|string|max:255',
-                'last_name'      => 'required|string|max:255',
-                'contact_number' => 'nullable|string|regex:/^\d{10,15}$/',
-                'street'         => 'nullable|string|max:255',
-                'middlename'     => 'nullable|string|max:255',
-                'suffix_id'      => 'nullable|exists:suffixes,id',
-                'gender_id'      => 'nullable|exists:genders,id',
-            ]);
-
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()], 422);
-            }
-
-            $user = User::create([
-                'username'   => $request->username ?? strtolower($request->first_name . '.' . $request->last_name),
-                'email'      => $request->email,
-                'password'   => Hash::make($request->password),
-                'role_id'    => 4,
-                'archived'   => false,
-            ]);
-
-            $profile = Profile::create([
-                'user_id'        => $user->id,
-                'first_name'     => $request->first_name,
-                'middlename'     => $request->middlename,
-                'last_name'      => $request->last_name,
-                'suffix_id'      => $request->suffix_id,
-                'gender_id'      => $request->gender_id,
-                'contact_number' => $request->contact_number,
-                'street'         => $request->street,
-                'city'           => $request->city ?? 'Butuan City',
-                'province'       => $request->province ?? 'Agusan Del Norte',
-                'postal_code'    => $request->postal_code ?? '8600',
-                'country'        => $request->country ?? 'Philippines',
-                'profile_img'    => $request->hasFile('profile_img')
-                                    ? $request->file('profile_img')->store('profiles', 'public')
-                                    : null,
-            ]);
-
-            $contractor = Contractor::create([
-                'profile_id'      => $profile->id,
-                'user_id'         => $user->id,
-                'full_name'       => $request->first_name . ' ' . $request->last_name,
-                'gender_id'       => $request->gender_id,
-                'suffix_id'       => $request->suffix_id,
-                'street'          => $request->street,
-                'city'            => $request->city ?? 'Butuan City',
-                'province'        => $request->province ?? 'Agusan Del Norte',
-                'postal_code'     => $request->postal_code ?? '8600',
-                'country'         => $request->country ?? 'Philippines',
-                'credentials_name' => [],
-                'credentials_photo' => [],
-                'credentials_doc' => [],
-            ]);
-
-            return response()->json([
-                'message'  => 'Contractor created successfully',
-                'contractor' => $user->load(['profile', 'contractor'])
-            ], 201);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to create contractor: ' . $e->getMessage()], 500);
-        }
-    }
-
-    // Update contractor
-    public function updateContractor(Request $request, $id)
-    {
-        try {
-            $user = User::with('profile')->findOrFail($id);
-            
-            // Ensure user is a contractor
-            if ($user->role_id !== 4) {
-                return response()->json(['error' => 'User is not a contractor'], 403);
-            }
-
-            $validator = Validator::make($request->all(), [
-                'email'          => ['required', 'email', Rule::unique('users', 'email')->ignore($user->id)],
-                'password'       => 'nullable|min:6',
-                'first_name'     => 'required|string|max:255',
-                'last_name'      => 'required|string|max:255',
-                'contact_number' => 'nullable|string|regex:/^\d{10,15}$/',
-                'street'         => 'nullable|string|max:255',
-                'middlename'     => 'nullable|string|max:255',
-                'suffix_id'      => 'nullable|exists:suffixes,id',
-                'gender_id'      => 'nullable|exists:genders,id',
-            ]);
-
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()], 422);
-            }
-
-            $user->update([
-                'email'    => $request->email,
-                'username' => $request->username ?? $user->username,
-                'password' => $request->password ? Hash::make($request->password) : $user->password,
-            ]);
-
-            // Ensure profile exists, create if not
-            if (!$user->profile) {
-                $profile = Profile::create([
-                    'user_id'        => $user->id,
-                    'first_name'     => $request->first_name,
-                    'middlename'     => $request->middlename,
-                    'last_name'      => $request->last_name,
-                    'suffix_id'      => $request->suffix_id,
-                    'gender_id'      => $request->gender_id,
-                    'contact_number' => $request->contact_number,
-                    'street'         => $request->street,
-                    'city'           => $request->city ?? 'Butuan City',
-                    'province'       => $request->province ?? 'Agusan Del Norte',
-                    'postal_code'    => $request->postal_code ?? '8600',
-                    'country'        => $request->country ?? 'Philippines',
-                    'profile_img'    => $request->hasFile('profile_img')
-                                        ? $request->file('profile_img')->store('profiles', 'public')
-                                        : null,
-                ]);
-                // Reload user with profile relationship
-                $user = User::with('profile')->findOrFail($user->id);
-            } else {
-                $updateData = [
-                    'first_name'     => $request->first_name,
-                    'last_name'      => $request->last_name,
-                ];
-                
-                if ($request->has('middlename')) {
-                    $updateData['middlename'] = $request->middlename;
-                }
-                if ($request->filled('suffix_id')) {
-                    $updateData['suffix_id'] = $request->suffix_id;
-                }
-                if ($request->filled('gender_id')) {
-                    $updateData['gender_id'] = $request->gender_id;
-                }
-                if ($request->has('contact_number')) {
-                    $updateData['contact_number'] = $request->contact_number;
-                }
-                if ($request->has('street')) {
-                    $updateData['street'] = $request->street;
-                }
-                if ($request->filled('city')) {
-                    $updateData['city'] = $request->city;
-                }
-                if ($request->filled('province')) {
-                    $updateData['province'] = $request->province;
-                }
-                if ($request->filled('postal_code')) {
-                    $updateData['postal_code'] = $request->postal_code;
-                }
-                if ($request->filled('country')) {
-                    $updateData['country'] = $request->country;
-                }
-                
-                if ($request->hasFile('profile_img')) {
-                    $updateData['profile_img'] = $request->file('profile_img')->store('profiles', 'public');
-                }
-                
-                $user->profile->update($updateData);
-            }
-
-            // Ensure profile is loaded before accessing it
-            $user->load('profile');
-            if (!$user->profile) {
-                return response()->json(['error' => 'Profile not found for this contractor'], 500);
-            }
-            
-            $contractor = Contractor::updateOrCreate(
-                ['profile_id' => $user->profile->id],
-                [
-                    'user_id'     => $user->id,
-                    'full_name'   => $request->first_name . ' ' . $request->last_name,
-                    'gender_id'   => $request->gender_id ?? $user->profile->gender_id ?? null,
-                    'suffix_id'   => $request->suffix_id ?? $user->profile->suffix_id ?? null,
-                    'street'      => $request->street ?? $user->profile->street ?? 'N/A',
-                    'city'        => $request->city ?? $user->profile->city ?? 'Butuan City',
-                    'province'    => $request->province ?? $user->profile->province ?? 'Agusan Del Norte',
-                    'postal_code' => $request->postal_code ?? $user->profile->postal_code ?? '8600',
-                    'country'     => $request->country ?? $user->profile->country ?? 'Philippines',
-                ]
-            );
-
-            return response()->json([
-                'message'  => 'Contractor updated successfully',
-                'contractor' => $user->load(['profile', 'contractor'])
-            ]);
-        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return response()->json(['error' => 'Contractor not found'], 404);
-        } catch (\Exception $e) {
-            \Log::error('Error updating contractor: ' . $e->getMessage(), [
-                'id' => $id,
-                'trace' => $e->getTraceAsString()
-            ]);
-            return response()->json(['error' => 'Failed to update contractor: ' . $e->getMessage()], 500);
-        }
-    }
 
     // Update employer credentials
     public function updateCredentials(Request $request, $id)
@@ -519,72 +294,39 @@ class EmployerController extends Controller
             
             $user = User::findOrFail($id);
             
-            // Ensure user is an employer or contractor
-            if ($user->role_id !== 2 && $user->role_id !== 4) {
-                return response()->json(['error' => 'User is not an employer or contractor'], 403);
+            // Ensure user is an employer
+            if ($user->role_id !== 2) {
+                return response()->json(['error' => 'User is not an employer'], 403);
             }
 
-            // Handle employer (role_id = 2)
-            if ($user->role_id === 2) {
-                // Get or create employer record
-                $employer = Employer::where('user_id', $user->id)->first();
-                
-                if (!$employer) {
-                    // Create employer record if it doesn't exist
-                    $profile = $user->profile;
-                    if (!$profile) {
-                        return response()->json(['error' => 'User profile not found'], 404);
-                    }
-                    
-                    $employer = Employer::create([
-                        'profile_id' => $profile->id,
-                        'user_id' => $user->id,
-                        'full_name' => ($profile->first_name ?? '') . ' ' . ($profile->last_name ?? ''),
-                        'gender_id' => $profile->gender_id ?? 1,
-                        'suffix_id' => $profile->suffix_id,
-                        'street' => $profile->street ?? 'N/A',
-                        'city' => $profile->city ?? 'Butuan City',
-                        'province' => $profile->province ?? 'Agusan Del Norte',
-                        'postal_code' => $profile->postal_code ?? '8600',
-                        'country' => $profile->country ?? 'Philippines',
-                        'credentials_name' => [],
-                        'credentials_photo' => [],
-                        'credentials_doc' => [],
-                    ]);
+            // Get or create employer record
+            $employer = Employer::where('user_id', $user->id)->first();
+            
+            if (!$employer) {
+                // Create employer record if it doesn't exist
+                $profile = $user->profile;
+                if (!$profile) {
+                    return response()->json(['error' => 'User profile not found'], 404);
                 }
                 
-                $record = $employer;
-            } else {
-                // Handle contractor (role_id = 4)
-                // Get or create contractor record
-                $contractor = Contractor::where('user_id', $user->id)->first();
-                
-                if (!$contractor) {
-                    // Create contractor record if it doesn't exist
-                    $profile = $user->profile;
-                    if (!$profile) {
-                        return response()->json(['error' => 'User profile not found'], 404);
-                    }
-                    
-                    $contractor = Contractor::create([
-                        'profile_id' => $profile->id,
-                        'user_id' => $user->id,
-                        'full_name' => ($profile->first_name ?? '') . ' ' . ($profile->last_name ?? ''),
-                        'gender_id' => $profile->gender_id ?? 1,
-                        'suffix_id' => $profile->suffix_id,
-                        'street' => $profile->street ?? 'N/A',
-                        'city' => $profile->city ?? 'Butuan City',
-                        'province' => $profile->province ?? 'Agusan Del Norte',
-                        'postal_code' => $profile->postal_code ?? '8600',
-                        'country' => $profile->country ?? 'Philippines',
-                        'credentials_name' => [],
-                        'credentials_photo' => [],
-                        'credentials_doc' => [],
-                    ]);
-                }
-                
-                $record = $contractor;
+                $employer = Employer::create([
+                    'profile_id' => $profile->id,
+                    'user_id' => $user->id,
+                    'full_name' => ($profile->first_name ?? '') . ' ' . ($profile->last_name ?? ''),
+                    'gender_id' => $profile->gender_id ?? 1,
+                    'suffix_id' => $profile->suffix_id,
+                    'street' => $profile->street ?? 'N/A',
+                    'city' => $profile->city ?? 'Butuan City',
+                    'province' => $profile->province ?? 'Agusan Del Norte',
+                    'postal_code' => $profile->postal_code ?? '8600',
+                    'country' => $profile->country ?? 'Philippines',
+                    'credentials_name' => [],
+                    'credentials_photo' => [],
+                    'credentials_doc' => [],
+                ]);
             }
+            
+            $record = $employer;
 
             // Process credentials
             $credentialsNames = [];
@@ -631,112 +373,22 @@ class EmployerController extends Controller
                 }
             }
 
-            // Update credentials (employer or contractor)
+            // Update credentials
             $record->update([
                 'credentials_name' => $credentialsNames,
                 'credentials_photo' => $credentialsPhotos,
                 'credentials_doc' => $credentialsDocs,
             ]);
 
-            $message = $user->role_id === 2 
-                ? 'Employer credentials updated successfully' 
-                : 'Contractor credentials updated successfully';
-
             return response()->json([
-                'message' => $message,
-                $user->role_id === 2 ? 'employer' : 'contractor' => $record->fresh()
+                'message' => 'Employer credentials updated successfully',
+                'employer' => $record->fresh()
             ]);
         } catch (\Exception $e) {
-            $errorMessage = $user->role_id === 2 
-                ? 'Failed to update employer credentials: ' 
-                : 'Failed to update contractor credentials: ';
-            return response()->json(['error' => $errorMessage . $e->getMessage()], 500);
+            return response()->json(['error' => 'Failed to update employer credentials: ' . $e->getMessage()], 500);
         }
     }
 
-    // List active contractors
-    public function indexContractors()
-    {
-        try {
-            $contractors = User::with(['profile', 'contractor'])
-                ->where('role_id', 4)
-                ->where('archived', false)
-                ->get();
-
-            foreach ($contractors as $user) {
-                if (!$user->contractor && $user->profile) {
-                    Contractor::updateOrCreate(
-                        ['profile_id' => $user->profile->id],
-                        [
-                            'user_id' => $user->id,
-                            'full_name' => $user->profile->first_name . ' ' . $user->profile->last_name,
-                            'gender_id' => $user->profile->gender_id,
-                            'suffix_id' => $user->profile->suffix_id,
-                            'street' => $user->profile->street ?? 'N/A',
-                            'city' => $user->profile->city ?? 'N/A',
-                            'province' => $user->profile->province ?? 'N/A',
-                            'postal_code' => $user->profile->postal_code ?? 'N/A',
-                            'country' => $user->profile->country ?? 'N/A',
-                            'credentials_name' => [],
-                            'credentials_photo' => [],
-                            'credentials_doc' => [],
-                        ]
-                    );
-                }
-            }
-
-            $contractors = User::with(['profile', 'contractor'])
-                ->where('role_id', 4)
-                ->where('archived', false)
-                ->get();
-
-            return response()->json($contractors);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to fetch contractors: ' . $e->getMessage()], 500);
-        }
-    }
-
-    // List archived contractors
-    public function archivedContractors()
-    {
-        try {
-            $contractors = User::with(['profile', 'contractor'])
-                ->where('role_id', 4)
-                ->where('archived', true)
-                ->get();
-
-            foreach ($contractors as $user) {
-                if (!$user->contractor && $user->profile) {
-                    Contractor::updateOrCreate(
-                        ['profile_id' => $user->profile->id],
-                        [
-                            'user_id' => $user->id,
-                            'full_name' => $user->profile->first_name . ' ' . $user->profile->last_name,
-                            'gender_id' => $user->profile->gender_id,
-                            'suffix_id' => $user->profile->suffix_id,
-                            'street' => $user->profile->street ?? 'N/A',
-                            'city' => $user->profile->city ?? 'N/A',
-                            'province' => $user->profile->province ?? 'N/A',
-                            'postal_code' => $user->profile->postal_code ?? 'N/A',
-                            'country' => $user->profile->country ?? 'N/A',
-                            'credentials_name' => [],
-                            'credentials_photo' => [],
-                            'credentials_doc' => [],
-                        ]
-                    );
-                }
-            }
-
-            $contractors = User::with(['profile', 'contractor'])
-                ->where('role_id', 4)
-                ->where('archived', true)
-                ->get();
-
-            return response()->json($contractors);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to fetch archived contractors: ' . $e->getMessage()], 500);
-        }
-    }
 
     // Archive employer
     public function archive($id)

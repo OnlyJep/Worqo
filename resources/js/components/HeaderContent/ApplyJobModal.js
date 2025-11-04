@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaEye } from 'react-icons/fa';
+import { compareWithPhilippinesTime } from '../../utils/dateUtils';
 import './../../../sass/components/ApplyJobModal.scss';
 
 const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplications }) => {
@@ -307,40 +308,41 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
     }
 
     // Check if job is still accepting applications
+    // Get current time in Philippines timezone
     const now = new Date();
-    const applicationStart = new Date(job.application_start);
-    const applicationDeadline = new Date(job.application_deadline);
+    const phNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
+    
+    // Parse job dates and convert to Philippines time for comparison
+    const applicationStart = new Date(new Date(job.application_start).toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
+    const applicationDeadline = new Date(new Date(job.application_deadline).toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
 
     // Debug time comparison  
-    console.log('Current time (local):', now.toLocaleString());
-    console.log('Current time (UTC):', now.toISOString());
-    console.log('Application start (UTC):', job.application_start);
-    console.log('Application deadline (UTC):', job.application_deadline);
-    console.log('Application start (local):', applicationStart.toLocaleString());
-    console.log('Application deadline (local):', applicationDeadline.toLocaleString());
-    console.log('Current time < Application start?', now < applicationStart);
-    console.log('Current time > Application deadline?', now > applicationDeadline);
-
-    // Check application period
-    // JavaScript Date objects automatically handle timezone conversion
-    console.log('Current time (local):', now.toLocaleString());
-    console.log('Application start (local):', applicationStart.toLocaleString());
-    console.log('Application deadline (local):', applicationDeadline.toLocaleString());
+    console.log('Current time (Philippines):', phNow.toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
+    console.log('Application start (Philippines):', applicationStart.toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
+    console.log('Application deadline (Philippines):', applicationDeadline.toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
     
-    // Calculate time difference
-    const timeDiff = applicationStart.getTime() - now.getTime();
+    // Calculate time difference in milliseconds
+    const timeDiff = applicationStart.getTime() - phNow.getTime();
     const hoursUntilStart = timeDiff / (1000 * 60 * 60);
     
     console.log('Hours until application starts:', hoursUntilStart);
-    console.log('Current time < Application start?', now < applicationStart);
+    console.log('Current time < Application start?', phNow < applicationStart);
     
     // Allow applications if start time has passed or if we're within 24 hours of start
-    if (now < applicationStart && hoursUntilStart > 24) {
-      showNotification(`Applications have not started yet. They will start at ${applicationStart.toLocaleString()}.`, 'error');
+    if (phNow < applicationStart && hoursUntilStart > 24) {
+      const startDateStr = applicationStart.toLocaleString('en-US', { 
+        timeZone: 'Asia/Manila',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      showNotification(`Applications have not started yet. They will start on ${startDateStr} (Philippines time).`, 'error');
       return;
     }
 
-    if (now > applicationDeadline) {
+    if (phNow > applicationDeadline) {
       showNotification('Application deadline has passed.', 'error');
       return;
     }

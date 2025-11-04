@@ -116,15 +116,6 @@ Route::post('/employers/{id}/update-credentials', [EmployerController::class, 'u
 Route::patch('/employers/{id}/archive', [EmployerController::class, 'archive']);
 Route::patch('/employers/{id}/restore', [EmployerController::class, 'restore']);
 
-// CONTRACTOR ROUTES (reuses EmployerController methods)
-Route::get('/contractors', [EmployerController::class, 'indexContractors']);
-Route::get('/contractors/archived', [EmployerController::class, 'archivedContractors']);
-Route::get('/contractors/{id}', [EmployerController::class, 'show']);
-Route::post('/contractors', [EmployerController::class, 'storeContractor']);
-Route::put('/contractors/{id}', [EmployerController::class, 'updateContractor']);
-Route::post('/contractors/{id}/update-credentials', [EmployerController::class, 'updateCredentials']);
-Route::patch('/contractors/{id}/archive', [EmployerController::class, 'archive']);
-Route::patch('/contractors/{id}/restore', [EmployerController::class, 'restore']);
 
 // WORKER ROUTES
 Route::get('/workers', [WorkerController::class, 'index'])->name('workers.index');

@@ -152,10 +152,6 @@ const Register = () => {
         setError(errorMessage);
         msgApi.error(errorMessage);
       } else {
-        // Store original role if registering as Contractor (role_id = 4)
-        if (formData.role === 4 || formData.role === '4') {
-          localStorage.setItem('original_role', '4');
-        }
         
         setFormData({
           firstName: "",

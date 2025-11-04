@@ -157,15 +157,15 @@ const MyProfile = () => {
       };
       
       fetchData();
-    } else if (user?.id && (user?.role_id === 2 || user?.role_id === '2' || user?.role_id === 4 || user?.role_id === '4')) {
-      // Fetch employer or contractor data
+    } else if (user?.id && (user?.role_id === 2 || user?.role_id === '2')) {
+      // Fetch employer data
       const fetchEmployerData = async () => {
         try {
-          console.log(`Fetching ${Number(user?.role_id) === 4 ? 'contractor' : 'employer'} data for user:`, user.id);
+          console.log('Fetching employer data for user:', user.id);
           await fetchEmployerProfile(user.id);
         } catch (error) {
           if (isMounted) {
-            console.error(`Error fetching ${Number(user?.role_id) === 4 ? 'contractor' : 'employer'} data:`, error);
+            console.error('Error fetching employer data:', error);
           }
         }
       };
@@ -525,14 +525,12 @@ const MyProfile = () => {
       const currentUser = userData.user || userData;
       const roleId = Number(currentUser.role_id);
       
-      console.log(`Fetching ${roleId === 4 ? 'contractor' : 'employer'} profile for ID:`, employerId);
+      console.log('Fetching employer profile for ID:', employerId);
       const token = localStorage.getItem("auth_token");
       if (!token) return;
 
-      // Use appropriate API endpoint based on role
-      const apiEndpoint = roleId === 4 
-        ? `http://127.0.0.1:8000/api/contractors/${employerId}`
-        : `http://127.0.0.1:8000/api/employers/${employerId}`;
+      // Use employer API endpoint
+      const apiEndpoint = `http://127.0.0.1:8000/api/employers/${employerId}`;
 
       const response = await fetch(apiEndpoint, {
         method: "GET",
@@ -541,19 +539,19 @@ const MyProfile = () => {
         }
       });
 
-      console.log(`${roleId === 4 ? 'Contractor' : 'Employer'} profile response status:`, response.status);
+      console.log('Employer profile response status:', response.status);
       if (response.ok) {
         const data = await response.json();
-        const roleData = data.employer || data.contractor || data;
+        const roleData = data.employer || data;
         
-        console.log(`Fetched ${roleId === 4 ? 'contractor' : 'employer'} data:`, roleData);
-        console.log(`${roleId === 4 ? 'Contractor' : 'Employer'} record:`, roleData[roleId === 4 ? 'contractor' : 'employer']);
+        console.log('Fetched employer data:', roleData);
+        console.log('Employer record:', roleData.employer);
         console.log('Credentials data:', roleData.credentials_name, roleData.credentials_photo);
         
         // Check if we have a record
-        const record = roleData[roleId === 4 ? 'contractor' : 'employer'] || roleData;
+        const record = roleData.employer || roleData;
         if (record) {
-          console.log(`${roleId === 4 ? 'Contractor' : 'Employer'} record credentials:`, record.credentials_name, record.credentials_photo);
+          console.log('Employer record credentials:', record.credentials_name, record.credentials_photo);
           
           // Set credentials from record
           if (record.credentials_name && Array.isArray(record.credentials_name)) {
@@ -561,7 +559,7 @@ const MyProfile = () => {
               .map((name, index) => {
                 const photo = record.credentials_photo?.[index];
                 const doc = record.credentials_doc?.[index];
-                console.log(`${roleId === 4 ? 'Contractor' : 'Employer'} Credential ${index}: name="${name}", photo="${photo}", doc="${doc}"`);
+                console.log(`Employer Credential ${index}: name="${name}", photo="${photo}", doc="${doc}"`);
                 return {
                   credentials_name: name,
                   credentials_photo: photo || null,
@@ -569,19 +567,19 @@ const MyProfile = () => {
                 };
               })
               .filter(cred => cred.credentials_name && cred.credentials_name.trim() !== ''); // Filter out empty/null credentials
-            console.log(`Setting ${roleId === 4 ? 'contractor' : 'employer'} credentials from backend:`, creds);
+            console.log('Setting employer credentials from backend:', creds);
             setEmployerCredentials(creds);
           } else {
-            console.log(`No ${roleId === 4 ? 'contractor' : 'employer'} credentials found in backend data`);
+            console.log('No employer credentials found in backend data');
             setEmployerCredentials([]);
           }
         } else {
-          console.log(`No ${roleId === 4 ? 'contractor' : 'employer'} record found`);
+          console.log('No employer record found');
           setEmployerCredentials([]);
         }
       }
     } catch (error) {
-      console.error(`Error fetching ${Number(user?.role_id) === 4 ? 'contractor' : 'employer'} profile:`, error);
+      console.error('Error fetching employer profile:', error);
     }
   };
 
@@ -1190,7 +1188,7 @@ const MyProfile = () => {
   const handleCancelEmployerCredentialsEdit = async () => {
     setIsEditingEmployerCredentials(false);
     // Reload credentials from server
-    if (user?.id && (user?.role_id === 2 || user?.role_id === '2' || user?.role_id === 4 || user?.role_id === '4')) {
+    if (user?.id && (user?.role_id === 2 || user?.role_id === '2')) {
       await fetchEmployerProfile(user.id);
     }
   };
@@ -1224,11 +1222,8 @@ const MyProfile = () => {
         });
       }
 
-      // Use appropriate API endpoint based on role
-      const roleId = Number(user?.role_id);
-      const apiEndpoint = roleId === 4 
-        ? `http://127.0.0.1:8000/api/contractors/${user.id}/update-credentials`
-        : `http://127.0.0.1:8000/api/employers/${user.id}/update-credentials`;
+      // Use employer API endpoint
+      const apiEndpoint = `http://127.0.0.1:8000/api/employers/${user.id}/update-credentials`;
 
       const response = await fetch(apiEndpoint, {
         method: "POST",
@@ -1390,11 +1385,8 @@ const MyProfile = () => {
         });
       });
 
-      // Use appropriate API endpoint based on role
-      const roleId = Number(user?.role_id);
-      const apiEndpoint = roleId === 4 
-        ? `http://127.0.0.1:8000/api/contractors/${user.id}/update-credentials`
-        : `http://127.0.0.1:8000/api/employers/${user.id}/update-credentials`;
+      // Use employer API endpoint
+      const apiEndpoint = `http://127.0.0.1:8000/api/employers/${user.id}/update-credentials`;
 
       const response = await fetch(apiEndpoint, {
         method: "POST",
@@ -2757,7 +2749,7 @@ const MyProfile = () => {
       )}
 
       {/* Credentials Card - Only for Employers */}
-      {(user?.role_id === 2 || user?.role_id === '2' || user?.role_id === 4 || user?.role_id === '4') && (
+      {(user?.role_id === 2 || user?.role_id === '2') && (
         <div className="employer-credentials-card">
           <h3 className="card-title">Credentials</h3>
           

@@ -5,6 +5,7 @@ import axios from 'axios';
 import ModalPostJob from './modalpostjob';
 import JobApplicationsModal from './JobApplicationsModal';
 import JobDetailModal from './JobDetailModal';
+import { convertFromPhilippinesTime } from '../../utils/dateUtils';
 import '../../../sass/components/profilesettings/mypostjob.scss';
 
 const MyPostJob = () => {
@@ -114,17 +115,15 @@ const MyPostJob = () => {
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
       const currentUser = userData.user || userData;
       
-      // Only check for employers (role_id === 2) and contractors (role_id === 4)
+      // Only check for employers (role_id === 2)
       const roleId = Number(currentUser.role_id);
-      if (roleId !== 2 && roleId !== 4) {
-        setHasCredentials(true); // Non-employers and non-contractors don't need credentials
+      if (roleId !== 2) {
+        setHasCredentials(true); // Non-employers don't need credentials
         return;
       }
 
-      // Use appropriate API endpoint based on role
-      const apiEndpoint = roleId === 4 
-        ? `http://127.0.0.1:8000/api/contractors/${currentUser.id}`
-        : `http://127.0.0.1:8000/api/employers/${currentUser.id}`;
+      // Use employer API endpoint
+      const apiEndpoint = `http://127.0.0.1:8000/api/employers/${currentUser.id}`;
 
       const response = await axios.get(apiEndpoint, {
         headers: {
@@ -133,29 +132,25 @@ const MyPostJob = () => {
         }
       });
 
-      // The API returns { employer: { ...user data, employer: { ...employer data } } } or { contractor: { ...user data, contractor: { ...contractor data } } }
-      const apiUserData = response.data.employer || response.data.contractor || response.data;
+      // The API returns { employer: { ...user data, employer: { ...employer data } } }
+      const apiUserData = response.data.employer || response.data;
       
-      // The User model has a contractor/employer relationship, so we need to access it
-      // Structure: { contractor: { id: ..., contractor: { credentials_name: [...] } } }
-      let contractorRecord = null;
+      // The User model has an employer relationship, so we need to access it
+      // Structure: { employer: { id: ..., employer: { credentials_name: [...] } } }
       let employerRecord = null;
       
-      if (apiUserData.contractor) {
-        contractorRecord = apiUserData.contractor;
-      } else if (apiUserData.employer) {
+      if (apiUserData.employer) {
         employerRecord = apiUserData.employer;
       }
       
-      // Get credentials from the actual contractor/employer record
-      const credentialsNames = contractorRecord?.credentials_name || employerRecord?.credentials_name || [];
-      const credentialsPhotos = contractorRecord?.credentials_photo || employerRecord?.credentials_photo || [];
-      const credentialsDocs = contractorRecord?.credentials_doc || employerRecord?.credentials_doc || [];
+      // Get credentials from the actual employer record
+      const credentialsNames = employerRecord?.credentials_name || [];
+      const credentialsPhotos = employerRecord?.credentials_photo || [];
+      const credentialsDocs = employerRecord?.credentials_doc || [];
       
-      console.log(`${roleId === 4 ? 'Contractor' : 'Employer'} credentials check:`, {
+      console.log('Employer credentials check:', {
         fullResponse: response.data,
         apiUserData: apiUserData,
-        contractorRecord: contractorRecord,
         employerRecord: employerRecord,
         names: credentialsNames,
         photos: credentialsPhotos,
@@ -179,7 +174,7 @@ const MyPostJob = () => {
         return true;
       };
       
-      // Check if employer/contractor has any actual credential files (photo or doc)
+      // Check if employer has any actual credential files (photo or doc)
       const hasPhotoFiles = Array.isArray(credentialsPhotos) && 
         credentialsPhotos.some(file => isValidCredentialFile(file));
       
@@ -198,19 +193,16 @@ const MyPostJob = () => {
         docCount: credentialsDocs.filter(f => f && f.trim() !== '').length
       });
     } catch (error) {
-      console.error(`Error checking ${Number(currentUser?.role_id) === 4 ? 'contractor' : 'employer'} credentials:`, error.response?.data || error.message);
+      console.error('Error checking employer credentials:', error.response?.data || error.message);
       setHasCredentials(false);
       setEmployerCredentials([]);
     }
   };
 
   const handleAddJob = () => {
-    // Check if employer/contractor has credentials before allowing job/hiring posting
+    // Check if employer has credentials before allowing job posting
     if (!hasCredentials) {
-      const errorMessage = isContractor 
-        ? "You need to submit credentials before posting hiring. Please go to Profile Settings to add your credentials."
-        : "You need to submit credentials before posting a job. Please go to Profile Settings to add your credentials.";
-      message.error(errorMessage);
+      message.error("You need to submit credentials before posting a job. Please go to Profile Settings to add your credentials.");
       return;
     }
     
@@ -306,10 +298,10 @@ const MyPostJob = () => {
         job_type: jobData.typeOfEmployment,
         hiring_type: jobData.hiringType,
         team_size: jobData.teamSize || (jobData.hiringType === 'team' ? 2 : 1),
-        work_start: jobData.workStart ? new Date(jobData.workStart).toISOString() : jobData.workStart,
-        work_end: jobData.workEnd ? new Date(jobData.workEnd).toISOString() : jobData.workEnd,
-        application_start: jobData.applicationStart ? new Date(jobData.applicationStart).toISOString() : jobData.applicationStart,
-        application_deadline: jobData.applicationDeadline ? new Date(jobData.applicationDeadline).toISOString() : jobData.applicationDeadline,
+        work_start: convertFromPhilippinesTime(jobData.workStart),
+        work_end: convertFromPhilippinesTime(jobData.workEnd),
+        application_start: convertFromPhilippinesTime(jobData.applicationStart),
+        application_deadline: convertFromPhilippinesTime(jobData.applicationDeadline),
         street: null,
         city: 'Butuan City',
         province: 'Agusan Del Norte',
@@ -382,7 +374,6 @@ const MyPostJob = () => {
 
 
   // Determine labels based on user role
-  const isContractor = userRole === 4;
 
   // Animated loading dots state
   const [loadingDots, setLoadingDots] = useState('.');
@@ -402,7 +393,7 @@ const MyPostJob = () => {
   }, [loading]);
 
   if (loading) {
-    const loadingText = isContractor ? 'Loading post hiring' : 'Loading job posts';
+    const loadingText = 'Loading job posts';
     return (
       <div className="my-post-job-container">
         <div className="loading-container">
@@ -411,9 +402,9 @@ const MyPostJob = () => {
       </div>
     );
   }
-  const pageTitle = isContractor ? 'My Post Hiring' : 'My Post Job';
-  const addButtonText = isContractor ? 'Add Post Hiring' : 'Add Post Job';
-  const requiresCredentials = userRole === 2 || userRole === 4;
+  const pageTitle = 'My Post Job';
+  const addButtonText = 'Add Post Job';
+  const requiresCredentials = userRole === 2;
 
   return (
     <div className="my-post-job-container">
@@ -423,14 +414,14 @@ const MyPostJob = () => {
           className={`add-post-job-btn ${!hasCredentials && requiresCredentials ? 'disabled' : ''}`}
           onClick={handleAddJob}
           disabled={!hasCredentials && requiresCredentials}
-          title={!hasCredentials && requiresCredentials ? 'Please add credentials first' : `Add a new ${isContractor ? 'hiring post' : 'job post'}`}
+          title={!hasCredentials && requiresCredentials ? 'Please add credentials first' : 'Add a new job post'}
         >
           <FaPlus className="btn-icon" />
           {addButtonText}
         </button>
       </div>
 
-      {/* Credentials Requirement Message for Employers and Contractors */}
+      {/* Credentials Requirement Message for Employers */}
       {!hasCredentials && requiresCredentials && (
         <div className="credentials-requirement-message">
           <div className="requirement-icon">
@@ -441,7 +432,7 @@ const MyPostJob = () => {
           <div className="requirement-content">
             <h3 className="requirement-title">Credentials Required</h3>
             <p className="requirement-description">
-              You need to submit your credentials before you can {isContractor ? 'post hiring' : 'post jobs'}. This helps build trust with potential workers and ensures a professional working environment.
+              You need to submit your credentials before you can post jobs. This helps build trust with potential workers and ensures a professional working environment.
             </p>
             <button 
               className="go-to-profile-btn"
@@ -521,10 +512,10 @@ const MyPostJob = () => {
         ) : (
           <div className="empty-state">
             <div className="empty-icon">
-              <img src="/images/mybooking.svg" alt={isContractor ? "No Hiring Posts" : "No Job Posts"} />
+              <img src="/images/mybooking.svg" alt="No Job Posts" />
             </div>
-            <h3 className="empty-title">{isContractor ? 'No Hiring Posts Yet' : 'No Job Posts Yet'}</h3>
-            <p className="empty-description">Create your first {isContractor ? 'hiring post' : 'job post'} to start hiring workers.</p>
+            <h3 className="empty-title">No Job Posts Yet</h3>
+            <p className="empty-description">Create your first job post to start hiring workers.</p>
           </div>
         )}
       </div>

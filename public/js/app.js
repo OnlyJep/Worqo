@@ -202040,28 +202040,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_adminside_jobposting_jobposting__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/adminside/jobposting/jobposting */ "./resources/js/components/adminside/jobposting/jobposting.js");
 /* harmony import */ var _components_adminside_workerlist_workerlist__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/adminside/workerlist/workerlist */ "./resources/js/components/adminside/workerlist/workerlist.js");
 /* harmony import */ var _components_adminside_employerlist_employerlist__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/adminside/employerlist/employerlist */ "./resources/js/components/adminside/employerlist/employerlist.js");
-/* harmony import */ var _components_adminside_contractorlist_contractorlist__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/adminside/contractorlist/contractorlist */ "./resources/js/components/adminside/contractorlist/contractorlist.js");
-/* harmony import */ var _components_adminside_ReviewList_reviewlist__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/adminside/ReviewList/reviewlist */ "./resources/js/components/adminside/ReviewList/reviewlist.js");
-/* harmony import */ var _components_adminside_categories_Categories__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/adminside/categories/Categories */ "./resources/js/components/adminside/categories/Categories.js");
-/* harmony import */ var _components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/adminside/roles/Roles */ "./resources/js/components/adminside/roles/Roles.js");
-/* harmony import */ var _components_adminside_skillscategories_skillcategories__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/adminside/skillscategories/skillcategories */ "./resources/js/components/adminside/skillscategories/skillcategories.js");
-/* harmony import */ var _components_adminside_colorcodecollars_collars__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/adminside/colorcodecollars/collars */ "./resources/js/components/adminside/colorcodecollars/collars.js");
-/* harmony import */ var _components_adminside_ranks_Ranks__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/adminside/ranks/Ranks */ "./resources/js/components/adminside/ranks/Ranks.js");
-/* harmony import */ var _components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/HeaderContent/findjob */ "./resources/js/components/HeaderContent/findjob.js");
-/* harmony import */ var _components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/HeaderContent/JobProfile */ "./resources/js/components/HeaderContent/JobProfile.js");
-/* harmony import */ var _components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/HeaderContent/AboutUs */ "./resources/js/components/HeaderContent/AboutUs.js");
-/* harmony import */ var _components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/HeaderContent/Message */ "./resources/js/components/HeaderContent/Message.js");
-/* harmony import */ var _components_HeaderContent_MessageWorker__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/HeaderContent/MessageWorker */ "./resources/js/components/HeaderContent/MessageWorker.js");
-/* harmony import */ var _components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/HeaderContent/Notif */ "./resources/js/components/HeaderContent/Notif.js");
-/* harmony import */ var _components_adminside_services_Services__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/adminside/services/Services */ "./resources/js/components/adminside/services/Services.js");
-/* harmony import */ var _components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/adminside/company/Company.js */ "./resources/js/components/adminside/company/Company.js");
-/* harmony import */ var _components_adminside_Booking_book__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/adminside/Booking/book */ "./resources/js/components/adminside/Booking/book.js");
-/* harmony import */ var _components_adminside_posthiring_posthiring__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/adminside/posthiring/posthiring */ "./resources/js/components/adminside/posthiring/posthiring.js");
-/* harmony import */ var _components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/profilesettings/profilesettings */ "./resources/js/components/profilesettings/profilesettings.js");
-/* harmony import */ var _components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/AdminSetting/AdminProfileSetting.js */ "./resources/js/components/AdminSetting/AdminProfileSetting.js");
-/* harmony import */ var _components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/SkillRatingModal/SkillRatingModal */ "./resources/js/components/SkillRatingModal/SkillRatingModal.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _components_adminside_ReviewList_reviewlist__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/adminside/ReviewList/reviewlist */ "./resources/js/components/adminside/ReviewList/reviewlist.js");
+/* harmony import */ var _components_adminside_categories_Categories__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/adminside/categories/Categories */ "./resources/js/components/adminside/categories/Categories.js");
+/* harmony import */ var _components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/adminside/roles/Roles */ "./resources/js/components/adminside/roles/Roles.js");
+/* harmony import */ var _components_adminside_skillscategories_skillcategories__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/adminside/skillscategories/skillcategories */ "./resources/js/components/adminside/skillscategories/skillcategories.js");
+/* harmony import */ var _components_adminside_colorcodecollars_collars__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/adminside/colorcodecollars/collars */ "./resources/js/components/adminside/colorcodecollars/collars.js");
+/* harmony import */ var _components_adminside_ranks_Ranks__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/adminside/ranks/Ranks */ "./resources/js/components/adminside/ranks/Ranks.js");
+/* harmony import */ var _components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/HeaderContent/findjob */ "./resources/js/components/HeaderContent/findjob.js");
+/* harmony import */ var _components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/HeaderContent/JobProfile */ "./resources/js/components/HeaderContent/JobProfile.js");
+/* harmony import */ var _components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/HeaderContent/AboutUs */ "./resources/js/components/HeaderContent/AboutUs.js");
+/* harmony import */ var _components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/HeaderContent/Message */ "./resources/js/components/HeaderContent/Message.js");
+/* harmony import */ var _components_HeaderContent_MessageWorker__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/HeaderContent/MessageWorker */ "./resources/js/components/HeaderContent/MessageWorker.js");
+/* harmony import */ var _components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/HeaderContent/Notif */ "./resources/js/components/HeaderContent/Notif.js");
+/* harmony import */ var _components_adminside_services_Services__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/adminside/services/Services */ "./resources/js/components/adminside/services/Services.js");
+/* harmony import */ var _components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/adminside/company/Company.js */ "./resources/js/components/adminside/company/Company.js");
+/* harmony import */ var _components_adminside_Booking_book__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/adminside/Booking/book */ "./resources/js/components/adminside/Booking/book.js");
+/* harmony import */ var _components_adminside_posthiring_posthiring__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/adminside/posthiring/posthiring */ "./resources/js/components/adminside/posthiring/posthiring.js");
+/* harmony import */ var _components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/profilesettings/profilesettings */ "./resources/js/components/profilesettings/profilesettings.js");
+/* harmony import */ var _components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/AdminSetting/AdminProfileSetting.js */ "./resources/js/components/AdminSetting/AdminProfileSetting.js");
+/* harmony import */ var _components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/SkillRatingModal/SkillRatingModal */ "./resources/js/components/SkillRatingModal/SkillRatingModal.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -202131,7 +202129,7 @@ var ProtectedRoute = function ProtectedRoute(_ref) {
     isAuthenticated = _useAuth.isAuthenticated,
     userRole = _useAuth.userRole;
   if (!isAuthenticated) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/login",
       replace: true,
       state: {
@@ -202140,7 +202138,7 @@ var ProtectedRoute = function ProtectedRoute(_ref) {
     });
   }
   if (allowedRoles && !allowedRoles.includes(userRole)) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/login",
       replace: true
     });
@@ -202158,7 +202156,7 @@ var RoleBasedRoute = function RoleBasedRoute(_ref2) {
     isAuthenticated = _useAuth2.isAuthenticated,
     userRole = _useAuth2.userRole;
   if (!isAuthenticated) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/login",
       replace: true,
       state: {
@@ -202169,7 +202167,7 @@ var RoleBasedRoute = function RoleBasedRoute(_ref2) {
 
   // If user's role is in the restricted roles, redirect to homepage
   if (restrictedRoles.includes(userRole)) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/homepage",
       replace: true
     });
@@ -202184,7 +202182,7 @@ var PublicRoute = function PublicRoute(_ref3) {
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useLocation)();
   if (isAuthenticated) {
     var targetRoute = userRole === 3 ? "/admin" : "/homepage";
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: targetRoute,
       replace: true,
       state: {
@@ -202199,13 +202197,13 @@ var RootRoute = function RootRoute() {
     isAuthenticated = _useAuth4.isAuthenticated,
     userRole = _useAuth4.userRole;
   if (!isAuthenticated) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
       to: "/homepage",
       replace: true
     });
   }
   var targetRoute = userRole === 3 ? "/admin" : "/homepage";
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
     to: targetRoute,
     replace: true
   });
@@ -202216,9 +202214,9 @@ var MessageWrapper = function MessageWrapper() {
   var _useAuth5 = useAuth(),
     userRole = _useAuth5.userRole;
   if (userRole === 1) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_HeaderContent_MessageWorker__WEBPACK_IMPORTED_MODULE_35__["default"], {});
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_HeaderContent_MessageWorker__WEBPACK_IMPORTED_MODULE_34__["default"], {});
   } else {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_34__["default"], {});
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_HeaderContent_Message__WEBPACK_IMPORTED_MODULE_33__["default"], {});
   }
 };
 
@@ -202240,93 +202238,93 @@ var PostJobsGuard = function PostJobsGuard() {
   if (!isAuthenticated || userRole !== 2) {
     return null;
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsxs)("div", {
     style: {
       padding: '2rem',
       textAlign: 'center'
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)("h2", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)("h2", {
       children: "Post Jobs"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)("p", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)("p", {
       children: "This feature is coming soon!"
     })]
   });
 };
 function Routers() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.BrowserRouter, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.BrowserRouter, {
     future: {
       v7_startTransition: true,
       v7_relativeSplatPath: true
     },
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(RootRoute, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(RootRoute, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/login",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(PublicRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_login_Login__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(PublicRoute, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_login_Login__WEBPACK_IMPORTED_MODULE_5__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/register",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(PublicRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_register_Register__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(PublicRoute, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_register_Register__WEBPACK_IMPORTED_MODULE_6__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/homepage",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_Homepage_homepage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_Homepage_homepage__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/services",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_HeaderContent_Service__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_HeaderContent_Service__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/headerz",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/find-jobs",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_31__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_HeaderContent_findjob__WEBPACK_IMPORTED_MODULE_30__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/job/:jobId",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_32__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_HeaderContent_JobProfile__WEBPACK_IMPORTED_MODULE_31__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/about",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_33__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_HeaderContent_AboutUs__WEBPACK_IMPORTED_MODULE_32__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/message",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(MessageWrapper, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(MessageWrapper, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/notifications",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_36__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_HeaderContent_Notif__WEBPACK_IMPORTED_MODULE_35__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/browse",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(RoleBasedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(RoleBasedRoute, {
           restrictedRoles: [1],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_ShopContent_browseblue__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_ShopContent_browseblue__WEBPACK_IMPORTED_MODULE_10__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/browse-white",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(RoleBasedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(RoleBasedRoute, {
           restrictedRoles: [1],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_ShopContent_browsewhite__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_ShopContent_browsewhite__WEBPACK_IMPORTED_MODULE_11__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/complete",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_OrdersContent_order_complete__WEBPACK_IMPORTED_MODULE_12__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_OrdersContent_order_complete__WEBPACK_IMPORTED_MODULE_12__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/orders_modal",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_CartModals_orders_modal__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_CartModals_orders_modal__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/pay",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_Payment_Info_pay__WEBPACK_IMPORTED_MODULE_14__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_Payment_Info_pay__WEBPACK_IMPORTED_MODULE_14__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/profile/:workerId",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_Profile_profile__WEBPACK_IMPORTED_MODULE_15__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_Profile_profile__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/profile-settings/*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_41__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_profilesettings_profilesettings__WEBPACK_IMPORTED_MODULE_40__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/skill-rating",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_43__["default"], {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_SkillRatingModal_SkillRatingModal__WEBPACK_IMPORTED_MODULE_42__["default"], {
             isOpen: true,
             onClose: function onClose() {
               return window.history.back();
@@ -202337,144 +202335,138 @@ function Routers() {
             user: JSON.parse(localStorage.getItem('user') || '{}')
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/post-jobs",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(PostJobsGuard, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(PostJobsGuard, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_admindashboard_admindashboard__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_admindashboard_admindashboard__WEBPACK_IMPORTED_MODULE_16__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/products",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_products_Products__WEBPACK_IMPORTED_MODULE_17__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_products_Products__WEBPACK_IMPORTED_MODULE_17__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/orders",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_orders_Orders__WEBPACK_IMPORTED_MODULE_18__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_orders_Orders__WEBPACK_IMPORTED_MODULE_18__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/users",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_users_Users__WEBPACK_IMPORTED_MODULE_19__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_users_Users__WEBPACK_IMPORTED_MODULE_19__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/adminlist",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_Adminlist_adminlist__WEBPACK_IMPORTED_MODULE_20__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_Adminlist_adminlist__WEBPACK_IMPORTED_MODULE_20__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/jobs-post",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_jobposting_jobposting__WEBPACK_IMPORTED_MODULE_21__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_jobposting_jobposting__WEBPACK_IMPORTED_MODULE_21__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/workerlist",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_workerlist_workerlist__WEBPACK_IMPORTED_MODULE_22__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_workerlist_workerlist__WEBPACK_IMPORTED_MODULE_22__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/employerlist",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_employerlist_employerlist__WEBPACK_IMPORTED_MODULE_23__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_employerlist_employerlist__WEBPACK_IMPORTED_MODULE_23__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-        path: "/admin/contractorlist",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
-          allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_contractorlist_contractorlist__WEBPACK_IMPORTED_MODULE_24__["default"], {})
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/reviews",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_ReviewList_reviewlist__WEBPACK_IMPORTED_MODULE_25__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_ReviewList_reviewlist__WEBPACK_IMPORTED_MODULE_24__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/categories",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_categories_Categories__WEBPACK_IMPORTED_MODULE_26__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_categories_Categories__WEBPACK_IMPORTED_MODULE_25__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/roles",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_27__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_26__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/skill-categories",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_skillscategories_skillcategories__WEBPACK_IMPORTED_MODULE_28__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_skillscategories_skillcategories__WEBPACK_IMPORTED_MODULE_27__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/color-code-manager",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_colorcodecollars_collars__WEBPACK_IMPORTED_MODULE_29__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_colorcodecollars_collars__WEBPACK_IMPORTED_MODULE_28__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/ranks",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_ranks_Ranks__WEBPACK_IMPORTED_MODULE_30__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_ranks_Ranks__WEBPACK_IMPORTED_MODULE_29__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/roles-management",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_27__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_roles_Roles__WEBPACK_IMPORTED_MODULE_26__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/company",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_38__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_37__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/jobs",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_38__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_company_Company_js__WEBPACK_IMPORTED_MODULE_37__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/bookings",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_Booking_book__WEBPACK_IMPORTED_MODULE_39__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_Booking_book__WEBPACK_IMPORTED_MODULE_38__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/post-hiring",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_posthiring_posthiring__WEBPACK_IMPORTED_MODULE_40__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_posthiring_posthiring__WEBPACK_IMPORTED_MODULE_39__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/services",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_adminside_services_Services__WEBPACK_IMPORTED_MODULE_37__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_adminside_services_Services__WEBPACK_IMPORTED_MODULE_36__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/admin/profile",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(ProtectedRoute, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(ProtectedRoute, {
           allowedRoles: [3],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(_components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_42__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(_components_AdminSetting_AdminProfileSetting_js__WEBPACK_IMPORTED_MODULE_41__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Navigate, {
           to: "/login",
           replace: true
         })
@@ -202483,7 +202475,7 @@ function Routers() {
   });
 }
 if (document.getElementById("root")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_44__.jsx)(Routers, {}), document.getElementById("root"));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_43__.jsx)(Routers, {}), document.getElementById("root"));
 }
 
 /***/ }),
@@ -204132,8 +204124,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var _sass_components_ApplyJobModal_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../sass/components/ApplyJobModal.scss */ "./resources/sass/components/ApplyJobModal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/dateUtils */ "./resources/js/utils/dateUtils.js");
+/* harmony import */ var _sass_components_ApplyJobModal_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../sass/components/ApplyJobModal.scss */ "./resources/sass/components/ApplyJobModal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -204155,6 +204148,7 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -204531,7 +204525,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
   };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-      var newErrors, now, applicationStart, applicationDeadline, timeDiff, hoursUntilStart, skillCheck, _userProfile$worker, workerId, applicationData, skillsArray, skillsData, authToken, response, _error$response, _error$response2, _error$response3, _error$response4, errorMessages, _t4;
+      var newErrors, now, phNow, applicationStart, applicationDeadline, timeDiff, hoursUntilStart, startDateStr, skillCheck, _userProfile$worker, workerId, applicationData, skillsArray, skillsData, authToken, response, _error$response, _error$response2, _error$response3, _error$response4, errorMessages, _t4;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
@@ -204548,39 +204542,50 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
             return _context3.a(2);
           case 1:
             // Check if job is still accepting applications
+            // Get current time in Philippines timezone
             now = new Date();
-            applicationStart = new Date(job.application_start);
-            applicationDeadline = new Date(job.application_deadline); // Debug time comparison  
-            console.log('Current time (local):', now.toLocaleString());
-            console.log('Current time (UTC):', now.toISOString());
-            console.log('Application start (UTC):', job.application_start);
-            console.log('Application deadline (UTC):', job.application_deadline);
-            console.log('Application start (local):', applicationStart.toLocaleString());
-            console.log('Application deadline (local):', applicationDeadline.toLocaleString());
-            console.log('Current time < Application start?', now < applicationStart);
-            console.log('Current time > Application deadline?', now > applicationDeadline);
+            phNow = new Date(now.toLocaleString('en-US', {
+              timeZone: 'Asia/Manila'
+            })); // Parse job dates and convert to Philippines time for comparison
+            applicationStart = new Date(new Date(job.application_start).toLocaleString('en-US', {
+              timeZone: 'Asia/Manila'
+            }));
+            applicationDeadline = new Date(new Date(job.application_deadline).toLocaleString('en-US', {
+              timeZone: 'Asia/Manila'
+            })); // Debug time comparison  
+            console.log('Current time (Philippines):', phNow.toLocaleString('en-US', {
+              timeZone: 'Asia/Manila'
+            }));
+            console.log('Application start (Philippines):', applicationStart.toLocaleString('en-US', {
+              timeZone: 'Asia/Manila'
+            }));
+            console.log('Application deadline (Philippines):', applicationDeadline.toLocaleString('en-US', {
+              timeZone: 'Asia/Manila'
+            }));
 
-            // Check application period
-            // JavaScript Date objects automatically handle timezone conversion
-            console.log('Current time (local):', now.toLocaleString());
-            console.log('Application start (local):', applicationStart.toLocaleString());
-            console.log('Application deadline (local):', applicationDeadline.toLocaleString());
-
-            // Calculate time difference
-            timeDiff = applicationStart.getTime() - now.getTime();
+            // Calculate time difference in milliseconds
+            timeDiff = applicationStart.getTime() - phNow.getTime();
             hoursUntilStart = timeDiff / (1000 * 60 * 60);
             console.log('Hours until application starts:', hoursUntilStart);
-            console.log('Current time < Application start?', now < applicationStart);
+            console.log('Current time < Application start?', phNow < applicationStart);
 
             // Allow applications if start time has passed or if we're within 24 hours of start
-            if (!(now < applicationStart && hoursUntilStart > 24)) {
+            if (!(phNow < applicationStart && hoursUntilStart > 24)) {
               _context3.n = 2;
               break;
             }
-            showNotification("Applications have not started yet. They will start at ".concat(applicationStart.toLocaleString(), "."), 'error');
+            startDateStr = applicationStart.toLocaleString('en-US', {
+              timeZone: 'Asia/Manila',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+            showNotification("Applications have not started yet. They will start on ".concat(startDateStr, " (Philippines time)."), 'error');
             return _context3.a(2);
           case 2:
-            if (!(now > applicationDeadline)) {
+            if (!(phNow > applicationDeadline)) {
               _context3.n = 3;
               break;
             }
@@ -204724,50 +204729,50 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
     };
   }();
   if (!isOpen || !job) return null;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     className: "applyjobmodal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "applyjobmodal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "modal-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
           children: ["Apply for ", (job === null || job === void 0 ? void 0 : job.job_title) || 'Job']
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "header-actions",
-          children: [onViewApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          children: [onViewApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             className: "view-applications-btn",
             onClick: function onClick() {
               return onViewApplications(job);
             },
             title: "View Applications",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaEye, {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaEye, {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             className: "close-btn",
             onClick: onClose,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
               children: "\xD7"
             })
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "applyjobmodal-content",
-        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "loading-state",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "spinner"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
             children: "Loading your profile..."
           })]
-        }) : userProfile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }) : userProfile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "profile-info",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
               children: "Your Profile Information"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "profile-details",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "profile-image-section",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
                   src: (_userProfile$profile = userProfile.profile) !== null && _userProfile$profile !== void 0 && _userProfile$profile.profile_img ? "http://127.0.0.1:8000/storage/".concat(userProfile.profile.profile_img) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
                   alt: "Profile",
                   className: "profile-image",
@@ -204775,48 +204780,48 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                     e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
                   }
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "profile-text-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                     children: "Name:"
                   }), " ", (_userProfile$profile2 = userProfile.profile) === null || _userProfile$profile2 === void 0 ? void 0 : _userProfile$profile2.first_name, " ", (_userProfile$profile3 = userProfile.profile) === null || _userProfile$profile3 === void 0 ? void 0 : _userProfile$profile3.middlename, " ", (_userProfile$profile4 = userProfile.profile) === null || _userProfile$profile4 === void 0 ? void 0 : _userProfile$profile4.last_name]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                     children: "Email:"
                   }), " ", userProfile.email]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                     children: "Contact Number:"
                   }), " ", (userContact === null || userContact === void 0 ? void 0 : userContact.contact_number) || 'Not provided']
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                     children: "Location:"
                   }), " ", (_userProfile$profile5 = userProfile.profile) === null || _userProfile$profile5 === void 0 ? void 0 : _userProfile$profile5.city, ", ", (_userProfile$profile6 = userProfile.profile) === null || _userProfile$profile6 === void 0 ? void 0 : _userProfile$profile6.province]
                 })]
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
               children: "Do you have any experience related to this job? Explain"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("textarea", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
               name: "coverLetter",
               value: formData.coverLetter,
               onChange: handleChange,
               placeholder: "Tell us about your experience and skills. Even if you don't have all the desired skills, explain how you can contribute to this job."
-            }), errors.coverLetter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            }), errors.coverLetter && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
               style: {
                 color: '#dc3545',
                 fontSize: '12px'
               },
               children: errors.coverLetter
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
               children: "Resume/CV"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
               type: "file",
               name: "resume",
               accept: ".pdf,.doc,.docx",
@@ -204827,7 +204832,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                   });
                 });
               }
-            }), errors.resume && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            }), errors.resume && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
               style: {
                 color: '#dc3545',
                 fontSize: '12px'
@@ -204835,26 +204840,26 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
               children: errors.resume
             })]
           })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "error-state",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
             children: "Failed to load your profile. Please try again."
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "applyjobmodal-buttons",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           className: "cancel-button",
           onClick: onClose,
           children: "Cancel"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           className: "submit-button",
           onClick: handleSubmit,
           children: "Submit Application"
         })]
-      }), applicationStatus && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), applicationStatus && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "notification ".concat(applicationStatus.type),
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
           children: applicationStatus.message
         })
       })]
@@ -205275,24 +205280,6 @@ var Headerz = function Headerz() {
       replace: true
     });
   };
-  var goToPostHiring = function goToPostHiring() {
-    if (!isLoggedIn) {
-      alert('Please login to post hiring');
-      navigate('/login');
-      return;
-    }
-    var userRoleId = Number(user === null || user === void 0 ? void 0 : user.role_id);
-    if (userRoleId !== 4) {
-      alert('Only Contractors can post hiring. Please switch to Contractor account.');
-      return;
-    }
-    // Navigate to post hiring page in profile settings
-    setIsLoading(true);
-    setTimeout(function () {
-      navigate('/profile-settings/post-hiring');
-      setIsLoading(false);
-    }, 800);
-  };
   var goToNotifications = function goToNotifications() {
     setIsLoading(true);
     setTimeout(function () {
@@ -205408,7 +205395,7 @@ var Headerz = function Headerz() {
   };
   var handleSwitchAccount = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5() {
-      var newRoleId, targetRoleName, originalRole, authToken, response, data, updatedUser, errorMessage, errorData, _t5, _t6;
+      var newRoleId, targetRoleName, authToken, response, data, updatedUser, errorMessage, errorData, _t5, _t6;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
@@ -205420,26 +205407,14 @@ var Headerz = function Headerz() {
           case 1:
             // Role switching logic:
             // Worker (1) <-> Employer (2)
-            // Contractor (4) <-> Employer (2)
             if (user.role_id === 1) {
               // Worker can switch to Employer
               newRoleId = 2;
               targetRoleName = 'Employer';
             } else if (user.role_id === 2) {
-              // Employer can switch to Worker (if originally Worker) or Contractor
-              // For now, we'll check if user has original_role stored, otherwise default to Worker
-              originalRole = localStorage.getItem('original_role');
-              if (originalRole === '4' || originalRole === 'Contractor') {
-                newRoleId = 4;
-                targetRoleName = 'Contractor';
-              } else {
-                newRoleId = 1;
-                targetRoleName = 'Worker';
-              }
-            } else if (user.role_id === 4) {
-              // Contractor can only switch to Employer
-              newRoleId = 2;
-              targetRoleName = 'Employer';
+              // Employer can switch to Worker
+              newRoleId = 1;
+              targetRoleName = 'Worker';
             } else {
               // Default fallback
               newRoleId = user.role_id === 1 ? 2 : 1;
@@ -205474,11 +205449,6 @@ var Headerz = function Headerz() {
           case 4:
             data = _context5.v;
             if (data.success) {
-              // Store original role if switching from Contractor to Employer (for switching back)
-              if (user.role_id === 4 && newRoleId === 2) {
-                localStorage.setItem('original_role', '4');
-              }
-
               // Update localStorage with the new user data from backend
               updatedUser = _objectSpread(_objectSpread({}, user), {}, {
                 role_id: data.user.role_id,
@@ -205682,7 +205652,7 @@ var Headerz = function Headerz() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToAbout,
           children: "About Us"
-        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 2 && (user === null || user === void 0 ? void 0 : user.role_id) !== 4) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+        }), (!isLoggedIn || (user === null || user === void 0 ? void 0 : user.role_id) !== 2) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           onClick: goToFindJobs,
           children: "Find Jobs"
         }), isLoggedIn && (user === null || user === void 0 ? void 0 : user.role_id) === 2 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
@@ -205703,9 +205673,6 @@ var Headerz = function Headerz() {
             }
           },
           children: "Post Jobs"
-        }), isLoggedIn && (user === null || user === void 0 ? void 0 : user.role_id) === 4 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-          onClick: goToPostHiring,
-          children: "Post Hiring"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "header-actions",
@@ -205767,7 +205734,7 @@ var Headerz = function Headerz() {
                   onClick: handleSwitchAccount,
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaUserCog, {
                     className: "menu-icon"
-                  }), " Switch to ", (user === null || user === void 0 ? void 0 : user.role_id) === 1 ? 'Employer' : (user === null || user === void 0 ? void 0 : user.role_id) === 4 ? 'Employer' : localStorage.getItem('original_role') === '4' ? 'Contractor' : 'Worker']
+                  }), " Switch to ", (user === null || user === void 0 ? void 0 : user.role_id) === 1 ? 'Employer' : 'Worker']
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
                   onClick: handleLogout,
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__.FaSignOutAlt, {
@@ -223896,16 +223863,6 @@ var AdminSidebar = function AdminSidebar(_ref) {
                 children: "Employer"
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("li", {
-              className: isActive('/admin/contractorlist'),
-              onClick: function onClick() {
-                return navigate('/admin/contractorlist');
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_10__["default"], {
-                className: "icon"
-              }), isSidebarExpanded && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
-                children: "Contractor"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("li", {
               className: isActive('/admin/reviews'),
               onClick: function onClick() {
                 return navigate('/admin/reviews');
@@ -227557,1440 +227514,6 @@ var CompanyModal = function CompanyModal(_ref) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CompanyModal);
-
-/***/ }),
-
-/***/ "./resources/js/components/adminside/contractorlist/contractorlist.js":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/adminside/contractorlist/contractorlist.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
-/* harmony import */ var _adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../adminsidebar/adminsidebar */ "./resources/js/components/adminside/adminsidebar/adminsidebar.js");
-/* harmony import */ var _admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../admintopnavbar/admintopnavbar */ "./resources/js/components/adminside/admintopnavbar/admintopnavbar.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
-/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
-/* harmony import */ var _sass_components_employerlist_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../sass/components/_employerlist.scss */ "./resources/sass/components/_employerlist.scss");
-/* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
-/* harmony import */ var _contractorlistmodal_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./contractorlistmodal.js */ "./resources/js/components/adminside/contractorlist/contractorlistmodal.js");
-/* harmony import */ var _images_defpfp_svg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../images/defpfp.svg */ "./public/images/defpfp.svg");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-var formatDate = function formatDate(dateString) {
-  if (!dateString) return "N/A";
-  var date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    day: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true
-  }).format(date);
-};
-var getFullName = function getFullName(person) {
-  var _ref = person || {},
-    first_name = _ref.first_name,
-    middlename = _ref.middlename,
-    last_name = _ref.last_name,
-    suffix_id = _ref.suffix_id,
-    suffixes = _ref.suffixes;
-  var fullName = "".concat(first_name || "").concat(middlename ? " " + middlename : "", " ").concat(last_name || "");
-  if (suffix_id && suffixes) {
-    var _suffixes$find, _suffixes$find2;
-    var suffix = ((_suffixes$find = suffixes.find(function (s) {
-      return s.id === suffix_id;
-    })) === null || _suffixes$find === void 0 ? void 0 : _suffixes$find.name) || ((_suffixes$find2 = suffixes.find(function (s) {
-      return s.id === suffix_id;
-    })) === null || _suffixes$find2 === void 0 ? void 0 : _suffixes$find2.suffix_name);
-    if (suffix) fullName += " ".concat(suffix);
-  }
-  return fullName.trim() || "N/A";
-};
-var ContractorList = function ContractorList() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState2 = _slicedToArray(_useState, 2),
-    contractors = _useState2[0],
-    setContractors = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState4 = _slicedToArray(_useState3, 2),
-    searchTerm = _useState4[0],
-    setSearchTerm = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState6 = _slicedToArray(_useState5, 2),
-    showArchived = _useState6[0],
-    setShowArchived = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState8 = _slicedToArray(_useState7, 2),
-    selectedContractors = _useState8[0],
-    setSelectedContractors = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState0 = _slicedToArray(_useState9, 2),
-    isConfirmModalOpen = _useState0[0],
-    setIsConfirmModalOpen = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState10 = _slicedToArray(_useState1, 2),
-    contractorToArchive = _useState10[0],
-    setContractorToArchive = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      currentPage: 1,
-      totalPages: 1
-    }),
-    _useState12 = _slicedToArray(_useState11, 2),
-    pagination = _useState12[0],
-    setPagination = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState14 = _slicedToArray(_useState13, 2),
-    error = _useState14[0],
-    setError = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState16 = _slicedToArray(_useState15, 2),
-    loading = _useState16[0],
-    setLoading = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState18 = _slicedToArray(_useState17, 2),
-    isModalOpen = _useState18[0],
-    setIsModalOpen = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState20 = _slicedToArray(_useState19, 2),
-    isEditMode = _useState20[0],
-    setIsEditMode = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState22 = _slicedToArray(_useState21, 2),
-    contractorToEdit = _useState22[0],
-    setContractorToEdit = _useState22[1];
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState24 = _slicedToArray(_useState23, 2),
-    genders = _useState24[0],
-    setGenders = _useState24[1];
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState26 = _slicedToArray(_useState25, 2),
-    suffixes = _useState26[0],
-    setSuffixes = _useState26[1];
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
-
-  // Fetch contractors, genders, and suffixes
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var controller = new AbortController();
-    fetchContractors(controller.signal);
-    fetchGenders(controller.signal);
-    fetchSuffixes(controller.signal);
-    return function () {
-      return controller.abort();
-    };
-  }, [showArchived]);
-  var fetchContractors = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(signal) {
-      var response, _t;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.p = _context.n) {
-          case 0:
-            _context.p = 0;
-            setLoading(true);
-            _context.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get(showArchived ? "/api/contractors/archived" : "/api/contractors", {
-              signal: signal,
-              timeout: 10000
-            });
-          case 1:
-            response = _context.v;
-            setContractors(response.data);
-            setError("");
-            _context.n = 4;
-            break;
-          case 2:
-            _context.p = 2;
-            _t = _context.v;
-            if (!(_t.name === "AbortError")) {
-              _context.n = 3;
-              break;
-            }
-            return _context.a(2);
-          case 3:
-            console.error("Error fetching contractors:", _t);
-            setError("Failed to fetch contractors. Please try again.");
-          case 4:
-            _context.p = 4;
-            setLoading(false);
-            return _context.f(4);
-          case 5:
-            return _context.a(2);
-        }
-      }, _callee, null, [[0, 2, 4, 5]]);
-    }));
-    return function fetchContractors(_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-  var fetchGenders = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(signal) {
-      var response, _t2;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
-          case 0:
-            _context2.p = 0;
-            _context2.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/genders", {
-              signal: signal,
-              timeout: 5000
-            });
-          case 1:
-            response = _context2.v;
-            setGenders(response.data);
-            _context2.n = 4;
-            break;
-          case 2:
-            _context2.p = 2;
-            _t2 = _context2.v;
-            if (!(_t2.name === "AbortError")) {
-              _context2.n = 3;
-              break;
-            }
-            return _context2.a(2);
-          case 3:
-            console.error("Error fetching genders:", _t2);
-            setError("Failed to fetch genders. Please try again.");
-          case 4:
-            return _context2.a(2);
-        }
-      }, _callee2, null, [[0, 2]]);
-    }));
-    return function fetchGenders(_x2) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-  var fetchSuffixes = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(signal) {
-      var response, _t3;
-      return _regenerator().w(function (_context3) {
-        while (1) switch (_context3.p = _context3.n) {
-          case 0:
-            _context3.p = 0;
-            _context3.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/suffixes", {
-              signal: signal,
-              timeout: 5000
-            });
-          case 1:
-            response = _context3.v;
-            setSuffixes(response.data);
-            _context3.n = 4;
-            break;
-          case 2:
-            _context3.p = 2;
-            _t3 = _context3.v;
-            if (!(_t3.name === "AbortError")) {
-              _context3.n = 3;
-              break;
-            }
-            return _context3.a(2);
-          case 3:
-            console.error("Error fetching suffixes:", _t3);
-            setError("Failed to fetch suffixes. Please try again.");
-          case 4:
-            return _context3.a(2);
-        }
-      }, _callee3, null, [[0, 2]]);
-    }));
-    return function fetchSuffixes(_x3) {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-  var filteredContractors = contractors.filter(function (contractor) {
-    var ownerFullName = getFullName(contractor.profile).toLowerCase();
-    var matchesSearch = (contractor.email || "").toLowerCase().includes(searchTerm.toLowerCase()) || ownerFullName.includes(searchTerm.toLowerCase());
-    return matchesSearch;
-  });
-  var toggleSelectContractor = function toggleSelectContractor(contractorId) {
-    setSelectedContractors(function (prev) {
-      return prev.includes(contractorId) ? prev.filter(function (id) {
-        return id !== contractorId;
-      }) : [].concat(_toConsumableArray(prev), [contractorId]);
-    });
-  };
-  var toggleSelectAll = function toggleSelectAll() {
-    if (selectedContractors.length === filteredContractors.length) {
-      setSelectedContractors([]);
-    } else {
-      setSelectedContractors(filteredContractors.map(function (contractor) {
-        return contractor.id;
-      }));
-    }
-  };
-  var handleToggleArchived = function handleToggleArchived() {
-    setShowArchived(function (prev) {
-      return !prev;
-    });
-    setPagination({
-      currentPage: 1,
-      totalPages: 1
-    });
-    setSelectedContractors([]);
-  };
-  var handleArchiveClick = function handleArchiveClick(contractor) {
-    setContractorToArchive(contractor);
-    setIsConfirmModalOpen(true);
-  };
-  var handleArchiveConfirm = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee4() {
-      var _t4;
-      return _regenerator().w(function (_context4) {
-        while (1) switch (_context4.p = _context4.n) {
-          case 0:
-            if (contractorToArchive) {
-              _context4.n = 1;
-              break;
-            }
-            return _context4.a(2);
-          case 1:
-            _context4.p = 1;
-            _context4.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("/api/contractors/".concat(contractorToArchive.id, "/archive"), {}, {
-              timeout: 5000
-            });
-          case 2:
-            _context4.n = 3;
-            return fetchContractors(new AbortController().signal);
-          case 3:
-            setIsConfirmModalOpen(false);
-            setContractorToArchive(null);
-            setError("");
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Contractor archived successfully!");
-            _context4.n = 5;
-            break;
-          case 4:
-            _context4.p = 4;
-            _t4 = _context4.v;
-            console.error("Error archiving contractor:", _t4);
-            setError("Failed to archive contractor. Please try again.");
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to archive contractor. Please try again.");
-          case 5:
-            return _context4.a(2);
-        }
-      }, _callee4, null, [[1, 4]]);
-    }));
-    return function handleArchiveConfirm() {
-      return _ref5.apply(this, arguments);
-    };
-  }();
-  var handleRestoreContractor = /*#__PURE__*/function () {
-    var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(contractorId) {
-      var _t5;
-      return _regenerator().w(function (_context5) {
-        while (1) switch (_context5.p = _context5.n) {
-          case 0:
-            _context5.p = 0;
-            _context5.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("/api/contractors/".concat(contractorId, "/restore"), {}, {
-              timeout: 5000
-            });
-          case 1:
-            _context5.n = 2;
-            return fetchContractors(new AbortController().signal);
-          case 2:
-            setError("");
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Contractor restored successfully!");
-            _context5.n = 4;
-            break;
-          case 3:
-            _context5.p = 3;
-            _t5 = _context5.v;
-            console.error("Error restoring contractor:", _t5);
-            setError("Failed to restore contractor. Please try again.");
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to restore contractor. Please try again.");
-          case 4:
-            return _context5.a(2);
-        }
-      }, _callee5, null, [[0, 3]]);
-    }));
-    return function handleRestoreContractor(_x4) {
-      return _ref6.apply(this, arguments);
-    };
-  }();
-  var handleBulkAction = /*#__PURE__*/function () {
-    var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(action) {
-      var count, errorMsg, _t6;
-      return _regenerator().w(function (_context6) {
-        while (1) switch (_context6.p = _context6.n) {
-          case 0:
-            if (!(selectedContractors.length === 0)) {
-              _context6.n = 1;
-              break;
-            }
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].warning("No contractors selected.");
-            return _context6.a(2);
-          case 1:
-            count = selectedContractors.length;
-            _context6.p = 2;
-            _context6.n = 3;
-            return Promise.all(selectedContractors.map(function (id) {
-              return axios__WEBPACK_IMPORTED_MODULE_2__["default"].patch("/api/contractors/".concat(id, "/").concat(action), {}, {
-                timeout: 5000
-              });
-            }));
-          case 3:
-            _context6.n = 4;
-            return fetchContractors(new AbortController().signal);
-          case 4:
-            setSelectedContractors([]);
-            setError("");
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("".concat(count, " contractor(s) ").concat(action === 'archive' ? 'archived' : 'restored', " successfully!"));
-            _context6.n = 6;
-            break;
-          case 5:
-            _context6.p = 5;
-            _t6 = _context6.v;
-            errorMsg = "Failed to perform bulk ".concat(action, ". Please try again.");
-            console.error("Error performing bulk ".concat(action, ":"), _t6);
-            setError(errorMsg);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMsg);
-          case 6:
-            return _context6.a(2);
-        }
-      }, _callee6, null, [[2, 5]]);
-    }));
-    return function handleBulkAction(_x5) {
-      return _ref7.apply(this, arguments);
-    };
-  }();
-  var contractorsPerPage = 5;
-  var totalPages = Math.ceil(filteredContractors.length / contractorsPerPage);
-  var currentContractors = filteredContractors.slice((pagination.currentPage - 1) * contractorsPerPage, pagination.currentPage * contractorsPerPage);
-  var handlePageChange = function handlePageChange(page) {
-    setPagination({
-      currentPage: page,
-      totalPages: totalPages
-    });
-  };
-  var renderPagination = function renderPagination() {
-    var pageNumbers = [];
-    var maxPagesToShow = 5;
-    var startPage = Math.max(1, pagination.currentPage - Math.floor(maxPagesToShow / 2));
-    var endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-    if (totalPages <= maxPagesToShow) {
-      var _loop = function _loop(i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
-          className: pagination.currentPage === i ? "active" : "",
-          onClick: function onClick() {
-            return handlePageChange(i);
-          },
-          children: i
-        }, i));
-      };
-      for (var i = 1; i <= totalPages; i++) {
-        _loop(i);
-      }
-    } else {
-      if (startPage > 1) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
-          onClick: function onClick() {
-            return handlePageChange(1);
-          },
-          children: "1"
-        }, 1));
-        if (startPage > 2) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
-            className: "ellipsis",
-            children: "..."
-          }, "start-ellipsis"));
-        }
-      }
-      var _loop2 = function _loop2(_i) {
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
-          className: pagination.currentPage === _i ? "active" : "",
-          onClick: function onClick() {
-            return handlePageChange(_i);
-          },
-          children: _i
-        }, _i));
-      };
-      for (var _i = startPage; _i <= endPage; _i++) {
-        _loop2(_i);
-      }
-      if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-          pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
-            className: "ellipsis",
-            children: "..."
-          }, "end-ellipsis"));
-        }
-        pageNumbers.push(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
-          onClick: function onClick() {
-            return handlePageChange(totalPages);
-          },
-          children: totalPages
-        }, totalPages));
-      }
-    }
-    return pageNumbers;
-  };
-  var handleAddNewClick = function handleAddNewClick() {
-    setIsEditMode(false);
-    setContractorToEdit(null);
-    setIsModalOpen(true);
-    setError("");
-  };
-  var handleEditClick = /*#__PURE__*/function () {
-    var _ref8 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(contractor) {
-      var _contractorData$profi, _contractorData$profi2, _contractorData$profi3, _contractorData$profi4, _contractorData$profi5, _contractorData$profi6, _contractorData$profi7, _contractorData$profi8, _contractorData$profi9, _contractorData$profi0, _contractorData$profi1, response, contractorData, _error$response, errorMsg, _t7;
-      return _regenerator().w(function (_context7) {
-        while (1) switch (_context7.p = _context7.n) {
-          case 0:
-            _context7.p = 0;
-            _context7.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/contractors/".concat(contractor.id), {
-              timeout: 5000
-            });
-          case 1:
-            response = _context7.v;
-            console.log("Fetched contractor data:", response.data);
-
-            // Extract contractor data from response - API returns {contractor: user}
-            contractorData = response.data.contractor || response.data;
-            if (!(!contractorData || !contractorData.id)) {
-              _context7.n = 2;
-              break;
-            }
-            throw new Error("Invalid contractor data received from server");
-          case 2:
-            setContractorToEdit({
-              id: contractorData.id,
-              email: contractorData.email || "",
-              username: contractorData.username || "",
-              first_name: ((_contractorData$profi = contractorData.profile) === null || _contractorData$profi === void 0 ? void 0 : _contractorData$profi.first_name) || "",
-              middlename: ((_contractorData$profi2 = contractorData.profile) === null || _contractorData$profi2 === void 0 ? void 0 : _contractorData$profi2.middlename) || "",
-              last_name: ((_contractorData$profi3 = contractorData.profile) === null || _contractorData$profi3 === void 0 ? void 0 : _contractorData$profi3.last_name) || "",
-              suffix_id: ((_contractorData$profi4 = contractorData.profile) === null || _contractorData$profi4 === void 0 ? void 0 : _contractorData$profi4.suffix_id) || "",
-              gender_id: ((_contractorData$profi5 = contractorData.profile) === null || _contractorData$profi5 === void 0 ? void 0 : _contractorData$profi5.gender_id) || "",
-              contact_number: ((_contractorData$profi6 = contractorData.profile) === null || _contractorData$profi6 === void 0 ? void 0 : _contractorData$profi6.contact_number) || "",
-              street: ((_contractorData$profi7 = contractorData.profile) === null || _contractorData$profi7 === void 0 ? void 0 : _contractorData$profi7.street) || "",
-              city: ((_contractorData$profi8 = contractorData.profile) === null || _contractorData$profi8 === void 0 ? void 0 : _contractorData$profi8.city) || "Butuan City",
-              province: ((_contractorData$profi9 = contractorData.profile) === null || _contractorData$profi9 === void 0 ? void 0 : _contractorData$profi9.province) || "Agusan Del Norte",
-              postal_code: ((_contractorData$profi0 = contractorData.profile) === null || _contractorData$profi0 === void 0 ? void 0 : _contractorData$profi0.postal_code) || "8600",
-              country: ((_contractorData$profi1 = contractorData.profile) === null || _contractorData$profi1 === void 0 ? void 0 : _contractorData$profi1.country) || "Philippines",
-              role_id: "4",
-              profile_img: null
-            });
-            setIsEditMode(true);
-            setIsModalOpen(true);
-            setError("");
-            _context7.n = 4;
-            break;
-          case 3:
-            _context7.p = 3;
-            _t7 = _context7.v;
-            console.error("Error fetching contractor details:", _t7);
-            errorMsg = ((_error$response = _t7.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 ? void 0 : _error$response.error) || _t7.message || "Failed to fetch contractor details. Please try again.";
-            setError(errorMsg);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMsg);
-          case 4:
-            return _context7.a(2);
-        }
-      }, _callee7, null, [[0, 3]]);
-    }));
-    return function handleEditClick(_x6) {
-      return _ref8.apply(this, arguments);
-    };
-  }();
-  var handleModalClose = function handleModalClose() {
-    setIsModalOpen(false);
-    setIsEditMode(false);
-    setContractorToEdit(null);
-    setError("");
-  };
-  var handleContractorAdd = /*#__PURE__*/function () {
-    var _ref9 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee8(formData, signal) {
-      var response, _t8;
-      return _regenerator().w(function (_context8) {
-        while (1) switch (_context8.p = _context8.n) {
-          case 0:
-            _context8.p = 0;
-            formData.append("role_id", "4");
-            _context8.n = 1;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/contractors", formData, {
-              headers: {
-                "Content-Type": "multipart/form-data"
-              },
-              timeout: 10000,
-              signal: signal
-            });
-          case 1:
-            response = _context8.v;
-            _context8.n = 2;
-            return fetchContractors(new AbortController().signal);
-          case 2:
-            setIsModalOpen(false);
-            setError("");
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Contractor added successfully!");
-            return _context8.a(2, response.data);
-          case 3:
-            _context8.p = 3;
-            _t8 = _context8.v;
-            if (!(_t8.name === "AbortError")) {
-              _context8.n = 4;
-              break;
-            }
-            console.log("Add request was aborted");
-            return _context8.a(2);
-          case 4:
-            console.error("Error adding contractor:", _t8);
-            throw _t8;
-          case 5:
-            return _context8.a(2);
-        }
-      }, _callee8, null, [[0, 3]]);
-    }));
-    return function handleContractorAdd(_x7, _x8) {
-      return _ref9.apply(this, arguments);
-    };
-  }();
-  var handleContractorUpdate = /*#__PURE__*/function () {
-    var _ref0 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee9(formData, signal) {
-      var response, _error$response2, _error$response3, errorMsg, _t9;
-      return _regenerator().w(function (_context9) {
-        while (1) switch (_context9.p = _context9.n) {
-          case 0:
-            _context9.p = 0;
-            if (!(!contractorToEdit || !contractorToEdit.id)) {
-              _context9.n = 1;
-              break;
-            }
-            throw new Error("Contractor ID is missing. Please try editing again.");
-          case 1:
-            formData.append("role_id", "4");
-            console.log("Sending update request with FormData for contractor ID:", contractorToEdit.id);
-            _context9.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].post("/api/contractors/".concat(contractorToEdit.id, "?_method=PUT"), formData, {
-              headers: {
-                "Content-Type": "multipart/form-data",
-                "Accept": "application/json"
-              },
-              timeout: 10000,
-              signal: signal
-            });
-          case 2:
-            response = _context9.v;
-            _context9.n = 3;
-            return fetchContractors(new AbortController().signal);
-          case 3:
-            setIsModalOpen(false);
-            setIsEditMode(false);
-            setContractorToEdit(null);
-            setError("");
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Contractor updated successfully!");
-            return _context9.a(2, response.data);
-          case 4:
-            _context9.p = 4;
-            _t9 = _context9.v;
-            if (!(_t9.name === "AbortError")) {
-              _context9.n = 5;
-              break;
-            }
-            console.log("Update request was aborted");
-            return _context9.a(2);
-          case 5:
-            errorMsg = ((_error$response2 = _t9.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.error) || ((_error$response3 = _t9.response) === null || _error$response3 === void 0 || (_error$response3 = _error$response3.data) === null || _error$response3 === void 0 ? void 0 : _error$response3.message) || _t9.message || "Failed to update contractor. Please try again.";
-            console.error("Error updating contractor:", errorMsg, _t9);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMsg);
-            throw _t9;
-          case 6:
-            return _context9.a(2);
-        }
-      }, _callee9, null, [[0, 4]]);
-    }));
-    return function handleContractorUpdate(_x9, _x0) {
-      return _ref0.apply(this, arguments);
-    };
-  }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-    className: "app",
-    children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_adminsidebar_adminsidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      activeItem: "Contractor List"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_admintopnavbar_admintopnavbar__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-      className: "employerlist-dashboard",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-        className: "employerlist-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("h2", {
-          children: showArchived ? "Archived Contractors" : "Contractor List"
-        }), error && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-          className: "error",
-          children: error
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-          className: "employerlist-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-            className: "left-actions",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
-              type: "text",
-              className: "search-input",
-              placeholder: "Search Contractors",
-              value: searchTerm,
-              onChange: function onChange(e) {
-                return setSearchTerm(e.target.value);
-              }
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-            className: "right-actions",
-            children: [selectedContractors.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("button", {
-              className: "header-button archive-all-button",
-              onClick: function onClick() {
-                return handleBulkAction(showArchived ? "restore" : "archive");
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                size: 20,
-                className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
-                className: "button-text",
-                children: showArchived ? "Restore All" : "Archive All"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("button", {
-              className: "header-button",
-              onClick: handleAddNewClick,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                size: 20,
-                className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
-                className: "button-text",
-                children: "Add New"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("button", {
-              className: "header-button",
-              onClick: handleToggleArchived,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaEye, {
-                size: 20,
-                className: "button-icon"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
-                className: "button-text",
-                children: showArchived ? "View Active" : "View Archived"
-              })]
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-          className: "employerlist-table",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("table", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-                    className: "header-actions-icon",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
-                      onClick: toggleSelectAll,
-                      style: {
-                        cursor: "pointer"
-                      },
-                      children: selectedContractors.length === filteredContractors.length && filteredContractors.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckSquare, {
-                        className: "checkbox-icon"
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaSquare, {
-                        className: "checkbox-icon"
-                      })
-                    }), "Actions"]
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
-                  children: "Profile Image"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
-                  children: "Full Name"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
-                  children: "Email"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
-                  children: "Created At"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("th", {
-                  children: "Updated At"
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("tbody", {
-              children: currentContractors.length > 0 ? currentContractors.map(function (contractor) {
-                var _contractor$profile;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
-                    "data-label": "Actions",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-                      className: "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
-                        onClick: function onClick() {
-                          return toggleSelectContractor(contractor.id);
-                        },
-                        style: {
-                          cursor: "pointer"
-                        },
-                        children: selectedContractors.includes(contractor.id) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckSquare, {
-                          className: "checkbox-icon",
-                          size: 16
-                        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaSquare, {
-                          className: "checkbox-icon",
-                          size: 16
-                        })
-                      }), showArchived ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaCheckCircle, {
-                        size: 16,
-                        className: "restore-icon",
-                        onClick: function onClick() {
-                          return handleRestoreContractor(contractor.id);
-                        }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaArchive, {
-                          size: 16,
-                          className: "delete-icon",
-                          onClick: function onClick() {
-                            return handleArchiveClick(contractor);
-                          }
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__.FaEdit, {
-                          size: 16,
-                          className: "edit-icon",
-                          onClick: function onClick() {
-                            return handleEditClick(contractor);
-                          }
-                        })]
-                      })]
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
-                    "data-label": "Profile Image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-                      style: {
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                      },
-                      children: (_contractor$profile = contractor.profile) !== null && _contractor$profile !== void 0 && _contractor$profile.profile_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
-                        src: "http://127.0.0.1:8000/storage/".concat(contractor.profile.profile_img),
-                        alt: "Profile",
-                        style: {
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: '50%',
-                          objectFit: 'cover'
-                        }
-                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
-                        src: _images_defpfp_svg__WEBPACK_IMPORTED_MODULE_12__["default"],
-                        alt: "Default Profile",
-                        style: {
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: '50%',
-                          objectFit: 'cover'
-                        }
-                      })
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
-                    "data-label": "Full Name",
-                    className: "owner-cell",
-                    children: getFullName(contractor.profile)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
-                    "data-label": "Email",
-                    children: contractor.email || "N/A"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
-                    "data-label": "Created At",
-                    children: formatDate(contractor.created_at)
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
-                    "data-label": "Updated At",
-                    children: formatDate(contractor.updated_at)
-                  })]
-                }, contractor.id);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("tr", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("td", {
-                  colSpan: "6",
-                  children: ["No ", showArchived ? "archived" : "active", " contractors found"]
-                })
-              })
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-          className: "employerlist-pagination",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
-            children: ["Page ", pagination.currentPage, " of ", totalPages]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
-            onClick: function onClick() {
-              return handlePageChange(pagination.currentPage - 1);
-            },
-            disabled: pagination.currentPage <= 1,
-            children: "<"
-          }), renderPagination(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
-            onClick: function onClick() {
-              return handlePageChange(pagination.currentPage + 1);
-            },
-            disabled: pagination.currentPage >= totalPages,
-            children: ">"
-          })]
-        })]
-      })
-    }), isConfirmModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-      className: "confirm-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-        className: "confirm-modal",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("h3", {
-          children: "Are you sure?"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("p", {
-          children: ["Do you want to archive \"", getFullName(contractorToArchive === null || contractorToArchive === void 0 ? void 0 : contractorToArchive.profile), "\"?"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
-          className: "confirm-modal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
-            className: "confirm-button",
-            onClick: handleArchiveConfirm,
-            children: "Yes, Archive"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("button", {
-            className: "cancel-button",
-            onClick: function onClick() {
-              return setIsConfirmModalOpen(false);
-            },
-            children: "Cancel"
-          })]
-        })]
-      })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_contractorlistmodal_js__WEBPACK_IMPORTED_MODULE_11__["default"], {
-      onClose: handleModalClose,
-      onSubmit: isEditMode ? handleContractorUpdate : handleContractorAdd,
-      isEdit: isEditMode,
-      initialData: contractorToEdit,
-      genders: genders,
-      suffixes: suffixes
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ContractorList);
-
-/***/ }),
-
-/***/ "./resources/js/components/adminside/contractorlist/contractorlistmodal.js":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/adminside/contractorlist/contractorlistmodal.js ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _sass_components_employermodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../sass/components/employermodal.scss */ "./resources/sass/components/employermodal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
-function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
-
-var ContractorModal = function ContractorModal(_ref) {
-  var onClose = _ref.onClose,
-    onSubmit = _ref.onSubmit,
-    isEdit = _ref.isEdit,
-    initialData = _ref.initialData,
-    genders = _ref.genders,
-    suffixes = _ref.suffixes;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      username: "",
-      email: "",
-      password: "",
-      role_id: "4",
-      first_name: "",
-      middlename: "",
-      last_name: "",
-      suffix_id: "",
-      gender_id: "",
-      contact_number: "",
-      street: "",
-      city: "Butuan City",
-      province: "Agusan Del Norte",
-      postal_code: "8600",
-      country: "Philippines",
-      profile_img: null
-    }),
-    _useState2 = _slicedToArray(_useState, 2),
-    formData = _useState2[0],
-    setFormData = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-    _useState4 = _slicedToArray(_useState3, 2),
-    errors = _useState4[0],
-    setErrors = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState6 = _slicedToArray(_useState5, 2),
-    apiError = _useState6[0],
-    setApiError = _useState6[1];
-  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (isEdit && initialData) {
-      setFormData({
-        username: initialData.username || "",
-        email: initialData.email || "",
-        password: "",
-        role_id: "4",
-        first_name: initialData.first_name || "",
-        middlename: initialData.middlename || "",
-        last_name: initialData.last_name || "",
-        suffix_id: initialData.suffix_id || "",
-        gender_id: initialData.gender_id || "",
-        contact_number: initialData.contact_number || "",
-        street: initialData.street || "",
-        city: initialData.city || "Butuan City",
-        province: initialData.province || "Agusan Del Norte",
-        postal_code: initialData.postal_code || "8600",
-        country: initialData.country || "Philippines",
-        profile_img: null
-      });
-      setApiError("");
-      setErrors({});
-    }
-
-    // Cleanup function to abort pending requests
-    return function () {
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort();
-      }
-    };
-  }, [isEdit, initialData]);
-  var handleInputChange = function handleInputChange(e, field) {
-    var value = e.target.type === "file" ? e.target.files[0] : e.target.value;
-    if (field === "contact_number" && value) {
-      if (!/^\d*$/.test(value)) return;
-    }
-    if (field === "first_name" || field === "last_name") {
-      var newData = _objectSpread(_objectSpread({}, formData), {}, _defineProperty({}, field, value));
-      newData.username = "".concat(newData.first_name, ".").concat(newData.last_name).toLowerCase();
-      setFormData(newData);
-      setErrors(function (prev) {
-        return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, ""));
-      });
-      setApiError("");
-      return;
-    }
-    setFormData(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, value));
-    });
-    setErrors(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, ""));
-    });
-    setApiError("");
-  };
-  var removeImage = function removeImage() {
-    setFormData(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, {
-        profile_img: null
-      });
-    });
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  };
-  var validateForm = function validateForm() {
-    var newErrors = {};
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.first_name) newErrors.first_name = "First name is required";
-    if (!formData.last_name) newErrors.last_name = "Last name is required";
-    if (!isEdit && !formData.password) newErrors.password = "Password is required";
-    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
-    }
-    if (formData.contact_number && !/^\d{10,15}$/.test(formData.contact_number)) {
-      newErrors.contact_number = "Contact number must be 10-15 digits";
-    }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-  var handleSubmit = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(e) {
-      var submitData, _iterator, _step, _step$value, key, value, _error$response, _error$response2, _error$response3, errorMsg, _t;
-      return _regenerator().w(function (_context) {
-        while (1) switch (_context.p = _context.n) {
-          case 0:
-            e.preventDefault();
-            if (validateForm()) {
-              _context.n = 1;
-              break;
-            }
-            return _context.a(2);
-          case 1:
-            submitData = new FormData(); // Always include required fields
-            submitData.append("email", formData.email || "");
-            submitData.append("first_name", formData.first_name || "");
-            submitData.append("last_name", formData.last_name || "");
-
-            // Include optional fields if they have values
-            if (formData.username) submitData.append("username", formData.username);
-            if (formData.password && (isEdit ? formData.password : true)) submitData.append("password", formData.password);
-            if (formData.middlename !== null && formData.middlename !== "") submitData.append("middlename", formData.middlename);
-            if (formData.suffix_id) submitData.append("suffix_id", formData.suffix_id);
-            if (formData.gender_id) submitData.append("gender_id", formData.gender_id);
-            if (formData.contact_number) submitData.append("contact_number", formData.contact_number);
-            if (formData.street) submitData.append("street", formData.street);
-            if (formData.city) submitData.append("city", formData.city);
-            if (formData.province) submitData.append("province", formData.province);
-            if (formData.postal_code) submitData.append("postal_code", formData.postal_code);
-            if (formData.country) submitData.append("country", formData.country);
-            if (formData.profile_img) submitData.append("profile_img", formData.profile_img);
-
-            // Always include role_id
-            submitData.append("role_id", formData.role_id);
-
-            // Log FormData for debugging
-            _iterator = _createForOfIteratorHelper(submitData.entries());
-            try {
-              for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                _step$value = _slicedToArray(_step.value, 2), key = _step$value[0], value = _step$value[1];
-                console.log("".concat(key, ": ").concat(value));
-              }
-
-              // Create a new AbortController for this request
-            } catch (err) {
-              _iterator.e(err);
-            } finally {
-              _iterator.f();
-            }
-            abortControllerRef.current = new AbortController();
-            _context.p = 2;
-            _context.n = 3;
-            return onSubmit(submitData, abortControllerRef.current.signal);
-          case 3:
-            setApiError("");
-            setErrors({});
-            _context.n = 6;
-            break;
-          case 4:
-            _context.p = 4;
-            _t = _context.v;
-            if (!(_t.name === "AbortError")) {
-              _context.n = 5;
-              break;
-            }
-            console.log("Request was aborted");
-            return _context.a(2);
-          case 5:
-            if ((_error$response = _t.response) !== null && _error$response !== void 0 && (_error$response = _error$response.data) !== null && _error$response !== void 0 && _error$response.errors) {
-              setErrors(_t.response.data.errors);
-              setApiError("Please correct the errors in the form: " + JSON.stringify(_t.response.data.errors));
-            } else {
-              errorMsg = ((_error$response2 = _t.response) === null || _error$response2 === void 0 || (_error$response2 = _error$response2.data) === null || _error$response2 === void 0 ? void 0 : _error$response2.error) || ((_error$response3 = _t.response) === null || _error$response3 === void 0 || (_error$response3 = _error$response3.data) === null || _error$response3 === void 0 ? void 0 : _error$response3.message) || _t.message || "An error occurred. Please try again.";
-              setApiError(errorMsg);
-            }
-          case 6:
-            return _context.a(2);
-        }
-      }, _callee, null, [[2, 4]]);
-    }));
-    return function handleSubmit(_x) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "employermodal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "employermodal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-        children: isEdit ? "Edit Contractor" : "Add New Contractor"
-      }), apiError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "error api-error",
-        children: apiError
-      }), Object.keys(errors).length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "error validation-errors",
-        children: Object.entries(errors).map(function (_ref3) {
-          var _ref4 = _slicedToArray(_ref3, 2),
-            field = _ref4[0],
-            message = _ref4[1];
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            children: message
-          }, field);
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-        className: "employermodal-content",
-        onSubmit: handleSubmit,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "First Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: formData.first_name,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "first_name");
-              },
-              required: true
-            }), errors.first_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "error",
-              children: errors.first_name
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "Middle Name (optional)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: formData.middlename,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "middlename");
-              }
-            }), errors.middlename && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "error",
-              children: errors.middlename
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "Last Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: formData.last_name,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "last_name");
-              },
-              required: true
-            }), errors.last_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "error",
-              children: errors.last_name
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "Suffix (optional)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              value: formData.suffix_id,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "suffix_id");
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                children: "None"
-              }), (suffixes || []).map(function (suffix) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                  value: suffix.id,
-                  children: suffix.suffix_name || suffix.name
-                }, suffix.id);
-              })]
-            }), errors.suffix_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "error",
-              children: errors.suffix_id
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "Contact Number"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "tel",
-              value: formData.contact_number,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "contact_number");
-              },
-              placeholder: "1234567890"
-            }), errors.contact_number && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "error",
-              children: errors.contact_number
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "Street"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: formData.street,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "street");
-              }
-            }), errors.street && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "error",
-              children: errors.street
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "City"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: formData.city,
-              disabled: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "Province"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: formData.province,
-              disabled: true
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "Postal Code"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: formData.postal_code,
-              disabled: true
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-              children: "Country"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-              type: "text",
-              value: formData.country,
-              disabled: true
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-            children: "Email"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "email",
-            value: formData.email,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "email");
-            },
-            required: true
-          }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            className: "error",
-            children: errors.email
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-            children: isEdit ? "New Password (optional)" : "Password"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "password",
-            value: formData.password,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "password");
-            },
-            required: !isEdit
-          }), errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            className: "error",
-            children: errors.password
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-            children: "Gender"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-            value: formData.gender_id,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "gender_id");
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-              value: "",
-              children: "Select Gender"
-            }), (genders || []).map(function (gender) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: gender.id,
-                children: gender.gender_name
-              }, gender.id);
-            })]
-          }), errors.gender_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            className: "error",
-            children: errors.gender_id
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-            children: "Role"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("select", {
-            value: formData.role_id,
-            disabled: true,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-              value: "4",
-              children: "Contractor"
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-            children: "Profile Picture (optional)"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "file",
-            accept: "image/*",
-            onChange: function onChange(e) {
-              return handleInputChange(e, "profile_img");
-            },
-            ref: fileInputRef
-          }), formData.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "profile-img-preview",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: URL.createObjectURL(formData.profile_img),
-              alt: "Preview"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-              type: "button",
-              onClick: removeImage,
-              children: "Remove"
-            })]
-          }), errors.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            className: "error",
-            children: errors.profile_img
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "employermodal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "submit-button",
-            type: "submit",
-            children: isEdit ? "Update" : "Create"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "cancel-button",
-            type: "button",
-            onClick: onClose,
-            children: "Cancel"
-          })]
-        })]
-      })]
-    })
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ContractorModal);
 
 /***/ }),
 
@@ -246886,12 +245409,6 @@ var Login = function Login() {
               localStorage.removeItem('remembered_email');
             }
 
-            // Store original role if logging in as Contractor (role_id = 4)
-            // Only store if not already set (preserves original role for role switching)
-            if (data.user.role_id === 4 && !localStorage.getItem('original_role')) {
-              localStorage.setItem('original_role', '4');
-            }
-
             // Update user status to online (is_online = 1)
             updatedUser = _objectSpread(_objectSpread({}, data.user), {}, {
               is_online: 1,
@@ -246926,14 +245443,6 @@ var Login = function Login() {
                 setIsLoading(false);
               }, 500);
             } else if (userRole === 2) {
-              setTimeout(function () {
-                navigate('/homepage', {
-                  replace: true
-                });
-                setIsLoading(false);
-              }, 500);
-            } else if (userRole === 4) {
-              // Contractor role - redirect to homepage
               setTimeout(function () {
                 navigate('/homepage', {
                   replace: true
@@ -252196,9 +250705,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
 /* harmony import */ var _common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/CustomDropdown */ "./resources/js/components/common/CustomDropdown.js");
-/* harmony import */ var _sass_components_profilesettings_modalpostjob_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../sass/components/profilesettings/modalpostjob.scss */ "./resources/sass/components/profilesettings/modalpostjob.scss");
-/* harmony import */ var _sass_components_common_CustomDropdown_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/common/CustomDropdown.scss */ "./resources/sass/components/common/CustomDropdown.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/dateUtils */ "./resources/js/utils/dateUtils.js");
+/* harmony import */ var _sass_components_profilesettings_modalpostjob_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/modalpostjob.scss */ "./resources/sass/components/profilesettings/modalpostjob.scss");
+/* harmony import */ var _sass_components_common_CustomDropdown_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../sass/components/common/CustomDropdown.scss */ "./resources/sass/components/common/CustomDropdown.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -252226,6 +250736,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
 var ModalPostJob = function ModalPostJob(_ref) {
   var onSubmit = _ref.onSubmit,
     onClose = _ref.onClose,
@@ -252238,10 +250749,10 @@ var ModalPostJob = function ModalPostJob(_ref) {
       typeOfEmployment: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_type) || "full-time",
       hiringType: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.hiring_type) || "individual",
       teamSize: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.team_size) || ((editingJob === null || editingJob === void 0 ? void 0 : editingJob.hiring_type) === 'team' ? 2 : 1),
-      workStart: editingJob !== null && editingJob !== void 0 && editingJob.work_start ? new Date(editingJob.work_start).toISOString().slice(0, 16) : "",
-      workEnd: editingJob !== null && editingJob !== void 0 && editingJob.work_end ? new Date(editingJob.work_end).toISOString().slice(0, 16) : "",
-      applicationStart: editingJob !== null && editingJob !== void 0 && editingJob.application_start ? new Date(editingJob.application_start).toISOString().slice(0, 16) : "",
-      applicationDeadline: editingJob !== null && editingJob !== void 0 && editingJob.application_deadline ? new Date(editingJob.application_deadline).toISOString().slice(0, 16) : "",
+      workStart: editingJob !== null && editingJob !== void 0 && editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
+      workEnd: editingJob !== null && editingJob !== void 0 && editingJob.work_end ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_end) : "",
+      applicationStart: editingJob !== null && editingJob !== void 0 && editingJob.application_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_start) : "",
+      applicationDeadline: editingJob !== null && editingJob !== void 0 && editingJob.application_deadline ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_deadline) : "",
       skills: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.skills) || [],
       skillExperiences: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.skill_experiences) || {}
     }),
@@ -252410,10 +250921,10 @@ var ModalPostJob = function ModalPostJob(_ref) {
         typeOfEmployment: editingJob.job_type || "full-time",
         hiringType: editingJob.hiring_type || "individual",
         teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
-        workStart: editingJob.work_start ? new Date(editingJob.work_start).toISOString().slice(0, 16) : "",
-        workEnd: editingJob.work_end ? new Date(editingJob.work_end).toISOString().slice(0, 16) : "",
-        applicationStart: editingJob.application_start ? new Date(editingJob.application_start).toISOString().slice(0, 16) : "",
-        applicationDeadline: editingJob.application_deadline ? new Date(editingJob.application_deadline).toISOString().slice(0, 16) : "",
+        workStart: editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
+        workEnd: editingJob.work_end ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_end) : "",
+        applicationStart: editingJob.application_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_start) : "",
+        applicationDeadline: editingJob.application_deadline ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_deadline) : "",
         skills: editingJob.skills || [],
         skillExperiences: editingJob.skill_experiences || {}
       });
@@ -252528,12 +251039,11 @@ var ModalPostJob = function ModalPostJob(_ref) {
   };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
-      var isContractorUser, skillsData, jobData, _t2;
+      var skillsData, jobData, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
             e.preventDefault();
-            isContractorUser = Number(userProfile === null || userProfile === void 0 ? void 0 : userProfile.role_id) === 4;
             if (formData.jobTitle.trim()) {
               _context2.n = 1;
               break;
@@ -252558,7 +251068,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
             }
             return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select application start and deadline dates"));
           case 4:
-            if (!(new Date(formData.applicationDeadline) <= new Date(formData.applicationStart))) {
+            if (!(formData.applicationDeadline <= formData.applicationStart)) {
               _context2.n = 5;
               break;
             }
@@ -252570,13 +251080,13 @@ var ModalPostJob = function ModalPostJob(_ref) {
             }
             return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select work start and end dates"));
           case 6:
-            if (!(new Date(formData.workStart) < new Date(formData.applicationDeadline))) {
+            if (!(formData.workStart < formData.applicationDeadline)) {
               _context2.n = 7;
               break;
             }
             return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Work start date must be on or after application deadline (hiring period must complete first)"));
           case 7:
-            if (!(new Date(formData.workEnd) <= new Date(formData.workStart))) {
+            if (!(formData.workEnd <= formData.workStart)) {
               _context2.n = 8;
               break;
             }
@@ -252607,7 +251117,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
             _context2.p = 11;
             _t2 = _context2.v;
             console.error(_t2);
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("An error occurred while ".concat(isContractorUser ? 'posting the hiring' : 'posting the job', "."));
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('An error occurred while posting the job.');
           case 12:
             _context2.p = 12;
             setIsLoading(false);
@@ -252780,38 +251290,37 @@ var ModalPostJob = function ModalPostJob(_ref) {
     return Object.values(skillStructure);
   };
 
-  // Determine if user is Contractor
-  var isContractor = userRole === 4;
-  var modalTitle = isContractor ? 'Post Hiring Information' : 'Post Job Information';
-  var postButtonText = isContractor ? editingJob ? 'Update Hiring' : 'Post Hiring' : editingJob ? 'Update Job' : 'Post Job';
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  // Determine modal title and button text
+  var modalTitle = 'Post Job Information';
+  var postButtonText = editingJob ? 'Update Job' : 'Post Job';
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
     className: "modal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
       className: "modal-post-job",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "modal-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
           className: "modal-title",
           children: modalTitle
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
           className: "close-btn",
           onClick: handleClose,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
             children: "\xD7"
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
         onSubmit: handleSubmit,
         className: "modal-form",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "form-columns",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "form-column",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                 children: "Job Title"
-              }), !isJobTitleOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              }), !isJobTitleOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 options: jobTitleOptions,
                 value: selectedJobTitle,
                 onChange: handleJobTitleChange,
@@ -252819,16 +251328,16 @@ var ModalPostJob = function ModalPostJob(_ref) {
                 className: "full-width-input",
                 searchable: true,
                 required: true
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "custom-input-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   value: customJobTitle,
                   onChange: handleCustomJobTitleChange,
                   placeholder: "Enter custom job title",
                   className: "full-width-input",
                   required: true
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
                   type: "button",
                   className: "back-to-select-btn",
                   onClick: function onClick() {
@@ -252844,12 +251353,12 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   children: "\u2190 Back to Select"
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                 htmlFor: "jobDescription",
                 children: "Job Description"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("textarea", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("textarea", {
                 id: "jobDescription",
                 name: "jobDescription",
                 value: formData.jobDescription,
@@ -252858,14 +251367,14 @@ var ModalPostJob = function ModalPostJob(_ref) {
                 rows: "4",
                 required: true
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   htmlFor: "salary",
                   children: "Salary"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "number",
                   id: "salary",
                   name: "salary",
@@ -252877,11 +251386,11 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   className: "small-input",
                   required: true
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   children: "Salary Type"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   options: salaryTypeOptions,
                   value: formData.salaryType,
                   onChange: function onChange(val) {
@@ -252896,13 +251405,13 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   required: true
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   children: "Job Type"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   options: jobTypeOptions,
                   value: formData.typeOfEmployment,
                   onChange: function onChange(val) {
@@ -252916,11 +251425,11 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   className: "small-input",
                   required: true
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   children: "Hiring Type"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_3__["default"], {
                   options: hiringTypeOptions,
                   value: formData.hiringType,
                   onChange: function onChange(val) {
@@ -252935,12 +251444,12 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   required: true
                 })]
               })]
-            }), formData.hiringType === "team" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), formData.hiringType === "team" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                 htmlFor: "teamSize",
                 children: "Number of Team Members Needed"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                 type: "number",
                 id: "teamSize",
                 name: "teamSize",
@@ -252951,26 +251460,26 @@ var ModalPostJob = function ModalPostJob(_ref) {
                 className: "small-input",
                 required: true
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   children: "Application Start"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "datetime-local",
                   name: "applicationStart",
                   value: formData.applicationStart,
                   onChange: handleInputChange,
-                  min: new Date().toISOString().slice(0, 16),
+                  min: (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.getCurrentPhilippinesTime)(),
                   className: "small-input",
                   required: true
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   children: "Application Deadline"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "datetime-local",
                   name: "applicationDeadline",
                   value: formData.applicationDeadline,
@@ -252981,48 +251490,48 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   disabled: !formData.applicationStart
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-row",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   htmlFor: "workStart",
                   children: "Work Start Date"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "datetime-local",
                   id: "workStart",
                   name: "workStart",
                   value: formData.workStart,
                   onChange: handleInputChange,
                   className: "small-input",
-                  min: formData.applicationDeadline ? formData.applicationDeadline : new Date().toISOString().slice(0, 16),
+                  min: formData.applicationDeadline ? formData.applicationDeadline : (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.getCurrentPhilippinesTime)(),
                   required: true,
                   disabled: !formData.applicationDeadline,
                   title: !formData.applicationDeadline ? "Please select Application Deadline first" : "Work Start must be after Application Deadline (hiring period)"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-group",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                   htmlFor: "workEnd",
                   children: "Work End Date"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "datetime-local",
                   id: "workEnd",
                   name: "workEnd",
                   value: formData.workEnd,
                   onChange: handleInputChange,
                   className: "small-input",
-                  min: formData.workStart || new Date().toISOString().slice(0, 16),
+                  min: formData.workStart || (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.getCurrentPhilippinesTime)(),
                   required: true,
                   disabled: !formData.workStart,
                   title: !formData.workStart ? "Please select Work Start date first" : ""
                 })]
               })]
-            }), selectedJobTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), selectedJobTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                 children: "Desired Sub-Skills"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                 list: "sub_skills_list",
                 type: "text",
                 value: subSkillsInputValue,
@@ -253034,7 +251543,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
                 placeholder: "Type desired sub-skills...",
                 className: "full-width-input",
                 autoComplete: "off"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("datalist", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("datalist", {
                 id: "sub_skills_list",
                 children: availableSubSkills.filter(function (subSkill) {
                   if (!subSkillSearchTerm) return true;
@@ -253045,37 +251554,37 @@ var ModalPostJob = function ModalPostJob(_ref) {
                     return word.startsWith(searchLower);
                   });
                 }).map(function (subSkill, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("option", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                     value: subSkill.value
                   }, index);
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("small", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("small", {
                 style: {
                   fontSize: '12px',
                   color: '#666'
                 },
                 children: "Separate multiple sub-skills with commas"
               })]
-            }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-group",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                 children: "Experience Levels"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "experience-levels-container",
                 children: selectedSubSkills.map(function (subSkill, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                     className: "experience-level-item",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                       className: "sub-skill-name",
                       children: subSkill
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                       className: "ant-select-selection-overflow experience-dropdown",
                       ref: function ref(el) {
                         if (el) {
                           experienceDropdownRefs.current[subSkill] = el;
                         }
                       },
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                         className: "ant-select-selection-overflow-item",
                         onClick: function onClick() {
                           return toggleExperienceDropdown(subSkill);
@@ -253091,17 +251600,17 @@ var ModalPostJob = function ModalPostJob(_ref) {
                             });
                           }
                         },
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                           className: "ant-select-selection-item",
                           children: formData.skillExperiences[subSkill] || "Select Experience"
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                           className: "ant-select-arrow ".concat(isExperienceDropdownOpen[subSkill] ? 'open' : ''),
                           children: "\u25BC"
                         })]
-                      }), isExperienceDropdownOpen[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                      }), isExperienceDropdownOpen[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                         className: "ant-select-dropdown",
                         children: experienceOptions.map(function (option, optIndex) {
-                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                             className: "ant-select-item",
                             onClick: function onClick() {
                               return handleExperienceChange(subSkill, option.value);
@@ -253114,18 +251623,18 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   }, index);
                 })
               })]
-            }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "selected-skills-preview",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
                 children: "Selected Skills:"
               }), selectedSubSkills.map(function (subSkill, index) {
                 var _experienceOptions$fi;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                   className: "skill-with-experience",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                     className: "skill-tag",
                     children: subSkill
-                  }), formData.skillExperiences[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                  }), formData.skillExperiences[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                     className: "experience-tag",
                     children: (_experienceOptions$fi = experienceOptions.find(function (opt) {
                       return opt.value === formData.skillExperiences[subSkill];
@@ -253133,27 +251642,27 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   })]
                 }, index);
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "contact-info",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
                 children: "Contact Information"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                 className: "form-row",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                   className: "form-group",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                     children: "Email"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                     type: "email",
                     value: (userProfile === null || userProfile === void 0 ? void 0 : userProfile.email) || "",
                     disabled: true,
                     className: "small-input"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                   className: "form-group",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                     children: "Contact Person"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                     type: "text",
                     value: userProfile ? "".concat(userProfile.first_name || "", " ").concat(userProfile.middlename || "", " ").concat(userProfile.last_name || "", " ").concat(userProfile.suffix_name || "").trim() : "",
                     disabled: true,
@@ -253163,15 +251672,15 @@ var ModalPostJob = function ModalPostJob(_ref) {
               })]
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "form-actions",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
             type: "button",
             className: "cancel-btn",
             onClick: handleClose,
             disabled: isLoading,
             children: "Cancel"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
             type: "submit",
             className: "post-job-btn",
             disabled: isLoading,
@@ -255280,8 +253789,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modalpostjob__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modalpostjob */ "./resources/js/components/profilesettings/modalpostjob.js");
 /* harmony import */ var _JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./JobApplicationsModal */ "./resources/js/components/profilesettings/JobApplicationsModal.js");
 /* harmony import */ var _JobDetailModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./JobDetailModal */ "./resources/js/components/profilesettings/JobDetailModal.js");
-/* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _utils_dateUtils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/dateUtils */ "./resources/js/utils/dateUtils.js");
+/* harmony import */ var _sass_components_profilesettings_mypostjob_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../sass/components/profilesettings/mypostjob.scss */ "./resources/sass/components/profilesettings/mypostjob.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -255293,6 +253803,7 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -255371,7 +253882,7 @@ var MyPostJob = function MyPostJob() {
   }, []);
   var fetchJobs = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var authToken, userData, _currentUser, profileId, profileResponse, response, _response$data$job_po, _error$response, _t, _t2, _t3;
+      var authToken, userData, currentUser, profileId, profileResponse, response, _response$data$job_po, _error$response, _t, _t2, _t3;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
@@ -255401,10 +253912,10 @@ var MyPostJob = function MyPostJob() {
             console.log("No expired jobs to archive");
           case 4:
             userData = JSON.parse(localStorage.getItem("user") || '{}');
-            _currentUser = userData.user || userData; // Get the profile ID first
+            currentUser = userData.user || userData; // Get the profile ID first
             _context.p = 5;
             _context.n = 6;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(_currentUser.id), {
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(currentUser.id), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
@@ -255419,8 +253930,8 @@ var MyPostJob = function MyPostJob() {
           case 7:
             _context.p = 7;
             _t2 = _context.v;
-            console.log("Profile not found, using user ID:", _currentUser.id);
-            profileId = _currentUser.id;
+            console.log("Profile not found, using user ID:", currentUser.id);
+            profileId = currentUser.id;
           case 8:
             _context.n = 9;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/jobposts?profile_id=".concat(profileId, "&show_archived=true"), {
@@ -255462,7 +253973,7 @@ var MyPostJob = function MyPostJob() {
   }();
   var checkEmployerCredentials = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
-      var _contractorRecord, _employerRecord, _contractorRecord2, _employerRecord2, _contractorRecord3, _employerRecord3, authToken, userData, _currentUser2, roleId, apiEndpoint, response, apiUserData, contractorRecord, employerRecord, credentialsNames, credentialsPhotos, credentialsDocs, isValidCredentialFile, hasPhotoFiles, hasDocFiles, hasValidCredentials, _currentUser3, _error$response2, _t4;
+      var _employerRecord, _employerRecord2, _employerRecord3, authToken, userData, currentUser, roleId, apiEndpoint, response, apiUserData, employerRecord, credentialsNames, credentialsPhotos, credentialsDocs, isValidCredentialFile, hasPhotoFiles, hasDocFiles, hasValidCredentials, _error$response2, _t4;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -255475,17 +253986,17 @@ var MyPostJob = function MyPostJob() {
             return _context2.a(2);
           case 1:
             userData = JSON.parse(localStorage.getItem("user") || '{}');
-            _currentUser2 = userData.user || userData; // Only check for employers (role_id === 2) and contractors (role_id === 4)
-            roleId = Number(_currentUser2.role_id);
-            if (!(roleId !== 2 && roleId !== 4)) {
+            currentUser = userData.user || userData; // Only check for employers (role_id === 2)
+            roleId = Number(currentUser.role_id);
+            if (!(roleId !== 2)) {
               _context2.n = 2;
               break;
             }
-            setHasCredentials(true); // Non-employers and non-contractors don't need credentials
+            setHasCredentials(true); // Non-employers don't need credentials
             return _context2.a(2);
           case 2:
-            // Use appropriate API endpoint based on role
-            apiEndpoint = roleId === 4 ? "http://127.0.0.1:8000/api/contractors/".concat(_currentUser2.id) : "http://127.0.0.1:8000/api/employers/".concat(_currentUser2.id);
+            // Use employer API endpoint
+            apiEndpoint = "http://127.0.0.1:8000/api/employers/".concat(currentUser.id);
             _context2.n = 3;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get(apiEndpoint, {
               headers: {
@@ -255495,25 +254006,21 @@ var MyPostJob = function MyPostJob() {
             });
           case 3:
             response = _context2.v;
-            // The API returns { employer: { ...user data, employer: { ...employer data } } } or { contractor: { ...user data, contractor: { ...contractor data } } }
-            apiUserData = response.data.employer || response.data.contractor || response.data; // The User model has a contractor/employer relationship, so we need to access it
-            // Structure: { contractor: { id: ..., contractor: { credentials_name: [...] } } }
-            contractorRecord = null;
+            // The API returns { employer: { ...user data, employer: { ...employer data } } }
+            apiUserData = response.data.employer || response.data; // The User model has an employer relationship, so we need to access it
+            // Structure: { employer: { id: ..., employer: { credentials_name: [...] } } }
             employerRecord = null;
-            if (apiUserData.contractor) {
-              contractorRecord = apiUserData.contractor;
-            } else if (apiUserData.employer) {
+            if (apiUserData.employer) {
               employerRecord = apiUserData.employer;
             }
 
-            // Get credentials from the actual contractor/employer record
-            credentialsNames = ((_contractorRecord = contractorRecord) === null || _contractorRecord === void 0 ? void 0 : _contractorRecord.credentials_name) || ((_employerRecord = employerRecord) === null || _employerRecord === void 0 ? void 0 : _employerRecord.credentials_name) || [];
-            credentialsPhotos = ((_contractorRecord2 = contractorRecord) === null || _contractorRecord2 === void 0 ? void 0 : _contractorRecord2.credentials_photo) || ((_employerRecord2 = employerRecord) === null || _employerRecord2 === void 0 ? void 0 : _employerRecord2.credentials_photo) || [];
-            credentialsDocs = ((_contractorRecord3 = contractorRecord) === null || _contractorRecord3 === void 0 ? void 0 : _contractorRecord3.credentials_doc) || ((_employerRecord3 = employerRecord) === null || _employerRecord3 === void 0 ? void 0 : _employerRecord3.credentials_doc) || [];
-            console.log("".concat(roleId === 4 ? 'Contractor' : 'Employer', " credentials check:"), {
+            // Get credentials from the actual employer record
+            credentialsNames = ((_employerRecord = employerRecord) === null || _employerRecord === void 0 ? void 0 : _employerRecord.credentials_name) || [];
+            credentialsPhotos = ((_employerRecord2 = employerRecord) === null || _employerRecord2 === void 0 ? void 0 : _employerRecord2.credentials_photo) || [];
+            credentialsDocs = ((_employerRecord3 = employerRecord) === null || _employerRecord3 === void 0 ? void 0 : _employerRecord3.credentials_doc) || [];
+            console.log('Employer credentials check:', {
               fullResponse: response.data,
               apiUserData: apiUserData,
-              contractorRecord: contractorRecord,
               employerRecord: employerRecord,
               names: credentialsNames,
               photos: credentialsPhotos,
@@ -255535,7 +254042,7 @@ var MyPostJob = function MyPostJob() {
                 return trimmed !== '' && trimmed !== 'null' && trimmed !== 'NULL';
               }
               return true;
-            }; // Check if employer/contractor has any actual credential files (photo or doc)
+            }; // Check if employer has any actual credential files (photo or doc)
             hasPhotoFiles = Array.isArray(credentialsPhotos) && credentialsPhotos.some(function (file) {
               return isValidCredentialFile(file);
             });
@@ -255560,7 +254067,7 @@ var MyPostJob = function MyPostJob() {
           case 4:
             _context2.p = 4;
             _t4 = _context2.v;
-            console.error("Error checking ".concat(Number((_currentUser3 = currentUser) === null || _currentUser3 === void 0 ? void 0 : _currentUser3.role_id) === 4 ? 'contractor' : 'employer', " credentials:"), ((_error$response2 = _t4.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t4.message);
+            console.error('Error checking employer credentials:', ((_error$response2 = _t4.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t4.message);
             setHasCredentials(false);
             setEmployerCredentials([]);
           case 5:
@@ -255573,10 +254080,9 @@ var MyPostJob = function MyPostJob() {
     };
   }();
   var handleAddJob = function handleAddJob() {
-    // Check if employer/contractor has credentials before allowing job/hiring posting
+    // Check if employer has credentials before allowing job posting
     if (!hasCredentials) {
-      var errorMessage = isContractor ? "You need to submit credentials before posting hiring. Please go to Profile Settings to add your credentials." : "You need to submit credentials before posting a job. Please go to Profile Settings to add your credentials.";
-      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error(errorMessage);
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("You need to submit credentials before posting a job. Please go to Profile Settings to add your credentials.");
       return;
     }
     setEditingJob(null);
@@ -255597,17 +254103,17 @@ var MyPostJob = function MyPostJob() {
   };
   var handleSubmitJob = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(jobData) {
-      var authToken, userData, _currentUser4, profileId, profileResponse, createProfileResponse, _createError$response, salaryTypeMap, jobPayload, response, _error$response3, _error$response4, errors, errorMessages, _t5, _t6, _t7;
+      var authToken, userData, currentUser, profileId, profileResponse, createProfileResponse, _createError$response, salaryTypeMap, jobPayload, response, _error$response3, _error$response4, errors, errorMessages, _t5, _t6, _t7;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
             _context3.p = 0;
             authToken = localStorage.getItem("auth_token");
             userData = JSON.parse(localStorage.getItem("user") || '{}'); // Get the correct user ID from the nested structure
-            _currentUser4 = userData.user || userData; // First, let's try to get the profile ID from the backend
+            currentUser = userData.user || userData; // First, let's try to get the profile ID from the backend
             _context3.p = 1;
             _context3.n = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(_currentUser4.id), {
+            return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(currentUser.id), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
@@ -255622,22 +254128,22 @@ var MyPostJob = function MyPostJob() {
           case 3:
             _context3.p = 3;
             _t5 = _context3.v;
-            console.log("Profile not found, creating profile for user:", _currentUser4.id);
+            console.log("Profile not found, creating profile for user:", currentUser.id);
             // Create a profile record for this user
             _context3.p = 4;
             _context3.n = 5;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/api/profiles', {
-              user_id: _currentUser4.id,
-              first_name: _currentUser4.first_name || 'Unknown',
-              last_name: _currentUser4.last_name || 'User',
-              gender_id: _currentUser4.gender_id || 1,
-              contact_number: _currentUser4.contact_number || null,
-              street: _currentUser4.street || null,
-              city: _currentUser4.city || 'Butuan City',
-              province: _currentUser4.province || 'Agusan Del Norte',
-              postal_code: _currentUser4.postal_code || '8600',
-              country: _currentUser4.country || 'Philippines',
-              profile_img: _currentUser4.profile_img || null
+              user_id: currentUser.id,
+              first_name: currentUser.first_name || 'Unknown',
+              last_name: currentUser.last_name || 'User',
+              gender_id: currentUser.gender_id || 1,
+              contact_number: currentUser.contact_number || null,
+              street: currentUser.street || null,
+              city: currentUser.city || 'Butuan City',
+              province: currentUser.province || 'Agusan Del Norte',
+              postal_code: currentUser.postal_code || '8600',
+              country: currentUser.country || 'Philippines',
+              profile_img: currentUser.profile_img || null
             }, {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
@@ -255656,11 +254162,11 @@ var MyPostJob = function MyPostJob() {
             _t6 = _context3.v;
             console.error("Failed to create profile:", ((_createError$response = _t6.response) === null || _createError$response === void 0 ? void 0 : _createError$response.data) || _t6.message);
             // Fallback to user ID
-            profileId = _currentUser4.id;
+            profileId = currentUser.id;
           case 7:
             console.log("User data:", userData);
             console.log("Profile ID:", profileId);
-            console.log("Current user:", _currentUser4);
+            console.log("Current user:", currentUser);
 
             // Map salary types to backend expected values
             salaryTypeMap = {
@@ -255683,10 +254189,10 @@ var MyPostJob = function MyPostJob() {
               job_type: jobData.typeOfEmployment,
               hiring_type: jobData.hiringType,
               team_size: jobData.teamSize || (jobData.hiringType === 'team' ? 2 : 1),
-              work_start: jobData.workStart ? new Date(jobData.workStart).toISOString() : jobData.workStart,
-              work_end: jobData.workEnd ? new Date(jobData.workEnd).toISOString() : jobData.workEnd,
-              application_start: jobData.applicationStart ? new Date(jobData.applicationStart).toISOString() : jobData.applicationStart,
-              application_deadline: jobData.applicationDeadline ? new Date(jobData.applicationDeadline).toISOString() : jobData.applicationDeadline,
+              work_start: (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_7__.convertFromPhilippinesTime)(jobData.workStart),
+              work_end: (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_7__.convertFromPhilippinesTime)(jobData.workEnd),
+              application_start: (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_7__.convertFromPhilippinesTime)(jobData.applicationStart),
+              application_deadline: (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_7__.convertFromPhilippinesTime)(jobData.applicationDeadline),
               street: null,
               city: 'Butuan City',
               province: 'Agusan Del Norte',
@@ -255771,7 +254277,6 @@ var MyPostJob = function MyPostJob() {
   };
 
   // Determine labels based on user role
-  var isContractor = userRole === 4;
 
   // Animated loading dots state
   var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('.'),
@@ -255793,178 +254298,178 @@ var MyPostJob = function MyPostJob() {
     }
   }, [loading]);
   if (loading) {
-    var loadingText = isContractor ? 'Loading post hiring' : 'Loading job posts';
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    var loadingText = 'Loading job posts';
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
       className: "my-post-job-container",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "loading-container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("p", {
           children: [loadingText, loadingDots]
         })
       })
     });
   }
-  var pageTitle = isContractor ? 'My Post Hiring' : 'My Post Job';
-  var addButtonText = isContractor ? 'Add Post Hiring' : 'Add Post Job';
-  var requiresCredentials = userRole === 2 || userRole === 4;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+  var pageTitle = 'My Post Job';
+  var addButtonText = 'Add Post Job';
+  var requiresCredentials = userRole === 2;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: "my-post-job-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "post-job-header",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
         className: "post-job-title",
         children: pageTitle
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
         className: "add-post-job-btn ".concat(!hasCredentials && requiresCredentials ? 'disabled' : ''),
         onClick: handleAddJob,
         disabled: !hasCredentials && requiresCredentials,
-        title: !hasCredentials && requiresCredentials ? 'Please add credentials first' : "Add a new ".concat(isContractor ? 'hiring post' : 'job post'),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
+        title: !hasCredentials && requiresCredentials ? 'Please add credentials first' : 'Add a new job post',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaPlus, {
           className: "btn-icon"
         }), addButtonText]
       })]
-    }), !hasCredentials && requiresCredentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    }), !hasCredentials && requiresCredentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "credentials-requirement-message",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "requirement-icon",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
           viewBox: "0 0 24 24",
           width: "48",
           height: "48",
           fill: "currentColor",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
             d: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zM11 7h2v2h-2V7zm0 4h2v6h-2v-6z"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "requirement-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
           className: "requirement-title",
           children: "Credentials Required"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
           className: "requirement-description",
-          children: ["You need to submit your credentials before you can ", isContractor ? 'post hiring' : 'post jobs', ". This helps build trust with potential workers and ensures a professional working environment."]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
+          children: "You need to submit your credentials before you can post jobs. This helps build trust with potential workers and ensures a professional working environment."
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
           className: "go-to-profile-btn",
           onClick: function onClick() {
             // Navigate to profile settings
             window.location.href = '/profile-settings';
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("svg", {
             viewBox: "0 0 24 24",
             width: "20",
             height: "20",
             fill: "currentColor",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("path", {
               d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
             })
           }), "Go to Profile Settings"]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
       className: "jobs-list",
       children: jobs.length > 0 ? jobs.map(function (job) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "job-card ".concat(job.archived ? 'expired' : ''),
           onClick: function onClick() {
             return handleCardClick(job);
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             className: "job-card-header",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "job-actions",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
                 className: "view-applicants-btn",
                 onClick: function onClick(e) {
                   return handleViewApplicants(job, e);
                 },
                 title: "View Applicants",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUserFriends, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaUserFriends, {
                   className: "action-icon"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
                 className: "edit-job-btn",
                 onClick: function onClick(e) {
                   return handleEditClick(job.id, e);
                 },
                 title: "Edit Job",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaRegEdit, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaRegEdit, {
                   className: "action-icon"
                 })
-              }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              }), job.archived && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                 className: "expired-badge",
                 children: "EXPIRED"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "job-content",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
               className: "job-title",
               children: job.job_title || "Job Post #".concat(job.id)
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "job-metadata",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
                 className: "job-salary",
                 children: ["\u20B1", job.salary.toLocaleString(), "/", job.salary_type === 'per_hour' ? 'hour' : 'month']
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
                 className: "posted-date",
                 children: ["Posted on ", new Date(job.created_at).toLocaleDateString()]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "job-description",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
                 className: "description-title",
                 children: "Job Overview/Description"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                 className: "description-text",
                 children: job.description
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "job-skills",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h4", {
                 className: "skills-title",
                 children: "Skills Required"
               }), job.skills && job.skills.length > 0 ? job.skills.map(function (skill, index) {
                 console.log("Rendering skill:", skill);
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("span", {
                   className: "skill-tag",
                   children: [skill.name, " (", skill.experience, ")"]
                 }, index);
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "skill-tag",
                 children: "No specific skills required"
               })]
             })]
           })]
         }, job.id);
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "empty-state",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "empty-icon",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
             src: "/images/mybooking.svg",
-            alt: isContractor ? "No Hiring Posts" : "No Job Posts"
+            alt: "No Job Posts"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
           className: "empty-title",
-          children: isContractor ? 'No Hiring Posts Yet' : 'No Job Posts Yet'
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
+          children: "No Job Posts Yet"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
           className: "empty-description",
-          children: ["Create your first ", isContractor ? 'hiring post' : 'job post', " to start hiring workers."]
+          children: "Create your first job post to start hiring workers."
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_modalpostjob__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_modalpostjob__WEBPACK_IMPORTED_MODULE_4__["default"], {
       onClose: handleCloseModal,
       onSubmit: handleSubmitJob,
       editingJob: editingJob
-    }), isApplicationsModalOpen && selectedJobForApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), isApplicationsModalOpen && selectedJobForApplications && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_JobApplicationsModal__WEBPACK_IMPORTED_MODULE_5__["default"], {
       jobPostId: selectedJobForApplications.id,
       jobTitle: selectedJobForApplications.job_title,
       onClose: function onClose() {
         setIsApplicationsModalOpen(false);
         setSelectedJobForApplications(null);
       }
-    }), isDetailModalOpen && selectedJobForDetail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_JobDetailModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }), isDetailModalOpen && selectedJobForDetail && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_JobDetailModal__WEBPACK_IMPORTED_MODULE_6__["default"], {
       job: selectedJobForDetail,
       onClose: function onClose() {
         setIsDetailModalOpen(false);
@@ -256354,8 +254859,8 @@ var MyProfile = function MyProfile() {
         };
       }();
       fetchData();
-    } else if (user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2' || (user === null || user === void 0 ? void 0 : user.role_id) === 4 || (user === null || user === void 0 ? void 0 : user.role_id) === '4')) {
-      // Fetch employer or contractor data
+    } else if (user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2')) {
+      // Fetch employer data
       var fetchEmployerData = /*#__PURE__*/function () {
         var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
           var _t3;
@@ -256363,7 +254868,7 @@ var MyProfile = function MyProfile() {
             while (1) switch (_context3.p = _context3.n) {
               case 0:
                 _context3.p = 0;
-                console.log("Fetching ".concat(Number(user === null || user === void 0 ? void 0 : user.role_id) === 4 ? 'contractor' : 'employer', " data for user:"), user.id);
+                console.log('Fetching employer data for user:', user.id);
                 _context3.n = 1;
                 return fetchEmployerProfile(user.id);
               case 1:
@@ -256373,7 +254878,7 @@ var MyProfile = function MyProfile() {
                 _context3.p = 2;
                 _t3 = _context3.v;
                 if (isMounted) {
-                  console.error("Error fetching ".concat(Number(user === null || user === void 0 ? void 0 : user.role_id) === 4 ? 'contractor' : 'employer', " data:"), _t3);
+                  console.error('Error fetching employer data:', _t3);
                 }
               case 3:
                 return _context3.a(2);
@@ -256904,7 +255409,7 @@ var MyProfile = function MyProfile() {
             userData = JSON.parse(localStorage.getItem("user") || '{}');
             currentUser = userData.user || userData;
             roleId = Number(currentUser.role_id);
-            console.log("Fetching ".concat(roleId === 4 ? 'contractor' : 'employer', " profile for ID:"), employerId);
+            console.log('Fetching employer profile for ID:', employerId);
             token = localStorage.getItem("auth_token");
             if (token) {
               _context1.n = 1;
@@ -256912,8 +255417,8 @@ var MyProfile = function MyProfile() {
             }
             return _context1.a(2);
           case 1:
-            // Use appropriate API endpoint based on role
-            apiEndpoint = roleId === 4 ? "http://127.0.0.1:8000/api/contractors/".concat(employerId) : "http://127.0.0.1:8000/api/employers/".concat(employerId);
+            // Use employer API endpoint
+            apiEndpoint = "http://127.0.0.1:8000/api/employers/".concat(employerId);
             _context1.n = 2;
             return fetch(apiEndpoint, {
               method: "GET",
@@ -256923,7 +255428,7 @@ var MyProfile = function MyProfile() {
             });
           case 2:
             response = _context1.v;
-            console.log("".concat(roleId === 4 ? 'Contractor' : 'Employer', " profile response status:"), response.status);
+            console.log('Employer profile response status:', response.status);
             if (!response.ok) {
               _context1.n = 4;
               break;
@@ -256932,15 +255437,15 @@ var MyProfile = function MyProfile() {
             return response.json();
           case 3:
             data = _context1.v;
-            roleData = data.employer || data.contractor || data;
-            console.log("Fetched ".concat(roleId === 4 ? 'contractor' : 'employer', " data:"), roleData);
-            console.log("".concat(roleId === 4 ? 'Contractor' : 'Employer', " record:"), roleData[roleId === 4 ? 'contractor' : 'employer']);
+            roleData = data.employer || data;
+            console.log('Fetched employer data:', roleData);
+            console.log('Employer record:', roleData.employer);
             console.log('Credentials data:', roleData.credentials_name, roleData.credentials_photo);
 
             // Check if we have a record
-            record = roleData[roleId === 4 ? 'contractor' : 'employer'] || roleData;
+            record = roleData.employer || roleData;
             if (record) {
-              console.log("".concat(roleId === 4 ? 'Contractor' : 'Employer', " record credentials:"), record.credentials_name, record.credentials_photo);
+              console.log('Employer record credentials:', record.credentials_name, record.credentials_photo);
 
               // Set credentials from record
               if (record.credentials_name && Array.isArray(record.credentials_name)) {
@@ -256948,7 +255453,7 @@ var MyProfile = function MyProfile() {
                   var _record$credentials_p, _record$credentials_d;
                   var photo = (_record$credentials_p = record.credentials_photo) === null || _record$credentials_p === void 0 ? void 0 : _record$credentials_p[index];
                   var doc = (_record$credentials_d = record.credentials_doc) === null || _record$credentials_d === void 0 ? void 0 : _record$credentials_d[index];
-                  console.log("".concat(roleId === 4 ? 'Contractor' : 'Employer', " Credential ").concat(index, ": name=\"").concat(name, "\", photo=\"").concat(photo, "\", doc=\"").concat(doc, "\""));
+                  console.log("Employer Credential ".concat(index, ": name=\"").concat(name, "\", photo=\"").concat(photo, "\", doc=\"").concat(doc, "\""));
                   return {
                     credentials_name: name,
                     credentials_photo: photo || null,
@@ -256957,14 +255462,14 @@ var MyProfile = function MyProfile() {
                 }).filter(function (cred) {
                   return cred.credentials_name && cred.credentials_name.trim() !== '';
                 }); // Filter out empty/null credentials
-                console.log("Setting ".concat(roleId === 4 ? 'contractor' : 'employer', " credentials from backend:"), creds);
+                console.log('Setting employer credentials from backend:', creds);
                 setEmployerCredentials(creds);
               } else {
-                console.log("No ".concat(roleId === 4 ? 'contractor' : 'employer', " credentials found in backend data"));
+                console.log('No employer credentials found in backend data');
                 setEmployerCredentials([]);
               }
             } else {
-              console.log("No ".concat(roleId === 4 ? 'contractor' : 'employer', " record found"));
+              console.log('No employer record found');
               setEmployerCredentials([]);
             }
           case 4:
@@ -256973,7 +255478,7 @@ var MyProfile = function MyProfile() {
           case 5:
             _context1.p = 5;
             _t1 = _context1.v;
-            console.error("Error fetching ".concat(Number(user === null || user === void 0 ? void 0 : user.role_id) === 4 ? 'contractor' : 'employer', " profile:"), _t1);
+            console.error('Error fetching employer profile:', _t1);
           case 6:
             return _context1.a(2);
         }
@@ -257780,7 +256285,7 @@ var MyProfile = function MyProfile() {
           case 0:
             setIsEditingEmployerCredentials(false);
             // Reload credentials from server
-            if (!(user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2' || (user === null || user === void 0 ? void 0 : user.role_id) === 4 || (user === null || user === void 0 ? void 0 : user.role_id) === '4'))) {
+            if (!(user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2'))) {
               _context17.n = 1;
               break;
             }
@@ -257797,7 +256302,7 @@ var MyProfile = function MyProfile() {
   }();
   var handleRemoveEmployerCredential = /*#__PURE__*/function () {
     var _ref18 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee18(index) {
-      var updatedCredentials, token, formData, roleId, apiEndpoint, response, errorData, _t14;
+      var updatedCredentials, token, formData, apiEndpoint, response, errorData, _t14;
       return _regenerator().w(function (_context18) {
         while (1) switch (_context18.p = _context18.n) {
           case 0:
@@ -257833,9 +256338,8 @@ var MyProfile = function MyProfile() {
               });
             }
 
-            // Use appropriate API endpoint based on role
-            roleId = Number(user === null || user === void 0 ? void 0 : user.role_id);
-            apiEndpoint = roleId === 4 ? "http://127.0.0.1:8000/api/contractors/".concat(user.id, "/update-credentials") : "http://127.0.0.1:8000/api/employers/".concat(user.id, "/update-credentials");
+            // Use employer API endpoint
+            apiEndpoint = "http://127.0.0.1:8000/api/employers/".concat(user.id, "/update-credentials");
             _context18.n = 3;
             return fetch(apiEndpoint, {
               method: "POST",
@@ -257960,7 +256464,7 @@ var MyProfile = function MyProfile() {
   };
   var handleEmployerCredentialsSubmit = /*#__PURE__*/function () {
     var _ref19 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee19() {
-      var token, formData, _iterator2, _step2, pair, roleId, apiEndpoint, response, responseData, errorData, _t15;
+      var token, formData, _iterator2, _step2, pair, apiEndpoint, response, responseData, errorData, _t15;
       return _regenerator().w(function (_context19) {
         while (1) switch (_context19.p = _context19.n) {
           case 0:
@@ -258046,9 +256550,8 @@ var MyProfile = function MyProfile() {
               });
             });
 
-            // Use appropriate API endpoint based on role
-            roleId = Number(user === null || user === void 0 ? void 0 : user.role_id);
-            apiEndpoint = roleId === 4 ? "http://127.0.0.1:8000/api/contractors/".concat(user.id, "/update-credentials") : "http://127.0.0.1:8000/api/employers/".concat(user.id, "/update-credentials");
+            // Use employer API endpoint
+            apiEndpoint = "http://127.0.0.1:8000/api/employers/".concat(user.id, "/update-credentials");
             _context19.n = 5;
             return fetch(apiEndpoint, {
               method: "POST",
@@ -259730,7 +258233,7 @@ var MyProfile = function MyProfile() {
           })]
         })
       })]
-    }), ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2' || (user === null || user === void 0 ? void 0 : user.role_id) === 4 || (user === null || user === void 0 ? void 0 : user.role_id) === '4') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "employer-credentials-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "card-title",
@@ -260048,12 +258551,6 @@ var ProfileSettings = function ProfileSettings() {
               allowedRoles: [2],
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_mypostjob__WEBPACK_IMPORTED_MODULE_5__["default"], {})
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
-            path: "/post-hiring",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(RoleProtectedRoute, {
-              allowedRoles: [4],
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_19__.jsx)(_mypostjob__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-            })
           })]
         })
       })]
@@ -260130,17 +258627,6 @@ var ProfileSettingsSidebar = function ProfileSettingsSidebar() {
       icon: '/images/postjob.svg',
       label: 'Post Job',
       isActive: location.pathname === '/profile-settings/post-job'
-    });
-  }
-
-  // Only add Post Hiring for contractors (role_id 4)
-  if (userRole === 4) {
-    menuItems.push({
-      id: 'post-hiring',
-      path: '/profile-settings/post-hiring',
-      icon: '/images/postjob.svg',
-      label: 'Post Hiring',
-      isActive: location.pathname === '/profile-settings/post-hiring'
     });
   }
   var handleLinkClick = function handleLinkClick(e, path) {
@@ -260448,10 +258934,6 @@ var Register = function Register() {
               setError(errorMessage);
               msgApi.error(errorMessage);
             } else {
-              // Store original role if registering as Contractor (role_id = 4)
-              if (formData.role === 4 || formData.role === '4') {
-                localStorage.setItem('original_role', '4');
-              }
               setFormData({
                 firstName: "",
                 middleName: "",
@@ -260650,6 +259132,230 @@ var Register = function Register() {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Register);
+
+/***/ }),
+
+/***/ "./resources/js/utils/dateUtils.js":
+/*!*****************************************!*\
+  !*** ./resources/js/utils/dateUtils.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   compareWithPhilippinesTime: () => (/* binding */ compareWithPhilippinesTime),
+/* harmony export */   convertFromPhilippinesTime: () => (/* binding */ convertFromPhilippinesTime),
+/* harmony export */   convertToPhilippinesTime: () => (/* binding */ convertToPhilippinesTime),
+/* harmony export */   getCurrentPhilippinesTime: () => (/* binding */ getCurrentPhilippinesTime),
+/* harmony export */   getPhilippinesDate: () => (/* binding */ getPhilippinesDate)
+/* harmony export */ });
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+/**
+ * Date utility functions for Philippines timezone (Asia/Manila, UTC+8)
+ */
+
+/**
+ * Convert a date string from database (UTC) to Philippines time for datetime-local input
+ * @param {string} dateString - Date string from database (UTC)
+ * @returns {string} - Formatted string for datetime-local input (YYYY-MM-DDTHH:mm)
+ */
+var convertToPhilippinesTime = function convertToPhilippinesTime(dateString) {
+  if (!dateString) return '';
+  try {
+    // Parse the date string (assumed to be UTC from database)
+    // The date string represents a moment in time that was stored as UTC
+    // but the actual time value was in Philippines time (UTC+8)
+    var date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      console.warn('Invalid date string:', dateString);
+      return '';
+    }
+
+    // Convert to Philippines time (UTC+8)
+    // Use Intl.DateTimeFormat to get the correct time in Philippines timezone
+    // This ensures we display the time as it was originally entered (in Philippines time)
+    var formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Manila',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+    var parts = formatter.formatToParts(date);
+    var year = parts.find(function (p) {
+      return p.type === 'year';
+    }).value;
+    var month = parts.find(function (p) {
+      return p.type === 'month';
+    }).value;
+    var day = parts.find(function (p) {
+      return p.type === 'day';
+    }).value;
+    var hour = parts.find(function (p) {
+      return p.type === 'hour';
+    }).value;
+    var minute = parts.find(function (p) {
+      return p.type === 'minute';
+    }).value;
+
+    // Return in datetime-local format (YYYY-MM-DDTHH:mm)
+    // This will be displayed in the input field, and we'll treat it as Philippines time when saving
+    return "".concat(year, "-").concat(month, "-").concat(day, "T").concat(hour, ":").concat(minute);
+  } catch (error) {
+    console.error('Error converting date to Philippines time:', error);
+    return '';
+  }
+};
+
+/**
+ * Convert a datetime-local value (assumed to be Philippines time) to ISO string for backend
+ * @param {string} dateTimeLocal - Date string from datetime-local input (YYYY-MM-DDTHH:mm)
+ * @returns {string} - ISO string representing the date in Philippines time
+ */
+var convertFromPhilippinesTime = function convertFromPhilippinesTime(dateTimeLocal) {
+  if (!dateTimeLocal) return null;
+  try {
+    // Parse the datetime-local value (assumed to be in Philippines time)
+    // datetime-local gives us YYYY-MM-DDTHH:mm without timezone
+    // We need to treat this as Philippines time (UTC+8) regardless of user's local timezone
+
+    // Split the datetime-local string
+    var _dateTimeLocal$split = dateTimeLocal.split('T'),
+      _dateTimeLocal$split2 = _slicedToArray(_dateTimeLocal$split, 2),
+      datePart = _dateTimeLocal$split2[0],
+      timePart = _dateTimeLocal$split2[1];
+    if (!datePart || !timePart) {
+      console.warn('Invalid datetime-local format:', dateTimeLocal);
+      return null;
+    }
+
+    // Extract date and time components
+    var _datePart$split$map = datePart.split('-').map(Number),
+      _datePart$split$map2 = _slicedToArray(_datePart$split$map, 3),
+      year = _datePart$split$map2[0],
+      month = _datePart$split$map2[1],
+      day = _datePart$split$map2[2];
+    var _timePart$split$map = timePart.split(':').map(Number),
+      _timePart$split$map2 = _slicedToArray(_timePart$split$map, 2),
+      hour = _timePart$split$map2[0],
+      minute = _timePart$split$map2[1];
+
+    // Create a date object treating the input as Philippines time (UTC+8)
+    // We do this by creating a date string with explicit timezone offset
+    // Format: YYYY-MM-DDTHH:mm:ss+08:00 (Philippines is UTC+8)
+    var dateTimeWithTz = "".concat(year, "-").concat(String(month).padStart(2, '0'), "-").concat(String(day).padStart(2, '0'), "T").concat(String(hour).padStart(2, '0'), ":").concat(String(minute).padStart(2, '0'), ":00+08:00");
+
+    // Parse it - this will create a Date object representing that time in Philippines
+    // The Date object will internally store it as UTC (8 hours earlier)
+    var date = new Date(dateTimeWithTz);
+    if (isNaN(date.getTime())) {
+      console.warn('Invalid date string:', dateTimeLocal);
+      return null;
+    }
+
+    // Return ISO string (this will be in UTC, but represents the correct Philippines time)
+    // For example: if user inputs 2025-04-11T10:15 (Philippines time),
+    // this will return 2025-04-11T02:15:00.000Z (UTC, which is 8 hours earlier)
+    return date.toISOString();
+  } catch (error) {
+    console.error('Error converting date from Philippines time:', error);
+    return null;
+  }
+};
+
+/**
+ * Get current date/time in Philippines timezone for datetime-local input
+ * @returns {string} - Formatted string for datetime-local input (YYYY-MM-DDTHH:mm)
+ */
+var getCurrentPhilippinesTime = function getCurrentPhilippinesTime() {
+  var now = new Date();
+
+  // Use Intl.DateTimeFormat to get the correct time in Philippines timezone
+  var formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Manila',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
+  var parts = formatter.formatToParts(now);
+  var year = parts.find(function (p) {
+    return p.type === 'year';
+  }).value;
+  var month = parts.find(function (p) {
+    return p.type === 'month';
+  }).value;
+  var day = parts.find(function (p) {
+    return p.type === 'day';
+  }).value;
+  var hour = parts.find(function (p) {
+    return p.type === 'hour';
+  }).value;
+  var minute = parts.find(function (p) {
+    return p.type === 'minute';
+  }).value;
+  return "".concat(year, "-").concat(month, "-").concat(day, "T").concat(hour, ":").concat(minute);
+};
+
+/**
+ * Convert database date to Philippines time for display
+ * @param {string} dateString - Date string from database (UTC)
+ * @returns {Date} - Date object representing Philippines time
+ */
+var getPhilippinesDate = function getPhilippinesDate(dateString) {
+  if (!dateString) return null;
+  try {
+    var date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      return null;
+    }
+
+    // Convert to Philippines time for comparison
+    // Create a date string in Philippines timezone format
+    var phTimeString = date.toLocaleString('en-US', {
+      timeZone: 'Asia/Manila'
+    });
+    return new Date(phTimeString);
+  } catch (error) {
+    console.error('Error getting Philippines date:', error);
+    return null;
+  }
+};
+
+/**
+ * Compare current time with a date in Philippines timezone
+ * @param {string} dateString - Date string from database (UTC)
+ * @returns {number} - Difference in milliseconds (positive if date is in future)
+ */
+var compareWithPhilippinesTime = function compareWithPhilippinesTime(dateString) {
+  if (!dateString) return 0;
+  try {
+    var dbDate = new Date(dateString);
+    var now = new Date();
+
+    // Get both dates in Philippines timezone for accurate comparison
+    var phDbDate = new Date(dbDate.toLocaleString('en-US', {
+      timeZone: 'Asia/Manila'
+    }));
+    var phNow = new Date(now.toLocaleString('en-US', {
+      timeZone: 'Asia/Manila'
+    }));
+    return phDbDate.getTime() - phNow.getTime();
+  } catch (error) {
+    console.error('Error comparing dates:', error);
+    return 0;
+  }
+};
 
 /***/ }),
 

@@ -7,6 +7,7 @@ use App\Models\JobPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\NotificationController;
+use Carbon\Carbon;
 
 class JobApplicationController extends Controller
 {
@@ -59,6 +60,33 @@ class JobApplicationController extends Controller
             return response()->json(['message' => 'You have already applied for this job'], 400);
         }
 
+        // Check if job is still accepting applications (using Philippines time)
+        $jobPost = JobPost::find($request->job_post_id);
+        if (!$jobPost) {
+            return response()->json(['message' => 'Job post not found'], 404);
+        }
+
+        // Get current time in Philippines timezone
+        $now = Carbon::now('Asia/Manila');
+        
+        // Parse job dates and convert to Philippines timezone for comparison
+        // Database stores in UTC, so we need to convert to Philippines time for accurate comparison
+        $applicationStart = Carbon::parse($jobPost->application_start, 'UTC')->setTimezone('Asia/Manila');
+        $applicationDeadline = Carbon::parse($jobPost->application_deadline, 'UTC')->setTimezone('Asia/Manila');
+
+        // Check if application period has started
+        if ($now < $applicationStart) {
+            $startDateStr = $applicationStart->format('F j, Y g:i A');
+            return response()->json([
+                'message' => "Applications have not started yet. They will start on {$startDateStr} (Philippines time)."
+            ], 400);
+        }
+
+        // Check if application deadline has passed
+        if ($now > $applicationDeadline) {
+            return response()->json(['message' => 'Application deadline has passed.'], 400);
+        }
+
         // Handle resume upload
         $resumePath = null;
         if ($request->hasFile('resume')) {
@@ -84,7 +112,6 @@ class JobApplicationController extends Controller
         }]);
 
         // Notify job owner about new application
-        $jobPost = JobPost::find($request->job_post_id);
         if ($jobPost && $jobPost->profile_id) {
             NotificationController::createNotification(
                 $jobPost->profile_id,
