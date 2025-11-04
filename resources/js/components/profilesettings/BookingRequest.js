@@ -230,7 +230,7 @@ const BookingRequest = () => {
       });
 
       if (response.data.success) {
-        message.success("Review submitted successfully");
+        message.success(response.data.message || "Review submitted successfully");
         setIsFeedbackModalOpen(false);
         setSelectedWorker(null);
         fetchBookings();
@@ -239,7 +239,11 @@ const BookingRequest = () => {
       }
     } catch (error) {
       console.error("Error submitting review:", error.response?.data || error.message);
-      message.error("Failed to submit review");
+      if (error.response?.status === 400) {
+        message.error(error.response.data?.message || "Failed to submit review. Please try again.");
+      } else {
+        message.error(error.response?.data?.message || "Failed to submit review");
+      }
     }
   };
 

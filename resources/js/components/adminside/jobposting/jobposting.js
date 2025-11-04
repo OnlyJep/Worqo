@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { message } from "antd";
@@ -52,6 +52,32 @@ const getProfileName = (profile) => {
   const name = fullName.trim() || "N/A";
   console.log("Profile name generated:", name, "from profile:", profile);
   return name;
+};
+
+const getProfileImageSrc = (profileImg) => {
+  // Handle null, undefined, or empty string
+  if (!profileImg || profileImg.trim() === '') {
+    return "/images/default-profile.svg";
+  }
+  
+  // If it's already a full URL, return as is
+  if (profileImg.startsWith("http://") || profileImg.startsWith("https://")) {
+    return profileImg;
+  }
+  
+  // If it starts with /storage, it's already a complete path
+  if (profileImg.startsWith("/storage")) {
+    return `http://127.0.0.1:8000${profileImg}`;
+  }
+  
+  // If it starts with "profiles/", it's the storage path format (e.g., "profiles/filename.jpg")
+  // Laravel storage link maps storage/app/public to public/storage
+  if (profileImg.startsWith("profiles/")) {
+    return `http://127.0.0.1:8000/storage/${profileImg}`;
+  }
+  
+  // If it's just a filename or other format, try the profiles directory
+  return `http://127.0.0.1:8000/storage/profiles/${profileImg}`;
 };
 
 const JobPostTable = () => {
@@ -159,6 +185,7 @@ const JobPostTable = () => {
               id: employer.id,
               company_name: employer.profile?.first_name + ' ' + employer.profile?.last_name || 'N/A',
               profile_id: employer.profile?.id || null,
+              profile_img: employer.profile?.profile_img || null,
               contact_number: employer.profile?.contact_number || 'N/A',
               archived: employer.archived || false,
               parsed_profile_ids: [employer.profile?.id?.toString()].filter(Boolean)
@@ -288,10 +315,30 @@ const JobPostTable = () => {
     setIsModalOpen(true);
   };
 
-  const handleEditClick = (post) => {
-    setPostToEdit(post);
+  const handleEditClick = async (post) => {
+    try {
+      // Fetch full job post details with profile/employer relationship
+      const response = await axios.get(`http://127.0.0.1:8000/api/jobposts/${post.id}`);
+      const fullPostData = response.data;
+      
+      // Map profile_id to company_id (employer user id)
+      // The profile belongs to a user, and we need to find the employer/user that owns this profile
+      if (fullPostData.profile_id) {
+        // Find the employer/user that has this profile_id
+        // companies is an object where keys are employer IDs
+        const employerEntry = Object.values(companies).find(emp => emp.profile_id === fullPostData.profile_id);
+        if (employerEntry) {
+          fullPostData.company_id = employerEntry.id;
+        }
+      }
+      
+      setPostToEdit(fullPostData);
     setIsEditMode(true);
     setIsModalOpen(true);
+    } catch (error) {
+      console.error("Error fetching job post details:", error);
+      message.error("Failed to fetch job post details. Please try again.");
+    }
   };
 
   const handleModalClose = () => {
@@ -454,7 +501,8 @@ const JobPostTable = () => {
                       </div>
                     </th>
                     <th>ID</th>
-                    <th>Profile ID</th>
+                    <th>Profile</th>
+                    <th>Employer Name</th>
                     <th>Job Title</th>
                     <th>Skills</th>
                     <th>Skill Experiences</th>
@@ -468,7 +516,6 @@ const JobPostTable = () => {
                     <th>Work End</th>
                     <th>Application Start</th>
                     <th>Application Deadline</th>
-                    <th>Archived</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                   </tr>
@@ -507,7 +554,84 @@ const JobPostTable = () => {
                           </div>
                         </td>
                         <td>{post.id || "N/A"}</td>
-                        <td>{post.profile_id || "N/A"}</td>
+                        <td>
+                          {(() => {
+                            // Use profile from job post directly, or find from profiles state, or find employer
+                            let profileImg = null;
+                            
+                            // First, try to get profile_img from the job post's profile relationship
+                            if (post.profile && post.profile.profile_img) {
+                              profileImg = post.profile.profile_img;
+                            } 
+                            // Second, try to find profile from profiles state using profile_id
+                            else if (post.profile_id && profiles[post.profile_id] && profiles[post.profile_id].profile_img) {
+                              profileImg = profiles[post.profile_id].profile_img;
+                            }
+                            // Third, try to find employer by profile_id
+                            else {
+                              const employer = Object.values(companies).find(emp => emp.profile_id === post.profile_id);
+                              if (employer && employer.profile_img) {
+                                profileImg = employer.profile_img;
+                              }
+                            }
+                            
+                                                                                     
+                            if (profileImg) {
+                              return (
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                  <img 
+                                    src={getProfileImageSrc(profileImg)} 
+                                    alt="Employer Profile" 
+                                    style={{ 
+                                      width: '40px', 
+                                      height: '40px', 
+                                      borderRadius: '50%', 
+                                      objectFit: 'cover',
+                                      border: '2px solid #e2e8f0'
+                                    }}
+                                    onError={(e) => {
+                                      e.target.src = "/images/default-profile.svg";
+                                    }}
+                                  />
+                                </div>
+                              );
+                            }
+                            return "N/A";
+                          })()}
+                        </td>
+                        <td>
+                          {(() => {
+                            // Use profile from job post directly, or find from profiles state, or find employer
+                            let employerName = null;
+                            
+                            // First, try to get name from the job post's profile relationship
+                            if (post.profile) {
+                              const profile = post.profile;
+                              const firstName = profile.first_name || '';
+                              const middleName = profile.middlename ? profile.middlename + ' ' : '';
+                              const lastName = profile.last_name || '';
+                              const suffix = profile.suffix_name ? ' ' + profile.suffix_name : '';
+                              employerName = `${firstName} ${middleName}${lastName}${suffix}`.trim() || null;
+                            }
+                            // Second, try to find profile from profiles state
+                            if (!employerName && post.profile_id && profiles[post.profile_id]) {
+                              const profile = profiles[post.profile_id];
+                              const firstName = profile.first_name || '';
+                              const middleName = profile.middlename ? profile.middlename + ' ' : '';
+                              const lastName = profile.last_name || '';
+                              employerName = `${firstName} ${middleName}${lastName}`.trim() || null;
+                            }
+                            // Third, try to find employer by profile_id
+                            if (!employerName) {
+                              const employer = Object.values(companies).find(emp => emp.profile_id === post.profile_id);
+                              if (employer) {
+                                employerName = employer.company_name;
+                              }
+                            }
+                            
+                            return employerName || "N/A";
+                          })()}
+                        </td>
                         <td>{post.job_title || "N/A"}</td>
                         <td className="skills-cell">
                           {Array.isArray(post.skills) && post.skills.length > 0 ? (
@@ -580,14 +704,13 @@ const JobPostTable = () => {
                         <td>{formatDate(post.work_end)}</td>
                         <td>{formatDate(post.application_start)}</td>
                         <td>{formatDate(post.application_deadline)}</td>
-                        <td>{post.archived ? "Yes" : "No"}</td>
                         <td>{formatDate(post.created_at)}</td>
                         <td>{formatDate(post.updated_at)}</td>
                       </tr>
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="21">No {showArchived ? "archived" : "active"} post jobs found</td>
+                      <td colSpan="20">No {showArchived ? "archived" : "active"} post jobs found</td>
                     </tr>
                   )}
                 </tbody>

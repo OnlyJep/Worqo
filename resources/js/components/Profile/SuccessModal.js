@@ -7,12 +7,10 @@ const SuccessModal = ({ isOpen, onClose }) => {
   return (
     <div className="profile-success-modal-overlay">
       <div className="profile-success-modal">
-        <h2>🎉 Booking Successful!</h2>
+        <h2>Booking Successful!</h2>
         <div className="profile-success-modal-content">
           <div className="profile-success-form-group">
             <p>Your booking request has been sent successfully!</p>
-            <p>The worker will be notified and can accept or decline your request.</p>
-            <p><strong>Status:</strong> Pending approval</p>
           </div>
         </div>
         <div className="profile-success-modal-buttons">

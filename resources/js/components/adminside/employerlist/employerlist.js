@@ -199,27 +199,33 @@ const EmployerList = () => {
     try {
       const response = await axios.get(`/api/employers/${employer.id}`, { timeout: 5000 });
       console.log("Fetched employer data:", response.data); // Debug API response
+      
+      // API returns { employer: { id, email, username, profile: {...}, employer: {...} } }
+      const employerData = response.data.employer || response.data;
+      const profileData = employerData.profile || {};
+      const employerRecord = employerData.employer || {};
+      
       setEmployerToEdit({
-        id: response.data.id,
-        company_name: response.data.employer?.company_name || "",
-        company_phone: response.data.employer?.company_phone || "",
-        company_email: response.data.employer?.company_email || "",
-        company_address: response.data.employer?.company_address || "",
-        email: response.data.email || "",
-        username: response.data.username || "",
-        first_name: response.data.profile?.first_name || "",
-        middlename: response.data.profile?.middlename || "",
-        last_name: response.data.profile?.last_name || "",
-        suffix_id: response.data.profile?.suffix_id || "",
-        gender_id: response.data.profile?.gender_id || "",
-        contact_number: response.data.profile?.contact_number || "",
-        street: response.data.profile?.street || "",
-        city: response.data.profile?.city || "Butuan City",
-        province: response.data.profile?.province || "Agusan Del Norte",
-        postal_code: response.data.profile?.postal_code || "8600",
-        country: response.data.profile?.country || "Philippines",
+        id: employerData.id,
+        company_name: employerRecord.company_name || "",
+        company_phone: employerRecord.company_phone || "",
+        company_email: employerRecord.company_email || "",
+        company_address: employerRecord.company_address || "",
+        email: employerData.email || "",
+        username: employerData.username || "",
+        first_name: profileData.first_name || "",
+        middlename: profileData.middlename || "",
+        last_name: profileData.last_name || "",
+        suffix_id: profileData.suffix_id || "",
+        gender_id: profileData.gender_id || "",
+        contact_number: profileData.contact_number || "",
+        street: profileData.street || "",
+        city: profileData.city || "Butuan City",
+        province: profileData.province || "Agusan Del Norte",
+        postal_code: profileData.postal_code || "8600",
+        country: profileData.country || "Philippines",
         role_id: "2",
-        profile_img: null,
+        profile_img: profileData.profile_img || null,
       });
       setIsEditMode(true);
       setIsModalOpen(true);

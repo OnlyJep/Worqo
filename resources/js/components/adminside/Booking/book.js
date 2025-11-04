@@ -516,6 +516,28 @@ const Book = () => {
                       </td>
                       <td data-label="Worker Name">
                         <div className="worker-info">
+                          <img 
+                            src={(() => {
+                              const profileImg = book?.worker?.profile?.profile_img;
+                              if (profileImg && profileImg !== 'img/defaultpfp.jpg' && profileImg !== 'profiles/defaultpfp.jpg') {
+                                const cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
+                                return `http://127.0.0.1:8000/storage/${cleanPath}`;
+                              }
+                              return "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                            })()}
+                            alt="Worker Profile"
+                            style={{ 
+                              width: "40px", 
+                              height: "40px", 
+                              borderRadius: "50%", 
+                              objectFit: "cover",
+                              marginRight: "8px"
+                            }}
+                            onError={(e) => {
+                              e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                            }}
+                            loading="lazy"
+                          />
                           <div className="name">
                             {book.worker?.profile ? 
                               `${book.worker.profile.first_name || ''} ${book.worker.profile.last_name || ''}`.trim() || "N/A" 

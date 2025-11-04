@@ -31,7 +31,17 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
       setLoading(true);
       const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/job/${jobPostId}`);
       console.log('Applications API Response:', response.data);
-      setApplications(response.data);
+      
+      // Ensure worker data and profile_img are properly set
+      const applicationsData = Array.isArray(response.data) ? response.data : [];
+      const processedApplications = applicationsData.map(app => {
+        if (app.worker && !app.worker.profile_img) {
+          console.warn('Worker missing profile_img:', app.worker);
+        }
+        return app;
+      });
+      
+      setApplications(processedApplications);
     } catch (error) {
       console.error('Error fetching applications:', error);
       setApplications([]);
@@ -119,15 +129,20 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
                     <div className="worker-info" onClick={() => handleViewApplicationDetails(application)} style={{ cursor: 'pointer' }}>
                       <div className="worker-avatar">
                         <img 
-                          src={application.worker.profile_img && application.worker.profile_img !== 'img/defaultpfp.jpg' 
-                            ? `http://127.0.0.1:8000/storage/${application.worker.profile_img}?v=${Date.now()}` 
-                            : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg"
-                          } 
-                          alt={`${getWorkerName(application.worker)}'s avatar`}
+                          src={(() => {
+                            const profileImg = application?.worker?.profile_img;
+                            if (profileImg && profileImg !== 'img/defaultpfp.jpg' && profileImg !== 'profiles/defaultpfp.jpg') {
+                              const cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
+                              return `http://127.0.0.1:8000/storage/${cleanPath}`;
+                            }
+                            return "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                          })()}
+                          alt={`${getWorkerName(application.worker || {})}'s avatar`}
                           className="profile-image"
                           onError={(e) => {
                             e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
                           }}
+                          loading="lazy"
                         />
                       </div>
                       <div className="worker-details">

@@ -72,19 +72,19 @@
   
     .dropdown-menu {
       position: absolute;
-      top: 100%;
+      top: calc(100% + 2px);
       left: 0;
       right: 0;
+      width: 100%;
       background: #ffffff;
       border: 1px solid #d1d5db;
-      border-top: none;
-      border-radius: 0 0 8px 8px;
+      border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       z-index: 1001;
-      margin-top: -1px;
       display: block;
       max-height: 250px;
       overflow: hidden;
+      margin-top: 0;
   
       .dropdown-search-container {
         padding: 10px;

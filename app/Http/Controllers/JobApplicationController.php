@@ -19,8 +19,21 @@ class JobApplicationController extends Controller
         $applications = JobApplication::where('job_post_id', $jobPostId)
             ->with([
                 'worker' => function ($query) {
-                    $query->select('profiles.id', 'profiles.user_id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'city', 'province', 'suffixes.suffix_name')
-                          ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+                    $query->select(
+                        'profiles.id', 
+                        'profiles.user_id', 
+                        'profiles.first_name', 
+                        'profiles.middlename', 
+                        'profiles.last_name', 
+                        'profiles.gender_id', 
+                        'profiles.suffix_id', 
+                        'profiles.profile_img', 
+                        'profiles.city', 
+                        'profiles.province'
+                    )
+                    ->with(['suffix' => function ($q) {
+                        $q->select('id', 'suffix_name');
+                    }]);
                 },
                 'worker.user' => function ($query) {
                     $query->select('id', 'email');
@@ -28,6 +41,22 @@ class JobApplicationController extends Controller
             ])
             ->orderBy('created_at', 'desc')
             ->get();
+
+        // Transform to ensure profile_img is always accessible and add suffix_name
+        $applications->transform(function ($application) {
+            if ($application->worker) {
+                // Ensure profile_img is set (can be null, that's fine)
+                $application->worker->profile_img = $application->worker->profile_img ?? null;
+                
+                // Add suffix_name from the suffix relationship
+                if ($application->worker->suffix) {
+                    $application->worker->suffix_name = $application->worker->suffix->suffix_name;
+                } else {
+                    $application->worker->suffix_name = null;
+                }
+            }
+            return $application;
+        });
 
         return response()->json($applications);
     }
@@ -107,9 +136,16 @@ class JobApplicationController extends Controller
         ]);
 
         $application->load(['worker' => function ($query) {
-            $query->select('profiles.id', 'profiles.user_id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'profile_img', 'suffixes.suffix_name')
-                  ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+            $query->select('profiles.id', 'profiles.user_id', 'profiles.first_name', 'profiles.middlename', 'profiles.last_name', 'profiles.gender_id', 'profiles.suffix_id', 'profiles.profile_img', 'profiles.city', 'profiles.province')
+                  ->with(['suffix' => function ($q) {
+                      $q->select('id', 'suffix_name');
+                  }]);
         }]);
+
+        // Add suffix_name if suffix relationship exists
+        if ($application->worker && $application->worker->suffix) {
+            $application->worker->suffix_name = $application->worker->suffix->suffix_name;
+        }
 
         // Notify job owner about new application
         if ($jobPost && $jobPost->profile_id) {
@@ -201,9 +237,16 @@ class JobApplicationController extends Controller
             \Log::info('Application saved successfully');
 
             $application->load(['worker' => function ($query) {
-                $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
-                      ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+                $query->select('profiles.id', 'profiles.user_id', 'profiles.first_name', 'profiles.middlename', 'profiles.last_name', 'profiles.gender_id', 'profiles.suffix_id', 'profiles.profile_img', 'profiles.city', 'profiles.province')
+                      ->with(['suffix' => function ($q) {
+                          $q->select('id', 'suffix_name');
+                      }]);
             }]);
+
+            // Add suffix_name if suffix relationship exists
+            if ($application->worker && $application->worker->suffix) {
+                $application->worker->suffix_name = $application->worker->suffix->suffix_name;
+            }
 
             return response()->json($application);
             
@@ -245,9 +288,16 @@ class JobApplicationController extends Controller
         $application->update(['status' => $request->status]);
 
         $application->load(['worker' => function ($query) {
-            $query->select('profiles.id', 'first_name', 'middlename', 'last_name', 'gender_id', 'suffix_id', 'suffixes.suffix_name')
-                  ->leftJoin('suffixes', 'profiles.suffix_id', '=', 'suffixes.id');
+            $query->select('profiles.id', 'profiles.user_id', 'profiles.first_name', 'profiles.middlename', 'profiles.last_name', 'profiles.gender_id', 'profiles.suffix_id', 'profiles.profile_img', 'profiles.city', 'profiles.province')
+                  ->with(['suffix' => function ($q) {
+                      $q->select('id', 'suffix_name');
+                  }]);
         }]);
+
+        // Add suffix_name if suffix relationship exists
+        if ($application->worker && $application->worker->suffix) {
+            $application->worker->suffix_name = $application->worker->suffix->suffix_name;
+        }
 
         return response()->json($application);
     }

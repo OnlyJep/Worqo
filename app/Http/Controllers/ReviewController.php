@@ -70,16 +70,27 @@ class ReviewController extends Controller
                         $fail('Users cannot review themselves.');
                     }
                     
-                    // Check for existing review
-                    $existingReview = Review::where('user_id', $value)
-                        ->where('reviewed_user_id', $request->reviewed_user_id)
-                        ->where('archived', false)
-                        ->first();
-                    if ($existingReview) {
-                        $fail('A review already exists for this user combination.');
+                    // If booking_id is provided, check for review by booking_id
+                    // Otherwise, check by user combination (for backward compatibility)
+                    if ($request->booking_id) {
+                        $existingReview = Review::where('booking_id', $request->booking_id)
+                            ->where('archived', false)
+                            ->first();
+                        if ($existingReview) {
+                            $fail('A review already exists for this booking.');
+                        }
+                    } else {
+                        $existingReview = Review::where('user_id', $value)
+                            ->where('reviewed_user_id', $request->reviewed_user_id)
+                            ->where('archived', false)
+                            ->first();
+                        if ($existingReview) {
+                            $fail('A review already exists for this user combination.');
+                        }
                     }
                 },
             ],
+            'booking_id' => 'nullable|exists:bookings,id',
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'nullable|string|max:1000',
         ]);
@@ -87,12 +98,13 @@ class ReviewController extends Controller
         $review = Review::create([
             'user_id' => $validated['user_id'],
             'reviewed_user_id' => $validated['reviewed_user_id'],
+            'booking_id' => $validated['booking_id'] ?? null,
             'rating' => $validated['rating'],
             'comment' => $validated['comment'],
             'archived' => false,
         ]);
 
-        return response()->json($review->load(['user', 'reviewedUser']), 201);
+        return response()->json($review->load(['user', 'reviewedUser', 'booking']), 201);
     }
 
     public function update(Request $request, $id)
@@ -112,6 +124,7 @@ class ReviewController extends Controller
                 },
             ],
             'user_id' => 'required|exists:users,id',
+            'booking_id' => 'nullable|exists:bookings,id',
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'nullable|string|max:1000',
         ]);
@@ -119,6 +132,7 @@ class ReviewController extends Controller
         $review->update([
             'user_id' => $validated['user_id'],
             'reviewed_user_id' => $validated['reviewed_user_id'],
+            'booking_id' => $validated['booking_id'] ?? $review->booking_id,
             'rating' => $validated['rating'],
             'comment' => $validated['comment'],
         ]);

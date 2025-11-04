@@ -531,7 +531,7 @@ const MyBookings = () => {
       );
 
       if (response.data.success) {
-        message.success("Feedback submitted successfully");
+        message.success(response.data.message || "Feedback submitted successfully");
         setIsFeedbackModalOpen(false);
         setSelectedWorker(null);
         // Refresh bookings to update has_review status
@@ -549,7 +549,7 @@ const MyBookings = () => {
       } else if (error.response?.status === 403) {
         message.error("You are not authorized to review this booking");
       } else if (error.response?.status === 400) {
-        message.error(error.response.data.message || "Invalid request. Please check the booking status.");
+        message.error(error.response.data?.message || "Invalid request. Please check the booking status.");
       } else {
         message.error(error.response?.data?.message || "Failed to submit review. Please try again.");
       }
@@ -936,8 +936,7 @@ const MyBookings = () => {
                             >
                               View Transaction
                             </button>
-                            {/* Show Give Feedback button if no review exists or has_review is not set */}
-                            {(!booking.has_review || booking.has_review === false || booking.has_review === undefined) && (
+                            {!booking.has_review && (
                               <button 
                                 className="booking-give-feedback-btn"
                                 onClick={(e) => {

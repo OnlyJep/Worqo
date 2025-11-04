@@ -38,7 +38,17 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
       setLoading(true);
       const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/job/${jobPostId}`);
       console.log('Applications API Response:', response.data);
-      setApplications(response.data);
+      
+      // Ensure worker data and profile_img are properly set
+      const applicationsData = Array.isArray(response.data) ? response.data : [];
+      const processedApplications = applicationsData.map(app => {
+        if (app.worker && !app.worker.profile_img) {
+          console.warn('Worker missing profile_img:', app.worker);
+        }
+        return app;
+      });
+      
+      setApplications(processedApplications);
     } catch (error) {
       console.error('Error fetching applications:', error);
       setApplications([]);
@@ -214,24 +224,34 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
             </div>
 
             <div className="applications-list">
-              {filteredApplications.map((application) => (
-                <div key={application.id} className="application-card">
-                  <div className="application-header">
-                    <div className="worker-info">
-                      <div className="avatar-container">
-                        <div className="avatar-placeholder">
-                          <img 
-                            src={application.worker.profile_img && application.worker.profile_img !== 'img/defaultpfp.jpg' 
-                              ? `http://127.0.0.1:8000/storage/${application.worker.profile_img}?v=${Date.now()}` 
-                              : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg"
-                            } 
-                            alt={`${getWorkerName(application.worker)}'s avatar`}
-                            onError={(e) => {
-                              e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
-                            }}
-                          />
+              {filteredApplications.map((application) => {
+                // Get worker profile image with proper fallback
+                const getProfileImageSrc = () => {
+                  const profileImg = application?.worker?.profile_img;
+                  if (!profileImg || profileImg === 'img/defaultpfp.jpg' || profileImg === 'profiles/defaultpfp.jpg') {
+                    return "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                  }
+                  // Remove leading slash if present and construct proper path
+                  const cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
+                  return `http://127.0.0.1:8000/storage/${cleanPath}`;
+                };
+
+                return (
+                  <div key={application.id} className="application-card">
+                    <div className="application-header">
+                      <div className="worker-info">
+                        <div className="avatar-container">
+                          <div className="avatar-placeholder">
+                            <img 
+                              src={getProfileImageSrc()}
+                              alt={`${getWorkerName(application.worker || {})}'s avatar`}
+                              onError={(e) => {
+                                e.target.src = "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg";
+                              }}
+                              loading="lazy"
+                            />
+                          </div>
                         </div>
-                      </div>
                       <div className="worker-details">
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <h4 className="worker-name">{getWorkerName(application.worker)}</h4>
@@ -323,20 +343,6 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                         </button>
                       </div>
                     )}
-                    {application.status === 'declined' && (
-                      <div className="application-actions">
-                        <button 
-                          className="accept-btn"
-                          onClick={() => openConfirm(application, 'accepted')}
-                          title="Accept/Hire this worker"
-                        >
-                          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
-                          </svg>
-                          Accept
-                        </button>
-                      </div>
-                    )}
                   </div>
                       </div>
                     </div>
@@ -381,8 +387,9 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                     </div>
                   )}
 
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </div>
           </>
         )}

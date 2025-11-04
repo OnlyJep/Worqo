@@ -38,6 +38,17 @@ const getFullName = (person) => {
   return result;
 };
 
+const calculatePoints = (rating) => {
+  // Points = Rating * 5,000
+  // Rating can be 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, or 5.0
+  if (!rating || rating < 1 || rating > 5) return 0;
+  return Math.round(rating * 5000);
+};
+
+const formatPoints = (points) => {
+  return points.toLocaleString('en-US');
+};
+
 const ReviewsTable = () => {
   const [reviews, setReviews] = useState([]);
   const [employers, setEmployers] = useState([]);
@@ -478,6 +489,7 @@ const ReviewsTable = () => {
                   <th>Reviewer</th>
                   <th>Reviewed User</th>
                   <th>Rating</th>
+                  <th>Points</th>
                   <th>Comment</th>
                   <th>Created At</th>
                   <th>Updated At</th>
@@ -519,6 +531,7 @@ const ReviewsTable = () => {
                       <td className="reviewer-cell">{getFullName(review.user)}</td>
                       <td className="reviewed-user-cell">{getFullName(review.reviewedUser)}</td>
                       <td className="rating-cell">{renderStars(review.rating)}</td>
+                      <td className="points-cell">{formatPoints(calculatePoints(review.rating))}</td>
                       <td className="comment-cell">{review.comment || "N/A"}</td>
                       <td>{formatDate(review.created_at)}</td>
                       <td>{formatDate(review.updated_at)}</td>
@@ -526,7 +539,7 @@ const ReviewsTable = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="7">No {showArchived ? "archived" : "active"} reviews found</td>
+                    <td colSpan="8">No {showArchived ? "archived" : "active"} reviews found</td>
                   </tr>
                 )}
               </tbody>

@@ -557,16 +557,25 @@ const Profile = ({ initialServiceType }) => {
   const fetchWorkerRank = async (points) => {
     try {
       if (points >= 0) {
+        // Fetch only active (non-archived) ranks for badge display
         const response = await axios.get('/api/ranks', {
+          params: {
+            archived: false,
+            limit: 100
+          },
           headers: { Accept: "application/json" }
         });
         
-        // Get all ranks sorted by min_points
-        const ranks = (response.data.ranks || []).sort((a, b) => a.min_points - b.min_points);
+        // Get all ranks and filter out archived ones
+        let ranks = (response.data.ranks || []).filter(rank => !rank.archived);
+        
+        // Sort ranks by min_points (lowest to highest)
+        ranks.sort((a, b) => (a.min_points || 0) - (b.min_points || 0));
         
         // Find the rank where points fall within the range
+        // We iterate from highest to lowest to find the highest rank the worker qualifies for
         let matchedRank = null;
-        for (let i = 0; i < ranks.length; i++) {
+        for (let i = ranks.length - 1; i >= 0; i--) {
           const rank = ranks[i];
           const minPoints = rank.min_points || 0;
           const maxPoints = rank.max_points;
@@ -575,6 +584,7 @@ const Profile = ({ initialServiceType }) => {
             // This is the highest rank (no max limit)
             if (points >= minPoints) {
               matchedRank = rank;
+              break;
             }
           } else {
             // Check if points fall within this rank's range
@@ -585,26 +595,59 @@ const Profile = ({ initialServiceType }) => {
           }
         }
         
+        // If no rank matched but worker has points, assign the highest rank they qualify for
+        if (!matchedRank && points > 0 && ranks.length > 0) {
+          // Find the highest rank where worker meets minimum points
+          for (let i = ranks.length - 1; i >= 0; i--) {
+            if (points >= (ranks[i].min_points || 0)) {
+              matchedRank = ranks[i];
+              break;
+            }
+          }
+        }
+        
         if (matchedRank) {
-          setWorkerRank(matchedRank);
+          // Store only rank image and name
+          setWorkerRank({
+            image: matchedRank.image,
+            name: matchedRank.name,
+            min_points: matchedRank.min_points, // Keep for progress calculation
+            max_points: matchedRank.max_points   // Keep for progress calculation
+          });
           
-          // Calculate progress toward next rank
+          // Calculate progress percentage within current rank range
+          // Based on correct rank ranges:
+          // Bronze = 0 – 49,999 pts
+          // Silver = 50,000 – 99,999 pts
+          // Gold = 100,000 – 199,999 pts
+          // Platinum = 200,000 – 349,999 pts
+          // Diamond = 350,000 pts and above
           const currentMinPoints = matchedRank.min_points || 0;
           const currentMaxPoints = matchedRank.max_points;
           
           if (currentMaxPoints !== null && currentMaxPoints !== undefined) {
-            const rangeSize = currentMaxPoints - currentMinPoints;
+            const rangeSize = currentMaxPoints - currentMinPoints + 1; // +1 to include both endpoints
             const pointsInRange = points - currentMinPoints;
             const progress = Math.min(100, Math.max(0, (pointsInRange / rangeSize) * 100));
             setProgressPercent(progress);
           } else {
-            // Highest rank - always at 100%
-            setProgressPercent(100);
+            // If it's the highest rank (Diamond), calculate progress based on minimum threshold
+            const minPoints = matchedRank.min_points || 350000;
+            // For Diamond, show progress beyond 350k (e.g., up to 500k for visual reference)
+            const referenceMax = minPoints + 150000; // Show progress up to 500k
+            const progress = Math.min(100, ((points - minPoints) / 150000) * 100);
+            setProgressPercent(progress);
           }
         } else if (ranks.length > 0) {
           // If no rank matched and points are 0, use first rank (Bronze)
           matchedRank = ranks[0];
-          setWorkerRank(matchedRank);
+          // Store only rank image and name
+          setWorkerRank({
+            image: matchedRank.image,
+            name: matchedRank.name,
+            min_points: matchedRank.min_points,
+            max_points: matchedRank.max_points
+          });
           setProgressPercent(0);
         }
       }
@@ -984,7 +1027,7 @@ const Profile = ({ initialServiceType }) => {
                     ></div>
                   </div>
                   <span className="profile-progress-label">
-                    {workerRank.max_points 
+                    {workerRank.max_points !== null && workerRank.max_points !== undefined
                       ? `${totalPoints.toLocaleString()} / ${workerRank.max_points.toLocaleString()}`
                       : `${totalPoints.toLocaleString()} pts`
                     }
@@ -998,25 +1041,46 @@ const Profile = ({ initialServiceType }) => {
             )}
           </div>
           <div className="profile-stats">
-            <div className="profile-stat-item">
-              <span className="profile-stat-label">Preferred Working Days</span>
-              <span className="profile-stat-number">
-                {Array.isArray(worker.preferred_working_days) && worker.preferred_working_days.length > 0 
-                  ? worker.preferred_working_days.join(', ').replace(/\b\w/g, l => l.toUpperCase())
-                  : 'Not specified'
-                }
-              </span>
+            <div className="profile-stats-header">
+              <h3>Working Information</h3>
             </div>
-            <div className="profile-stat-item">
-              <span className="profile-stat-label">Hours/Day</span>
-              <span className="profile-stat-number">{worker.hours_per_day || 4} hrs</span>
+            <div className="profile-stats-grid">
+              <div className="profile-stat-card">
+                <div className="profile-stat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 4H5C3.89 4 3 4.9 3 6V20C3 21.1 3.89 22 5 22H19C20.1 22 21 21.1 21 20V6C21 4.9 20.1 4 19 4ZM19 20H5V9H19V20Z" fill="currentColor"/>
+                    <path d="M7 11H9V13H7V11ZM11 11H13V13H11V11ZM15 11H17V13H15V11ZM7 15H9V17H7V15ZM11 15H13V17H11V15ZM15 15H17V17H15V15Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div className="profile-stat-content">
+                  <span className="profile-stat-label">Preferred Working Days</span>
+                  <span className="profile-stat-number">
+                    {Array.isArray(worker.preferred_working_days) && worker.preferred_working_days.length > 0 
+                      ? worker.preferred_working_days.join(', ').replace(/\b\w/g, l => l.toUpperCase())
+                      : 'Not specified'
+                    }
+                  </span>
+                </div>
+              </div>
+              <div className="profile-stat-card">
+                <div className="profile-stat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                  </svg>
+                </div>
+                <div className="profile-stat-content">
+                  <span className="profile-stat-label">Hours Per Day</span>
+                  <span className="profile-stat-number">{worker.hours_per_day || 4} hrs</span>
+                </div>
               </div>
             </div>
+          </div>
         </div>
 
         <div className="profile-right">
           <div className="profile-tabs">
-            {['OVERVIEW', 'CREDENTIALS', 'REVIEWS'].map((tab) => (
+            {['OVERVIEW', 'REVIEWS'].map((tab) => (
               <button
                 key={tab}
                 className={`profile-tab ${activeTab === tab ? 'active' : ''}`}
@@ -1031,6 +1095,52 @@ const Profile = ({ initialServiceType }) => {
               <div className="profile-overview">
                 <h4>About</h4>
                 <p>{worker.description || "No bio available"}</p>
+                
+                <div className="profile-credentials">
+                  <h4>Credentials</h4>
+                  
+                  {worker.credentials.length > 0 ? (
+                    <div className="profile-credentials-grid">
+                      {worker.credentials.map((credential, index) => (
+                        <div key={index} className="profile-credential-card">
+                          <div className="profile-credential-header">
+                            <span className="profile-credential-name">{credential}</span>
+                          </div>
+                          {worker.credentials_photo[index] && (
+                            <div className="profile-credential-document">
+                              <a 
+                                href={`http://127.0.0.1:8000/storage/${worker.credentials_photo[index]}`} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="profile-credential-document-link"
+                              >
+                                <div className="profile-credential-document-icon">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 2H6C4.89 2 4 2.9 4 4V20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20ZM8 12H16V14H8V12ZM8 16H13V18H8V16Z" fill="currentColor"/>
+                                  </svg>
+                                </div>
+                                <span className="profile-credential-document-name">View Document</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M19 19H5V5H12V3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V12H19V19ZM14 3V5H17.59L7.76 14.83L9.17 16.24L19 6.41V10H21V3H14Z" fill="currentColor"/>
+                                </svg>
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="profile-no-credentials">
+                      <div className="profile-no-credentials-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM17 12H15V7H17V12ZM13 12H11V9H13V12ZM9 12H7V7H9V12Z" fill="currentColor"/>
+                        </svg>
+                      </div>
+                      <p>No credentials available</p>
+                    </div>
+                  )}
+                </div>
+
                 <h4>Skills</h4>
                 <div className="profile-skills-section">
                   {worker.primary_skills.length > 0 && (
@@ -1101,36 +1211,6 @@ const Profile = ({ initialServiceType }) => {
                     <p>No skills available</p>
                   )}
                 </div>
-              </div>
-            )}
-            {activeTab === 'CREDENTIALS' && (
-              <div className="profile-credentials">
-                <h4>Credentials</h4>
-                {worker.credentials.length > 0 ? (
-                <ul>
-                  {worker.credentials.map((credential, index) => (
-                    <li key={index}>{credential}</li>
-                  ))}
-                </ul>
-                ) : (
-                  <p>No credentials available</p>
-                )}
-                {worker.credentials_photo.length > 0 && (
-                  <div className="profile-credentials-photos">
-                    <h5>Credential Documents</h5>
-                    {worker.credentials_photo.map((photo, index) => (
-                      <div key={index} className="profile-credential-photo">
-                        <a 
-                          href={`http://127.0.0.1:8000/storage/${photo}`} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          {worker.credentials[index] || `Document ${index + 1}`}
-                        </a>
-                  </div>
-                ))}
-                  </div>
-                )}
               </div>
             )}
             {activeTab === 'REVIEWS' && (

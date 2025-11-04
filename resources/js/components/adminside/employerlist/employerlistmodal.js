@@ -23,11 +23,16 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
 
   const [errors, setErrors] = useState({});
   const [apiError, setApiError] = useState("");
+  const [existingImagePath, setExistingImagePath] = useState(null);
   const fileInputRef = useRef(null);
   const abortControllerRef = useRef(null);
 
   useEffect(() => {
     if (isEdit && initialData) {
+      // Preserve existing profile image path
+      const profileImgPath = initialData.profile_img || null;
+      setExistingImagePath(profileImgPath);
+      
       setFormData({
         username: initialData.username || "",
         email: initialData.email || "",
@@ -44,10 +49,13 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
         province: initialData.province || "Agusan Del Norte",
         postal_code: initialData.postal_code || "8600",
         country: initialData.country || "Philippines",
-        profile_img: null,
+        profile_img: null, // Will be set if user selects a new file
       });
       setApiError("");
       setErrors({});
+    } else {
+      // Reset when adding new employer
+      setExistingImagePath(null);
     }
 
     // Cleanup function to abort pending requests
@@ -74,6 +82,11 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
       return;
     }
 
+    // When a new file is selected, clear the existing image path
+    if (field === "profile_img" && value instanceof File) {
+      setExistingImagePath(null);
+    }
+
     setFormData((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => ({ ...prev, [field]: "" }));
     setApiError("");
@@ -81,6 +94,7 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
 
   const removeImage = () => {
     setFormData((prev) => ({ ...prev, profile_img: null }));
+    setExistingImagePath(null);
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
@@ -304,9 +318,21 @@ const EmployerModal = ({ onClose, onSubmit, isEdit, initialData, genders, suffix
               onChange={(e) => handleInputChange(e, "profile_img")}
               ref={fileInputRef}
             />
-            {formData.profile_img && (
+            {(formData.profile_img || existingImagePath) && (
               <div className="profile-img-preview">
-                <img src={URL.createObjectURL(formData.profile_img)} alt="Preview" />
+                <img 
+                  src={
+                    formData.profile_img instanceof File
+                      ? URL.createObjectURL(formData.profile_img)
+                      : existingImagePath
+                      ? `http://127.0.0.1:8000/storage/${existingImagePath}`
+                      : null
+                  } 
+                  alt="Preview" 
+                  onError={(e) => {
+                    e.target.src = "/images/defpfp.svg";
+                  }}
+                />
                 <button type="button" onClick={removeImage}>
                   Remove
                 </button>

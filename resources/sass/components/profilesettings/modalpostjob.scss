@@ -13,11 +13,12 @@
 
   // Global z-index for all dropdown menus in this modal
   .dropdown-menu {
-    z-index: 99999999 !important;
+    z-index: 10000 !important;
   }
 
   .dropdown-options-list {
-    z-index: 99999998 !important;
+    z-index: 1 !important;
+    position: relative;
   }
 }
 
@@ -28,6 +29,7 @@
   width: 800px;
   height: 650px;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
   z-index: 10000;
   
@@ -41,37 +43,39 @@
 
   // Ensure custom dropdowns appear properly
   .custom-dropdown {
-    z-index: 1;
+    position: relative;
+    z-index: 10;
 
     &.dropdown-open {
-      z-index: 999999 !important;
+      z-index: 9999 !important;
     }
   }
 
   .dropdown-trigger {
     pointer-events: auto;
     z-index: 1;
+    position: relative;
   }
 
   .dropdown-menu {
-    position: fixed !important;
-    z-index: 99999999 !important;
+    position: absolute !important;
+    z-index: 10000 !important;
     pointer-events: auto !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 
   .dropdown-search-container {
-    z-index: 100000000 !important;
+    z-index: 1;
     pointer-events: auto;
   }
 
   .dropdown-options-list {
-    z-index: 99999998 !important;
+    z-index: 1;
     pointer-events: auto !important;
   }
 
   .dropdown-item {
-    z-index: 99999997 !important;
+    z-index: 1;
     pointer-events: auto !important;
   }
 
@@ -118,14 +122,14 @@
 
   .modal-form {
     padding: 0 24px 24px 24px;
-    overflow: visible;
+    overflow: visible !important;
 
     .form-columns {
       display: flex;
       flex-direction: column;
       gap: 24px;
       margin-bottom: 0;
-      overflow: visible;
+      overflow: visible !important;
     }
 
     .form-row {
@@ -144,8 +148,23 @@
       display: flex;
       flex-direction: column;
       margin-bottom: 0px; // CHANGED: Increased from 20px to 30px (1.5x) to move form groups upward
-      isolation: auto; // Prevent stacking context issues
       position: relative;
+      z-index: 1;
+
+      // When form group contains an open dropdown, raise its z-index
+      &:has(.custom-dropdown.dropdown-open) {
+        z-index: 9998 !important;
+      }
+
+      // Allow dropdowns to overflow and appear above other elements
+      .custom-dropdown {
+        position: relative;
+        z-index: 10;
+
+        &.dropdown-open {
+          z-index: 9999 !important;
+        }
+      }
 
       label {
         font-size: 14px;
@@ -176,6 +195,8 @@
         background-color: #f9fafb;
         transition: all 0.3s ease;
         box-sizing: border-box;
+        position: relative;
+        z-index: 1;
 
         &:focus {
           outline: none;

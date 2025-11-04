@@ -30,7 +30,13 @@ const MyProfile = () => {
     lastName: '',
     suffix: '',
     email: '',
-    gender: ''
+    gender: '',
+    contactNumber: '',
+    street: '',
+    city: '',
+    province: '',
+    postalCode: '',
+    country: ''
   });
   
   // Password form states
@@ -254,7 +260,13 @@ const MyProfile = () => {
                 lastName: updatedUserData.last_name || "",
                 suffix: updatedUserData.suffix_id || "",
                 email: updatedUserData.email || "",
-                gender: updatedUserData.gender_id || ""
+                gender: updatedUserData.gender_id || "",
+                contactNumber: updatedUserData.contact_number || updatedUserData.profile?.contact_number || "",
+                street: updatedUserData.street || updatedUserData.profile?.street || "",
+                city: updatedUserData.city || updatedUserData.profile?.city || "",
+                province: updatedUserData.province || updatedUserData.profile?.province || "",
+                postalCode: updatedUserData.postal_code || updatedUserData.profile?.postal_code || "",
+                country: updatedUserData.country || updatedUserData.profile?.country || ""
               });
               return;
             }
@@ -274,7 +286,13 @@ const MyProfile = () => {
         lastName: currentUser.last_name || "",
         suffix: currentUser.suffix_id || "",
         email: currentUser.email || "",
-        gender: currentUser.gender_id || ""
+        gender: currentUser.gender_id || "",
+        contactNumber: currentUser.contact_number || currentUser.profile?.contact_number || "",
+        street: currentUser.street || currentUser.profile?.street || "",
+        city: currentUser.city || currentUser.profile?.city || "",
+        province: currentUser.province || currentUser.profile?.province || "",
+        postalCode: currentUser.postal_code || currentUser.profile?.postal_code || "",
+        country: currentUser.country || currentUser.profile?.country || ""
       });
     }
   };
@@ -334,50 +352,99 @@ const MyProfile = () => {
 
   const fetchWorkerRank = async (points) => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/ranks');
+      // Fetch only active (non-archived) ranks for badge display
+      const response = await fetch('http://127.0.0.1:8000/api/ranks?archived=false&limit=100');
       if (response.ok) {
         const data = await response.json();
         
         // Handle both array and object response formats
-        const ranks = Array.isArray(data) ? data : (data.ranks || data.data || []);
+        let ranks = Array.isArray(data) ? data : (data.ranks || data.data || []);
         
-        console.log('Fetched ranks:', ranks);
+        // Filter out archived ranks as a safety measure
+        ranks = ranks.filter(rank => !rank.archived);
+        
+        console.log('Fetched active ranks:', ranks);
         console.log('Total points:', points);
         
-        // Sort ranks by min_points to ensure correct order
+        // Sort ranks by min_points to ensure correct order (lowest to highest)
         const sortedRanks = ranks.sort((a, b) => (a.min_points || 0) - (b.min_points || 0));
         
         // Find the rank that matches the total points
-        const matchedRank = sortedRanks.find(rank => {
+        // We iterate from highest to lowest to find the highest rank the worker qualifies for
+        let matchedRank = null;
+        for (let i = sortedRanks.length - 1; i >= 0; i--) {
+          const rank = sortedRanks[i];
           const minPoints = rank.min_points || 0;
           const maxPoints = rank.max_points;
           
           if (maxPoints === null || maxPoints === undefined) {
             // For the highest rank with no upper limit
-            return points >= minPoints;
+            if (points >= minPoints) {
+              matchedRank = rank;
+              break;
+            }
+          } else {
+            // Check if points fall within this rank's range
+            if (points >= minPoints && points <= maxPoints) {
+              matchedRank = rank;
+              break;
+            }
           }
-          
-          return points >= minPoints && points <= maxPoints;
-        });
+        }
+        
+        // If no rank matched but worker has points, assign the highest rank they qualify for
+        if (!matchedRank && points > 0 && sortedRanks.length > 0) {
+          // Find the highest rank where worker meets minimum points
+          for (let i = sortedRanks.length - 1; i >= 0; i--) {
+            if (points >= (sortedRanks[i].min_points || 0)) {
+              matchedRank = sortedRanks[i];
+              break;
+            }
+          }
+        }
         
         if (matchedRank) {
           console.log('Matched rank:', matchedRank);
-          setWorkerRank(matchedRank);
+          // Store only rank image and name
+          setWorkerRank({
+            image: matchedRank.image,
+            name: matchedRank.name,
+            min_points: matchedRank.min_points, // Keep for progress calculation
+            max_points: matchedRank.max_points   // Keep for progress calculation
+          });
           
-          // Calculate progress percentage towards next rank
+          // Calculate progress percentage within current rank range
+          // Based on correct rank ranges:
+          // Bronze = 0 – 49,999 pts
+          // Silver = 50,000 – 99,999 pts
+          // Gold = 100,000 – 199,999 pts
+          // Platinum = 200,000 – 349,999 pts
+          // Diamond = 350,000 pts and above
           if (matchedRank.max_points !== null && matchedRank.max_points !== undefined) {
-            const rangeSize = matchedRank.max_points - matchedRank.min_points;
-            const currentProgress = points - matchedRank.min_points;
-            const percent = (currentProgress / rangeSize) * 100;
-            setProgressPercent(Math.min(percent, 100));
+            const minPoints = matchedRank.min_points || 0;
+            const maxPoints = matchedRank.max_points;
+            const rangeSize = maxPoints - minPoints + 1; // +1 to include both endpoints
+            const currentProgress = points - minPoints;
+            const percent = Math.min(100, Math.max(0, (currentProgress / rangeSize) * 100));
+            setProgressPercent(percent);
           } else {
-            // If it's the highest rank, set to 100%
-            setProgressPercent(100);
+            // If it's the highest rank (Diamond), calculate progress based on minimum threshold
+            const minPoints = matchedRank.min_points || 350000;
+            // For Diamond, show progress beyond 350k (e.g., up to 500k for visual reference)
+            const referenceMax = minPoints + 150000; // Show progress up to 500k
+            const progress = Math.min(100, ((points - minPoints) / 150000) * 100);
+            setProgressPercent(progress);
           }
         } else if (sortedRanks.length > 0) {
           // If no rank matched, default to first rank (Bronze)
           console.log('No rank matched, using first rank:', sortedRanks[0]);
-          setWorkerRank(sortedRanks[0]);
+          // Store only rank image and name
+          setWorkerRank({
+            image: sortedRanks[0].image,
+            name: sortedRanks[0].name,
+            min_points: sortedRanks[0].min_points,
+            max_points: sortedRanks[0].max_points
+          });
           setProgressPercent(0);
         } else {
           console.log('No ranks available - this is normal for new users');
@@ -398,13 +465,12 @@ const MyProfile = () => {
   };
 
   const trySetDefaultRank = () => {
-    // Set a minimal default rank if API fails
+    // Set a minimal default rank if API fails (only image and name)
     setWorkerRank({
-      id: 1,
       name: 'Bronze',
+      image: 'img/default-rank.png',
       min_points: 0,
-      max_points: 49999,
-      image: 'img/default-rank.png'
+      max_points: 49999
     });
     setTotalPoints(0);
     setProgressPercent(0);
@@ -542,23 +608,63 @@ const MyProfile = () => {
       console.log('Employer profile response status:', response.status);
       if (response.ok) {
         const data = await response.json();
-        const roleData = data.employer || data;
+        const employerUser = data.employer || data;
         
-        console.log('Fetched employer data:', roleData);
-        console.log('Employer record:', roleData.employer);
-        console.log('Credentials data:', roleData.credentials_name, roleData.credentials_photo);
+        console.log('Fetched employer data:', employerUser);
+        console.log('Employer profile:', employerUser.profile);
+        console.log('Employer record:', employerUser.employer);
         
-        // Check if we have a record
-        const record = roleData.employer || roleData;
-        if (record) {
-          console.log('Employer record credentials:', record.credentials_name, record.credentials_photo);
+        // Update user state with latest employer data
+        if (employerUser) {
+          const updatedUser = {
+            ...employerUser,
+            // Map profile fields to user object for consistency
+            first_name: employerUser.profile?.first_name || employerUser.first_name,
+            middlename: employerUser.profile?.middlename || employerUser.middlename,
+            last_name: employerUser.profile?.last_name || employerUser.last_name,
+            suffix_id: employerUser.profile?.suffix_id || employerUser.suffix_id,
+            gender_id: employerUser.profile?.gender_id || employerUser.gender_id,
+            email: employerUser.email,
+            profile_img: employerUser.profile?.profile_img || employerUser.profile_img,
+            contact_number: employerUser.profile?.contact_number || employerUser.contact_number,
+            street: employerUser.profile?.street || employerUser.profile?.employer?.street,
+            city: employerUser.profile?.city || employerUser.profile?.employer?.city,
+            province: employerUser.profile?.province || employerUser.profile?.employer?.province,
+            postal_code: employerUser.profile?.postal_code || employerUser.profile?.employer?.postal_code,
+            country: employerUser.profile?.country || employerUser.profile?.employer?.country,
+            role_id: employerUser.role_id || roleId
+          };
           
-          // Set credentials from record
-          if (record.credentials_name && Array.isArray(record.credentials_name)) {
-            const creds = record.credentials_name
+          // Update user state
+          setUser(updatedUser);
+          
+          // Update profileData state with all employer profile information
+          setProfileData({
+            firstName: employerUser.profile?.first_name || employerUser.first_name || "",
+            middleName: employerUser.profile?.middlename || employerUser.middlename || "",
+            lastName: employerUser.profile?.last_name || employerUser.last_name || "",
+            suffix: employerUser.profile?.suffix_id || employerUser.suffix_id || "",
+            email: employerUser.email || "",
+            gender: employerUser.profile?.gender_id || employerUser.gender_id || "",
+            contactNumber: employerUser.profile?.contact_number || employerUser.contact_number || "",
+            street: employerUser.profile?.street || employerUser.profile?.employer?.street || "",
+            city: employerUser.profile?.city || employerUser.profile?.employer?.city || "",
+            province: employerUser.profile?.province || employerUser.profile?.employer?.province || "",
+            postalCode: employerUser.profile?.postal_code || employerUser.profile?.employer?.postal_code || "",
+            country: employerUser.profile?.country || employerUser.profile?.employer?.country || ""
+          });
+          
+          // Update localStorage with latest employer data
+          const localStorageStructure = userData.user ? { user: updatedUser } : updatedUser;
+          localStorage.setItem("user", JSON.stringify(localStorageStructure));
+          
+          // Set credentials from employer record
+          const employerRecord = employerUser.employer || employerUser;
+          if (employerRecord?.credentials_name && Array.isArray(employerRecord.credentials_name)) {
+            const creds = employerRecord.credentials_name
               .map((name, index) => {
-                const photo = record.credentials_photo?.[index];
-                const doc = record.credentials_doc?.[index];
+                const photo = employerRecord.credentials_photo?.[index];
+                const doc = employerRecord.credentials_doc?.[index];
                 console.log(`Employer Credential ${index}: name="${name}", photo="${photo}", doc="${doc}"`);
                 return {
                   credentials_name: name,
@@ -634,8 +740,13 @@ const MyProfile = () => {
     }));
   };
 
-  const handleEditProfile = () => {
+  const handleEditProfile = async () => {
     setIsEditingProfile(true);
+    
+    // Refresh employer profile data from API to ensure all fields are populated
+    if (user?.id && (user?.role_id === 2 || user?.role_id === '2')) {
+      await fetchEmployerProfile(user.id);
+    }
   };
 
   const handleCancelProfileEdit = () => {
@@ -643,7 +754,7 @@ const MyProfile = () => {
     setProfileImageFile(null);
     setProfileImagePreview(null);
     
-    // Reset profile data to original values
+    // Reset profile data to original values from user state
     if (user) {
       setProfileData({
         firstName: user.first_name || "",
@@ -652,6 +763,12 @@ const MyProfile = () => {
         suffix: user.suffix_id || "",
         email: user.email || "",
         gender: user.gender_id || "",
+        contactNumber: user.contact_number || "",
+        street: user.street || "",
+        city: user.city || "",
+        province: user.province || "",
+        postalCode: user.postal_code || "",
+        country: user.country || "",
         removeImage: false,
         setDefaultImage: false
       });
@@ -1884,7 +2001,6 @@ const MyProfile = () => {
                   <div className="rank-progress">
                     <div className="progress-info">
                       <span className="rank-name">{workerRank.name}</span>
-                      <span className="points-text">{totalPoints.toLocaleString()} pts</span>
                     </div>
                     <div className="progress-bar-container">
                       <div 
@@ -1893,7 +2009,7 @@ const MyProfile = () => {
                       ></div>
                     </div>
                     <span className="progress-label">
-                      {workerRank.max_points 
+                      {workerRank.max_points !== null && workerRank.max_points !== undefined
                         ? `${totalPoints.toLocaleString()} / ${workerRank.max_points.toLocaleString()}`
                         : `${totalPoints.toLocaleString()} pts`
                       }

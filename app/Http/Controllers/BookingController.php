@@ -294,10 +294,10 @@ class BookingController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->get();
 
-            // Add review information to each booking
+            // Add review information to each booking - check by booking_id
             $bookings->each(function ($booking) {
-                $review = \App\Models\Review::where('user_id', $booking->employer_id)
-                    ->where('reviewed_user_id', $booking->worker_id)
+                $review = \App\Models\Review::where('booking_id', $booking->id)
+                    ->where('archived', false)
                     ->first();
                 $booking->has_review = $review ? true : false;
                 $booking->review_data = $review;
@@ -370,10 +370,10 @@ class BookingController extends Controller
         \Log::info('All bookings in database: ' . json_encode($allBookings->toArray()));
         \Log::info('Total bookings count: ' . $allBookings->count());
 
-            // Add review information to each booking
+            // Add review information to each booking - check by booking_id
             $bookings->each(function ($booking) {
-                $review = \App\Models\Review::where('user_id', $booking->employer_id)
-                    ->where('reviewed_user_id', $booking->worker_id)
+                $review = \App\Models\Review::where('booking_id', $booking->id)
+                    ->where('archived', false)
                     ->first();
                 $booking->has_review = $review ? true : false;
                 $booking->review_data = $review;
@@ -543,33 +543,40 @@ class BookingController extends Controller
                 ], 400);
             }
 
-            // Check for existing review to prevent duplicates
-            $existingReview = \App\Models\Review::where('user_id', $authUser->id)
-                ->where('reviewed_user_id', $booking->worker_id)
+            // Check for existing review for THIS specific booking - if exists, update it; otherwise create new
+            $existingReview = \App\Models\Review::where('booking_id', $booking->id)
                 ->where('archived', false)
                 ->first();
 
             if ($existingReview) {
+                // Update existing review
+                $existingReview->update([
+                    'rating' => $request->rating,
+                    'comment' => $request->comment,
+                ]);
+
                 return response()->json([
-                    'success' => false,
-                    'message' => 'You have already reviewed this worker for this booking'
-                ], 400);
+                    'success' => true,
+                    'message' => 'Review updated successfully',
+                    'review' => $existingReview->fresh()
+                ]);
+            } else {
+                // Create new review in the reviews table
+                $review = \App\Models\Review::create([
+                    'user_id' => $authUser->id,
+                    'reviewed_user_id' => $booking->worker_id,
+                    'booking_id' => $booking->id,
+                    'rating' => $request->rating,
+                    'comment' => $request->comment,
+                    'archived' => false
+                ]);
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Review added successfully',
+                    'review' => $review
+                ]);
             }
-
-            // Create review in the reviews table
-            $review = \App\Models\Review::create([
-                'user_id' => $authUser->id,
-                'reviewed_user_id' => $booking->worker_id,
-                'rating' => $request->rating,
-                'comment' => $request->comment,
-                'archived' => false
-            ]);
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Review added successfully',
-                'review' => $review
-            ]);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response()->json([
                 'success' => false,

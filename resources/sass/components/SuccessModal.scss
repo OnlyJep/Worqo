@@ -50,7 +50,7 @@
     .profile-success-submit-button {
       padding: 12px 24px;
       border: none;
-      background: #1E90FF;
+      background: #1A2A44;
       color: white;
       border-radius: 8px;
       cursor: pointer;
@@ -58,9 +58,9 @@
       transition: all 0.3s ease;
 
       &:hover {
-        background: #104E8B;
+        background: rgba(26, 42, 68, 0.9);
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+        box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);
       }
     }
   }

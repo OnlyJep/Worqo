@@ -9,26 +9,13 @@ const CustomDropdown = ({
   className = '',
   disabled = false,
   required = false,
-  searchable = false
+  searchable = false,
+  id = ''
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0, width: 0 });
   const dropdownRef = useRef(null);
   const searchInputRef = useRef(null);
-  const triggerRef = useRef(null);
-
-  // Calculate dropdown menu position when opening
-  useEffect(() => {
-    if (isOpen && triggerRef.current) {
-      const rect = triggerRef.current.getBoundingClientRect();
-      setMenuPosition({
-        top: rect.bottom + 2, // 2px margin
-        left: rect.left,
-        width: rect.width
-      });
-    }
-  }, [isOpen]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -44,27 +31,20 @@ const CustomDropdown = ({
     };
   }, []);
   
-  // Recalculate position on scroll or resize
+  // Close dropdown on scroll or resize to prevent positioning issues
   useEffect(() => {
     if (!isOpen) return;
     
-    const updatePosition = () => {
-      if (triggerRef.current) {
-        const rect = triggerRef.current.getBoundingClientRect();
-        setMenuPosition({
-          top: rect.bottom + 2,
-          left: rect.left,
-          width: rect.width
-        });
-      }
+    const handleScrollOrResize = () => {
+      setIsOpen(false);
     };
     
-    window.addEventListener('scroll', updatePosition, true);
-    window.addEventListener('resize', updatePosition);
+    window.addEventListener('scroll', handleScrollOrResize, true);
+    window.addEventListener('resize', handleScrollOrResize);
     
     return () => {
-      window.removeEventListener('scroll', updatePosition, true);
-      window.removeEventListener('resize', updatePosition);
+      window.removeEventListener('scroll', handleScrollOrResize, true);
+      window.removeEventListener('resize', handleScrollOrResize);
     };
   }, [isOpen]);
 
@@ -114,10 +94,14 @@ const CustomDropdown = ({
   return (
     <div className={`custom-dropdown ${className} ${isOpen ? 'dropdown-open' : ''}`} ref={dropdownRef}>
       <div 
-        ref={triggerRef}
+        id={id || undefined}
         className={`dropdown-trigger ${disabled ? 'disabled' : ''}`}
         onClick={handleToggle}
         tabIndex={disabled ? -1 : 0}
+        role="combobox"
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+        aria-label={placeholder}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -137,11 +121,6 @@ const CustomDropdown = ({
       {isOpen && !disabled && (
         <div 
           className="dropdown-menu"
-          style={{
-            top: `${menuPosition.top}px`,
-            left: `${menuPosition.left}px`,
-            width: `${menuPosition.width}px`
-          }}
         >
           {searchable && (
             <div className="dropdown-search-container">
