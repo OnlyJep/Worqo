@@ -481,28 +481,78 @@ const MyBookings = () => {
   const handleSubmitFeedback = async (feedbackData) => {
     try {
       const authToken = localStorage.getItem("auth_token");
-      const response = await axios.post(`http://127.0.0.1:8000/api/bookings/${selectedWorker.id}/review`, {
+      
+      if (!authToken) {
+        message.error("Please log in to submit a review");
+        return;
+      }
+
+      if (!selectedWorker || !selectedWorker.id) {
+        message.error("Booking information is missing");
+        return;
+      }
+
+      console.log('Submitting review for booking:', selectedWorker.id);
+      console.log('Auth token exists:', !!authToken);
+      console.log('Auth token length:', authToken ? authToken.length : 0);
+      console.log('Auth token preview:', authToken ? authToken.substring(0, 20) + '...' : 'null');
+
+      // Ensure token is properly formatted
+      const token = authToken && authToken.trim() ? authToken.trim() : null;
+      
+      if (!token) {
+        message.error("Authentication token is missing. Please log in again.");
+        return;
+      }
+
+      // Prepare request data
+      const requestData = {
         rating: feedbackData.rating,
         comment: feedbackData.feedback
-      }, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-          Accept: "application/json",
-          "Content-Type": "application/json"
+      };
+
+      const requestHeaders = {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      };
+
+      console.log('Request URL:', `http://127.0.0.1:8000/api/bookings/${selectedWorker.id}/review`);
+      console.log('Request Data:', requestData);
+      console.log('Request Headers:', { ...requestHeaders, Authorization: 'Bearer [REDACTED]' });
+
+      const response = await axios.post(
+        `http://127.0.0.1:8000/api/bookings/${selectedWorker.id}/review`,
+        requestData,
+        {
+          headers: requestHeaders,
+          withCredentials: false
         }
-      });
+      );
 
       if (response.data.success) {
-        message.success("Review submitted successfully");
+        message.success("Feedback submitted successfully");
         setIsFeedbackModalOpen(false);
         setSelectedWorker(null);
-        fetchBookings();
+        // Refresh bookings to update has_review status
+        await fetchBookings();
       } else {
-        message.error(response.data.message || "Failed to submit review");
+        message.error(response.data.message || "Failed to submit feedback");
       }
     } catch (error) {
       console.error("Error submitting review:", error.response?.data || error.message);
-      message.error("Failed to submit review");
+      
+      if (error.response?.status === 401) {
+        message.error("Session expired. Please log in again.");
+        // Optionally redirect to login
+        // window.location.href = '/login';
+      } else if (error.response?.status === 403) {
+        message.error("You are not authorized to review this booking");
+      } else if (error.response?.status === 400) {
+        message.error(error.response.data.message || "Invalid request. Please check the booking status.");
+      } else {
+        message.error(error.response?.data?.message || "Failed to submit review. Please try again.");
+      }
     }
   };
 
@@ -886,7 +936,8 @@ const MyBookings = () => {
                             >
                               View Transaction
                             </button>
-                            {!booking.has_review && (
+                            {/* Show Give Feedback button if no review exists or has_review is not set */}
+                            {(!booking.has_review || booking.has_review === false || booking.has_review === undefined) && (
                               <button 
                                 className="booking-give-feedback-btn"
                                 onClick={(e) => {
@@ -1020,7 +1071,11 @@ const MyBookings = () => {
         <ModalFeedback
           onClose={handleCloseFeedbackModal}
           onSubmit={handleSubmitFeedback}
-          workerName={selectedWorker.worker?.profile ? `${selectedWorker.worker.profile.first_name} ${selectedWorker.worker.profile.last_name}` : 'Worker'}
+          workerName={
+            selectedWorker.worker?.profile 
+              ? `${selectedWorker.worker.profile.first_name || ''} ${selectedWorker.worker.profile.last_name || ''}`.trim() || 'Worker'
+              : selectedWorker.worker_name || 'Worker'
+          }
         />
       )}
 

@@ -254,9 +254,11 @@ class JobApplicationController extends Controller
 
     /**
      * Get applications by worker
+     * Accepts either profile_id (worker_id) or user_id
      */
     public function getWorkerApplications($workerId)
     {
+        // First, try to find applications by worker_id (profile_id)
         $applications = JobApplication::where('worker_id', $workerId)
             ->with(['jobPost' => function ($query) {
                 $query->select('id', 'profile_id', 'job_title', 'description', 'salary', 'salary_type', 'job_type', 'application_start', 'application_deadline', 'work_start', 'work_end', 'skills')
@@ -269,6 +271,25 @@ class JobApplicationController extends Controller
             }])
             ->orderBy('created_at', 'desc')
             ->get();
+
+        // If no applications found, try to get profile_id from user_id
+        if ($applications->isEmpty()) {
+            $profile = \App\Models\Profile::where('user_id', $workerId)->first();
+            if ($profile) {
+                $applications = JobApplication::where('worker_id', $profile->id)
+                    ->with(['jobPost' => function ($query) {
+                        $query->select('id', 'profile_id', 'job_title', 'description', 'salary', 'salary_type', 'job_type', 'application_start', 'application_deadline', 'work_start', 'work_end', 'skills')
+                              ->with(['profile' => function ($profileQuery) {
+                                  $profileQuery->select('id', 'first_name', 'middlename', 'last_name', 'suffix_id')
+                                               ->with(['suffix' => function ($suffixQuery) {
+                                                   $suffixQuery->select('id', 'suffix_name');
+                                               }]);
+                              }]);
+                    }])
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+            }
+        }
 
         // Parse the skills JSON string for each job post
         $applications->each(function ($application) {

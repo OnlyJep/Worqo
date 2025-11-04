@@ -18,7 +18,8 @@ class JobPostController extends Controller
         $showArchivedParam = $request->query('show_archived', false) === 'true';
         $profileId = $request->query('profile_id');
         $page = $request->query('page', 1);
-        $perPage = 5;
+        // For admin view (show_archived=true), use higher per page limit to show all job posts
+        $perPage = $showArchivedParam ? 100 : 5;
 
         $query = JobPost::query()
             ->when($searchTerm, function ($query, $searchTerm) {
@@ -34,8 +35,9 @@ class JobPostController extends Controller
         // If show_archived=true is passed, show both archived and non-archived jobs
         // Otherwise, filter by archived status
         if ($showArchivedParam) {
-            // Show all jobs (both archived and non-archived) for profile owners
+            // Show all jobs (both archived and non-archived) for admin or profile owners
             // Don't apply any archived filter
+            // Also don't filter by application_start for admin view
         } else {
             // For public job listings (like FindJob), only show non-archived jobs
             $query->where('archived', $showArchived);

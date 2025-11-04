@@ -49,16 +49,20 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
 
   const handleApplicationStatus = async (applicationId, status) => {
     try {
-      // Check hiring type logic
+      // Check hiring type logic only when accepting (not when declining or changing status)
       if (status === 'accepted' && jobPost) {
+        const currentApp = applications.find(app => app.id === applicationId);
         const acceptedCount = applications.filter(app => app.status === 'accepted').length;
         
-        if (jobPost.hiring_type === 'individual' && acceptedCount >= 1) {
+        // If changing from declined/for_interview to accepted, don't count the current application
+        const adjustedCount = currentApp?.status === 'accepted' ? acceptedCount - 1 : acceptedCount;
+        
+        if (jobPost.hiring_type === 'individual' && adjustedCount >= 1) {
           alert('This job is for individual hiring. Only one person can be accepted.');
           return;
         }
         
-        if (jobPost.hiring_type === 'team' && acceptedCount >= 20) {
+        if (jobPost.hiring_type === 'team' && adjustedCount >= 20) {
           alert('This job is for team hiring. Maximum 20 people can be accepted.');
           return;
         }
@@ -76,8 +80,12 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
             : app
         )
       );
+      
+      // Refresh the job post to get updated application counts
+      fetchJobPost();
     } catch (error) {
       console.error('Error updating application status:', error);
+      alert('Failed to update application status. Please try again.');
     }
   };
 
@@ -262,34 +270,74 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                         <p className="application-date">
                           Applied on {new Date(application.created_at).toLocaleDateString()}
                         </p>
-                  <div style={{ marginTop: '8px' }}>
-                    <span style={{ color: '#333' }}>Want to message this applicant? </span>
-                    <a
-                      href="#"
-                      onClick={async (e) => {
-                        e.preventDefault();
-                        const stored = JSON.parse(localStorage.getItem('user') || '{}');
-                        const currentRole = stored?.role_id;
-                        const targetRole = 2; // employer role to chat as employer
-                        try {
-                          if (currentRole && currentRole !== targetRole) {
-                            const authToken = localStorage.getItem('auth_token');
-                            await fetch('http://127.0.0.1:8000/api/users/switch-role', {
-                              method: 'POST',
-                              headers: { 'Authorization': `Bearer ${authToken}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                              body: JSON.stringify({ user_id: stored.id || stored?.user?.id, role_id: targetRole })
-                            }).catch(() => {});
-                            const updated = { ...(stored.user || stored), role_id: targetRole };
-                            localStorage.setItem('user', JSON.stringify(stored.user ? { user: updated } : updated));
-                          }
-                        } catch (_) {}
-                        window.location.href = '/message';
-                      }}
-                      style={{ color: '#1a73e8', textDecoration: 'underline' }}
-                    >
-                      Click here
-                    </a>
-                        </div>
+                  <div className="message-and-actions" style={{ marginTop: '8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
+                    <div>
+                      <span style={{ color: '#333' }}>Want to message this applicant? </span>
+                      <a
+                        href="#"
+                        onClick={async (e) => {
+                          e.preventDefault();
+                          const stored = JSON.parse(localStorage.getItem('user') || '{}');
+                          const currentRole = stored?.role_id;
+                          const targetRole = 2; // employer role to chat as employer
+                          try {
+                            if (currentRole && currentRole !== targetRole) {
+                              const authToken = localStorage.getItem('auth_token');
+                              await fetch('http://127.0.0.1:8000/api/users/switch-role', {
+                                method: 'POST',
+                                headers: { 'Authorization': `Bearer ${authToken}`, 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                body: JSON.stringify({ user_id: stored.id || stored?.user?.id, role_id: targetRole })
+                              }).catch(() => {});
+                              const updated = { ...(stored.user || stored), role_id: targetRole };
+                              localStorage.setItem('user', JSON.stringify(stored.user ? { user: updated } : updated));
+                            }
+                          } catch (_) {}
+                          window.location.href = '/message';
+                        }}
+                        style={{ color: '#1a73e8', textDecoration: 'underline' }}
+                      >
+                        Click here
+                      </a>
+                    </div>
+                    {application.status !== 'accepted' && application.status !== 'declined' && (
+                      <div className="application-actions">
+                        <button 
+                          className="accept-btn"
+                          onClick={() => openConfirm(application, 'accepted')}
+                          title="Accept/Hire this worker"
+                        >
+                          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+                          </svg>
+                          Hire
+                        </button>
+                        <button 
+                          className="decline-btn"
+                          onClick={() => openConfirm(application, 'declined')}
+                          title="Decline this application"
+                        >
+                          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 352 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+                          </svg>
+                          Decline
+                        </button>
+                      </div>
+                    )}
+                    {application.status === 'declined' && (
+                      <div className="application-actions">
+                        <button 
+                          className="accept-btn"
+                          onClick={() => openConfirm(application, 'accepted')}
+                          title="Accept/Hire this worker"
+                        >
+                          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path>
+                          </svg>
+                          Accept
+                        </button>
+                      </div>
+                    )}
+                  </div>
                       </div>
                     </div>
                     <div className="application-status">
@@ -330,23 +378,6 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
                           </span>
                         ))}
                       </div>
-                    </div>
-                  )}
-
-                  {application.status === 'for_interview' && (
-                    <div className="application-actions">
-                      <button 
-                        className="accept-btn"
-                        onClick={() => openConfirm(application, 'accepted')}
-                      >
-                        <FaCheck /> Hire
-                      </button>
-                      <button 
-                        className="decline-btn"
-                        onClick={() => openConfirm(application, 'declined')}
-                      >
-                        <FaX /> Decline
-                      </button>
                     </div>
                   )}
 
@@ -396,8 +427,9 @@ const JobApplicationsModal = ({ jobPostId, jobTitle, onClose }) => {
             </div>
             <div className="confirm-modal-content">
               <p>
-                Are you sure you want to {confirmState.action === 'accepted' ? 'hire' : 'decline'}{' '}
-                {confirmState.application ? getWorkerName(confirmState.application.worker) : 'this worker'}?
+                {confirmState.action === 'accepted' 
+                  ? `Are you sure you want to hire ${confirmState.application ? getWorkerName(confirmState.application.worker) : 'this worker'}?`
+                  : 'Are you sure you want to decline?'}
               </p>
             </div>
             <div className="confirm-modal-actions">

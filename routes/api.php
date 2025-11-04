@@ -193,7 +193,7 @@ Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings
 Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
 Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 Route::put('/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
-Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->name('bookings.addReview');
+Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->middleware('auth:api')->name('bookings.addReview');
 Route::patch('/bookings/{id}/archive', [BookingController::class, 'archive'])->name('bookings.archive');
 
 // NOTIFICATION ROUTES (no auth middleware)
@@ -385,7 +385,7 @@ Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bo
 
 Route::put('/bookings/{id}/status', [BookingController::class, 'updateStatus'])->name('bookings.updateStatus');
 
-Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->name('bookings.addReview');
+Route::post('/bookings/{id}/review', [BookingController::class, 'addReview'])->middleware('auth:api')->name('bookings.addReview');
 
 Route::patch('/bookings/{id}/archive', [BookingController::class, 'archive'])->name('bookings.archive');
 

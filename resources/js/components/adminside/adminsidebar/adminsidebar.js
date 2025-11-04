@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { MenuOutlined, HomeOutlined, FileAddOutlined, UserOutlined, TeamOutlined, UserSwitchOutlined, StarOutlined, TagsOutlined, CodeOutlined, TrophyOutlined, SafetyOutlined, BellOutlined, ShopOutlined, BankOutlined, BookOutlined } from '@ant-design/icons';
-import { GrAnnounce } from "react-icons/gr";
 import './../../../../sass/components/adminsidebar.scss';
 
 const AdminSidebar = ({ children }) => {
@@ -56,10 +55,6 @@ const AdminSidebar = ({ children }) => {
               <li className={isActive('/admin/bookings')} onClick={() => navigate('/admin/bookings')}>
                 <BookOutlined className="icon" />
                 {isSidebarExpanded && <span>Bookings</span>}
-              </li>
-              <li className={isActive('/admin/post-hiring')} onClick={() => navigate('/admin/post-hiring')}>
-                <GrAnnounce className="icon" />
-                {isSidebarExpanded && <span>Post Hiring</span>}
               </li>
             <li className={isActive('/admin/users')} onClick={() => navigate('/admin/users')}>
               <UserOutlined className="icon" />

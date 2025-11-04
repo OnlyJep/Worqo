@@ -359,7 +359,7 @@
       .application-card {
         position: relative;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         background: #f9fafb;
         border: 1px solid #e5e7eb;
         border-radius: 8px;
@@ -477,6 +477,84 @@
                 gap: 4px;
               }
 
+              .message-and-actions {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-top: 8px;
+
+                .application-actions {
+                  display: flex;
+                  flex-direction: row;
+                  gap: 8px;
+                  align-items: center;
+                  justify-content: flex-end;
+                  flex-shrink: 0;
+
+                  .accept-btn,
+                  .decline-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                    padding: 6px 12px;
+                    background-color: transparent;
+                    border: 1px solid;
+                    border-radius: 6px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                    min-width: 70px;
+
+                    svg {
+                      width: 1em;
+                      height: 1em;
+                      flex-shrink: 0;
+                    }
+
+                    &:hover {
+                      transform: scale(1.05);
+                      opacity: 0.8;
+                    }
+
+                    &:active {
+                      transform: scale(0.95);
+                    }
+                  }
+
+                  .accept-btn {
+                    color: #10b981;
+                    border-color: #10b981;
+
+                    &:hover {
+                      background-color: rgba(16, 185, 129, 0.1);
+                      border-color: #059669;
+                      color: #059669;
+                    }
+                  }
+
+                  .decline-btn {
+                    color: #ef4444;
+                    border-color: #ef4444;
+
+                    &:hover {
+                      background-color: rgba(239, 68, 68, 0.1);
+                      border-color: #dc2626;
+                      color: #dc2626;
+                    }
+                  }
+
+                  .status-message {
+                    font-size: 11px;
+                    color: #6b7280;
+                    font-style: italic;
+                  }
+                }
+              }
+
               .interview-icon-name,
               .hired-icon-name,
               .declined-icon-name {
@@ -538,10 +616,10 @@
         // Hidden sections - can be shown in expanded view
         .cover-letter,
         .resume-section,
-        .worker-skills,
-        .application-actions {
+        .worker-skills {
           display: none;
         }
+
       }
     }
   }

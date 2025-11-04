@@ -74,15 +74,70 @@ const JobPostTable = () => {
   const fetchJobPosts = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://127.0.0.1:8000/api/jobposts", {
-        params: {
-          search: searchTerm,
-          archived: showArchived,
-          page: pagination.current_page,
-        },
+      // For admin, fetch all job posts from database
+      // Use show_archived=true to get both archived and non-archived posts
+      // Fetch all pages to get complete list
+      let allJobPosts = [];
+      let currentPage = 1;
+      let hasMorePages = true;
+      let totalItems = 0;
+      
+      // Fetch all pages of job posts
+      while (hasMorePages) {
+        const response = await axios.get("http://127.0.0.1:8000/api/jobposts", {
+          params: {
+            search: searchTerm,
+            show_archived: true, // Get all posts (archived and non-archived) for admin
+            page: currentPage,
+          },
+        });
+        
+        // Get job posts from current page
+        let pageJobPosts = [];
+        if (response.data.job_posts) {
+          if (Array.isArray(response.data.job_posts.data)) {
+            pageJobPosts = response.data.job_posts.data;
+          } else if (Array.isArray(response.data.job_posts)) {
+            pageJobPosts = response.data.job_posts;
+          }
+        }
+        
+        allJobPosts = [...allJobPosts, ...pageJobPosts];
+        
+        // Check if there are more pages
+        const pagination = response.data.pagination || {};
+        totalItems = pagination.total_items || allJobPosts.length;
+        hasMorePages = currentPage < (pagination.total_pages || 1);
+        currentPage++;
+        
+        // Safety limit to prevent infinite loops
+        if (currentPage > 100) {
+          console.warn("Reached maximum page limit");
+          break;
+        }
+      }
+      
+      // Filter by archived status if needed
+      if (!showArchived) {
+        allJobPosts = allJobPosts.filter(post => !post.archived);
+      } else {
+        allJobPosts = allJobPosts.filter(post => post.archived);
+      }
+      
+      // Sort by created_at descending (newest first)
+      allJobPosts.sort((a, b) => {
+        const dateA = new Date(a.created_at || 0);
+        const dateB = new Date(b.created_at || 0);
+        return dateB - dateA;
       });
-      setJobPosts(Array.isArray(response.data.job_posts.data) ? response.data.job_posts.data : []);
-      setPagination(response.data.pagination || { current_page: 1, total_pages: 1, total_items: 0 });
+      
+      setJobPosts(allJobPosts);
+      // Update pagination info for display
+      setPagination({
+        current_page: 1,
+        total_pages: 1,
+        total_items: allJobPosts.length
+      });
 
       const companiesResponse = await axios.get("http://127.0.0.1:8000/api/employers");
       const profilesResponse = await axios.get("http://127.0.0.1:8000/api/users");
@@ -135,7 +190,7 @@ const JobPostTable = () => {
 
   useEffect(() => {
     fetchJobPosts();
-  }, [searchTerm, showArchived, pagination.current_page]);
+  }, [searchTerm, showArchived]); // Removed pagination.current_page dependency since we fetch all at once
 
   const filteredPosts = jobPosts.filter((post) => {
     if (!post) return false;
@@ -540,20 +595,7 @@ const JobPostTable = () => {
             </div>
           </ErrorBoundary>
           <div className="jobposttable-pagination">
-            <span>Page {pagination.current_page} of {pagination.total_pages}</span>
-            <button
-              onClick={() => setPagination({ ...pagination, current_page: pagination.current_page - 1 })}
-              disabled={pagination.current_page <= 1}
-            >
-              {"<"}
-            </button>
-            {renderPagination()}
-            <button
-              onClick={() => setPagination({ ...pagination, current_page: pagination.current_page + 1 })}
-              disabled={pagination.current_page >= pagination.total_pages}
-            >
-              {">"}
-            </button>
+            <span>Showing {filteredPosts.length} of {pagination.total_items} job posts</span>
           </div>
         </div>
       </div>

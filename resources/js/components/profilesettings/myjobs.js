@@ -33,12 +33,74 @@ const MyJobs = () => {
       
       if (!currentUser.id) {
         console.error('No user ID found');
+        setApplications([]);
         return;
       }
 
-      // Use the user ID as worker_id since that's what's stored in job_applications table
-      const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${currentUser.id}`);
-      console.log('My applications API response:', response.data);
+      // Try to get profile_id first, then fallback to user_id
+      let workerId = currentUser.profile_id;
+      
+      // If profile_id is not available, try to fetch it from the API
+      if (!workerId) {
+        try {
+          const authToken = localStorage.getItem("auth_token");
+          const userResponse = await axios.get(`http://127.0.0.1:8000/api/users/${currentUser.id}`, {
+            headers: {
+              'Authorization': `Bearer ${authToken}`,
+              'Accept': 'application/json'
+            }
+          });
+          
+          const fetchedUserData = userResponse.data.user || userResponse.data;
+          workerId = fetchedUserData.profile_id;
+          
+          if (workerId) {
+            // Update localStorage with profile_id
+            const updatedUser = { ...currentUser, profile_id: workerId };
+            localStorage.setItem("user", JSON.stringify(userData.user ? { user: updatedUser } : updatedUser));
+          }
+        } catch (error) {
+          console.error('Error fetching user profile:', error);
+        }
+      }
+      
+      // If still no profile_id, try using user_id as fallback
+      if (!workerId) {
+        workerId = currentUser.id;
+        console.log('Using user_id as fallback for worker_id:', workerId);
+      }
+
+      // Try fetching with profile_id first
+      let response;
+      try {
+        response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${workerId}`);
+        console.log('My applications API response:', response.data);
+        
+        // If no applications found and we used user_id, try with profile_id from API
+        if ((!response.data || response.data.length === 0) && workerId === currentUser.id) {
+          try {
+            const authToken = localStorage.getItem("auth_token");
+            const userResponse = await axios.get(`http://127.0.0.1:8000/api/users/${currentUser.id}`, {
+              headers: {
+                'Authorization': `Bearer ${authToken}`,
+                'Accept': 'application/json'
+              }
+            });
+            
+            const fetchedUserData = userResponse.data.user || userResponse.data;
+            if (fetchedUserData.profile_id && fetchedUserData.profile_id !== currentUser.id) {
+              response = await axios.get(`http://127.0.0.1:8000/api/job-applications/worker/${fetchedUserData.profile_id}`);
+              console.log('My applications API response (with profile_id):', response.data);
+            }
+          } catch (error) {
+            console.error('Error fetching applications with profile_id:', error);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching applications:', error);
+        setApplications([]);
+        return;
+      }
       
       // Sort applications: For Interview first, then Hired, Declined
       const sortedApplications = response.data.sort((a, b) => {

@@ -485,52 +485,110 @@ class BookingController extends Controller
      */
     public function addReview(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'required|string'
-        ]);
+        try {
+            $validator = Validator::make($request->all(), [
+                'rating' => 'required|integer|min:1|max:5',
+                'comment' => 'required|string'
+            ]);
 
-        if ($validator->fails()) {
+            if ($validator->fails()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Validation failed',
+                    'errors' => $validator->errors()
+                ], 422);
+            }
+
+            // Get authenticated user (should be available via auth:api middleware)
+            $authUser = Auth::guard('api')->user();
+            
+            if (!$authUser) {
+                // Log for debugging
+                \Log::warning('AddReview: No authenticated user', [
+                    'has_auth_header' => $request->hasHeader('Authorization'),
+                    'auth_header_value' => $request->header('Authorization') ? 'Bearer ***' : null,
+                    'bearer_token' => $request->bearerToken() ? 'exists' : 'missing',
+                    'booking_id' => $id
+                ]);
+                
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Unauthorized. Please log in.'
+                ], 401);
+            }
+
+            $booking = Booking::findOrFail($id);
+
+            // Check if user is the employer for this booking
+            if ($booking->employer_id != $authUser->id) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Unauthorized to review this booking'
+                ], 403);
+            }
+
+            // Check if booking is completed
+            if ($booking->status !== 'completed') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Can only review completed bookings'
+                ], 400);
+            }
+
+            // Check if worker_id exists
+            if (!$booking->worker_id) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Booking does not have a worker assigned'
+                ], 400);
+            }
+
+            // Check for existing review to prevent duplicates
+            $existingReview = \App\Models\Review::where('user_id', $authUser->id)
+                ->where('reviewed_user_id', $booking->worker_id)
+                ->where('archived', false)
+                ->first();
+
+            if ($existingReview) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'You have already reviewed this worker for this booking'
+                ], 400);
+            }
+
+            // Create review in the reviews table
+            $review = \App\Models\Review::create([
+                'user_id' => $authUser->id,
+                'reviewed_user_id' => $booking->worker_id,
+                'rating' => $request->rating,
+                'comment' => $request->comment,
+                'archived' => false
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Review added successfully',
+                'review' => $review
+            ]);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return response()->json([
                 'success' => false,
-                'message' => 'Validation failed',
-                'errors' => $validator->errors()
-            ], 422);
-        }
-
-        $authUser = Auth::guard('api')->user();
-        $booking = Booking::findOrFail($id);
-
-        // Check if user is the employer for this booking
-        if ($booking->employer_id != $authUser->id) {
+                'message' => 'Booking not found'
+            ], 404);
+        } catch (\Exception $e) {
+            \Log::error('Error creating review: ' . $e->getMessage(), [
+                'exception' => $e,
+                'booking_id' => $id,
+                'user_id' => $authUser->id ?? null,
+                'request_data' => $request->all()
+            ]);
+            
             return response()->json([
                 'success' => false,
-                'message' => 'Unauthorized to review this booking'
-            ], 403);
+                'message' => 'Failed to create review. Please try again.',
+                'error' => config('app.debug') ? $e->getMessage() : 'Internal server error'
+            ], 500);
         }
-
-        // Check if booking is completed
-        if ($booking->status !== 'completed') {
-            return response()->json([
-                'success' => false,
-                'message' => 'Can only review completed bookings'
-            ], 400);
-        }
-
-        // Create review in the reviews table
-        $review = \App\Models\Review::create([
-            'user_id' => $authUser->id,
-            'reviewed_user_id' => $booking->worker_id,
-            'rating' => $request->rating,
-            'comment' => $request->comment,
-            'archived' => false
-        ]);
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Review added successfully',
-            'review' => $review
-        ]);
     }
 
     /**
