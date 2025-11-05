@@ -72236,7 +72236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".jobpostmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2000;\n}\n\n.jobpostmodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 32px;\n  width: 680px;\n  max-width: 95%;\n  max-height: 90vh;\n  overflow-y: auto;\n  overflow-x: hidden;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);\n  position: relative;\n}\n.jobpostmodal h2 {\n  margin: 0 0 32px;\n  font-size: 28px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 700;\n}\n.jobpostmodal .jobpostmodal-content {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n.jobpostmodal .jobpostmodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  position: relative;\n}\n.jobpostmodal .jobpostmodal-content .form-group label {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group input,\n.jobpostmodal .jobpostmodal-content .form-group textarea,\n.jobpostmodal .jobpostmodal-content .form-group select {\n  padding: 12px;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  font-size: 15px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f7fafc;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group input:focus,\n.jobpostmodal .jobpostmodal-content .form-group textarea:focus,\n.jobpostmodal .jobpostmodal-content .form-group select:focus {\n  border-color: #3182ce;\n  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);\n  outline: none;\n}\n.jobpostmodal .jobpostmodal-content .form-group textarea {\n  min-height: 120px;\n  resize: vertical;\n}\n.jobpostmodal .jobpostmodal-content .form-group .owner-fields {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n  gap: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row {\n  display: flex;\n  gap: 16px;\n  align-items: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row select {\n  flex: 1;\n  min-width: 150px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row .remove-skill {\n  background: #e53e3e;\n  color: #ffffff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row .remove-skill:hover {\n  background: #c53030;\n}\n.jobpostmodal .jobpostmodal-content .form-group .add-skill {\n  background: #3182ce;\n  color: #ffffff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  align-self: flex-start;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group .add-skill:hover {\n  background: #2b6cb0;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-select {\n  width: 100%;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills {\n  margin-top: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills h4 {\n  margin: 0 0 12px;\n  color: #2d3748;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  margin-bottom: 12px;\n  padding: 12px;\n  background: #f5f5f5; /* Grayish background */\n  border-radius: 8px;\n  border: 1px solid #d9d9d9;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item {\n  flex: 1;\n  display: flex;\n  justify-content: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  padding: 10px 16px;\n  background: #f0f2f5; /* Light grayish background for skills */\n  border: 1px solid #d9d9d9;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  width: 100%;\n  min-height: 48px;\n  font-family: inherit;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:hover {\n  background: #e6f7ff;\n  border-color: #40a9ff;\n  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);\n  transform: translateY(-1px);\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:focus {\n  outline: none;\n  border-color: #40a9ff;\n  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger div {\n  flex: 1;\n  text-align: left;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger span {\n  font-size: 14px;\n  color: #262626;\n  font-weight: 500;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger svg {\n  color: #8c8c8c;\n  transition: color 0.2s ease;\n  flex-shrink: 0;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:hover svg {\n  color: #40a9ff;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select {\n  min-width: 120px;\n  display: flex;\n  justify-content: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d9d9d9;\n  border-radius: 6px;\n  font-size: 14px;\n  background: #ffffff;\n  text-align: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select select:focus {\n  outline: none;\n  border-color: #40a9ff;\n  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);\n}\n.jobpostmodal .jobpostmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 16px;\n  margin-top: 32px;\n}\n.jobpostmodal .jobpostmodal-buttons .submit-button {\n  background: #1A2A44;\n  color: #ffffff;\n  border: none;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-buttons .submit-button:hover {\n  background: #1A2A44;\n}\n.jobpostmodal .jobpostmodal-buttons .cancel-button {\n  background: #edf2f7;\n  color: #4a5568;\n  border: 1px solid #e2e8f0;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-buttons .cancel-button:hover {\n  background: #e2e8f0;\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 32px;\n  width: 440px;\n  max-width: 95%;\n  text-align: center;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  margin: 0 0 16px;\n  font-size: 24px;\n  color: #1a202c;\n  font-weight: 700;\n}\n.confirm-modal p {\n  margin: 0 0 24px;\n  color: #718096;\n  font-size: 15px;\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: 16px;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  background: #10B981;\n  color: #ffffff;\n  border: none;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #059669;\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  background: #edf2f7;\n  color: #4a5568;\n  border: 1px solid #e2e8f0;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: #e2e8f0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".jobpostmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2000;\n}\n\n.jobpostmodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 32px;\n  width: 680px;\n  max-width: 95%;\n  max-height: 90vh;\n  overflow-y: auto;\n  overflow-x: hidden;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);\n  position: relative;\n}\n.jobpostmodal h2 {\n  margin: 0 0 32px;\n  font-size: 28px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 700;\n}\n.jobpostmodal .jobpostmodal-content {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n.jobpostmodal .jobpostmodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  position: relative;\n}\n.jobpostmodal .jobpostmodal-content .form-group label {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group input,\n.jobpostmodal .jobpostmodal-content .form-group textarea,\n.jobpostmodal .jobpostmodal-content .form-group select {\n  padding: 10px;\n  border: 1px solid #e2e8f0;\n  border-radius: 5px;\n  font-size: 15px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f7fafc;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group input:focus,\n.jobpostmodal .jobpostmodal-content .form-group textarea:focus,\n.jobpostmodal .jobpostmodal-content .form-group select:focus {\n  border-color: #3182ce;\n  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);\n  outline: none;\n}\n.jobpostmodal .jobpostmodal-content .form-group textarea {\n  min-height: 120px;\n  resize: vertical;\n}\n.jobpostmodal .jobpostmodal-content .form-group .owner-fields {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n  gap: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row {\n  display: flex;\n  gap: 16px;\n  align-items: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row select {\n  flex: 1;\n  min-width: 150px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row .remove-skill {\n  background: #e53e3e;\n  color: #ffffff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row .remove-skill:hover {\n  background: #c53030;\n}\n.jobpostmodal .jobpostmodal-content .form-group .add-skill {\n  background: #3182ce;\n  color: #ffffff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  align-self: flex-start;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group .add-skill:hover {\n  background: #2b6cb0;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-select {\n  width: 100%;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills {\n  margin-top: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills h4 {\n  margin: 0 0 12px;\n  color: #2d3748;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  margin-bottom: 12px;\n  padding: 12px;\n  background: #f5f5f5; /* Grayish background */\n  border-radius: 8px;\n  border: 1px solid #d9d9d9;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item {\n  flex: 1;\n  display: flex;\n  justify-content: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  padding: 10px 16px;\n  background: #f0f2f5; /* Light grayish background for skills */\n  border: 1px solid #d9d9d9;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  width: 100%;\n  min-height: 48px;\n  font-family: inherit;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:hover {\n  background: #e6f7ff;\n  border-color: #40a9ff;\n  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);\n  transform: translateY(-1px);\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:focus {\n  outline: none;\n  border-color: #40a9ff;\n  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger div {\n  flex: 1;\n  text-align: left;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger span {\n  font-size: 14px;\n  color: #262626;\n  font-weight: 500;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger svg {\n  color: #8c8c8c;\n  transition: color 0.2s ease;\n  flex-shrink: 0;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:hover svg {\n  color: #40a9ff;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select {\n  min-width: 120px;\n  display: flex;\n  justify-content: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d9d9d9;\n  border-radius: 6px;\n  font-size: 14px;\n  background: #ffffff;\n  text-align: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select select:focus {\n  outline: none;\n  border-color: #40a9ff;\n  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);\n}\n.jobpostmodal .jobpostmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 16px;\n  margin-top: 32px;\n}\n.jobpostmodal .jobpostmodal-buttons .submit-button {\n  background: #1A2A44;\n  color: #ffffff;\n  border: none;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-buttons .submit-button:hover {\n  background: #1A2A44;\n}\n.jobpostmodal .jobpostmodal-buttons .cancel-button {\n  background: #edf2f7;\n  color: #4a5568;\n  border: 1px solid #e2e8f0;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-buttons .cancel-button:hover {\n  background: #e2e8f0;\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 32px;\n  width: 440px;\n  max-width: 95%;\n  text-align: center;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  margin: 0 0 16px;\n  font-size: 24px;\n  color: #1a202c;\n  font-weight: 700;\n}\n.confirm-modal p {\n  margin: 0 0 24px;\n  color: #718096;\n  font-size: 15px;\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: 16px;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  background: #10B981;\n  color: #ffffff;\n  border: none;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #059669;\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  background: #edf2f7;\n  color: #4a5568;\n  border: 1px solid #e2e8f0;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: #e2e8f0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -226641,15 +226641,15 @@ var JobPostModal = function JobPostModal(_ref) {
     initialData = _ref.initialData,
     onRefresh = _ref.onRefresh;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      company_id: "",
+      employer_id: "",
       profile_id: "",
       job_title: "",
       skills_required: [],
       description: "",
       salary: "",
-      salary_type: "monthly",
-      job_type: "full-time",
-      hiring_type: "individual",
+      salary_type: "",
+      job_type: "",
+      hiring_type: "",
       team_size: "",
       work_start: "",
       work_end: "",
@@ -226707,56 +226707,47 @@ var JobPostModal = function JobPostModal(_ref) {
     _useState24 = _slicedToArray(_useState23, 2),
     editingSkillId = _useState24[0],
     setEditingSkillId = _useState24[1];
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState26 = _slicedToArray(_useState25, 2),
-    profileImg = _useState26[0],
-    setProfileImg = _useState26[1];
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
-    _useState28 = _slicedToArray(_useState27, 2),
-    existingImagePath = _useState28[0],
-    setExistingImagePath = _useState28[1];
-  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var isMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
-  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState26 = _slicedToArray(_useState25, 2),
+    jobTitleOptions = _useState26[0],
+    setJobTitleOptions = _useState26[1];
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState28 = _slicedToArray(_useState27, 2),
+    selectedJobTitle = _useState28[0],
+    setSelectedJobTitle = _useState28[1];
+  var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState30 = _slicedToArray(_useState29, 2),
-    jobTitleOptions = _useState30[0],
-    setJobTitleOptions = _useState30[1];
+    isJobTitleOthers = _useState30[0],
+    setIsJobTitleOthers = _useState30[1];
   var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState32 = _slicedToArray(_useState31, 2),
-    selectedJobTitle = _useState32[0],
-    setSelectedJobTitle = _useState32[1];
-  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    customJobTitle = _useState32[0],
+    setCustomJobTitle = _useState32[1];
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState34 = _slicedToArray(_useState33, 2),
-    isJobTitleOthers = _useState34[0],
-    setIsJobTitleOthers = _useState34[1];
-  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    availableSubSkills = _useState34[0],
+    setAvailableSubSkills = _useState34[1];
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState36 = _slicedToArray(_useState35, 2),
-    customJobTitle = _useState36[0],
-    setCustomJobTitle = _useState36[1];
-  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    selectedSubSkills = _useState36[0],
+    setSelectedSubSkills = _useState36[1];
+  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState38 = _slicedToArray(_useState37, 2),
-    availableSubSkills = _useState38[0],
-    setAvailableSubSkills = _useState38[1];
-  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    subSkillsInputValue = _useState38[0],
+    setSubSkillsInputValue = _useState38[1];
+  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState40 = _slicedToArray(_useState39, 2),
-    selectedSubSkills = _useState40[0],
-    setSelectedSubSkills = _useState40[1];
-  var _useState41 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    subSkillSearchTerm = _useState40[0],
+    setSubSkillSearchTerm = _useState40[1];
+  var _useState41 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
     _useState42 = _slicedToArray(_useState41, 2),
-    subSkillsInputValue = _useState42[0],
-    setSubSkillsInputValue = _useState42[1];
-  var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    skillExperiences = _useState42[0],
+    setSkillExperiences = _useState42[1];
+  var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
     _useState44 = _slicedToArray(_useState43, 2),
-    subSkillSearchTerm = _useState44[0],
-    setSubSkillSearchTerm = _useState44[1];
-  var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-    _useState46 = _slicedToArray(_useState45, 2),
-    skillExperiences = _useState46[0],
-    setSkillExperiences = _useState46[1];
-  var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-    _useState48 = _slicedToArray(_useState47, 2),
-    isExperienceDropdownOpen = _useState48[0],
-    setIsExperienceDropdownOpen = _useState48[1];
+    isExperienceDropdownOpen = _useState44[0],
+    setIsExperienceDropdownOpen = _useState44[1];
   var experienceDropdownRefs = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Fetch skills, ranks, and companies
@@ -226861,33 +226852,6 @@ var JobPostModal = function JobPostModal(_ref) {
     };
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // Set profile image immediately from initialData if available (don't wait for companies)
-    if (isEdit && initialData) {
-      var _initialData$profile;
-      // Set existing image path - check multiple sources for employer profile image
-      var profileImagePath = null;
-
-      // First priority: get from the job post's profile relationship (most reliable)
-      if ((_initialData$profile = initialData.profile) !== null && _initialData$profile !== void 0 && _initialData$profile.profile_img) {
-        profileImagePath = initialData.profile.profile_img;
-      }
-      // Second: check if profile_img is directly in initialData (from API response)
-      else if (initialData.profile_img) {
-        profileImagePath = initialData.profile_img;
-      }
-
-      // Only set if we have a valid, non-empty profile image path
-      if (profileImagePath && profileImagePath.trim() !== '' && profileImagePath !== 'null') {
-        setExistingImagePath(profileImagePath);
-        console.log("Edit mode - Profile image path set from initialData:", profileImagePath);
-      } else {
-        setExistingImagePath(null);
-      }
-      setProfileImg(null);
-    }
-  }, [isEdit, initialData]); // Run when initialData changes, don't wait for companies
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Set form data for edit mode - find employer by profile_id
     if (isEdit && initialData && employers.length > 0) {
       // Find employer by profile_id
@@ -226895,12 +226859,11 @@ var JobPostModal = function JobPostModal(_ref) {
         return emp.profile && emp.profile.id && String(emp.profile.id) === String(initialData.profile_id);
       });
       if (employer) {
-        var _employer$profile;
         setSelectedEmployer(employer);
-        // Set profile image from employer's profile
-        if ((_employer$profile = employer.profile) !== null && _employer$profile !== void 0 && _employer$profile.profile_img) {
-          setExistingImagePath(employer.profile.profile_img);
-        }
+        console.log("Found employer in useEffect:", employer);
+        console.log("Employer profile:", employer.profile);
+      } else {
+        console.log("No employer found for profile_id:", initialData.profile_id);
       }
 
       // Set selected job title and sub-skills for editing (like employer flow)
@@ -226968,7 +226931,7 @@ var JobPostModal = function JobPostModal(_ref) {
         }
       }
       setFormData({
-        company_id: employer !== null && employer !== void 0 && employer.id ? String(employer.id) : initialData.company_id || "",
+        employer_id: employer !== null && employer !== void 0 && employer.id ? String(employer.id) : initialData.employer_id || "",
         profile_id: initialData.profile_id ? String(initialData.profile_id) : "",
         job_title: jobTitle,
         skills_required: initialData.skills ? function () {
@@ -227031,16 +226994,52 @@ var JobPostModal = function JobPostModal(_ref) {
         description: initialData.description || "",
         salary: initialData.salary || "",
         salary_type: function () {
-          // Handle backward compatibility for old salary_type values
-          var oldToNewMap = {
-            'per_hour': 'hourly',
-            'per_month': 'monthly'
-          };
-          var salaryType = initialData.salary_type || "monthly";
-          return oldToNewMap[salaryType] || salaryType;
+          // Get salary_type from initialData, normalize it (lowercase, trim)
+          var salaryType = initialData.salary_type ? String(initialData.salary_type).toLowerCase().trim() : null;
+
+          // Debug: Log salary type mapping
+          console.log("JobPostModal - salary_type mapping:");
+          console.log("  Original value:", initialData.salary_type);
+          console.log("  Normalized value:", salaryType);
+
+          // Valid salary type options in the dropdown
+          var validSalaryTypes = ['hourly', 'per_hour', 'daily', 'weekly', 'monthly', 'per_month', 'per_project'];
+
+          // If the salary_type matches one of the valid options, return it as is
+          // This ensures that if database has 'per_hour', it shows 'per_hour' in the dropdown
+          // and if database has 'per_month', we can map it to 'monthly' or keep as 'per_month'
+          if (salaryType && validSalaryTypes.includes(salaryType)) {
+            console.log("  Valid salary type found:", salaryType);
+            return salaryType;
+          }
+
+          // Handle backward compatibility - map old values to new format if needed
+          // But prefer to keep the original database value if it's valid
+          if (salaryType === 'per_month') {
+            // Map per_month to monthly for display (since we have monthly in dropdown)
+            console.log("  Mapped per_month to monthly");
+            return 'monthly';
+          }
+
+          // If it's a valid value but not in our list, try to find a match
+          if (salaryType) {
+            // Check if it's a variation of our valid types
+            if (salaryType.includes('hour') || salaryType === 'hr' || salaryType === 'hrly') {
+              console.log("  Detected hourly variant, using per_hour");
+              return 'per_hour';
+            }
+            if (salaryType.includes('month') || salaryType === 'mo') {
+              console.log("  Detected monthly variant, using monthly");
+              return 'monthly';
+            }
+          }
+
+          // Return empty string to show placeholder when editing new jobs or when value is missing
+          console.log("  Using empty string to show placeholder");
+          return "";
         }(),
-        job_type: initialData.job_type || "full-time",
-        hiring_type: initialData.hiring_type || "individual",
+        job_type: initialData.job_type || "",
+        hiring_type: initialData.hiring_type || "",
         team_size: initialData.team_size || "",
         work_start: initialData.work_start ? new Date(initialData.work_start).toISOString().slice(0, 16) : "",
         work_end: initialData.work_end ? new Date(initialData.work_end).toISOString().slice(0, 16) : "",
@@ -227057,26 +227056,18 @@ var JobPostModal = function JobPostModal(_ref) {
     setFormData(function (prev) {
       var newData = _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, value));
 
-      // Handle employer selection - automatically set profile_id and fetch profile image
-      if (field === "company_id" && value) {
+      // Handle employer selection - automatically set profile_id
+      if (field === "employer_id" && value) {
         var selectedEmp = employers.find(function (emp) {
           return String(emp.id) === String(value);
         });
         if (selectedEmp) {
-          var _selectedEmp$profile, _selectedEmp$profile2;
+          var _selectedEmp$profile;
           setSelectedEmployer(selectedEmp);
 
           // Automatically set profile_id from selected employer
           if ((_selectedEmp$profile = selectedEmp.profile) !== null && _selectedEmp$profile !== void 0 && _selectedEmp$profile.id) {
             newData.profile_id = String(selectedEmp.profile.id);
-          }
-
-          // Set profile image from employer's profile
-          if ((_selectedEmp$profile2 = selectedEmp.profile) !== null && _selectedEmp$profile2 !== void 0 && _selectedEmp$profile2.profile_img) {
-            setExistingImagePath(selectedEmp.profile.profile_img);
-            setProfileImg(null); // Clear any previously selected new image
-          } else {
-            setExistingImagePath(null);
           }
           console.log("Selected employer:", selectedEmp);
           console.log("Set profile_id to:", newData.profile_id);
@@ -227100,22 +227091,9 @@ var JobPostModal = function JobPostModal(_ref) {
       }
       return newData;
     });
-
-    // Handle profile image file selection
-    if (field === "profile_img" && value instanceof File) {
-      setProfileImg(value);
-      setExistingImagePath(null); // Clear existing image when new file is selected
-    }
     setErrors(function (prev) {
       return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, ""));
     });
-  };
-  var handleRemoveImage = function handleRemoveImage() {
-    setProfileImg(null);
-    setExistingImagePath(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
   };
   var handleJobTitleChange = function handleJobTitleChange(value) {
     if (!isMountedRef.current) return;
@@ -227402,8 +227380,8 @@ var JobPostModal = function JobPostModal(_ref) {
     var newErrors = {};
 
     // Validate employer selection
-    if (!formData.company_id) {
-      newErrors.company_id = "Employer is required";
+    if (!formData.employer_id) {
+      newErrors.employer_id = "Employer is required";
     }
 
     // Validate profile_id
@@ -227412,7 +227390,7 @@ var JobPostModal = function JobPostModal(_ref) {
     }
 
     // Validate that profile_id matches selected employer
-    if (formData.company_id && selectedEmployer) {
+    if (formData.employer_id && selectedEmployer) {
       var _selectedEmployer$pro;
       var expectedProfileId = (_selectedEmployer$pro = selectedEmployer.profile) !== null && _selectedEmployer$pro !== void 0 && _selectedEmployer$pro.id ? String(selectedEmployer.profile.id) : "";
       if (expectedProfileId && formData.profile_id !== expectedProfileId) {
@@ -227497,42 +227475,23 @@ var JobPostModal = function JobPostModal(_ref) {
                 name: subSkill,
                 experience: skillExperiences[subSkill] || "0-11-months"
               };
-            }); // Use FormData if profile image file is present, otherwise use regular object
-            if (profileImg instanceof File) {
-              submitData = new FormData();
-              submitData.append('profile_id', formData.profile_id);
-              submitData.append('job_title', formData.job_title || "");
-              submitData.append('skills', JSON.stringify(skillsData));
-              submitData.append('skill_experiences', JSON.stringify(skillExperiences));
-              submitData.append('description', formData.description);
-              submitData.append('salary', formData.salary);
-              submitData.append('salary_type', formData.salary_type || "monthly");
-              submitData.append('job_type', formData.job_type || "full-time");
-              submitData.append('hiring_type', formData.hiring_type || "individual");
-              submitData.append('team_size', formData.team_size ? parseInt(formData.team_size) : formData.hiring_type === "team" ? 2 : 1);
-              submitData.append('work_start', formData.work_start ? "".concat(formData.work_start, ":00") : "");
-              submitData.append('work_end', formData.work_end ? "".concat(formData.work_end, ":00") : "");
-              submitData.append('application_start', formData.application_start ? "".concat(formData.application_start, ":00") : "");
-              submitData.append('application_deadline', formData.application_deadline ? "".concat(formData.application_deadline, ":00") : "");
-              submitData.append('profile_img', profileImg);
-            } else {
-              submitData = {
-                profile_id: formData.profile_id,
-                job_title: formData.job_title || "",
-                skills: skillsData,
-                skill_experiences: skillExperiences,
-                description: formData.description,
-                salary: formData.salary,
-                salary_type: formData.salary_type || "monthly",
-                job_type: formData.job_type || "full-time",
-                hiring_type: formData.hiring_type || "individual",
-                team_size: formData.team_size ? parseInt(formData.team_size) : formData.hiring_type === "team" ? 2 : 1,
-                work_start: formData.work_start ? "".concat(formData.work_start, ":00") : "",
-                work_end: formData.work_end ? "".concat(formData.work_end, ":00") : "",
-                application_start: formData.application_start ? "".concat(formData.application_start, ":00") : "",
-                application_deadline: formData.application_deadline ? "".concat(formData.application_deadline, ":00") : ""
-              };
-            }
+            }); // Prepare submit data
+            submitData = {
+              profile_id: formData.profile_id,
+              job_title: formData.job_title || "",
+              skills: skillsData,
+              skill_experiences: skillExperiences,
+              description: formData.description,
+              salary: formData.salary,
+              salary_type: formData.salary_type,
+              job_type: formData.job_type,
+              hiring_type: formData.hiring_type,
+              team_size: formData.team_size ? parseInt(formData.team_size) : formData.hiring_type === "team" ? 2 : 1,
+              work_start: formData.work_start ? "".concat(formData.work_start, ":00") : "",
+              work_end: formData.work_end ? "".concat(formData.work_end, ":00") : "",
+              application_start: formData.application_start ? "".concat(formData.application_start, ":00") : "",
+              application_deadline: formData.application_deadline ? "".concat(formData.application_deadline, ":00") : ""
+            };
             _context2.n = 2;
             return onSubmit(submitData);
           case 2:
@@ -227645,46 +227604,81 @@ var JobPostModal = function JobPostModal(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
         className: "jobpostmodal-content",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-            htmlFor: "company_id",
-            children: "Employer Name"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("select", {
-            id: "company_id",
-            value: formData.company_id,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "company_id");
-            },
-            required: true,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-              value: "",
-              disabled: true,
-              children: "Select Employer"
-            }), Array.isArray(employers) && employers.map(function (employer) {
-              var fullName = employer.profile ? "".concat(employer.profile.first_name || '', " ").concat(employer.profile.middlename ? employer.profile.middlename + ' ' : '').concat(employer.profile.last_name || '').concat(employer.profile.suffix_name ? ' ' + employer.profile.suffix_name : '').trim() || 'N/A' : 'N/A';
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                value: employer.id,
-                children: fullName
-              }, employer.id);
+          className: "form-row",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+              htmlFor: "profile_id",
+              children: "Profile ID"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+              id: "profile_id",
+              type: "text",
+              value: formData.profile_id || "",
+              readOnly: true,
+              style: {
+                width: '100%',
+                padding: '8px',
+                backgroundColor: '#f5f5f5',
+                border: '1px solid #ddd',
+                borderRadius: '4px',
+                cursor: 'not-allowed'
+              },
+              title: "Profile ID is automatically set when you select an employer"
+            }), errors.profile_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              className: "error",
+              children: errors.profile_id
             })]
-          }), errors.company_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-            className: "error",
-            children: errors.company_id
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+              htmlFor: "employer_id",
+              children: "Employer Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("select", {
+              id: "employer_id",
+              name: "employer_id",
+              value: formData.employer_id,
+              onChange: function onChange(e) {
+                return handleInputChange(e, "employer_id");
+              },
+              required: true,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                value: "",
+                disabled: true,
+                children: "Select Employer"
+              }), Array.isArray(employers) && employers.map(function (employer) {
+                var fullName = employer.profile ? "".concat(employer.profile.first_name || '', " ").concat(employer.profile.middlename ? employer.profile.middlename + ' ' : '').concat(employer.profile.last_name || '').concat(employer.profile.suffix_name ? ' ' + employer.profile.suffix_name : '').trim() || 'N/A' : 'N/A';
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                  value: employer.id,
+                  children: fullName
+                }, employer.id);
+              })]
+            }), errors.employer_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              className: "error",
+              children: errors.employer_id
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
           className: "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
             htmlFor: "job_title",
             children: "Job Title"
-          }), !isJobTitleOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_8__["default"], {
-            id: "job_title",
-            options: jobTitleOptions,
-            value: selectedJobTitle,
-            onChange: handleJobTitleChange,
-            placeholder: "Select job title",
-            className: "skill-select",
-            searchable: true,
-            required: true
+          }), !isJobTitleOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+              id: "job_title",
+              type: "hidden",
+              value: selectedJobTitle || '',
+              "aria-hidden": "true",
+              tabIndex: -1,
+              readOnly: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              options: jobTitleOptions,
+              value: selectedJobTitle,
+              onChange: handleJobTitleChange,
+              placeholder: "Select job title",
+              className: "skill-select",
+              searchable: true,
+              required: true
+            })]
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             style: {
               display: 'flex',
@@ -227968,8 +227962,15 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               required: true,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                value: "",
+                disabled: true,
+                children: "Select salary type..."
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
                 value: "hourly",
                 children: "Hourly"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                value: "per_hour",
+                children: "Per Hour"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
                 value: "daily",
                 children: "Daily"
@@ -228003,6 +228004,10 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               required: true,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                value: "",
+                disabled: true,
+                children: "Select job type..."
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
                 value: "full-time",
                 children: "Full Time"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
@@ -228026,6 +228031,10 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               required: true,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                value: "",
+                disabled: true,
+                children: "Select hiring type..."
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
                 value: "individual",
                 children: "Individual"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
@@ -228133,42 +228142,6 @@ var JobPostModal = function JobPostModal(_ref) {
               className: "error",
               children: errors.work_end
             })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-            children: "Profile Image"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-            type: "file",
-            accept: "image/*",
-            onChange: function onChange(e) {
-              return handleInputChange(e, "profile_img");
-            },
-            ref: fileInputRef
-          }), (profileImg || existingImagePath) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-            className: "profile-image-container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
-              src: profileImg instanceof File ? URL.createObjectURL(profileImg) : getProfileImageSrc(existingImagePath),
-              alt: selectedEmployer !== null && selectedEmployer !== void 0 && selectedEmployer.profile ? getProfileName(selectedEmployer.profile) : initialData !== null && initialData !== void 0 && initialData.profile ? getProfileName(initialData.profile) : "Profile",
-              className: "profile-image-preview",
-              onError: function onError(e) {
-                e.target.src = "/images/default-profile.svg";
-              },
-              loading: "lazy"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-              type: "button",
-              onClick: handleRemoveImage,
-              className: "remove-image-btn",
-              children: "Remove"
-            })]
-          }), !profileImg && !existingImagePath && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-            className: "profile-image-placeholder",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-              children: "No profile image available. Select an image to upload."
-            })
-          }), errors.profile_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
-            className: "error",
-            children: errors.profile_id
           })]
         }), errors.submit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
           className: "error",
@@ -228322,11 +228295,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
 /* harmony import */ var _sass_components_jobposttable_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./../../../../sass/components/_jobposttable.scss */ "./resources/sass/components/_jobposttable.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -228593,6 +228566,26 @@ var JobPostTable = function JobPostTable() {
               var dateB = new Date(b.created_at || 0);
               return dateB - dateA;
             });
+
+            // Debug: Log profile relationship data for each job post
+            console.log("=== JOB POSTS PROFILE RELATIONSHIP CHECK ===");
+            allJobPosts.forEach(function (post) {
+              if (post.profile_id && post.profile) {
+                var profileIdMatch = String(post.profile_id) === String(post.profile.id);
+                console.log("[JOB POST ".concat(post.id, "] profile_id: ").concat(post.profile_id, ", profile.id: ").concat(post.profile.id, ", Match: ").concat(profileIdMatch));
+                if (!profileIdMatch) {
+                  console.error("[JOB POST ".concat(post.id, "] \u26A0\uFE0F PROFILE ID MISMATCH DETECTED!"));
+                  console.error("  - post.profile_id: ".concat(post.profile_id, " (type: ").concat(_typeof(post.profile_id), ")"));
+                  console.error("  - post.profile.id: ".concat(post.profile.id, " (type: ").concat(_typeof(post.profile.id), ")"));
+                  console.error("  - post.profile.profile_img: ".concat(post.profile.profile_img));
+                } else {
+                  console.log("[JOB POST ".concat(post.id, "] \u2713 Profile IDs match. profile_img: ").concat(post.profile.profile_img));
+                }
+              } else {
+                console.warn("[JOB POST ".concat(post.id, "] Missing profile data - profile_id: ").concat(post.profile_id, ", profile exists: ").concat(!!post.profile));
+              }
+            });
+            console.log("=============================================");
             setJobPosts(allJobPosts);
             // Update pagination info for display
             setPagination({
@@ -228627,8 +228620,19 @@ var JobPostTable = function JobPostTable() {
               }
               return acc;
             }, {}));
-            setProfiles(profilesData.reduce(function (acc, profile) {
-              if (profile.id) acc[profile.id] = profile;
+            setProfiles(profilesData.reduce(function (acc, user) {
+              var _user$profile;
+              // Store by user ID (for backward compatibility)
+              if (user.id) acc[user.id] = user;
+
+              // Also store by profile ID if profile exists (for proper matching with job posts)
+              if ((_user$profile = user.profile) !== null && _user$profile !== void 0 && _user$profile.id) {
+                acc["profile_".concat(user.profile.id)] = user.profile;
+              }
+              // Handle case where profile fields are at top level
+              if (user.profile_id && !user.profile) {
+                acc["profile_".concat(user.profile_id)] = user;
+              }
               return acc;
             }, {}));
             setError(null);
@@ -228816,7 +228820,7 @@ var JobPostTable = function JobPostTable() {
   };
   var handleEditClick = /*#__PURE__*/function () {
     var _ref5 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee5(post) {
-      var response, fullPostData, employerEntry, _t5;
+      var _fullPostData$profile, response, fullPostData, employerEntry, _fullPostData$profile2, _profiles$fullPostDat, profileResponse, altProfileResponse, normalizedSalaryType, validSalaryTypes, _t5, _t6, _t7;
       return _regenerator().w(function (_context5) {
         while (1) switch (_context5.p = _context5.n) {
           case 0:
@@ -228825,7 +228829,16 @@ var JobPostTable = function JobPostTable() {
             return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/jobposts/".concat(post.id));
           case 1:
             response = _context5.v;
-            fullPostData = response.data; // Map profile_id to company_id (employer user id)
+            fullPostData = response.data; // Debug: Log the fetched job post data
+            console.log("=== EDITING JOB POST - ADMIN SIDE ===");
+            console.log("Full job post data from API:", fullPostData);
+            console.log("salary_type from API:", fullPostData.salary_type);
+            console.log("salary_type type:", _typeof(fullPostData.salary_type));
+            console.log("Profile data:", fullPostData.profile);
+            console.log("Profile image from profile:", (_fullPostData$profile = fullPostData.profile) === null || _fullPostData$profile === void 0 ? void 0 : _fullPostData$profile.profile_img);
+            console.log("Profile ID:", fullPostData.profile_id);
+
+            // Map profile_id to company_id (employer user id)
             // The profile belongs to a user, and we need to find the employer/user that owns this profile
             if (fullPostData.profile_id) {
               // Find the employer/user that has this profile_id
@@ -228835,22 +228848,124 @@ var JobPostTable = function JobPostTable() {
               });
               if (employerEntry) {
                 fullPostData.company_id = employerEntry.id;
+                console.log("Found employer entry:", employerEntry);
+                console.log("Employer profile image:", employerEntry.profile_img);
+
+                // If profile image is not in fullPostData.profile, try to get it from employerEntry
+                if (!((_fullPostData$profile2 = fullPostData.profile) !== null && _fullPostData$profile2 !== void 0 && _fullPostData$profile2.profile_img) && employerEntry.profile_img) {
+                  // Ensure profile object exists
+                  if (!fullPostData.profile) {
+                    fullPostData.profile = {};
+                  }
+                  fullPostData.profile.profile_img = employerEntry.profile_img;
+                  console.log("Set profile image from employer entry:", employerEntry.profile_img);
+                }
+              } else {
+                console.warn("No employer entry found for profile_id:", fullPostData.profile_id);
               }
             }
+
+            // Ensure profile image is accessible
+            if (!fullPostData.profile_id) {
+              _context5.n = 10;
+              break;
+            }
+            // If profile object doesn't exist, create it
+            if (!fullPostData.profile) {
+              fullPostData.profile = {};
+            }
+
+            // Try to get profile image from multiple sources
+            if (!(!fullPostData.profile.profile_img || fullPostData.profile.profile_img.trim() === '' || fullPostData.profile.profile_img === 'null')) {
+              _context5.n = 9;
+              break;
+            }
+            if (!(fullPostData.profile_img && fullPostData.profile_img.trim() !== '' && fullPostData.profile_img !== 'null')) {
+              _context5.n = 2;
+              break;
+            }
+            fullPostData.profile.profile_img = fullPostData.profile_img;
+            console.log("Set profile image from direct field:", fullPostData.profile_img);
+            _context5.n = 9;
+            break;
+          case 2:
+            if (!((_profiles$fullPostDat = profiles[fullPostData.profile_id]) !== null && _profiles$fullPostDat !== void 0 && _profiles$fullPostDat.profile_img && profiles[fullPostData.profile_id].profile_img.trim() !== '' && profiles[fullPostData.profile_id].profile_img !== 'null')) {
+              _context5.n = 3;
+              break;
+            }
+            fullPostData.profile.profile_img = profiles[fullPostData.profile_id].profile_img;
+            console.log("Set profile image from profiles state:", profiles[fullPostData.profile_id].profile_img);
+            _context5.n = 9;
+            break;
+          case 3:
+            _context5.p = 3;
+            _context5.n = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(fullPostData.profile_id));
+          case 4:
+            profileResponse = _context5.v;
+            if (profileResponse.data && profileResponse.data.profile_img && profileResponse.data.profile_img.trim() !== '' && profileResponse.data.profile_img !== 'null') {
+              fullPostData.profile.profile_img = profileResponse.data.profile_img;
+              console.log("Fetched profile image from profiles API:", profileResponse.data.profile_img);
+            }
+            _context5.n = 9;
+            break;
+          case 5:
+            _context5.p = 5;
+            _t5 = _context5.v;
+            console.warn("Could not fetch profile image from profiles API:", _t5);
+            // Try alternative endpoint
+            _context5.p = 6;
+            _context5.n = 7;
+            return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/profiles/".concat(fullPostData.profile_id));
+          case 7:
+            altProfileResponse = _context5.v;
+            if (altProfileResponse.data && altProfileResponse.data.profile_img && altProfileResponse.data.profile_img.trim() !== '' && altProfileResponse.data.profile_img !== 'null') {
+              fullPostData.profile.profile_img = altProfileResponse.data.profile_img;
+              console.log("Fetched profile image from alternative profiles API:", altProfileResponse.data.profile_img);
+            }
+            _context5.n = 9;
+            break;
+          case 8:
+            _context5.p = 8;
+            _t6 = _context5.v;
+            console.warn("Could not fetch profile image from alternative API:", _t6);
+          case 9:
+            console.log("Final profile image path:", fullPostData.profile.profile_img);
+            console.log("Final profile object:", fullPostData.profile);
+          case 10:
+            // Ensure salary_type is properly set
+            // The API returns salary_type as 'per_hour' or 'per_month'
+            // The modal expects 'hourly' or 'monthly', but it handles the mapping internally
+            // So we just need to ensure it's present and in the correct format
+            if (!fullPostData.salary_type) {
+              console.warn("Warning: salary_type is missing from job post data");
+            } else {
+              // Normalize the salary_type value
+              normalizedSalaryType = String(fullPostData.salary_type).toLowerCase().trim();
+              console.log("Normalized salary_type:", normalizedSalaryType);
+
+              // Validate that it's a valid value
+              validSalaryTypes = ['per_hour', 'per_month', 'hourly', 'monthly'];
+              if (!validSalaryTypes.includes(normalizedSalaryType)) {
+                console.warn("Warning: Invalid salary_type value:", normalizedSalaryType);
+              }
+            }
+            console.log("Final job post data being passed to modal:", fullPostData);
+            console.log("=====================================");
             setPostToEdit(fullPostData);
             setIsEditMode(true);
             setIsModalOpen(true);
-            _context5.n = 3;
+            _context5.n = 12;
             break;
-          case 2:
-            _context5.p = 2;
-            _t5 = _context5.v;
-            console.error("Error fetching job post details:", _t5);
+          case 11:
+            _context5.p = 11;
+            _t7 = _context5.v;
+            console.error("Error fetching job post details:", _t7);
             antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Failed to fetch job post details. Please try again.");
-          case 3:
+          case 12:
             return _context5.a(2);
         }
-      }, _callee5, null, [[0, 2]]);
+      }, _callee5, null, [[6, 8], [3, 5], [0, 11]]);
     }));
     return function handleEditClick(_x3) {
       return _ref5.apply(this, arguments);
@@ -228863,7 +228978,7 @@ var JobPostTable = function JobPostTable() {
   };
   var handlePostAdd = /*#__PURE__*/function () {
     var _ref6 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee6(newPost) {
-      var response, _error$response9, _t6;
+      var response, _error$response9, _t8;
       return _regenerator().w(function (_context6) {
         while (1) switch (_context6.p = _context6.n) {
           case 0:
@@ -228882,10 +228997,10 @@ var JobPostTable = function JobPostTable() {
             break;
           case 2:
             _context6.p = 2;
-            _t6 = _context6.v;
-            console.error("Error adding job post:", _t6);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_error$response9 = _t6.response) === null || _error$response9 === void 0 || (_error$response9 = _error$response9.data) === null || _error$response9 === void 0 ? void 0 : _error$response9.message) || "Failed to create job post.");
-            throw _t6;
+            _t8 = _context6.v;
+            console.error("Error adding job post:", _t8);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_error$response9 = _t8.response) === null || _error$response9 === void 0 || (_error$response9 = _error$response9.data) === null || _error$response9 === void 0 ? void 0 : _error$response9.message) || "Failed to create job post.");
+            throw _t8;
           case 3:
             return _context6.a(2);
         }
@@ -228897,7 +229012,7 @@ var JobPostTable = function JobPostTable() {
   }();
   var handlePostUpdate = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee7(updatedPost) {
-      var response, _error$response0, _t7;
+      var response, _error$response0, _t9;
       return _regenerator().w(function (_context7) {
         while (1) switch (_context7.p = _context7.n) {
           case 0:
@@ -228920,10 +229035,10 @@ var JobPostTable = function JobPostTable() {
             break;
           case 2:
             _context7.p = 2;
-            _t7 = _context7.v;
-            console.error("Error updating job post:", _t7);
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_error$response0 = _t7.response) === null || _error$response0 === void 0 || (_error$response0 = _error$response0.data) === null || _error$response0 === void 0 ? void 0 : _error$response0.message) || "Failed to update job post.");
-            throw _t7;
+            _t9 = _context7.v;
+            console.error("Error updating job post:", _t9);
+            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(((_error$response0 = _t9.response) === null || _error$response0 === void 0 || (_error$response0 = _error$response0.data) === null || _error$response0 === void 0 ? void 0 : _error$response0.message) || "Failed to update job post.");
+            throw _t9;
           case 3:
             return _context7.a(2);
         }
@@ -229089,7 +229204,7 @@ var JobPostTable = function JobPostTable() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                     children: "ID"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
-                    children: "Profile"
+                    children: "Profile ID"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
                     children: "Employer Name"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("th", {
@@ -229167,52 +229282,7 @@ var JobPostTable = function JobPostTable() {
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                       children: post.id || "N/A"
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-                      children: function () {
-                        // Use profile from job post directly, or find from profiles state, or find employer
-                        var profileImg = null;
-
-                        // First, try to get profile_img from the job post's profile relationship
-                        if (post.profile && post.profile.profile_img) {
-                          profileImg = post.profile.profile_img;
-                        }
-                        // Second, try to find profile from profiles state using profile_id
-                        else if (post.profile_id && profiles[post.profile_id] && profiles[post.profile_id].profile_img) {
-                          profileImg = profiles[post.profile_id].profile_img;
-                        }
-                        // Third, try to find employer by profile_id
-                        else {
-                          var employer = Object.values(companies).find(function (emp) {
-                            return emp.profile_id === post.profile_id;
-                          });
-                          if (employer && employer.profile_img) {
-                            profileImg = employer.profile_img;
-                          }
-                        }
-                        if (profileImg) {
-                          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-                            style: {
-                              display: 'flex',
-                              justifyContent: 'center',
-                              alignItems: 'center'
-                            },
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-                              src: getProfileImageSrc(profileImg),
-                              alt: "Employer Profile",
-                              style: {
-                                width: '40px',
-                                height: '40px',
-                                borderRadius: '50%',
-                                objectFit: 'cover',
-                                border: '2px solid #e2e8f0'
-                              },
-                              onError: function onError(e) {
-                                e.target.src = "/images/default-profile.svg";
-                              }
-                            })
-                          });
-                        }
-                        return "N/A";
-                      }()
+                      children: post.profile_id || "N/A"
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
                       children: function () {
                         // Use profile from job post directly, or find from profiles state, or find employer
@@ -248399,7 +248469,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_components_profilesettings_modalpostjob_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../sass/components/profilesettings/modalpostjob.scss */ "./resources/sass/components/profilesettings/modalpostjob.scss");
 /* harmony import */ var _sass_components_common_CustomDropdown_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../sass/components/common/CustomDropdown.scss */ "./resources/sass/components/common/CustomDropdown.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
@@ -248408,6 +248477,7 @@ function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Sym
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
@@ -248431,14 +248501,33 @@ var ModalPostJob = function ModalPostJob(_ref) {
   var onSubmit = _ref.onSubmit,
     onClose = _ref.onClose,
     editingJob = _ref.editingJob;
+  // Helper function to map backend salary type to frontend
+  var getFrontendSalaryType = function getFrontendSalaryType(backendType) {
+    if (!backendType) return '';
+    var salaryTypeMap = {
+      'per_hour': 'per_hour',
+      // Keep per_hour as is for direct selection
+      'per_month': 'monthly'
+    };
+    // Normalize the backend type (handle case sensitivity)
+    var normalizedType = String(backendType).toLowerCase().trim();
+
+    // If it's per_hour, return per_hour (for direct selection)
+    if (normalizedType === 'per_hour') {
+      return 'per_hour';
+    }
+
+    // Otherwise use the mapping
+    return salaryTypeMap[normalizedType] || normalizedType; // Return the original if not in map
+  };
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       jobTitle: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_title) || "",
       jobDescription: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.description) || "",
-      salary: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.salary) || "",
-      salaryType: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.salary_type) || "hourly",
-      typeOfEmployment: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_type) || "full-time",
-      hiringType: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.hiring_type) || "individual",
-      teamSize: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.team_size) || ((editingJob === null || editingJob === void 0 ? void 0 : editingJob.hiring_type) === 'team' ? 2 : 1),
+      salary: editingJob !== null && editingJob !== void 0 && editingJob.salary ? String(editingJob.salary) : "",
+      salaryType: editingJob !== null && editingJob !== void 0 && editingJob.salary_type ? getFrontendSalaryType(editingJob.salary_type) : "",
+      typeOfEmployment: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_type) || "",
+      hiringType: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.hiring_type) || "",
+      teamSize: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.team_size) || "",
       workStart: editingJob !== null && editingJob !== void 0 && editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
       workEnd: editingJob !== null && editingJob !== void 0 && editingJob.work_end ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_end) : "",
       applicationStart: editingJob !== null && editingJob !== void 0 && editingJob.application_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_start) : "",
@@ -248473,15 +248562,25 @@ var ModalPostJob = function ModalPostJob(_ref) {
     _useState12 = _slicedToArray(_useState11, 2),
     jobTitleOptions = _useState12[0],
     setJobTitleOptions = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
+      // Initialize with job title from editingJob if available
+      // Will be properly set in useEffect after availableSkills loads
+      return (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_title) || "";
+    }),
     _useState14 = _slicedToArray(_useState13, 2),
     selectedJobTitle = _useState14[0],
     setSelectedJobTitle = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
+      // Will be determined in useEffect after availableSkills loads
+      return false;
+    }),
     _useState16 = _slicedToArray(_useState15, 2),
     isJobTitleOthers = _useState16[0],
     setIsJobTitleOthers = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
+      // Initialize with custom job title from editingJob if available
+      return (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_title) || "";
+    }),
     _useState18 = _slicedToArray(_useState17, 2),
     customJobTitle = _useState18[0],
     setCustomJobTitle = _useState18[1];
@@ -248513,11 +248612,32 @@ var ModalPostJob = function ModalPostJob(_ref) {
     _useState32 = _slicedToArray(_useState31, 2),
     availableSubSkills = _useState32[0],
     setAvailableSubSkills = _useState32[1];
-  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
+      // Initialize with skills from editingJob if available
+      if (editingJob !== null && editingJob !== void 0 && editingJob.skills && Array.isArray(editingJob.skills)) {
+        return editingJob.skills.filter(function (skill) {
+          return skill && skill.name;
+        }).map(function (skill) {
+          return skill.name;
+        });
+      }
+      return [];
+    }),
     _useState34 = _slicedToArray(_useState33, 2),
     selectedSubSkills = _useState34[0],
     setSelectedSubSkills = _useState34[1];
-  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
+      // Initialize with skills from editingJob if available
+      if (editingJob !== null && editingJob !== void 0 && editingJob.skills && Array.isArray(editingJob.skills)) {
+        var subSkills = editingJob.skills.filter(function (skill) {
+          return skill && skill.name;
+        }).map(function (skill) {
+          return skill.name;
+        });
+        return subSkills.join(', ');
+      }
+      return "";
+    }),
     _useState36 = _slicedToArray(_useState35, 2),
     subSkillsInputValue = _useState36[0],
     setSubSkillsInputValue = _useState36[1];
@@ -248527,6 +248647,9 @@ var ModalPostJob = function ModalPostJob(_ref) {
   var salaryTypeOptions = [{
     value: "hourly",
     label: "Hourly"
+  }, {
+    value: "per_hour",
+    label: "Per Hour"
   }, {
     value: "daily",
     label: "Daily"
@@ -248602,45 +248725,133 @@ var ModalPostJob = function ModalPostJob(_ref) {
     };
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (editingJob) {
-      setFormData({
-        jobTitle: editingJob.job_title || "",
-        jobDescription: editingJob.description || "",
-        salary: editingJob.salary || "",
-        salaryType: editingJob.salary_type || "hourly",
-        typeOfEmployment: editingJob.job_type || "full-time",
-        hiringType: editingJob.hiring_type || "individual",
-        teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
-        workStart: editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
-        workEnd: editingJob.work_end ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_end) : "",
-        applicationStart: editingJob.application_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_start) : "",
-        applicationDeadline: editingJob.application_deadline ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_deadline) : "",
-        skills: editingJob.skills || [],
-        skillExperiences: editingJob.skill_experiences || {}
+    if (editingJob && availableSkills.length > 0) {
+      // Map backend salary_type to frontend format
+      var salaryTypeMap = {
+        'per_hour': 'per_hour',
+        // Keep per_hour as is for direct selection
+        'per_month': 'monthly'
+      };
+
+      // Debug: Log the editing job data
+      console.log("=== EDITING JOB DATA ===");
+      console.log("Full editingJob:", editingJob);
+      console.log("salary from API:", editingJob.salary, "| type:", _typeof(editingJob.salary));
+      console.log("salary_type from API:", editingJob.salary_type, "| type:", _typeof(editingJob.salary_type));
+
+      // Map backend salary_type to frontend format
+      var frontendSalaryType = '';
+      if (editingJob.salary_type) {
+        // Normalize the salary_type value (handle case sensitivity)
+        var normalizedSalaryType = String(editingJob.salary_type).toLowerCase().trim();
+
+        // If it's per_hour, use per_hour directly (no mapping needed)
+        if (normalizedSalaryType === 'per_hour') {
+          frontendSalaryType = 'per_hour';
+        } else {
+          // Otherwise use the mapping
+          frontendSalaryType = salaryTypeMap[normalizedSalaryType] || '';
+
+          // If mapping failed, try to find it in the options
+          if (!frontendSalaryType) {
+            var foundOption = salaryTypeOptions.find(function (opt) {
+              return opt.value.toLowerCase() === normalizedSalaryType || opt.label.toLowerCase() === normalizedSalaryType;
+            });
+            frontendSalaryType = foundOption ? foundOption.value : normalizedSalaryType;
+          }
+        }
+      }
+
+      // Debug: Log salary type mapping
+      console.log("Salary Type Mapping - Backend:", editingJob.salary_type, "→ Frontend:", frontendSalaryType);
+      console.log("=========================");
+
+      // Extract skill experiences from job data
+      var skillExperiences = {};
+      if (editingJob.skills && Array.isArray(editingJob.skills)) {
+        editingJob.skills.forEach(function (skill) {
+          if (skill.name && skill.experience) {
+            skillExperiences[skill.name] = skill.experience;
+          }
+        });
+      }
+      // Also merge with skill_experiences if it exists
+      if (editingJob.skill_experiences && _typeof(editingJob.skill_experiences) === 'object') {
+        Object.assign(skillExperiences, editingJob.skill_experiences);
+      }
+
+      // Convert salary to string for input field (handle number or decimal)
+      var salaryValue = editingJob.salary != null ? String(editingJob.salary) : "";
+      console.log("Setting salary value:", salaryValue, "| Original:", editingJob.salary, "| Type:", _typeof(editingJob.salary));
+      setFormData(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          jobTitle: editingJob.job_title || "",
+          jobDescription: editingJob.description || "",
+          salary: salaryValue,
+          salaryType: frontendSalaryType || prev.salaryType,
+          typeOfEmployment: editingJob.job_type || "",
+          hiringType: editingJob.hiring_type || "",
+          teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
+          workStart: editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
+          workEnd: editingJob.work_end ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_end) : "",
+          applicationStart: editingJob.application_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_start) : "",
+          applicationDeadline: editingJob.application_deadline ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_deadline) : "",
+          skills: editingJob.skills || [],
+          skillExperiences: skillExperiences
+        });
       });
       setSelectedSkills(editingJob.skills || []);
 
-      // Set selected job title and sub-skills for editing
+      // Set selected job title and determine if it's custom
       if (editingJob.job_title) {
-        setSelectedJobTitle(editingJob.job_title);
-        // Find the skill that matches the job title and set its sub-skills
         var matchingSkill = availableSkills.find(function (skill) {
           return skill.name === editingJob.job_title;
         });
-        if (matchingSkill && matchingSkill.sub_skills) {
-          var subSkillsOptions = matchingSkill.sub_skills.map(function (subSkill) {
-            return {
-              value: subSkill,
-              label: subSkill
-            };
-          });
-          setAvailableSubSkills(subSkillsOptions);
+        if (matchingSkill) {
+          // Job title exists in available skills
+          setSelectedJobTitle(editingJob.job_title);
+          setIsJobTitleOthers(false);
+          setCustomJobTitle('');
+
+          // Set sub-skills for this job title
+          if (matchingSkill.sub_skills && matchingSkill.sub_skills.length > 0) {
+            var subSkillsOptions = matchingSkill.sub_skills.map(function (subSkill) {
+              return {
+                value: subSkill,
+                label: subSkill
+              };
+            });
+            // Add "Others" option to sub-skills
+            subSkillsOptions.push({
+              value: 'Others',
+              label: 'Others'
+            });
+            setAvailableSubSkills(subSkillsOptions);
+          } else {
+            setAvailableSubSkills([{
+              value: 'Others',
+              label: 'Others'
+            }]);
+          }
+        } else {
+          // Job title is custom (not in available skills)
+          setSelectedJobTitle('Others');
+          setIsJobTitleOthers(true);
+          setCustomJobTitle(editingJob.job_title);
+          setAvailableSubSkills([{
+            value: 'Others',
+            label: 'Others'
+          }]);
+          setIsSubSkillOthers(true);
         }
       }
 
       // Set selected sub-skills from the job's skills
+      var subSkillsFromJob = [];
       if (editingJob.skills && editingJob.skills.length > 0) {
-        var subSkillsFromJob = editingJob.skills.map(function (skill) {
+        subSkillsFromJob = editingJob.skills.filter(function (skill) {
+          return skill && skill.name;
+        }).map(function (skill) {
           return skill.name;
         });
         setSelectedSubSkills(subSkillsFromJob);
@@ -248648,6 +248859,99 @@ var ModalPostJob = function ModalPostJob(_ref) {
         setSubSkillsInputValue(subSkillsFromJob.join(', '));
         console.log("Loading editing job skills:", editingJob.skills);
         console.log("Selected sub-skills:", subSkillsFromJob);
+        console.log("Skill experiences:", skillExperiences);
+      }
+
+      // Log all form data for debugging
+      var isCustomTitle = !availableSkills.find(function (skill) {
+        return skill.name === editingJob.job_title;
+      });
+      console.log("=== EDITING JOB - ALL FORM DATA ===");
+      console.log("Job Title:", editingJob.job_title, "| Is Custom:", isCustomTitle);
+      console.log("Job Description:", editingJob.description);
+      console.log("Salary:", editingJob.salary, "| Salary Type (Backend):", editingJob.salary_type, "| Frontend:", frontendSalaryType);
+      console.log("Job Type:", editingJob.job_type);
+      console.log("Hiring Type:", editingJob.hiring_type);
+      console.log("Team Size:", editingJob.team_size);
+      console.log("Application Start:", formData.applicationStart);
+      console.log("Application Deadline:", formData.applicationDeadline);
+      console.log("Work Start:", formData.workStart);
+      console.log("Work End:", formData.workEnd);
+      console.log("Sub-Skills:", subSkillsFromJob);
+      console.log("Experience Levels:", skillExperiences);
+      console.log("===================================");
+    } else if (editingJob && availableSkills.length === 0) {
+      // If editingJob exists but skills haven't loaded yet, set basic form data
+      var _salaryTypeMap = {
+        'per_hour': 'per_hour',
+        // Keep per_hour as is for direct selection
+        'per_month': 'monthly'
+      };
+
+      // Debug: Log the editing job data (early load)
+      console.log("=== EDITING JOB DATA (EARLY LOAD) ===");
+      console.log("Full editingJob:", editingJob);
+      console.log("salary_type from API:", editingJob.salary_type);
+      console.log("salary_type type:", _typeof(editingJob.salary_type));
+
+      // Map backend salary_type to frontend format
+      var _frontendSalaryType = '';
+      if (editingJob.salary_type) {
+        // Normalize the salary_type value (handle case sensitivity)
+        var _normalizedSalaryType = String(editingJob.salary_type).toLowerCase().trim();
+
+        // If it's per_hour, use per_hour directly (no mapping needed)
+        if (_normalizedSalaryType === 'per_hour') {
+          _frontendSalaryType = 'per_hour';
+        } else {
+          // Otherwise use the mapping
+          _frontendSalaryType = _salaryTypeMap[_normalizedSalaryType] || '';
+
+          // If mapping failed, try to find it in the options
+          if (!_frontendSalaryType) {
+            var _foundOption = salaryTypeOptions.find(function (opt) {
+              return opt.value.toLowerCase() === _normalizedSalaryType || opt.label.toLowerCase() === _normalizedSalaryType;
+            });
+            _frontendSalaryType = _foundOption ? _foundOption.value : _normalizedSalaryType;
+          }
+        }
+      }
+
+      // Debug: Log salary type mapping
+      console.log("Salary Type Mapping (early load) - Backend:", editingJob.salary_type, "→ Frontend:", _frontendSalaryType);
+      console.log("Salary (early load):", editingJob.salary, "| type:", _typeof(editingJob.salary));
+      console.log("=====================================");
+
+      // Convert salary to string for input field (handle number or decimal)
+      var _salaryValue = editingJob.salary != null ? String(editingJob.salary) : "";
+      console.log("Setting salary value (early load):", _salaryValue, "| Original:", editingJob.salary);
+      setFormData(function (prev) {
+        return _objectSpread(_objectSpread({}, prev), {}, {
+          jobTitle: editingJob.job_title || "",
+          jobDescription: editingJob.description || "",
+          salary: _salaryValue,
+          salaryType: _frontendSalaryType || prev.salaryType,
+          typeOfEmployment: editingJob.job_type || "",
+          hiringType: editingJob.hiring_type || "",
+          teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
+          workStart: editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
+          workEnd: editingJob.work_end ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_end) : "",
+          applicationStart: editingJob.application_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_start) : "",
+          applicationDeadline: editingJob.application_deadline ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.application_deadline) : "",
+          skills: editingJob.skills || [],
+          skillExperiences: editingJob.skill_experiences || {}
+        });
+      });
+
+      // Set sub-skills input value
+      if (editingJob.skills && editingJob.skills.length > 0) {
+        var _subSkillsFromJob = editingJob.skills.filter(function (skill) {
+          return skill && skill.name;
+        }).map(function (skill) {
+          return skill.name;
+        });
+        setSelectedSubSkills(_subSkillsFromJob);
+        setSubSkillsInputValue(_subSkillsFromJob.join(', '));
       }
     }
   }, [editingJob, availableSkills]);
@@ -248665,6 +248969,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
         });
       });
     }
+    // If hiringType is empty, don't set teamSize (let user select first)
   }, [formData.hiringType]);
   var fetchSkills = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
@@ -248752,38 +249057,56 @@ var ModalPostJob = function ModalPostJob(_ref) {
             }
             return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please enter a valid salary"));
           case 3:
-            if (!(!formData.applicationStart || !formData.applicationDeadline)) {
+            if (formData.salaryType) {
               _context2.n = 4;
               break;
             }
-            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select application start and deadline dates"));
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select salary type"));
           case 4:
-            if (!(formData.applicationDeadline <= formData.applicationStart)) {
+            if (formData.typeOfEmployment) {
               _context2.n = 5;
               break;
             }
-            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Application deadline must be after application start date"));
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select job type"));
           case 5:
-            if (!(!formData.workStart || !formData.workEnd)) {
+            if (formData.hiringType) {
               _context2.n = 6;
               break;
             }
-            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select work start and end dates"));
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select hiring type"));
           case 6:
-            if (!(formData.workStart < formData.applicationDeadline)) {
+            if (!(!formData.applicationStart || !formData.applicationDeadline)) {
               _context2.n = 7;
               break;
             }
-            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Work start date must be on or after application deadline (hiring period must complete first)"));
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select application start and deadline dates"));
           case 7:
-            if (!(formData.workEnd <= formData.workStart)) {
+            if (!(formData.applicationDeadline <= formData.applicationStart)) {
               _context2.n = 8;
               break;
             }
-            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Work end date must be after work start date"));
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Application deadline must be after application start date"));
           case 8:
+            if (!(!formData.workStart || !formData.workEnd)) {
+              _context2.n = 9;
+              break;
+            }
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please select work start and end dates"));
+          case 9:
+            if (!(formData.workStart < formData.applicationDeadline)) {
+              _context2.n = 10;
+              break;
+            }
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Work start date must be on or after application deadline (hiring period must complete first)"));
+          case 10:
+            if (!(formData.workEnd <= formData.workStart)) {
+              _context2.n = 11;
+              break;
+            }
+            return _context2.a(2, antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Work end date must be after work start date"));
+          case 11:
             setIsLoading(true);
-            _context2.p = 9;
+            _context2.p = 12;
             // Prepare skills data with sub-skills and experience levels
             skillsData = selectedSubSkills.map(function (subSkill) {
               return {
@@ -248798,24 +249121,24 @@ var ModalPostJob = function ModalPostJob(_ref) {
             console.log("Submitting job data:", jobData);
             console.log("Selected sub-skills:", selectedSubSkills);
             console.log("Skills data:", skillsData);
-            _context2.n = 10;
+            _context2.n = 13;
             return onSubmit(jobData);
-          case 10:
-            _context2.n = 12;
+          case 13:
+            _context2.n = 15;
             break;
-          case 11:
-            _context2.p = 11;
+          case 14:
+            _context2.p = 14;
             _t2 = _context2.v;
             console.error(_t2);
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('An error occurred while posting the job.');
-          case 12:
-            _context2.p = 12;
+          case 15:
+            _context2.p = 15;
             setIsLoading(false);
-            return _context2.f(12);
-          case 13:
+            return _context2.f(15);
+          case 16:
             return _context2.a(2);
         }
-      }, _callee2, null, [[9, 11, 12, 13]]);
+      }, _callee2, null, [[12, 14, 15, 16]]);
     }));
     return function handleSubmit(_x) {
       return _ref3.apply(this, arguments);
@@ -249084,7 +249407,8 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   options: salaryTypeOptions,
                   value: formData.salaryType,
                   onChange: function onChange(val) {
-                    return setFormData(function (prev) {
+                    console.log("Salary Type Changed:", val);
+                    setFormData(function (prev) {
                       return _objectSpread(_objectSpread({}, prev), {}, {
                         salaryType: val
                       });
@@ -249217,7 +249541,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
                   title: !formData.workStart ? "Please select Work Start date first" : ""
                 })]
               })]
-            }), selectedJobTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            }), (selectedJobTitle || (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_title) || formData.jobTitle) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                 children: "Desired Sub-Skills"
@@ -249262,6 +249586,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                 className: "experience-levels-container",
                 children: selectedSubSkills.map(function (subSkill, index) {
+                  var _experienceOptions$fi;
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                     className: "experience-level-item",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
@@ -249292,7 +249617,9 @@ var ModalPostJob = function ModalPostJob(_ref) {
                         },
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                           className: "ant-select-selection-item",
-                          children: formData.skillExperiences[subSkill] || "Select Experience"
+                          children: formData.skillExperiences[subSkill] ? ((_experienceOptions$fi = experienceOptions.find(function (opt) {
+                            return opt.value === formData.skillExperiences[subSkill];
+                          })) === null || _experienceOptions$fi === void 0 ? void 0 : _experienceOptions$fi.label) || formData.skillExperiences[subSkill] : "Select Experience"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                           className: "ant-select-arrow ".concat(isExperienceDropdownOpen[subSkill] ? 'open' : ''),
                           children: "\u25BC"
@@ -249318,7 +249645,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h4", {
                 children: "Selected Skills:"
               }), selectedSubSkills.map(function (subSkill, index) {
-                var _experienceOptions$fi;
+                var _experienceOptions$fi2;
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
                   className: "skill-with-experience",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
@@ -249326,9 +249653,9 @@ var ModalPostJob = function ModalPostJob(_ref) {
                     children: subSkill
                   }), formData.skillExperiences[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
                     className: "experience-tag",
-                    children: (_experienceOptions$fi = experienceOptions.find(function (opt) {
+                    children: (_experienceOptions$fi2 = experienceOptions.find(function (opt) {
                       return opt.value === formData.skillExperiences[subSkill];
-                    })) === null || _experienceOptions$fi === void 0 ? void 0 : _experienceOptions$fi.label
+                    })) === null || _experienceOptions$fi2 === void 0 ? void 0 : _experienceOptions$fi2.label
                   })]
                 }, index);
               })]
@@ -251930,6 +252257,18 @@ var MyPostJob = function MyPostJob() {
       return job.id === jobId;
     });
     if (jobToEdit) {
+      // Debug: Log the job data being passed to edit modal
+      console.log("=== EDITING JOB - PASSING TO MODAL ===");
+      console.log("Job ID:", jobId);
+      console.log("Full job data:", JSON.parse(JSON.stringify(jobToEdit)));
+      console.log("salary:", jobToEdit.salary, "| type:", _typeof(jobToEdit.salary));
+      console.log("salary_type:", jobToEdit.salary_type, "| type:", _typeof(jobToEdit.salary_type));
+      console.log("job_type:", jobToEdit.job_type);
+      console.log("hiring_type:", jobToEdit.hiring_type);
+      console.log("team_size:", jobToEdit.team_size);
+      console.log("skills:", jobToEdit.skills);
+      console.log("skill_experiences:", jobToEdit.skill_experiences);
+      console.log("=====================================");
       setEditingJob(jobToEdit);
       setIsModalOpen(true);
     }
@@ -252008,6 +252347,8 @@ var MyPostJob = function MyPostJob() {
             // Map salary types to backend expected values
             salaryTypeMap = {
               'hourly': 'per_hour',
+              'per_hour': 'per_hour',
+              // Direct mapping for per_hour
               'daily': 'per_hour',
               // Map daily to per_hour for now
               'weekly': 'per_hour',

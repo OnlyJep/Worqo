@@ -7,14 +7,33 @@ import '../../../sass/components/profilesettings/modalpostjob.scss';
 import '../../../sass/components/common/CustomDropdown.scss';
 
 const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
+  // Helper function to map backend salary type to frontend
+  const getFrontendSalaryType = (backendType) => {
+    if (!backendType) return '';
+    const salaryTypeMap = {
+      'per_hour': 'per_hour', // Keep per_hour as is for direct selection
+      'per_month': 'monthly'
+    };
+    // Normalize the backend type (handle case sensitivity)
+    const normalizedType = String(backendType).toLowerCase().trim();
+    
+    // If it's per_hour, return per_hour (for direct selection)
+    if (normalizedType === 'per_hour') {
+      return 'per_hour';
+    }
+    
+    // Otherwise use the mapping
+    return salaryTypeMap[normalizedType] || normalizedType; // Return the original if not in map
+  };
+
   const [formData, setFormData] = useState({
     jobTitle: editingJob?.job_title || "",
     jobDescription: editingJob?.description || "",
-    salary: editingJob?.salary || "",
-    salaryType: editingJob?.salary_type || "hourly",
-    typeOfEmployment: editingJob?.job_type || "full-time",
-    hiringType: editingJob?.hiring_type || "individual",
-    teamSize: editingJob?.team_size || (editingJob?.hiring_type === 'team' ? 2 : 1),
+    salary: editingJob?.salary ? String(editingJob.salary) : "",
+    salaryType: editingJob?.salary_type ? getFrontendSalaryType(editingJob.salary_type) : "",
+    typeOfEmployment: editingJob?.job_type || "",
+    hiringType: editingJob?.hiring_type || "",
+    teamSize: editingJob?.team_size || "",
     workStart: editingJob?.work_start ? convertToPhilippinesTime(editingJob.work_start) : "",
     workEnd: editingJob?.work_end ? convertToPhilippinesTime(editingJob.work_end) : "",
     applicationStart: editingJob?.application_start ? convertToPhilippinesTime(editingJob.application_start) : "",
@@ -29,9 +48,19 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [jobTitleOptions, setJobTitleOptions] = useState([]);
-  const [selectedJobTitle, setSelectedJobTitle] = useState("");
-  const [isJobTitleOthers, setIsJobTitleOthers] = useState(false);
-  const [customJobTitle, setCustomJobTitle] = useState("");
+  const [selectedJobTitle, setSelectedJobTitle] = useState(() => {
+    // Initialize with job title from editingJob if available
+    // Will be properly set in useEffect after availableSkills loads
+    return editingJob?.job_title || "";
+  });
+  const [isJobTitleOthers, setIsJobTitleOthers] = useState(() => {
+    // Will be determined in useEffect after availableSkills loads
+    return false;
+  });
+  const [customJobTitle, setCustomJobTitle] = useState(() => {
+    // Initialize with custom job title from editingJob if available
+    return editingJob?.job_title || "";
+  });
   const [isSkillsDropdownOpen, setIsSkillsDropdownOpen] = useState(false);
   const [isSubSkillsDropdownOpen, setIsSubSkillsDropdownOpen] = useState(false);
   const [isSubSkillOthers, setIsSubSkillOthers] = useState(false);
@@ -39,14 +68,32 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   const [subSkillSearchTerm, setSubSkillSearchTerm] = useState("");
   const [isExperienceDropdownOpen, setIsExperienceDropdownOpen] = useState({});
   const [availableSubSkills, setAvailableSubSkills] = useState([]);
-  const [selectedSubSkills, setSelectedSubSkills] = useState([]);
-  const [subSkillsInputValue, setSubSkillsInputValue] = useState("");
+  const [selectedSubSkills, setSelectedSubSkills] = useState(() => {
+    // Initialize with skills from editingJob if available
+    if (editingJob?.skills && Array.isArray(editingJob.skills)) {
+      return editingJob.skills
+        .filter(skill => skill && skill.name)
+        .map(skill => skill.name);
+    }
+    return [];
+  });
+  const [subSkillsInputValue, setSubSkillsInputValue] = useState(() => {
+    // Initialize with skills from editingJob if available
+    if (editingJob?.skills && Array.isArray(editingJob.skills)) {
+      const subSkills = editingJob.skills
+        .filter(skill => skill && skill.name)
+        .map(skill => skill.name);
+      return subSkills.join(', ');
+    }
+    return "";
+  });
   const skillsDropdownRef = useRef(null);
   const subSkillsDropdownRef = useRef(null);
   const experienceDropdownRefs = useRef({});
 
   const salaryTypeOptions = [
     { value: "hourly", label: "Hourly" },
+    { value: "per_hour", label: "Per Hour" },
     { value: "daily", label: "Daily" },
     { value: "weekly", label: "Weekly" },
     { value: "monthly", label: "Monthly" },
@@ -103,14 +150,199 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   }, []);
 
   useEffect(() => {
-    if (editingJob) {
-      setFormData({
+    if (editingJob && availableSkills.length > 0) {
+      // Map backend salary_type to frontend format
+      const salaryTypeMap = {
+        'per_hour': 'per_hour', // Keep per_hour as is for direct selection
+        'per_month': 'monthly'
+      };
+      
+      // Debug: Log the editing job data
+      console.log("=== EDITING JOB DATA ===");
+      console.log("Full editingJob:", editingJob);
+      console.log("salary from API:", editingJob.salary, "| type:", typeof editingJob.salary);
+      console.log("salary_type from API:", editingJob.salary_type, "| type:", typeof editingJob.salary_type);
+      
+      // Map backend salary_type to frontend format
+      let frontendSalaryType = '';
+      if (editingJob.salary_type) {
+        // Normalize the salary_type value (handle case sensitivity)
+        const normalizedSalaryType = String(editingJob.salary_type).toLowerCase().trim();
+        
+        // If it's per_hour, use per_hour directly (no mapping needed)
+        if (normalizedSalaryType === 'per_hour') {
+          frontendSalaryType = 'per_hour';
+        } else {
+          // Otherwise use the mapping
+          frontendSalaryType = salaryTypeMap[normalizedSalaryType] || '';
+          
+          // If mapping failed, try to find it in the options
+          if (!frontendSalaryType) {
+            const foundOption = salaryTypeOptions.find(opt => 
+              opt.value.toLowerCase() === normalizedSalaryType || 
+              opt.label.toLowerCase() === normalizedSalaryType
+            );
+            frontendSalaryType = foundOption ? foundOption.value : normalizedSalaryType;
+          }
+        }
+      }
+      
+      // Debug: Log salary type mapping
+      console.log("Salary Type Mapping - Backend:", editingJob.salary_type, "→ Frontend:", frontendSalaryType);
+      console.log("=========================");
+      
+      // Extract skill experiences from job data
+      const skillExperiences = {};
+      if (editingJob.skills && Array.isArray(editingJob.skills)) {
+        editingJob.skills.forEach(skill => {
+          if (skill.name && skill.experience) {
+            skillExperiences[skill.name] = skill.experience;
+          }
+        });
+      }
+      // Also merge with skill_experiences if it exists
+      if (editingJob.skill_experiences && typeof editingJob.skill_experiences === 'object') {
+        Object.assign(skillExperiences, editingJob.skill_experiences);
+      }
+      
+      // Convert salary to string for input field (handle number or decimal)
+      const salaryValue = editingJob.salary != null ? String(editingJob.salary) : "";
+      
+      console.log("Setting salary value:", salaryValue, "| Original:", editingJob.salary, "| Type:", typeof editingJob.salary);
+      
+      setFormData((prev) => ({
+        ...prev,
         jobTitle: editingJob.job_title || "",
         jobDescription: editingJob.description || "",
-        salary: editingJob.salary || "",
-        salaryType: editingJob.salary_type || "hourly",
-        typeOfEmployment: editingJob.job_type || "full-time",
-        hiringType: editingJob.hiring_type || "individual",
+        salary: salaryValue,
+        salaryType: frontendSalaryType || prev.salaryType,
+        typeOfEmployment: editingJob.job_type || "",
+        hiringType: editingJob.hiring_type || "",
+        teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
+        workStart: editingJob.work_start ? convertToPhilippinesTime(editingJob.work_start) : "",
+        workEnd: editingJob.work_end ? convertToPhilippinesTime(editingJob.work_end) : "",
+        applicationStart: editingJob.application_start ? convertToPhilippinesTime(editingJob.application_start) : "",
+        applicationDeadline: editingJob.application_deadline ? convertToPhilippinesTime(editingJob.application_deadline) : "",
+        skills: editingJob.skills || [],
+        skillExperiences: skillExperiences
+      }));
+      setSelectedSkills(editingJob.skills || []);
+      
+      // Set selected job title and determine if it's custom
+      if (editingJob.job_title) {
+        const matchingSkill = availableSkills.find(skill => skill.name === editingJob.job_title);
+        if (matchingSkill) {
+          // Job title exists in available skills
+          setSelectedJobTitle(editingJob.job_title);
+          setIsJobTitleOthers(false);
+          setCustomJobTitle('');
+          
+          // Set sub-skills for this job title
+          if (matchingSkill.sub_skills && matchingSkill.sub_skills.length > 0) {
+            const subSkillsOptions = matchingSkill.sub_skills.map(subSkill => ({
+              value: subSkill,
+              label: subSkill
+            }));
+            // Add "Others" option to sub-skills
+            subSkillsOptions.push({ value: 'Others', label: 'Others' });
+            setAvailableSubSkills(subSkillsOptions);
+          } else {
+            setAvailableSubSkills([{ value: 'Others', label: 'Others' }]);
+          }
+        } else {
+          // Job title is custom (not in available skills)
+          setSelectedJobTitle('Others');
+          setIsJobTitleOthers(true);
+          setCustomJobTitle(editingJob.job_title);
+          setAvailableSubSkills([{ value: 'Others', label: 'Others' }]);
+          setIsSubSkillOthers(true);
+        }
+      }
+      
+      // Set selected sub-skills from the job's skills
+      let subSkillsFromJob = [];
+      if (editingJob.skills && editingJob.skills.length > 0) {
+        subSkillsFromJob = editingJob.skills
+          .filter(skill => skill && skill.name)
+          .map(skill => skill.name);
+        setSelectedSubSkills(subSkillsFromJob);
+        // Set the input value to display comma-separated sub-skills
+        setSubSkillsInputValue(subSkillsFromJob.join(', '));
+        console.log("Loading editing job skills:", editingJob.skills);
+        console.log("Selected sub-skills:", subSkillsFromJob);
+        console.log("Skill experiences:", skillExperiences);
+      }
+      
+      // Log all form data for debugging
+      const isCustomTitle = !availableSkills.find(skill => skill.name === editingJob.job_title);
+      console.log("=== EDITING JOB - ALL FORM DATA ===");
+      console.log("Job Title:", editingJob.job_title, "| Is Custom:", isCustomTitle);
+      console.log("Job Description:", editingJob.description);
+      console.log("Salary:", editingJob.salary, "| Salary Type (Backend):", editingJob.salary_type, "| Frontend:", frontendSalaryType);
+      console.log("Job Type:", editingJob.job_type);
+      console.log("Hiring Type:", editingJob.hiring_type);
+      console.log("Team Size:", editingJob.team_size);
+      console.log("Application Start:", formData.applicationStart);
+      console.log("Application Deadline:", formData.applicationDeadline);
+      console.log("Work Start:", formData.workStart);
+      console.log("Work End:", formData.workEnd);
+      console.log("Sub-Skills:", subSkillsFromJob);
+      console.log("Experience Levels:", skillExperiences);
+      console.log("===================================");
+    } else if (editingJob && availableSkills.length === 0) {
+      // If editingJob exists but skills haven't loaded yet, set basic form data
+      const salaryTypeMap = {
+        'per_hour': 'per_hour', // Keep per_hour as is for direct selection
+        'per_month': 'monthly'
+      };
+      
+      // Debug: Log the editing job data (early load)
+      console.log("=== EDITING JOB DATA (EARLY LOAD) ===");
+      console.log("Full editingJob:", editingJob);
+      console.log("salary_type from API:", editingJob.salary_type);
+      console.log("salary_type type:", typeof editingJob.salary_type);
+      
+      // Map backend salary_type to frontend format
+      let frontendSalaryType = '';
+      if (editingJob.salary_type) {
+        // Normalize the salary_type value (handle case sensitivity)
+        const normalizedSalaryType = String(editingJob.salary_type).toLowerCase().trim();
+        
+        // If it's per_hour, use per_hour directly (no mapping needed)
+        if (normalizedSalaryType === 'per_hour') {
+          frontendSalaryType = 'per_hour';
+        } else {
+          // Otherwise use the mapping
+          frontendSalaryType = salaryTypeMap[normalizedSalaryType] || '';
+          
+          // If mapping failed, try to find it in the options
+          if (!frontendSalaryType) {
+            const foundOption = salaryTypeOptions.find(opt => 
+              opt.value.toLowerCase() === normalizedSalaryType || 
+              opt.label.toLowerCase() === normalizedSalaryType
+            );
+            frontendSalaryType = foundOption ? foundOption.value : normalizedSalaryType;
+          }
+        }
+      }
+      
+      // Debug: Log salary type mapping
+      console.log("Salary Type Mapping (early load) - Backend:", editingJob.salary_type, "→ Frontend:", frontendSalaryType);
+      console.log("Salary (early load):", editingJob.salary, "| type:", typeof editingJob.salary);
+      console.log("=====================================");
+      
+      // Convert salary to string for input field (handle number or decimal)
+      const salaryValue = editingJob.salary != null ? String(editingJob.salary) : "";
+      console.log("Setting salary value (early load):", salaryValue, "| Original:", editingJob.salary);
+      
+      setFormData((prev) => ({
+        ...prev,
+        jobTitle: editingJob.job_title || "",
+        jobDescription: editingJob.description || "",
+        salary: salaryValue,
+        salaryType: frontendSalaryType || prev.salaryType,
+        typeOfEmployment: editingJob.job_type || "",
+        hiringType: editingJob.hiring_type || "",
         teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
         workStart: editingJob.work_start ? convertToPhilippinesTime(editingJob.work_start) : "",
         workEnd: editingJob.work_end ? convertToPhilippinesTime(editingJob.work_end) : "",
@@ -118,31 +350,15 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
         applicationDeadline: editingJob.application_deadline ? convertToPhilippinesTime(editingJob.application_deadline) : "",
         skills: editingJob.skills || [],
         skillExperiences: editingJob.skill_experiences || {}
-      });
-      setSelectedSkills(editingJob.skills || []);
+      }));
       
-      // Set selected job title and sub-skills for editing
-      if (editingJob.job_title) {
-        setSelectedJobTitle(editingJob.job_title);
-        // Find the skill that matches the job title and set its sub-skills
-        const matchingSkill = availableSkills.find(skill => skill.name === editingJob.job_title);
-        if (matchingSkill && matchingSkill.sub_skills) {
-          const subSkillsOptions = matchingSkill.sub_skills.map(subSkill => ({
-            value: subSkill,
-            label: subSkill
-          }));
-          setAvailableSubSkills(subSkillsOptions);
-        }
-      }
-      
-      // Set selected sub-skills from the job's skills
+      // Set sub-skills input value
       if (editingJob.skills && editingJob.skills.length > 0) {
-        const subSkillsFromJob = editingJob.skills.map(skill => skill.name);
+        const subSkillsFromJob = editingJob.skills
+          .filter(skill => skill && skill.name)
+          .map(skill => skill.name);
         setSelectedSubSkills(subSkillsFromJob);
-        // Set the input value to display comma-separated sub-skills
         setSubSkillsInputValue(subSkillsFromJob.join(', '));
-        console.log("Loading editing job skills:", editingJob.skills);
-        console.log("Selected sub-skills:", subSkillsFromJob);
       }
     }
   }, [editingJob, availableSkills]);
@@ -159,6 +375,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
         teamSize: 1,
       }));
     }
+    // If hiringType is empty, don't set teamSize (let user select first)
   }, [formData.hiringType]);
 
   const fetchSkills = async () => {
@@ -201,6 +418,9 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     if (!formData.jobDescription.trim()) return message.error("Please fill in the job description");
     if (!formData.salary || parseFloat(formData.salary) <= 0)
       return message.error("Please enter a valid salary");
+    if (!formData.salaryType) return message.error("Please select salary type");
+    if (!formData.typeOfEmployment) return message.error("Please select job type");
+    if (!formData.hiringType) return message.error("Please select hiring type");
     if (!formData.applicationStart || !formData.applicationDeadline)
       return message.error("Please select application start and deadline dates");
     
@@ -476,7 +696,10 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                   <CustomDropdown
                     options={salaryTypeOptions}
                     value={formData.salaryType}
-                    onChange={(val) => setFormData((prev) => ({ ...prev, salaryType: val }))}
+                    onChange={(val) => {
+                      console.log("Salary Type Changed:", val);
+                      setFormData((prev) => ({ ...prev, salaryType: val }));
+                    }}
                     placeholder="Select salary type"
                     className="small-input"
                     required
@@ -594,7 +817,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                </div>
 
               {/* Sub-Skills */}
-              {selectedJobTitle && (
+              {(selectedJobTitle || editingJob?.job_title || formData.jobTitle) && (
                 <div className="form-group">
                   <label>Desired Sub-Skills</label>
                   <input
@@ -659,7 +882,9 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
                             }}
                           >
                             <span className="ant-select-selection-item">
-                              {formData.skillExperiences[subSkill] || "Select Experience"}
+                              {formData.skillExperiences[subSkill] 
+                                ? experienceOptions.find(opt => opt.value === formData.skillExperiences[subSkill])?.label || formData.skillExperiences[subSkill]
+                                : "Select Experience"}
                             </span>
                             <span className={`ant-select-arrow ${isExperienceDropdownOpen[subSkill] ? 'open' : ''}`}>
                               ▼

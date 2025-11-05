@@ -51,7 +51,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
   const [formData, setFormData] = useState({
 
-    company_id: "",
+    employer_id: "",
 
     profile_id: "",
 
@@ -62,10 +62,10 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
     salary: "",
 
-    salary_type: "monthly",
-    job_type: "full-time",
+    salary_type: "",
+    job_type: "",
 
-    hiring_type: "individual",
+    hiring_type: "",
     team_size: "",
     work_start: "",
     work_end: "",
@@ -99,9 +99,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
   const [editingSkillId, setEditingSkillId] = useState(null);
 
-  const [profileImg, setProfileImg] = useState(null);
-  const [existingImagePath, setExistingImagePath] = useState(null);
-  const fileInputRef = useRef(null);
   const isMountedRef = useRef(true);
   const [jobTitleOptions, setJobTitleOptions] = useState([]);
   const [selectedJobTitle, setSelectedJobTitle] = useState("");
@@ -236,31 +233,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
 
 
-  useEffect(() => {
-    // Set profile image immediately from initialData if available (don't wait for companies)
-    if (isEdit && initialData) {
-      // Set existing image path - check multiple sources for employer profile image
-      let profileImagePath = null;
-      
-      // First priority: get from the job post's profile relationship (most reliable)
-      if (initialData.profile?.profile_img) {
-        profileImagePath = initialData.profile.profile_img;
-      }
-      // Second: check if profile_img is directly in initialData (from API response)
-      else if (initialData.profile_img) {
-        profileImagePath = initialData.profile_img;
-      }
-      
-      // Only set if we have a valid, non-empty profile image path
-      if (profileImagePath && profileImagePath.trim() !== '' && profileImagePath !== 'null') {
-        setExistingImagePath(profileImagePath);
-        console.log("Edit mode - Profile image path set from initialData:", profileImagePath);
-      } else {
-        setExistingImagePath(null);
-      }
-      setProfileImg(null);
-    }
-  }, [isEdit, initialData]); // Run when initialData changes, don't wait for companies
 
   useEffect(() => {
     // Set form data for edit mode - find employer by profile_id
@@ -272,10 +244,10 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
       
       if (employer) {
         setSelectedEmployer(employer);
-        // Set profile image from employer's profile
-        if (employer.profile?.profile_img) {
-          setExistingImagePath(employer.profile.profile_img);
-        }
+        console.log("Found employer in useEffect:", employer);
+        console.log("Employer profile:", employer.profile);
+      } else {
+        console.log("No employer found for profile_id:", initialData.profile_id);
       }
       
       // Set selected job title and sub-skills for editing (like employer flow)
@@ -334,7 +306,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
       setFormData({
 
-        company_id: employer?.id ? String(employer.id) : (initialData.company_id || ""),
+        employer_id: employer?.id ? String(employer.id) : (initialData.employer_id || ""),
         profile_id: initialData.profile_id ? String(initialData.profile_id) : "",
         job_title: jobTitle,
         skills_required: initialData.skills ? (() => {
@@ -400,17 +372,55 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
         salary: initialData.salary || "",
 
         salary_type: (() => {
-          // Handle backward compatibility for old salary_type values
-          const oldToNewMap = {
-            'per_hour': 'hourly',
-            'per_month': 'monthly'
-          };
-          const salaryType = initialData.salary_type || "monthly";
-          return oldToNewMap[salaryType] || salaryType;
+          // Get salary_type from initialData, normalize it (lowercase, trim)
+          const salaryType = initialData.salary_type 
+            ? String(initialData.salary_type).toLowerCase().trim()
+            : null;
+          
+          // Debug: Log salary type mapping
+          console.log("JobPostModal - salary_type mapping:");
+          console.log("  Original value:", initialData.salary_type);
+          console.log("  Normalized value:", salaryType);
+          
+          // Valid salary type options in the dropdown
+          const validSalaryTypes = ['hourly', 'per_hour', 'daily', 'weekly', 'monthly', 'per_month', 'per_project'];
+          
+          // If the salary_type matches one of the valid options, return it as is
+          // This ensures that if database has 'per_hour', it shows 'per_hour' in the dropdown
+          // and if database has 'per_month', we can map it to 'monthly' or keep as 'per_month'
+          if (salaryType && validSalaryTypes.includes(salaryType)) {
+            console.log("  Valid salary type found:", salaryType);
+            return salaryType;
+          }
+          
+          // Handle backward compatibility - map old values to new format if needed
+          // But prefer to keep the original database value if it's valid
+          if (salaryType === 'per_month') {
+            // Map per_month to monthly for display (since we have monthly in dropdown)
+            console.log("  Mapped per_month to monthly");
+            return 'monthly';
+          }
+          
+          // If it's a valid value but not in our list, try to find a match
+          if (salaryType) {
+            // Check if it's a variation of our valid types
+            if (salaryType.includes('hour') || salaryType === 'hr' || salaryType === 'hrly') {
+              console.log("  Detected hourly variant, using per_hour");
+              return 'per_hour';
+            }
+            if (salaryType.includes('month') || salaryType === 'mo') {
+              console.log("  Detected monthly variant, using monthly");
+              return 'monthly';
+            }
+          }
+          
+          // Return empty string to show placeholder when editing new jobs or when value is missing
+          console.log("  Using empty string to show placeholder");
+          return "";
         })(),
-        job_type: initialData.job_type || "full-time",
+        job_type: initialData.job_type || "",
 
-        hiring_type: initialData.hiring_type || "individual",
+        hiring_type: initialData.hiring_type || "",
         team_size: initialData.team_size || "",
         work_start: initialData.work_start
           ? new Date(initialData.work_start).toISOString().slice(0, 16)
@@ -447,8 +457,8 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
       const newData = { ...prev, [field]: value };
 
-      // Handle employer selection - automatically set profile_id and fetch profile image
-      if (field === "company_id" && value) {
+      // Handle employer selection - automatically set profile_id
+      if (field === "employer_id" && value) {
         const selectedEmp = employers.find(emp => String(emp.id) === String(value));
         
         if (selectedEmp) {
@@ -457,14 +467,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           // Automatically set profile_id from selected employer
           if (selectedEmp.profile?.id) {
             newData.profile_id = String(selectedEmp.profile.id);
-          }
-          
-          // Set profile image from employer's profile
-          if (selectedEmp.profile?.profile_img) {
-            setExistingImagePath(selectedEmp.profile.profile_img);
-            setProfileImg(null); // Clear any previously selected new image
-          } else {
-            setExistingImagePath(null);
           }
           
           console.log("Selected employer:", selectedEmp);
@@ -488,24 +490,11 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     });
 
     
-    // Handle profile image file selection
-    if (field === "profile_img" && value instanceof File) {
-      setProfileImg(value);
-      setExistingImagePath(null); // Clear existing image when new file is selected
-    }
-    
     setErrors((prev) => ({ ...prev, [field]: "" }));
 
   };
 
 
-  const handleRemoveImage = () => {
-    setProfileImg(null);
-    setExistingImagePath(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
-    }
-  };
 
   const handleJobTitleChange = (value) => {
     if (!isMountedRef.current) return;
@@ -833,8 +822,8 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     const newErrors = {};
 
     // Validate employer selection
-    if (!formData.company_id) {
-      newErrors.company_id = "Employer is required";
+    if (!formData.employer_id) {
+      newErrors.employer_id = "Employer is required";
     }
 
     // Validate profile_id
@@ -843,7 +832,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
     }
 
     // Validate that profile_id matches selected employer
-    if (formData.company_id && selectedEmployer) {
+    if (formData.employer_id && selectedEmployer) {
       const expectedProfileId = selectedEmployer.profile?.id ? String(selectedEmployer.profile.id) : "";
       if (expectedProfileId && formData.profile_id !== expectedProfileId) {
         newErrors.profile_id = "Profile ID must match the selected employer";
@@ -959,36 +948,17 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
 
 
-        // Use FormData if profile image file is present, otherwise use regular object
-        let submitData;
-        if (profileImg instanceof File) {
-          submitData = new FormData();
-          submitData.append('profile_id', formData.profile_id);
-          submitData.append('job_title', formData.job_title || "");
-          submitData.append('skills', JSON.stringify(skillsData));
-          submitData.append('skill_experiences', JSON.stringify(skillExperiences));
-          submitData.append('description', formData.description);
-          submitData.append('salary', formData.salary);
-          submitData.append('salary_type', formData.salary_type || "monthly");
-          submitData.append('job_type', formData.job_type || "full-time");
-          submitData.append('hiring_type', formData.hiring_type || "individual");
-          submitData.append('team_size', formData.team_size ? parseInt(formData.team_size) : (formData.hiring_type === "team" ? 2 : 1));
-          submitData.append('work_start', formData.work_start ? `${formData.work_start}:00` : "");
-          submitData.append('work_end', formData.work_end ? `${formData.work_end}:00` : "");
-          submitData.append('application_start', formData.application_start ? `${formData.application_start}:00` : "");
-          submitData.append('application_deadline', formData.application_deadline ? `${formData.application_deadline}:00` : "");
-          submitData.append('profile_img', profileImg);
-        } else {
-          submitData = {
+        // Prepare submit data
+        const submitData = {
             profile_id: formData.profile_id,
             job_title: formData.job_title || "",
             skills: skillsData,
             skill_experiences: skillExperiences,
             description: formData.description,
             salary: formData.salary,
-            salary_type: formData.salary_type || "monthly",
-            job_type: formData.job_type || "full-time",
-            hiring_type: formData.hiring_type || "individual",
+            salary_type: formData.salary_type,
+            job_type: formData.job_type,
+            hiring_type: formData.hiring_type,
             team_size: formData.team_size ? parseInt(formData.team_size) : (formData.hiring_type === "team" ? 2 : 1),
             work_start: formData.work_start ? `${formData.work_start}:00` : "",
             work_end: formData.work_end ? `${formData.work_end}:00` : "",
@@ -998,7 +968,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
         };
 
-        }
         await onSubmit(submitData);
 
         message.success(isEdit ? "Job post updated successfully" : "Job post created successfully");
@@ -1149,30 +1118,52 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
         <div className="jobpostmodal-content">
 
-          <div className="form-group">
-            <label htmlFor="company_id">Employer Name</label>
-            <select
-              id="company_id"
-              value={formData.company_id}
-              onChange={(e) => handleInputChange(e, "company_id")}
-              required
-            >
-              <option value="" disabled>
-                Select Employer
-              </option>
-              {Array.isArray(employers) &&
-                employers.map((employer) => {
-                  const fullName = employer.profile
-                    ? `${employer.profile.first_name || ''} ${employer.profile.middlename ? employer.profile.middlename + ' ' : ''}${employer.profile.last_name || ''}${employer.profile.suffix_name ? ' ' + employer.profile.suffix_name : ''}`.trim() || 'N/A'
-                    : 'N/A';
-                  return (
-                    <option key={employer.id} value={employer.id}>
-                      {fullName}
-                    </option>
-                  );
-                })}
-            </select>
-            {errors.company_id && <span className="error">{errors.company_id}</span>}
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="profile_id">Profile ID</label>
+              <input
+                id="profile_id"
+                type="text"
+                value={formData.profile_id || ""}
+                readOnly
+                style={{
+                  width: '100%',
+                  padding: '8px',
+                  backgroundColor: '#f5f5f5',
+                  border: '1px solid #ddd',
+                  borderRadius: '4px',
+                  cursor: 'not-allowed'
+                }}
+                title="Profile ID is automatically set when you select an employer"
+              />
+              {errors.profile_id && <span className="error">{errors.profile_id}</span>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="employer_id">Employer Name</label>
+              <select
+                id="employer_id"
+                name="employer_id"
+                value={formData.employer_id}
+                onChange={(e) => handleInputChange(e, "employer_id")}
+                required
+              >
+                <option value="" disabled>
+                  Select Employer
+                </option>
+                {Array.isArray(employers) &&
+                  employers.map((employer) => {
+                    const fullName = employer.profile
+                      ? `${employer.profile.first_name || ''} ${employer.profile.middlename ? employer.profile.middlename + ' ' : ''}${employer.profile.last_name || ''}${employer.profile.suffix_name ? ' ' + employer.profile.suffix_name : ''}`.trim() || 'N/A'
+                      : 'N/A';
+                    return (
+                      <option key={employer.id} value={employer.id}>
+                        {fullName}
+                      </option>
+                    );
+                  })}
+              </select>
+              {errors.employer_id && <span className="error">{errors.employer_id}</span>}
+            </div>
           </div>
 
 
@@ -1180,16 +1171,26 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
           <div className="form-group">
             <label htmlFor="job_title">Job Title</label>
             {!isJobTitleOthers ? (
-              <CustomDropdown
-                id="job_title"
-                options={jobTitleOptions}
-                value={selectedJobTitle}
-                onChange={handleJobTitleChange}
-                placeholder="Select job title"
-                className="skill-select"
-                searchable={true}
-                required
-              />
+              <>
+                {/* Hidden input for label association - ensures label properly associates with form element */}
+                <input
+                  id="job_title"
+                  type="hidden"
+                  value={selectedJobTitle || ''}
+                  aria-hidden="true"
+                  tabIndex={-1}
+                  readOnly
+                />
+                <CustomDropdown
+                  options={jobTitleOptions}
+                  value={selectedJobTitle}
+                  onChange={handleJobTitleChange}
+                  placeholder="Select job title"
+                  className="skill-select"
+                  searchable={true}
+                  required
+                />
+              </>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <input
@@ -1399,7 +1400,9 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
                 onChange={(e) => handleInputChange(e, "salary_type")}
                 required
               >
+                <option value="" disabled>Select salary type...</option>
                 <option value="hourly">Hourly</option>
+                <option value="per_hour">Per Hour</option>
                 <option value="daily">Daily</option>
                 <option value="weekly">Weekly</option>
                 <option value="monthly">Monthly</option>
@@ -1425,6 +1428,8 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
 
             >
 
+              <option value="" disabled>Select job type...</option>
+
               <option value="full-time">Full Time</option>
 
               <option value="part-time">Part Time</option>
@@ -1443,6 +1448,7 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
                 onChange={(e) => handleInputChange(e, "hiring_type")}
                 required
               >
+                <option value="" disabled>Select hiring type...</option>
                 <option value="individual">Individual</option>
                 <option value="team">Team</option>
               </select>
@@ -1538,41 +1544,6 @@ const JobPostModal = ({ onClose, onSubmit, isEdit, initialData, onRefresh }) => 
               />
               {errors.work_end && <span className="error">{errors.work_end}</span>}
             </div>
-          </div>
-          <div className="form-group">
-            <label>Profile Image</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => handleInputChange(e, "profile_img")}
-              ref={fileInputRef}
-            />
-            {(profileImg || existingImagePath) && (
-              <div className="profile-image-container">
-                <img
-                  src={
-                    profileImg instanceof File
-                      ? URL.createObjectURL(profileImg)
-                      : getProfileImageSrc(existingImagePath)
-                  }
-                  alt={selectedEmployer?.profile ? getProfileName(selectedEmployer.profile) : (initialData?.profile ? getProfileName(initialData.profile) : "Profile")}
-                  className="profile-image-preview"
-                  onError={(e) => {
-                    e.target.src = "/images/default-profile.svg";
-                  }}
-                  loading="lazy"
-                />
-                <button type="button" onClick={handleRemoveImage} className="remove-image-btn">
-                  Remove
-                </button>
-              </div>
-            )}
-            {!profileImg && !existingImagePath && (
-              <div className="profile-image-placeholder">
-                <span>No profile image available. Select an image to upload.</span>
-              </div>
-            )}
-            {errors.profile_id && <span className="error">{errors.profile_id}</span>}
           </div>
 
           {errors.submit && <span className="error">{errors.submit}</span>}

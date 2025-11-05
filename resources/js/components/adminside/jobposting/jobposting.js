@@ -157,6 +157,26 @@ const JobPostTable = () => {
         return dateB - dateA;
       });
       
+      // Debug: Log profile relationship data for each job post
+      console.log("=== JOB POSTS PROFILE RELATIONSHIP CHECK ===");
+      allJobPosts.forEach(post => {
+        if (post.profile_id && post.profile) {
+          const profileIdMatch = String(post.profile_id) === String(post.profile.id);
+          console.log(`[JOB POST ${post.id}] profile_id: ${post.profile_id}, profile.id: ${post.profile.id}, Match: ${profileIdMatch}`);
+          if (!profileIdMatch) {
+            console.error(`[JOB POST ${post.id}] ⚠️ PROFILE ID MISMATCH DETECTED!`);
+            console.error(`  - post.profile_id: ${post.profile_id} (type: ${typeof post.profile_id})`);
+            console.error(`  - post.profile.id: ${post.profile.id} (type: ${typeof post.profile.id})`);
+            console.error(`  - post.profile.profile_img: ${post.profile.profile_img}`);
+          } else {
+            console.log(`[JOB POST ${post.id}] ✓ Profile IDs match. profile_img: ${post.profile.profile_img}`);
+          }
+        } else {
+          console.warn(`[JOB POST ${post.id}] Missing profile data - profile_id: ${post.profile_id}, profile exists: ${!!post.profile}`);
+        }
+      });
+      console.log("=============================================");
+      
       setJobPosts(allJobPosts);
       // Update pagination info for display
       setPagination({
@@ -196,8 +216,18 @@ const JobPostTable = () => {
         }, {})
       );
       setProfiles(
-        profilesData.reduce((acc, profile) => {
-          if (profile.id) acc[profile.id] = profile;
+        profilesData.reduce((acc, user) => {
+          // Store by user ID (for backward compatibility)
+          if (user.id) acc[user.id] = user;
+          
+          // Also store by profile ID if profile exists (for proper matching with job posts)
+          if (user.profile?.id) {
+            acc[`profile_${user.profile.id}`] = user.profile;
+          }
+          // Handle case where profile fields are at top level
+          if (user.profile_id && !user.profile) {
+            acc[`profile_${user.profile_id}`] = user;
+          }
           return acc;
         }, {})
       );
@@ -321,6 +351,15 @@ const JobPostTable = () => {
       const response = await axios.get(`http://127.0.0.1:8000/api/jobposts/${post.id}`);
       const fullPostData = response.data;
       
+      // Debug: Log the fetched job post data
+      console.log("=== EDITING JOB POST - ADMIN SIDE ===");
+      console.log("Full job post data from API:", fullPostData);
+      console.log("salary_type from API:", fullPostData.salary_type);
+      console.log("salary_type type:", typeof fullPostData.salary_type);
+      console.log("Profile data:", fullPostData.profile);
+      console.log("Profile image from profile:", fullPostData.profile?.profile_img);
+      console.log("Profile ID:", fullPostData.profile_id);
+      
       // Map profile_id to company_id (employer user id)
       // The profile belongs to a user, and we need to find the employer/user that owns this profile
       if (fullPostData.profile_id) {
@@ -329,12 +368,94 @@ const JobPostTable = () => {
         const employerEntry = Object.values(companies).find(emp => emp.profile_id === fullPostData.profile_id);
         if (employerEntry) {
           fullPostData.company_id = employerEntry.id;
+          console.log("Found employer entry:", employerEntry);
+          console.log("Employer profile image:", employerEntry.profile_img);
+          
+          // If profile image is not in fullPostData.profile, try to get it from employerEntry
+          if (!fullPostData.profile?.profile_img && employerEntry.profile_img) {
+            // Ensure profile object exists
+            if (!fullPostData.profile) {
+              fullPostData.profile = {};
+            }
+            fullPostData.profile.profile_img = employerEntry.profile_img;
+            console.log("Set profile image from employer entry:", employerEntry.profile_img);
+          }
+        } else {
+          console.warn("No employer entry found for profile_id:", fullPostData.profile_id);
         }
       }
       
+      // Ensure profile image is accessible
+      if (fullPostData.profile_id) {
+        // If profile object doesn't exist, create it
+        if (!fullPostData.profile) {
+          fullPostData.profile = {};
+        }
+        
+        // Try to get profile image from multiple sources
+        if (!fullPostData.profile.profile_img || fullPostData.profile.profile_img.trim() === '' || fullPostData.profile.profile_img === 'null') {
+          // Check if profile_img is directly in the response
+          if (fullPostData.profile_img && fullPostData.profile_img.trim() !== '' && fullPostData.profile_img !== 'null') {
+            fullPostData.profile.profile_img = fullPostData.profile_img;
+            console.log("Set profile image from direct field:", fullPostData.profile_img);
+          }
+          // Try to find from profiles state
+          else if (profiles[fullPostData.profile_id]?.profile_img && profiles[fullPostData.profile_id].profile_img.trim() !== '' && profiles[fullPostData.profile_id].profile_img !== 'null') {
+            fullPostData.profile.profile_img = profiles[fullPostData.profile_id].profile_img;
+            console.log("Set profile image from profiles state:", profiles[fullPostData.profile_id].profile_img);
+          }
+          // If still not found, try to fetch profile directly
+          else {
+            try {
+              const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${fullPostData.profile_id}`);
+              if (profileResponse.data && profileResponse.data.profile_img && profileResponse.data.profile_img.trim() !== '' && profileResponse.data.profile_img !== 'null') {
+                fullPostData.profile.profile_img = profileResponse.data.profile_img;
+                console.log("Fetched profile image from profiles API:", profileResponse.data.profile_img);
+              }
+            } catch (profileError) {
+              console.warn("Could not fetch profile image from profiles API:", profileError);
+              // Try alternative endpoint
+              try {
+                const altProfileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles/${fullPostData.profile_id}`);
+                if (altProfileResponse.data && altProfileResponse.data.profile_img && altProfileResponse.data.profile_img.trim() !== '' && altProfileResponse.data.profile_img !== 'null') {
+                  fullPostData.profile.profile_img = altProfileResponse.data.profile_img;
+                  console.log("Fetched profile image from alternative profiles API:", altProfileResponse.data.profile_img);
+                }
+              } catch (altError) {
+                console.warn("Could not fetch profile image from alternative API:", altError);
+              }
+            }
+          }
+        }
+        
+        console.log("Final profile image path:", fullPostData.profile.profile_img);
+        console.log("Final profile object:", fullPostData.profile);
+      }
+      
+      // Ensure salary_type is properly set
+      // The API returns salary_type as 'per_hour' or 'per_month'
+      // The modal expects 'hourly' or 'monthly', but it handles the mapping internally
+      // So we just need to ensure it's present and in the correct format
+      if (!fullPostData.salary_type) {
+        console.warn("Warning: salary_type is missing from job post data");
+      } else {
+        // Normalize the salary_type value
+        const normalizedSalaryType = String(fullPostData.salary_type).toLowerCase().trim();
+        console.log("Normalized salary_type:", normalizedSalaryType);
+        
+        // Validate that it's a valid value
+        const validSalaryTypes = ['per_hour', 'per_month', 'hourly', 'monthly'];
+        if (!validSalaryTypes.includes(normalizedSalaryType)) {
+          console.warn("Warning: Invalid salary_type value:", normalizedSalaryType);
+        }
+      }
+      
+      console.log("Final job post data being passed to modal:", fullPostData);
+      console.log("=====================================");
+      
       setPostToEdit(fullPostData);
-    setIsEditMode(true);
-    setIsModalOpen(true);
+      setIsEditMode(true);
+      setIsModalOpen(true);
     } catch (error) {
       console.error("Error fetching job post details:", error);
       message.error("Failed to fetch job post details. Please try again.");
@@ -501,7 +622,7 @@ const JobPostTable = () => {
                       </div>
                     </th>
                     <th>ID</th>
-                    <th>Profile</th>
+                    <th>Profile ID</th>
                     <th>Employer Name</th>
                     <th>Job Title</th>
                     <th>Skills</th>
@@ -554,51 +675,7 @@ const JobPostTable = () => {
                           </div>
                         </td>
                         <td>{post.id || "N/A"}</td>
-                        <td>
-                          {(() => {
-                            // Use profile from job post directly, or find from profiles state, or find employer
-                            let profileImg = null;
-                            
-                            // First, try to get profile_img from the job post's profile relationship
-                            if (post.profile && post.profile.profile_img) {
-                              profileImg = post.profile.profile_img;
-                            } 
-                            // Second, try to find profile from profiles state using profile_id
-                            else if (post.profile_id && profiles[post.profile_id] && profiles[post.profile_id].profile_img) {
-                              profileImg = profiles[post.profile_id].profile_img;
-                            }
-                            // Third, try to find employer by profile_id
-                            else {
-                              const employer = Object.values(companies).find(emp => emp.profile_id === post.profile_id);
-                              if (employer && employer.profile_img) {
-                                profileImg = employer.profile_img;
-                              }
-                            }
-                            
-                                                                                     
-                            if (profileImg) {
-                              return (
-                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                  <img 
-                                    src={getProfileImageSrc(profileImg)} 
-                                    alt="Employer Profile" 
-                                    style={{ 
-                                      width: '40px', 
-                                      height: '40px', 
-                                      borderRadius: '50%', 
-                                      objectFit: 'cover',
-                                      border: '2px solid #e2e8f0'
-                                    }}
-                                    onError={(e) => {
-                                      e.target.src = "/images/default-profile.svg";
-                                    }}
-                                  />
-                                </div>
-                              );
-                            }
-                            return "N/A";
-                          })()}
-                        </td>
+                        <td>{post.profile_id || "N/A"}</td>
                         <td>
                           {(() => {
                             // Use profile from job post directly, or find from profiles state, or find employer

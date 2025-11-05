@@ -213,6 +213,18 @@ const MyPostJob = () => {
   const handleEditJob = (jobId) => {
     const jobToEdit = jobs.find(job => job.id === jobId);
     if (jobToEdit) {
+      // Debug: Log the job data being passed to edit modal
+      console.log("=== EDITING JOB - PASSING TO MODAL ===");
+      console.log("Job ID:", jobId);
+      console.log("Full job data:", JSON.parse(JSON.stringify(jobToEdit)));
+      console.log("salary:", jobToEdit.salary, "| type:", typeof jobToEdit.salary);
+      console.log("salary_type:", jobToEdit.salary_type, "| type:", typeof jobToEdit.salary_type);
+      console.log("job_type:", jobToEdit.job_type);
+      console.log("hiring_type:", jobToEdit.hiring_type);
+      console.log("team_size:", jobToEdit.team_size);
+      console.log("skills:", jobToEdit.skills);
+      console.log("skill_experiences:", jobToEdit.skill_experiences);
+      console.log("=====================================");
       setEditingJob(jobToEdit);
       setIsModalOpen(true);
     }
@@ -281,6 +293,7 @@ const MyPostJob = () => {
       // Map salary types to backend expected values
       const salaryTypeMap = {
         'hourly': 'per_hour',
+        'per_hour': 'per_hour', // Direct mapping for per_hour
         'daily': 'per_hour', // Map daily to per_hour for now
         'weekly': 'per_hour', // Map weekly to per_hour for now
         'monthly': 'per_month',
