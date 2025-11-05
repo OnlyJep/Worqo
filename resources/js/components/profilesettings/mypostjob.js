@@ -323,6 +323,7 @@ const MyPostJob = () => {
       };
       
       console.log("Job payload being sent:", jobPayload);
+      console.log("Job type value:", jobPayload.job_type, "| Type:", typeof jobPayload.job_type);
       
       let response;
       if (editingJob) {

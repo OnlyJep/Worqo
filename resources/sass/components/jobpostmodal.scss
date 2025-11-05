@@ -61,7 +61,7 @@
         transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
         &:focus {
-          border-color: #3182ce;
+          border-color: #2d3748;
           box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
           outline: none;
         }
@@ -106,7 +106,7 @@
       }
 
       .add-skill {
-        background: #3182ce;
+        background: #2d3748;
         color: #ffffff;
         border: none;
         padding: 10px 20px;
@@ -118,7 +118,7 @@
         transition: background 0.3s ease;
 
         &:hover {
-          background: #2b6cb0;
+          background: #2d3748;
         }
       }
 
@@ -171,14 +171,14 @@
 
               &:hover {
                 background: #e6f7ff;
-                border-color: #40a9ff;
+                border-color: #2d3748;
                 box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
                 transform: translateY(-1px);
               }
 
               &:focus {
                 outline: none;
-                border-color: #40a9ff;
+                border-color: #2d3748;
                 box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
               }
 
@@ -200,7 +200,7 @@
               }
 
               &:hover svg {
-                color: #40a9ff;
+                color: #2d3748;
               }
             }
           }
@@ -221,7 +221,7 @@
 
               &:focus {
                 outline: none;
-                border-color: #40a9ff;
+                border-color: #2d3748;
                 box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
               }
             }

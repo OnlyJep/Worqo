@@ -17694,7 +17694,7 @@ textarea.form-control-lg {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .job-profile-page .job-profile-container .job-profile-left .job-stats {
   margin: 20px 0;

@@ -14,11 +14,17 @@
   // Global z-index for all dropdown menus in this modal
   .dropdown-menu {
     z-index: 10000 !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .dropdown-options-list {
     z-index: 1 !important;
     position: relative;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    flex: 1 !important;
+    min-height: 0 !important;
   }
 }
 
@@ -67,11 +73,17 @@
   .dropdown-search-container {
     z-index: 1;
     pointer-events: auto;
+    flex-shrink: 0 !important;
+    position: sticky !important;
+    top: 0 !important;
   }
 
   .dropdown-options-list {
     z-index: 1;
     pointer-events: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: 100% !important;
   }
 
   .dropdown-item {
@@ -123,6 +135,8 @@
   .modal-form {
     padding: 0 24px 24px 24px;
     overflow: visible !important;
+    position: relative;
+    z-index: 1;
 
     .form-columns {
       display: flex;
@@ -130,6 +144,8 @@
       gap: 24px;
       margin-bottom: 0;
       overflow: visible !important;
+      position: relative;
+      z-index: 1;
     }
 
     .form-row {
@@ -154,6 +170,16 @@
       // When form group contains an open dropdown, raise its z-index
       &:has(.custom-dropdown.dropdown-open) {
         z-index: 9998 !important;
+      }
+      
+      // When form group contains sub-skills dropdown, raise its z-index even more
+      &:has(.sub-skills-multi-select) {
+        z-index: 10000 !important;
+        
+        // When the dropdown is actually open
+        &:has(.sub-skills-dropdown-menu) {
+          z-index: 10001 !important;
+        }
       }
 
       // Allow dropdowns to overflow and appear above other elements
@@ -480,6 +506,11 @@
         background: #f8fafc;
         border-radius: 8px;
         border: 1px solid #e5e7eb;
+        position: relative;
+        z-index: 1;
+        
+        // Ensure contact info stays below dropdowns
+        z-index: 0;
 
         h4 {
           margin: 0 0 20px 0; 
@@ -785,15 +816,17 @@
   }
 }
 
-// Sub-Skills Multi-Select Dropdown using Ant Design classes
+// Sub-Skills Multi-Select Dropdown
 .sub-skills-multi-select {
   position: relative;
   width: 100%;
+  z-index: 100;
+  
 
-  .ant-select-selection-overflow-item {
+  .sub-skills-trigger {
     width: 100%;
-    height: 42px;
-    padding: 12px 16px;
+    min-height: 42px;
+    padding: 8px 12px;
     border: 2px solid #e5e7eb;
     border-radius: 6px;
     background-color: #f9fafb;
@@ -804,7 +837,8 @@
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease;
-    text-align: left;
+    box-sizing: border-box;
+    gap: 8px;
 
     &:hover {
       border-color: #d1d5db;
@@ -818,8 +852,72 @@
       box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
     }
 
-    .ant-select-arrow {
+    .sub-skills-selected-container {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .sub-skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .sub-skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background-color: #0a2a40;
+      color: white;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+
+      .remove-tag-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 1;
+        padding: 0;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+          transform: scale(1.1);
+        }
+
+        &:focus {
+          outline: none;
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+
+    .sub-skills-placeholder {
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .sub-skills-arrow {
+      color: #6b7280;
       transition: transform 0.3s ease;
+      font-size: 12px;
+      flex-shrink: 0;
       
       &.open {
         transform: rotate(180deg);
@@ -827,9 +925,210 @@
     }
   }
 
-  .ant-select-dropdown {
+  .sub-skills-dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    overflow: hidden;
+    margin-top: 0;
+
+    .sub-skills-search-container {
+      padding: 10px;
+      border-bottom: 1px solid #e5e7eb;
+      background: #f9fafb;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      flex-shrink: 0;
+
+      .sub-skills-search-input {
+        width: 100%;
+        padding: 8px 12px;
+        border: 2px solid #e5e7eb;
+        border-radius: 6px;
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+        background-color: white;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+          background-color: white;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+        }
+      }
+    }
+
+    .sub-skills-options-list {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      min-height: 0;
+      max-height: 100%;
+      position: relative;
+
+      // Scrollbar styling
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 4px;
+        margin: 4px 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #9ca3af;
+        border-radius: 4px;
+        transition: background 0.2s ease;
+
+        &:hover {
+          background: #6b7280;
+        }
+      }
+
+      // Firefox scrollbar styling
+      scrollbar-width: thin;
+      scrollbar-color: #9ca3af #f1f5f9;
+    }
+
+    .sub-skill-option {
+      padding: 10px 12px;
+      color: #0b0d0f;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background: #f8fafc;
+        color: #0a2a40;
+      }
+
+      &.selected {
+        background: #e6f2ef;
+        color: #0a2a40;
+        font-weight: 600;
+      }
+
+      .sub-skill-checkbox {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #d1d5db;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        background: white;
+        transition: all 0.2s ease;
+        font-size: 12px;
+        color: #0a2a40;
+      }
+
+      &.selected .sub-skill-checkbox {
+        background: #0a2a40;
+        border-color: #0a2a40;
+        color: white;
+      }
+
+      .sub-skill-label {
+        flex: 1;
+      }
+    }
+
+    .sub-skills-custom-container {
+      border-bottom: 1px solid #f3f4f6;
+
+      .custom-sub-skill-input-container {
+        padding: 10px 12px;
+        background: #f9fafb;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+
+        .custom-sub-skill-input-field {
+          flex: 1;
+          padding: 8px 12px;
+          border: 2px solid #e5e7eb;
+          border-radius: 6px;
+          font-size: 14px;
+          font-family: 'Inter', sans-serif;
+
+          &:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+          }
+        }
+
+        .add-custom-sub-skill-btn {
+          padding: 8px 16px;
+          background: #0a2a40;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: #0d3a5a;
+          }
+
+          &:active {
+            transform: translateY(1px);
+          }
+        }
+      }
+    }
+
+    .sub-skills-no-options {
+      padding: 16px 12px;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 14px;
+      font-style: italic;
+    }
+  }
+
+  // When dropdown is open, increase z-index to appear above all form elements
+  &:has(.sub-skills-dropdown-menu) {
+    z-index: 10001 !important;
+  }
+}
+
+// Legacy styles for backwards compatibility
+.ant-select-dropdown {
+  position: absolute;
+  top: 100%;
     left: 0;
     right: 0;
     background: white;
@@ -875,7 +1174,6 @@
       }
     }
   }
-}
 
 // Experience Levels Container
 .experience-levels-container {
@@ -1386,9 +1684,14 @@
     }
   }
 
+  // Note: dropdown-options-list styles are defined globally above
+  // This section is kept for backward compatibility but should use the global styles
   .dropdown-options-list {
-    max-height: 180px;
-    overflow-y: auto;
+    max-height: 180px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    flex: 1 !important;
+    min-height: 0 !important;
   }
 
   .dropdown-no-results {

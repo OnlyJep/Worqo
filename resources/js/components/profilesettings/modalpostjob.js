@@ -26,12 +26,30 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     return salaryTypeMap[normalizedType] || normalizedType; // Return the original if not in map
   };
 
+  // Helper function to map backend job type to frontend
+  const getFrontendJobType = (backendType) => {
+    if (!backendType) return '';
+    const jobTypeMap = {
+      'per_day': 'per_day',
+      'per_job': 'per_job',
+      // Legacy mappings for backward compatibility
+      'full-time': 'per_day', // Map old full-time to per_day
+      'part-time': 'per_day', // Map old part-time to per_day
+      'contract': 'per_job', // Map old contract to per_job
+      'freelance': 'per_job' // Map old freelance to per_job
+    };
+    // Normalize the backend type (handle case sensitivity)
+    const normalizedType = String(backendType).toLowerCase().trim();
+    
+    return jobTypeMap[normalizedType] || normalizedType;
+  };
+
   const [formData, setFormData] = useState({
     jobTitle: editingJob?.job_title || "",
     jobDescription: editingJob?.description || "",
     salary: editingJob?.salary ? String(editingJob.salary) : "",
     salaryType: editingJob?.salary_type ? getFrontendSalaryType(editingJob.salary_type) : "",
-    typeOfEmployment: editingJob?.job_type || "",
+    typeOfEmployment: editingJob?.job_type ? getFrontendJobType(editingJob.job_type) : "",
     hiringType: editingJob?.hiring_type || "",
     teamSize: editingJob?.team_size || "",
     workStart: editingJob?.work_start ? convertToPhilippinesTime(editingJob.work_start) : "",
@@ -90,6 +108,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   const skillsDropdownRef = useRef(null);
   const subSkillsDropdownRef = useRef(null);
   const experienceDropdownRefs = useRef({});
+  const isMountedRef = useRef(true);
 
   const salaryTypeOptions = [
     { value: "hourly", label: "Hourly" },
@@ -101,8 +120,8 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
   ];
 
   const jobTypeOptions = [
-    { value: "full-time", label: "Full Time" },
-    { value: "part-time", label: "Part Time" },
+    { value: "per_day", label: "Per Day" },
+    { value: "per_job", label: "Per Job" },
   ];
 
   const hiringTypeOptions = [
@@ -123,6 +142,11 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
     setUserProfile(userData);
     setUserRole(Number(userData.role_id));
     fetchSkills();
+    
+    // Cleanup: mark component as unmounted
+    return () => {
+      isMountedRef.current = false;
+    };
   }, []);
 
   // Close dropdowns when clicking outside
@@ -216,7 +240,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
         jobDescription: editingJob.description || "",
         salary: salaryValue,
         salaryType: frontendSalaryType || prev.salaryType,
-        typeOfEmployment: editingJob.job_type || "",
+        typeOfEmployment: editingJob.job_type ? getFrontendJobType(editingJob.job_type) : "",
         hiringType: editingJob.hiring_type || "",
         teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
         workStart: editingJob.work_start ? convertToPhilippinesTime(editingJob.work_start) : "",
@@ -341,7 +365,7 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
         jobDescription: editingJob.description || "",
         salary: salaryValue,
         salaryType: frontendSalaryType || prev.salaryType,
-        typeOfEmployment: editingJob.job_type || "",
+        typeOfEmployment: editingJob.job_type ? getFrontendJobType(editingJob.job_type) : "",
         hiringType: editingJob.hiring_type || "",
         teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
         workStart: editingJob.work_start ? convertToPhilippinesTime(editingJob.work_start) : "",
@@ -461,9 +485,13 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
       await onSubmit(jobData);
     } catch (err) {
       console.error(err);
-      message.error('An error occurred while posting the job.');
+      if (isMountedRef.current) {
+        message.error('An error occurred while posting the job.');
+      }
     } finally {
-      setIsLoading(false);
+      if (isMountedRef.current) {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -820,34 +848,153 @@ const ModalPostJob = ({ onSubmit, onClose, editingJob }) => {
               {(selectedJobTitle || editingJob?.job_title || formData.jobTitle) && (
                 <div className="form-group">
                   <label>Desired Sub-Skills</label>
-                  <input
-                    list="sub_skills_list"
-                    type="text"
-                    value={subSkillsInputValue}
-                    onChange={handleSubSkillsInputChange}
-                    onInput={(e) => {
-                      const value = e.target.value;
-                      setSubSkillSearchTerm(value);
-                    }}
-                    placeholder="Type desired sub-skills..."
-                    className="full-width-input"
-                    autoComplete="off"
-                  />
-                  <datalist id="sub_skills_list">
-                    {availableSubSkills
-                      .filter(subSkill => {
-                        if (!subSkillSearchTerm) return true;
-                        const searchLower = subSkillSearchTerm.toLowerCase();
-                        const labelLower = subSkill.label.toLowerCase();
-                        const words = labelLower.split(' ');
-                        return words.some(word => word.startsWith(searchLower));
-                      })
-                      .map((subSkill, index) => (
-                        <option key={index} value={subSkill.value} />
-                      ))}
-                  </datalist>
-                  <small style={{ fontSize: '12px', color: '#666' }}>
-                    Separate multiple sub-skills with commas
+                  <div className="sub-skills-multi-select" ref={subSkillsDropdownRef}>
+                    <div 
+                      className="sub-skills-trigger"
+                      onClick={toggleSubSkillsDropdown}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          toggleSubSkillsDropdown();
+                        }
+                      }}
+                      tabIndex={0}
+                    >
+                      <div className="sub-skills-selected-container">
+                        {selectedSubSkills.length > 0 ? (
+                          <div className="sub-skills-tags">
+                            {selectedSubSkills.map((subSkill, index) => (
+                              <span key={index} className="sub-skill-tag">
+                                {subSkill}
+                                <button
+                                  type="button"
+                                  className="remove-tag-btn"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setSelectedSubSkills(prev => prev.filter(skill => skill !== subSkill));
+                                    // Also remove experience level if it exists
+                                    setFormData(prev => {
+                                      const newExperiences = { ...prev.skillExperiences };
+                                      delete newExperiences[subSkill];
+                                      return {
+                                        ...prev,
+                                        skillExperiences: newExperiences
+                                      };
+                                    });
+                                  }}
+                                  aria-label={`Remove ${subSkill}`}
+                                >
+                                  ×
+                                </button>
+                              </span>
+                            ))}
+                          </div>
+                        ) : (
+                          <span className="sub-skills-placeholder">Select or type sub-skills...</span>
+                        )}
+                      </div>
+                      <span className={`sub-skills-arrow ${isSubSkillsDropdownOpen ? 'open' : ''}`}>
+                        ▼
+                      </span>
+                    </div>
+                    
+                    {isSubSkillsDropdownOpen && (
+                      <div className="sub-skills-dropdown-menu">
+                        {availableSubSkills.length > 0 && (
+                          <div className="sub-skills-search-container">
+                            <input
+                              type="text"
+                              className="sub-skills-search-input"
+                              placeholder="Search sub-skills..."
+                              value={subSkillSearchTerm}
+                              onChange={handleSubSkillSearchChange}
+                              onClick={(e) => e.stopPropagation()}
+                              autoFocus
+                            />
+                          </div>
+                        )}
+                        <div className="sub-skills-options-list">
+                          {availableSubSkills
+                            .filter(subSkill => {
+                              if (!subSkillSearchTerm) return true;
+                              const searchLower = subSkillSearchTerm.toLowerCase();
+                              const labelLower = subSkill.label.toLowerCase();
+                              const words = labelLower.split(' ');
+                              return words.some(word => word.startsWith(searchLower));
+                            })
+                            .map((subSkill, index) => {
+                              const isSelected = selectedSubSkills.includes(subSkill.value);
+                              if (subSkill.value === 'Others') {
+                                return (
+                                  <div key={index} className="sub-skills-custom-container">
+                                    <div
+                                      className={`sub-skill-option ${isSubSkillOthers ? 'selected' : ''}`}
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setIsSubSkillOthers(true);
+                                      }}
+                                    >
+                                      {subSkill.label}
+                                    </div>
+                                    {isSubSkillOthers && (
+                                      <div className="custom-sub-skill-input-container">
+                                        <input
+                                          type="text"
+                                          className="custom-sub-skill-input-field"
+                                          placeholder="Enter custom sub-skill"
+                                          value={customSubSkill}
+                                          onChange={handleCustomSubSkillChange}
+                                          onClick={(e) => e.stopPropagation()}
+                                          onKeyDown={(e) => {
+                                            if (e.key === 'Enter') {
+                                              e.preventDefault();
+                                              handleCustomSubSkillAdd();
+                                            }
+                                            e.stopPropagation();
+                                          }}
+                                        />
+                                        <button
+                                          type="button"
+                                          className="add-custom-sub-skill-btn"
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleCustomSubSkillAdd();
+                                          }}
+                                        >
+                                          Add
+                                        </button>
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              }
+                              return (
+                                <div
+                                  key={index}
+                                  className={`sub-skill-option ${isSelected ? 'selected' : ''}`}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleSubSkillToggle(subSkill.value);
+                                  }}
+                                >
+                                  <span className="sub-skill-checkbox">
+                                    {isSelected ? '✓' : ''}
+                                  </span>
+                                  <span className="sub-skill-label">{subSkill.label}</span>
+                                </div>
+                              );
+                            })}
+                          {availableSubSkills.length === 0 && (
+                            <div className="sub-skills-no-options">
+                              No sub-skills available. Select a job title first.
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <small style={{ fontSize: '12px', color: '#666', marginTop: '4px', display: 'block' }}>
+                    Click to select multiple sub-skills
                   </small>
                 </div>
               )}

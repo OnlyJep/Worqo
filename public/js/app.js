@@ -72139,7 +72139,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".custom-dropdown {\n  position: relative;\n  width: 100%;\n  z-index: 10;\n}\n.custom-dropdown .dropdown-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  background: #f9fafb;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  min-height: 40px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  box-sizing: border-box;\n  outline: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  font-family: \"Inter\", sans-serif;\n}\n.custom-dropdown .dropdown-trigger:hover:not(.disabled) {\n  border-color: #0a2a40;\n  box-shadow: 0 2px 8px rgba(10, 42, 64, 0.1);\n}\n.custom-dropdown .dropdown-trigger:focus:not(.disabled) {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n}\n.custom-dropdown .dropdown-trigger:active:not(.disabled) {\n  transform: translateY(1px);\n}\n.custom-dropdown .dropdown-trigger.disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.custom-dropdown .dropdown-trigger .dropdown-value {\n  flex: 1;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.5;\n}\n.custom-dropdown .dropdown-trigger .dropdown-arrow {\n  color: #6b7280;\n  transition: transform 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 20px;\n  height: 20px;\n  pointer-events: none;\n}\n.custom-dropdown .dropdown-trigger .dropdown-arrow.open {\n  transform: rotate(180deg);\n}\n.custom-dropdown.dropdown-open {\n  z-index: 1000;\n}\n.custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: calc(100% + 2px);\n  left: 0;\n  right: 0;\n  width: 100%;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 1001;\n  display: block;\n  max-height: 250px;\n  overflow: hidden;\n  margin-top: 0;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 1;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input::placeholder {\n  color: #9ca3af;\n}\n.custom-dropdown .dropdown-menu .dropdown-options-list {\n  max-height: 180px;\n  overflow-y: auto;\n}\n.custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #e5e7eb;\n  min-height: 36px;\n  display: flex;\n  align-items: center;\n  font-family: \"Inter\", sans-serif;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.custom-dropdown .dropdown-menu .dropdown-item.selected {\n  background: #e6f2ef;\n  color: #0a2a40;\n  font-weight: 600;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.custom-dropdown .dropdown-menu .dropdown-no-results {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}\n.custom-dropdown .dropdown-options-list::-webkit-scrollbar,\n.custom-dropdown .dropdown-menu::-webkit-scrollbar {\n  width: 6px;\n}\n.custom-dropdown .dropdown-options-list::-webkit-scrollbar-track,\n.custom-dropdown .dropdown-menu::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.custom-dropdown .dropdown-options-list::-webkit-scrollbar-thumb,\n.custom-dropdown .dropdown-menu::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".custom-dropdown {\n  position: relative;\n  width: 100%;\n  z-index: 10;\n}\n.custom-dropdown .dropdown-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  background: #f9fafb;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  min-height: 40px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  box-sizing: border-box;\n  outline: none;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  font-family: \"Inter\", sans-serif;\n}\n.custom-dropdown .dropdown-trigger:hover:not(.disabled) {\n  border-color: #0a2a40;\n  box-shadow: 0 2px 8px rgba(10, 42, 64, 0.1);\n}\n.custom-dropdown .dropdown-trigger:focus:not(.disabled) {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n}\n.custom-dropdown .dropdown-trigger:active:not(.disabled) {\n  transform: translateY(1px);\n}\n.custom-dropdown .dropdown-trigger.disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.custom-dropdown .dropdown-trigger .dropdown-value {\n  flex: 1;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  line-height: 1.5;\n}\n.custom-dropdown .dropdown-trigger .dropdown-arrow {\n  color: #6b7280;\n  transition: transform 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 20px;\n  height: 20px;\n  pointer-events: none;\n}\n.custom-dropdown .dropdown-trigger .dropdown-arrow.open {\n  transform: rotate(180deg);\n}\n.custom-dropdown.dropdown-open {\n  z-index: 1000;\n}\n.custom-dropdown .dropdown-menu {\n  position: absolute;\n  top: calc(100% + 2px);\n  left: 0;\n  right: 0;\n  width: 100%;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 1001;\n  display: flex;\n  flex-direction: column;\n  max-height: 300px;\n  overflow: hidden;\n  margin-top: 0;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  flex-shrink: 0;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.custom-dropdown .dropdown-menu .dropdown-search-container .dropdown-search-input::placeholder {\n  color: #9ca3af;\n}\n.custom-dropdown .dropdown-menu .dropdown-options-list {\n  flex: 1;\n  overflow-y: auto;\n  overflow-x: hidden;\n  min-height: 0;\n  max-height: 100%;\n  scrollbar-width: thin;\n  scrollbar-color: #9ca3af #f1f5f9;\n}\n.custom-dropdown .dropdown-menu .dropdown-options-list::-webkit-scrollbar {\n  width: 8px;\n}\n.custom-dropdown .dropdown-menu .dropdown-options-list::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 4px;\n  margin: 4px 0;\n}\n.custom-dropdown .dropdown-menu .dropdown-options-list::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 4px;\n  -webkit-transition: background 0.2s ease;\n  transition: background 0.2s ease;\n}\n.custom-dropdown .dropdown-menu .dropdown-options-list::-webkit-scrollbar-thumb:hover {\n  background: #6b7280;\n}\n.custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #e5e7eb;\n  min-height: 36px;\n  display: flex;\n  align-items: center;\n  font-family: \"Inter\", sans-serif;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.custom-dropdown .dropdown-menu .dropdown-item.selected {\n  background: #e6f2ef;\n  color: #0a2a40;\n  font-weight: 600;\n}\n.custom-dropdown .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.custom-dropdown .dropdown-menu .dropdown-no-results {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72236,7 +72236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".jobpostmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2000;\n}\n\n.jobpostmodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 32px;\n  width: 680px;\n  max-width: 95%;\n  max-height: 90vh;\n  overflow-y: auto;\n  overflow-x: hidden;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);\n  position: relative;\n}\n.jobpostmodal h2 {\n  margin: 0 0 32px;\n  font-size: 28px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 700;\n}\n.jobpostmodal .jobpostmodal-content {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n.jobpostmodal .jobpostmodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  position: relative;\n}\n.jobpostmodal .jobpostmodal-content .form-group label {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group input,\n.jobpostmodal .jobpostmodal-content .form-group textarea,\n.jobpostmodal .jobpostmodal-content .form-group select {\n  padding: 10px;\n  border: 1px solid #e2e8f0;\n  border-radius: 5px;\n  font-size: 15px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f7fafc;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group input:focus,\n.jobpostmodal .jobpostmodal-content .form-group textarea:focus,\n.jobpostmodal .jobpostmodal-content .form-group select:focus {\n  border-color: #3182ce;\n  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);\n  outline: none;\n}\n.jobpostmodal .jobpostmodal-content .form-group textarea {\n  min-height: 120px;\n  resize: vertical;\n}\n.jobpostmodal .jobpostmodal-content .form-group .owner-fields {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n  gap: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row {\n  display: flex;\n  gap: 16px;\n  align-items: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row select {\n  flex: 1;\n  min-width: 150px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row .remove-skill {\n  background: #e53e3e;\n  color: #ffffff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row .remove-skill:hover {\n  background: #c53030;\n}\n.jobpostmodal .jobpostmodal-content .form-group .add-skill {\n  background: #3182ce;\n  color: #ffffff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  align-self: flex-start;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group .add-skill:hover {\n  background: #2b6cb0;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-select {\n  width: 100%;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills {\n  margin-top: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills h4 {\n  margin: 0 0 12px;\n  color: #2d3748;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  margin-bottom: 12px;\n  padding: 12px;\n  background: #f5f5f5; /* Grayish background */\n  border-radius: 8px;\n  border: 1px solid #d9d9d9;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item {\n  flex: 1;\n  display: flex;\n  justify-content: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  padding: 10px 16px;\n  background: #f0f2f5; /* Light grayish background for skills */\n  border: 1px solid #d9d9d9;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  width: 100%;\n  min-height: 48px;\n  font-family: inherit;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:hover {\n  background: #e6f7ff;\n  border-color: #40a9ff;\n  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);\n  transform: translateY(-1px);\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:focus {\n  outline: none;\n  border-color: #40a9ff;\n  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger div {\n  flex: 1;\n  text-align: left;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger span {\n  font-size: 14px;\n  color: #262626;\n  font-weight: 500;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger svg {\n  color: #8c8c8c;\n  transition: color 0.2s ease;\n  flex-shrink: 0;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:hover svg {\n  color: #40a9ff;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select {\n  min-width: 120px;\n  display: flex;\n  justify-content: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d9d9d9;\n  border-radius: 6px;\n  font-size: 14px;\n  background: #ffffff;\n  text-align: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select select:focus {\n  outline: none;\n  border-color: #40a9ff;\n  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);\n}\n.jobpostmodal .jobpostmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 16px;\n  margin-top: 32px;\n}\n.jobpostmodal .jobpostmodal-buttons .submit-button {\n  background: #1A2A44;\n  color: #ffffff;\n  border: none;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-buttons .submit-button:hover {\n  background: #1A2A44;\n}\n.jobpostmodal .jobpostmodal-buttons .cancel-button {\n  background: #edf2f7;\n  color: #4a5568;\n  border: 1px solid #e2e8f0;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-buttons .cancel-button:hover {\n  background: #e2e8f0;\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 32px;\n  width: 440px;\n  max-width: 95%;\n  text-align: center;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  margin: 0 0 16px;\n  font-size: 24px;\n  color: #1a202c;\n  font-weight: 700;\n}\n.confirm-modal p {\n  margin: 0 0 24px;\n  color: #718096;\n  font-size: 15px;\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: 16px;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  background: #10B981;\n  color: #ffffff;\n  border: none;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #059669;\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  background: #edf2f7;\n  color: #4a5568;\n  border: 1px solid #e2e8f0;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: #e2e8f0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".jobpostmodal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 2000;\n}\n\n.jobpostmodal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 32px;\n  width: 680px;\n  max-width: 95%;\n  max-height: 90vh;\n  overflow-y: auto;\n  overflow-x: hidden;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);\n  position: relative;\n}\n.jobpostmodal h2 {\n  margin: 0 0 32px;\n  font-size: 28px;\n  color: #1a202c;\n  text-align: center;\n  font-weight: 700;\n}\n.jobpostmodal .jobpostmodal-content {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n}\n.jobpostmodal .jobpostmodal-content .form-group {\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n  position: relative;\n}\n.jobpostmodal .jobpostmodal-content .form-group label {\n  font-weight: 600;\n  color: #2d3748;\n  font-size: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group input,\n.jobpostmodal .jobpostmodal-content .form-group textarea,\n.jobpostmodal .jobpostmodal-content .form-group select {\n  padding: 10px;\n  border: 1px solid #e2e8f0;\n  border-radius: 5px;\n  font-size: 15px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f7fafc;\n  transition: border-color 0.3s ease, box-shadow 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group input:focus,\n.jobpostmodal .jobpostmodal-content .form-group textarea:focus,\n.jobpostmodal .jobpostmodal-content .form-group select:focus {\n  border-color: #2d3748;\n  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);\n  outline: none;\n}\n.jobpostmodal .jobpostmodal-content .form-group textarea {\n  min-height: 120px;\n  resize: vertical;\n}\n.jobpostmodal .jobpostmodal-content .form-group .owner-fields {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n  gap: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row {\n  display: flex;\n  gap: 16px;\n  align-items: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row select {\n  flex: 1;\n  min-width: 150px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row .remove-skill {\n  background: #e53e3e;\n  color: #ffffff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-row .remove-skill:hover {\n  background: #c53030;\n}\n.jobpostmodal .jobpostmodal-content .form-group .add-skill {\n  background: #2d3748;\n  color: #ffffff;\n  border: none;\n  padding: 10px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  align-self: flex-start;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-content .form-group .add-skill:hover {\n  background: #2d3748;\n}\n.jobpostmodal .jobpostmodal-content .form-group .skill-select {\n  width: 100%;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills {\n  margin-top: 16px;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills h4 {\n  margin: 0 0 12px;\n  color: #2d3748;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  margin-bottom: 12px;\n  padding: 12px;\n  background: #f5f5f5; /* Grayish background */\n  border-radius: 8px;\n  border: 1px solid #d9d9d9;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item {\n  flex: 1;\n  display: flex;\n  justify-content: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  padding: 10px 16px;\n  background: #f0f2f5; /* Light grayish background for skills */\n  border: 1px solid #d9d9d9;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  width: 100%;\n  min-height: 48px;\n  font-family: inherit;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:hover {\n  background: #e6f7ff;\n  border-color: #2d3748;\n  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);\n  transform: translateY(-1px);\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:focus {\n  outline: none;\n  border-color: #2d3748;\n  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger div {\n  flex: 1;\n  text-align: left;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger span {\n  font-size: 14px;\n  color: #262626;\n  font-weight: 500;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger svg {\n  color: #8c8c8c;\n  transition: color 0.2s ease;\n  flex-shrink: 0;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .skill-item button.skill-item.ant-dropdown-trigger:hover svg {\n  color: #2d3748;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select {\n  min-width: 120px;\n  display: flex;\n  justify-content: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d9d9d9;\n  border-radius: 6px;\n  font-size: 14px;\n  background: #ffffff;\n  text-align: center;\n}\n.jobpostmodal .jobpostmodal-content .form-group .selected-skills .skill-item-container .rank-select select:focus {\n  outline: none;\n  border-color: #2d3748;\n  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);\n}\n.jobpostmodal .jobpostmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 16px;\n  margin-top: 32px;\n}\n.jobpostmodal .jobpostmodal-buttons .submit-button {\n  background: #1A2A44;\n  color: #ffffff;\n  border: none;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-buttons .submit-button:hover {\n  background: #1A2A44;\n}\n.jobpostmodal .jobpostmodal-buttons .cancel-button {\n  background: #edf2f7;\n  color: #4a5568;\n  border: 1px solid #e2e8f0;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.jobpostmodal .jobpostmodal-buttons .cancel-button:hover {\n  background: #e2e8f0;\n}\n\n.confirm-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.6);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1000;\n}\n\n.confirm-modal {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 32px;\n  width: 440px;\n  max-width: 95%;\n  text-align: center;\n  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);\n}\n.confirm-modal h3 {\n  margin: 0 0 16px;\n  font-size: 24px;\n  color: #1a202c;\n  font-weight: 700;\n}\n.confirm-modal p {\n  margin: 0 0 24px;\n  color: #718096;\n  font-size: 15px;\n}\n.confirm-modal .confirm-modal-buttons {\n  display: flex;\n  justify-content: center;\n  gap: 16px;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button {\n  background: #10B981;\n  color: #ffffff;\n  border: none;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.confirm-modal .confirm-modal-buttons .confirm-button:hover {\n  background: #059669;\n}\n.confirm-modal .confirm-modal-buttons .cancel-button {\n  background: #edf2f7;\n  color: #4a5568;\n  border: 1px solid #e2e8f0;\n  padding: 12px 32px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  font-weight: 600;\n  transition: background 0.3s ease;\n}\n.confirm-modal .confirm-modal-buttons .cancel-button:hover {\n  background: #e2e8f0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72261,7 +72261,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".job-profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.job-profile-page .loading-container,\n.job-profile-page .error-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  min-height: 50vh;\n  padding: 40px;\n}\n.job-profile-page .loading-container .error-message,\n.job-profile-page .error-container .error-message {\n  font-size: 18px;\n  color: #666;\n  margin-bottom: 20px;\n  text-align: center;\n}\n.job-profile-page .loading-container .back-button,\n.job-profile-page .error-container .back-button {\n  background: #1E90FF;\n  color: white;\n  border: none;\n  padding: 12px 24px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: background 0.2s ease;\n}\n.job-profile-page .loading-container .back-button:hover,\n.job-profile-page .error-container .back-button:hover {\n  background: #104E8B;\n}\n.job-profile-page .job-profile-header {\n  position: relative;\n  width: 100%;\n}\n.job-profile-page .job-profile-header .job-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.job-profile-page .job-profile-header .job-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.job-profile-page .job-profile-header .job-profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.job-profile-page .job-profile-header .job-profile-photo-wrapper .job-profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.job-profile-page .job-profile-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.job-profile-page .job-profile-container .job-profile-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info h2 {\n  font-size: 20px;\n  margin: 5px 0;\n  color: #000000;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status-dot {\n  width: 8px;\n  height: 8px;\n  background-color: Green;\n  border-radius: 50%;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status {\n  font-size: 14px;\n  margin: 5px 0;\n  color: green;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-member-since {\n  font-size: 12px;\n  color: #666;\n  text-transform: uppercase;\n  margin: 5px 0 15px 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button {\n  background: #1A2A44;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  max-width: 300px;\n  transition: background 0.2s ease;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button:hover {\n  background: #0f1f33;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .message-button {\n  background: #4CAF50;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .message-button:hover {\n  background: #388E3C;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .profile-actions {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: center;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats {\n  margin: 20px 0;\n  background: #f9fafb;\n  padding: 15px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n  padding: 8px 0;\n  border-bottom: 1px solid #eee;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item .job-stat-label {\n  font-size: 16px;\n  color: #2d3748;\n  font-weight: 500;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item .job-stat-number {\n  font-size: 16px;\n  font-weight: 600;\n  color: #000000;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period {\n  margin: 20px 0;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 12px;\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item:last-child {\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item .job-date-icon {\n  color: #1A2A44;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period {\n  margin: 20px 0;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 12px;\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item:last-child {\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item .job-work-icon {\n  color: #1A2A44;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-container .job-profile-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  padding-left: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-overview-title {\n  font-size: 18px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 700;\n  text-transform: uppercase;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin-bottom: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 700;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section p {\n  color: #4a5568;\n  line-height: 1.6;\n  margin: 0;\n  white-space: pre-line;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin-bottom: 40px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 700;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row .job-chip {\n  background: #f9fafb;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1A2A44;\n  transition: all 0.2s ease;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row .job-chip:hover {\n  background: #e6f0fa;\n  border-color: #1E90FF;\n}\n@media (max-width: 768px) {\n  .job-profile-page .job-profile-container {\n    flex-direction: column;\n    padding: 0 20px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left {\n    padding-right: 0;\n    margin-bottom: 20px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right {\n    padding-left: 0;\n    height: auto;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-overview-title {\n    font-size: 16px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section {\n    padding: 15px;\n  }\n  .job-profile-page .job-profile-header .job-profile-photo-wrapper {\n    left: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .job-profile-page .job-profile-container {\n    padding: 0 15px;\n    margin-top: 60px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button {\n    max-width: 100%;\n    padding: 10px 16px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left .job-stats,\n  .job-profile-page .job-profile-container .job-profile-left .job-application-period {\n    padding: 12px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section {\n    padding: 12px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section h4,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section h4 {\n    font-size: 14px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section p,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section p {\n    font-size: 14px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-row .job-chip {\n    font-size: 12px;\n    padding: 4px 8px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".job-profile-page {\n  font-family: \"Inter\", sans-serif;\n  width: 100vw;\n  min-height: 100vh;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  flex-direction: column;\n  overflow-x: hidden;\n}\n.job-profile-page .loading-container,\n.job-profile-page .error-container {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  min-height: 50vh;\n  padding: 40px;\n}\n.job-profile-page .loading-container .error-message,\n.job-profile-page .error-container .error-message {\n  font-size: 18px;\n  color: #666;\n  margin-bottom: 20px;\n  text-align: center;\n}\n.job-profile-page .loading-container .back-button,\n.job-profile-page .error-container .back-button {\n  background: #1E90FF;\n  color: white;\n  border: none;\n  padding: 12px 24px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: background 0.2s ease;\n}\n.job-profile-page .loading-container .back-button:hover,\n.job-profile-page .error-container .back-button:hover {\n  background: #104E8B;\n}\n.job-profile-page .job-profile-header {\n  position: relative;\n  width: 100%;\n}\n.job-profile-page .job-profile-header .job-cover-photo {\n  width: 100%;\n  height: 250px;\n  background: #1E90FF;\n}\n.job-profile-page .job-profile-header .job-cover-photo img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.job-profile-page .job-profile-header .job-profile-photo-wrapper {\n  position: absolute;\n  bottom: -60px;\n  left: 40px;\n  z-index: 2;\n}\n.job-profile-page .job-profile-header .job-profile-photo-wrapper .job-profile-photo {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  border: 3px solid white;\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.job-profile-page .job-profile-container {\n  display: flex;\n  flex: 1;\n  width: 100%;\n  margin-top: 70px;\n  padding: 0 40px;\n  box-sizing: border-box;\n  min-height: calc(100vh - 320px);\n}\n.job-profile-page .job-profile-container .job-profile-left {\n  flex: 1;\n  padding-right: 20px;\n  background: transparent;\n  align-self: flex-start;\n  height: auto;\n  overflow: visible;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info {\n  text-align: left;\n  margin-top: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info h2 {\n  font-size: 20px;\n  margin: 5px 0;\n  color: #000000;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status-container {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status-dot {\n  width: 8px;\n  height: 8px;\n  background-color: Green;\n  border-radius: 50%;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-status {\n  font-size: 14px;\n  margin: 5px 0;\n  color: green;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-location {\n  font-size: 14px;\n  color: #666;\n  margin: 5px 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-member-since {\n  font-size: 12px;\n  color: #666;\n  text-transform: uppercase;\n  margin: 5px 0 15px 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button {\n  background: #1A2A44;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  max-width: 300px;\n  transition: background 0.2s ease;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button:hover {\n  background: #0f1f33;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .message-button {\n  background: #4CAF50;\n  border: none;\n  color: #fff;\n  border-radius: 20px;\n  cursor: pointer;\n  padding: 8px 16px;\n  font-size: 14px;\n  margin: 10px 0;\n  text-transform: uppercase;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .message-button:hover {\n  background: #388E3C;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-profile-info .profile-actions {\n  display: flex;\n  gap: 10px;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats {\n  margin: 20px 0;\n  background: #f9fafb;\n  padding: 15px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n  padding: 8px 0;\n  border-bottom: 1px solid #eee;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item:last-child {\n  border-bottom: none;\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item .job-stat-label {\n  font-size: 16px;\n  color: #2d3748;\n  font-weight: 500;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-stats .job-stat-item .job-stat-number {\n  font-size: 16px;\n  font-weight: 600;\n  color: #000000;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period {\n  margin: 20px 0;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 12px;\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item:last-child {\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-application-period .job-application-list .job-date-item .job-date-icon {\n  color: #1A2A44;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period {\n  margin: 20px 0;\n  padding: 15px;\n  background: #f9fafb;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  width: 100%;\n  max-width: 300px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 600;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 12px;\n  color: #4a5568;\n  font-size: 14px;\n  line-height: 1.6;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item:last-child {\n  margin-bottom: 0;\n}\n.job-profile-page .job-profile-container .job-profile-left .job-work-period .job-application-list .job-date-item .job-work-icon {\n  color: #1A2A44;\n  font-size: 16px;\n  flex-shrink: 0;\n}\n.job-profile-page .job-profile-container .job-profile-right {\n  flex: 3;\n  display: flex;\n  flex-direction: column;\n  padding-left: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-overview-title {\n  font-size: 18px;\n  margin-bottom: 20px;\n  color: #2d3748;\n  font-weight: 700;\n  text-transform: uppercase;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin-bottom: 20px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 700;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-about-section p {\n  color: #4a5568;\n  line-height: 1.6;\n  margin: 0;\n  white-space: pre-line;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section {\n  background: #fff;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  margin-bottom: 40px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section h4 {\n  font-size: 16px;\n  margin-bottom: 15px;\n  color: #2d3748;\n  font-weight: 700;\n  padding-bottom: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row .job-chip {\n  background: #f9fafb;\n  padding: 6px 12px;\n  border-radius: 16px;\n  font-size: 14px;\n  color: #2d3748;\n  border: 1px solid #1A2A44;\n  transition: all 0.2s ease;\n}\n.job-profile-page .job-profile-container .job-profile-right .job-skills-section .job-skills-row .job-chip:hover {\n  background: #e6f0fa;\n  border-color: #1E90FF;\n}\n@media (max-width: 768px) {\n  .job-profile-page .job-profile-container {\n    flex-direction: column;\n    padding: 0 20px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left {\n    padding-right: 0;\n    margin-bottom: 20px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right {\n    padding-left: 0;\n    height: auto;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-overview-title {\n    font-size: 16px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section {\n    padding: 15px;\n  }\n  .job-profile-page .job-profile-header .job-profile-photo-wrapper {\n    left: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .job-profile-page .job-profile-container {\n    padding: 0 15px;\n    margin-top: 60px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left .job-profile-info .job-apply-button {\n    max-width: 100%;\n    padding: 10px 16px;\n  }\n  .job-profile-page .job-profile-container .job-profile-left .job-stats,\n  .job-profile-page .job-profile-container .job-profile-left .job-application-period {\n    padding: 12px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section {\n    padding: 12px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section h4,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section h4 {\n    font-size: 14px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-about-section p,\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-section p {\n    font-size: 14px;\n  }\n  .job-profile-page .job-profile-container .job-profile-right .job-skills-row .job-chip {\n    font-size: 12px;\n    padding: 4px 8px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72670,7 +72670,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.modal-overlay .dropdown-menu {\n  z-index: 10000 !important;\n}\n.modal-overlay .dropdown-options-list {\n  z-index: 1 !important;\n  position: relative;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  overflow-x: hidden;\n  position: relative;\n  z-index: 10000;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .custom-dropdown {\n  position: relative;\n  z-index: 10;\n}\n.modal-post-job .custom-dropdown.dropdown-open {\n  z-index: 9999 !important;\n}\n.modal-post-job .dropdown-trigger {\n  pointer-events: auto;\n  z-index: 1;\n  position: relative;\n}\n.modal-post-job .dropdown-menu {\n  position: absolute !important;\n  z-index: 10000 !important;\n  pointer-events: auto !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);\n}\n.modal-post-job .dropdown-search-container {\n  z-index: 1;\n  pointer-events: auto;\n}\n.modal-post-job .dropdown-options-list {\n  z-index: 1;\n  pointer-events: auto !important;\n}\n.modal-post-job .dropdown-item {\n  z-index: 1;\n  pointer-events: auto !important;\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible !important;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible !important;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n  position: relative;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group:has(.custom-dropdown.dropdown-open) {\n  z-index: 9998 !important;\n}\n.modal-post-job .modal-form .form-group .custom-dropdown {\n  position: relative;\n  z-index: 10;\n}\n.modal-post-job .modal-form .form-group .custom-dropdown.dropdown-open {\n  z-index: 9999 !important;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n  position: relative;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled {\n  background-color: #f3f4f6;\n  color: #9ca3af;\n  cursor: not-allowed;\n  opacity: 0.7;\n  border-color: #e5e7eb;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::-moz-placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group #teamSize {\n  width: 752px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.sub-skills-multi-select {\n  position: relative;\n  width: 100%;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.sub-skills-multi-select .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.sub-skills-multi-select .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  transition: all 0.2s ease;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.sub-skills-multi-select .ant-select-dropdown .ant-select-item .sub-skill-option span {\n  font-size: 14px;\n  color: #374151;\n  font-weight: 500;\n}\n\n.experience-levels-container {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-top: 12px;\n}\n.experience-levels-container .experience-level-item {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item:hover {\n  background-color: #f1f5f9;\n  border-color: #3b82f6;\n}\n.experience-levels-container .experience-level-item .sub-skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n  min-width: 120px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown {\n  flex: 1;\n  max-width: 200px;\n  position: relative;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  color: #374151;\n  font-size: 14px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n\n.selected-skills-preview {\n  border: 1px solid #bae6fd;\n  margin-top: 20px;\n  padding: 20px;\n  border-radius: 8px;\n}\n.selected-skills-preview h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.selected-skills-preview h4::before {\n  content: \"✅\";\n  font-size: 18px;\n}\n.selected-skills-preview .skill-with-experience {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  margin: 4px;\n  padding: 8px 12px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  transition: all 0.2s ease;\n}\n.selected-skills-preview .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n.selected-skills-preview .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, black, #1d4ed8);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.selected-skills-preview .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #10b981, #059669);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 11px;\n  font-weight: 600;\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}\n.skills-modal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 20px;\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  background: #f8f9fa;\n}\n.skills-modal .adminmodal-buttons button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 120px;\n  font-family: \"Inter\", sans-serif;\n}\n.skills-modal .adminmodal-buttons button:first-child {\n  background: #ffffff;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .adminmodal-buttons button:first-child:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  transform: translateY(-1px);\n}\n.skills-modal .adminmodal-buttons button:last-child {\n  background: #1A2A44;\n  color: #ffffff;\n  border-color: #1A2A44;\n}\n.skills-modal .adminmodal-buttons button:last-child:hover {\n  background: #0f1419;\n  border-color: #0f1419;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);\n}\n.skills-modal .custom-input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .custom-input-group input {\n  flex: 1;\n}\n.skills-modal .custom-input-group .back-to-select-btn {\n  background-color: #001E40;\n  color: white;\n  border: 1px solid #001E40;\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  align-self: flex-start;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-width: 140px;\n  justify-content: center;\n}\n.skills-modal .custom-input-group .back-to-select-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-input-group .back-to-select-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .dropdown-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 2;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-options-list {\n  max-height: 180px;\n  overflow-y: auto;\n}\n.skills-modal .dropdown-no-results {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}\n.skills-modal .custom-sub-skill-input {\n  padding: 12px;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field {\n  width: 100%;\n  padding: 10px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:hover {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:active {\n  background-color: #f3f4f6;\n  border-color: #6b7280;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.modal-overlay .dropdown-menu {\n  z-index: 10000 !important;\n  display: flex !important;\n  flex-direction: column !important;\n}\n.modal-overlay .dropdown-options-list {\n  z-index: 1 !important;\n  position: relative;\n  overflow-y: auto !important;\n  overflow-x: hidden !important;\n  flex: 1 !important;\n  min-height: 0 !important;\n}\n\n.modal-post-job {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 800px;\n  height: 650px;\n  overflow-y: auto;\n  overflow-x: hidden;\n  position: relative;\n  z-index: 10000;\n  scrollbar-width: none; /* Firefox */\n  -ms-overflow-style: none; /* Internet Explorer 10+ */\n}\n.modal-post-job::-webkit-scrollbar {\n  display: none; /* WebKit browsers */\n}\n.modal-post-job .custom-dropdown {\n  position: relative;\n  z-index: 10;\n}\n.modal-post-job .custom-dropdown.dropdown-open {\n  z-index: 9999 !important;\n}\n.modal-post-job .dropdown-trigger {\n  pointer-events: auto;\n  z-index: 1;\n  position: relative;\n}\n.modal-post-job .dropdown-menu {\n  position: absolute !important;\n  z-index: 10000 !important;\n  pointer-events: auto !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);\n}\n.modal-post-job .dropdown-search-container {\n  z-index: 1;\n  pointer-events: auto;\n  flex-shrink: 0 !important;\n  position: sticky !important;\n  top: 0 !important;\n}\n.modal-post-job .dropdown-options-list {\n  z-index: 1;\n  pointer-events: auto !important;\n  overflow-y: auto !important;\n  overflow-x: hidden !important;\n  max-height: 100% !important;\n}\n.modal-post-job .dropdown-item {\n  z-index: 1;\n  pointer-events: auto !important;\n}\n.modal-post-job .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 24px;\n  width: 810px;\n}\n.modal-post-job .modal-header .modal-title {\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n  margin: 0;\n}\n.modal-post-job .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n}\n.modal-post-job .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.modal-post-job .modal-header .close-btn span {\n  line-height: 1;\n}\n.modal-post-job .modal-form {\n  padding: 0 24px 24px 24px;\n  overflow: visible !important;\n  position: relative;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-columns {\n  display: flex;\n  flex-direction: column;\n  gap: 24px;\n  margin-bottom: 0;\n  overflow: visible !important;\n  position: relative;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 40px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 16px;\n  }\n}\n.modal-post-job .modal-form .form-group {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 0px;\n  position: relative;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group:has(.custom-dropdown.dropdown-open) {\n  z-index: 9998 !important;\n}\n.modal-post-job .modal-form .form-group:has(.sub-skills-multi-select) {\n  z-index: 10000 !important;\n}\n.modal-post-job .modal-form .form-group:has(.sub-skills-multi-select):has(.sub-skills-dropdown-menu) {\n  z-index: 10001 !important;\n}\n.modal-post-job .modal-form .form-group .custom-dropdown {\n  position: relative;\n  z-index: 10;\n}\n.modal-post-job .modal-form .form-group .custom-dropdown.dropdown-open {\n  z-index: 9999 !important;\n}\n.modal-post-job .modal-form .form-group label {\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  margin-top: 20px;\n}\n.modal-post-job .modal-form .form-group label[for=salary],\n.modal-post-job .modal-form .form-group label[for=email],\n.modal-post-job .modal-form .form-group label[for=desiredHours],\n.modal-post-job .modal-form .form-group label[for=contactPerson],\n.modal-post-job .modal-form .form-group label[for=typeOfWork],\n.modal-post-job .modal-form .form-group label[for=skillsRequirement] {\n  margin-top: 12px;\n}\n.modal-post-job .modal-form .form-group input,\n.modal-post-job .modal-form .form-group textarea {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n  position: relative;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group input:focus,\n.modal-post-job .modal-form .form-group textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group input::-moz-placeholder, .modal-post-job .modal-form .form-group textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input::placeholder,\n.modal-post-job .modal-form .form-group textarea::placeholder {\n  color: #9ca3af;\n}\n.modal-post-job .modal-form .form-group input:disabled,\n.modal-post-job .modal-form .form-group textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-group .small-input {\n  width: 355px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled {\n  background-color: #f3f4f6;\n  color: #9ca3af;\n  cursor: not-allowed;\n  opacity: 0.7;\n  border-color: #e5e7eb;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::-moz-placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group input[type=datetime-local]:disabled::placeholder {\n  color: #d1d5db;\n}\n.modal-post-job .modal-form .form-group #teamSize {\n  width: 752px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle {\n  width: 355px !important;\n  height: 42px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu {\n  width: 355px !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 6px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 6px !important;\n  border-top-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group .typeOfEmployment-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 6px !important;\n  border-bottom-right-radius: 6px !important;\n}\n.modal-post-job .modal-form .form-group input[name=desiredHours],\n.modal-post-job .modal-form .form-group input[name=contactPerson] {\n  margin-right: 20px;\n}\n.modal-post-job .modal-form .form-group .full-width-input {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .skills-selection {\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  background-color: #f9fafb;\n  max-height: 300px;\n  overflow-y: auto;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group {\n  margin-bottom: 16px;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  background: white;\n  overflow: hidden;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group:last-child {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main {\n  padding: 12px 16px;\n  background: #f8fafc;\n  border-bottom: 1px solid #e5e7eb;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-main .skill-checkbox .skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details {\n  padding: 16px;\n  background: white;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills {\n  margin-bottom: 16px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .sub-skills .sub-skills-list .sub-skill-tag {\n  background: #eff6ff;\n  color: #1d4ed8;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #6b7280;\n  margin-bottom: 8px;\n  display: block;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  background: white;\n  font-size: 14px;\n  color: #374151;\n}\n.modal-post-job .modal-form .form-group .skills-selection .skill-group .skill-details .experience-level select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .contact-info {\n  margin-top: 24px;\n  padding: 20px;\n  background: #f8fafc;\n  border-radius: 8px;\n  border: 1px solid #e5e7eb;\n  position: relative;\n  z-index: 1;\n  z-index: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info h4 {\n  margin: 0 0 20px 0;\n  padding-top: 40px;\n  font-size: 18px;\n  font-weight: 700;\n  color: #1f2937;\n  border-bottom: 2px solid #e5e7eb;\n  padding-bottom: 8px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-row {\n  margin-bottom: 0;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group label {\n  font-weight: 600;\n  color: #374151;\n  font-size: 14px;\n}\n.modal-post-job .modal-form .form-group .contact-info .form-group input {\n  background-color: #f3f4f6;\n  border: 1px solid #d1d5db;\n  color: #6b7280;\n  cursor: not-allowed;\n  font-weight: 500;\n}\n.modal-post-job .modal-form .form-group textarea {\n  resize: vertical;\n  min-height: 100px;\n  font-family: inherit;\n  width: 750px;\n  height: 100px;\n}\n.modal-post-job .modal-form .form-group .form-group:has(textarea) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(textarea) textarea,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) .dropdown-container,\n.modal-post-job .modal-form .form-group .form-group:has(.dropdown-container) textarea {\n  width: 900px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container {\n  position: relative;\n  width: 100%;\n  z-index: 1;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.full-width {\n  width: 755px;\n  max-width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown {\n  width: 355px;\n  margin-right: 50px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container.small-dropdown .dropdown-toggle {\n  width: 100%;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle {\n  width: 750px;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-toggle:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item {\n  width: 100%;\n  padding: 12px 16px;\n  border: none;\n  background: none;\n  color: #374151;\n  font-size: 14px;\n  text-align: left;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item:focus {\n  outline: none;\n  background-color: #eff6ff;\n  color: #1d4ed8;\n}\n.modal-post-job .modal-form .form-group .dropdown-container .dropdown-menu .dropdown-item.selected {\n  background-color: #eff6ff;\n  color: #1d4ed8;\n  font-weight: 600;\n}\n.modal-post-job .modal-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 10px;\n}\n@media (max-width: 768px) {\n  .modal-post-job .modal-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.modal-post-job .modal-form .form-actions .cancel-btn,\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:disabled,\n.modal-post-job .modal-form .form-actions .post-job-btn:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.modal-post-job .modal-form .form-actions .cancel-btn:hover:not(:disabled) {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:hover:not(:disabled) {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.modal-post-job .modal-form .form-actions .post-job-btn:active:not(:disabled) {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n\n@media (max-width: 800px) {\n  .modal-overlay {\n    padding: 10px;\n  }\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n}\n@media (max-width: 768px) {\n  .modal-post-job {\n    width: 95vw;\n    height: 95vh;\n    max-width: 800px;\n    max-height: 800px;\n  }\n  .modal-post-job .modal-header {\n    padding: 20px 20px 0 20px;\n    margin-bottom: 20px;\n  }\n  .modal-post-job .modal-header .modal-title {\n    font-size: 20px;\n  }\n  .modal-post-job .modal-form {\n    padding: 0 20px 20px 20px;\n  }\n  .modal-post-job .modal-form .form-columns {\n    gap: 16px;\n    margin-bottom: 24px;\n  }\n  .modal-post-job .modal-form .form-group {\n    margin-bottom: 16px;\n  }\n  .modal-post-job .modal-form .form-group label {\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .form-group input,\n  .modal-post-job .modal-form .form-group textarea {\n    padding: 10px 14px;\n    font-size: 13px;\n  }\n  .modal-post-job .modal-form .modal-actions {\n    padding-top: 20px;\n    gap: 10px;\n  }\n  .modal-post-job .modal-form .modal-actions .cancel-btn,\n  .modal-post-job .modal-form .modal-actions .post-job-btn {\n    padding: 10px 20px;\n    font-size: 13px;\n  }\n}\n.modal-overlay {\n  animation: fadeIn 0.3s ease-out;\n}\n\n.modal-post-job {\n  animation: slideIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes slideIn {\n  from {\n    opacity: 0;\n    transform: translateY(-20px) scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0) scale(1);\n  }\n}\n.sub-skills-multi-select {\n  position: relative;\n  width: 100%;\n  z-index: 100;\n}\n.sub-skills-multi-select .sub-skills-trigger {\n  width: 100%;\n  min-height: 42px;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  box-sizing: border-box;\n  gap: 8px;\n}\n.sub-skills-multi-select .sub-skills-trigger:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.sub-skills-multi-select .sub-skills-trigger:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skills-selected-container {\n  flex: 1;\n  min-width: 0;\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  align-items: center;\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skill-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 4px 10px;\n  background-color: #0a2a40;\n  color: white;\n  border-radius: 4px;\n  font-size: 13px;\n  font-weight: 500;\n  white-space: nowrap;\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skill-tag .remove-tag-btn {\n  background: none;\n  border: none;\n  color: white;\n  cursor: pointer;\n  font-size: 16px;\n  line-height: 1;\n  padding: 0;\n  width: 16px;\n  height: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  transition: all 0.2s ease;\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skill-tag .remove-tag-btn:hover {\n  background-color: rgba(255, 255, 255, 0.2);\n  transform: scale(1.1);\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skill-tag .remove-tag-btn:focus {\n  outline: none;\n  background-color: rgba(255, 255, 255, 0.3);\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skills-placeholder {\n  color: #9ca3af;\n  font-size: 14px;\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skills-arrow {\n  color: #6b7280;\n  transition: transform 0.3s ease;\n  font-size: 12px;\n  flex-shrink: 0;\n}\n.sub-skills-multi-select .sub-skills-trigger .sub-skills-arrow.open {\n  transform: rotate(180deg);\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu {\n  position: absolute;\n  top: calc(100% + 4px);\n  left: 0;\n  right: 0;\n  width: 100%;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  z-index: 10001;\n  display: flex;\n  flex-direction: column;\n  max-height: 300px;\n  overflow: hidden;\n  margin-top: 0;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 1;\n  flex-shrink: 0;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-search-container .sub-skills-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-search-container .sub-skills-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-search-container .sub-skills-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-search-container .sub-skills-search-input::placeholder {\n  color: #9ca3af;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-options-list {\n  flex: 1;\n  overflow-y: auto;\n  overflow-x: hidden;\n  min-height: 0;\n  max-height: 100%;\n  position: relative;\n  scrollbar-width: thin;\n  scrollbar-color: #9ca3af #f1f5f9;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-options-list::-webkit-scrollbar {\n  width: 8px;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-options-list::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 4px;\n  margin: 4px 0;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-options-list::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 4px;\n  -webkit-transition: background 0.2s ease;\n  transition: background 0.2s ease;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-options-list::-webkit-scrollbar-thumb:hover {\n  background: #6b7280;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skill-option {\n  padding: 10px 12px;\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-bottom: 1px solid #f3f4f6;\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  font-family: \"Inter\", sans-serif;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skill-option:last-child {\n  border-bottom: none;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skill-option:hover {\n  background: #f8fafc;\n  color: #0a2a40;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skill-option.selected {\n  background: #e6f2ef;\n  color: #0a2a40;\n  font-weight: 600;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skill-option .sub-skill-checkbox {\n  width: 18px;\n  height: 18px;\n  border: 2px solid #d1d5db;\n  border-radius: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  background: white;\n  transition: all 0.2s ease;\n  font-size: 12px;\n  color: #0a2a40;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skill-option.selected .sub-skill-checkbox {\n  background: #0a2a40;\n  border-color: #0a2a40;\n  color: white;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skill-option .sub-skill-label {\n  flex: 1;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-custom-container {\n  border-bottom: 1px solid #f3f4f6;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-custom-container .custom-sub-skill-input-container {\n  padding: 10px 12px;\n  background: #f9fafb;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  gap: 8px;\n  align-items: center;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-custom-container .custom-sub-skill-input-container .custom-sub-skill-input-field {\n  flex: 1;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-custom-container .custom-sub-skill-input-container .custom-sub-skill-input-field:focus {\n  outline: none;\n  border-color: #3b82f6;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-custom-container .custom-sub-skill-input-container .add-custom-sub-skill-btn {\n  padding: 8px 16px;\n  background: #0a2a40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-custom-container .custom-sub-skill-input-container .add-custom-sub-skill-btn:hover {\n  background: #0d3a5a;\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-custom-container .custom-sub-skill-input-container .add-custom-sub-skill-btn:active {\n  transform: translateY(1px);\n}\n.sub-skills-multi-select .sub-skills-dropdown-menu .sub-skills-no-options {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}\n.sub-skills-multi-select:has(.sub-skills-dropdown-menu) {\n  z-index: 10001 !important;\n}\n\n.ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  transition: all 0.2s ease;\n}\n.ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n}\n.ant-select-dropdown .ant-select-item .sub-skill-option {\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  margin: 0;\n}\n.ant-select-dropdown .ant-select-item .sub-skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 16px;\n  height: 16px;\n  accent-color: #3b82f6;\n}\n.ant-select-dropdown .ant-select-item .sub-skill-option span {\n  font-size: 14px;\n  color: #374151;\n  font-weight: 500;\n}\n\n.experience-levels-container {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-top: 12px;\n}\n.experience-levels-container .experience-level-item {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px;\n  background-color: #f8fafc;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item:hover {\n  background-color: #f1f5f9;\n  border-color: #3b82f6;\n}\n.experience-levels-container .experience-level-item .sub-skill-name {\n  font-weight: 600;\n  color: #1f2937;\n  font-size: 14px;\n  min-width: 120px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown {\n  flex: 1;\n  max-width: 200px;\n  position: relative;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item {\n  width: 100%;\n  height: 42px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  background-color: #f9fafb;\n  color: #1f2937;\n  font-size: 14px;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  transition: all 0.3s ease;\n  text-align: left;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:hover {\n  border-color: #d1d5db;\n  background-color: white;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow {\n  transition: transform 0.3s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-selection-overflow-item .ant-select-arrow.open {\n  transform: rotate(180deg);\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n  z-index: 1000;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 4px;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item {\n  padding: 12px 16px;\n  border-bottom: 1px solid #f3f4f6;\n  color: #374151;\n  font-size: 14px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:last-child {\n  border-bottom: none;\n}\n.experience-levels-container .experience-level-item .experience-dropdown .ant-select-dropdown .ant-select-item:hover {\n  background-color: #f8fafc;\n  color: #1f2937;\n}\n\n.selected-skills-preview {\n  border: 1px solid #bae6fd;\n  margin-top: 20px;\n  padding: 20px;\n  border-radius: 8px;\n}\n.selected-skills-preview h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.selected-skills-preview h4::before {\n  content: \"✅\";\n  font-size: 18px;\n}\n.selected-skills-preview .skill-with-experience {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  margin: 4px;\n  padding: 8px 12px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);\n  transition: all 0.2s ease;\n}\n.selected-skills-preview .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n.selected-skills-preview .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, black, #1d4ed8);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 12px;\n  font-weight: 600;\n}\n.selected-skills-preview .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #10b981, #059669);\n  color: white;\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 11px;\n  font-weight: 600;\n}\n\n.skills-modal {\n  max-width: 800px;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.skills-modal .adminmodal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px 16px;\n  border-bottom: 1px solid #e9ecef;\n}\n.skills-modal .adminmodal-header h2 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #212529;\n}\n.skills-modal .adminmodal-header .close-button {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 0;\n  width: 30px;\n  height: 30px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 4px;\n}\n.skills-modal .adminmodal-header .close-button:hover {\n  background-color: #f8f9fa;\n  color: #495057;\n}\n.skills-modal .skills-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n  gap: 24px;\n  padding: 20px 24px;\n}\n.skills-modal .skills-grid .skill-category {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  border: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title {\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  margin-bottom: 16px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #007bff;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-category-title::before {\n  content: \"📋\";\n  font-size: 18px;\n}\n.skills-modal .skills-grid .skill-category .skill-options {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience {\n  margin-bottom: 12px;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  overflow: hidden;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience:hover {\n  border-color: #007bff;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option {\n  display: flex;\n  align-items: center;\n  padding: 12px 16px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:hover {\n  background-color: #f8f9fa;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option input[type=checkbox] {\n  margin-right: 12px;\n  width: 18px;\n  height: 18px;\n  accent-color: #007bff;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option .skill-name {\n  font-size: 14px;\n  color: #495057;\n  font-weight: 500;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) {\n  background-color: #e3f2fd;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .skill-option:has(input:checked) .skill-name {\n  color: #007bff;\n  font-weight: 600;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector {\n  padding: 12px 16px;\n  background-color: #f8f9fa;\n  border-top: 1px solid #e9ecef;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-label {\n  display: block;\n  font-size: 12px;\n  font-weight: 600;\n  color: #6c757d;\n  margin-bottom: 8px;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown {\n  width: 100%;\n  padding: 8px 12px;\n  border: 1px solid #ced4da;\n  border-radius: 4px;\n  background-color: white;\n  font-size: 13px;\n  color: #495057;\n  cursor: pointer;\n}\n.skills-modal .skills-grid .skill-category .skill-options .skill-option-with-experience .experience-selector .experience-dropdown:focus {\n  outline: none;\n  border-color: #007bff;\n  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary {\n  margin-top: 20px;\n  padding: 20px;\n  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);\n  border-radius: 12px;\n  border: 2px solid #bbdefb;\n  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);\n}\n.skills-modal .selected-skills-summary h4 {\n  margin: 0 0 16px 0;\n  font-size: 16px;\n  font-weight: 700;\n  color: #1f2937;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.skills-modal .selected-skills-summary h4::before {\n  content: \"🎯\";\n  font-size: 18px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  padding: 10px 14px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  transition: all 0.2s ease;\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .skill-tag {\n  background: linear-gradient(135deg, #007bff, #0056b3);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 12px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);\n}\n.skills-modal .selected-skills-summary .selected-skills-list .skill-with-experience .experience-tag {\n  background: linear-gradient(135deg, #28a745, #1e7e34);\n  color: white;\n  padding: 6px 10px;\n  border-radius: 6px;\n  font-size: 11px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);\n}\n.skills-modal .adminmodal-buttons {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  margin-top: 20px;\n  padding: 20px 24px;\n  border-top: 1px solid #e5e7eb;\n  background: #f8f9fa;\n}\n.skills-modal .adminmodal-buttons button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 120px;\n  font-family: \"Inter\", sans-serif;\n}\n.skills-modal .adminmodal-buttons button:first-child {\n  background: #ffffff;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .adminmodal-buttons button:first-child:hover {\n  background: #f9fafb;\n  border-color: #9ca3af;\n  transform: translateY(-1px);\n}\n.skills-modal .adminmodal-buttons button:last-child {\n  background: #1A2A44;\n  color: #ffffff;\n  border-color: #1A2A44;\n}\n.skills-modal .adminmodal-buttons button:last-child:hover {\n  background: #0f1419;\n  border-color: #0f1419;\n  transform: translateY(-1px);\n  box-shadow: 0 4px 12px rgba(26, 42, 68, 0.3);\n}\n.skills-modal .custom-input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.skills-modal .custom-input-group input {\n  flex: 1;\n}\n.skills-modal .custom-input-group .back-to-select-btn {\n  background-color: #001E40;\n  color: white;\n  border: 1px solid #001E40;\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  align-self: flex-start;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  min-width: 140px;\n  justify-content: center;\n}\n.skills-modal .custom-input-group .back-to-select-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-input-group .back-to-select-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .dropdown-search-container {\n  padding: 10px;\n  border-bottom: 1px solid #e5e7eb;\n  background: #f9fafb;\n  position: sticky;\n  top: 0;\n  z-index: 2;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input {\n  width: 100%;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  background-color: white;\n  transition: all 0.3s ease;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::-moz-placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-search-container .dropdown-search-input::placeholder {\n  color: #9ca3af;\n}\n.skills-modal .dropdown-options-list {\n  max-height: 180px !important;\n  overflow-y: auto !important;\n  overflow-x: hidden !important;\n  flex: 1 !important;\n  min-height: 0 !important;\n}\n.skills-modal .dropdown-no-results {\n  padding: 16px 12px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n}\n.skills-modal .custom-sub-skill-input {\n  padding: 12px;\n  display: flex;\n  flex-direction: column;\n  gap: 10px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field {\n  width: 100%;\n  padding: 10px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  font-size: 14px;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-field:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button {\n  padding: 12px 24px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 1px solid;\n  min-width: 100px;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn {\n  background-color: #001E40;\n  color: white;\n  border-color: #001E40;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:hover {\n  background-color: #002a5c;\n  border-color: #002a5c;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.add-custom-btn:active {\n  background-color: #001a33;\n  border-color: #001a33;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn {\n  background-color: white;\n  color: #374151;\n  border-color: #d1d5db;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:hover {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.skills-modal .custom-sub-skill-input .custom-sub-skill-actions button.cancel-custom-btn:active {\n  background-color: #f3f4f6;\n  border-color: #6b7280;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72886,7 +72886,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".view-declined-workers-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 1000px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  text-align: center;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 16px;\n  transition: all 0.2s ease;\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card:hover {\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 13px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #991b1b;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #065f46;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info {\n  margin-bottom: 20px;\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info h5 {\n  margin: 0 0 12px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter {\n  margin-bottom: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section {\n  margin-bottom: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section .download-resume-btn {\n  background: none;\n  color: #3b82f6;\n  border: none;\n  padding: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  text-decoration: underline;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section .download-resume-btn:hover {\n  color: #2563eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #001E40;\n  border: 1px solid #001E40;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions .view-profile-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n}\n\n.application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1001;\n  padding: 20px;\n}\n.application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  align-items: flex-start;\n  gap: 15px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media (max-width: 768px) {\n  .view-declined-workers-modal-overlay {\n    padding: 10px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal {\n    width: 100%;\n    max-height: 90vh;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header {\n    padding: 16px 16px 0 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header h2 {\n    font-size: 20px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list {\n    padding: 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card {\n    padding: 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info {\n    width: 100%;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions {\n    justify-content: center;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".view-declined-workers-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 1000px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .loading-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  text-align: center;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .empty-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 16px;\n  transition: all 0.2s ease;\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card:hover {\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 13px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #991b1b;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #065f46;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info {\n  margin-bottom: 20px;\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info h5 {\n  margin: 0 0 12px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter {\n  margin-bottom: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section {\n  margin-bottom: 24px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section .download-resume-btn {\n  background: none;\n  color: #3b82f6;\n  border: none;\n  padding: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  text-decoration: underline;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .resume-section .download-resume-btn:hover {\n  color: #2563eb;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #001E40;\n  border: 1px solid #001E40;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions .view-profile-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n}\n\n.application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1001;\n  padding: 20px;\n}\n.application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  align-items: flex-start;\n  gap: 15px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #1f2937;\n  border: 1px solid #1f2937;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions .view-profile-btn:hover {\n  background-color: #1f2937;\n  color: #FFFFFF;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media (max-width: 768px) {\n  .view-declined-workers-modal-overlay {\n    padding: 10px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal {\n    width: 100%;\n    max-height: 90vh;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header {\n    padding: 16px 16px 0 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .modal-header h2 {\n    font-size: 20px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list {\n    padding: 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card {\n    padding: 16px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .worker-info {\n    width: 100%;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .view-declined-workers-modal-overlay .view-declined-workers-modal .applications-list .application-card .application-actions {\n    justify-content: center;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72910,7 +72910,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".view-hired-workers-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 1000px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  text-align: center;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 16px;\n  transition: all 0.2s ease;\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card:hover {\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 13px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #065f46;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #991b1b;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info {\n  margin-bottom: 20px;\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info h5 {\n  margin: 0 0 12px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter {\n  margin-bottom: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section {\n  margin-bottom: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section .download-resume-btn {\n  background: none;\n  color: #3b82f6;\n  border: none;\n  padding: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  text-decoration: underline;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section .download-resume-btn:hover {\n  color: #2563eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #001E40;\n  border: 1px solid #001E40;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions .view-profile-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n}\n\n.application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1001;\n  padding: 20px;\n}\n.application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  align-items: flex-start;\n  gap: 15px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media (max-width: 768px) {\n  .view-hired-workers-modal-overlay {\n    padding: 10px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal {\n    width: 100%;\n    max-height: 90vh;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header {\n    padding: 16px 16px 0 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header h2 {\n    font-size: 20px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list {\n    padding: 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card {\n    padding: 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info {\n    width: 100%;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions {\n    justify-content: center;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".view-hired-workers-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 1000px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .loading-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  text-align: center;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .empty-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 16px;\n  transition: all 0.2s ease;\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card:hover {\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 13px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #065f46;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #991b1b;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info {\n  margin-bottom: 20px;\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info h5 {\n  margin: 0 0 12px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter {\n  margin-bottom: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section {\n  margin-bottom: 24px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section .download-resume-btn {\n  background: none;\n  color: #3b82f6;\n  border: none;\n  padding: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  text-decoration: underline;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .resume-section .download-resume-btn:hover {\n  color: #2563eb;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #001E40;\n  border: 1px solid #001E40;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions .view-profile-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n}\n\n.application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1001;\n  padding: 20px;\n}\n.application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  align-items: flex-start;\n  gap: 15px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #1f2937;\n  border: 1px solid #1f2937;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions .view-profile-btn:hover {\n  background-color: #1f2937;\n  color: #FFFFFF;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media (max-width: 768px) {\n  .view-hired-workers-modal-overlay {\n    padding: 10px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal {\n    width: 100%;\n    max-height: 90vh;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header {\n    padding: 16px 16px 0 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .modal-header h2 {\n    font-size: 20px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list {\n    padding: 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card {\n    padding: 16px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .worker-info {\n    width: 100%;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .view-hired-workers-modal-overlay .view-hired-workers-modal .applications-list .application-card .application-actions {\n    justify-content: center;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72934,7 +72934,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".view-workers-application-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 1000px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  color: #6b7280;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .loading-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  text-align: center;\n  color: #6b7280;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .empty-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section {\n  padding: 0 24px 20px 24px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons {\n  display: flex;\n  gap: 0;\n  flex-wrap: wrap;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button {\n  padding: 12px 20px;\n  border: 1px solid #d1d5db;\n  background: white;\n  color: #374151;\n  border-radius: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-right: none;\n  position: relative;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button:first-child {\n  border-top-left-radius: 8px;\n  border-bottom-left-radius: 8px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button:last-child {\n  border-top-right-radius: 8px;\n  border-bottom-right-radius: 8px;\n  border-right: 1px solid #d1d5db;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button:hover {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button.active {\n  background-color: #1e40af;\n  color: white;\n  border-color: #1e40af;\n  z-index: 1;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 16px;\n  transition: all 0.2s ease;\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card:hover {\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 13px;\n  color: #6b7280;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #065f46;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #991b1b;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .profile-info {\n  margin-bottom: 20px;\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .profile-info h5 {\n  margin: 0 0 12px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .cover-letter {\n  margin-bottom: 24px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .resume-section {\n  margin-bottom: 24px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .resume-section .download-resume-btn {\n  background: none;\n  color: #3b82f6;\n  border: none;\n  padding: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  text-decoration: underline;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .resume-section .download-resume-btn:hover {\n  color: #2563eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #001E40;\n  border: 1px solid #001E40;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-actions .view-profile-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n}\n\n.application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1001;\n  padding: 20px;\n}\n.application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  align-items: flex-start;\n  gap: 15px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media (max-width: 768px) {\n  .view-workers-application-modal-overlay {\n    padding: 10px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal {\n    width: 100%;\n    max-height: 90vh;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .modal-header {\n    padding: 16px 16px 0 16px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .modal-header h2 {\n    font-size: 20px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .filter-section {\n    padding: 0 16px 16px 16px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button {\n    font-size: 12px;\n    padding: 6px 12px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list {\n    padding: 16px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card {\n    padding: 16px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info {\n    width: 100%;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-actions {\n    justify-content: center;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".view-workers-application-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 1000px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header h2 {\n  margin: 0;\n  font-size: 24px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header .header-actions .close-btn {\n  background: none;\n  border: none;\n  font-size: 20px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .modal-header .header-actions .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .loading-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  color: #6b7280;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .loading-state .spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #3b82f6;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin-bottom: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .loading-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 60px 24px;\n  text-align: center;\n  color: #6b7280;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n  color: #d1d5db;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .empty-state p {\n  margin: 0;\n  font-size: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section {\n  padding: 0 24px 20px 24px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons {\n  display: flex;\n  gap: 0;\n  flex-wrap: wrap;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button {\n  padding: 12px 20px;\n  border: 1px solid #d1d5db;\n  background: white;\n  color: #374151;\n  border-radius: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-right: none;\n  position: relative;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button:first-child {\n  border-top-left-radius: 8px;\n  border-bottom-left-radius: 8px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button:last-child {\n  border-top-right-radius: 8px;\n  border-bottom-right-radius: 8px;\n  border-right: 1px solid #d1d5db;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button:hover {\n  background-color: #f9fafb;\n  border-color: #9ca3af;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button.active {\n  background-color: #1e40af;\n  color: white;\n  border-color: #1e40af;\n  z-index: 1;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list {\n  flex: 1;\n  overflow-y: auto;\n  padding: 24px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card {\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 16px;\n  transition: all 0.2s ease;\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card:hover {\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n  border-color: #d1d5db;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card:last-child {\n  margin-bottom: 0;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  flex: 1;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-avatar {\n  flex-shrink: 0;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-avatar .profile-image {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-details {\n  flex: 1;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-details .worker-name {\n  margin: 0 0 4px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info .worker-details .application-date {\n  margin: 0;\n  font-size: 13px;\n  color: #6b7280;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status .status-badge {\n  padding: 0;\n  border-radius: 0;\n  font-size: 11px;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  background: none;\n  border: none;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status .status-badge.status-interview {\n  background: none;\n  color: #2563eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status .status-badge.status-accepted {\n  background: none;\n  color: #065f46;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status .status-badge.status-declined {\n  background: none;\n  color: #991b1b;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .profile-info {\n  margin-bottom: 20px;\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .profile-info h5 {\n  margin: 0 0 12px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .cover-letter {\n  margin-bottom: 24px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .cover-letter h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .cover-letter p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .resume-section {\n  margin-bottom: 24px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .resume-section h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .resume-section .download-resume-btn {\n  background: none;\n  color: #3b82f6;\n  border: none;\n  padding: 0;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  text-decoration: underline;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .resume-section .download-resume-btn:hover {\n  color: #2563eb;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .worker-skills {\n  margin-bottom: 16px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .worker-skills h5 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #374151;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .worker-skills .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .worker-skills .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #001E40;\n  border: 1px solid #001E40;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-actions .view-profile-btn:hover {\n  background-color: #001E40;\n  color: #FFFFFF;\n}\n\n.application-details-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1001;\n  padding: 20px;\n}\n.application-details-modal-overlay .application-details-modal {\n  background: white;\n  border-radius: 12px;\n  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);\n  width: 600px;\n  max-width: 95vw;\n  max-height: 85vh;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.application-details-modal-overlay .application-details-modal .modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 24px 24px 0 24px;\n  margin-bottom: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .modal-header h3 {\n  margin: 0;\n  font-size: 20px;\n  font-weight: 700;\n  color: #1f2937;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 8px;\n  border-radius: 6px;\n  transition: all 0.2s ease;\n}\n.application-details-modal-overlay .application-details-modal .modal-header .close-btn:hover {\n  background-color: #f3f4f6;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 0 24px 24px 24px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info {\n  background-color: #f8fafc;\n  border: 1px solid #e2e8f0;\n  border-radius: 8px;\n  padding: 16px;\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details {\n  display: flex;\n  align-items: flex-start;\n  gap: 15px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section {\n  flex-shrink: 0;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-image-section .profile-image {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #e5e7eb;\n  transition: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details {\n  flex: 1;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p {\n  margin: 4px 0;\n  font-size: 14px;\n  color: #6b7280;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .profile-info .profile-details .profile-text-details p strong {\n  color: #374151;\n  font-weight: 500;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section {\n  margin-bottom: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section h4,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section h4 {\n  margin: 0 0 12px 0;\n  font-size: 16px;\n  font-weight: 600;\n  color: #374151;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content {\n  background: #f9fafb;\n  padding: 12px;\n  border-radius: 6px;\n  border: 1px solid #e5e7eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .cover-letter-content p,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .cover-letter-content p {\n  margin: 0;\n  font-size: 14px;\n  color: #4b5563;\n  line-height: 1.5;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .skills-list .skill-tag,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .skills-list .skill-tag {\n  background: #e0e7ff;\n  color: #3730a3;\n  padding: 4px 12px;\n  border-radius: 16px;\n  font-size: 12px;\n  font-weight: 500;\n  border: none;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn {\n  background: #3b82f6;\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .cover-letter-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .skills-section .download-resume-btn:hover,\n.application-details-modal-overlay .application-details-modal .application-details-content .resume-section .download-resume-btn:hover {\n  background: #2563eb;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions .view-profile-btn {\n  background-color: #FFFFFF;\n  color: #1f2937;\n  border: 1px solid #1f2937;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  border-radius: 6px;\n}\n.application-details-modal-overlay .application-details-modal .application-details-content .application-actions .view-profile-btn:hover {\n  background-color: #1f2937;\n  color: #FFFFFF;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@media (max-width: 768px) {\n  .view-workers-application-modal-overlay {\n    padding: 10px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal {\n    width: 100%;\n    max-height: 90vh;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .modal-header {\n    padding: 16px 16px 0 16px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .modal-header h2 {\n    font-size: 20px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .filter-section {\n    padding: 0 16px 16px 16px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .filter-section .filter-buttons button {\n    font-size: 12px;\n    padding: 6px 12px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list {\n    padding: 16px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card {\n    padding: 16px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .worker-info {\n    width: 100%;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-header .application-status {\n    align-self: flex-end;\n  }\n  .view-workers-application-modal-overlay .view-workers-application-modal .applications-list .application-card .application-actions {\n    justify-content: center;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -206069,6 +206069,10 @@ function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" 
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
@@ -206119,7 +206123,7 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(8),
     _useState12 = _slicedToArray(_useState11, 2),
     visibleCount = _useState12[0],
-    setVisibleCount = _useState12[1];
+    setVisibleCount = _useState12[1]; // Fixed limit per page
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState14 = _slicedToArray(_useState13, 2),
     error = _useState14[0],
@@ -206128,10 +206132,27 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
   var isMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
   var fetchData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(signal) {
-      var _servicesResponse$dat, _servicesResponse$dat2, authToken, headers, servicesResponse, collarsResponse, _error$response, _error$response2, _error$response3, _error$response4, _error$message, errorMessage, _t, _t2, _t3;
+      var currentPage,
+        _servicesResponse$dat,
+        _servicesResponse$dat2,
+        authToken,
+        headers,
+        servicesResponse,
+        collarsResponse,
+        _error$response,
+        _error$response2,
+        _error$response3,
+        _error$response4,
+        _error$message,
+        errorMessage,
+        _args = arguments,
+        _t,
+        _t2,
+        _t3;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
+            currentPage = _args.length > 1 && _args[1] !== undefined ? _args[1] : pagination.currentPage;
             if (isMountedRef.current) {
               _context.n = 1;
               break;
@@ -206140,7 +206161,10 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
           case 1:
             _context.p = 1;
             setError(null);
-            setServices([]); // Clear previous data
+            // Only clear services if we're on page 1 (not loading more)
+            if (currentPage === 1) {
+              setServices([]); // Clear previous data
+            }
             authToken = localStorage.getItem("auth_token");
             headers = authToken ? {
               Authorization: "Bearer ".concat(authToken),
@@ -206155,7 +206179,7 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
               params: {
                 search: searchTerm.trim(),
                 color_collar_id: selectedCollar,
-                page: pagination.currentPage,
+                page: currentPage,
                 limit: visibleCount
               },
               headers: headers,
@@ -206222,9 +206246,16 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
             }
             throw new Error("Invalid response from services API");
           case 11:
-            setServices(servicesResponse.data.services || []);
+            // If loading more (page > 1), append to existing services, otherwise replace
+            if (currentPage > 1) {
+              setServices(function (prevServices) {
+                return [].concat(_toConsumableArray(prevServices), _toConsumableArray(servicesResponse.data.services || []));
+              });
+            } else {
+              setServices(servicesResponse.data.services || []);
+            }
             setPagination({
-              currentPage: ((_servicesResponse$dat = servicesResponse.data.pagination) === null || _servicesResponse$dat === void 0 ? void 0 : _servicesResponse$dat.currentPage) || 1,
+              currentPage: ((_servicesResponse$dat = servicesResponse.data.pagination) === null || _servicesResponse$dat === void 0 ? void 0 : _servicesResponse$dat.currentPage) || currentPage,
               totalPages: ((_servicesResponse$dat2 = servicesResponse.data.pagination) === null || _servicesResponse$dat2 === void 0 ? void 0 : _servicesResponse$dat2.totalPages) || 1
             });
             setCollars(collarsResponse.data.collars || []);
@@ -206270,10 +206301,27 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
   }();
   var fetchSearchData = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(signal) {
-      var _servicesResponse$dat3, _servicesResponse$dat4, authToken, headers, servicesResponse, collarsResponse, _error$response5, _error$response6, _error$response7, _error$response8, _error$message2, errorMessage, _t4, _t5, _t6;
+      var currentPage,
+        _servicesResponse$dat3,
+        _servicesResponse$dat4,
+        authToken,
+        headers,
+        servicesResponse,
+        collarsResponse,
+        _error$response5,
+        _error$response6,
+        _error$response7,
+        _error$response8,
+        _error$message2,
+        errorMessage,
+        _args2 = arguments,
+        _t4,
+        _t5,
+        _t6;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
+            currentPage = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : pagination.currentPage;
             if (isMountedRef.current) {
               _context2.n = 1;
               break;
@@ -206282,6 +206330,10 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
           case 1:
             _context2.p = 1;
             setError(null);
+            // Only clear services if we're on page 1 (not loading more)
+            if (currentPage === 1) {
+              setServices([]);
+            }
             authToken = localStorage.getItem("auth_token");
             headers = authToken ? {
               Authorization: "Bearer ".concat(authToken),
@@ -206296,7 +206348,7 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
               params: {
                 search: searchTerm.trim(),
                 color_collar_id: selectedCollar,
-                page: pagination.currentPage,
+                page: currentPage,
                 limit: visibleCount
               },
               headers: headers,
@@ -206363,9 +206415,16 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
             }
             throw new Error("Invalid response from services API");
           case 11:
-            setServices(servicesResponse.data.services || []);
+            // If loading more (page > 1), append to existing services, otherwise replace
+            if (currentPage > 1) {
+              setServices(function (prevServices) {
+                return [].concat(_toConsumableArray(prevServices), _toConsumableArray(servicesResponse.data.services || []));
+              });
+            } else {
+              setServices(servicesResponse.data.services || []);
+            }
             setPagination({
-              currentPage: ((_servicesResponse$dat3 = servicesResponse.data.pagination) === null || _servicesResponse$dat3 === void 0 ? void 0 : _servicesResponse$dat3.currentPage) || 1,
+              currentPage: ((_servicesResponse$dat3 = servicesResponse.data.pagination) === null || _servicesResponse$dat3 === void 0 ? void 0 : _servicesResponse$dat3.currentPage) || currentPage,
               totalPages: ((_servicesResponse$dat4 = servicesResponse.data.pagination) === null || _servicesResponse$dat4 === void 0 ? void 0 : _servicesResponse$dat4.totalPages) || 1
             });
             setCollars(collarsResponse.data.collars || []);
@@ -206435,25 +206494,26 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
     abortControllerRef.current = controller;
     var fetchDataSafely = /*#__PURE__*/function () {
       var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-        var isSearchOperation, _t7;
+        var isSearchOperation, currentPage, _t7;
         return _regenerator().w(function (_context3) {
           while (1) switch (_context3.p = _context3.n) {
             case 0:
               _context3.p = 0;
               // Use fetchSearchData for search operations, fetchData for initial load
-              isSearchOperation = searchTerm && searchTerm.trim().length > 0;
+              isSearchOperation = searchTerm && searchTerm.trim().length > 0; // Use the current pagination state from the dependency
+              currentPage = pagination.currentPage;
               if (!isSearchOperation) {
                 _context3.n = 2;
                 break;
               }
               _context3.n = 1;
-              return fetchSearchData(controller.signal);
+              return fetchSearchData(controller.signal, currentPage);
             case 1:
               _context3.n = 3;
               break;
             case 2:
               _context3.n = 3;
-              return fetchData(controller.signal);
+              return fetchData(controller.signal, currentPage);
             case 3:
               _context3.n = 5;
               break;
@@ -206578,16 +206638,15 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
     };
   }();
   var handleShowMore = function handleShowMore() {
+    // Check if there are more pages to load
     if (pagination.currentPage < pagination.totalPages) {
+      // Load next page - this will trigger the useEffect to fetch more data
       setPagination(function (prev) {
         return _objectSpread(_objectSpread({}, prev), {}, {
           currentPage: prev.currentPage + 1
         });
       });
     }
-    setVisibleCount(function (prev) {
-      return prev + 4;
-    });
   };
   var handleSearchChange = function handleSearchChange(e) {
     var value = e.target.value;
@@ -206609,7 +206668,6 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
       currentPage: 1,
       totalPages: 1
     });
-    setVisibleCount(8);
   };
   var handleSearchKeyPress = function handleSearchKeyPress(e) {
     if (e.key === 'Enter') {
@@ -206621,7 +206679,6 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
     setPagination(_objectSpread(_objectSpread({}, pagination), {}, {
       currentPage: 1
     }));
-    setVisibleCount(8);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
     className: "service-page",
@@ -206731,14 +206788,14 @@ var BrowseLaborCategories = function BrowseLaborCategories() {
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
             children: "No labor categories found"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        }), !error && services.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "show-more-wrap",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
             type: "button",
             className: "show-more-btn",
             onClick: handleShowMore,
-            disabled: visibleCount >= services.length && pagination.currentPage >= pagination.totalPages,
-            children: visibleCount >= services.length && pagination.currentPage >= pagination.totalPages ? "Nothing more" : "Show More"
+            disabled: pagination.currentPage >= pagination.totalPages,
+            children: pagination.currentPage >= pagination.totalPages ? "Nothing more" : "Show More"
           })
         })]
       })
@@ -226572,13 +226629,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_CustomDropdown__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../common/CustomDropdown */ "./resources/js/components/common/CustomDropdown.js");
 /* harmony import */ var _sass_components_jobpostmodal_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../../../sass/components/jobpostmodal.scss */ "./resources/sass/components/jobpostmodal.scss");
 /* harmony import */ var _sass_components_common_CustomDropdown_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../sass/components/common/CustomDropdown.scss */ "./resources/sass/components/common/CustomDropdown.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _sass_components_profilesettings_modalpostjob_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../sass/components/profilesettings/modalpostjob.scss */ "./resources/sass/components/profilesettings/modalpostjob.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
@@ -226597,6 +226655,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var Option = antd__WEBPACK_IMPORTED_MODULE_4__["default"].Option;
+
 
 
 
@@ -226749,6 +226808,19 @@ var JobPostModal = function JobPostModal(_ref) {
     isExperienceDropdownOpen = _useState44[0],
     setIsExperienceDropdownOpen = _useState44[1];
   var experienceDropdownRefs = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
+  var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState46 = _slicedToArray(_useState45, 2),
+    isSubSkillsDropdownOpen = _useState46[0],
+    setIsSubSkillsDropdownOpen = _useState46[1];
+  var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState48 = _slicedToArray(_useState47, 2),
+    isSubSkillOthers = _useState48[0],
+    setIsSubSkillOthers = _useState48[1];
+  var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState50 = _slicedToArray(_useState49, 2),
+    customSubSkill = _useState50[0],
+    setCustomSubSkill = _useState50[1];
+  var subSkillsDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // Fetch skills, ranks, and companies
 
@@ -226849,6 +226921,28 @@ var JobPostModal = function JobPostModal(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     return function () {
       isMountedRef.current = false;
+    };
+  }, []);
+
+  // Close dropdowns when clicking outside
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var handleClickOutside = function handleClickOutside(event) {
+      if (subSkillsDropdownRef.current && !subSkillsDropdownRef.current.contains(event.target)) {
+        setIsSubSkillsDropdownOpen(false);
+      }
+      // Close all experience dropdowns
+      Object.keys(experienceDropdownRefs.current).forEach(function (key) {
+        var ref = experienceDropdownRefs.current[key];
+        if (ref && !ref.contains(event.target)) {
+          setIsExperienceDropdownOpen(function (prev) {
+            return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, key, false));
+          });
+        }
+      });
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return function () {
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -227013,8 +227107,11 @@ var JobPostModal = function JobPostModal(_ref) {
             return salaryType;
           }
 
-          // Handle backward compatibility - map old values to new format if needed
-          // But prefer to keep the original database value if it's valid
+          // Handle backend values directly
+          if (salaryType === 'per_hour') {
+            console.log("  Using per_hour from backend");
+            return 'per_hour';
+          }
           if (salaryType === 'per_month') {
             // Map per_month to monthly for display (since we have monthly in dropdown)
             console.log("  Mapped per_month to monthly");
@@ -227034,7 +227131,14 @@ var JobPostModal = function JobPostModal(_ref) {
             }
           }
 
-          // Return empty string to show placeholder when editing new jobs or when value is missing
+          // If salary_type is null or missing, default to per_hour for existing jobs
+          // This ensures validation passes for jobs that were created before salary_type was required
+          if (!salaryType && isEdit) {
+            console.log("  Warning: salary_type is null for existing job, defaulting to per_hour");
+            return 'per_hour';
+          }
+
+          // Return empty string to show placeholder when creating new jobs
           console.log("  Using empty string to show placeholder");
           return "";
         }(),
@@ -227111,6 +227215,8 @@ var JobPostModal = function JobPostModal(_ref) {
       setSelectedSubSkills([]);
       setSubSkillsInputValue('');
       setSkillExperiences({});
+      setIsSubSkillOthers(false);
+      setCustomSubSkill('');
     } else {
       setIsJobTitleOthers(false);
       setCustomJobTitle('');
@@ -227149,6 +227255,8 @@ var JobPostModal = function JobPostModal(_ref) {
     setSelectedSubSkills([]);
     setSubSkillsInputValue('');
     setSkillExperiences({});
+    setIsSubSkillOthers(false);
+    setCustomSubSkill('');
     setErrors(function (prev) {
       return _objectSpread(_objectSpread({}, prev), {}, {
         job_title: ""
@@ -227175,6 +227283,67 @@ var JobPostModal = function JobPostModal(_ref) {
       return s !== '';
     });
     setSelectedSubSkills(skills);
+  };
+  var toggleSubSkillsDropdown = function toggleSubSkillsDropdown() {
+    setIsSubSkillsDropdownOpen(!isSubSkillsDropdownOpen);
+    if (!isSubSkillsDropdownOpen) {
+      setSubSkillSearchTerm(''); // Reset search when opening
+    }
+  };
+  var handleSubSkillToggle = function handleSubSkillToggle(subSkill) {
+    if (subSkill === 'Others') {
+      setIsSubSkillOthers(true);
+      return;
+    }
+    setSelectedSubSkills(function (prev) {
+      if (prev.includes(subSkill)) {
+        return prev.filter(function (skill) {
+          return skill !== subSkill;
+        });
+      } else {
+        return [].concat(_toConsumableArray(prev), [subSkill]);
+      }
+    });
+    // Update input value for display
+    setSubSkillsInputValue(function (prev) {
+      var skills = prev.includes(subSkill) ? prev.split(',').map(function (s) {
+        return s.trim();
+      }).filter(function (s) {
+        return s !== subSkill && s !== '';
+      }) : [].concat(_toConsumableArray(prev.split(',').map(function (s) {
+        return s.trim();
+      }).filter(function (s) {
+        return s !== '';
+      })), [subSkill]);
+      return skills.join(', ');
+    });
+  };
+  var handleCustomSubSkillAdd = function handleCustomSubSkillAdd() {
+    if (!customSubSkill.trim()) {
+      antd__WEBPACK_IMPORTED_MODULE_3__["default"].error('Please enter a custom sub-skill');
+      return;
+    }
+    setSelectedSubSkills(function (prev) {
+      return [].concat(_toConsumableArray(prev), [customSubSkill.trim()]);
+    });
+    setSubSkillsInputValue(function (prev) {
+      var skills = prev ? prev.split(',').map(function (s) {
+        return s.trim();
+      }).filter(function (s) {
+        return s !== '';
+      }) : [];
+      return [].concat(_toConsumableArray(skills), [customSubSkill.trim()]).join(', ');
+    });
+    setCustomSubSkill('');
+    setIsSubSkillOthers(false);
+    setIsSubSkillsDropdownOpen(false);
+    antd__WEBPACK_IMPORTED_MODULE_3__["default"].success("Custom sub-skill \"".concat(customSubSkill.trim(), "\" added"));
+  };
+  var handleCustomSubSkillChange = function handleCustomSubSkillChange(e) {
+    setCustomSubSkill(e.target.value);
+  };
+  var handleSubSkillSearchChange = function handleSubSkillSearchChange(e) {
+    setSubSkillSearchTerm(e.target.value);
   };
   var handleExperienceChange = function handleExperienceChange(subSkill, experience) {
     setSkillExperiences(function (prev) {
@@ -227406,7 +227575,7 @@ var JobPostModal = function JobPostModal(_ref) {
     if (!formData.job_type) {
       newErrors.job_type = "Job type is required";
     }
-    if (!formData.salary_type) {
+    if (!formData.salary_type || formData.salary_type.trim() === '') {
       newErrors.salary_type = "Salary type is required";
     }
     if (!formData.hiring_type) {
@@ -227458,7 +227627,7 @@ var JobPostModal = function JobPostModal(_ref) {
   };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
-      var skillsData, submitData, _error$response, errorMessage, _t2;
+      var skillsData, mapSalaryTypeToBackend, submitData, _error$response, _error$response2, _error$response3, _error$response4, validationErrors, errorMessages, _error$response5, _error$response6, errorMessage, _t2;
       return _regenerator().w(function (_context2) {
         while (1) switch (_context2.p = _context2.n) {
           case 0:
@@ -227475,7 +227644,33 @@ var JobPostModal = function JobPostModal(_ref) {
                 name: subSkill,
                 experience: skillExperiences[subSkill] || "0-11-months"
               };
-            }); // Prepare submit data
+            }); // Map salary_type to backend format (only accepts per_hour or per_month)
+            mapSalaryTypeToBackend = function mapSalaryTypeToBackend(frontendType) {
+              if (!frontendType || frontendType.trim() === '') {
+                console.warn("Salary type is empty, defaulting to per_hour");
+                return 'per_hour'; // Default fallback - backend requires this field
+              }
+              var normalized = String(frontendType).toLowerCase().trim();
+
+              // Map to backend values
+              if (normalized === 'hourly' || normalized === 'per_hour') {
+                return 'per_hour';
+              }
+              if (normalized === 'monthly' || normalized === 'per_month') {
+                return 'per_month';
+              }
+              // For other types (daily, weekly, per_project), default to per_month
+              if (normalized === 'daily' || normalized === 'weekly' || normalized === 'per_project') {
+                return 'per_month';
+              }
+              // If already valid backend value, return as is
+              if (normalized === 'per_hour' || normalized === 'per_month') {
+                return normalized;
+              }
+              // Default fallback
+              console.warn("Unknown salary type: ".concat(frontendType, ", defaulting to per_hour"));
+              return 'per_hour';
+            }; // Prepare submit data
             submitData = {
               profile_id: formData.profile_id,
               job_title: formData.job_title || "",
@@ -227483,7 +227678,7 @@ var JobPostModal = function JobPostModal(_ref) {
               skill_experiences: skillExperiences,
               description: formData.description,
               salary: formData.salary,
-              salary_type: formData.salary_type,
+              salary_type: mapSalaryTypeToBackend(formData.salary_type),
               job_type: formData.job_type,
               hiring_type: formData.hiring_type,
               team_size: formData.team_size ? parseInt(formData.team_size) : formData.hiring_type === "team" ? 2 : 1,
@@ -227492,6 +227687,8 @@ var JobPostModal = function JobPostModal(_ref) {
               application_start: formData.application_start ? "".concat(formData.application_start, ":00") : "",
               application_deadline: formData.application_deadline ? "".concat(formData.application_deadline, ":00") : ""
             };
+            console.log("Submitting job post data:", submitData);
+            console.log("Salary type mapping:", formData.salary_type, "->", submitData.salary_type);
             _context2.n = 2;
             return onSubmit(submitData);
           case 2:
@@ -227504,13 +227701,29 @@ var JobPostModal = function JobPostModal(_ref) {
             _context2.p = 3;
             _t2 = _context2.v;
             console.error("Error submitting job post:", _t2);
-            errorMessage = ((_error$response = _t2.response) === null || _error$response === void 0 || (_error$response = _error$response.data) === null || _error$response === void 0 ? void 0 : _error$response.message) || "Failed to submit job post";
-            antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
-            setErrors(function (prev) {
-              return _objectSpread(_objectSpread({}, prev), {}, {
-                submit: errorMessage
+            console.error("Error response:", (_error$response = _t2.response) === null || _error$response === void 0 ? void 0 : _error$response.data);
+            console.error("Error status:", (_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status);
+
+            // Show detailed validation errors if available
+            if (((_error$response3 = _t2.response) === null || _error$response3 === void 0 ? void 0 : _error$response3.status) === 422 && (_error$response4 = _t2.response) !== null && _error$response4 !== void 0 && (_error$response4 = _error$response4.data) !== null && _error$response4 !== void 0 && _error$response4.errors) {
+              validationErrors = _t2.response.data.errors;
+              errorMessages = Object.entries(validationErrors).map(function (_ref4) {
+                var _ref5 = _slicedToArray(_ref4, 2),
+                  field = _ref5[0],
+                  messages = _ref5[1];
+                return "".concat(field, ": ").concat(Array.isArray(messages) ? messages.join(', ') : messages);
+              }).join('; ');
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].error("Validation failed: ".concat(errorMessages));
+              setErrors(validationErrors);
+            } else {
+              errorMessage = ((_error$response5 = _t2.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.message) || ((_error$response6 = _t2.response) === null || _error$response6 === void 0 || (_error$response6 = _error$response6.data) === null || _error$response6 === void 0 ? void 0 : _error$response6.error) || "Failed to submit job post";
+              antd__WEBPACK_IMPORTED_MODULE_3__["default"].error(errorMessage);
+              setErrors(function (prev) {
+                return _objectSpread(_objectSpread({}, prev), {}, {
+                  submit: errorMessage
+                });
               });
-            });
+            }
           case 4:
             return _context2.a(2);
         }
@@ -227536,19 +227749,19 @@ var JobPostModal = function JobPostModal(_ref) {
     return name;
   };
   var skillMenu = function skillMenu(skill) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {
       items: [{
         key: "edit",
-        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
           style: {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
             padding: '4px 0'
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             children: "\xE2\u0153\x8F\xEF\xB8\x8F"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             children: "Edit Skill"
           })]
         }),
@@ -227571,7 +227784,7 @@ var JobPostModal = function JobPostModal(_ref) {
         }
       }, {
         key: "remove",
-        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+        label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
           style: {
             display: 'flex',
             alignItems: 'center',
@@ -227579,9 +227792,9 @@ var JobPostModal = function JobPostModal(_ref) {
             padding: '4px 0',
             color: '#ff4d4f'
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             children: "\xF0\u0178\u2014\u2018\xEF\xB8\x8F"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             children: "Remove Skill"
           })]
         }),
@@ -227592,25 +227805,25 @@ var JobPostModal = function JobPostModal(_ref) {
       }]
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
     className: "jobpostmodal-overlay",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
       className: "jobpostmodal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h2", {
         children: isEdit ? "Edit Job Post" : "Create Job Post"
-      }), errors.fetch && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+      }), errors.fetch && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
         className: "error",
         children: errors.fetch
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
         className: "jobpostmodal-content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "profile_id",
               children: "Profile ID"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               id: "profile_id",
               type: "text",
               value: formData.profile_id || "",
@@ -227624,16 +227837,16 @@ var JobPostModal = function JobPostModal(_ref) {
                 cursor: 'not-allowed'
               },
               title: "Profile ID is automatically set when you select an employer"
-            }), errors.profile_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.profile_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.profile_id
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "employer_id",
               children: "Employer Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("select", {
               id: "employer_id",
               name: "employer_id",
               value: formData.employer_id,
@@ -227641,36 +227854,36 @@ var JobPostModal = function JobPostModal(_ref) {
                 return handleInputChange(e, "employer_id");
               },
               required: true,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "",
                 disabled: true,
                 children: "Select Employer"
               }), Array.isArray(employers) && employers.map(function (employer) {
                 var fullName = employer.profile ? "".concat(employer.profile.first_name || '', " ").concat(employer.profile.middlename ? employer.profile.middlename + ' ' : '').concat(employer.profile.last_name || '').concat(employer.profile.suffix_name ? ' ' + employer.profile.suffix_name : '').trim() || 'N/A' : 'N/A';
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                   value: employer.id,
                   children: fullName
                 }, employer.id);
               })]
-            }), errors.employer_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.employer_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.employer_id
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
             htmlFor: "job_title",
             children: "Job Title"
-          }), !isJobTitleOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+          }), !isJobTitleOthers ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               id: "job_title",
               type: "hidden",
               value: selectedJobTitle || '',
               "aria-hidden": "true",
               tabIndex: -1,
               readOnly: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_8__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_8__["default"], {
               options: jobTitleOptions,
               value: selectedJobTitle,
               onChange: handleJobTitleChange,
@@ -227679,13 +227892,13 @@ var JobPostModal = function JobPostModal(_ref) {
               searchable: true,
               required: true
             })]
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             style: {
               display: 'flex',
               flexDirection: 'column',
               gap: '8px'
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               id: "job_title",
               type: "text",
               value: customJobTitle,
@@ -227697,7 +227910,7 @@ var JobPostModal = function JobPostModal(_ref) {
                 marginBottom: '8px'
               },
               required: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
               type: "button",
               onClick: function onClick() {
                 setIsJobTitleOthers(false);
@@ -227716,61 +227929,174 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               children: "\u2190 Back to Select"
             })]
-          }), errors.job_title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          }), errors.job_title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             className: "error",
             children: errors.job_title
           })]
-        }), selectedJobTitle && !isJobTitleOthers && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), selectedJobTitle && !isJobTitleOthers && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
-            htmlFor: "sub_skills",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
             children: "Desired Sub-Skills"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
-            id: "sub_skills",
-            list: "sub_skills_list",
-            type: "text",
-            value: subSkillsInputValue,
-            onChange: handleSubSkillsInputChange,
-            onInput: function onInput(e) {
-              var value = e.target.value;
-              setSubSkillSearchTerm(value);
-            },
-            placeholder: "Type desired sub-skills...",
-            style: {
-              width: '100%',
-              padding: '8px',
-              marginBottom: '4px'
-            },
-            autoComplete: "off"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("datalist", {
-            id: "sub_skills_list",
-            children: availableSubSkills.filter(function (subSkill) {
-              if (!subSkillSearchTerm) return true;
-              var searchLower = subSkillSearchTerm.toLowerCase();
-              var labelLower = subSkill.label.toLowerCase();
-              var words = labelLower.split(' ');
-              return words.some(function (word) {
-                return word.startsWith(searchLower);
-              });
-            }).map(function (subSkill, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                value: subSkill.value
-              }, index);
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("small", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+            className: "sub-skills-multi-select",
+            ref: subSkillsDropdownRef,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "sub-skills-trigger",
+              onClick: toggleSubSkillsDropdown,
+              onKeyDown: function onKeyDown(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggleSubSkillsDropdown();
+                }
+              },
+              tabIndex: 0,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "sub-skills-selected-container",
+                children: selectedSubSkills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "sub-skills-tags",
+                  children: selectedSubSkills.map(function (subSkill, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+                      className: "sub-skill-tag",
+                      children: [subSkill, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                        type: "button",
+                        className: "remove-tag-btn",
+                        onClick: function onClick(e) {
+                          e.stopPropagation();
+                          setSelectedSubSkills(function (prev) {
+                            return prev.filter(function (skill) {
+                              return skill !== subSkill;
+                            });
+                          });
+                          // Also remove experience level if it exists
+                          setSkillExperiences(function (prev) {
+                            var newExperiences = _objectSpread({}, prev);
+                            delete newExperiences[subSkill];
+                            return newExperiences;
+                          });
+                          // Update input value
+                          setSubSkillsInputValue(function (prev) {
+                            var skills = prev.split(',').map(function (s) {
+                              return s.trim();
+                            }).filter(function (s) {
+                              return s !== subSkill && s !== '';
+                            });
+                            return skills.join(', ');
+                          });
+                        },
+                        "aria-label": "Remove ".concat(subSkill),
+                        children: "\xD7"
+                      })]
+                    }, index);
+                  })
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                  className: "sub-skills-placeholder",
+                  children: "Select or type sub-skills..."
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                className: "sub-skills-arrow ".concat(isSubSkillsDropdownOpen ? 'open' : ''),
+                children: "\u25BC"
+              })]
+            }), isSubSkillsDropdownOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+              className: "sub-skills-dropdown-menu",
+              children: [availableSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                className: "sub-skills-search-container",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                  type: "text",
+                  className: "sub-skills-search-input",
+                  placeholder: "Search sub-skills...",
+                  value: subSkillSearchTerm,
+                  onChange: handleSubSkillSearchChange,
+                  onClick: function onClick(e) {
+                    return e.stopPropagation();
+                  },
+                  autoFocus: true
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                className: "sub-skills-options-list",
+                children: [availableSubSkills.filter(function (subSkill) {
+                  if (!subSkillSearchTerm) return true;
+                  var searchLower = subSkillSearchTerm.toLowerCase();
+                  var labelLower = subSkill.label.toLowerCase();
+                  var words = labelLower.split(' ');
+                  return words.some(function (word) {
+                    return word.startsWith(searchLower);
+                  });
+                }).map(function (subSkill, index) {
+                  var isSelected = selectedSubSkills.includes(subSkill.value);
+                  if (subSkill.value === 'Others') {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                      className: "sub-skills-custom-container",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                        className: "sub-skill-option ".concat(isSubSkillOthers ? 'selected' : ''),
+                        onClick: function onClick(e) {
+                          e.stopPropagation();
+                          setIsSubSkillOthers(true);
+                        },
+                        children: subSkill.label
+                      }), isSubSkillOthers && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                        className: "custom-sub-skill-input-container",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
+                          type: "text",
+                          className: "custom-sub-skill-input-field",
+                          placeholder: "Enter custom sub-skill",
+                          value: customSubSkill,
+                          onChange: handleCustomSubSkillChange,
+                          onClick: function onClick(e) {
+                            return e.stopPropagation();
+                          },
+                          onKeyDown: function onKeyDown(e) {
+                            if (e.key === 'Enter') {
+                              e.preventDefault();
+                              handleCustomSubSkillAdd();
+                            }
+                            e.stopPropagation();
+                          }
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
+                          type: "button",
+                          className: "add-custom-sub-skill-btn",
+                          onClick: function onClick(e) {
+                            e.stopPropagation();
+                            handleCustomSubSkillAdd();
+                          },
+                          children: "Add"
+                        })]
+                      })]
+                    }, index);
+                  }
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+                    className: "sub-skill-option ".concat(isSelected ? 'selected' : ''),
+                    onClick: function onClick(e) {
+                      e.stopPropagation();
+                      handleSubSkillToggle(subSkill.value);
+                    },
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                      className: "sub-skill-checkbox",
+                      children: isSelected ? '✓' : ''
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+                      className: "sub-skill-label",
+                      children: subSkill.label
+                    })]
+                  }, index);
+                }), availableSubSkills.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+                  className: "sub-skills-no-options",
+                  children: "No sub-skills available. Select a job title first."
+                })]
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("small", {
             style: {
               fontSize: '12px',
               color: '#666',
-              display: 'block',
-              marginTop: '4px'
+              marginTop: '4px',
+              display: 'block'
             },
-            children: "Separate multiple sub-skills with commas"
+            children: "Click to select multiple sub-skills"
           })]
-        }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
             children: "Experience Levels"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
             style: {
               display: 'flex',
               flexDirection: 'column',
@@ -227778,7 +228104,7 @@ var JobPostModal = function JobPostModal(_ref) {
             },
             children: selectedSubSkills.map(function (subSkill, index) {
               var _experienceOptions$fi;
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                 style: {
                   display: 'flex',
                   alignItems: 'center',
@@ -227787,17 +228113,17 @@ var JobPostModal = function JobPostModal(_ref) {
                   border: '1px solid #ddd',
                   borderRadius: '4px'
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
                   style: {
                     flex: 1,
                     fontWeight: '500'
                   },
                   children: subSkill
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                   style: {
                     position: 'relative'
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                     onClick: function onClick() {
                       return toggleExperienceDropdown(subSkill);
                     },
@@ -227822,17 +228148,17 @@ var JobPostModal = function JobPostModal(_ref) {
                         });
                       }
                     },
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                       children: skillExperiences[subSkill] ? ((_experienceOptions$fi = experienceOptions.find(function (opt) {
                         return opt.value === skillExperiences[subSkill];
                       })) === null || _experienceOptions$fi === void 0 ? void 0 : _experienceOptions$fi.label) || skillExperiences[subSkill] : "Select Experience"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                       style: {
                         fontSize: '10px'
                       },
                       children: "\u25BC"
                     })]
-                  }), isExperienceDropdownOpen[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                  }), isExperienceDropdownOpen[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
                     style: {
                       position: 'absolute',
                       top: '100%',
@@ -227848,7 +228174,7 @@ var JobPostModal = function JobPostModal(_ref) {
                       overflowY: 'auto'
                     },
                     children: experienceOptions.map(function (option, optIndex) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
                         onClick: function onClick() {
                           return handleExperienceChange(subSkill, option.value);
                         },
@@ -227871,40 +228197,41 @@ var JobPostModal = function JobPostModal(_ref) {
               }, index);
             })
           })]
-        }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
             children: "Selected Skills Preview"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
             style: {
               display: 'flex',
               flexWrap: 'wrap',
               gap: '8px',
               padding: '12px',
-              backgroundColor: '#f9f9f9',
+              backgroundColor: '#f9fafb',
               borderRadius: '4px'
             },
             children: selectedSubSkills.map(function (subSkill, index) {
               var _experienceOptions$fi2;
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                 style: {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px',
                   padding: '4px 8px',
-                  backgroundColor: '#e6f7ff',
+                  backgroundColor: '#f9fafb',
                   borderRadius: '4px',
-                  border: '1px solid #91d5ff'
+                  border: '2px solid #e5e7eb'
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                   style: {
-                    fontWeight: '500'
+                    fontWeight: '500',
+                    color: '#1f2937'
                   },
                   children: subSkill
-                }), skillExperiences[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+                }), skillExperiences[subSkill] && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
                   style: {
                     fontSize: '12px',
-                    color: '#666'
+                    color: '#6b7280'
                   },
                   children: ["(", ((_experienceOptions$fi2 = experienceOptions.find(function (opt) {
                     return opt.value === skillExperiences[subSkill];
@@ -227913,30 +228240,30 @@ var JobPostModal = function JobPostModal(_ref) {
               }, index);
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
             htmlFor: "description",
             children: "Job Description"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("textarea", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("textarea", {
             id: "description",
             value: formData.description,
             onChange: function onChange(e) {
               return handleInputChange(e, "description");
             },
             placeholder: "Describe the job role and responsibilities"
-          }), errors.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          }), errors.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             className: "error",
             children: errors.description
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "salary",
               children: "Salary (PHP)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               id: "salary",
               type: "number",
               value: formData.salary,
@@ -227945,113 +228272,113 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               placeholder: "Enter salary (e.g., 500)",
               min: "1"
-            }), errors.salary && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.salary && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.salary
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "salary_type",
               children: "Salary Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("select", {
               id: "salary_type",
               value: formData.salary_type,
               onChange: function onChange(e) {
                 return handleInputChange(e, "salary_type");
               },
               required: true,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "",
                 disabled: true,
                 children: "Select salary type..."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "hourly",
                 children: "Hourly"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "per_hour",
                 children: "Per Hour"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "daily",
                 children: "Daily"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "weekly",
                 children: "Weekly"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "monthly",
                 children: "Monthly"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "per_project",
                 children: "Per Project"
               })]
-            }), errors.salary_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.salary_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.salary_type
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "job_type",
               children: "Job Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("select", {
               id: "job_type",
               value: formData.job_type,
               onChange: function onChange(e) {
                 return handleInputChange(e, "job_type");
               },
               required: true,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "",
                 disabled: true,
                 children: "Select job type..."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                value: "full-time",
-                children: "Full Time"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                value: "part-time",
-                children: "Part Time"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                value: "per_day",
+                children: "Per Day"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
+                value: "per_job",
+                children: "Per Job"
               })]
-            }), errors.job_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.job_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.job_type
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "hiring_type",
               children: "Hiring Type"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("select", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("select", {
               id: "hiring_type",
               value: formData.hiring_type,
               onChange: function onChange(e) {
                 return handleInputChange(e, "hiring_type");
               },
               required: true,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "",
                 disabled: true,
                 children: "Select hiring type..."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "individual",
                 children: "Individual"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
                 value: "team",
                 children: "Team"
               })]
-            }), errors.hiring_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.hiring_type && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.hiring_type
             })]
           })]
-        }), formData.hiring_type === "team" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), formData.hiring_type === "team" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
             htmlFor: "team_size",
             children: "Team Size"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
             id: "team_size",
             type: "number",
             value: formData.team_size,
@@ -228061,18 +228388,18 @@ var JobPostModal = function JobPostModal(_ref) {
             placeholder: "Enter team size",
             min: "2",
             max: "50"
-          }), errors.team_size && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+          }), errors.team_size && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
             className: "error",
             children: errors.team_size
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "application_start",
               children: "Application Start (Date & Time)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               id: "application_start",
               type: "datetime-local",
               value: formData.application_start,
@@ -228081,16 +228408,16 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               min: "".concat(new Date().getFullYear(), "-01-01T00:00"),
               required: true
-            }), errors.application_start && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.application_start && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.application_start
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "application_deadline",
               children: "Application Deadline (Date & Time)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               id: "application_deadline",
               type: "datetime-local",
               value: formData.application_deadline,
@@ -228099,19 +228426,19 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               min: formData.application_start || "".concat(new Date().getFullYear(), "-01-01T00:00"),
               required: true
-            }), errors.application_deadline && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.application_deadline && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.application_deadline
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "form-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "work_start",
               children: "Work Start (Date & Time)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               id: "work_start",
               type: "datetime-local",
               value: formData.work_start,
@@ -228120,16 +228447,16 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               min: "".concat(new Date().getFullYear(), "-01-01T00:00"),
               required: true
-            }), errors.work_start && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.work_start && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.work_start
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("label", {
               htmlFor: "work_end",
               children: "Work End (Date & Time)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               id: "work_end",
               type: "datetime-local",
               value: formData.work_end,
@@ -228138,125 +228465,125 @@ var JobPostModal = function JobPostModal(_ref) {
               },
               min: formData.work_start || "".concat(new Date().getFullYear(), "-01-01T00:00"),
               required: true
-            }), errors.work_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+            }), errors.work_end && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
               className: "error",
               children: errors.work_end
             })]
           })]
-        }), errors.submit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+        }), errors.submit && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
           className: "error",
           children: errors.submit
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
         className: "jobpostmodal-buttons",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
           className: "submit-button",
           onClick: handleSubmit,
           children: isEdit ? "Update" : "Create"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
           className: "cancel-button",
           onClick: onClose,
           children: "Cancel"
         })]
       })]
-    }), showSkillModal && selectedSkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    }), showSkillModal && selectedSkill && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       className: "skill-details-modal-overlay",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
         className: "skill-details-modal",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "modal-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
             className: "modal-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h3", {
               children: selectedSkill.name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__["default"], {
               size: 20,
               className: "close-icon",
               onClick: handleModalClose
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
             className: "modal-body",
-            children: selectedSkill.sub_skills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            children: selectedSkill.sub_skills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
               className: "sub-skills-section",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("label", {
                 className: "sub-skills-label",
-                children: ["Sub-Skills ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                children: ["Sub-Skills ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                   className: "required",
                   children: "(Required)"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
                 className: "sub-skills-instruction",
                 children: "Select sub-skills by moving them between the lists below."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                 className: "sub-skills-container",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                   className: "available-sub-skills",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h4", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
                     children: "Available Sub-Skills"
-                  }), availableSubSkillsForModal.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("ul", {
+                  }), availableSubSkillsForModal.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("ul", {
                     className: "sub-skills-list",
                     children: availableSubSkillsForModal.map(function (subSkill) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("li", {
                         className: "sub-skill-item",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                           className: "sub-skill-text",
                           children: subSkill
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
                           className: "add-sub-skill-btn",
                           onClick: function onClick() {
                             return handleAddSubSkill(subSkill);
                           },
                           "aria-label": "Add ".concat(subSkill, " to selected sub-skills"),
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
                             size: 16
                           })
                         })]
                       }, subSkill);
                     })
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
                     className: "no-sub-skills",
                     children: "No available sub-skills"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
                   className: "selected-sub-skills",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h4", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("h4", {
                     children: "Selected Sub-Skills"
-                  }), selectedSubSkillsForModal.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("ul", {
+                  }), selectedSubSkillsForModal.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("ul", {
                     className: "sub-skills-list",
                     children: selectedSubSkillsForModal.map(function (subSkill) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("li", {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("li", {
                         className: "sub-skill-item",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                           className: "sub-skill-text",
                           children: subSkill
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
                           className: "remove-sub-skill-btn",
                           onClick: function onClick() {
                             return handleRemoveSubSkill(subSkill);
                           },
                           "aria-label": "Remove ".concat(subSkill, " from selected sub-skills"),
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_5__["default"], {
                             size: 16
                           })
                         })]
                       }, subSkill);
                     })
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
                     className: "no-sub-skills",
                     children: "No sub-skills selected"
                   })]
                 })]
-              }), errors.sub_skills && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              }), errors.sub_skills && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
                 className: "error",
                 children: errors.sub_skills
               })]
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
               className: "no-sub-skills",
               children: "This skill has no sub-skills. Click Save to continue."
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
             className: "modal-footer",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("button", {
               className: "save-btn",
               onClick: handleSaveSkill,
               children: "Save"
@@ -246945,11 +247272,12 @@ var ViewDeclinedWorkersModal = function ViewDeclinedWorkersModal(_ref) {
             response = _context2.v;
             console.log('Applications API Response:', response.data);
 
-            // Ensure worker data and profile_img are properly set
+            // Ensure worker data is properly set
             applicationsData = Array.isArray(response.data) ? response.data : [];
             processedApplications = applicationsData.map(function (app) {
-              if (app.worker && !app.worker.profile_img) {
-                console.warn('Worker missing profile_img:', app.worker);
+              // Ensure profile_img is set (can be null, which is handled by default image fallback)
+              if (app.worker && app.worker.profile_img === undefined) {
+                app.worker.profile_img = null;
               }
               return app;
             });
@@ -246990,6 +247318,7 @@ var ViewDeclinedWorkersModal = function ViewDeclinedWorkersModal(_ref) {
     }
   };
   var handleViewProfile = function handleViewProfile(application) {
+    var _application$worker, _application$worker2;
     // Check if current user is a worker trying to view another worker's profile
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
     var currentUser = userData.user || userData;
@@ -246998,15 +247327,16 @@ var ViewDeclinedWorkersModal = function ViewDeclinedWorkersModal(_ref) {
       return;
     }
 
-    // Debug: Log the application data to see the structure
-    console.log('Application data:', application);
-    console.log('Worker data:', application.worker);
-    console.log('Worker ID:', application.worker.id);
+    // Get the user_id from the worker object (the profile route expects user_id, not worker.id)
+    var userId = (application === null || application === void 0 || (_application$worker = application.worker) === null || _application$worker === void 0 ? void 0 : _application$worker.user_id) || (application === null || application === void 0 || (_application$worker2 = application.worker) === null || _application$worker2 === void 0 || (_application$worker2 = _application$worker2.user) === null || _application$worker2 === void 0 ? void 0 : _application$worker2.id);
+    if (!userId) {
+      console.error('Unable to find user ID for worker:', application.worker);
+      alert('Unable to open profile. User ID not found.');
+      return;
+    }
 
-    // Use the worker's ID for the profile route
-    var workerId = application.worker.id;
-    console.log('Opening profile for worker ID:', workerId);
-    window.open("/profile/".concat(workerId), '_blank');
+    // Navigate to the profile page using the user_id
+    window.open("/profile/".concat(userId), '_blank');
   };
   var handleViewApplicationDetails = function handleViewApplicationDetails(application) {
     setSelectedApplication(application);
@@ -247052,7 +247382,7 @@ var ViewDeclinedWorkersModal = function ViewDeclinedWorkersModal(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "applications-list",
           children: filteredApplications.map(function (application) {
-            var _application$worker2, _application$worker3, _application$worker4;
+            var _application$worker4, _application$worker5, _application$worker6;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "application-card",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -247068,8 +247398,8 @@ var ViewDeclinedWorkersModal = function ViewDeclinedWorkersModal(_ref) {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                     className: "worker-avatar",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                      src: function (_application$worker) {
-                        var profileImg = application === null || application === void 0 || (_application$worker = application.worker) === null || _application$worker === void 0 ? void 0 : _application$worker.profile_img;
+                      src: function (_application$worker3) {
+                        var profileImg = application === null || application === void 0 || (_application$worker3 = application.worker) === null || _application$worker3 === void 0 ? void 0 : _application$worker3.profile_img;
                         if (profileImg && profileImg !== 'img/defaultpfp.jpg' && profileImg !== 'profiles/defaultpfp.jpg') {
                           var cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
                           return "http://127.0.0.1:8000/storage/".concat(cleanPath);
@@ -247111,11 +247441,11 @@ var ViewDeclinedWorkersModal = function ViewDeclinedWorkersModal(_ref) {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
                         children: "Email:"
-                      }), " ", ((_application$worker2 = application.worker) === null || _application$worker2 === void 0 || (_application$worker2 = _application$worker2.user) === null || _application$worker2 === void 0 ? void 0 : _application$worker2.email) || 'Not provided']
+                      }), " ", ((_application$worker4 = application.worker) === null || _application$worker4 === void 0 || (_application$worker4 = _application$worker4.user) === null || _application$worker4 === void 0 ? void 0 : _application$worker4.email) || 'Not provided']
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
                         children: "Location:"
-                      }), " ", ((_application$worker3 = application.worker) === null || _application$worker3 === void 0 ? void 0 : _application$worker3.city) || 'Not specified', ", ", ((_application$worker4 = application.worker) === null || _application$worker4 === void 0 ? void 0 : _application$worker4.province) || 'Not specified']
+                      }), " ", ((_application$worker5 = application.worker) === null || _application$worker5 === void 0 ? void 0 : _application$worker5.city) || 'Not specified', ", ", ((_application$worker6 = application.worker) === null || _application$worker6 === void 0 ? void 0 : _application$worker6.province) || 'Not specified']
                     })]
                   })
                 })]
@@ -247254,6 +247584,15 @@ var ViewDeclinedWorkersModal = function ViewDeclinedWorkersModal(_ref) {
               },
               children: "View Resume"
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "application-actions",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+              className: "view-profile-btn",
+              onClick: function onClick() {
+                return handleViewProfile(selectedApplication);
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_3__.IoEyeSharp, {}), " View Profile"]
+            })
           })]
         })]
       })
@@ -247369,11 +247708,12 @@ var ViewHiredWorkersModal = function ViewHiredWorkersModal(_ref) {
             response = _context2.v;
             console.log('Applications API Response:', response.data);
 
-            // Ensure worker data and profile_img are properly set
+            // Ensure worker data is properly set
             applicationsData = Array.isArray(response.data) ? response.data : [];
             processedApplications = applicationsData.map(function (app) {
-              if (app.worker && !app.worker.profile_img) {
-                console.warn('Worker missing profile_img:', app.worker);
+              // Ensure profile_img is set (can be null, which is handled by default image fallback)
+              if (app.worker && app.worker.profile_img === undefined) {
+                app.worker.profile_img = null;
               }
               return app;
             });
@@ -247414,6 +247754,7 @@ var ViewHiredWorkersModal = function ViewHiredWorkersModal(_ref) {
     }
   };
   var handleViewProfile = function handleViewProfile(application) {
+    var _application$worker, _application$worker2;
     // Check if current user is a worker trying to view another worker's profile
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
     var currentUser = userData.user || userData;
@@ -247422,15 +247763,16 @@ var ViewHiredWorkersModal = function ViewHiredWorkersModal(_ref) {
       return;
     }
 
-    // Debug: Log the application data to see the structure
-    console.log('Application data:', application);
-    console.log('Worker data:', application.worker);
-    console.log('Worker ID:', application.worker.id);
+    // Get the user_id from the worker object (the profile route expects user_id, not worker.id)
+    var userId = (application === null || application === void 0 || (_application$worker = application.worker) === null || _application$worker === void 0 ? void 0 : _application$worker.user_id) || (application === null || application === void 0 || (_application$worker2 = application.worker) === null || _application$worker2 === void 0 || (_application$worker2 = _application$worker2.user) === null || _application$worker2 === void 0 ? void 0 : _application$worker2.id);
+    if (!userId) {
+      console.error('Unable to find user ID for worker:', application.worker);
+      alert('Unable to open profile. User ID not found.');
+      return;
+    }
 
-    // Use the worker's ID for the profile route
-    var workerId = application.worker.id;
-    console.log('Opening profile for worker ID:', workerId);
-    window.open("/profile/".concat(workerId), '_blank');
+    // Navigate to the profile page using the user_id
+    window.open("/profile/".concat(userId), '_blank');
   };
   var handleViewApplicationDetails = function handleViewApplicationDetails(application) {
     setSelectedApplication(application);
@@ -247476,7 +247818,7 @@ var ViewHiredWorkersModal = function ViewHiredWorkersModal(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "applications-list",
           children: filteredApplications.map(function (application) {
-            var _application$worker2, _application$worker3, _application$worker4;
+            var _application$worker4, _application$worker5, _application$worker6;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "application-card",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -247492,8 +247834,8 @@ var ViewHiredWorkersModal = function ViewHiredWorkersModal(_ref) {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                     className: "worker-avatar",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                      src: function (_application$worker) {
-                        var profileImg = application === null || application === void 0 || (_application$worker = application.worker) === null || _application$worker === void 0 ? void 0 : _application$worker.profile_img;
+                      src: function (_application$worker3) {
+                        var profileImg = application === null || application === void 0 || (_application$worker3 = application.worker) === null || _application$worker3 === void 0 ? void 0 : _application$worker3.profile_img;
                         if (profileImg && profileImg !== 'img/defaultpfp.jpg' && profileImg !== 'profiles/defaultpfp.jpg') {
                           var cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
                           return "http://127.0.0.1:8000/storage/".concat(cleanPath);
@@ -247535,11 +247877,11 @@ var ViewHiredWorkersModal = function ViewHiredWorkersModal(_ref) {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
                         children: "Email:"
-                      }), " ", ((_application$worker2 = application.worker) === null || _application$worker2 === void 0 || (_application$worker2 = _application$worker2.user) === null || _application$worker2 === void 0 ? void 0 : _application$worker2.email) || 'Not provided']
+                      }), " ", ((_application$worker4 = application.worker) === null || _application$worker4 === void 0 || (_application$worker4 = _application$worker4.user) === null || _application$worker4 === void 0 ? void 0 : _application$worker4.email) || 'Not provided']
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
                         children: "Location:"
-                      }), " ", ((_application$worker3 = application.worker) === null || _application$worker3 === void 0 ? void 0 : _application$worker3.city) || 'Not specified', ", ", ((_application$worker4 = application.worker) === null || _application$worker4 === void 0 ? void 0 : _application$worker4.province) || 'Not specified']
+                      }), " ", ((_application$worker5 = application.worker) === null || _application$worker5 === void 0 ? void 0 : _application$worker5.city) || 'Not specified', ", ", ((_application$worker6 = application.worker) === null || _application$worker6 === void 0 ? void 0 : _application$worker6.province) || 'Not specified']
                     })]
                   })
                 })]
@@ -247678,6 +248020,15 @@ var ViewHiredWorkersModal = function ViewHiredWorkersModal(_ref) {
               },
               children: "View Resume"
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "application-actions",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+              className: "view-profile-btn",
+              onClick: function onClick() {
+                return handleViewProfile(selectedApplication);
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_3__.IoEyeSharp, {}), " View Profile"]
+            })
           })]
         })]
       })
@@ -247793,11 +248144,12 @@ var ViewWorkersApplicationModal = function ViewWorkersApplicationModal(_ref) {
             response = _context2.v;
             console.log('Applications API Response:', response.data);
 
-            // Ensure worker data and profile_img are properly set
+            // Ensure worker data is properly set
             applicationsData = Array.isArray(response.data) ? response.data : [];
             processedApplications = applicationsData.map(function (app) {
-              if (app.worker && !app.worker.profile_img) {
-                console.warn('Worker missing profile_img:', app.worker);
+              // Ensure profile_img is set (can be null, which is handled by default image fallback)
+              if (app.worker && app.worker.profile_img === undefined) {
+                app.worker.profile_img = null;
               }
               return app;
             });
@@ -247838,6 +248190,7 @@ var ViewWorkersApplicationModal = function ViewWorkersApplicationModal(_ref) {
     }
   };
   var handleViewProfile = function handleViewProfile(application) {
+    var _application$worker, _application$worker2;
     // Check if current user is a worker trying to view another worker's profile
     var userData = JSON.parse(localStorage.getItem("user") || '{}');
     var currentUser = userData.user || userData;
@@ -247846,15 +248199,16 @@ var ViewWorkersApplicationModal = function ViewWorkersApplicationModal(_ref) {
       return;
     }
 
-    // Debug: Log the application data to see the structure
-    console.log('Application data:', application);
-    console.log('Worker data:', application.worker);
-    console.log('Worker ID:', application.worker.id);
+    // Get the user_id from the worker object (the profile route expects user_id, not worker.id)
+    var userId = (application === null || application === void 0 || (_application$worker = application.worker) === null || _application$worker === void 0 ? void 0 : _application$worker.user_id) || (application === null || application === void 0 || (_application$worker2 = application.worker) === null || _application$worker2 === void 0 || (_application$worker2 = _application$worker2.user) === null || _application$worker2 === void 0 ? void 0 : _application$worker2.id);
+    if (!userId) {
+      console.error('Unable to find user ID for worker:', application.worker);
+      alert('Unable to open profile. User ID not found.');
+      return;
+    }
 
-    // Use the worker's ID for the profile route
-    var workerId = application.worker.id;
-    console.log('Opening profile for worker ID:', workerId);
-    window.open("/profile/".concat(workerId), '_blank');
+    // Navigate to the profile page using the user_id
+    window.open("/profile/".concat(userId), '_blank');
   };
   var handleViewApplicationDetails = function handleViewApplicationDetails(application) {
     setSelectedApplication(application);
@@ -247900,7 +248254,7 @@ var ViewWorkersApplicationModal = function ViewWorkersApplicationModal(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "applications-list",
           children: filteredApplications.map(function (application) {
-            var _application$worker2, _application$worker3, _application$worker4;
+            var _application$worker4, _application$worker5, _application$worker6;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "application-card",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -247916,8 +248270,8 @@ var ViewWorkersApplicationModal = function ViewWorkersApplicationModal(_ref) {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                     className: "worker-avatar",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                      src: function (_application$worker) {
-                        var profileImg = application === null || application === void 0 || (_application$worker = application.worker) === null || _application$worker === void 0 ? void 0 : _application$worker.profile_img;
+                      src: function (_application$worker3) {
+                        var profileImg = application === null || application === void 0 || (_application$worker3 = application.worker) === null || _application$worker3 === void 0 ? void 0 : _application$worker3.profile_img;
                         if (profileImg && profileImg !== 'img/defaultpfp.jpg' && profileImg !== 'profiles/defaultpfp.jpg') {
                           var cleanPath = profileImg.startsWith('/') ? profileImg.substring(1) : profileImg;
                           return "http://127.0.0.1:8000/storage/".concat(cleanPath);
@@ -247959,11 +248313,11 @@ var ViewWorkersApplicationModal = function ViewWorkersApplicationModal(_ref) {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
                         children: "Email:"
-                      }), " ", ((_application$worker2 = application.worker) === null || _application$worker2 === void 0 || (_application$worker2 = _application$worker2.user) === null || _application$worker2 === void 0 ? void 0 : _application$worker2.email) || 'Not provided']
+                      }), " ", ((_application$worker4 = application.worker) === null || _application$worker4 === void 0 || (_application$worker4 = _application$worker4.user) === null || _application$worker4 === void 0 ? void 0 : _application$worker4.email) || 'Not provided']
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("strong", {
                         children: "Location:"
-                      }), " ", ((_application$worker3 = application.worker) === null || _application$worker3 === void 0 ? void 0 : _application$worker3.city) || 'Not specified', ", ", ((_application$worker4 = application.worker) === null || _application$worker4 === void 0 ? void 0 : _application$worker4.province) || 'Not specified']
+                      }), " ", ((_application$worker5 = application.worker) === null || _application$worker5 === void 0 ? void 0 : _application$worker5.city) || 'Not specified', ", ", ((_application$worker6 = application.worker) === null || _application$worker6 === void 0 ? void 0 : _application$worker6.province) || 'Not specified']
                     })]
                   })
                 })]
@@ -248102,6 +248456,15 @@ var ViewWorkersApplicationModal = function ViewWorkersApplicationModal(_ref) {
               },
               children: "View Resume"
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+            className: "application-actions",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("button", {
+              className: "view-profile-btn",
+              onClick: function onClick() {
+                return handleViewProfile(selectedApplication);
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_icons_io5__WEBPACK_IMPORTED_MODULE_3__.IoEyeSharp, {}), " View Profile"]
+            })
           })]
         })]
       })
@@ -248520,12 +248883,32 @@ var ModalPostJob = function ModalPostJob(_ref) {
     // Otherwise use the mapping
     return salaryTypeMap[normalizedType] || normalizedType; // Return the original if not in map
   };
+
+  // Helper function to map backend job type to frontend
+  var getFrontendJobType = function getFrontendJobType(backendType) {
+    if (!backendType) return '';
+    var jobTypeMap = {
+      'per_day': 'per_day',
+      'per_job': 'per_job',
+      // Legacy mappings for backward compatibility
+      'full-time': 'per_day',
+      // Map old full-time to per_day
+      'part-time': 'per_day',
+      // Map old part-time to per_day
+      'contract': 'per_job',
+      // Map old contract to per_job
+      'freelance': 'per_job' // Map old freelance to per_job
+    };
+    // Normalize the backend type (handle case sensitivity)
+    var normalizedType = String(backendType).toLowerCase().trim();
+    return jobTypeMap[normalizedType] || normalizedType;
+  };
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       jobTitle: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_title) || "",
       jobDescription: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.description) || "",
       salary: editingJob !== null && editingJob !== void 0 && editingJob.salary ? String(editingJob.salary) : "",
       salaryType: editingJob !== null && editingJob !== void 0 && editingJob.salary_type ? getFrontendSalaryType(editingJob.salary_type) : "",
-      typeOfEmployment: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.job_type) || "",
+      typeOfEmployment: editingJob !== null && editingJob !== void 0 && editingJob.job_type ? getFrontendJobType(editingJob.job_type) : "",
       hiringType: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.hiring_type) || "",
       teamSize: (editingJob === null || editingJob === void 0 ? void 0 : editingJob.team_size) || "",
       workStart: editingJob !== null && editingJob !== void 0 && editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
@@ -248644,6 +249027,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
   var skillsDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var subSkillsDropdownRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var experienceDropdownRefs = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)({});
+  var isMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
   var salaryTypeOptions = [{
     value: "hourly",
     label: "Hourly"
@@ -248664,11 +249048,11 @@ var ModalPostJob = function ModalPostJob(_ref) {
     label: "Per Project"
   }];
   var jobTypeOptions = [{
-    value: "full-time",
-    label: "Full Time"
+    value: "per_day",
+    label: "Per Day"
   }, {
-    value: "part-time",
-    label: "Part Time"
+    value: "per_job",
+    label: "Per Job"
   }];
   var hiringTypeOptions = [{
     value: "individual",
@@ -248698,6 +249082,11 @@ var ModalPostJob = function ModalPostJob(_ref) {
     setUserProfile(userData);
     setUserRole(Number(userData.role_id));
     fetchSkills();
+
+    // Cleanup: mark component as unmounted
+    return function () {
+      isMountedRef.current = false;
+    };
   }, []);
 
   // Close dropdowns when clicking outside
@@ -248789,7 +249178,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
           jobDescription: editingJob.description || "",
           salary: salaryValue,
           salaryType: frontendSalaryType || prev.salaryType,
-          typeOfEmployment: editingJob.job_type || "",
+          typeOfEmployment: editingJob.job_type ? getFrontendJobType(editingJob.job_type) : "",
           hiringType: editingJob.hiring_type || "",
           teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
           workStart: editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
@@ -248931,7 +249320,7 @@ var ModalPostJob = function ModalPostJob(_ref) {
           jobDescription: editingJob.description || "",
           salary: _salaryValue,
           salaryType: _frontendSalaryType || prev.salaryType,
-          typeOfEmployment: editingJob.job_type || "",
+          typeOfEmployment: editingJob.job_type ? getFrontendJobType(editingJob.job_type) : "",
           hiringType: editingJob.hiring_type || "",
           teamSize: editingJob.team_size || (editingJob.hiring_type === 'team' ? 2 : 1),
           workStart: editingJob.work_start ? (0,_utils_dateUtils__WEBPACK_IMPORTED_MODULE_4__.convertToPhilippinesTime)(editingJob.work_start) : "",
@@ -249130,10 +249519,14 @@ var ModalPostJob = function ModalPostJob(_ref) {
             _context2.p = 14;
             _t2 = _context2.v;
             console.error(_t2);
-            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('An error occurred while posting the job.');
+            if (isMountedRef.current) {
+              antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('An error occurred while posting the job.');
+            }
           case 15:
             _context2.p = 15;
-            setIsLoading(false);
+            if (isMountedRef.current) {
+              setIsLoading(false);
+            }
             return _context2.f(15);
           case 16:
             return _context2.a(2);
@@ -249545,39 +249938,153 @@ var ModalPostJob = function ModalPostJob(_ref) {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                 children: "Desired Sub-Skills"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                list: "sub_skills_list",
-                type: "text",
-                value: subSkillsInputValue,
-                onChange: handleSubSkillsInputChange,
-                onInput: function onInput(e) {
-                  var value = e.target.value;
-                  setSubSkillSearchTerm(value);
-                },
-                placeholder: "Type desired sub-skills...",
-                className: "full-width-input",
-                autoComplete: "off"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("datalist", {
-                id: "sub_skills_list",
-                children: availableSubSkills.filter(function (subSkill) {
-                  if (!subSkillSearchTerm) return true;
-                  var searchLower = subSkillSearchTerm.toLowerCase();
-                  var labelLower = subSkill.label.toLowerCase();
-                  var words = labelLower.split(' ');
-                  return words.some(function (word) {
-                    return word.startsWith(searchLower);
-                  });
-                }).map(function (subSkill, index) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: subSkill.value
-                  }, index);
-                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                className: "sub-skills-multi-select",
+                ref: subSkillsDropdownRef,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                  className: "sub-skills-trigger",
+                  onClick: toggleSubSkillsDropdown,
+                  onKeyDown: function onKeyDown(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggleSubSkillsDropdown();
+                    }
+                  },
+                  tabIndex: 0,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                    className: "sub-skills-selected-container",
+                    children: selectedSubSkills.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                      className: "sub-skills-tags",
+                      children: selectedSubSkills.map(function (subSkill, index) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
+                          className: "sub-skill-tag",
+                          children: [subSkill, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                            type: "button",
+                            className: "remove-tag-btn",
+                            onClick: function onClick(e) {
+                              e.stopPropagation();
+                              setSelectedSubSkills(function (prev) {
+                                return prev.filter(function (skill) {
+                                  return skill !== subSkill;
+                                });
+                              });
+                              // Also remove experience level if it exists
+                              setFormData(function (prev) {
+                                var newExperiences = _objectSpread({}, prev.skillExperiences);
+                                delete newExperiences[subSkill];
+                                return _objectSpread(_objectSpread({}, prev), {}, {
+                                  skillExperiences: newExperiences
+                                });
+                              });
+                            },
+                            "aria-label": "Remove ".concat(subSkill),
+                            children: "\xD7"
+                          })]
+                        }, index);
+                      })
+                    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                      className: "sub-skills-placeholder",
+                      children: "Select or type sub-skills..."
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                    className: "sub-skills-arrow ".concat(isSubSkillsDropdownOpen ? 'open' : ''),
+                    children: "\u25BC"
+                  })]
+                }), isSubSkillsDropdownOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                  className: "sub-skills-dropdown-menu",
+                  children: [availableSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                    className: "sub-skills-search-container",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                      type: "text",
+                      className: "sub-skills-search-input",
+                      placeholder: "Search sub-skills...",
+                      value: subSkillSearchTerm,
+                      onChange: handleSubSkillSearchChange,
+                      onClick: function onClick(e) {
+                        return e.stopPropagation();
+                      },
+                      autoFocus: true
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                    className: "sub-skills-options-list",
+                    children: [availableSubSkills.filter(function (subSkill) {
+                      if (!subSkillSearchTerm) return true;
+                      var searchLower = subSkillSearchTerm.toLowerCase();
+                      var labelLower = subSkill.label.toLowerCase();
+                      var words = labelLower.split(' ');
+                      return words.some(function (word) {
+                        return word.startsWith(searchLower);
+                      });
+                    }).map(function (subSkill, index) {
+                      var isSelected = selectedSubSkills.includes(subSkill.value);
+                      if (subSkill.value === 'Others') {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                          className: "sub-skills-custom-container",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                            className: "sub-skill-option ".concat(isSubSkillOthers ? 'selected' : ''),
+                            onClick: function onClick(e) {
+                              e.stopPropagation();
+                              setIsSubSkillOthers(true);
+                            },
+                            children: subSkill.label
+                          }), isSubSkillOthers && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                            className: "custom-sub-skill-input-container",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                              type: "text",
+                              className: "custom-sub-skill-input-field",
+                              placeholder: "Enter custom sub-skill",
+                              value: customSubSkill,
+                              onChange: handleCustomSubSkillChange,
+                              onClick: function onClick(e) {
+                                return e.stopPropagation();
+                              },
+                              onKeyDown: function onKeyDown(e) {
+                                if (e.key === 'Enter') {
+                                  e.preventDefault();
+                                  handleCustomSubSkillAdd();
+                                }
+                                e.stopPropagation();
+                              }
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                              type: "button",
+                              className: "add-custom-sub-skill-btn",
+                              onClick: function onClick(e) {
+                                e.stopPropagation();
+                                handleCustomSubSkillAdd();
+                              },
+                              children: "Add"
+                            })]
+                          })]
+                        }, index);
+                      }
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+                        className: "sub-skill-option ".concat(isSelected ? 'selected' : ''),
+                        onClick: function onClick(e) {
+                          e.stopPropagation();
+                          handleSubSkillToggle(subSkill.value);
+                        },
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                          className: "sub-skill-checkbox",
+                          children: isSelected ? '✓' : ''
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                          className: "sub-skill-label",
+                          children: subSkill.label
+                        })]
+                      }, index);
+                    }), availableSubSkills.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+                      className: "sub-skills-no-options",
+                      children: "No sub-skills available. Select a job title first."
+                    })]
+                  })]
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("small", {
                 style: {
                   fontSize: '12px',
-                  color: '#666'
+                  color: '#666',
+                  marginTop: '4px',
+                  display: 'block'
                 },
-                children: "Separate multiple sub-skills with commas"
+                children: "Click to select multiple sub-skills"
               })]
             }), selectedSubSkills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "form-group",
@@ -252378,6 +252885,7 @@ var MyPostJob = function MyPostJob() {
               country: 'Philippines'
             };
             console.log("Job payload being sent:", jobPayload);
+            console.log("Job type value:", jobPayload.job_type, "| Type:", _typeof(jobPayload.job_type));
             if (!editingJob) {
               _context3.n = 9;
               break;

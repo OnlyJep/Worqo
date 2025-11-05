@@ -32,11 +32,12 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
       const response = await axios.get(`http://127.0.0.1:8000/api/job-applications/job/${jobPostId}`);
       console.log('Applications API Response:', response.data);
       
-      // Ensure worker data and profile_img are properly set
+      // Ensure worker data is properly set
       const applicationsData = Array.isArray(response.data) ? response.data : [];
       const processedApplications = applicationsData.map(app => {
-        if (app.worker && !app.worker.profile_img) {
-          console.warn('Worker missing profile_img:', app.worker);
+        // Ensure profile_img is set (can be null, which is handled by default image fallback)
+        if (app.worker && app.worker.profile_img === undefined) {
+          app.worker.profile_img = null;
         }
         return app;
       });
@@ -76,15 +77,17 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
       return;
     }
     
-    // Debug: Log the application data to see the structure
-    console.log('Application data:', application);
-    console.log('Worker data:', application.worker);
-    console.log('Worker ID:', application.worker.id);
+    // Get the user_id from the worker object (the profile route expects user_id, not worker.id)
+    const userId = application?.worker?.user_id || application?.worker?.user?.id;
     
-    // Use the worker's ID for the profile route
-    const workerId = application.worker.id;
-    console.log('Opening profile for worker ID:', workerId);
-    window.open(`/profile/${workerId}`, '_blank');
+    if (!userId) {
+      console.error('Unable to find user ID for worker:', application.worker);
+      alert('Unable to open profile. User ID not found.');
+      return;
+    }
+    
+    // Navigate to the profile page using the user_id
+    window.open(`/profile/${userId}`, '_blank');
   };
 
   const handleViewApplicationDetails = (application) => {
@@ -289,6 +292,15 @@ const ViewWorkersApplicationModal = ({ jobPostId, jobTitle, onClose }) => {
                   </button>
                 </div>
               )}
+
+              <div className="application-actions">
+                <button 
+                  className="view-profile-btn"
+                  onClick={() => handleViewProfile(selectedApplication)}
+                >
+                  <IoEyeSharp /> View Profile
+                </button>
+              </div>
             </div>
           </div>
         </div>

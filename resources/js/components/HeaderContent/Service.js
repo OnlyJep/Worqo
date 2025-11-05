@@ -16,17 +16,20 @@ const BrowseLaborCategories = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [pagination, setPagination] = useState({ currentPage: 1, totalPages: 1 });
-  const [visibleCount, setVisibleCount] = useState(8);
+  const [visibleCount, setVisibleCount] = useState(8); // Fixed limit per page
   const [error, setError] = useState(null);
   const abortControllerRef = useRef(null);
   const isMountedRef = useRef(true);
 
-  const fetchData = async (signal) => {
+  const fetchData = async (signal, currentPage = pagination.currentPage) => {
     if (!isMountedRef.current) return;
     
     try {
       setError(null);
-      setServices([]); // Clear previous data
+      // Only clear services if we're on page 1 (not loading more)
+      if (currentPage === 1) {
+        setServices([]); // Clear previous data
+      }
       
       const authToken = localStorage.getItem("auth_token");
       const headers = authToken
@@ -43,7 +46,7 @@ const BrowseLaborCategories = () => {
           params: {
             search: searchTerm.trim(),
             color_collar_id: selectedCollar,
-            page: pagination.currentPage,
+            page: currentPage,
             limit: visibleCount,
           },
           headers,
@@ -87,9 +90,14 @@ const BrowseLaborCategories = () => {
         throw new Error("Invalid response from services API");
       }
 
-      setServices(servicesResponse.data.services || []);
+      // If loading more (page > 1), append to existing services, otherwise replace
+      if (currentPage > 1) {
+        setServices((prevServices) => [...prevServices, ...(servicesResponse.data.services || [])]);
+      } else {
+        setServices(servicesResponse.data.services || []);
+      }
       setPagination({
-        currentPage: servicesResponse.data.pagination?.currentPage || 1,
+        currentPage: servicesResponse.data.pagination?.currentPage || currentPage,
         totalPages: servicesResponse.data.pagination?.totalPages || 1,
       });
       setCollars(collarsResponse.data.collars || []);
@@ -126,11 +134,15 @@ const BrowseLaborCategories = () => {
     }
   };
 
-  const fetchSearchData = async (signal) => {
+  const fetchSearchData = async (signal, currentPage = pagination.currentPage) => {
     if (!isMountedRef.current) return;
     
     try {
       setError(null);
+      // Only clear services if we're on page 1 (not loading more)
+      if (currentPage === 1) {
+        setServices([]);
+      }
       
       const authToken = localStorage.getItem("auth_token");
       const headers = authToken
@@ -147,7 +159,7 @@ const BrowseLaborCategories = () => {
           params: {
             search: searchTerm.trim(),
             color_collar_id: selectedCollar,
-            page: pagination.currentPage,
+            page: currentPage,
             limit: visibleCount,
           },
           headers,
@@ -191,9 +203,14 @@ const BrowseLaborCategories = () => {
         throw new Error("Invalid response from services API");
       }
 
-      setServices(servicesResponse.data.services || []);
+      // If loading more (page > 1), append to existing services, otherwise replace
+      if (currentPage > 1) {
+        setServices((prevServices) => [...prevServices, ...(servicesResponse.data.services || [])]);
+      } else {
+        setServices(servicesResponse.data.services || []);
+      }
       setPagination({
-        currentPage: servicesResponse.data.pagination?.currentPage || 1,
+        currentPage: servicesResponse.data.pagination?.currentPage || currentPage,
         totalPages: servicesResponse.data.pagination?.totalPages || 1,
       });
       setCollars(collarsResponse.data.collars || []);
@@ -260,10 +277,13 @@ const BrowseLaborCategories = () => {
         // Use fetchSearchData for search operations, fetchData for initial load
         const isSearchOperation = searchTerm && searchTerm.trim().length > 0;
         
+        // Use the current pagination state from the dependency
+        const currentPage = pagination.currentPage;
+        
         if (isSearchOperation) {
-          await fetchSearchData(controller.signal);
+          await fetchSearchData(controller.signal, currentPage);
         } else {
-          await fetchData(controller.signal);
+          await fetchData(controller.signal, currentPage);
         }
       } catch (error) {
         if (error.name !== "AbortError" && error.name !== 'CanceledError' && error.code !== 'ERR_CANCELED') {
@@ -360,10 +380,11 @@ const BrowseLaborCategories = () => {
   };
 
   const handleShowMore = () => {
+    // Check if there are more pages to load
     if (pagination.currentPage < pagination.totalPages) {
+      // Load next page - this will trigger the useEffect to fetch more data
       setPagination((prev) => ({ ...prev, currentPage: prev.currentPage + 1 }));
     }
-    setVisibleCount((prev) => prev + 4);
   };
 
   const handleSearchChange = (e) => {
@@ -384,7 +405,6 @@ const BrowseLaborCategories = () => {
     
     // Reset pagination for new search
     setPagination({ currentPage: 1, totalPages: 1 });
-    setVisibleCount(8);
   };
 
   const handleSearchKeyPress = (e) => {
@@ -396,7 +416,6 @@ const BrowseLaborCategories = () => {
   const handleCollarChange = (e) => {
     setSelectedCollar(e.target.value);
     setPagination({ ...pagination, currentPage: 1 });
-    setVisibleCount(8);
   };
 
   return (
@@ -495,18 +514,20 @@ const BrowseLaborCategories = () => {
             )}
           </div>
 
-          <div className="show-more-wrap">
-            <button
-              type="button"
-              className="show-more-btn"
-              onClick={handleShowMore}
-              disabled={visibleCount >= services.length && pagination.currentPage >= pagination.totalPages}
-            >
-              {visibleCount >= services.length && pagination.currentPage >= pagination.totalPages
-                ? "Nothing more"
-                : "Show More"}
-            </button>
-          </div>
+          {(!error && services.length > 0) && (
+            <div className="show-more-wrap">
+              <button
+                type="button"
+                className="show-more-btn"
+                onClick={handleShowMore}
+                disabled={pagination.currentPage >= pagination.totalPages}
+              >
+                {pagination.currentPage >= pagination.totalPages
+                  ? "Nothing more"
+                  : "Show More"}
+              </button>
+            </div>
+          )}
         </div>
       </main>
       <Footer />
