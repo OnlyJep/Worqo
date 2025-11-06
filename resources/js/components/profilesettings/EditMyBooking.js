@@ -175,11 +175,11 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
     // Calculate working days based on work type
     let workingDays = 0;
     switch (bookingDetails.work_type) {
-      case 'full-time':
+      case 'per_day':
         workingDays = calculateFullTimeWorkingDays(start, end);
         break;
-      case 'part-time':
-        workingDays = calculateFullTimeWorkingDays(start, end); // Same as full-time but different hours
+      case 'per_job':
+        workingDays = calculateFullTimeWorkingDays(start, end); // Same as per_day but different hours
         break;
       default:
         workingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -618,8 +618,9 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
         <h2 className="edit-booking-modal-title">Edit Booking for {worker?.name}</h2>
         <div className="edit-booking-modal-form-content">
           <div className="edit-booking-form-field">
-            <label className="edit-booking-form-label">Service Type</label>
+            <label className="edit-booking-form-label" htmlFor="service_type">Service Type</label>
             <CustomDropdown
+              id="service_type"
               options={getAvailableServiceTypes()}
               value={bookingDetails.service_type}
               onChange={(value) => setBookingDetails(prev => ({ ...prev, service_type: value }))}
@@ -630,9 +631,10 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
           
           {bookingDetails.service_type && (
             <div className="edit-booking-form-field">
-              <label className="edit-booking-form-label" htmlFor={getAvailableSubSkills().length > 0 ? undefined : "sub_skill"}>Sub Skills</label>
+              <label className="edit-booking-form-label" htmlFor="sub_skill">Sub Skills</label>
               {getAvailableSubSkills().length > 0 ? (
                 <CustomDropdown
+                  id="sub_skill"
                   options={getAvailableSubSkills()}
                   value={bookingDetails.sub_skill}
                   onChange={(value) => {
@@ -656,9 +658,10 @@ const EditMyBooking = ({ isOpen, onClose, onSubmit, booking }) => {
           <div className="edit-booking-form-field">
             <label className="edit-booking-form-label" htmlFor="work_type">Work Type</label>
             <CustomDropdown
+              id="work_type"
               options={[
-                { value: 'full-time', label: 'Full-time' },
-                { value: 'part-time', label: 'Part-time' }
+                { value: 'per_day', label: 'Per Day' },
+                { value: 'per_job', label: 'Per Job' }
               ]}
               value={bookingDetails.work_type}
               onChange={(value) => setBookingDetails(prev => ({ ...prev, work_type: value }))}

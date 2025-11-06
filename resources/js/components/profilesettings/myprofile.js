@@ -87,6 +87,7 @@ const MyProfile = () => {
   const fileInputRef = useRef(null);
   const credentialFileInputRef = useRef(null);
   const employerCredentialFileInputRef = useRef(null);
+  const lastFetchedUserIdRef = useRef(null);
 
   // Credential types from SkillRatingModal
   const credentialTypes = [
@@ -147,14 +148,28 @@ const MyProfile = () => {
   useEffect(() => {
     let isMounted = true;
     
-    if (user?.id && (user?.role_id === 1 || user?.role_id === '1')) {
+    // Prevent infinite loop by checking if we've already fetched for this user
+    const userId = user?.id;
+    const roleId = user?.role_id;
+    
+    if (!userId || !roleId) return;
+    
+    // Skip if we've already fetched for this user
+    if (lastFetchedUserIdRef.current === userId) {
+      return;
+    }
+    
+    if (roleId === 1 || roleId === '1') {
       const fetchData = async () => {
         try {
           await Promise.all([
-            fetchWorkerReviews(user.id),
-            fetchWorkerProfile(user.id),
+            fetchWorkerReviews(userId),
+            fetchWorkerProfile(userId),
             fetchAvailableSkills()
           ]);
+          if (isMounted) {
+            lastFetchedUserIdRef.current = userId;
+          }
         } catch (error) {
           if (isMounted) {
             console.error('Error fetching worker data:', error);
@@ -163,12 +178,15 @@ const MyProfile = () => {
       };
       
       fetchData();
-    } else if (user?.id && (user?.role_id === 2 || user?.role_id === '2')) {
+    } else if (roleId === 2 || roleId === '2') {
       // Fetch employer data
       const fetchEmployerData = async () => {
         try {
-          console.log('Fetching employer data for user:', user.id);
-          await fetchEmployerProfile(user.id);
+          console.log('Fetching employer data for user:', userId);
+          await fetchEmployerProfile(userId);
+          if (isMounted) {
+            lastFetchedUserIdRef.current = userId;
+          }
         } catch (error) {
           if (isMounted) {
             console.error('Error fetching employer data:', error);
@@ -182,7 +200,7 @@ const MyProfile = () => {
     return () => {
       isMounted = false;
     };
-  }, [user]);
+  }, [user?.id, user?.role_id]);
 
   // Handle clicking outside dropdown
   useEffect(() => {
@@ -635,8 +653,15 @@ const MyProfile = () => {
             role_id: employerUser.role_id || roleId
           };
           
-          // Update user state
-          setUser(updatedUser);
+          // Update user state only if it's actually different to prevent infinite loops
+          setUser(prevUser => {
+            // Only update if the ID or key fields have changed
+            if (!prevUser || prevUser.id !== updatedUser.id || 
+                JSON.stringify(prevUser.employer) !== JSON.stringify(updatedUser.employer)) {
+              return updatedUser;
+            }
+            return prevUser;
+          });
           
           // Update profileData state with all employer profile information
           setProfileData({
@@ -1300,10 +1325,13 @@ const MyProfile = () => {
   // Employer Credential Functions
   const handleEditEmployerCredentials = () => {
     setIsEditingEmployerCredentials(true);
+    setShowAddEmployerCredentialForm(true); // Show form when editing starts
   };
 
   const handleCancelEmployerCredentialsEdit = async () => {
     setIsEditingEmployerCredentials(false);
+    setShowAddEmployerCredentialForm(false);
+    setNewEmployerCredential({ credentials_name: '', credentials_photo: null, credentials_doc: null });
     // Reload credentials from server
     if (user?.id && (user?.role_id === 2 || user?.role_id === '2')) {
       await fetchEmployerProfile(user.id);
@@ -1404,11 +1432,11 @@ const MyProfile = () => {
 
   const handleAddEmployerCredential = () => {
     if (!newEmployerCredential.credentials_name.trim()) {
-      message.error('Please enter a credential name');
+      message.error('Please select a credential type');
       return;
     }
     if (!newEmployerCredential.credentials_photo && !newEmployerCredential.credentials_doc) {
-      message.error('Please upload a credential document');
+      message.error('Please upload a credential document or image');
       return;
     }
 
@@ -1421,11 +1449,12 @@ const MyProfile = () => {
 
     setEmployerCredentials(prev => [...prev, { ...newEmployerCredential }]);
     setNewEmployerCredential({ credentials_name: '', credentials_photo: null, credentials_doc: null });
-    setShowAddEmployerCredentialForm(false);
+    // Keep form visible so user can add more credentials
+    setShowAddEmployerCredentialForm(true);
     if (employerCredentialFileInputRef.current) {
       employerCredentialFileInputRef.current.value = '';
     }
-    message.success('Credential added! Click "Save Changes" to save.');
+    message.success(`Credential added! (${employerCredentials.length + 1} total). You can add more or click "Save Changes" to save.`);
   };
 
   const handleEmployerCredentialsSubmit = async () => {
@@ -2867,16 +2896,26 @@ const MyProfile = () => {
       {/* Credentials Card - Only for Employers */}
       {(user?.role_id === 2 || user?.role_id === '2') && (
         <div className="employer-credentials-card">
-          <h3 className="card-title">Credentials</h3>
+          <div className="card-header-with-count">
+            <h3 className="card-title">Credentials</h3>
+            {employerCredentials && employerCredentials.length > 0 && (
+              <span className="credentials-count">({employerCredentials.length} {employerCredentials.length === 1 ? 'credential' : 'credentials'})</span>
+            )}
+          </div>
           
           <div className="credentials-display">
             {/* Add Credential Form - Show when editing */}
-            {isEditingEmployerCredentials && (
+            {isEditingEmployerCredentials && showAddEmployerCredentialForm && (
               <div className="add-credential-form">
-                <h4 className="add-form-title">Add New Credential</h4>
+                <h4 className="add-form-title">
+                  Add New Credential
+                  {employerCredentials.length > 0 && (
+                    <span className="add-more-hint"> - You can add multiple credentials</span>
+                  )}
+                </h4>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="employerCredentialName">Credential Type</label>
+                    <label htmlFor="employerCredentialName">Credential Type *</label>
                     <select
                       id="employerCredentialName"
                       value={newEmployerCredential.credentials_name}
@@ -2892,7 +2931,7 @@ const MyProfile = () => {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="employerCredentialFile">Upload File (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)</label>
+                    <label htmlFor="employerCredentialFile">Upload File * (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)</label>
                     <input
                       type="file"
                       id="employerCredentialFile"
@@ -2904,7 +2943,7 @@ const MyProfile = () => {
                     {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) && (
                       <div className="file-selected-info">
                         <span className="file-selected">
-                          Selected: {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc)?.name}
+                          ✓ Selected: {(newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc)?.name}
                           {newEmployerCredential.credentials_photo && ' (Image)'}
                           {newEmployerCredential.credentials_doc && ' (Document)'}
                         </span>
@@ -2912,15 +2951,42 @@ const MyProfile = () => {
                     )}
                   </div>
                 </div>
-                <button 
-                  type="button" 
-                  className="add-credential-action-btn"
-                  onClick={handleAddEmployerCredential}
+                <div className="add-credential-actions">
+                  <button 
+                    type="button" 
+                    className="add-credential-action-btn"
+                    onClick={handleAddEmployerCredential}
+                  >
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    Add to List
+                  </button>
+                  {employerCredentials.length > 0 && (
+                    <button
+                      type="button"
+                      className="close-form-btn"
+                      onClick={() => setShowAddEmployerCredentialForm(false)}
+                    >
+                      Close Form
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+            
+            {/* Show "Add Credential" button if form is hidden but editing mode is on */}
+            {isEditingEmployerCredentials && !showAddEmployerCredentialForm && (
+              <div className="add-credential-prompt">
+                <button
+                  type="button"
+                  className="show-add-form-btn"
+                  onClick={() => setShowAddEmployerCredentialForm(true)}
                 >
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                   </svg>
-                  Add to List
+                  Add Another Credential
                 </button>
               </div>
             )}
@@ -2928,12 +2994,21 @@ const MyProfile = () => {
             {/* Existing Credentials List */}
             {employerCredentials && employerCredentials.length > 0 ? (
               <div className="credentials-list">
+                <div className="credentials-list-header">
+                  <span className="list-title">Your Credentials:</span>
+                </div>
                 {employerCredentials.map((credential, index) => (
                   <div key={index} className="credential-item">
                     <div className="credential-icon">
-                      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
-                      </svg>
+                      {credential.credentials_photo || (typeof credential.credentials_doc === 'string' && credential.credentials_doc) ? (
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                        </svg>
+                      ) : (
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                          <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                        </svg>
+                      )}
                     </div>
                     <div className="credential-info">
                       <span className="credential-name">{credential.credentials_name}</span>
@@ -2946,33 +3021,52 @@ const MyProfile = () => {
                               rel="noopener noreferrer"
                               className="view-document-link"
                             >
+                              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                              </svg>
                               View Document
                             </a>
                             <span className="file-path">{(credential.credentials_photo || credential.credentials_doc).split('/').pop()}</span>
                           </div>
                         ) : credential.credentials_photo instanceof File ? (
-                          <span className="pending-upload">Pending upload: {credential.credentials_photo.name}</span>
+                          <span className="pending-upload">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                              <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z" />
+                            </svg>
+                            Pending upload: {credential.credentials_photo.name}
+                          </span>
+                        ) : credential.credentials_doc instanceof File ? (
+                          <span className="pending-upload">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                              <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z" />
+                            </svg>
+                            Pending upload: {credential.credentials_doc.name}
+                          </span>
                         ) : null
                       ) : (
                         <span className="no-file-uploaded">No file uploaded</span>
                       )}
                     </div>
-                    <button
-                      type="button"
-                      className="remove-credential-btn"
-                      onClick={() => handleRemoveEmployerCredential(index)}
-                      title="Delete this credential"
-                    >
-                      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                      </svg>
-                    </button>
+                    {isEditingEmployerCredentials && (
+                      <button
+                        type="button"
+                        className="remove-credential-btn"
+                        onClick={() => handleRemoveEmployerCredential(index)}
+                        title="Delete this credential"
+                      >
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                          <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                        </svg>
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>
             ) : !isEditingEmployerCredentials ? (
-              <p className="empty-state">No credentials added yet</p>
-            ) : null}
+              <p className="empty-state">No credentials added yet. Click "Edit Credentials" to add your first credential.</p>
+            ) : (
+              <p className="empty-state">No credentials added yet. Use the form above to add your first credential.</p>
+            )}
           </div>
 
           <div className="form-actions">

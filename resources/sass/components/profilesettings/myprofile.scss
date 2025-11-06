@@ -1808,6 +1808,23 @@ select {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border: 1px solid #e5e7eb;
 
+  .card-header-with-count {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .card-title {
+      margin: 0;
+    }
+
+    .credentials-count {
+      font-size: 14px;
+      color: #6b7280;
+      font-weight: 500;
+    }
+  }
+
   // Add credential form styling
   .add-credential-form {
     background: #f8fafc;
@@ -1821,6 +1838,13 @@ select {
       font-weight: 600;
       color: #001E40;
       margin-bottom: 15px;
+
+      .add-more-hint {
+        font-size: 13px;
+        font-weight: 400;
+        color: #6b7280;
+        font-style: italic;
+      }
     }
 
     .form-row {
@@ -1873,6 +1897,12 @@ select {
       }
     }
 
+    .add-credential-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
     .add-credential-action-btn {
       background: #001E40;
       color: white;
@@ -1894,6 +1924,67 @@ select {
 
       &:active {
         transform: translateY(0);
+      }
+    }
+
+    .close-form-btn {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #e5e7eb;
+        border-color: #9ca3af;
+      }
+    }
+  }
+
+  .add-credential-prompt {
+    margin-bottom: 20px;
+    text-align: center;
+
+    .show-add-form-btn {
+      background: #f0f9ff;
+      color: #001E40;
+      border: 2px dashed #001E40;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      &:hover {
+        background: #e0f2fe;
+        border-color: #002a5c;
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .credentials-list {
+    .credentials-list-header {
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e5e7eb;
+
+      .list-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #001E40;
       }
     }
   }
@@ -1968,6 +2059,20 @@ select {
         &:hover {
           border-color: #001E40;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .credential-number {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          background: #001E40;
+          color: white;
+          border-radius: 50%;
+          font-size: 14px;
+          font-weight: 600;
+          flex-shrink: 0;
         }
 
         .remove-credential-btn {

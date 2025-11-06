@@ -376,10 +376,46 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
       showNotification('Submitting application...', 'processing');
       
       // Use profile_id for worker_id (must exist in profiles table)
-      const workerId = userProfile.profile_id || userProfile.id;
+      // Try multiple ways to get the profile ID
+      let workerId = userProfile.profile_id || userProfile.profile?.id || userProfile.id;
+      
+      // If still no profile ID, try to fetch it from the API
+      if (!workerId || workerId === userProfile.id) {
+        try {
+          const authToken = localStorage.getItem("auth_token");
+          const userData = JSON.parse(localStorage.getItem("user") || '{}');
+          const currentUser = userData.user || userData;
+          
+          if (currentUser.id) {
+            const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUser.id}`, {
+              headers: {
+                Authorization: `Bearer ${authToken}`,
+                Accept: "application/json"
+              }
+            });
+            
+            if (profileResponse.data?.id) {
+              workerId = profileResponse.data.id;
+            } else if (profileResponse.data?.profile?.id) {
+              workerId = profileResponse.data.profile.id;
+            } else if (Array.isArray(profileResponse.data) && profileResponse.data.length > 0) {
+              workerId = profileResponse.data[0].id;
+            }
+          }
+        } catch (profileError) {
+          console.error("Error fetching profile for application:", profileError);
+        }
+      }
       
       if (!workerId) {
         showNotification('Unable to determine worker profile. Please log in again.', 'error');
+        return;
+      }
+      
+      // Ensure cover letter is not empty
+      const coverLetter = formData.coverLetter?.trim() || '';
+      if (!coverLetter) {
+        showNotification('Cover letter is required. Please explain your experience related to this job.', 'error');
         return;
       }
       
@@ -387,7 +423,7 @@ const ApplyJobModal = ({ job, isOpen, onClose, onSubmit, userRank, onViewApplica
       const applicationData = new FormData();
       applicationData.append('job_post_id', job.id);
       applicationData.append('worker_id', workerId);
-      applicationData.append('cover_letter', formData.coverLetter);
+      applicationData.append('cover_letter', coverLetter);
       
       // Convert skills object to array format
       const skillsArray = [];

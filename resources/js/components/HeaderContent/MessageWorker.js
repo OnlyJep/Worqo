@@ -6,6 +6,7 @@ import { MdOutlineKeyboardVoice } from "react-icons/md";
 import { GoPlus } from "react-icons/go";
 import { IoMdSend } from "react-icons/io";
 import './../../../sass/components/MessageWorker.scss';
+import { getProfileImageUrl } from '../../utils/profileImageUtils';
 
 const MessageWorker = () => {
   const [selectedConversation, setSelectedConversation] = useState(null);
@@ -367,9 +368,20 @@ const MessageWorker = () => {
                 onClick={() => handleConversationSelect(conv)}
               >
                 <div className="conversation-avatar">
-                  <div className="avatar-placeholder">
-                    {conv.name?.charAt(0) || 'U'}
-                  </div>
+                  {conv?.detailed_info?.profile_img || conv?.profile_img ? (
+                    <img 
+                      src={getProfileImageUrl(conv?.detailed_info?.profile_img || conv?.profile_img, 'images/defpfp.svg')} 
+                      alt={conv.name || 'User'} 
+                      className="avatar-image"
+                      onError={(e) => {
+                        e.currentTarget.src = 'images/defpfp.svg';
+                      }}
+                    />
+                  ) : (
+                    <div className="avatar-placeholder">
+                      {conv.name?.charAt(0) || 'U'}
+                    </div>
+                  )}
                   {conv.unread_count > 0 && (
                     <span className="unread-indicator">{conv.unread_count}</span>
                   )}
@@ -391,7 +403,15 @@ const MessageWorker = () => {
                       const preview = conv.last_message.content.length > maxLength 
                         ? conv.last_message.content.substring(0, maxLength) + '...' 
                         : conv.last_message.content;
-                      return isSentByMe ? `You: ${preview}` : preview;
+                      // Show "You: " if sent by current user, otherwise show sender's first name or "Employer: "
+                      if (isSentByMe) {
+                        return `You: ${preview}`;
+                      } else {
+                        // Extract first name only from the full name
+                        const fullName = conv.name || 'Employer';
+                        const firstName = fullName.split(' ')[0]; // Get only the first name
+                        return `${firstName}: ${preview}`;
+                      }
                     })()}
                   </div>
                 </div>
@@ -415,9 +435,20 @@ const MessageWorker = () => {
                 }}
               >
                 <div className="conversation-avatar">
-                  <div className="avatar-placeholder">
-                    {user.full_name?.charAt(0) || 'U'}
-                  </div>
+                  {user.profile_img ? (
+                    <img 
+                      src={getProfileImageUrl(user.profile_img, 'images/defpfp.svg')} 
+                      alt={user.full_name || 'User'} 
+                      className="avatar-image"
+                      onError={(e) => {
+                        e.currentTarget.src = 'images/defpfp.svg';
+                      }}
+                    />
+                  ) : (
+                    <div className="avatar-placeholder">
+                      {user.full_name?.charAt(0) || 'U'}
+                    </div>
+                  )}
                 </div>
                 
                 <div className="conversation-details">

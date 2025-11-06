@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 	import './../../../sass/components/findjob.scss';
@@ -18,12 +18,71 @@ const FindJob = () => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	const sortOptions = ["Featured", "Newest", "Price: High-Low", "Price: Low-High"];
-
+	const sortOptions = ["Featured", "Newest", "Salary: High-Low", "Salary: Low-High"];
 
 	const handleSortOptionClick = (option) => {
 		setSelectedSortOption(option);
 		setIsSortDropdownOpen(false);
+		applyFiltersAndSort();
+	};
+
+	// Apply sorting to filtered jobs
+	const applySorting = (jobsToSort, sortOption = null) => {
+		if (!Array.isArray(jobsToSort) || jobsToSort.length === 0) {
+			return jobsToSort;
+		}
+
+		const sortBy = sortOption || selectedSortOption;
+		if (sortBy === "Sort by" || !sortBy) {
+			// Default: Sort by newest
+			return [...jobsToSort].sort((a, b) => {
+				return new Date(b.created_at) - new Date(a.created_at);
+			});
+		}
+
+		const sorted = [...jobsToSort];
+		
+		switch (sortBy) {
+			case "Featured":
+				// Featured: Sort by most applications or views (if available), then by newest
+				return sorted.sort((a, b) => {
+					const aApplications = a.applications?.length || a.application_count || 0;
+					const bApplications = b.applications?.length || b.application_count || 0;
+					if (bApplications !== aApplications) {
+						return bApplications - aApplications; // Most applications first
+					}
+					// If same number of applications, sort by newest
+					return new Date(b.created_at) - new Date(a.created_at);
+				});
+			
+			case "Newest":
+				// Newest: Sort by created_at descending
+				return sorted.sort((a, b) => {
+					return new Date(b.created_at) - new Date(a.created_at);
+				});
+			
+			case "Salary: High-Low":
+				// Salary: High to Low
+				return sorted.sort((a, b) => {
+					const salaryA = parseFloat(a.salary) || 0;
+					const salaryB = parseFloat(b.salary) || 0;
+					return salaryB - salaryA;
+				});
+			
+			case "Salary: Low-High":
+				// Salary: Low to High
+				return sorted.sort((a, b) => {
+					const salaryA = parseFloat(a.salary) || 0;
+					const salaryB = parseFloat(b.salary) || 0;
+					return salaryA - salaryB;
+				});
+			
+			default:
+				// Default: Sort by newest
+				return sorted.sort((a, b) => {
+					return new Date(b.created_at) - new Date(a.created_at);
+				});
+		}
 	};
 
 	const handleViewJob = (jobId) => {
@@ -33,7 +92,8 @@ const FindJob = () => {
 		}
 	};
 
-	const handleRefineSearch = () => {
+	// Apply all filters and sorting
+	const applyFiltersAndSort = useCallback(() => {
 		if (Array.isArray(jobs)) {
 			let filtered = jobs;
 			
@@ -43,11 +103,11 @@ const FindJob = () => {
 					const searchLower = searchTerm.toLowerCase();
 					
 					// Search in job title
-					const titleMatch = job.job_title.toLowerCase().includes(searchLower);
+					const titleMatch = job.job_title?.toLowerCase().includes(searchLower);
 					
 					// Search in skills
 					const skillsMatch = job.skills && job.skills.some(skill => 
-						skill.name.toLowerCase().includes(searchLower)
+						skill.name?.toLowerCase().includes(searchLower)
 					);
 					
 					// Search in job description
@@ -60,19 +120,69 @@ const FindJob = () => {
 			
 			// Apply employment type filter if selected
 			if (selectedEmploymentType !== "") {
-				filtered = filtered.filter(job => job.job_type === selectedEmploymentType);
+				filtered = filtered.filter(job => {
+					// Map legacy job types to new format for filtering
+					const jobType = job.job_type?.toLowerCase();
+					if (selectedEmploymentType === 'per_day') {
+						return jobType === 'per_day' || jobType === 'full-time' || jobType === 'part-time';
+					} else if (selectedEmploymentType === 'per_job') {
+						return jobType === 'per_job' || jobType === 'contract' || jobType === 'freelance' || jobType === 'one-time job';
+					}
+					return job.job_type === selectedEmploymentType;
+				});
 			}
 			
-			setFilteredJobs(filtered);
+			// Apply sorting inline to avoid dependency issues
+			let sorted = [...filtered];
+			const sortBy = selectedSortOption;
+			
+			if (sortBy === "Featured") {
+				sorted = sorted.sort((a, b) => {
+					const aApplications = a.applications?.length || a.application_count || 0;
+					const bApplications = b.applications?.length || b.application_count || 0;
+					if (bApplications !== aApplications) {
+						return bApplications - aApplications;
+					}
+					return new Date(b.created_at) - new Date(a.created_at);
+				});
+			} else if (sortBy === "Newest") {
+				sorted = sorted.sort((a, b) => {
+					return new Date(b.created_at) - new Date(a.created_at);
+				});
+			} else if (sortBy === "Salary: High-Low") {
+				sorted = sorted.sort((a, b) => {
+					const salaryA = parseFloat(a.salary) || 0;
+					const salaryB = parseFloat(b.salary) || 0;
+					return salaryB - salaryA;
+				});
+			} else if (sortBy === "Salary: Low-High") {
+				sorted = sorted.sort((a, b) => {
+					const salaryA = parseFloat(a.salary) || 0;
+					const salaryB = parseFloat(b.salary) || 0;
+					return salaryA - salaryB;
+				});
+			} else {
+				// Default: Sort by newest
+				sorted = sorted.sort((a, b) => {
+					return new Date(b.created_at) - new Date(a.created_at);
+				});
+			}
+			
+			setFilteredJobs(sorted);
 		}
+	}, [jobs, searchTerm, selectedEmploymentType, selectedSortOption]);
+
+	const handleRefineSearch = () => {
+		applyFiltersAndSort();
 	};
 
 	const handleClearFilters = () => {
 		setSearchTerm("");
 		setSelectedEmploymentType("");
-		if (Array.isArray(jobs)) {
-			setFilteredJobs(jobs);
-		}
+		setSelectedSortOption("Sort by");
+		// Apply sorting to all jobs
+		const sorted = applySorting(jobs);
+		setFilteredJobs(sorted);
 	};
 
 	// Handle URL search parameters
@@ -91,9 +201,36 @@ const FindJob = () => {
 			try {
 				setLoading(true);
 				
-				// Get current user ID to exclude their own job posts
+				// Get current user data to exclude their own job posts
 				const userData = JSON.parse(localStorage.getItem("user") || '{}');
-				const currentUserId = userData.user?.id || userData.id;
+				const currentUser = userData.user || userData;
+				const currentUserId = currentUser.id;
+				
+				// Try to get profile ID from multiple sources
+				let currentProfileId = currentUser.profile?.id || userData.profile?.id || currentUser.profile_id;
+				
+				// If profile ID is still undefined, try to fetch it from API
+				if (!currentProfileId && currentUserId) {
+					try {
+						const authToken = localStorage.getItem("auth_token");
+						const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUserId}`, {
+							headers: {
+								Authorization: `Bearer ${authToken}`,
+								Accept: "application/json"
+							}
+						});
+						
+						if (profileResponse.data?.id) {
+							currentProfileId = profileResponse.data.id;
+						} else if (profileResponse.data?.profile?.id) {
+							currentProfileId = profileResponse.data.profile.id;
+						} else if (Array.isArray(profileResponse.data) && profileResponse.data.length > 0) {
+							currentProfileId = profileResponse.data[0].id;
+						}
+					} catch (profileError) {
+						console.error("Error fetching profile for job filtering:", profileError);
+					}
+				}
 				
 				// Use search API if search term is provided
 				const urlParams = new URLSearchParams(location.search);
@@ -105,7 +242,6 @@ const FindJob = () => {
 					const jobsData = response.data.jobs || [];
 					if (isMounted) {
 						setJobs(jobsData);
-						setFilteredJobs(jobsData);
 					}
 				} else {
 					response = await axios.get('/api/jobposts?archived=false');
@@ -117,17 +253,24 @@ const FindJob = () => {
 					
 					const jobsArray = Array.isArray(jobsData) ? jobsData : [];
 					console.log('Jobs Array:', jobsArray); // Debug log
+					console.log('Current User ID:', currentUserId, 'Current Profile ID:', currentProfileId);
 					
-					// Filter out current user's job posts
-					const filteredJobsArray = currentUserId 
-						? jobsArray.filter(job => job.profile_id !== currentUserId)
+					// Filter out current user's job posts by profile_id (not user_id)
+					const filteredJobsArray = currentProfileId 
+						? jobsArray.filter(job => {
+							const jobProfileId = job.profile_id || job.profile?.id;
+							const shouldExclude = jobProfileId === currentProfileId;
+							if (shouldExclude) {
+								console.log('Excluding own job:', job.id, 'Profile ID:', jobProfileId);
+							}
+							return !shouldExclude;
+						})
 						: jobsArray;
 					
 					console.log('Filtered Jobs (excluding own):', filteredJobsArray.length, 'out of', jobsArray.length);
 					
 					if (isMounted) {
 						setJobs(filteredJobsArray);
-						setFilteredJobs(filteredJobsArray);
 					}
 				}
 			} catch (error) {
@@ -163,32 +306,14 @@ const FindJob = () => {
 		};
 	}, [location.search]);
 
+	// Apply filters and sorting when jobs, searchTerm, selectedEmploymentType, or selectedSortOption changes
 	useEffect(() => {
-		if (Array.isArray(jobs)) {
-			if (searchTerm.trim() === "") {
-				// If no search term, show all jobs
-				setFilteredJobs(jobs);
-			} else {
-				// Filter jobs by search term in title, skills, and description
-				const searchLower = searchTerm.toLowerCase();
-				setFilteredJobs(jobs.filter(job => {
-					// Search in job title
-					const titleMatch = job.job_title.toLowerCase().includes(searchLower);
-					
-					// Search in skills
-					const skillsMatch = job.skills && job.skills.some(skill => 
-						skill.name.toLowerCase().includes(searchLower)
-					);
-					
-					// Search in job description
-					const descriptionMatch = job.description && 
-						job.description.toLowerCase().includes(searchLower);
-					
-					return titleMatch || skillsMatch || descriptionMatch;
-				}));
-			}
+		if (Array.isArray(jobs) && jobs.length > 0) {
+			applyFiltersAndSort();
+		} else if (Array.isArray(jobs) && jobs.length === 0) {
+			setFilteredJobs([]);
 		}
-	}, [searchTerm, jobs]);
+	}, [jobs, searchTerm, selectedEmploymentType, selectedSortOption, applyFiltersAndSort]);
 
 	return (
 		<div className="browse">
@@ -240,12 +365,13 @@ const FindJob = () => {
 							<label>EMPLOYMENT TYPE</label>
 							<select
 								value={selectedEmploymentType}
-								onChange={(e) => setSelectedEmploymentType(e.target.value)}
+							onChange={(e) => {
+								setSelectedEmploymentType(e.target.value);
+							}}
 							>
 								<option value="">Any</option>
-								<option value="Full-time">Full-time</option>
-								<option value="Part-time">Part-time</option>
-								<option value="One-time job">One-time job</option>
+								<option value="per_day">Per Day</option>
+								<option value="per_job">Per Job</option>
 							</select>
 						</div>
 

@@ -45,6 +45,7 @@ const MyPostJob = () => {
 
   const fetchJobs = async () => {
     try {
+      setLoading(true);
       const authToken = localStorage.getItem("auth_token");
       if (!authToken) {
         message.error("Please log in to view job posts");
@@ -66,22 +67,54 @@ const MyPostJob = () => {
       const userData = JSON.parse(localStorage.getItem("user") || '{}');
       const currentUser = userData.user || userData;
       
-      // Get the profile ID first
+      // Get the profile ID first - try multiple ways to get it
       let profileId;
       try {
-        const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUser.id}`, {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-            Accept: "application/json"
+        // Try to get profile from user data first (might already be loaded)
+        if (userData.profile?.id) {
+          profileId = userData.profile.id;
+          console.log("Profile ID from user data:", profileId);
+        } else {
+          // Fetch profile from API
+          const profileResponse = await axios.get(`http://127.0.0.1:8000/api/profiles?user_id=${currentUser.id}`, {
+            headers: {
+              Authorization: `Bearer ${authToken}`,
+              Accept: "application/json"
+            }
+          });
+          
+          // Handle different response formats
+          if (profileResponse.data?.id) {
+            profileId = profileResponse.data.id;
+          } else if (profileResponse.data?.profile?.id) {
+            profileId = profileResponse.data.profile.id;
+          } else if (Array.isArray(profileResponse.data) && profileResponse.data.length > 0) {
+            profileId = profileResponse.data[0].id;
           }
-        });
-        profileId = profileResponse.data.id;
-        console.log("Profile found for job fetch:", profileResponse.data);
+          
+          console.log("Profile found for job fetch:", profileResponse.data);
+          console.log("Profile ID extracted:", profileId);
+        }
       } catch (profileError) {
-        console.log("Profile not found, using user ID:", currentUser.id);
-        profileId = currentUser.id;
+        console.error("Error fetching profile:", profileError.response?.data || profileError.message);
+        // Try to use profile_id from user data if available
+        if (currentUser.profile_id) {
+          profileId = currentUser.profile_id;
+          console.log("Using profile_id from user data:", profileId);
+        } else {
+          console.log("Profile not found, using user ID as fallback:", currentUser.id);
+          profileId = currentUser.id;
+        }
       }
 
+      if (!profileId) {
+        console.error("Could not determine profile ID");
+        message.error("Could not load your profile. Please refresh the page.");
+        setJobs([]);
+        return;
+      }
+
+      // Fetch job posts with profile_id
       const response = await axios.get(`http://127.0.0.1:8000/api/jobposts?profile_id=${profileId}&show_archived=true`, {
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -92,16 +125,30 @@ const MyPostJob = () => {
       console.log("Job posts response:", response.data);
       console.log("Profile ID used:", profileId);
 
+      // Handle different response formats
+      let jobsData = [];
       if (response.data.job_posts) {
-        setJobs(response.data.job_posts.data || []);
-        console.log("Jobs found:", response.data.job_posts.data?.length || 0);
-      } else {
-        console.log("No job_posts in response:", response.data);
-        setJobs([]);
+        if (response.data.job_posts.data) {
+          jobsData = response.data.job_posts.data;
+        } else if (Array.isArray(response.data.job_posts)) {
+          jobsData = response.data.job_posts;
+        }
+      } else if (Array.isArray(response.data)) {
+        jobsData = response.data;
+      } else if (response.data.data) {
+        jobsData = response.data.data;
+      }
+
+      setJobs(jobsData);
+      console.log("Jobs found:", jobsData.length);
+      
+      if (jobsData.length === 0) {
+        console.log("No jobs found for profile_id:", profileId);
       }
     } catch (error) {
       console.error("Error fetching job posts:", error.response?.data || error.message);
       message.error("Failed to fetch job posts");
+      setJobs([]);
     } finally {
       setLoading(false);
     }
@@ -294,6 +341,7 @@ const MyPostJob = () => {
       const salaryTypeMap = {
         'hourly': 'per_hour',
         'per_hour': 'per_hour', // Direct mapping for per_hour
+        'per_day': 'per_hour', // Map per_day to per_hour (backend only accepts per_hour or per_month)
         'daily': 'per_hour', // Map daily to per_hour for now
         'weekly': 'per_hour', // Map weekly to per_hour for now
         'monthly': 'per_month',

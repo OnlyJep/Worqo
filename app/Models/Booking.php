@@ -96,6 +96,7 @@ class Booking extends Model
     public function logAction(string $action, int $userId, ?string $notes = null, ?array $metadata = null): BookingRequest
     {
         return $this->bookingRequests()->create([
+            'booking_id' => $this->id, // Include booking_id
             'user_id' => $userId,
             'service_type' => $this->service_type,
             'sub_skill' => $this->sub_skill, // Now available in booking structure

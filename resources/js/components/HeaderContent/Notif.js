@@ -354,20 +354,16 @@ const Notif = () => {
                     </p>
                     {notif.target_role_id && (
                       <p style={{ margin: '0.25rem 0 0', fontSize: '0.9rem' }}>
-                        <span style={{ color: '#333' }}>Want to view this booking? </span>
+                        <span style={{ color: '#333' }}>Want to view this booking request? </span>
                         <a
                           href="#"
                           onClick={async (e) => {
                             e.preventDefault();
                             e.stopPropagation();
                             
-                            // Dispatch event to handle the special link with role switching
-                            window.dispatchEvent(new CustomEvent('notificationLinkClicked', {
-                              detail: {
-                                url: '/profile-settings/bookings',
-                                targetRoleId: notif.target_role_id
-                              }
-                            }));
+                            // For booking requests, navigate directly without role switching
+                            // This ensures workers see their booking requests page, not employer's bookings
+                            navigate('/profile-settings/bookings');
                           }}
                           style={{ color: '#1a73e8', textDecoration: 'underline' }}
                         >

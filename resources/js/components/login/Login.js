@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './../../../sass/components/_login.scss';
@@ -11,27 +11,46 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
+  const isMountedRef = useRef(true);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
+    // Mark component as mounted
+    isMountedRef.current = true;
+    
     const rememberedEmail = localStorage.getItem('remembered_email');
     if (rememberedEmail) {
       setEmail(rememberedEmail);
       setRememberMe(true);
     }
+
+    // Cleanup function to clear timeout and mark component as unmounted
+    return () => {
+      isMountedRef.current = false;
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    };
   }, []);
 
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(null);
+    if (isMountedRef.current) {
+      setError(null);
+    }
 
     if (!email || !password) {
-      setError('Please fill in all fields.');
+      if (isMountedRef.current) {
+        setError('Please fill in all fields.');
+      }
       return;
     }
 
-
-    setIsLoading(true);
+    if (isMountedRef.current) {
+      setIsLoading(true);
+    }
 
     try {
       const response = await fetch('http://127.0.0.1:8000/api/login', {
@@ -75,46 +94,60 @@ const Login = () => {
         
         // Check if user role is valid and redirect accordingly
         if (!userRole || isNaN(userRole)) {
-          setError('Invalid role: Role ID is missing or invalid');
-          setIsLoading(false);
+          if (isMountedRef.current) {
+            setError('Invalid role: Role ID is missing or invalid');
+            setIsLoading(false);
+          }
           return;
         }
         
         // Check if user is a worker (role_id 1) and redirect to homepage first
         if (userRole === 1) {
-          setTimeout(() => {
-            navigate('/homepage', { replace: true });
-            setIsLoading(false);
+          timeoutRef.current = setTimeout(() => {
+            if (isMountedRef.current) {
+              navigate('/homepage', { replace: true });
+              setIsLoading(false);
+            }
           }, 500);
         } else if (userRole === 2) {
-          setTimeout(() => {
-            navigate('/homepage', { replace: true });
-            setIsLoading(false);
+          timeoutRef.current = setTimeout(() => {
+            if (isMountedRef.current) {
+              navigate('/homepage', { replace: true });
+              setIsLoading(false);
+            }
           }, 500);
         } else if (userRole === 3) {
           // Admin role - redirect to admin panel
-          setTimeout(() => {
-            navigate('/admin', { replace: true });
-            setIsLoading(false);
+          timeoutRef.current = setTimeout(() => {
+            if (isMountedRef.current) {
+              navigate('/admin', { replace: true });
+              setIsLoading(false);
+            }
           }, 500);
         } else {
-          setError(`Invalid role: Unknown role ID ${userRole}`);
-          console.error('Unknown role_id:', userRole, 'Full user data:', data.user);
-          setIsLoading(false);
+          if (isMountedRef.current) {
+            setError(`Invalid role: Unknown role ID ${userRole}`);
+            console.error('Unknown role_id:', userRole, 'Full user data:', data.user);
+            setIsLoading(false);
+          }
         }
       } else {
         // Handle specific error for archived user
-        if (data.message === 'Account is archived and cannot log in') {
-          setError('Your account is locked. Please contact support.');
-        } else {
-          setError(data.message || 'Invalid email or password.');
+        if (isMountedRef.current) {
+          if (data.message === 'Account is archived and cannot log in') {
+            setError('Your account is locked. Please contact support.');
+          } else {
+            setError(data.message || 'Invalid email or password.');
+          }
+          setIsLoading(false);
         }
-        setIsLoading(false);
       }
     } catch (error) {
-      setError('An error occurred. Please try again later.');
-      console.error('Login error:', error);
-      setIsLoading(false);
+      if (isMountedRef.current) {
+        setError('An error occurred. Please try again later.');
+        console.error('Login error:', error);
+        setIsLoading(false);
+      }
     }
   };
 

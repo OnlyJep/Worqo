@@ -13,9 +13,8 @@ class UpdateJobTypeEnumAddPerDayPerJobToJobpostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('jobposts', function (Blueprint $table) {
-            //
-        });
+        // Update job_type enum to include 'per_day' and 'per_job'
+        \DB::statement("ALTER TABLE jobposts MODIFY COLUMN job_type ENUM('per_day', 'per_job', 'full-time', 'part-time', 'contract', 'freelance') NOT NULL");
     }
 
     /**
@@ -25,8 +24,7 @@ class UpdateJobTypeEnumAddPerDayPerJobToJobpostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('jobposts', function (Blueprint $table) {
-            //
-        });
+        // Revert job_type enum back to previous values
+        \DB::statement("ALTER TABLE jobposts MODIFY COLUMN job_type ENUM('full-time', 'part-time', 'contract', 'freelance') NOT NULL");
     }
 }

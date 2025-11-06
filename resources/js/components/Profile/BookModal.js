@@ -66,11 +66,11 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     // Calculate working days based on work type
     let workingDays = 0;
     switch (bookingDetails.work_type) {
-      case 'full-time':
+      case 'per_day':
         workingDays = calculateFullTimeWorkingDays(start, end);
         break;
-      case 'part-time':
-        workingDays = calculateFullTimeWorkingDays(start, end); // Same as full-time but different hours
+      case 'per_job':
+        workingDays = calculateFullTimeWorkingDays(start, end); // Same as per_day but different hours
         break;
       default:
         workingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -104,20 +104,20 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
     let explanation = '';
 
     switch (work_type) {
-      case 'full-time':
-        // Full-time: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
+      case 'per_day':
+        // Per Day: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
         workingDays = calculateFullTimeWorkingDays(startDate, endDate);
         totalHours = workingDays * hoursPerDay;
-        const fullTimeDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
-        explanation = `Full-time: ${hoursPerDay} hours/day, ${fullTimeDays}. Total: ${workingDays} working days`;
+        const perDayDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
+        explanation = `Per Day: ${hoursPerDay} hours/day, ${perDayDays}. Total: ${workingDays} working days`;
         break;
         
-      case 'part-time':
-        // Part-time: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
+      case 'per_job':
+        // Per Job: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
         workingDays = calculatePreferredWorkingDays(startDate, endDate);
         totalHours = workingDays * hoursPerDay;
-        const partTimeDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
-        explanation = `Part-time: ${hoursPerDay} hours/day, ${partTimeDays}. Total: ${workingDays} working days`;
+        const perJobDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
+        explanation = `Per Job: ${hoursPerDay} hours/day, ${perJobDays}. Total: ${workingDays} working days`;
         break;
         
       default:
@@ -500,6 +500,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
           <div className="booking-form-field">
             <label className="booking-form-label" htmlFor="service_type">Service Type</label>
             <CustomDropdown
+              id="service_type"
               options={getAvailableServiceTypes()}
               value={bookingDetails.service_type}
               onChange={(value) => setBookingDetails(prev => ({ ...prev, service_type: value }))}
@@ -513,6 +514,7 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
               <label className="booking-form-label" htmlFor="sub_skill">Sub Skills</label>
               {getAvailableSubSkills().length > 0 ? (
                 <CustomDropdown
+                  id="sub_skill"
                   options={getAvailableSubSkills()}
                   value={bookingDetails.sub_skill}
                 onChange={(value) => {
@@ -536,9 +538,10 @@ const BookModal = ({ worker, isOpen, onClose, onSubmit, serviceType }) => {
           <div className="booking-form-field">
             <label className="booking-form-label" htmlFor="work_type">Work Type</label>
             <CustomDropdown
+              id="work_type"
               options={[
-                { value: 'full-time', label: 'Full-time' },
-                { value: 'part-time', label: 'Part-time' }
+                { value: 'per_day', label: 'Per Day' },
+                { value: 'per_job', label: 'Per Job' }
               ]}
               value={bookingDetails.work_type}
               onChange={(value) => setBookingDetails(prev => ({ ...prev, work_type: value }))}

@@ -71126,7 +71126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9998;\n  overflow: auto;\n}\n.booking-modal-overlay .dropdown-menu {\n  z-index: 9999999 !important;\n}\n.booking-modal-overlay .dropdown-options-list {\n  z-index: 9999998 !important;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  position: relative;\n  z-index: 9999;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  position: relative;\n  isolation: auto;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown {\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown.dropdown-open {\n  z-index: 999999 !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger {\n  position: relative;\n  background: #f9fafb;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  padding: 8px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n  pointer-events: auto;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu {\n  position: fixed !important;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);\n  z-index: 9999999 !important;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 2px;\n  min-width: 200px;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-search-container {\n  position: sticky;\n  top: 0;\n  z-index: 10000000 !important;\n  background: #f9fafb;\n  pointer-events: auto;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-options-list {\n  position: relative;\n  z-index: 9999998 !important;\n  background: #ffffff;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  cursor: pointer;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  color: #0b0d0f;\n  border-bottom: 1px solid #f3f4f6;\n  position: relative;\n  z-index: 9999997 !important;\n  background: #ffffff;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item.selected {\n  background: #e6f2ef;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 2px solid #0a2a40;\n  margin-top: 8px;\n  padding-top: 8px;\n  font-weight: 600;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation {\n  margin-top: 12px;\n  padding-top: 8px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .salary-calculation-section {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 16px;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #6b7280;\n  margin: 0 0 16px 0;\n  font-family: \"Inter\", sans-serif;\n  text-align: left;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row .salary-label {\n  color: #6b7280;\n  font-size: 14px;\n  font-weight: 400;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row .salary-value {\n  color: #374151;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: #ffffff;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #062541;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #6b7280;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f7f9fc;\n  color: #0b0d0f;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n.booking-modal-container .availability-warning {\n  background: #fef2f2;\n  border: 1px solid #e1ec68;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.booking-modal-container .availability-warning .warning-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 8px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n}\n.booking-modal-container .availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.booking-modal-container .availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}\n.booking-modal-container .rs-message-body {\n  text-align: left !important;\n  margin-top: 8px;\n  font-size: 14px;\n}\n@media (max-width: 600px) {\n  .booking-modal-container .booking-modal-container {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .booking-modal-container .booking-modal-title {\n    font-size: 20px;\n  }\n  .booking-modal-container .booking-modal-form-content {\n    gap: 10px;\n  }\n  .booking-modal-container .booking-form-field {\n    gap: 4px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-input,\n  .booking-modal-container .booking-form-field .booking-form-select,\n  .booking-modal-container .booking-form-field .booking-form-textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .booking-modal-container .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .booking-modal-container .booking-modal-actions .booking-btn {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".booking-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9998;\n  overflow: auto;\n}\n.booking-modal-overlay .dropdown-menu {\n  z-index: 9999999 !important;\n}\n.booking-modal-overlay .dropdown-options-list {\n  z-index: 9999998 !important;\n}\n\n.booking-modal-container {\n  background: #ffffff;\n  border-radius: 12px;\n  padding: 20px;\n  width: 100%;\n  max-width: 500px;\n  max-height: 600px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  position: relative;\n  z-index: 9999;\n}\n.booking-modal-container .booking-modal-title {\n  margin: 0 0 16px;\n  font-size: 22px;\n  color: #0a2a40;\n  text-align: center;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content {\n  flex: 1;\n  overflow-y: auto;\n  overflow-x: visible;\n  padding-right: 8px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n  position: relative;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n  position: relative;\n  isolation: auto;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  position: relative;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-label {\n  font-weight: 500;\n  color: #0b0d0f;\n  font-size: 13px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  padding: 8px;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  font-size: 14px;\n  width: 100%;\n  box-sizing: border-box;\n  background: #f9fafb;\n  font-family: \"Inter\", sans-serif;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select:focus,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-input.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-select.booking-form-input-disabled,\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea.booking-form-input-disabled {\n  background: #e5e7eb;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-textarea {\n  min-height: 80px;\n  resize: vertical;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .booking-form-hint {\n  color: #6b7280;\n  font-size: 12px;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown {\n  position: relative !important;\n  z-index: 1;\n  isolation: isolate;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown.dropdown-open {\n  z-index: 999999 !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown.dropdown-open .dropdown-menu {\n  display: flex !important;\n  visibility: visible !important;\n  opacity: 1 !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger {\n  position: relative;\n  background: #f9fafb;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  padding: 8px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: border-color 0.2s ease, box-shadow 0.2s ease;\n  pointer-events: auto;\n  z-index: 1;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-trigger:focus {\n  border-color: #0a2a40;\n  box-shadow: 0 0 0 2px rgba(10, 42, 64, 0.2);\n  outline: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu {\n  position: absolute !important;\n  top: calc(100% + 2px) !important;\n  left: 0 !important;\n  right: 0 !important;\n  width: 100% !important;\n  background: #ffffff;\n  border: 1px solid #d1d5db;\n  border-radius: 8px;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);\n  z-index: 9999999 !important;\n  max-height: 200px;\n  overflow-y: auto;\n  margin-top: 0 !important;\n  min-width: 100% !important;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-search-container {\n  position: sticky;\n  top: 0;\n  z-index: 10000000 !important;\n  background: #f9fafb;\n  pointer-events: auto;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-options-list {\n  position: relative;\n  z-index: 9999998 !important;\n  background: #ffffff;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item {\n  padding: 8px 12px;\n  cursor: pointer;\n  font-size: 14px;\n  font-family: \"Inter\", sans-serif;\n  color: #0b0d0f;\n  border-bottom: 1px solid #f3f4f6;\n  position: relative;\n  z-index: 9999997 !important;\n  background: #ffffff;\n  pointer-events: auto !important;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:hover {\n  background: #f8fafc;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item.selected {\n  background: #e6f2ef;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .custom-dropdown .dropdown-menu .dropdown-item:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview {\n  background: #f8fafc;\n  border: 1px solid #E6F2EF;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 8px;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 4px 0;\n  border-bottom: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row:last-child {\n  border-bottom: none;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row.total-row {\n  border-top: 2px solid #0a2a40;\n  margin-top: 8px;\n  padding-top: 8px;\n  font-weight: 600;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-label {\n  color: #0b0d0f;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-row .calculation-value {\n  color: #0a2a40;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation {\n  margin-top: 12px;\n  padding-top: 8px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-form-content .booking-form-field .salary-calculation-preview .calculation-explanation small {\n  color: #6b7280;\n  font-size: 12px;\n  font-style: italic;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .salary-calculation-section {\n  background: #f8f9fa;\n  border-radius: 8px;\n  padding: 16px;\n  margin-top: 16px;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #6b7280;\n  margin: 0 0 16px 0;\n  font-family: \"Inter\", sans-serif;\n  text-align: left;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row .salary-label {\n  color: #6b7280;\n  font-size: 14px;\n  font-weight: 400;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .salary-calculation-section .salary-calculation-details .salary-row .salary-value {\n  color: #374151;\n  font-size: 14px;\n  font-weight: 600;\n  font-family: \"Inter\", sans-serif;\n}\n.booking-modal-container .booking-modal-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n  margin-top: 12px;\n  padding-top: 12px;\n  border-top: 1px solid #e5e7eb;\n}\n.booking-modal-container .booking-modal-actions .booking-btn {\n  padding: 8px 20px;\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  transition: all 0.2s ease;\n  border: none;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit {\n  background: #0a2a40;\n  color: #ffffff;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:hover:not(:disabled) {\n  background: #062541;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-submit:disabled {\n  background: #6b7280;\n  cursor: not-allowed;\n  opacity: 0.7;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel {\n  background: #f7f9fc;\n  color: #0b0d0f;\n  border: 1px solid #d1d5db;\n}\n.booking-modal-container .booking-modal-actions .booking-btn.booking-btn-cancel:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar {\n  width: 6px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-track {\n  background: #f1f5f9;\n  border-radius: 8px;\n}\n.booking-modal-container .booking-modal-form-content::-webkit-scrollbar-thumb {\n  background: #9ca3af;\n  border-radius: 8px;\n}\n.booking-modal-container .availability-warning {\n  background: #fef2f2;\n  border: 1px solid #e1ec68;\n  border-radius: 8px;\n  padding: 12px;\n  margin: 8px 0;\n}\n.booking-modal-container .availability-warning .warning-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-bottom: 8px;\n}\n.booking-modal-container .availability-warning .warning-header .warning-icon {\n  font-size: 16px;\n}\n.booking-modal-container .availability-warning .warning-message {\n  color: #dc2626;\n  font-size: 13px;\n  margin: 0 0 8px 0;\n  line-height: 1.4;\n}\n.booking-modal-container .availability-warning .conflicting-jobs {\n  margin-top: 8px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs h5 {\n  font-size: 12px;\n  font-weight: 600;\n  color: #374151;\n  margin: 0 0 6px 0;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul {\n  margin: 0;\n  padding-left: 16px;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li {\n  font-size: 12px;\n  color: #6b7280;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li strong {\n  color: #374151;\n}\n.booking-modal-container .availability-warning .conflicting-jobs ul li small {\n  color: #9ca3af;\n}\n.booking-modal-container .rs-message-body {\n  text-align: left !important;\n  margin-top: 8px;\n  font-size: 14px;\n}\n@media (max-width: 600px) {\n  .booking-modal-container .booking-modal-container {\n    width: 90%;\n    max-height: 80vh;\n    padding: 16px;\n  }\n  .booking-modal-container .booking-modal-title {\n    font-size: 20px;\n  }\n  .booking-modal-container .booking-modal-form-content {\n    gap: 10px;\n  }\n  .booking-modal-container .booking-form-field {\n    gap: 4px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-label {\n    font-size: 12px;\n  }\n  .booking-modal-container .booking-form-field .booking-form-input,\n  .booking-modal-container .booking-form-field .booking-form-select,\n  .booking-modal-container .booking-form-field .booking-form-textarea {\n    font-size: 13px;\n    padding: 6px;\n  }\n  .booking-modal-container .booking-modal-actions {\n    flex-direction: column;\n    gap: 8px;\n  }\n  .booking-modal-container .booking-modal-actions .booking-btn {\n    padding: 8px;\n    font-size: 13px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71252,7 +71252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-container .message-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #e9ecef;\n  background: #fff;\n  display: block;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .employer-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status.offline {\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 15px;\n  border: 2px solid #0a2a44;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details {\n  flex: 1;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n  margin: 0 0 5px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .verified-badge {\n  background-color: #28a745;\n  color: white;\n  padding: 3px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.online {\n  background-color: #28a745;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.offline {\n  background-color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-text {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-label {\n  font-weight: 600;\n  margin-right: 10px;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-value {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar h4, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank h4 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-image {\n  width: 30px;\n  height: 30px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-right: 10px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-name {\n  font-size: 14px;\n  font-weight: 500;\n  color: #555;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn {\n  background-color: #0a2a44;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn:hover {\n  background-color: #1a3a54;\n}\n.message-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n}\n.message-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-container .message-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-container .message-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #e9ecef;\n  background: #fff;\n  display: block;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .employer-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .online-status.offline {\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  background-color: #f8f9fa;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-img {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  margin-right: 15px;\n  border: 2px solid #0a2a44;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details {\n  flex: 1;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-name {\n  margin: 0 0 5px 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .verified-badge {\n  background-color: #28a745;\n  color: white;\n  padding: 3px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator {\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  margin-right: 8px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.online {\n  background-color: #28a745;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-indicator.offline {\n  background-color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-profile-header .user-profile-details .user-status .status-text {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-label {\n  font-weight: 600;\n  margin-right: 10px;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-contact-info .contact-number .contact-value {\n  font-size: 14px;\n  color: #6c757d;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank {\n  margin-bottom: 15px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar h4, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank h4 {\n  margin: 0 0 8px 0;\n  font-size: 14px;\n  font-weight: 600;\n  color: #333;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info {\n  display: flex;\n  align-items: center;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-image, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-image {\n  width: 30px;\n  height: 30px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-right: 10px;\n}\n.message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-collar .rank-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .collar-info .rank-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .collar-name, .message-container .chat-area .chat-content .user-profile-info .user-worker-details .user-rank .rank-info .rank-name {\n  font-size: 14px;\n  font-weight: 500;\n  color: #555;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn {\n  background-color: #0a2a44;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  padding: 8px 16px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-container .chat-area .chat-content .user-profile-info .profile-actions .view-profile-btn:hover {\n  background-color: #1a3a54;\n}\n.message-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n  margin-top: 25px;\n  display: inline-block;\n}\n.message-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-container .message-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71276,7 +71276,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-worker-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-worker-container .message-worker-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-worker-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-worker-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-worker-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .worker-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-worker-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-worker-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-worker-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-worker-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-worker-container .message-worker-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-worker-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-worker-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-worker-container {\n  min-height: 100vh;\n  background-color: #f8f9fa;\n}\n.message-worker-container .message-worker-content {\n  display: flex;\n  min-height: 50px;\n  margin-top: 70px;\n}\n.message-worker-container .conversation-sidebar {\n  width: 350px;\n  background-color: #ffffff;\n  border-right: 2px solid #e9ecef;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);\n}\n.message-worker-container .conversation-sidebar .sidebar-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .sidebar-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-header .conversation-count {\n  background-color: #0a2a44;\n  color: white;\n  padding: 4px 8px;\n  border-radius: 12px;\n  font-size: 12px;\n  font-weight: 500;\n}\n.message-worker-container .conversation-sidebar .sidebar-search {\n  padding: 12px 16px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper {\n  display: flex;\n  align-items: center;\n  background: #f3f5f7;\n  border: none;\n  border-radius: 20px;\n  padding: 8px 16px;\n  gap: 8px;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper .search-icon {\n  font-size: 16px;\n  opacity: 0.6;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 14px;\n  color: #333;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .sidebar-search .search-input-wrapper input::placeholder {\n  color: #999;\n}\n.message-worker-container .conversation-sidebar .conversation-list {\n  flex: 1;\n  overflow-y: auto;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item {\n  display: flex;\n  align-items: center;\n  padding: 15px 20px;\n  border-bottom: 1px solid #f1f3f4;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.active {\n  background-color: #e3f2fd;\n  border-left: 4px solid #0a2a44;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread {\n  background-color: #fff3cd;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item.unread .conversation-name {\n  font-weight: 600;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar {\n  position: relative;\n  margin-right: 12px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-image {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 1px solid #e9ecef;\n  background: #fff;\n  display: block;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .avatar-placeholder {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background-color: #0a2a44;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 600;\n  font-size: 16px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-avatar .unread-indicator {\n  position: absolute;\n  top: -5px;\n  right: -5px;\n  min-width: 20px;\n  height: 20px;\n  background-color: #dc3545;\n  border-radius: 10px;\n  border: 2px solid white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 12px;\n  font-weight: 600;\n  color: white;\n  padding: 2px 6px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details {\n  flex: 1;\n  min-width: 0;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 4px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-name {\n  font-weight: 500;\n  color: #333;\n  font-size: 14px;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-header .conversation-time {\n  font-size: 12px;\n  color: #6c757d;\n}\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .conversation-preview,\n.message-worker-container .conversation-sidebar .conversation-list .conversation-item .conversation-details .worker-conversation-preview {\n  font-size: 13px;\n  color: #6c757d;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.message-worker-container .chat-area {\n  flex: 1;\n  background-color: #ffffff;\n  display: flex;\n  flex-direction: column;\n}\n.message-worker-container .chat-area .chat-content {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-header {\n  padding: 20px;\n  border-bottom: 1px solid #e9ecef;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #333;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .online-status {\n  font-size: 12px;\n  color: #28a745;\n  font-weight: 500;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper {\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon {\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-icon:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown {\n  position: absolute;\n  top: 100%;\n  right: 0;\n  margin-top: 8px;\n  background-color: white;\n  border: 1px solid #e9ecef;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  min-width: 180px;\n  z-index: 1000;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item {\n  padding: 12px 16px;\n  cursor: pointer;\n  font-size: 14px;\n  color: #333;\n  transition: background-color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:hover {\n  background-color: #f8f9fa;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:first-child {\n  border-top-left-radius: 8px;\n  border-top-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-header .chat-header-actions .chat-menu-wrapper .chat-menu-dropdown .chat-menu-item:last-child {\n  border-bottom-left-radius: 8px;\n  border-bottom-right-radius: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages {\n  flex: 1;\n  padding: 20px;\n  overflow-y: auto;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .messages-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item {\n  display: flex;\n  margin-bottom: 8px;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message {\n  justify-content: flex-end;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.own-message .message-content {\n  background-color: #0a2a44;\n  color: white;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message {\n  justify-content: flex-start;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item.other-message .message-content {\n  background-color: #f1f3f4;\n  color: #333;\n  border-radius: 10px;\n  max-width: 100%;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content {\n  padding: 12px 16px;\n  position: relative;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-text {\n  font-size: 14px;\n  line-height: 1.4;\n  margin-bottom: 4px;\n  word-wrap: break-word;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-item .message-content .message-time {\n  font-size: 11px;\n  opacity: 0.7;\n  text-align: right;\n  margin-top: 25px;\n  display: inline-block;\n}\n.message-worker-container .chat-area .chat-content .chat-messages .message-placeholder {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n  color: #6c757d;\n  font-style: italic;\n}\n.message-worker-container .chat-area .chat-content .chat-input {\n  padding: 10px 15px;\n  border-top: 1px solid #e9ecef;\n  display: flex;\n  align-items: center;\n  gap: 0;\n  background-color: #ffffff;\n  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);\n  border-radius: 25px;\n  margin: 10px 15px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn {\n  background: none;\n  border: none;\n  font-size: 24px;\n  color: #6c757d;\n  cursor: pointer;\n  padding: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: color 0.2s ease;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn:hover {\n  color: #0a2a44;\n}\n.message-worker-container .chat-area .chat-content .chat-input .icon-btn.attach-btn {\n  margin-right: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  background-color: #f3f5f7;\n  border-radius: 20px;\n  padding: 8px 15px;\n  margin: 0 10px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input {\n  flex: 1;\n  border: none;\n  outline: none;\n  background: transparent;\n  font-size: 15px;\n  color: #333;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::-moz-placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .message-input::placeholder {\n  color: #999;\n}\n.message-worker-container .chat-area .chat-content .chat-input .input-wrapper .voice-btn {\n  margin-left: 5px;\n  padding: 5px;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button {\n  background-color: #6f42c1;\n  border: none;\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n  color: #fff;\n  font-size: 20px;\n  padding: 0;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:hover:not(:disabled) {\n  background-color: rgb(88.6693227092, 51.3784860558, 156.6215139442);\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.message-worker-container .chat-area .chat-content .chat-input .send-button:active:not(:disabled) {\n  transform: scale(0.95);\n}\n.message-worker-container .chat-area .no-conversation-selected {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100%;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state {\n  text-align: center;\n  color: #6c757d;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state .empty-icon {\n  font-size: 48px;\n  margin-bottom: 16px;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state h3 {\n  margin: 0 0 8px 0;\n  font-size: 20px;\n  font-weight: 600;\n}\n.message-worker-container .chat-area .no-conversation-selected .empty-state p {\n  margin: 0;\n  font-size: 14px;\n}\n\n@media (max-width: 768px) {\n  .message-worker-container .message-worker-content {\n    flex-direction: column;\n    height: calc(100vh - 80px);\n  }\n  .message-worker-container .conversation-sidebar {\n    width: 100%;\n    height: 40%;\n    border-right: none;\n    border-bottom: 2px solid #e9ecef;\n  }\n  .message-worker-container .chat-area {\n    height: 60%;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72790,7 +72790,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.my-profile-container {\n  display: flex;\n  flex-direction: column;\n  gap: 30px;\n}\n.my-profile-container .profile-card,\n.my-profile-container .password-card,\n.my-profile-container .work-preferences-card,\n.my-profile-container .worker-skills-card,\n.my-profile-container .worker-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n  transition: box-shadow 0.3s ease;\n}\n.my-profile-container .profile-card:hover,\n.my-profile-container .password-card:hover,\n.my-profile-container .work-preferences-card:hover,\n.my-profile-container .worker-skills-card:hover,\n.my-profile-container .worker-credentials-card:hover {\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .profile-header {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 30px;\n}\n.my-profile-container .profile-header .avatar-container {\n  position: relative;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-profile-container .profile-header .avatar-container .camera-icon {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n  width: 36px;\n  height: 36px;\n  background: #001E40;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 3px solid white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon:hover {\n  background: #002a5c;\n  transform: scale(1.1);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon svg {\n  width: 18px;\n  height: 18px;\n  fill: white;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  margin-top: 10px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  padding: 8px 0;\n  min-width: 180px;\n  z-index: 1000;\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown.show {\n  opacity: 1;\n  visibility: visible;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: none;\n  border: none;\n  width: 100%;\n  text-align: left;\n  font-size: 14px;\n  color: #374151;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item svg {\n  width: 18px;\n  height: 18px;\n  fill: #6b7280;\n  transition: fill 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover {\n  background: #f3f4f6;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover svg {\n  fill: #001E40;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item {\n  color: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item svg {\n  fill: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item:hover {\n  background: #fee2e2;\n}\n.my-profile-container .profile-header .rank-display-section {\n  margin-top: 20px;\n  padding: 12px;\n  width: 100%;\n  max-width: 400px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.my-profile-container .card-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 25px;\n}\n.my-profile-container .profile-form .form-row,\n.my-profile-container .password-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-row,\n  .my-profile-container .password-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 15px;\n  }\n}\n.my-profile-container .profile-form .form-group,\n.my-profile-container .password-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .profile-form .form-group label,\n.my-profile-container .password-form .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n}\n.my-profile-container .profile-form .form-group label.label-up,\n.my-profile-container .password-form .form-group label.label-up {\n  margin-bottom: 1px;\n}\n.my-profile-container .profile-form .form-group input,\n.my-profile-container .profile-form .form-group select,\n.my-profile-container .password-form .form-group input,\n.my-profile-container .password-form .form-group select {\n  height: 45px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-form .form-group input:focus,\n.my-profile-container .profile-form .form-group select:focus,\n.my-profile-container .password-form .form-group input:focus,\n.my-profile-container .password-form .form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .profile-form .form-group input:disabled,\n.my-profile-container .profile-form .form-group select:disabled,\n.my-profile-container .password-form .form-group input:disabled,\n.my-profile-container .password-form .form-group select:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .profile-form .form-group input.editing,\n.my-profile-container .profile-form .form-group select.editing,\n.my-profile-container .password-form .form-group input.editing,\n.my-profile-container .password-form .form-group select.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .profile-form .form-group input::-moz-placeholder, .my-profile-container .profile-form .form-group select::-moz-placeholder, .my-profile-container .password-form .form-group input::-moz-placeholder, .my-profile-container .password-form .form-group select::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group input::placeholder,\n.my-profile-container .profile-form .form-group select::placeholder,\n.my-profile-container .password-form .form-group input::placeholder,\n.my-profile-container .password-form .form-group select::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group .date-input-container,\n.my-profile-container .password-form .form-group .date-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator {\n  display: none;\n  -webkit-appearance: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator {\n  display: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container .calendar-icon,\n.my-profile-container .password-form .form-group .date-input-container .calendar-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  pointer-events: none;\n}\n.my-profile-container .profile-form .form-group.date-field .date-input-container input,\n.my-profile-container .password-form .form-group.date-field .date-input-container input {\n  width: 850px;\n}\n.my-profile-container .profile-form .form-group .password-input-container,\n.my-profile-container .password-form .form-group .password-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: color 0.3s ease;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn:hover,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn:hover {\n  color: #374151;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn i,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn i {\n  font-size: 16px;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle {\n  width: 100% !important;\n  height: 45px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:focus,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:hover:not(:disabled),\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:disabled,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle.editing,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle.editing {\n  background-color: white !important;\n  border: 2px solid #e5e7eb !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu,\n.my-profile-container .password-form .form-group .gender-dropdown-menu {\n  width: 100% !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:hover,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active::before,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:first-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 8px !important;\n  border-top-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:last-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 8px !important;\n  border-bottom-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-actions,\n.my-profile-container .password-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-actions,\n  .my-profile-container .password-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .profile-form .form-actions .save-btn .btn-icon,\n.my-profile-container .password-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .password-form .form-actions .save-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .password-card .edit-btn,\n.my-profile-container .password-form .form-actions .password-card .edit-btn {\n  width: 170px;\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .edit-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .profile-form .form-actions .edit-btn:hover,\n.my-profile-container .password-form .form-actions .edit-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .profile-form .form-actions .save-btn:hover,\n.my-profile-container .password-form .form-actions .save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .profile-form .form-actions .save-btn:active,\n.my-profile-container .password-form .form-actions .save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .password-card .password-form .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .work-preferences-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .work-preferences-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn {\n  width: 175px;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn:hover,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-top: 8px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  background-color: #f9fafb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox] {\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n  accent-color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:disabled {\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox .day-label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox:hover:not(.disabled) {\n  border-color: #001E40;\n  background-color: #f0f4f8;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked + .day-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked ~ * {\n  color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .character-count {\n  display: block;\n  text-align: right;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-help {\n  display: block;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n  font-style: italic;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  resize: vertical;\n  font-family: inherit;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .worker-skills-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-skills-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn:hover,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-skills-card .skills-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section {\n  margin-bottom: 30px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .section-subtitle {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[role=combobox], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[aria-expanded=true], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  position: relative;\n  z-index: 10;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input option {\n  position: relative;\n  z-index: 1000;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing {\n  margin-top: 20px;\n  padding: 15px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .skill-editing-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #001E40;\n  margin: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 28px;\n  height: 28px;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input {\n  width: 100%;\n  height: 36px;\n  padding: 8px 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 13px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));\n  gap: 8px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item {\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  padding: 8px 10px 8px 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  background: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:hover {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item input[type=checkbox] {\n  width: 14px;\n  height: 14px;\n  cursor: pointer;\n  accent-color: #001E40;\n  margin: 0;\n  flex-shrink: 0;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item .sub-skill-checkbox-label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  text-align: left;\n  flex: 1;\n  margin-left: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) .sub-skill-checkbox-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 4px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill {\n  background: none;\n  border: none;\n  color: #dc2626;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  padding: 0;\n  margin-left: 4px;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill:hover {\n  color: #b91c1c;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list {\n  display: flex;\n  flex-direction: column;\n  gap: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item {\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.primary-skill {\n  border-left: 4px solid #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.additional-skill {\n  border-left: 4px solid #3b82f6;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header .skill-name {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills {\n  flex: 1;\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-label {\n  display: inline-block;\n  font-size: 13px;\n  font-weight: 500;\n  color: #6b7280;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags .sub-skill-tag {\n  padding: 4px 10px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  font-size: 13px;\n  flex-shrink: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-label {\n  font-weight: 500;\n  color: #6b7280;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-value {\n  padding: 2px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  color: #374151;\n  font-weight: 500;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .my-profile-container .worker-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input[type=file] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialName,\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialFile {\n  width: 400px !important;\n  height: 40px !important;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: 8px;\n  padding: 8px 12px;\n  background: #f0f9ff;\n  border: 1px solid #0ea5e9;\n  border-radius: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  display: block;\n  font-size: 12px;\n  color: #0369a1;\n  font-weight: 500;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.my-profile-container .worker-credentials-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-credentials-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn:hover,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n  opacity: 0.8;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  opacity: 1;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  flex-shrink: 0;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #001E40;\n  border-radius: 8px;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon svg {\n  width: 24px;\n  height: 24px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 13px;\n  color: #3b82f6;\n  text-decoration: none;\n  font-weight: 500;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  color: #2563eb;\n  text-decoration: underline;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-weight: 400;\n  font-style: italic;\n  word-break: break-all;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #9ca3af;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n\n.image-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.7);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.image-modal-overlay .image-modal {\n  background: white;\n  border-radius: 12px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n}\n.image-modal-overlay .image-modal .image-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.image-modal-overlay .image-modal .image-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 6px;\n  transition: background 0.2s ease;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn svg {\n  fill: #6b7280;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover {\n  background: #f3f4f6;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover svg {\n  fill: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-content {\n  padding: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: auto;\n}\n.image-modal-overlay .image-modal .image-modal-content img {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n}\n\nselect:focus, select:active, select[aria-expanded=true] {\n  border-bottom-left-radius: 0 !important;\n  border-bottom-right-radius: 0 !important;\n}\nselect option {\n  position: relative;\n  z-index: 1000;\n}\n\n.employer-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n}\n.employer-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.employer-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.employer-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .employer-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.employer-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.employer-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info {\n  margin-top: 8px;\n  font-size: 12px;\n  color: #059669;\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  font-weight: 500;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.employer-credentials-card .form-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-save-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  background-color: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn:hover,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn:hover {\n  background-color: #e5e7eb;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.employer-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.employer-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  color: #dc2626;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  color: #001E40;\n  flex-shrink: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  min-width: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 14px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 4px;\n  display: block;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 12px;\n  color: #001E40;\n  text-decoration: none;\n  font-weight: 500;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  text-decoration: underline;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-family: monospace;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #ef4444;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .empty-state {\n  text-align: center;\n  color: #6b7280;\n  font-style: italic;\n  padding: 20px;\n  background: #f9fafb;\n  border-radius: 8px;\n  border: 2px dashed #d1d5db;\n}\n\n@media (max-width: 768px) {\n  .my-profile-container {\n    gap: 20px;\n  }\n  .my-profile-container .profile-card,\n  .my-profile-container .password-card {\n    padding: 20px;\n  }\n  .my-profile-container .profile-header {\n    margin-bottom: 20px;\n  }\n  .my-profile-container .profile-header .avatar-container .avatar-placeholder {\n    width: 80px;\n    height: 80px;\n    font-size: 32px;\n  }\n  .my-profile-container .card-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@charset \"UTF-8\";\n.my-profile-container {\n  display: flex;\n  flex-direction: column;\n  gap: 30px;\n}\n.my-profile-container .profile-card,\n.my-profile-container .password-card,\n.my-profile-container .work-preferences-card,\n.my-profile-container .worker-skills-card,\n.my-profile-container .worker-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n  transition: box-shadow 0.3s ease;\n}\n.my-profile-container .profile-card:hover,\n.my-profile-container .password-card:hover,\n.my-profile-container .work-preferences-card:hover,\n.my-profile-container .worker-skills-card:hover,\n.my-profile-container .worker-credentials-card:hover {\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .profile-header {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-bottom: 30px;\n}\n.my-profile-container .profile-header .avatar-container {\n  position: relative;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder {\n  width: 120px;\n  height: 120px;\n  border-radius: 50%;\n  background-color: #f3f4f6;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 3px solid #e5e7eb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable {\n  cursor: pointer;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder.clickable:hover {\n  border-color: #001E40;\n  background-color: #f8fafc;\n}\n.my-profile-container .profile-header .avatar-container .avatar-placeholder img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-profile-container .profile-header .avatar-container .camera-icon {\n  position: absolute;\n  bottom: 5px;\n  right: 5px;\n  width: 36px;\n  height: 36px;\n  background: #001E40;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: 3px solid white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon:hover {\n  background: #002a5c;\n  transform: scale(1.1);\n}\n.my-profile-container .profile-header .avatar-container .camera-icon svg {\n  width: 18px;\n  height: 18px;\n  fill: white;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown {\n  position: absolute;\n  top: 100%;\n  left: 50%;\n  transform: translateX(-50%);\n  margin-top: 10px;\n  background: white;\n  border-radius: 8px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  padding: 8px 0;\n  min-width: 180px;\n  z-index: 1000;\n  opacity: 0;\n  visibility: hidden;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown.show {\n  opacity: 1;\n  visibility: visible;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 16px;\n  background: none;\n  border: none;\n  width: 100%;\n  text-align: left;\n  font-size: 14px;\n  color: #374151;\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item svg {\n  width: 18px;\n  height: 18px;\n  fill: #6b7280;\n  transition: fill 0.2s ease;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover {\n  background: #f3f4f6;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item:hover svg {\n  fill: #001E40;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item {\n  color: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item svg {\n  fill: #dc2626;\n}\n.my-profile-container .profile-header .avatar-container .profile-dropdown .dropdown-item.delete-item:hover {\n  background: #fee2e2;\n}\n.my-profile-container .profile-header .rank-display-section {\n  margin-top: 20px;\n  padding: 12px;\n  width: 100%;\n  max-width: 400px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .worker-rank-badge {\n  width: 45px;\n  height: 45px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  flex-shrink: 0;\n  background: transparent;\n  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  flex: 1;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .rank-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #333;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-info .points-text {\n  font-size: 13px;\n  font-weight: 600;\n  color: #666;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container {\n  width: 100%;\n  height: 10px;\n  background: #e0e0e0;\n  border-radius: 10px;\n  overflow: hidden;\n  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill {\n  height: 100%;\n  border-radius: 10px;\n  transition: width 0.3s ease;\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-bronze {\n  background: linear-gradient(90deg, #8b4513, #a0522d);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-silver {\n  background: linear-gradient(90deg, #c0c0c0, #d3d3d3);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-gold {\n  background: linear-gradient(90deg, #ffd700, #ffed4e);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-platinum {\n  background: linear-gradient(90deg, #e5e4e2, #bcc6cc);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-bar-container .progress-bar-fill.rank-diamond {\n  background: linear-gradient(90deg, #b9f2ff, #4fc3f7);\n}\n.my-profile-container .profile-header .rank-display-section .rank-display .rank-progress .progress-label {\n  font-size: 11px;\n  color: #888;\n  text-align: right;\n  font-weight: 500;\n}\n.my-profile-container .card-title {\n  font-size: 24px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 25px;\n}\n.my-profile-container .profile-form .form-row,\n.my-profile-container .password-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  margin-bottom: 20px;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-row,\n  .my-profile-container .password-form .form-row {\n    grid-template-columns: 1fr;\n    gap: 15px;\n  }\n}\n.my-profile-container .profile-form .form-group,\n.my-profile-container .password-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .profile-form .form-group label,\n.my-profile-container .password-form .form-group label {\n  font-size: 14px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n}\n.my-profile-container .profile-form .form-group label.label-up,\n.my-profile-container .password-form .form-group label.label-up {\n  margin-bottom: 1px;\n}\n.my-profile-container .profile-form .form-group input,\n.my-profile-container .profile-form .form-group select,\n.my-profile-container .password-form .form-group input,\n.my-profile-container .password-form .form-group select {\n  height: 45px;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n}\n.my-profile-container .profile-form .form-group input:focus,\n.my-profile-container .profile-form .form-group select:focus,\n.my-profile-container .password-form .form-group input:focus,\n.my-profile-container .password-form .form-group select:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .profile-form .form-group input:disabled,\n.my-profile-container .profile-form .form-group select:disabled,\n.my-profile-container .password-form .form-group input:disabled,\n.my-profile-container .password-form .form-group select:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .profile-form .form-group input.editing,\n.my-profile-container .profile-form .form-group select.editing,\n.my-profile-container .password-form .form-group input.editing,\n.my-profile-container .password-form .form-group select.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .profile-form .form-group input::-moz-placeholder, .my-profile-container .profile-form .form-group select::-moz-placeholder, .my-profile-container .password-form .form-group input::-moz-placeholder, .my-profile-container .password-form .form-group select::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group input::placeholder,\n.my-profile-container .profile-form .form-group select::placeholder,\n.my-profile-container .password-form .form-group input::placeholder,\n.my-profile-container .password-form .form-group select::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .profile-form .form-group .date-input-container,\n.my-profile-container .password-form .form-group .date-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-webkit-calendar-picker-indicator {\n  display: none;\n  -webkit-appearance: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator,\n.my-profile-container .password-form .form-group .date-input-container input[type=date]::-moz-calendar-picker-indicator {\n  display: none;\n}\n.my-profile-container .profile-form .form-group .date-input-container .calendar-icon,\n.my-profile-container .password-form .form-group .date-input-container .calendar-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  pointer-events: none;\n}\n.my-profile-container .profile-form .form-group.date-field .date-input-container input,\n.my-profile-container .password-form .form-group.date-field .date-input-container input {\n  width: 850px;\n}\n.my-profile-container .profile-form .form-group .password-input-container,\n.my-profile-container .password-form .form-group .password-input-container {\n  position: relative;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6b7280;\n  cursor: pointer;\n  padding: 4px;\n  border-radius: 4px;\n  transition: color 0.3s ease;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn:hover,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn:hover {\n  color: #374151;\n}\n.my-profile-container .profile-form .form-group .password-input-container .eye-btn i,\n.my-profile-container .password-form .form-group .password-input-container .eye-btn i {\n  font-size: 16px;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle {\n  width: 100% !important;\n  height: 45px !important;\n  text-align: left !important;\n  background-color: #f9fafb !important;\n  border: 2px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  font-size: 14px !important;\n  color: #1f2937 !important;\n  padding: 12px 16px !important;\n  display: flex !important;\n  justify-content: space-between !important;\n  align-items: center !important;\n  transition: all 0.3s ease !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:focus,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:focus {\n  outline: none !important;\n  border-color: #3b82f6 !important;\n  background-color: white !important;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:hover:not(:disabled),\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:hover:not(:disabled) {\n  border-color: #d1d5db !important;\n  background-color: white !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle:disabled,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle:disabled {\n  background-color: #f9fafb !important;\n  color: #6b7280 !important;\n  cursor: not-allowed !important;\n  opacity: 0.6 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle.editing,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle.editing {\n  background-color: white !important;\n  border: 2px solid #e5e7eb !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle::after {\n  content: \"\" !important;\n  display: inline-block !important;\n  margin-left: 0.255em !important;\n  vertical-align: 0.255em !important;\n  border-top: 0.3em solid !important;\n  border-right: 0.3em solid transparent !important;\n  border-bottom: 0 !important;\n  border-left: 0.3em solid transparent !important;\n  color: #6b7280 !important;\n  transition: transform 0.3s ease !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after,\n.my-profile-container .password-form .form-group .gender-dropdown-toggle[aria-expanded=true]::after {\n  transform: rotate(180deg) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu,\n.my-profile-container .password-form .form-group .gender-dropdown-menu {\n  width: 100% !important;\n  border: 1px solid #e5e7eb !important;\n  border-radius: 8px !important;\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;\n  margin-top: 8px !important;\n  padding: 8px 0 !important;\n  background: white !important;\n  overflow: hidden !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item {\n  padding: 14px 20px !important;\n  font-size: 14px !important;\n  color: #374151 !important;\n  transition: all 0.2s ease !important;\n  cursor: pointer !important;\n  border: none !important;\n  background: none !important;\n  width: 100% !important;\n  text-align: left !important;\n  font-weight: 500 !important;\n  position: relative !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:hover,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:hover {\n  background-color: #f8fafc !important;\n  color: #1f2937 !important;\n  transform: translateX(4px) !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active {\n  background-color: #eff6ff !important;\n  color: #1d4ed8 !important;\n  font-weight: 600 !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item.active::before,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item.active::before {\n  content: \"✓\" !important;\n  position: absolute !important;\n  right: 16px !important;\n  top: 50% !important;\n  transform: translateY(-50%) !important;\n  color: #1d4ed8 !important;\n  font-weight: bold !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:first-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:first-child {\n  border-top-left-radius: 8px !important;\n  border-top-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-group .gender-dropdown-menu .dropdown-item:last-child,\n.my-profile-container .password-form .form-group .gender-dropdown-menu .dropdown-item:last-child {\n  border-bottom-left-radius: 8px !important;\n  border-bottom-right-radius: 8px !important;\n}\n.my-profile-container .profile-form .form-actions,\n.my-profile-container .password-form .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .profile-form .form-actions,\n  .my-profile-container .password-form .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .profile-form .form-actions .save-btn .btn-icon,\n.my-profile-container .password-form .form-actions .edit-btn .btn-icon,\n.my-profile-container .password-form .form-actions .save-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .profile-form .form-actions .password-card .edit-btn,\n.my-profile-container .password-form .form-actions .password-card .edit-btn {\n  width: 170px;\n}\n.my-profile-container .profile-form .form-actions .edit-btn,\n.my-profile-container .password-form .form-actions .edit-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .profile-form .form-actions .edit-btn:hover,\n.my-profile-container .password-form .form-actions .edit-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .profile-form .form-actions .save-btn,\n.my-profile-container .password-form .form-actions .save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .profile-form .form-actions .save-btn:hover,\n.my-profile-container .password-form .form-actions .save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .profile-form .form-actions .save-btn:active,\n.my-profile-container .password-form .form-actions .save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .password-card .password-form .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .work-preferences-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .work-preferences-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn .btn-icon,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn {\n  width: 175px;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-edit-btn:hover,\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .work-preferences-card .form-actions .worker-prefs-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-group.full-width {\n  grid-column: 1/-1;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-top: 8px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  padding: 8px 12px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  background-color: #f9fafb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox] {\n  width: 16px;\n  height: 16px;\n  cursor: pointer;\n  accent-color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:disabled {\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox .day-label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox:hover:not(.disabled) {\n  border-color: #001E40;\n  background-color: #f0f4f8;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked + .day-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .working-days-container .day-checkbox input[type=checkbox]:checked ~ * {\n  color: #001E40;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .character-count {\n  display: block;\n  text-align: right;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n}\n.my-profile-container .work-preferences-card .work-preferences-form .form-help {\n  display: block;\n  font-size: 12px;\n  color: #6b7280;\n  margin-top: 4px;\n  font-style: italic;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid #e5e7eb;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: #f9fafb;\n  transition: all 0.3s ease;\n  resize: vertical;\n  font-family: inherit;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:focus {\n  outline: none;\n  border-color: #3b82f6;\n  background-color: white;\n  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea:disabled {\n  background-color: #f9fafb;\n  color: #6b7280;\n  cursor: not-allowed;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea.editing {\n  background-color: white;\n  border: 2px solid #e5e7eb;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::-moz-placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .work-preferences-card .work-preferences-form textarea::placeholder {\n  color: #9ca3af;\n}\n.my-profile-container .worker-skills-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-skills-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn .btn-icon,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-edit-btn:hover,\n.my-profile-container .worker-skills-card .form-actions .worker-skills-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-skills-card .form-actions .worker-skills-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-skills-card .skills-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section {\n  margin-bottom: 30px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .section-subtitle {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group:last-child {\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skill-editing-form .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 10px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input {\n  width: 100%;\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[role=combobox], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input[aria-expanded=true], .my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0;\n  position: relative;\n  z-index: 10;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .form-group .form-input option {\n  position: relative;\n  z-index: 1000;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section {\n  margin-top: 15px;\n  padding-top: 15px;\n  border-top: 1px solid #e5e7eb;\n  display: flex;\n  justify-content: flex-end;\n  gap: 10px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 80px;\n  height: 36px;\n  padding: 0 16px;\n  background: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .cancel-individual-skill-btn:hover {\n  background: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 170px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:hover:not(:disabled) {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:active:not(:disabled) {\n  transform: translateY(0);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-save-section .save-individual-skill-btn:disabled {\n  background: #9ca3af;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing {\n  margin-top: 20px;\n  padding: 15px;\n  background: white;\n  border: 1px solid #e5e7eb;\n  border-radius: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 15px;\n  padding-bottom: 8px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .skill-editing-title {\n  font-size: 14px;\n  font-weight: 600;\n  color: #001E40;\n  margin: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 28px;\n  height: 28px;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .skill-header-editing .remove-skill-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group {\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n  display: block;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input {\n  width: 100%;\n  height: 36px;\n  padding: 8px 10px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 13px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .additional-skills-editing .skill-details-editing .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));\n  gap: 8px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item {\n  display: flex;\n  align-items: flex-start;\n  gap: 6px;\n  padding: 8px 10px 8px 16px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  background: white;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:hover {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item input[type=checkbox] {\n  width: 14px;\n  height: 14px;\n  cursor: pointer;\n  accent-color: #001E40;\n  margin: 0;\n  flex-shrink: 0;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item .sub-skill-checkbox-label {\n  font-size: 12px;\n  font-weight: 500;\n  color: #374151;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  text-align: left;\n  flex: 1;\n  margin-left: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) {\n  border-color: #001E40;\n  background: #f0f4f8;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-checkbox-grid .sub-skill-checkbox-item:has(input:checked) .sub-skill-checkbox-label {\n  color: #001E40;\n  font-weight: 600;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n  margin-top: 8px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: 4px;\n  padding: 4px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill {\n  background: none;\n  border: none;\n  color: #dc2626;\n  cursor: pointer;\n  font-size: 14px;\n  font-weight: bold;\n  padding: 0;\n  margin-left: 4px;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .sub-skills-tags .sub-skill-tag .remove-sub-skill:hover {\n  color: #b91c1c;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list {\n  display: flex;\n  flex-direction: column;\n  gap: 15px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item {\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  padding: 16px;\n  transition: all 0.3s ease;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item:hover {\n  border-color: #d1d5db;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.primary-skill {\n  border-left: 4px solid #001E40;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item.additional-skill {\n  border-left: 4px solid #3b82f6;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-header .skill-name {\n  font-size: 16px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  gap: 20px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills {\n  flex: 1;\n  margin-bottom: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-label {\n  display: inline-block;\n  font-size: 13px;\n  font-weight: 500;\n  color: #6b7280;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .sub-skills .sub-skills-tags .sub-skill-tag {\n  padding: 4px 10px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #374151;\n  font-weight: 500;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  font-size: 13px;\n  flex-shrink: 0;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-label {\n  font-weight: 500;\n  color: #6b7280;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .skills-list .skill-item .skill-details-row .skill-experience .experience-value {\n  padding: 2px 8px;\n  background: white;\n  border: 1px solid #d1d5db;\n  border-radius: 4px;\n  color: #374151;\n  font-weight: 500;\n  align-self: flex-start;\n}\n.my-profile-container .worker-skills-card .skills-display .skills-section .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .my-profile-container .worker-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .form-input[type=file] {\n  padding: 8px 12px;\n  cursor: pointer;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialName,\n.my-profile-container .worker-credentials-card .add-credential-form .form-group #credentialFile {\n  width: 400px !important;\n  height: 40px !important;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: 8px;\n  padding: 8px 12px;\n  background: #f0f9ff;\n  border: 1px solid #0ea5e9;\n  border-radius: 6px;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  display: block;\n  font-size: 12px;\n  color: #0369a1;\n  font-weight: 500;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  background: #001E40;\n  color: white;\n  border: none;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn svg {\n  fill: white;\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n}\n.my-profile-container .worker-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.my-profile-container .worker-credentials-card .form-actions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 15px;\n  margin-top: 30px;\n  padding-top: 20px;\n  border-top: 1px solid #e5e7eb;\n}\n@media (max-width: 768px) {\n  .my-profile-container .worker-credentials-card .form-actions {\n    flex-direction: column;\n    align-items: stretch;\n  }\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  border: none;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn .btn-icon,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn .btn-icon {\n  width: 16px;\n  height: 16px;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn {\n  background-color: #FFFFFF;\n  color: #374151;\n  border: 1px solid #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-edit-btn:hover,\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-cancel-btn:hover {\n  background-color: #f8fafc;\n  border-color: #001E40;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.my-profile-container .worker-credentials-card .form-actions .worker-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.my-profile-container .worker-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n  opacity: 0.8;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  fill: #dc2626;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n  opacity: 1;\n  transform: scale(1.05);\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  flex-shrink: 0;\n  width: 40px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #001E40;\n  border-radius: 8px;\n  color: white;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-icon svg {\n  width: 24px;\n  height: 24px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 15px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 13px;\n  color: #3b82f6;\n  text-decoration: none;\n  font-weight: 500;\n  transition: color 0.2s ease;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  color: #2563eb;\n  text-decoration: underline;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-weight: 400;\n  font-style: italic;\n  word-break: break-all;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #9ca3af;\n  font-weight: 500;\n  font-style: italic;\n}\n.my-profile-container .worker-credentials-card .credentials-display .empty-state {\n  padding: 20px;\n  text-align: center;\n  color: #9ca3af;\n  font-size: 14px;\n  font-style: italic;\n  background: #f9fafb;\n  border: 2px dashed #e5e7eb;\n  border-radius: 8px;\n}\n\n.image-modal-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.7);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  padding: 20px;\n}\n.image-modal-overlay .image-modal {\n  background: white;\n  border-radius: 12px;\n  max-width: 600px;\n  width: 100%;\n  max-height: 90vh;\n  display: flex;\n  flex-direction: column;\n  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);\n}\n.image-modal-overlay .image-modal .image-modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px;\n  border-bottom: 1px solid #e5e7eb;\n}\n.image-modal-overlay .image-modal .image-modal-header h3 {\n  margin: 0;\n  font-size: 18px;\n  font-weight: 600;\n  color: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn {\n  background: none;\n  border: none;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 6px;\n  transition: background 0.2s ease;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn svg {\n  fill: #6b7280;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover {\n  background: #f3f4f6;\n}\n.image-modal-overlay .image-modal .image-modal-header .close-btn:hover svg {\n  fill: #1f2937;\n}\n.image-modal-overlay .image-modal .image-modal-content {\n  padding: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: auto;\n}\n.image-modal-overlay .image-modal .image-modal-content img {\n  max-width: 100%;\n  max-height: 60vh;\n  -o-object-fit: contain;\n     object-fit: contain;\n  border-radius: 8px;\n}\n\nselect:focus, select:active, select[aria-expanded=true] {\n  border-bottom-left-radius: 0 !important;\n  border-bottom-right-radius: 0 !important;\n}\nselect option {\n  position: relative;\n  z-index: 1000;\n}\n\n.employer-credentials-card {\n  background: white;\n  border-radius: 12px;\n  padding: 30px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  border: 1px solid #e5e7eb;\n}\n.employer-credentials-card .card-header-with-count {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 20px;\n}\n.employer-credentials-card .card-header-with-count .card-title {\n  margin: 0;\n}\n.employer-credentials-card .card-header-with-count .credentials-count {\n  font-size: 14px;\n  color: #6b7280;\n  font-weight: 500;\n}\n.employer-credentials-card .add-credential-form {\n  background: #f8fafc;\n  border: 2px dashed #001E40;\n  border-radius: 8px;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.employer-credentials-card .add-credential-form .add-form-title {\n  font-size: 15px;\n  font-weight: 600;\n  color: #001E40;\n  margin-bottom: 15px;\n}\n.employer-credentials-card .add-credential-form .add-form-title .add-more-hint {\n  font-size: 13px;\n  font-weight: 400;\n  color: #6b7280;\n  font-style: italic;\n}\n.employer-credentials-card .add-credential-form .form-row {\n  display: grid;\n  grid-template-columns: 1fr;\n  gap: 15px;\n  margin-bottom: 15px;\n}\n@media (min-width: 768px) {\n  .employer-credentials-card .add-credential-form .form-row {\n    grid-template-columns: 1fr 1fr;\n  }\n}\n.employer-credentials-card .add-credential-form .form-group {\n  display: flex;\n  flex-direction: column;\n}\n.employer-credentials-card .add-credential-form .form-group label {\n  font-size: 13px;\n  font-weight: 500;\n  color: #374151;\n  margin-bottom: 6px;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input {\n  height: 40px;\n  padding: 10px 12px;\n  border: 1px solid #d1d5db;\n  border-radius: 6px;\n  font-size: 14px;\n  color: #1f2937;\n  background-color: white;\n  transition: all 0.2s ease;\n}\n.employer-credentials-card .add-credential-form .form-group .form-input:focus {\n  outline: none;\n  border-color: #001E40;\n  box-shadow: 0 0 0 3px rgba(0, 30, 64, 0.1);\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info {\n  margin-top: 8px;\n  font-size: 12px;\n  color: #059669;\n}\n.employer-credentials-card .add-credential-form .form-group .file-selected-info .file-selected {\n  font-weight: 500;\n}\n.employer-credentials-card .add-credential-form .add-credential-actions {\n  display: flex;\n  gap: 10px;\n  align-items: center;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn {\n  background: #001E40;\n  color: white;\n  border: none;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:hover {\n  background: #002a5c;\n  transform: translateY(-1px);\n}\n.employer-credentials-card .add-credential-form .add-credential-action-btn:active {\n  transform: translateY(0);\n}\n.employer-credentials-card .add-credential-form .close-form-btn {\n  background: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n  padding: 10px 16px;\n  border-radius: 6px;\n  font-size: 14px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.3s ease;\n}\n.employer-credentials-card .add-credential-form .close-form-btn:hover {\n  background: #e5e7eb;\n  border-color: #9ca3af;\n}\n.employer-credentials-card .add-credential-prompt {\n  margin-bottom: 20px;\n  text-align: center;\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn {\n  background: #f0f9ff;\n  color: #001E40;\n  border: 2px dashed #001E40;\n  padding: 12px 20px;\n  border-radius: 8px;\n  font-size: 14px;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.3s ease;\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn:hover {\n  background: #e0f2fe;\n  border-color: #002a5c;\n  transform: translateY(-1px);\n}\n.employer-credentials-card .add-credential-prompt .show-add-form-btn:active {\n  transform: translateY(0);\n}\n.employer-credentials-card .credentials-list .credentials-list-header {\n  margin-bottom: 15px;\n  padding-bottom: 10px;\n  border-bottom: 2px solid #e5e7eb;\n}\n.employer-credentials-card .credentials-list .credentials-list-header .list-title {\n  font-size: 16px;\n  font-weight: 600;\n  color: #001E40;\n}\n.employer-credentials-card .form-actions {\n  display: flex;\n  gap: 12px;\n  justify-content: flex-end;\n  margin-top: 20px;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-save-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 165px;\n  height: 36px;\n  padding: 0 16px;\n  border-radius: 6px;\n  font-size: 12.5px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: none;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn {\n  background-color: #f3f4f6;\n  color: #374151;\n  border: 1px solid #d1d5db;\n}\n.employer-credentials-card .form-actions .employer-credentials-edit-btn:hover,\n.employer-credentials-card .form-actions .employer-credentials-cancel-btn:hover {\n  background-color: #e5e7eb;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn {\n  background-color: #001E40;\n  color: white;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:hover {\n  background-color: #002a5c;\n}\n.employer-credentials-card .form-actions .employer-credentials-save-btn:active {\n  background-color: #001a33;\n}\n.employer-credentials-card .credentials-display {\n  margin-bottom: 20px;\n}\n.employer-credentials-card .credentials-display .credentials-list {\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item {\n  display: flex;\n  align-items: center;\n  gap: 15px;\n  padding: 16px;\n  background: #f9fafb;\n  border: 2px solid #e5e7eb;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n  position: relative;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item:hover {\n  border-color: #001E40;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-number {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n  background: #001E40;\n  color: white;\n  border-radius: 50%;\n  font-size: 14px;\n  font-weight: 600;\n  flex-shrink: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #fee2e2;\n  border: 1px solid #fca5a5;\n  border-radius: 6px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  padding: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn:hover {\n  background: #fecaca;\n  border-color: #f87171;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .remove-credential-btn svg {\n  color: #dc2626;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-icon {\n  color: #001E40;\n  flex-shrink: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info {\n  flex: 1;\n  min-width: 0;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .credential-name {\n  font-size: 14px;\n  font-weight: 600;\n  color: #1f2937;\n  margin-bottom: 4px;\n  display: block;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info {\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link {\n  font-size: 12px;\n  color: #001E40;\n  text-decoration: none;\n  font-weight: 500;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .view-document-link:hover {\n  text-decoration: underline;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .document-info .file-path {\n  font-size: 11px;\n  color: #6b7280;\n  font-family: monospace;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .pending-upload {\n  font-size: 12px;\n  color: #f59e0b;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .credentials-list .credential-item .credential-info .no-file-uploaded {\n  font-size: 12px;\n  color: #ef4444;\n  font-style: italic;\n}\n.employer-credentials-card .credentials-display .empty-state {\n  text-align: center;\n  color: #6b7280;\n  font-style: italic;\n  padding: 20px;\n  background: #f9fafb;\n  border-radius: 8px;\n  border: 2px dashed #d1d5db;\n}\n\n@media (max-width: 768px) {\n  .my-profile-container {\n    gap: 20px;\n  }\n  .my-profile-container .profile-card,\n  .my-profile-container .password-card {\n    padding: 20px;\n  }\n  .my-profile-container .profile-header {\n    margin-bottom: 20px;\n  }\n  .my-profile-container .profile-header .avatar-container .avatar-placeholder {\n    width: 80px;\n    height: 80px;\n    font-size: 32px;\n  }\n  .my-profile-container .card-title {\n    font-size: 20px;\n    margin-bottom: 20px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -201565,7 +201565,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 var ApplyJobModal = function ApplyJobModal(_ref) {
-  var _userProfile$profile, _userProfile$profile2, _userProfile$profile3, _userProfile$profile4, _userProfile$profile5, _userProfile$profile6;
+  var _userProfile$profile2, _userProfile$profile3, _userProfile$profile4, _userProfile$profile5, _userProfile$profile6, _userProfile$profile7;
   var job = _ref.job,
     isOpen = _ref.isOpen,
     onClose = _ref.onClose,
@@ -201935,7 +201935,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
   };
   var handleSubmit = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
-      var newErrors, now, phNow, applicationStart, applicationDeadline, timeDiff, hoursUntilStart, startDateStr, skillCheck, _userProfile$worker, workerId, applicationData, skillsArray, skillsData, authToken, response, _error$response, _error$response2, _error$response3, _error$response4, errorMessages, _t4;
+      var newErrors, now, phNow, applicationStart, applicationDeadline, timeDiff, hoursUntilStart, startDateStr, skillCheck, _userProfile$profile, _formData$coverLetter, _userProfile$worker, workerId, _authToken, userData, currentUser, _profileResponse$data, _profileResponse$data2, profileResponse, coverLetter, applicationData, skillsArray, skillsData, authToken, response, _error$response, _error$response2, _error$response3, _error$response4, errorMessages, _t4, _t5;
       return _regenerator().w(function (_context3) {
         while (1) switch (_context3.p = _context3.n) {
           case 0:
@@ -202038,19 +202038,65 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
             showNotification('Submitting application...', 'processing');
 
             // Use profile_id for worker_id (must exist in profiles table)
-            workerId = userProfile.profile_id || userProfile.id;
+            // Try multiple ways to get the profile ID
+            workerId = userProfile.profile_id || ((_userProfile$profile = userProfile.profile) === null || _userProfile$profile === void 0 ? void 0 : _userProfile$profile.id) || userProfile.id; // If still no profile ID, try to fetch it from the API
+            if (!(!workerId || workerId === userProfile.id)) {
+              _context3.n = 11;
+              break;
+            }
+            _context3.p = 7;
+            _authToken = localStorage.getItem("auth_token");
+            userData = JSON.parse(localStorage.getItem("user") || '{}');
+            currentUser = userData.user || userData;
+            if (!currentUser.id) {
+              _context3.n = 9;
+              break;
+            }
+            _context3.n = 8;
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(currentUser.id), {
+              headers: {
+                Authorization: "Bearer ".concat(_authToken),
+                Accept: "application/json"
+              }
+            });
+          case 8:
+            profileResponse = _context3.v;
+            if ((_profileResponse$data = profileResponse.data) !== null && _profileResponse$data !== void 0 && _profileResponse$data.id) {
+              workerId = profileResponse.data.id;
+            } else if ((_profileResponse$data2 = profileResponse.data) !== null && _profileResponse$data2 !== void 0 && (_profileResponse$data2 = _profileResponse$data2.profile) !== null && _profileResponse$data2 !== void 0 && _profileResponse$data2.id) {
+              workerId = profileResponse.data.profile.id;
+            } else if (Array.isArray(profileResponse.data) && profileResponse.data.length > 0) {
+              workerId = profileResponse.data[0].id;
+            }
+          case 9:
+            _context3.n = 11;
+            break;
+          case 10:
+            _context3.p = 10;
+            _t4 = _context3.v;
+            console.error("Error fetching profile for application:", _t4);
+          case 11:
             if (workerId) {
-              _context3.n = 7;
+              _context3.n = 12;
               break;
             }
             showNotification('Unable to determine worker profile. Please log in again.', 'error');
             return _context3.a(2);
-          case 7:
+          case 12:
+            // Ensure cover letter is not empty
+            coverLetter = ((_formData$coverLetter = formData.coverLetter) === null || _formData$coverLetter === void 0 ? void 0 : _formData$coverLetter.trim()) || '';
+            if (coverLetter) {
+              _context3.n = 13;
+              break;
+            }
+            showNotification('Cover letter is required. Please explain your experience related to this job.', 'error');
+            return _context3.a(2);
+          case 13:
             // Prepare application data with user profile
             applicationData = new FormData();
             applicationData.append('job_post_id', job.id);
             applicationData.append('worker_id', workerId);
-            applicationData.append('cover_letter', formData.coverLetter);
+            applicationData.append('cover_letter', coverLetter);
 
             // Convert skills object to array format
             skillsArray = [];
@@ -202093,7 +202139,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
 
             // Submit application to backend
             authToken = localStorage.getItem("auth_token");
-            _context3.n = 8;
+            _context3.n = 14;
             return axios__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/job-applications/apply', applicationData, {
               headers: {
                 'Content-Type': 'multipart/form-data',
@@ -202101,7 +202147,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                 'Accept': 'application/json'
               }
             });
-          case 8:
+          case 14:
             response = _context3.v;
             if (response.status === 201) {
               // Show success message
@@ -202111,28 +202157,28 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                 onClose();
               }, 2000);
             }
-            _context3.n = 10;
+            _context3.n = 16;
             break;
-          case 9:
-            _context3.p = 9;
-            _t4 = _context3.v;
-            console.error('Error submitting application:', _t4);
-            console.error('Error response:', _t4.response);
-            console.error('Error data:', (_error$response = _t4.response) === null || _error$response === void 0 ? void 0 : _error$response.data);
-            console.error('Error status:', (_error$response2 = _t4.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status);
-            if ((_error$response3 = _t4.response) !== null && _error$response3 !== void 0 && (_error$response3 = _error$response3.data) !== null && _error$response3 !== void 0 && _error$response3.message) {
-              showNotification(_t4.response.data.message, 'error');
-            } else if ((_error$response4 = _t4.response) !== null && _error$response4 !== void 0 && (_error$response4 = _error$response4.data) !== null && _error$response4 !== void 0 && _error$response4.errors) {
+          case 15:
+            _context3.p = 15;
+            _t5 = _context3.v;
+            console.error('Error submitting application:', _t5);
+            console.error('Error response:', _t5.response);
+            console.error('Error data:', (_error$response = _t5.response) === null || _error$response === void 0 ? void 0 : _error$response.data);
+            console.error('Error status:', (_error$response2 = _t5.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.status);
+            if ((_error$response3 = _t5.response) !== null && _error$response3 !== void 0 && (_error$response3 = _error$response3.data) !== null && _error$response3 !== void 0 && _error$response3.message) {
+              showNotification(_t5.response.data.message, 'error');
+            } else if ((_error$response4 = _t5.response) !== null && _error$response4 !== void 0 && (_error$response4 = _error$response4.data) !== null && _error$response4 !== void 0 && _error$response4.errors) {
               // Handle validation errors
-              errorMessages = Object.values(_t4.response.data.errors).flat();
+              errorMessages = Object.values(_t5.response.data.errors).flat();
               showNotification(errorMessages.join(', '), 'error');
             } else {
               showNotification('Failed to submit application. Please try again.', 'error');
             }
-          case 10:
+          case 16:
             return _context3.a(2);
         }
-      }, _callee3, null, [[6, 9]]);
+      }, _callee3, null, [[7, 10], [6, 15]]);
     }));
     return function handleSubmit() {
       return _ref4.apply(this, arguments);
@@ -202183,7 +202229,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "profile-image-section",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-                  src: (_userProfile$profile = userProfile.profile) !== null && _userProfile$profile !== void 0 && _userProfile$profile.profile_img ? "http://127.0.0.1:8000/storage/".concat(userProfile.profile.profile_img) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
+                  src: (_userProfile$profile2 = userProfile.profile) !== null && _userProfile$profile2 !== void 0 && _userProfile$profile2.profile_img ? "http://127.0.0.1:8000/storage/".concat(userProfile.profile.profile_img) : "http://127.0.0.1:8000/storage/profiles/defaultpfp.jpg",
                   alt: "Profile",
                   className: "profile-image",
                   onError: function onError(e) {
@@ -202195,7 +202241,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                     children: "Name:"
-                  }), " ", (_userProfile$profile2 = userProfile.profile) === null || _userProfile$profile2 === void 0 ? void 0 : _userProfile$profile2.first_name, " ", (_userProfile$profile3 = userProfile.profile) === null || _userProfile$profile3 === void 0 ? void 0 : _userProfile$profile3.middlename, " ", (_userProfile$profile4 = userProfile.profile) === null || _userProfile$profile4 === void 0 ? void 0 : _userProfile$profile4.last_name]
+                  }), " ", (_userProfile$profile3 = userProfile.profile) === null || _userProfile$profile3 === void 0 ? void 0 : _userProfile$profile3.first_name, " ", (_userProfile$profile4 = userProfile.profile) === null || _userProfile$profile4 === void 0 ? void 0 : _userProfile$profile4.middlename, " ", (_userProfile$profile5 = userProfile.profile) === null || _userProfile$profile5 === void 0 ? void 0 : _userProfile$profile5.last_name]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                     children: "Email:"
@@ -202207,7 +202253,7 @@ var ApplyJobModal = function ApplyJobModal(_ref) {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
                     children: "Location:"
-                  }), " ", (_userProfile$profile5 = userProfile.profile) === null || _userProfile$profile5 === void 0 ? void 0 : _userProfile$profile5.city, ", ", (_userProfile$profile6 = userProfile.profile) === null || _userProfile$profile6 === void 0 ? void 0 : _userProfile$profile6.province]
+                  }), " ", (_userProfile$profile6 = userProfile.profile) === null || _userProfile$profile6 === void 0 ? void 0 : _userProfile$profile6.city, ", ", (_userProfile$profile7 = userProfile.profile) === null || _userProfile$profile7 === void 0 ? void 0 : _userProfile$profile7.province]
                 })]
               })]
             })]
@@ -204324,7 +204370,14 @@ var MessageEmployer = function MessageEmployer() {
                     var isSentByMe = conv.last_message.sender_id == currentUserId;
                     var maxLength = 50;
                     var preview = conv.last_message.content.length > maxLength ? conv.last_message.content.substring(0, maxLength) + '...' : conv.last_message.content;
-                    return isSentByMe ? "You: ".concat(preview) : preview;
+                    // Show "You: " if sent by current user, otherwise show sender's name or "Worker: "
+                    if (isSentByMe) {
+                      return "You: ".concat(preview);
+                    } else {
+                      // If we have the sender's name, use it, otherwise use "Worker: "
+                      var senderName = conv.name || 'Worker';
+                      return "".concat(senderName, ": ").concat(preview);
+                    }
                   }()
                 })]
               })]
@@ -204488,7 +204541,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_go__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/go */ "./node_modules/react-icons/go/index.mjs");
 /* harmony import */ var react_icons_io__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-icons/io */ "./node_modules/react-icons/io/index.mjs");
 /* harmony import */ var _sass_components_MessageWorker_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../sass/components/MessageWorker.scss */ "./resources/sass/components/MessageWorker.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/profileImageUtils */ "./resources/js/utils/profileImageUtils.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
@@ -204509,6 +204563,7 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -204954,40 +205009,40 @@ var MessageWorker = function MessageWorker() {
     window.location.href = "/profile/".concat(userId);
   };
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "message-worker-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "message-worker-content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "loading-container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
             children: "Loading messages..."
           })
         })
       })]
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: "message-worker-container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Headerz__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "message-worker-content",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "conversation-sidebar",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "sidebar-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
             children: "Messages"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
             className: "conversation-count",
             children: conversations.length
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "sidebar-search",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "search-input-wrapper",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
               className: "search-icon"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
               type: "text",
               placeholder: "Search Employers",
               value: searchQuery,
@@ -204996,39 +205051,46 @@ var MessageWorker = function MessageWorker() {
               }
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "conversation-list",
           children: [conversations.map(function (conv) {
-            var _conv$name;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            var _conv$detailed_info, _conv$detailed_info2, _conv$name;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "conversation-item ".concat(conv.unread_count > 0 ? 'unread' : '', " ").concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === conv.user_id ? 'active' : ''),
               onClick: function onClick() {
                 return handleConversationSelect(conv);
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "conversation-avatar",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                children: [conv !== null && conv !== void 0 && (_conv$detailed_info = conv.detailed_info) !== null && _conv$detailed_info !== void 0 && _conv$detailed_info.profile_img || conv !== null && conv !== void 0 && conv.profile_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                  src: (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_8__.getProfileImageUrl)((conv === null || conv === void 0 || (_conv$detailed_info2 = conv.detailed_info) === null || _conv$detailed_info2 === void 0 ? void 0 : _conv$detailed_info2.profile_img) || (conv === null || conv === void 0 ? void 0 : conv.profile_img), 'images/defpfp.svg'),
+                  alt: conv.name || 'User',
+                  className: "avatar-image",
+                  onError: function onError(e) {
+                    e.currentTarget.src = 'images/defpfp.svg';
+                  }
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "avatar-placeholder",
                   children: ((_conv$name = conv.name) === null || _conv$name === void 0 ? void 0 : _conv$name.charAt(0)) || 'U'
-                }), conv.unread_count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                }), conv.unread_count > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                   className: "unread-indicator",
                   children: conv.unread_count
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "conversation-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                   className: "conversation-header",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                     className: "conversation-name",
                     children: conv.name || 'Unknown User'
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                     className: "conversation-time",
                     children: conv.last_message_at ? new Date(conv.last_message_at).toLocaleTimeString([], {
                       hour: '2-digit',
                       minute: '2-digit'
                     }) : ''
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "worker-conversation-preview",
                   children: conv.last_message && function (_stored$user6) {
                     var stored = JSON.parse(localStorage.getItem('user') || '{}');
@@ -205036,7 +205098,15 @@ var MessageWorker = function MessageWorker() {
                     var isSentByMe = conv.last_message.sender_id == currentUserId;
                     var maxLength = 50;
                     var preview = conv.last_message.content.length > maxLength ? conv.last_message.content.substring(0, maxLength) + '...' : conv.last_message.content;
-                    return isSentByMe ? "You: ".concat(preview) : preview;
+                    // Show "You: " if sent by current user, otherwise show sender's first name or "Employer: "
+                    if (isSentByMe) {
+                      return "You: ".concat(preview);
+                    } else {
+                      // Extract first name only from the full name
+                      var fullName = conv.name || 'Employer';
+                      var firstName = fullName.split(' ')[0]; // Get only the first name
+                      return "".concat(firstName, ": ").concat(preview);
+                    }
                   }()
                 })]
               })]
@@ -205047,7 +205117,7 @@ var MessageWorker = function MessageWorker() {
             });
           }).map(function (user) {
             var _user$full_name;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "conversation-item ".concat((selectedConversation === null || selectedConversation === void 0 ? void 0 : selectedConversation.user_id) === user.user_id ? 'active' : ''),
               onClick: function onClick() {
                 var tempConv = {
@@ -205057,21 +205127,28 @@ var MessageWorker = function MessageWorker() {
                 setSelectedConversation(tempConv);
                 localStorage.setItem('message_target_user_id', String(user.user_id));
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                 className: "conversation-avatar",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                children: user.profile_img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                  src: (0,_utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_8__.getProfileImageUrl)(user.profile_img, 'images/defpfp.svg'),
+                  alt: user.full_name || 'User',
+                  className: "avatar-image",
+                  onError: function onError(e) {
+                    e.currentTarget.src = 'images/defpfp.svg';
+                  }
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "avatar-placeholder",
                   children: ((_user$full_name = user.full_name) === null || _user$full_name === void 0 ? void 0 : _user$full_name.charAt(0)) || 'U'
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "conversation-details",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "conversation-header",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                     className: "conversation-name",
                     children: user.full_name || 'Unknown User'
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "worker-conversation-preview",
                   children: "Start new conversation"
                 })]
@@ -205079,30 +205156,30 @@ var MessageWorker = function MessageWorker() {
             }, user.user_id);
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "chat-area",
-        children: selectedConversation || localStorage.getItem('message_target_user_id') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: selectedConversation || localStorage.getItem('message_target_user_id') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "chat-content",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "chat-header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
               children: selectedConversation ? selectedConversation.name : 'New Conversation'
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "chat-header-actions",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "online-status",
                 children: "Online"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "chat-menu-wrapper",
                 ref: chatMenuRef,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_hi__WEBPACK_IMPORTED_MODULE_3__.HiOutlineDotsVertical, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_hi__WEBPACK_IMPORTED_MODULE_3__.HiOutlineDotsVertical, {
                   className: "chat-menu-icon",
                   onClick: function onClick() {
                     return setShowChatMenu(!showChatMenu);
                   }
-                }), showChatMenu && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                }), showChatMenu && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "chat-menu-dropdown",
-                  children: otherUserInfo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                  children: otherUserInfo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                     className: "chat-menu-item",
                     onClick: function onClick() {
                       handleViewProfile(otherUserInfo.id);
@@ -205113,20 +205190,20 @@ var MessageWorker = function MessageWorker() {
                 })]
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             className: "chat-messages",
-            children: selectedConversation && messages[selectedConversation.user_id] && messages[selectedConversation.user_id].length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            children: selectedConversation && messages[selectedConversation.user_id] && messages[selectedConversation.user_id].length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "messages-list",
               children: messages[selectedConversation.user_id].map(function (message) {
                 var _JSON$parse, _JSON$parse2;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                   className: "message-item ".concat(message.sender_id === (((_JSON$parse = JSON.parse(localStorage.getItem('user') || '{}')) === null || _JSON$parse === void 0 ? void 0 : _JSON$parse.id) || ((_JSON$parse2 = JSON.parse(localStorage.getItem('user') || '{}')) === null || _JSON$parse2 === void 0 || (_JSON$parse2 = _JSON$parse2.user) === null || _JSON$parse2 === void 0 ? void 0 : _JSON$parse2.id)) ? 'own-message' : 'other-message'),
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                     className: "message-content",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                       className: "message-text",
                       children: message.content
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
                       className: "message-time",
                       children: new Date(message.created_at).toLocaleTimeString([], {
                         hour: '2-digit',
@@ -205136,30 +205213,30 @@ var MessageWorker = function MessageWorker() {
                   })
                 }, message.id);
               })
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "message-placeholder",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                 children: "Start your conversation"
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
             onSubmit: handleSendMessage,
             className: "chat-input",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
               type: "file",
               ref: fileInputRef,
               style: {
                 display: 'none'
               },
               onChange: handleFileChange
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
               type: "button",
               className: "icon-btn attach-btn",
               onClick: handleAttachClick,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_go__WEBPACK_IMPORTED_MODULE_5__.GoPlus, {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_go__WEBPACK_IMPORTED_MODULE_5__.GoPlus, {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "input-wrapper",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
                 ref: messageInputRef,
                 type: "text",
                 placeholder: "Write your message here...",
@@ -205169,29 +205246,29 @@ var MessageWorker = function MessageWorker() {
                   return setMessageInput(e.target.value);
                 },
                 onKeyPress: handleKeyPress
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
                 type: "button",
                 className: "icon-btn voice-btn",
                 onClick: handleVoiceClick,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_4__.MdOutlineKeyboardVoice, {})
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_md__WEBPACK_IMPORTED_MODULE_4__.MdOutlineKeyboardVoice, {})
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
               type: "submit",
               className: "send-button",
               disabled: !messageInput.trim(),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_6__.IoMdSend, {})
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_icons_io__WEBPACK_IMPORTED_MODULE_6__.IoMdSend, {})
             })]
           })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "no-conversation-selected",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "empty-state",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               className: "empty-icon",
               children: "\uD83D\uDCAC"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
               children: "Select a conversation"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
               children: "Choose a conversation from the sidebar to start messaging"
             })]
           })
@@ -205768,7 +205845,7 @@ var Notif = function Notif() {
                     style: {
                       color: '#333'
                     },
-                    children: "Want to view this booking? "
+                    children: "Want to view this booking request? "
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
                     href: "#",
                     onClick: (/*#__PURE__*/function () {
@@ -205779,13 +205856,9 @@ var Notif = function Notif() {
                               e.preventDefault();
                               e.stopPropagation();
 
-                              // Dispatch event to handle the special link with role switching
-                              window.dispatchEvent(new CustomEvent('notificationLinkClicked', {
-                                detail: {
-                                  url: '/profile-settings/bookings',
-                                  targetRoleId: notif.target_role_id
-                                }
-                              }));
+                              // For booking requests, navigate directly without role switching
+                              // This ensures workers see their booking requests page, not employer's bookings
+                              navigate('/profile-settings/bookings');
                             case 1:
                               return _context6.a(2);
                           }
@@ -206831,6 +206904,10 @@ function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present,
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -206877,10 +206954,65 @@ var FindJob = function FindJob() {
     setLoading = _useState12[1];
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
-  var sortOptions = ["Featured", "Newest", "Price: High-Low", "Price: Low-High"];
+  var sortOptions = ["Featured", "Newest", "Salary: High-Low", "Salary: Low-High"];
   var handleSortOptionClick = function handleSortOptionClick(option) {
     setSelectedSortOption(option);
     setIsSortDropdownOpen(false);
+    applyFiltersAndSort();
+  };
+
+  // Apply sorting to filtered jobs
+  var applySorting = function applySorting(jobsToSort) {
+    var sortOption = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    if (!Array.isArray(jobsToSort) || jobsToSort.length === 0) {
+      return jobsToSort;
+    }
+    var sortBy = sortOption || selectedSortOption;
+    if (sortBy === "Sort by" || !sortBy) {
+      // Default: Sort by newest
+      return _toConsumableArray(jobsToSort).sort(function (a, b) {
+        return new Date(b.created_at) - new Date(a.created_at);
+      });
+    }
+    var sorted = _toConsumableArray(jobsToSort);
+    switch (sortBy) {
+      case "Featured":
+        // Featured: Sort by most applications or views (if available), then by newest
+        return sorted.sort(function (a, b) {
+          var _a$applications, _b$applications;
+          var aApplications = ((_a$applications = a.applications) === null || _a$applications === void 0 ? void 0 : _a$applications.length) || a.application_count || 0;
+          var bApplications = ((_b$applications = b.applications) === null || _b$applications === void 0 ? void 0 : _b$applications.length) || b.application_count || 0;
+          if (bApplications !== aApplications) {
+            return bApplications - aApplications; // Most applications first
+          }
+          // If same number of applications, sort by newest
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+      case "Newest":
+        // Newest: Sort by created_at descending
+        return sorted.sort(function (a, b) {
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+      case "Salary: High-Low":
+        // Salary: High to Low
+        return sorted.sort(function (a, b) {
+          var salaryA = parseFloat(a.salary) || 0;
+          var salaryB = parseFloat(b.salary) || 0;
+          return salaryB - salaryA;
+        });
+      case "Salary: Low-High":
+        // Salary: Low to High
+        return sorted.sort(function (a, b) {
+          var salaryA = parseFloat(a.salary) || 0;
+          var salaryB = parseFloat(b.salary) || 0;
+          return salaryA - salaryB;
+        });
+      default:
+        // Default: Sort by newest
+        return sorted.sort(function (a, b) {
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+    }
   };
   var handleViewJob = function handleViewJob(jobId) {
     if (Array.isArray(jobs)) {
@@ -206894,21 +207026,25 @@ var FindJob = function FindJob() {
       });
     }
   };
-  var handleRefineSearch = function handleRefineSearch() {
+
+  // Apply all filters and sorting
+  var applyFiltersAndSort = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function () {
     if (Array.isArray(jobs)) {
       var filtered = jobs;
 
       // Apply search term filter if provided
       if (searchTerm.trim() !== "") {
         filtered = filtered.filter(function (job) {
+          var _job$job_title;
           var searchLower = searchTerm.toLowerCase();
 
           // Search in job title
-          var titleMatch = job.job_title.toLowerCase().includes(searchLower);
+          var titleMatch = (_job$job_title = job.job_title) === null || _job$job_title === void 0 ? void 0 : _job$job_title.toLowerCase().includes(searchLower);
 
           // Search in skills
           var skillsMatch = job.skills && job.skills.some(function (skill) {
-            return skill.name.toLowerCase().includes(searchLower);
+            var _skill$name;
+            return (_skill$name = skill.name) === null || _skill$name === void 0 ? void 0 : _skill$name.toLowerCase().includes(searchLower);
           });
 
           // Search in job description
@@ -206920,18 +207056,66 @@ var FindJob = function FindJob() {
       // Apply employment type filter if selected
       if (selectedEmploymentType !== "") {
         filtered = filtered.filter(function (job) {
+          var _job$job_type;
+          // Map legacy job types to new format for filtering
+          var jobType = (_job$job_type = job.job_type) === null || _job$job_type === void 0 ? void 0 : _job$job_type.toLowerCase();
+          if (selectedEmploymentType === 'per_day') {
+            return jobType === 'per_day' || jobType === 'full-time' || jobType === 'part-time';
+          } else if (selectedEmploymentType === 'per_job') {
+            return jobType === 'per_job' || jobType === 'contract' || jobType === 'freelance' || jobType === 'one-time job';
+          }
           return job.job_type === selectedEmploymentType;
         });
       }
-      setFilteredJobs(filtered);
+
+      // Apply sorting inline to avoid dependency issues
+      var sorted = _toConsumableArray(filtered);
+      var sortBy = selectedSortOption;
+      if (sortBy === "Featured") {
+        sorted = sorted.sort(function (a, b) {
+          var _a$applications2, _b$applications2;
+          var aApplications = ((_a$applications2 = a.applications) === null || _a$applications2 === void 0 ? void 0 : _a$applications2.length) || a.application_count || 0;
+          var bApplications = ((_b$applications2 = b.applications) === null || _b$applications2 === void 0 ? void 0 : _b$applications2.length) || b.application_count || 0;
+          if (bApplications !== aApplications) {
+            return bApplications - aApplications;
+          }
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+      } else if (sortBy === "Newest") {
+        sorted = sorted.sort(function (a, b) {
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+      } else if (sortBy === "Salary: High-Low") {
+        sorted = sorted.sort(function (a, b) {
+          var salaryA = parseFloat(a.salary) || 0;
+          var salaryB = parseFloat(b.salary) || 0;
+          return salaryB - salaryA;
+        });
+      } else if (sortBy === "Salary: Low-High") {
+        sorted = sorted.sort(function (a, b) {
+          var salaryA = parseFloat(a.salary) || 0;
+          var salaryB = parseFloat(b.salary) || 0;
+          return salaryA - salaryB;
+        });
+      } else {
+        // Default: Sort by newest
+        sorted = sorted.sort(function (a, b) {
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+      }
+      setFilteredJobs(sorted);
     }
+  }, [jobs, searchTerm, selectedEmploymentType, selectedSortOption]);
+  var handleRefineSearch = function handleRefineSearch() {
+    applyFiltersAndSort();
   };
   var handleClearFilters = function handleClearFilters() {
     setSearchTerm("");
     setSelectedEmploymentType("");
-    if (Array.isArray(jobs)) {
-      setFilteredJobs(jobs);
-    }
+    setSelectedSortOption("Sort by");
+    // Apply sorting to all jobs
+    var sorted = applySorting(jobs);
+    setFilteredJobs(sorted);
   };
 
   // Handle URL search parameters
@@ -206946,37 +207130,68 @@ var FindJob = function FindJob() {
     var isMounted = true;
     var loadJobs = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var _userData$user, userData, currentUserId, urlParams, searchParam, response, jobsData, _response$data$job_po, _jobsData, jobsArray, filteredJobsArray, _t;
+        var _currentUser$profile, _userData$profile, userData, currentUser, currentUserId, currentProfileId, _profileResponse$data, _profileResponse$data2, authToken, profileResponse, urlParams, searchParam, response, jobsData, _response$data$job_po, _jobsData, jobsArray, filteredJobsArray, _t, _t2;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
               _context.p = 0;
               setLoading(true);
 
-              // Get current user ID to exclude their own job posts
+              // Get current user data to exclude their own job posts
               userData = JSON.parse(localStorage.getItem("user") || '{}');
-              currentUserId = ((_userData$user = userData.user) === null || _userData$user === void 0 ? void 0 : _userData$user.id) || userData.id; // Use search API if search term is provided
+              currentUser = userData.user || userData;
+              currentUserId = currentUser.id; // Try to get profile ID from multiple sources
+              currentProfileId = ((_currentUser$profile = currentUser.profile) === null || _currentUser$profile === void 0 ? void 0 : _currentUser$profile.id) || ((_userData$profile = userData.profile) === null || _userData$profile === void 0 ? void 0 : _userData$profile.id) || currentUser.profile_id; // If profile ID is still undefined, try to fetch it from API
+              if (!(!currentProfileId && currentUserId)) {
+                _context.n = 4;
+                break;
+              }
+              _context.p = 1;
+              authToken = localStorage.getItem("auth_token");
+              _context.n = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(currentUserId), {
+                headers: {
+                  Authorization: "Bearer ".concat(authToken),
+                  Accept: "application/json"
+                }
+              });
+            case 2:
+              profileResponse = _context.v;
+              if ((_profileResponse$data = profileResponse.data) !== null && _profileResponse$data !== void 0 && _profileResponse$data.id) {
+                currentProfileId = profileResponse.data.id;
+              } else if ((_profileResponse$data2 = profileResponse.data) !== null && _profileResponse$data2 !== void 0 && (_profileResponse$data2 = _profileResponse$data2.profile) !== null && _profileResponse$data2 !== void 0 && _profileResponse$data2.id) {
+                currentProfileId = profileResponse.data.profile.id;
+              } else if (Array.isArray(profileResponse.data) && profileResponse.data.length > 0) {
+                currentProfileId = profileResponse.data[0].id;
+              }
+              _context.n = 4;
+              break;
+            case 3:
+              _context.p = 3;
+              _t = _context.v;
+              console.error("Error fetching profile for job filtering:", _t);
+            case 4:
+              // Use search API if search term is provided
               urlParams = new URLSearchParams(location.search);
               searchParam = urlParams.get('search');
               if (!searchParam) {
-                _context.n = 2;
+                _context.n = 6;
                 break;
               }
-              _context.n = 1;
+              _context.n = 5;
               return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("/api/search/jobs?q=".concat(encodeURIComponent(searchParam)));
-            case 1:
+            case 5:
               response = _context.v;
               jobsData = response.data.jobs || [];
               if (isMounted) {
                 setJobs(jobsData);
-                setFilteredJobs(jobsData);
               }
-              _context.n = 4;
+              _context.n = 8;
               break;
-            case 2:
-              _context.n = 3;
+            case 6:
+              _context.n = 7;
               return axios__WEBPACK_IMPORTED_MODULE_2__["default"].get('/api/jobposts?archived=false');
-            case 3:
+            case 7:
               response = _context.v;
               console.log('API Response:', response.data); // Debug log
 
@@ -206985,37 +207200,43 @@ var FindJob = function FindJob() {
               console.log('Jobs Data:', _jobsData); // Debug log
               jobsArray = Array.isArray(_jobsData) ? _jobsData : [];
               console.log('Jobs Array:', jobsArray); // Debug log
+              console.log('Current User ID:', currentUserId, 'Current Profile ID:', currentProfileId);
 
-              // Filter out current user's job posts
-              filteredJobsArray = currentUserId ? jobsArray.filter(function (job) {
-                return job.profile_id !== currentUserId;
+              // Filter out current user's job posts by profile_id (not user_id)
+              filteredJobsArray = currentProfileId ? jobsArray.filter(function (job) {
+                var _job$profile;
+                var jobProfileId = job.profile_id || ((_job$profile = job.profile) === null || _job$profile === void 0 ? void 0 : _job$profile.id);
+                var shouldExclude = jobProfileId === currentProfileId;
+                if (shouldExclude) {
+                  console.log('Excluding own job:', job.id, 'Profile ID:', jobProfileId);
+                }
+                return !shouldExclude;
               }) : jobsArray;
               console.log('Filtered Jobs (excluding own):', filteredJobsArray.length, 'out of', jobsArray.length);
               if (isMounted) {
                 setJobs(filteredJobsArray);
-                setFilteredJobs(filteredJobsArray);
               }
-            case 4:
-              _context.n = 6;
+            case 8:
+              _context.n = 10;
               break;
-            case 5:
-              _context.p = 5;
-              _t = _context.v;
-              console.error('Error fetching jobs:', _t);
+            case 9:
+              _context.p = 9;
+              _t2 = _context.v;
+              console.error('Error fetching jobs:', _t2);
               if (isMounted) {
                 setJobs([]);
                 setFilteredJobs([]);
               }
-            case 6:
-              _context.p = 6;
+            case 10:
+              _context.p = 10;
               if (isMounted) {
                 setLoading(false);
               }
-              return _context.f(6);
-            case 7:
+              return _context.f(10);
+            case 11:
               return _context.a(2);
           }
-        }, _callee, null, [[0, 5, 6, 7]]);
+        }, _callee, null, [[1, 3], [0, 9, 10, 11]]);
       }));
       return function loadJobs() {
         return _ref.apply(this, arguments);
@@ -207038,30 +207259,15 @@ var FindJob = function FindJob() {
       window.removeEventListener('storage', handleStorageChange);
     };
   }, [location.search]);
+
+  // Apply filters and sorting when jobs, searchTerm, selectedEmploymentType, or selectedSortOption changes
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (Array.isArray(jobs)) {
-      if (searchTerm.trim() === "") {
-        // If no search term, show all jobs
-        setFilteredJobs(jobs);
-      } else {
-        // Filter jobs by search term in title, skills, and description
-        var searchLower = searchTerm.toLowerCase();
-        setFilteredJobs(jobs.filter(function (job) {
-          // Search in job title
-          var titleMatch = job.job_title.toLowerCase().includes(searchLower);
-
-          // Search in skills
-          var skillsMatch = job.skills && job.skills.some(function (skill) {
-            return skill.name.toLowerCase().includes(searchLower);
-          });
-
-          // Search in job description
-          var descriptionMatch = job.description && job.description.toLowerCase().includes(searchLower);
-          return titleMatch || skillsMatch || descriptionMatch;
-        }));
-      }
+    if (Array.isArray(jobs) && jobs.length > 0) {
+      applyFiltersAndSort();
+    } else if (Array.isArray(jobs) && jobs.length === 0) {
+      setFilteredJobs([]);
     }
-  }, [searchTerm, jobs]);
+  }, [jobs, searchTerm, selectedEmploymentType, selectedSortOption, applyFiltersAndSort]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: "browse",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_HeaderContent_Headerz__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_AdsContent_banner__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -207130,20 +207336,17 @@ var FindJob = function FindJob() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
               value: selectedEmploymentType,
               onChange: function onChange(e) {
-                return setSelectedEmploymentType(e.target.value);
+                setSelectedEmploymentType(e.target.value);
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
                 value: "",
                 children: "Any"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
-                value: "Full-time",
-                children: "Full-time"
+                value: "per_day",
+                children: "Per Day"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
-                value: "Part-time",
-                children: "Part-time"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
-                value: "One-time job",
-                children: "One-time job"
+                value: "per_job",
+                children: "Per Job"
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
@@ -207172,7 +207375,7 @@ var FindJob = function FindJob() {
               children: "No jobs found matching your criteria."
             })
           }) : filteredJobs.map(function (job) {
-            var _job$profile, _job$profile2, _job$profile3, _job$profile4;
+            var _job$profile2, _job$profile3, _job$profile4, _job$profile5;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("article", {
               className: "result-card job-card",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
@@ -207197,7 +207400,7 @@ var FindJob = function FindJob() {
                     className: "meta-left",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                       className: "meta-line",
-                      children: [(_job$profile = job.profile) === null || _job$profile === void 0 ? void 0 : _job$profile.first_name, " ", (_job$profile2 = job.profile) === null || _job$profile2 === void 0 ? void 0 : _job$profile2.middlename, " ", (_job$profile3 = job.profile) === null || _job$profile3 === void 0 ? void 0 : _job$profile3.last_name, " ", (_job$profile4 = job.profile) === null || _job$profile4 === void 0 || (_job$profile4 = _job$profile4.suffix) === null || _job$profile4 === void 0 ? void 0 : _job$profile4.suffix_name, " \u2013 Posted on ", new Date(job.created_at).toLocaleDateString()]
+                      children: [(_job$profile2 = job.profile) === null || _job$profile2 === void 0 ? void 0 : _job$profile2.first_name, " ", (_job$profile3 = job.profile) === null || _job$profile3 === void 0 ? void 0 : _job$profile3.middlename, " ", (_job$profile4 = job.profile) === null || _job$profile4 === void 0 ? void 0 : _job$profile4.last_name, " ", (_job$profile5 = job.profile) === null || _job$profile5 === void 0 || (_job$profile5 = _job$profile5.suffix) === null || _job$profile5 === void 0 ? void 0 : _job$profile5.suffix_name, " \u2013 Posted on ", new Date(job.created_at).toLocaleDateString()]
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                       className: "meta-line salary",
                       children: ["\u20B1", job.salary, "/", job.salary_type === 'per_hour' ? 'hour' : 'month']
@@ -208429,11 +208632,11 @@ var BookModal = function BookModal(_ref) {
     // Calculate working days based on work type
     var workingDays = 0;
     switch (bookingDetails.work_type) {
-      case 'full-time':
+      case 'per_day':
         workingDays = calculateFullTimeWorkingDays(start, end);
         break;
-      case 'part-time':
-        workingDays = calculateFullTimeWorkingDays(start, end); // Same as full-time but different hours
+      case 'per_job':
+        workingDays = calculateFullTimeWorkingDays(start, end); // Same as per_day but different hours
         break;
       default:
         workingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -208468,19 +208671,19 @@ var BookModal = function BookModal(_ref) {
     var totalHours = 0;
     var explanation = '';
     switch (work_type) {
-      case 'full-time':
-        // Full-time: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
+      case 'per_day':
+        // Per Day: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
         workingDays = calculateFullTimeWorkingDays(startDate, endDate);
         totalHours = workingDays * hoursPerDay;
-        var fullTimeDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
-        explanation = "Full-time: ".concat(hoursPerDay, " hours/day, ").concat(fullTimeDays, ". Total: ").concat(workingDays, " working days");
+        var perDayDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
+        explanation = "Per Day: ".concat(hoursPerDay, " hours/day, ").concat(perDayDays, ". Total: ").concat(workingDays, " working days");
         break;
-      case 'part-time':
-        // Part-time: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
+      case 'per_job':
+        // Per Job: Based on collar type - Blue-collar (Mon-Sun) or White/Pink-collar (Mon-Fri + Sun)
         workingDays = calculatePreferredWorkingDays(startDate, endDate);
         totalHours = workingDays * hoursPerDay;
-        var partTimeDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
-        explanation = "Part-time: ".concat(hoursPerDay, " hours/day, ").concat(partTimeDays, ". Total: ").concat(workingDays, " working days");
+        var perJobDays = isBlueCollarWorker() ? 'Monday-Sunday' : 'Monday-Friday and Sunday';
+        explanation = "Per Job: ".concat(hoursPerDay, " hours/day, ").concat(perJobDays, ". Total: ").concat(workingDays, " working days");
         break;
       default:
         workingDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
@@ -208845,6 +209048,7 @@ var BookModal = function BookModal(_ref) {
             htmlFor: "service_type",
             children: "Service Type"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            id: "service_type",
             options: getAvailableServiceTypes(),
             value: bookingDetails.service_type,
             onChange: function onChange(value) {
@@ -208864,6 +209068,7 @@ var BookModal = function BookModal(_ref) {
             htmlFor: "sub_skill",
             children: "Sub Skills"
           }), getAvailableSubSkills().length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            id: "sub_skill",
             options: getAvailableSubSkills(),
             value: bookingDetails.sub_skill,
             onChange: function onChange(value) {
@@ -208890,12 +209095,13 @@ var BookModal = function BookModal(_ref) {
             htmlFor: "work_type",
             children: "Work Type"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            id: "work_type",
             options: [{
-              value: 'full-time',
-              label: 'Full-time'
+              value: 'per_day',
+              label: 'Per Day'
             }, {
-              value: 'part-time',
-              label: 'Part-time'
+              value: 'per_job',
+              label: 'Per Job'
             }],
             value: bookingDetails.work_type,
             onChange: function onChange(value) {
@@ -243325,12 +243531,25 @@ var Login = function Login() {
     rememberMe = _useState10[0],
     setRememberMe = _useState10[1];
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useNavigate)();
+  var isMountedRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(true);
+  var timeoutRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    // Mark component as mounted
+    isMountedRef.current = true;
     var rememberedEmail = localStorage.getItem('remembered_email');
     if (rememberedEmail) {
       setEmail(rememberedEmail);
       setRememberMe(true);
     }
+
+    // Cleanup function to clear timeout and mark component as unmounted
+    return function () {
+      isMountedRef.current = false;
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+    };
   }, []);
   var handleLogin = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(e) {
@@ -243339,15 +243558,21 @@ var Login = function Login() {
         while (1) switch (_context.p = _context.n) {
           case 0:
             e.preventDefault();
-            setError(null);
+            if (isMountedRef.current) {
+              setError(null);
+            }
             if (!(!email || !password)) {
               _context.n = 1;
               break;
             }
-            setError('Please fill in all fields.');
+            if (isMountedRef.current) {
+              setError('Please fill in all fields.');
+            }
             return _context.a(2);
           case 1:
-            setIsLoading(true);
+            if (isMountedRef.current) {
+              setIsLoading(true);
+            }
             _context.p = 2;
             _context.n = 3;
             return fetch('http://127.0.0.1:8000/api/login', {
@@ -243401,57 +243626,71 @@ var Login = function Login() {
               _context.n = 5;
               break;
             }
-            setError('Invalid role: Role ID is missing or invalid');
-            setIsLoading(false);
+            if (isMountedRef.current) {
+              setError('Invalid role: Role ID is missing or invalid');
+              setIsLoading(false);
+            }
             return _context.a(2);
           case 5:
             // Check if user is a worker (role_id 1) and redirect to homepage first
             if (userRole === 1) {
-              setTimeout(function () {
-                navigate('/homepage', {
-                  replace: true
-                });
-                setIsLoading(false);
+              timeoutRef.current = setTimeout(function () {
+                if (isMountedRef.current) {
+                  navigate('/homepage', {
+                    replace: true
+                  });
+                  setIsLoading(false);
+                }
               }, 500);
             } else if (userRole === 2) {
-              setTimeout(function () {
-                navigate('/homepage', {
-                  replace: true
-                });
-                setIsLoading(false);
+              timeoutRef.current = setTimeout(function () {
+                if (isMountedRef.current) {
+                  navigate('/homepage', {
+                    replace: true
+                  });
+                  setIsLoading(false);
+                }
               }, 500);
             } else if (userRole === 3) {
               // Admin role - redirect to admin panel
-              setTimeout(function () {
-                navigate('/admin', {
-                  replace: true
-                });
-                setIsLoading(false);
+              timeoutRef.current = setTimeout(function () {
+                if (isMountedRef.current) {
+                  navigate('/admin', {
+                    replace: true
+                  });
+                  setIsLoading(false);
+                }
               }, 500);
             } else {
-              setError("Invalid role: Unknown role ID ".concat(userRole));
-              console.error('Unknown role_id:', userRole, 'Full user data:', data.user);
-              setIsLoading(false);
+              if (isMountedRef.current) {
+                setError("Invalid role: Unknown role ID ".concat(userRole));
+                console.error('Unknown role_id:', userRole, 'Full user data:', data.user);
+                setIsLoading(false);
+              }
             }
             _context.n = 7;
             break;
           case 6:
             // Handle specific error for archived user
-            if (data.message === 'Account is archived and cannot log in') {
-              setError('Your account is locked. Please contact support.');
-            } else {
-              setError(data.message || 'Invalid email or password.');
+            if (isMountedRef.current) {
+              if (data.message === 'Account is archived and cannot log in') {
+                setError('Your account is locked. Please contact support.');
+              } else {
+                setError(data.message || 'Invalid email or password.');
+              }
+              setIsLoading(false);
             }
-            setIsLoading(false);
           case 7:
             _context.n = 9;
             break;
           case 8:
             _context.p = 8;
             _t = _context.v;
-            setError('An error occurred. Please try again later.');
-            console.error('Login error:', _t);
-            setIsLoading(false);
+            if (isMountedRef.current) {
+              setError('An error occurred. Please try again later.');
+              console.error('Login error:', _t);
+              setIsLoading(false);
+            }
           case 9:
             return _context.a(2);
         }
@@ -244704,11 +244943,11 @@ var EditMyBooking = function EditMyBooking(_ref) {
     // Calculate working days based on work type
     var workingDays = 0;
     switch (bookingDetails.work_type) {
-      case 'full-time':
+      case 'per_day':
         workingDays = calculateFullTimeWorkingDays(start, end);
         break;
-      case 'part-time':
-        workingDays = calculateFullTimeWorkingDays(start, end); // Same as full-time but different hours
+      case 'per_job':
+        workingDays = calculateFullTimeWorkingDays(start, end); // Same as per_day but different hours
         break;
       default:
         workingDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -245144,8 +245383,10 @@ var EditMyBooking = function EditMyBooking(_ref) {
           className: "edit-booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "edit-booking-form-label",
+            htmlFor: "service_type",
             children: "Service Type"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            id: "service_type",
             options: getAvailableServiceTypes(),
             value: bookingDetails.service_type,
             onChange: function onChange(value) {
@@ -245162,9 +245403,10 @@ var EditMyBooking = function EditMyBooking(_ref) {
           className: "edit-booking-form-field",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
             className: "edit-booking-form-label",
-            htmlFor: getAvailableSubSkills().length > 0 ? undefined : "sub_skill",
+            htmlFor: "sub_skill",
             children: "Sub Skills"
           }), getAvailableSubSkills().length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            id: "sub_skill",
             options: getAvailableSubSkills(),
             value: bookingDetails.sub_skill,
             onChange: function onChange(value) {
@@ -245191,12 +245433,13 @@ var EditMyBooking = function EditMyBooking(_ref) {
             htmlFor: "work_type",
             children: "Work Type"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_CustomDropdown__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            id: "work_type",
             options: [{
-              value: 'full-time',
-              label: 'Full-time'
+              value: 'per_day',
+              label: 'Per Day'
             }, {
-              value: 'part-time',
-              label: 'Part-time'
+              value: 'per_job',
+              label: 'Per Job'
             }],
             value: bookingDetails.work_type,
             onChange: function onChange(value) {
@@ -252553,11 +252796,12 @@ var MyPostJob = function MyPostJob() {
   }, []);
   var fetchJobs = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-      var authToken, userData, currentUser, profileId, profileResponse, response, _response$data$job_po, _error$response, _t, _t2, _t3;
+      var authToken, userData, currentUser, profileId, _userData$profile, _profileResponse$data, _profileResponse$data2, profileResponse, _profileError$respons, response, jobsData, _error$response, _t, _t2, _t3;
       return _regenerator().w(function (_context) {
         while (1) switch (_context.p = _context.n) {
           case 0:
             _context.p = 0;
+            setLoading(true);
             authToken = localStorage.getItem("auth_token");
             if (authToken) {
               _context.n = 1;
@@ -252583,60 +252827,107 @@ var MyPostJob = function MyPostJob() {
             console.log("No expired jobs to archive");
           case 4:
             userData = JSON.parse(localStorage.getItem("user") || '{}');
-            currentUser = userData.user || userData; // Get the profile ID first
+            currentUser = userData.user || userData; // Get the profile ID first - try multiple ways to get it
             _context.p = 5;
-            _context.n = 6;
+            if (!((_userData$profile = userData.profile) !== null && _userData$profile !== void 0 && _userData$profile.id)) {
+              _context.n = 6;
+              break;
+            }
+            profileId = userData.profile.id;
+            console.log("Profile ID from user data:", profileId);
+            _context.n = 8;
+            break;
+          case 6:
+            _context.n = 7;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/profiles?user_id=".concat(currentUser.id), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
               }
             });
-          case 6:
-            profileResponse = _context.v;
-            profileId = profileResponse.data.id;
-            console.log("Profile found for job fetch:", profileResponse.data);
-            _context.n = 8;
-            break;
           case 7:
-            _context.p = 7;
-            _t2 = _context.v;
-            console.log("Profile not found, using user ID:", currentUser.id);
-            profileId = currentUser.id;
+            profileResponse = _context.v;
+            // Handle different response formats
+            if ((_profileResponse$data = profileResponse.data) !== null && _profileResponse$data !== void 0 && _profileResponse$data.id) {
+              profileId = profileResponse.data.id;
+            } else if ((_profileResponse$data2 = profileResponse.data) !== null && _profileResponse$data2 !== void 0 && (_profileResponse$data2 = _profileResponse$data2.profile) !== null && _profileResponse$data2 !== void 0 && _profileResponse$data2.id) {
+              profileId = profileResponse.data.profile.id;
+            } else if (Array.isArray(profileResponse.data) && profileResponse.data.length > 0) {
+              profileId = profileResponse.data[0].id;
+            }
+            console.log("Profile found for job fetch:", profileResponse.data);
+            console.log("Profile ID extracted:", profileId);
           case 8:
-            _context.n = 9;
+            _context.n = 10;
+            break;
+          case 9:
+            _context.p = 9;
+            _t2 = _context.v;
+            console.error("Error fetching profile:", ((_profileError$respons = _t2.response) === null || _profileError$respons === void 0 ? void 0 : _profileError$respons.data) || _t2.message);
+            // Try to use profile_id from user data if available
+            if (currentUser.profile_id) {
+              profileId = currentUser.profile_id;
+              console.log("Using profile_id from user data:", profileId);
+            } else {
+              console.log("Profile not found, using user ID as fallback:", currentUser.id);
+              profileId = currentUser.id;
+            }
+          case 10:
+            if (profileId) {
+              _context.n = 11;
+              break;
+            }
+            console.error("Could not determine profile ID");
+            antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Could not load your profile. Please refresh the page.");
+            setJobs([]);
+            return _context.a(2);
+          case 11:
+            _context.n = 12;
             return axios__WEBPACK_IMPORTED_MODULE_3__["default"].get("http://127.0.0.1:8000/api/jobposts?profile_id=".concat(profileId, "&show_archived=true"), {
               headers: {
                 Authorization: "Bearer ".concat(authToken),
                 Accept: "application/json"
               }
             });
-          case 9:
+          case 12:
             response = _context.v;
             console.log("Job posts response:", response.data);
             console.log("Profile ID used:", profileId);
+
+            // Handle different response formats
+            jobsData = [];
             if (response.data.job_posts) {
-              setJobs(response.data.job_posts.data || []);
-              console.log("Jobs found:", ((_response$data$job_po = response.data.job_posts.data) === null || _response$data$job_po === void 0 ? void 0 : _response$data$job_po.length) || 0);
-            } else {
-              console.log("No job_posts in response:", response.data);
-              setJobs([]);
+              if (response.data.job_posts.data) {
+                jobsData = response.data.job_posts.data;
+              } else if (Array.isArray(response.data.job_posts)) {
+                jobsData = response.data.job_posts;
+              }
+            } else if (Array.isArray(response.data)) {
+              jobsData = response.data;
+            } else if (response.data.data) {
+              jobsData = response.data.data;
             }
-            _context.n = 11;
+            setJobs(jobsData);
+            console.log("Jobs found:", jobsData.length);
+            if (jobsData.length === 0) {
+              console.log("No jobs found for profile_id:", profileId);
+            }
+            _context.n = 14;
             break;
-          case 10:
-            _context.p = 10;
+          case 13:
+            _context.p = 13;
             _t3 = _context.v;
             console.error("Error fetching job posts:", ((_error$response = _t3.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t3.message);
             antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Failed to fetch job posts");
-          case 11:
-            _context.p = 11;
+            setJobs([]);
+          case 14:
+            _context.p = 14;
             setLoading(false);
-            return _context.f(11);
-          case 12:
+            return _context.f(14);
+          case 15:
             return _context.a(2);
         }
-      }, _callee, null, [[5, 7], [1, 3], [0, 10, 11, 12]]);
+      }, _callee, null, [[5, 9], [1, 3], [0, 13, 14, 15]]);
     }));
     return function fetchJobs() {
       return _ref.apply(this, arguments);
@@ -252856,6 +253147,8 @@ var MyPostJob = function MyPostJob() {
               'hourly': 'per_hour',
               'per_hour': 'per_hour',
               // Direct mapping for per_hour
+              'per_day': 'per_hour',
+              // Map per_day to per_hour (backend only accepts per_hour or per_month)
               'daily': 'per_hour',
               // Map daily to per_hour for now
               'weekly': 'per_hour',
@@ -253404,6 +253697,7 @@ var MyProfile = function MyProfile() {
   var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var credentialFileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var employerCredentialFileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var lastFetchedUserIdRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
 
   // Credential types from SkillRatingModal
   var credentialTypes = [{
@@ -253522,7 +253816,17 @@ var MyProfile = function MyProfile() {
   // Fetch rank and reviews when user is loaded
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var isMounted = true;
-    if (user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 1 || (user === null || user === void 0 ? void 0 : user.role_id) === '1')) {
+
+    // Prevent infinite loop by checking if we've already fetched for this user
+    var userId = user === null || user === void 0 ? void 0 : user.id;
+    var roleId = user === null || user === void 0 ? void 0 : user.role_id;
+    if (!userId || !roleId) return;
+
+    // Skip if we've already fetched for this user
+    if (lastFetchedUserIdRef.current === userId) {
+      return;
+    }
+    if (roleId === 1 || roleId === '1') {
       var fetchData = /*#__PURE__*/function () {
         var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
           var _t2;
@@ -253531,8 +253835,11 @@ var MyProfile = function MyProfile() {
               case 0:
                 _context2.p = 0;
                 _context2.n = 1;
-                return Promise.all([fetchWorkerReviews(user.id), fetchWorkerProfile(user.id), fetchAvailableSkills()]);
+                return Promise.all([fetchWorkerReviews(userId), fetchWorkerProfile(userId), fetchAvailableSkills()]);
               case 1:
+                if (isMounted) {
+                  lastFetchedUserIdRef.current = userId;
+                }
                 _context2.n = 3;
                 break;
               case 2:
@@ -253551,7 +253858,7 @@ var MyProfile = function MyProfile() {
         };
       }();
       fetchData();
-    } else if (user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2')) {
+    } else if (roleId === 2 || roleId === '2') {
       // Fetch employer data
       var fetchEmployerData = /*#__PURE__*/function () {
         var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
@@ -253560,10 +253867,13 @@ var MyProfile = function MyProfile() {
             while (1) switch (_context3.p = _context3.n) {
               case 0:
                 _context3.p = 0;
-                console.log('Fetching employer data for user:', user.id);
+                console.log('Fetching employer data for user:', userId);
                 _context3.n = 1;
-                return fetchEmployerProfile(user.id);
+                return fetchEmployerProfile(userId);
               case 1:
+                if (isMounted) {
+                  lastFetchedUserIdRef.current = userId;
+                }
                 _context3.n = 3;
                 break;
               case 2:
@@ -253586,7 +253896,7 @@ var MyProfile = function MyProfile() {
     return function () {
       isMounted = false;
     };
-  }, [user]);
+  }, [user === null || user === void 0 ? void 0 : user.id, user === null || user === void 0 ? void 0 : user.role_id]);
 
   // Handle clicking outside dropdown
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -254238,8 +254548,14 @@ var MyProfile = function MyProfile() {
                 postal_code: ((_employerUser$profile12 = employerUser.profile) === null || _employerUser$profile12 === void 0 ? void 0 : _employerUser$profile12.postal_code) || ((_employerUser$profile13 = employerUser.profile) === null || _employerUser$profile13 === void 0 || (_employerUser$profile13 = _employerUser$profile13.employer) === null || _employerUser$profile13 === void 0 ? void 0 : _employerUser$profile13.postal_code),
                 country: ((_employerUser$profile14 = employerUser.profile) === null || _employerUser$profile14 === void 0 ? void 0 : _employerUser$profile14.country) || ((_employerUser$profile15 = employerUser.profile) === null || _employerUser$profile15 === void 0 || (_employerUser$profile15 = _employerUser$profile15.employer) === null || _employerUser$profile15 === void 0 ? void 0 : _employerUser$profile15.country),
                 role_id: employerUser.role_id || roleId
-              }); // Update user state
-              setUser(updatedUser);
+              }); // Update user state only if it's actually different to prevent infinite loops
+              setUser(function (prevUser) {
+                // Only update if the ID or key fields have changed
+                if (!prevUser || prevUser.id !== updatedUser.id || JSON.stringify(prevUser.employer) !== JSON.stringify(updatedUser.employer)) {
+                  return updatedUser;
+                }
+                return prevUser;
+              });
 
               // Update profileData state with all employer profile information
               setProfileData({
@@ -255120,6 +255436,7 @@ var MyProfile = function MyProfile() {
   // Employer Credential Functions
   var handleEditEmployerCredentials = function handleEditEmployerCredentials() {
     setIsEditingEmployerCredentials(true);
+    setShowAddEmployerCredentialForm(true); // Show form when editing starts
   };
   var handleCancelEmployerCredentialsEdit = /*#__PURE__*/function () {
     var _ref18 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee18() {
@@ -255127,6 +255444,12 @@ var MyProfile = function MyProfile() {
         while (1) switch (_context18.n) {
           case 0:
             setIsEditingEmployerCredentials(false);
+            setShowAddEmployerCredentialForm(false);
+            setNewEmployerCredential({
+              credentials_name: '',
+              credentials_photo: null,
+              credentials_doc: null
+            });
             // Reload credentials from server
             if (!(user !== null && user !== void 0 && user.id && ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2'))) {
               _context18.n = 1;
@@ -255278,11 +255601,11 @@ var MyProfile = function MyProfile() {
   };
   var handleAddEmployerCredential = function handleAddEmployerCredential() {
     if (!newEmployerCredential.credentials_name.trim()) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please enter a credential name');
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please select a credential type');
       return;
     }
     if (!newEmployerCredential.credentials_photo && !newEmployerCredential.credentials_doc) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please upload a credential document');
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Please upload a credential document or image');
       return;
     }
     console.log('Adding employer credential:', {
@@ -255299,11 +255622,12 @@ var MyProfile = function MyProfile() {
       credentials_photo: null,
       credentials_doc: null
     });
-    setShowAddEmployerCredentialForm(false);
+    // Keep form visible so user can add more credentials
+    setShowAddEmployerCredentialForm(true);
     if (employerCredentialFileInputRef.current) {
       employerCredentialFileInputRef.current.value = '';
     }
-    antd__WEBPACK_IMPORTED_MODULE_1__["default"].success('Credential added! Click "Save Changes" to save.');
+    antd__WEBPACK_IMPORTED_MODULE_1__["default"].success("Credential added! (".concat(employerCredentials.length + 1, " total). You can add more or click \"Save Changes\" to save."));
   };
   var handleEmployerCredentialsSubmit = /*#__PURE__*/function () {
     var _ref20 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee20() {
@@ -257075,23 +257399,32 @@ var MyProfile = function MyProfile() {
       })]
     }), ((user === null || user === void 0 ? void 0 : user.role_id) === 2 || (user === null || user === void 0 ? void 0 : user.role_id) === '2') && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "employer-credentials-card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
-        className: "card-title",
-        children: "Credentials"
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "card-header-with-count",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+          className: "card-title",
+          children: "Credentials"
+        }), employerCredentials && employerCredentials.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+          className: "credentials-count",
+          children: ["(", employerCredentials.length, " ", employerCredentials.length === 1 ? 'credential' : 'credentials', ")"]
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "credentials-display",
-        children: [isEditingEmployerCredentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [isEditingEmployerCredentials && showAddEmployerCredentialForm && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "add-credential-form",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h4", {
             className: "add-form-title",
-            children: "Add New Credential"
+            children: ["Add New Credential", employerCredentials.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "add-more-hint",
+              children: " - You can add multiple credentials"
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-row",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 htmlFor: "employerCredentialName",
-                children: "Credential Type"
+                children: "Credential Type *"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
                 id: "employerCredentialName",
                 value: newEmployerCredential.credentials_name,
@@ -257113,7 +257446,7 @@ var MyProfile = function MyProfile() {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 htmlFor: "employerCredentialFile",
-                children: "Upload File (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)"
+                children: "Upload File * (Images: JPG, PNG, GIF, WEBP | Documents: PDF, Word - Max 2MB)"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                 type: "file",
                 id: "employerCredentialFile",
@@ -257127,32 +257460,74 @@ var MyProfile = function MyProfile() {
                 className: "file-selected-info",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
                   className: "file-selected",
-                  children: ["Selected: ", (_ref27 = newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) === null || _ref27 === void 0 ? void 0 : _ref27.name, newEmployerCredential.credentials_photo && ' (Image)', newEmployerCredential.credentials_doc && ' (Document)']
+                  children: ["\u2713 Selected: ", (_ref27 = newEmployerCredential.credentials_photo || newEmployerCredential.credentials_doc) === null || _ref27 === void 0 ? void 0 : _ref27.name, newEmployerCredential.credentials_photo && ' (Image)', newEmployerCredential.credentials_doc && ' (Document)']
                 })
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "add-credential-actions",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+              type: "button",
+              className: "add-credential-action-btn",
+              onClick: handleAddEmployerCredential,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                viewBox: "0 0 24 24",
+                width: "18",
+                height: "18",
+                fill: "currentColor",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                  d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                })
+              }), "Add to List"]
+            }), employerCredentials.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "button",
+              className: "close-form-btn",
+              onClick: function onClick() {
+                return setShowAddEmployerCredentialForm(false);
+              },
+              children: "Close Form"
+            })]
+          })]
+        }), isEditingEmployerCredentials && !showAddEmployerCredentialForm && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "add-credential-prompt",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             type: "button",
-            className: "add-credential-action-btn",
-            onClick: handleAddEmployerCredential,
+            className: "show-add-form-btn",
+            onClick: function onClick() {
+              return setShowAddEmployerCredentialForm(true);
+            },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               viewBox: "0 0 24 24",
-              width: "18",
-              height: "18",
+              width: "20",
+              height: "20",
               fill: "currentColor",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                 d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
               })
-            }), "Add to List"]
-          })]
-        }), employerCredentials && employerCredentials.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), "Add Another Credential"]
+          })
+        }), employerCredentials && employerCredentials.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "credentials-list",
-          children: employerCredentials.map(function (credential, index) {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "credentials-list-header",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "list-title",
+              children: "Your Credentials:"
+            })
+          }), employerCredentials.map(function (credential, index) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "credential-item",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "credential-icon",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                children: credential.credentials_photo || typeof credential.credentials_doc === 'string' && credential.credentials_doc ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                  viewBox: "0 0 24 24",
+                  width: "24",
+                  height: "24",
+                  fill: "currentColor",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    d: "M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"
+                  })
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                   viewBox: "0 0 24 24",
                   width: "24",
                   height: "24",
@@ -257168,24 +257543,51 @@ var MyProfile = function MyProfile() {
                   children: credential.credentials_name
                 }), credential.credentials_photo || credential.credentials_doc ? typeof credential.credentials_photo === 'string' || typeof credential.credentials_doc === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   className: "document-info",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
                     href: "http://127.0.0.1:8000/storage/".concat(credential.credentials_photo || credential.credentials_doc),
                     target: "_blank",
                     rel: "noopener noreferrer",
                     className: "view-document-link",
-                    children: "View Document"
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                      viewBox: "0 0 24 24",
+                      width: "16",
+                      height: "16",
+                      fill: "currentColor",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                        d: "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"
+                      })
+                    }), "View Document"]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                     className: "file-path",
                     children: (credential.credentials_photo || credential.credentials_doc).split('/').pop()
                   })]
                 }) : credential.credentials_photo instanceof File ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
                   className: "pending-upload",
-                  children: ["Pending upload: ", credential.credentials_photo.name]
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                    viewBox: "0 0 24 24",
+                    width: "16",
+                    height: "16",
+                    fill: "currentColor",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                      d: "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z"
+                    })
+                  }), "Pending upload: ", credential.credentials_photo.name]
+                }) : credential.credentials_doc instanceof File ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                  className: "pending-upload",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                    viewBox: "0 0 24 24",
+                    width: "16",
+                    height: "16",
+                    fill: "currentColor",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                      d: "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z"
+                    })
+                  }), "Pending upload: ", credential.credentials_doc.name]
                 }) : null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                   className: "no-file-uploaded",
                   children: "No file uploaded"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              }), isEditingEmployerCredentials && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "button",
                 className: "remove-credential-btn",
                 onClick: function onClick() {
@@ -257203,11 +257605,14 @@ var MyProfile = function MyProfile() {
                 })
               })]
             }, index);
-          })
+          })]
         }) : !isEditingEmployerCredentials ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
           className: "empty-state",
-          children: "No credentials added yet"
-        }) : null]
+          children: "No credentials added yet. Click \"Edit Credentials\" to add your first credential."
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "empty-state",
+          children: "No credentials added yet. Use the form above to add your first credential."
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "form-actions",
         children: !isEditingEmployerCredentials ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {

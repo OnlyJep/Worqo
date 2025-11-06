@@ -515,7 +515,14 @@ const MessageEmployer = () => {
                       const preview = conv.last_message.content.length > maxLength 
                         ? conv.last_message.content.substring(0, maxLength) + '...' 
                         : conv.last_message.content;
-                      return isSentByMe ? `You: ${preview}` : preview;
+                      // Show "You: " if sent by current user, otherwise show sender's name or "Worker: "
+                      if (isSentByMe) {
+                        return `You: ${preview}`;
+                      } else {
+                        // If we have the sender's name, use it, otherwise use "Worker: "
+                        const senderName = conv.name || 'Worker';
+                        return `${senderName}: ${preview}`;
+                      }
                     })()}
                   </div>
                 </div>
