@@ -71170,17 +71170,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/worqo_logo.svg */ "./resources/sass/img/worqo_logo.svg");
 // Imports
 
-
-
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".headerz {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  background-color: #1A2A44; /* Dark navy for professional look */\n  z-index: 1000;\n  padding: 0.75rem 0; /* Consistent padding */\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */\n}\n.headerz .switching-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(26, 42, 68, 0.95);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9999;\n  animation: fadeIn 0.3s ease-in-out;\n}\n.headerz .switching-overlay .switching-content {\n  text-align: center;\n  color: white;\n  padding: 2rem;\n  border-radius: 12px;\n  background: rgba(255, 255, 255, 0.1);\n  backdrop-filter: blur(10px);\n  border: 1px solid rgba(255, 255, 255, 0.2);\n}\n.headerz .switching-overlay .switching-content .switching-spinner {\n  width: 50px;\n  height: 50px;\n  border: 4px solid rgba(0, 196, 204, 0.3);\n  border-top: 4px solid #00C4CC;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin: 0 auto 1rem;\n}\n.headerz .switching-overlay .switching-content h3 {\n  margin: 0 0 0.5rem 0;\n  font-size: 1.5rem;\n  font-weight: 600;\n  color: #00C4CC;\n}\n.headerz .switching-overlay .switching-content p {\n  margin: 0;\n  font-size: 1rem;\n  opacity: 0.8;\n}\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.headerz .headerz-container {\n  display: flex;\n  align-items: center;\n  max-width: 1400px; /* Wide but controlled width */\n  margin: 0 auto;\n  padding: 0 2rem; /* Generous padding for clean edges */\n  justify-content: space-between; /* Ensure elements spread out */\n}\n.headerz .headerz-container .mobile-menu {\n  display: none;\n}\n.headerz .headerz-container .mobile-menu .menu-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .mobile-menu .menu-icon:hover {\n  color: #00C4CC; /* Consistent hover color */\n}\n.headerz .headerz-container .logo {\n  display: block;\n  width: 180px; /* Reduced for cleaner look */\n  height: 40px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat left center;\n  background-size: contain;\n  cursor: pointer;\n  flex-shrink: 0; /* Prevent logo from shrinking */\n}\n.headerz .headerz-container .nav-links {\n  display: flex;\n  gap: 2.5rem; /* Wider gap for clean spacing */\n  flex-grow: 1;\n  justify-content: center;\n  align-items: center;\n}\n.headerz .headerz-container .nav-links .mobile-logo {\n  display: none;\n}\n.headerz .headerz-container .nav-links span {\n  color: #FFFFFF;\n  text-decoration: none;\n  font-size: 1rem;\n  font-weight: 500; /* Slightly bolder for professionalism */\n  font-family: \"Inter\", sans-serif; /* Clean, modern font */\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .nav-links span:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 1.5rem; /* Consistent spacing */\n  flex-shrink: 0;\n}\n.headerz .headerz-container .header-actions .notification-wrapper {\n  position: relative;\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .header-icon {\n  color: #FFFFFF;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .header-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .notification-badge {\n  position: absolute;\n  top: -6px;\n  right: -6px;\n  background-color: #dc3545;\n  color: white;\n  border-radius: 50%;\n  width: 16px;\n  height: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.65rem;\n  font-weight: 600;\n  border: 1px solid #1A2A44;\n  animation: pulse 2s infinite;\n}\n.headerz .headerz-container .header-actions .header-icon {\n  color: #FFFFFF;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .header-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .login-btn {\n  padding: 0.5rem 1.2rem; /* Larger, cleaner button */\n  background-color: #27426d; /* Primary color for prominence */\n  color: #FFFFFF;\n  border: none; /* Removed border for cleaner look */\n  border-radius: 6px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: background-color 0.2s ease, transform 0.1s ease;\n}\n.headerz .headerz-container .header-actions .login-btn:hover {\n  background-color: #00A3AA; /* Darker shade for hover */\n  transform: translateY(-1px); /* Subtle lift effect */\n}\n.headerz .headerz-container .header-actions .login-btn:active {\n  transform: translateY(0); /* Reset on click */\n}\n.headerz .headerz-container .header-actions .profile {\n  position: relative;\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n.headerz .headerz-container .header-actions .profile .profile-icon {\n  width: 32px;\n  height: 32px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #FFFFFF;\n  cursor: pointer;\n  transition: border-color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle {\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle::after {\n  display: none !important;\n  content: none !important;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-icon {\n  color: #FFFFFF;\n  font-size: 1.2rem;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle.open .dropdown-menu {\n  display: block;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #FFFFFF;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  border-radius: 6px;\n  min-width: 160px;\n  z-index: 1000;\n  margin-top: 0.5rem; /* Space from profile icon */\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul {\n  list-style: none;\n  margin: 0;\n  padding: 0.5rem 0;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li {\n  display: flex;\n  align-items: center;\n  gap: 0.75rem;\n  padding: 0.75rem 1.25rem;\n  color: #1A2A44;\n  font-size: 0.9rem;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li:hover {\n  background-color: #F5F7FA; /* Light gray for hover */\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li .menu-icon {\n  font-size: 0.9rem;\n  color: #1A2A44;\n}\n@media (max-width: 768px) {\n  .headerz .headerz-container {\n    padding: 0 1.5rem;\n  }\n  .headerz .headerz-container .mobile-menu {\n    display: flex;\n    align-items: center;\n    z-index: 1001; /* Above nav-links */\n  }\n  .headerz .headerz-container .logo {\n    display: none; /* Hide logo on mobile */\n  }\n  .headerz .headerz-container .nav-links {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: #1A2A44;\n    z-index: 999;\n    padding: 4rem 1.5rem 1rem;\n    transform: translateX(-100%);\n    opacity: 0;\n    visibility: hidden;\n    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;\n    flex-direction: column;\n    align-items: flex-start;\n  }\n  .headerz .headerz-container .nav-links .mobile-logo {\n    display: block;\n    width: 150px;\n    height: 35px;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat left center;\n    background-size: contain;\n    cursor: pointer;\n    margin-bottom: 2rem;\n    opacity: 0;\n    transform: translateX(-20px);\n    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;\n  }\n  .headerz .headerz-container .nav-links span {\n    font-size: 1.1rem;\n    padding: 1rem 0;\n    width: 100%;\n    opacity: 0;\n    transform: translateX(-20px);\n    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(2) {\n    transition-delay: 0.1s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(3) {\n    transition-delay: 0.2s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(4) {\n    transition-delay: 0.3s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(5) {\n    transition-delay: 0.4s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(6) {\n    transition-delay: 0.5s;\n  }\n  .headerz .headerz-container .nav-links.open {\n    transform: translateX(0);\n    opacity: 1;\n    visibility: visible;\n  }\n  .headerz .headerz-container .nav-links.open .mobile-logo {\n    opacity: 1;\n    transform: translateX(0);\n    transition-delay: 0s;\n  }\n  .headerz .headerz-container .nav-links.open span {\n    opacity: 1;\n    transform: translateX(0);\n  }\n  .headerz .headerz-container .header-actions {\n    gap: 1.2rem;\n  }\n  .headerz .headerz-container .header-actions .notification-wrapper .notification-badge {\n    width: 14px;\n    height: 14px;\n    font-size: 0.6rem;\n    top: -5px;\n    right: -5px;\n  }\n  .headerz .headerz-container .header-actions .login-btn {\n    padding: 0.4rem 1rem;\n    font-size: 0.85rem;\n  }\n  .headerz .headerz-container .header-actions .profile .profile-icon {\n    width: 32px;\n    height: 32px;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu {\n    right: 0;\n    min-width: 140px;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu ul li {\n    padding: 0.75rem 1rem;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu ul li .menu-icon {\n    font-size: 0.85rem;\n  }\n}\n@media (max-width: 480px) {\n  .headerz .headerz-container {\n    padding: 0 1rem;\n  }\n  .headerz .headerz-container .logo {\n    display: none; /* Hide logo on mobile */\n  }\n  .headerz .headerz-container .header-actions {\n    gap: 1rem;\n  }\n  .headerz .headerz-container .header-actions .login-btn {\n    padding: 0.3rem 0.8rem;\n    font-size: 0.8rem;\n  }\n}\n@keyframes pulse {\n  0% {\n    transform: scale(1);\n  }\n  50% {\n    transform: scale(1.1);\n  }\n  100% {\n    transform: scale(1);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".headerz {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  background-color: #1A2A44; /* Dark navy for professional look */\n  z-index: 1000;\n  padding: 0.75rem 0; /* Consistent padding */\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */\n}\n.headerz .switching-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(26, 42, 68, 0.95);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 9999;\n  animation: fadeIn 0.3s ease-in-out;\n}\n.headerz .switching-overlay .switching-content {\n  text-align: center;\n  color: white;\n  padding: 2rem;\n  border-radius: 12px;\n  background: rgba(255, 255, 255, 0.1);\n  backdrop-filter: blur(10px);\n  border: 1px solid rgba(255, 255, 255, 0.2);\n}\n.headerz .switching-overlay .switching-content .switching-spinner {\n  width: 50px;\n  height: 50px;\n  border: 4px solid rgba(0, 196, 204, 0.3);\n  border-top: 4px solid #00C4CC;\n  border-radius: 50%;\n  animation: spin 1s linear infinite;\n  margin: 0 auto 1rem;\n}\n.headerz .switching-overlay .switching-content h3 {\n  margin: 0 0 0.5rem 0;\n  font-size: 1.5rem;\n  font-weight: 600;\n  color: #00C4CC;\n}\n.headerz .switching-overlay .switching-content p {\n  margin: 0;\n  font-size: 1rem;\n  opacity: 0.8;\n}\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.headerz .headerz-container {\n  display: flex;\n  align-items: center;\n  max-width: 1400px; /* Wide but controlled width */\n  margin: 0 auto;\n  padding: 0 2rem; /* Generous padding for clean edges */\n  justify-content: space-between; /* Ensure elements spread out */\n}\n.headerz .headerz-container .mobile-menu {\n  display: none;\n}\n.headerz .headerz-container .mobile-menu .menu-icon {\n  color: #FFFFFF;\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .mobile-menu .menu-icon:hover {\n  color: #00C4CC; /* Consistent hover color */\n}\n.headerz .headerz-container .logo {\n  display: block;\n  width: 180px; /* Reduced for cleaner look */\n  height: 40px;\n  background: url(\"./../img/worqo_logo.svg\") no-repeat left center;\n  background-size: contain;\n  cursor: pointer;\n  flex-shrink: 0; /* Prevent logo from shrinking */\n}\n.headerz .headerz-container .nav-links {\n  display: flex;\n  gap: 2.5rem; /* Wider gap for clean spacing */\n  flex-grow: 1;\n  justify-content: center;\n  align-items: center;\n}\n.headerz .headerz-container .nav-links .mobile-logo {\n  display: none;\n}\n.headerz .headerz-container .nav-links span {\n  color: #FFFFFF;\n  text-decoration: none;\n  font-size: 1rem;\n  font-weight: 500; /* Slightly bolder for professionalism */\n  font-family: \"Inter\", sans-serif; /* Clean, modern font */\n  cursor: pointer;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .nav-links span:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions {\n  display: flex;\n  align-items: center;\n  gap: 1.5rem; /* Consistent spacing */\n  flex-shrink: 0;\n}\n.headerz .headerz-container .header-actions .notification-wrapper {\n  position: relative;\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .header-icon {\n  color: #FFFFFF;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .header-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .notification-wrapper .notification-badge {\n  position: absolute;\n  top: -6px;\n  right: -6px;\n  background-color: #dc3545;\n  color: white;\n  border-radius: 50%;\n  width: 16px;\n  height: 16px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.65rem;\n  font-weight: 600;\n  border: 1px solid #1A2A44;\n  animation: pulse 2s infinite;\n}\n.headerz .headerz-container .header-actions .header-icon {\n  color: #FFFFFF;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .header-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .login-btn {\n  padding: 0.5rem 1.2rem; /* Larger, cleaner button */\n  background-color: #27426d; /* Primary color for prominence */\n  color: #FFFFFF;\n  border: none; /* Removed border for cleaner look */\n  border-radius: 6px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: background-color 0.2s ease, transform 0.1s ease;\n}\n.headerz .headerz-container .header-actions .login-btn:hover {\n  background-color: #00A3AA; /* Darker shade for hover */\n  transform: translateY(-1px); /* Subtle lift effect */\n}\n.headerz .headerz-container .header-actions .login-btn:active {\n  transform: translateY(0); /* Reset on click */\n}\n.headerz .headerz-container .header-actions .profile {\n  position: relative;\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n}\n.headerz .headerz-container .header-actions .profile .profile-icon {\n  width: 32px;\n  height: 32px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border: 2px solid #FFFFFF;\n  cursor: pointer;\n  transition: border-color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle {\n  cursor: pointer;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle::after {\n  display: none !important;\n  content: none !important;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-icon {\n  color: #FFFFFF;\n  font-size: 1.2rem;\n  transition: color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-icon:hover {\n  color: #00C4CC;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle.open .dropdown-menu {\n  display: block;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu {\n  display: none;\n  position: absolute;\n  top: 100%;\n  right: 0;\n  background-color: #FFFFFF;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n  border-radius: 6px;\n  min-width: 160px;\n  z-index: 1000;\n  margin-top: 0.5rem; /* Space from profile icon */\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul {\n  list-style: none;\n  margin: 0;\n  padding: 0.5rem 0;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li {\n  display: flex;\n  align-items: center;\n  gap: 0.75rem;\n  padding: 0.75rem 1.25rem;\n  color: #1A2A44;\n  font-size: 0.9rem;\n  font-family: \"Inter\", sans-serif;\n  cursor: pointer;\n  transition: background-color 0.2s ease;\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li:hover {\n  background-color: #F5F7FA; /* Light gray for hover */\n}\n.headerz .headerz-container .header-actions .profile .dropdown-toggle .dropdown-menu ul li .menu-icon {\n  font-size: 0.9rem;\n  color: #1A2A44;\n}\n@media (max-width: 768px) {\n  .headerz .headerz-container {\n    padding: 0 1.5rem;\n  }\n  .headerz .headerz-container .mobile-menu {\n    display: flex;\n    align-items: center;\n    z-index: 1001; /* Above nav-links */\n  }\n  .headerz .headerz-container .logo {\n    display: none; /* Hide logo on mobile */\n  }\n  .headerz .headerz-container .nav-links {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: #1A2A44;\n    z-index: 999;\n    padding: 4rem 1.5rem 1rem;\n    transform: translateX(-100%);\n    opacity: 0;\n    visibility: hidden;\n    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;\n    flex-direction: column;\n    align-items: flex-start;\n  }\n  .headerz .headerz-container .nav-links .mobile-logo {\n    display: block;\n    width: 150px;\n    height: 35px;\n    background: url(\"./../img/worqo_logo.svg\") no-repeat left center;\n    background-size: contain;\n    cursor: pointer;\n    margin-bottom: 2rem;\n    opacity: 0;\n    transform: translateX(-20px);\n    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;\n  }\n  .headerz .headerz-container .nav-links span {\n    font-size: 1.1rem;\n    padding: 1rem 0;\n    width: 100%;\n    opacity: 0;\n    transform: translateX(-20px);\n    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(2) {\n    transition-delay: 0.1s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(3) {\n    transition-delay: 0.2s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(4) {\n    transition-delay: 0.3s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(5) {\n    transition-delay: 0.4s;\n  }\n  .headerz .headerz-container .nav-links span:nth-child(6) {\n    transition-delay: 0.5s;\n  }\n  .headerz .headerz-container .nav-links.open {\n    transform: translateX(0);\n    opacity: 1;\n    visibility: visible;\n  }\n  .headerz .headerz-container .nav-links.open .mobile-logo {\n    opacity: 1;\n    transform: translateX(0);\n    transition-delay: 0s;\n  }\n  .headerz .headerz-container .nav-links.open span {\n    opacity: 1;\n    transform: translateX(0);\n  }\n  .headerz .headerz-container .header-actions {\n    gap: 1.2rem;\n  }\n  .headerz .headerz-container .header-actions .notification-wrapper .notification-badge {\n    width: 14px;\n    height: 14px;\n    font-size: 0.6rem;\n    top: -5px;\n    right: -5px;\n  }\n  .headerz .headerz-container .header-actions .login-btn {\n    padding: 0.4rem 1rem;\n    font-size: 0.85rem;\n  }\n  .headerz .headerz-container .header-actions .profile .profile-icon {\n    width: 32px;\n    height: 32px;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu {\n    right: 0;\n    min-width: 140px;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu ul li {\n    padding: 0.75rem 1rem;\n  }\n  .headerz .headerz-container .header-actions .profile .dropdown-menu ul li .menu-icon {\n    font-size: 0.85rem;\n  }\n}\n@media (max-width: 480px) {\n  .headerz .headerz-container {\n    padding: 0 1rem;\n  }\n  .headerz .headerz-container .logo {\n    display: none; /* Hide logo on mobile */\n  }\n  .headerz .headerz-container .header-actions {\n    gap: 1rem;\n  }\n  .headerz .headerz-container .header-actions .login-btn {\n    padding: 0.3rem 0.8rem;\n    font-size: 0.8rem;\n  }\n}\n@keyframes pulse {\n  0% {\n    transform: scale(1);\n  }\n  50% {\n    transform: scale(1.1);\n  }\n  100% {\n    transform: scale(1);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71592,20 +71586,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _img_worqo_side_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/worqo_side.svg */ "./resources/sass/img/worqo_side.svg");
-/* harmony import */ var _img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/worqo_logo.svg */ "./resources/sass/img/worqo_logo.svg");
 // Imports
 
-
-
-
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_side_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".login-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #f5f5f5;\n  margin: 0;\n  padding: 0;\n  overflow-y: auto;\n  box-sizing: border-box;\n}\n\n.login-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #ffffff;\n  border-radius: 0;\n  box-shadow: none;\n  overflow: hidden;\n}\n\n.login-image-section {\n  flex: 1;\n  background: #001E40 url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: cover;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 30px;\n}\n.login-image-section .login-logo {\n  width: 100%;\n  max-width: 400px;\n  height: auto;\n  max-height: 90%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n}\n\n.login-content {\n  flex: 1;\n  padding: 40px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #ffffff;\n}\n\n.login-container {\n  background: #ffffff;\n  border-radius: 16px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n  padding: 30px;\n  width: 100%;\n  max-width: 350px;\n  transition: transform 0.3s ease;\n}\n\n.login-header {\n  text-align: left;\n  margin-bottom: 40px;\n  width: 100%;\n}\n\n.login-title {\n  font-size: 32px;\n  font-weight: 700;\n  margin-bottom: 10px;\n  color: #000000;\n}\n\n.login-subtitle {\n  font-size: 18px;\n  color: #666666;\n  margin: 0;\n}\n\n.login-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.login-input-group,\n.login-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.login-input-group input,\n.login-password-group input {\n  width: 100%;\n  padding: 12px 40px 12px 12px;\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  transition: border-color 0.3s, box-shadow 0.3s;\n}\n.login-input-group input:focus,\n.login-password-group input:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.login-input-group input::-moz-placeholder, .login-password-group input::-moz-placeholder {\n  color: #999999;\n}\n.login-input-group input::placeholder,\n.login-password-group input::placeholder {\n  color: #999999;\n}\n\n.login-password-group {\n  position: relative;\n}\n.login-password-group .password-toggle {\n  position: absolute;\n  right: 16px;\n  top: 18px;\n  cursor: pointer;\n  color: #666666;\n  font-size: 20px;\n  z-index: 2;\n  transition: color 0.3s;\n}\n.login-password-group .password-toggle:hover {\n  color: #001E40;\n}\n\n.login-options-group {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.login-options-group .remember-me {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #000000;\n}\n.login-options-group .remember-me input {\n  margin-right: 8px;\n  accent-color: #001E40;\n  width: 18px;\n  height: 18px;\n}\n.login-options-group .forgot-password {\n  font-size: 14px;\n  color: #0000FF;\n  text-decoration: none;\n}\n.login-options-group .forgot-password:hover {\n  text-decoration: underline;\n}\n\n.login-submit-btn {\n  width: 100%;\n  padding: 18px;\n  background: #001E40;\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 600;\n  border: none;\n  cursor: pointer;\n  border-radius: 12px;\n  margin-top: 30px;\n  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;\n}\n.login-submit-btn:hover {\n  background: #003366;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);\n}\n.login-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n.login-signup {\n  margin-top: 30px;\n  font-size: 14px;\n  text-align: center;\n}\n.login-signup .login-signup-link {\n  color: #001E40;\n  text-decoration: underline;\n  font-weight: 500;\n}\n.login-signup .login-signup-link:hover {\n  color: #003366;\n}\n\n.login-error {\n  color: #ff0000;\n  font-size: 16px;\n  margin-bottom: 20px;\n  text-align: center;\n  animation: fadeIn 0.3s ease;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/* Responsive Design */\n@media (max-width: 768px) {\n  .login-wrapper {\n    background: #ffffff;\n    align-items: flex-start;\n    padding-top: 20px;\n  }\n  .login-card {\n    flex-direction: column;\n    height: auto;\n    min-height: 100vh;\n  }\n  .login-image-section {\n    height: 200px;\n    width: 100%;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat center top;\n    background-size: contain;\n    padding: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n  }\n  .login-image-section .login-logo {\n    max-width: 250px;\n    max-height: 150px;\n  }\n  .login-content {\n    padding: 20px;\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .login-container {\n    padding: 30px;\n    border-radius: 12px;\n    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);\n    margin: 0 20px;\n  }\n  .login-header {\n    padding: 0;\n  }\n  .login-title {\n    font-size: 28px;\n  }\n  .login-subtitle {\n    font-size: 16px;\n  }\n  .login-input-group input,\n  .login-password-group input {\n    padding: 14px 48px 14px 16px;\n    font-size: 16px;\n  }\n  .login-input-group .password-toggle,\n  .login-password-group .password-toggle {\n    top: 16px;\n  }\n  .login-submit-btn {\n    padding: 16px;\n    font-size: 18px;\n  }\n  .login-options-group .remember-me {\n    font-size: 13px;\n  }\n  .login-options-group .remember-me input {\n    width: 16px;\n    height: 16px;\n  }\n  .login-options-group .forgot-password {\n    font-size: 13px;\n  }\n}\n@media (max-width: 480px) {\n  .login-image-section {\n    height: 180px;\n  }\n  .login-image-section .login-logo {\n    max-width: 220px;\n    max-height: 120px;\n  }\n  .login-container {\n    padding: 20px;\n    margin: 0 15px;\n  }\n  .login-title {\n    font-size: 24px;\n  }\n  .login-subtitle {\n    font-size: 14px;\n  }\n  .login-submit-btn {\n    padding: 14px;\n    font-size: 16px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".login-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #f5f5f5;\n  margin: 0;\n  padding: 0;\n  overflow-y: auto;\n  box-sizing: border-box;\n}\n\n.login-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #ffffff;\n  border-radius: 0;\n  box-shadow: none;\n  overflow: hidden;\n}\n\n.login-image-section {\n  flex: 1;\n  background: #001E40 url(\"./../img/worqo_side.svg\") no-repeat center;\n  background-size: cover;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 30px;\n}\n.login-image-section .login-logo {\n  width: 100%;\n  max-width: 400px;\n  height: auto;\n  max-height: 90%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n}\n\n.login-content {\n  flex: 1;\n  padding: 40px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #ffffff;\n}\n\n.login-container {\n  background: #ffffff;\n  border-radius: 16px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n  padding: 30px;\n  width: 100%;\n  max-width: 350px;\n  transition: transform 0.3s ease;\n}\n\n.login-header {\n  text-align: left;\n  margin-bottom: 40px;\n  width: 100%;\n}\n\n.login-title {\n  font-size: 32px;\n  font-weight: 700;\n  margin-bottom: 10px;\n  color: #000000;\n}\n\n.login-subtitle {\n  font-size: 18px;\n  color: #666666;\n  margin: 0;\n}\n\n.login-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.login-input-group,\n.login-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.login-input-group input,\n.login-password-group input {\n  width: 100%;\n  padding: 12px 40px 12px 12px;\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  transition: border-color 0.3s, box-shadow 0.3s;\n}\n.login-input-group input:focus,\n.login-password-group input:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.login-input-group input::-moz-placeholder, .login-password-group input::-moz-placeholder {\n  color: #999999;\n}\n.login-input-group input::placeholder,\n.login-password-group input::placeholder {\n  color: #999999;\n}\n\n.login-password-group {\n  position: relative;\n}\n.login-password-group .password-toggle {\n  position: absolute;\n  right: 16px;\n  top: 18px;\n  cursor: pointer;\n  color: #666666;\n  font-size: 20px;\n  z-index: 2;\n  transition: color 0.3s;\n}\n.login-password-group .password-toggle:hover {\n  color: #001E40;\n}\n\n.login-options-group {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.login-options-group .remember-me {\n  display: flex;\n  align-items: center;\n  font-size: 14px;\n  color: #000000;\n}\n.login-options-group .remember-me input {\n  margin-right: 8px;\n  accent-color: #001E40;\n  width: 18px;\n  height: 18px;\n}\n.login-options-group .forgot-password {\n  font-size: 14px;\n  color: #0000FF;\n  text-decoration: none;\n}\n.login-options-group .forgot-password:hover {\n  text-decoration: underline;\n}\n\n.login-submit-btn {\n  width: 100%;\n  padding: 18px;\n  background: #001E40;\n  color: #ffffff;\n  font-size: 20px;\n  font-weight: 600;\n  border: none;\n  cursor: pointer;\n  border-radius: 12px;\n  margin-top: 30px;\n  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;\n}\n.login-submit-btn:hover {\n  background: #003366;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);\n}\n.login-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n.login-signup {\n  margin-top: 30px;\n  font-size: 14px;\n  text-align: center;\n}\n.login-signup .login-signup-link {\n  color: #001E40;\n  text-decoration: underline;\n  font-weight: 500;\n}\n.login-signup .login-signup-link:hover {\n  color: #003366;\n}\n\n.login-error {\n  color: #ff0000;\n  font-size: 16px;\n  margin-bottom: 20px;\n  text-align: center;\n  animation: fadeIn 0.3s ease;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/* Responsive Design */\n@media (max-width: 768px) {\n  .login-wrapper {\n    background: #ffffff;\n    align-items: flex-start;\n    padding-top: 20px;\n  }\n  .login-card {\n    flex-direction: column;\n    height: auto;\n    min-height: 100vh;\n  }\n  .login-image-section {\n    height: 200px;\n    width: 100%;\n    background: url(\"./../img/worqo_logo.svg\") no-repeat center top;\n    background-size: contain;\n    padding: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n  }\n  .login-image-section .login-logo {\n    max-width: 250px;\n    max-height: 150px;\n  }\n  .login-content {\n    padding: 20px;\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .login-container {\n    padding: 30px;\n    border-radius: 12px;\n    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);\n    margin: 0 20px;\n  }\n  .login-header {\n    padding: 0;\n  }\n  .login-title {\n    font-size: 28px;\n  }\n  .login-subtitle {\n    font-size: 16px;\n  }\n  .login-input-group input,\n  .login-password-group input {\n    padding: 14px 48px 14px 16px;\n    font-size: 16px;\n  }\n  .login-input-group .password-toggle,\n  .login-password-group .password-toggle {\n    top: 16px;\n  }\n  .login-submit-btn {\n    padding: 16px;\n    font-size: 18px;\n  }\n  .login-options-group .remember-me {\n    font-size: 13px;\n  }\n  .login-options-group .remember-me input {\n    width: 16px;\n    height: 16px;\n  }\n  .login-options-group .forgot-password {\n    font-size: 13px;\n  }\n}\n@media (max-width: 480px) {\n  .login-image-section {\n    height: 180px;\n  }\n  .login-image-section .login-logo {\n    max-width: 220px;\n    max-height: 120px;\n  }\n  .login-container {\n    padding: 20px;\n    margin: 0 15px;\n  }\n  .login-title {\n    font-size: 24px;\n  }\n  .login-subtitle {\n    font-size: 14px;\n  }\n  .login-submit-btn {\n    padding: 14px;\n    font-size: 16px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71661,9 +71646,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  height: 100%;\n  marg
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranksModal.scss":
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranksmodal.scss":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranksModal.scss ***!
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranksmodal.scss ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -71698,20 +71683,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _img_worqo_side_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/worqo_side.svg */ "./resources/sass/img/worqo_side.svg");
-/* harmony import */ var _img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/worqo_logo.svg */ "./resources/sass/img/worqo_logo.svg");
 // Imports
 
-
-
-
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_side_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_logo_svg__WEBPACK_IMPORTED_MODULE_3__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".register-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #f5f5f5;\n  margin: 0;\n  padding: 0;\n  overflow-y: auto;\n  box-sizing: border-box;\n}\n\n.register-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #ffffff;\n  border-radius: 0;\n  box-shadow: none;\n  overflow: hidden;\n}\n\n.register-image-section {\n  flex: 1;\n  background: #001E40 url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: cover;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 30px;\n}\n.register-image-section .register-logo {\n  width: 100%;\n  max-width: 400px;\n  height: auto;\n  max-height: 90%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n}\n\n.register-content {\n  flex: 1;\n  padding: 60px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #ffffff;\n}\n\n.register-container {\n  background: #ffffff;\n  border-radius: 16px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n  padding: 30px;\n  width: 100%;\n  max-width: 350px;\n  transition: transform 0.3s ease;\n}\n\n.register-header {\n  text-align: left;\n  margin-bottom: 40px;\n  width: 100%;\n}\n\n.register-title {\n  font-size: 32px;\n  font-weight: 700;\n  margin-bottom: 10px;\n  color: #000000;\n}\n\n.register-subtitle {\n  font-size: 18px;\n  color: #666666;\n  margin: 0;\n}\n\n.register-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.register-row {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 20px;\n}\n.register-row .register-input-group {\n  flex: 1;\n  margin-right: 10px;\n}\n.register-row .register-input-group:last-child {\n  margin-right: 0;\n}\n.register-row .register-input-group input,\n.register-row .register-input-group select {\n  width: 100%;\n  padding: 12px 24px 12px 12px;\n  font-size: 16px;\n}\n\n.register-input-group,\n.register-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.register-input-group input,\n.register-input-group select,\n.register-password-group input,\n.register-password-group select {\n  width: 100%;\n  padding: 12px 40px 12px 12px; /* Adjusted for icon space */\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  transition: border-color 0.3s, box-shadow 0.3s;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; /* Remove default arrow */\n}\n.register-input-group input:focus,\n.register-input-group select:focus,\n.register-password-group input:focus,\n.register-password-group select:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.register-input-group input::-moz-placeholder, .register-input-group select::-moz-placeholder, .register-password-group input::-moz-placeholder, .register-password-group select::-moz-placeholder {\n  color: #999999;\n}\n.register-input-group input::placeholder,\n.register-input-group select::placeholder,\n.register-password-group input::placeholder,\n.register-password-group select::placeholder {\n  color: #999999;\n}\n\n.register-password-group {\n  position: relative;\n}\n.register-password-group .password-toggle {\n  position: absolute;\n  right: 12px;\n  top: 14px;\n  cursor: pointer;\n  color: #666666;\n  font-size: 18px;\n  z-index: 2;\n  transition: color 0.3s;\n}\n.register-password-group .password-toggle:hover {\n  color: #001E40;\n}\n\n.register-select-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.register-select-group select {\n  width: 100%;\n  padding: 12px 40px 12px 12px; /* Space for icon */\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; /* Remove default arrow */\n  cursor: pointer;\n}\n.register-select-group select:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.register-select-group .select-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: 16px;\n  pointer-events: none; /* Prevent icon from interfering with select */\n}\n\n.register-submit-btn {\n  width: 100%;\n  padding: 16px;\n  background: #001E40;\n  color: #ffffff;\n  font-size: 18px;\n  font-weight: 600;\n  border: none;\n  cursor: pointer;\n  border-radius: 12px;\n  margin-top: 20px;\n  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;\n}\n.register-submit-btn:hover {\n  background: #003366;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);\n}\n.register-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n.register-login {\n  margin-top: 20px;\n  font-size: 14px;\n  text-align: center;\n}\n.register-login .register-login-link {\n  color: #001E40;\n  text-decoration: underline;\n  font-weight: 500;\n}\n.register-login .register-login-link:hover {\n  color: #003366;\n}\n\n.register-error {\n  color: #ff0000;\n  font-size: 16px;\n  margin-bottom: 20px;\n  text-align: center;\n  animation: fadeIn 0.3s ease;\n}\n\n.custom-alert {\n  position: fixed;\n  top: 20px;\n  right: 20px;\n  padding: 15px 20px;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  z-index: 1000;\n  min-width: 200px;\n  max-width: 400px;\n  font-size: 16px;\n  transition: opacity 0.3s ease;\n}\n.custom-alert.success {\n  background: #e6ffed;\n  color: #2e7d32;\n  border: 1px solid #4caf50;\n}\n.custom-alert.error {\n  background: #ffe6e6;\n  color: #d32f2f;\n  border: 1px solid #f44336;\n}\n.custom-alert .alert-close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  cursor: pointer;\n  color: #666666;\n  margin-left: 10px;\n}\n.custom-alert .alert-close-btn:hover {\n  color: #000000;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/* Responsive Design */\n@media (max-width: 768px) {\n  .register-wrapper {\n    background: #ffffff;\n    align-items: flex-start;\n    padding-top: 20px;\n  }\n  .register-card {\n    flex-direction: column;\n    height: auto;\n    min-height: 100vh;\n  }\n  .register-image-section {\n    height: 200px;\n    width: 100%;\n    background: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ") no-repeat center top;\n    background-size: contain;\n    padding: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n  }\n  .register-image-section .register-logo {\n    max-width: 250px;\n    max-height: 150px;\n  }\n  .register-content {\n    padding: 20px;\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .register-container {\n    padding: 30px;\n    border-radius: 12px;\n    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);\n    margin: 0 20px;\n  }\n  .register-header {\n    padding: 0;\n  }\n  .register-title {\n    font-size: 28px;\n  }\n  .register-subtitle {\n    font-size: 16px;\n  }\n  .register-row {\n    flex-direction: column;\n  }\n  .register-row .register-input-group {\n    margin-right: 0;\n    margin-bottom: 20px;\n  }\n  .register-row .register-input-group input,\n  .register-row .register-input-group select {\n    padding: 10px 35px 10px 10px;\n    font-size: 14px;\n  }\n  .register-input-group input,\n  .register-input-group select,\n  .register-password-group input,\n  .register-password-group select {\n    padding: 10px 35px 10px 10px;\n    font-size: 14px;\n  }\n  .register-input-group .password-toggle,\n  .register-password-group .password-toggle {\n    top: 12px;\n    font-size: 16px;\n  }\n  .register-select-group .select-icon {\n    font-size: 14px;\n    right: 10px;\n  }\n  .register-submit-btn {\n    padding: 14px;\n    font-size: 16px;\n  }\n}\n@media (max-width: 480px) {\n  .register-image-section {\n    height: 180px;\n  }\n  .register-image-section .register-logo {\n    max-width: 220px;\n    max-height: 120px;\n  }\n  .register-container {\n    padding: 20px;\n    margin: 0 15px;\n  }\n  .register-title {\n    font-size: 24px;\n  }\n  .register-subtitle {\n    font-size: 14px;\n  }\n  .register-submit-btn {\n    padding: 12px;\n    font-size: 14px;\n  }\n  .register-input-group input,\n  .register-input-group select,\n  .register-password-group input,\n  .register-password-group select {\n    padding: 8px 30px 8px 8px;\n    font-size: 13px;\n  }\n  .register-select-group .select-icon {\n    font-size: 12px;\n    right: 8px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".register-wrapper {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100vh;\n  width: 100vw;\n  background-color: #f5f5f5;\n  margin: 0;\n  padding: 0;\n  overflow-y: auto;\n  box-sizing: border-box;\n}\n\n.register-card {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  background: #ffffff;\n  border-radius: 0;\n  box-shadow: none;\n  overflow: hidden;\n}\n\n.register-image-section {\n  flex: 1;\n  background: #001E40 url(\"./../img/worqo_side.svg\") no-repeat center;\n  background-size: cover;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 30px;\n}\n.register-image-section .register-logo {\n  width: 100%;\n  max-width: 400px;\n  height: auto;\n  max-height: 90%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  image-rendering: -webkit-optimize-contrast;\n  image-rendering: crisp-edges;\n}\n\n.register-content {\n  flex: 1;\n  padding: 60px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background: #ffffff;\n}\n\n.register-container {\n  background: #ffffff;\n  border-radius: 16px;\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);\n  padding: 30px;\n  width: 100%;\n  max-width: 350px;\n  transition: transform 0.3s ease;\n}\n\n.register-header {\n  text-align: left;\n  margin-bottom: 40px;\n  width: 100%;\n}\n\n.register-title {\n  font-size: 32px;\n  font-weight: 700;\n  margin-bottom: 10px;\n  color: #000000;\n}\n\n.register-subtitle {\n  font-size: 18px;\n  color: #666666;\n  margin: 0;\n}\n\n.register-form-container {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n.register-row {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 20px;\n}\n.register-row .register-input-group {\n  flex: 1;\n  margin-right: 10px;\n}\n.register-row .register-input-group:last-child {\n  margin-right: 0;\n}\n.register-row .register-input-group input,\n.register-row .register-input-group select {\n  width: 100%;\n  padding: 12px 24px 12px 12px;\n  font-size: 16px;\n}\n\n.register-input-group,\n.register-password-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.register-input-group input,\n.register-input-group select,\n.register-password-group input,\n.register-password-group select {\n  width: 100%;\n  padding: 12px 40px 12px 12px; /* Adjusted for icon space */\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  transition: border-color 0.3s, box-shadow 0.3s;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; /* Remove default arrow */\n}\n.register-input-group input:focus,\n.register-input-group select:focus,\n.register-password-group input:focus,\n.register-password-group select:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.register-input-group input::-moz-placeholder, .register-input-group select::-moz-placeholder, .register-password-group input::-moz-placeholder, .register-password-group select::-moz-placeholder {\n  color: #999999;\n}\n.register-input-group input::placeholder,\n.register-input-group select::placeholder,\n.register-password-group input::placeholder,\n.register-password-group select::placeholder {\n  color: #999999;\n}\n\n.register-password-group {\n  position: relative;\n}\n.register-password-group .password-toggle {\n  position: absolute;\n  right: 12px;\n  top: 14px;\n  cursor: pointer;\n  color: #666666;\n  font-size: 18px;\n  z-index: 2;\n  transition: color 0.3s;\n}\n.register-password-group .password-toggle:hover {\n  color: #001E40;\n}\n\n.register-select-group {\n  width: 100%;\n  margin-bottom: 15px;\n  position: relative;\n}\n.register-select-group select {\n  width: 100%;\n  padding: 12px 40px 12px 12px; /* Space for icon */\n  border: 2px solid #001E40;\n  border-radius: 12px;\n  font-size: 16px;\n  color: #000000;\n  background: #ffffff;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none; /* Remove default arrow */\n  cursor: pointer;\n}\n.register-select-group select:focus {\n  outline: none;\n  border-color: #001E40;\n  border-width: 3px;\n  box-shadow: 0 0 8px rgba(0, 30, 64, 0.2);\n}\n.register-select-group .select-icon {\n  position: absolute;\n  right: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #666666;\n  font-size: 16px;\n  pointer-events: none; /* Prevent icon from interfering with select */\n}\n\n.register-submit-btn {\n  width: 100%;\n  padding: 16px;\n  background: #001E40;\n  color: #ffffff;\n  font-size: 18px;\n  font-weight: 600;\n  border: none;\n  cursor: pointer;\n  border-radius: 12px;\n  margin-top: 20px;\n  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;\n}\n.register-submit-btn:hover {\n  background: #003366;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 30, 64, 0.3);\n}\n.register-submit-btn:disabled {\n  background: #cccccc;\n  cursor: not-allowed;\n  transform: none;\n  box-shadow: none;\n}\n\n.register-login {\n  margin-top: 20px;\n  font-size: 14px;\n  text-align: center;\n}\n.register-login .register-login-link {\n  color: #001E40;\n  text-decoration: underline;\n  font-weight: 500;\n}\n.register-login .register-login-link:hover {\n  color: #003366;\n}\n\n.register-error {\n  color: #ff0000;\n  font-size: 16px;\n  margin-bottom: 20px;\n  text-align: center;\n  animation: fadeIn 0.3s ease;\n}\n\n.custom-alert {\n  position: fixed;\n  top: 20px;\n  right: 20px;\n  padding: 15px 20px;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  z-index: 1000;\n  min-width: 200px;\n  max-width: 400px;\n  font-size: 16px;\n  transition: opacity 0.3s ease;\n}\n.custom-alert.success {\n  background: #e6ffed;\n  color: #2e7d32;\n  border: 1px solid #4caf50;\n}\n.custom-alert.error {\n  background: #ffe6e6;\n  color: #d32f2f;\n  border: 1px solid #f44336;\n}\n.custom-alert .alert-close-btn {\n  background: none;\n  border: none;\n  font-size: 18px;\n  cursor: pointer;\n  color: #666666;\n  margin-left: 10px;\n}\n.custom-alert .alert-close-btn:hover {\n  color: #000000;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(-10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/* Responsive Design */\n@media (max-width: 768px) {\n  .register-wrapper {\n    background: #ffffff;\n    align-items: flex-start;\n    padding-top: 20px;\n  }\n  .register-card {\n    flex-direction: column;\n    height: auto;\n    min-height: 100vh;\n  }\n  .register-image-section {\n    height: 200px;\n    width: 100%;\n    background: url(\"./../img/worqo_logo.svg\") no-repeat center top;\n    background-size: contain;\n    padding: 20px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n  }\n  .register-image-section .register-logo {\n    max-width: 250px;\n    max-height: 150px;\n  }\n  .register-content {\n    padding: 20px;\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .register-container {\n    padding: 30px;\n    border-radius: 12px;\n    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);\n    margin: 0 20px;\n  }\n  .register-header {\n    padding: 0;\n  }\n  .register-title {\n    font-size: 28px;\n  }\n  .register-subtitle {\n    font-size: 16px;\n  }\n  .register-row {\n    flex-direction: column;\n  }\n  .register-row .register-input-group {\n    margin-right: 0;\n    margin-bottom: 20px;\n  }\n  .register-row .register-input-group input,\n  .register-row .register-input-group select {\n    padding: 10px 35px 10px 10px;\n    font-size: 14px;\n  }\n  .register-input-group input,\n  .register-input-group select,\n  .register-password-group input,\n  .register-password-group select {\n    padding: 10px 35px 10px 10px;\n    font-size: 14px;\n  }\n  .register-input-group .password-toggle,\n  .register-password-group .password-toggle {\n    top: 12px;\n    font-size: 16px;\n  }\n  .register-select-group .select-icon {\n    font-size: 14px;\n    right: 10px;\n  }\n  .register-submit-btn {\n    padding: 14px;\n    font-size: 16px;\n  }\n}\n@media (max-width: 480px) {\n  .register-image-section {\n    height: 180px;\n  }\n  .register-image-section .register-logo {\n    max-width: 220px;\n    max-height: 120px;\n  }\n  .register-container {\n    padding: 20px;\n    margin: 0 15px;\n  }\n  .register-title {\n    font-size: 24px;\n  }\n  .register-subtitle {\n    font-size: 14px;\n  }\n  .register-submit-btn {\n    padding: 12px;\n    font-size: 14px;\n  }\n  .register-input-group input,\n  .register-input-group select,\n  .register-password-group input,\n  .register-password-group select {\n    padding: 8px 30px 8px 8px;\n    font-size: 13px;\n  }\n  .register-select-group .select-icon {\n    font-size: 12px;\n    right: 8px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71953,18 +71929,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _img_worqo_admin_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/worqo_admin.svg */ "./resources/sass/img/worqo_admin.svg");
 // Imports
-
-
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_admin_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.main-container {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n}\n@media (max-width: 768px) {\n  .main-container {\n    flex-direction: column;\n  }\n}\n\n.content {\n  flex: 1;\n  padding: 80px 20px 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: white;\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n  max-width: 100vw;\n}\n.content.sidebar-expanded {\n  margin-left: 100px;\n  width: calc(100vw - 100px);\n}\n.content.sidebar-collapsed {\n  margin-left: 0;\n  width: 88vw;\n}\n@media (max-width: 768px) {\n  .content {\n    padding: 60px 10px 10px;\n  }\n  .content.sidebar-expanded, .content.sidebar-collapsed {\n    margin-left: 0;\n    width: 100vw;\n  }\n}\n\n.header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 24px;\n}\n@media (max-width: 768px) {\n  .header {\n    margin-bottom: 16px;\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n}\n@media (max-width: 480px) {\n  .header {\n    margin-bottom: 12px;\n    gap: 8px;\n  }\n}\n.header h1 {\n  font-size: 24px;\n  font-weight: 600;\n  color: #333333;\n  margin: 0;\n}\n@media (max-width: 768px) {\n  .header h1 {\n    font-size: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .header h1 {\n    font-size: 18px;\n  }\n}\n\n.stats-grid {\n  display: flex;\n  gap: 15px;\n  margin-bottom: 15px;\n  flex-wrap: wrap;\n}\n.stats-grid:first-child {\n  margin-top: 0;\n}\n@media (max-width: 768px) {\n  .stats-grid {\n    flex-direction: column;\n    gap: 10px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid {\n    gap: 8px;\n  }\n}\n.stats-grid .stat-card {\n  flex: 1;\n  background: linear-gradient(135deg, #E6F0FA 0%, #D1E3F6 100%);\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  min-width: 150px;\n}\n@media (max-width: 768px) {\n  .stats-grid .stat-card {\n    padding: 16px;\n    gap: 12px;\n    min-width: 100%;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card {\n    padding: 12px;\n    gap: 10px;\n    flex-direction: column;\n    text-align: center;\n  }\n}\n.stats-grid .stat-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n.stats-grid .stat-card .icon {\n  font-size: 28px;\n  color: #1E6BB8;\n}\n@media (max-width: 768px) {\n  .stats-grid .stat-card .icon {\n    font-size: 24px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .icon {\n    font-size: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .stat-info {\n    width: 100%;\n  }\n}\n.stats-grid .stat-card .stat-info h3 {\n  font-size: 16px;\n  font-weight: 500;\n  color: #1E6BB8;\n  margin: 0 0 4px;\n}\n@media (max-width: 768px) {\n  .stats-grid .stat-card .stat-info h3 {\n    font-size: 14px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .stat-info h3 {\n    font-size: 13px;\n  }\n}\n.stats-grid .stat-card .stat-info .value {\n  font-size: 24px;\n  font-weight: 700;\n  color: #003087;\n  margin: 0;\n}\n@media (max-width: 768px) {\n  .stats-grid .stat-card .stat-info .value {\n    font-size: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .stat-info .value {\n    font-size: 18px;\n  }\n}\n.stats-grid .stat-card .stat-info .change {\n  font-size: 12px;\n  margin: 4px 0 0;\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .stat-info .change {\n    font-size: 11px;\n  }\n}\n.stats-grid .stat-card .stat-info .change.positive {\n  color: #4CAF50;\n}\n\n.charts-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  gap: 20px;\n  margin-bottom: 24px;\n}\n@media (max-width: 768px) {\n  .charts-grid {\n    grid-template-columns: 1fr;\n    gap: 16px;\n    margin-bottom: 16px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid {\n    gap: 12px;\n    margin-bottom: 12px;\n  }\n}\n.charts-grid .chart-card {\n  background: #FFFFFF;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n@media (max-width: 768px) {\n  .charts-grid .chart-card {\n    padding: 16px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card {\n    padding: 12px;\n  }\n}\n.charts-grid .chart-card h4 {\n  font-size: 18px;\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 8px;\n}\n@media (max-width: 768px) {\n  .charts-grid .chart-card h4 {\n    font-size: 16px;\n    margin: 0 0 6px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card h4 {\n    font-size: 14px;\n    margin: 0 0 4px;\n  }\n}\n.charts-grid .chart-card .subtitle {\n  font-size: 14px;\n  color: #666666;\n  margin: 0 0 12px;\n}\n@media (max-width: 768px) {\n  .charts-grid .chart-card .subtitle {\n    font-size: 13px;\n    margin: 0 0 10px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card .subtitle {\n    font-size: 12px;\n    margin: 0 0 8px;\n  }\n}\n.charts-grid .chart-card .chart-placeholder {\n  height: 180px;\n  background: #F0F0F0;\n  border-radius: 6px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  color: #666666;\n}\n@media (max-width: 768px) {\n  .charts-grid .chart-card .chart-placeholder {\n    height: 150px;\n    font-size: 13px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card .chart-placeholder {\n    height: 120px;\n    font-size: 12px;\n  }\n}\n.charts-grid .chart-card .update-info {\n  font-size: 12px;\n  color: #999999;\n  margin-top: 12px;\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card .update-info {\n    font-size: 11px;\n    margin-top: 8px;\n  }\n}\n\n.sidebar-wrapper {\n  position: relative;\n  z-index: 1001;\n}\n\n.sidebar {\n  width: 250px;\n  height: 100vh;\n  background: linear-gradient(to bottom, #000000, #164F58);\n  color: white;\n  padding: 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  transition: transform 0.3s ease-in-out;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 20px;\n  position: relative;\n}\n.sidebar .sidebar-header:before {\n  content: \"\";\n  display: block;\n  width: 500px;\n  height: 80px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: contain;\n}\n.sidebar h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.sidebar ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.sidebar li {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 15px;\n  cursor: pointer;\n  color: #ccc;\n  transition: 0.3s;\n  border-radius: 10px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n}\n.sidebar li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar li.active {\n  background: #2A6A72;\n  color: white;\n}\n.sidebar li .icon {\n  font-size: 16px;\n}\n.sidebar .admin-settings-header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  padding: 10px 15px;\n  width: 100%;\n  box-sizing: border-box;\n  color: white;\n  font-size: 12px;\n  text-transform: uppercase;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 700;\n}\n.sidebar .admin-settings-list {\n  width: 100%;\n  padding-left: 0;\n}\n.sidebar .admin-settings-list li {\n  padding: 10px 15px;\n  color: white;\n  border-radius: 8px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 10px;\n  font-size: 14px;\n}\n.sidebar .admin-settings-list li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar .admin-settings-list li .icon {\n  font-size: 16px;\n}\n.sidebar .separator {\n  border: none;\n  height: 1px;\n  background: #ffffff;\n  margin: 15px 0;\n}\n@media (max-width: 768px) {\n  .sidebar {\n    transform: translateX(-100%);\n  }\n  .sidebar.expanded {\n    transform: translateX(0);\n  }\n}\n@media (min-width: 769px) {\n  .sidebar {\n    transform: translateX(0);\n  }\n}\n\n.sidebar-toggle {\n  background: #ff0000;\n  color: white;\n  border: none;\n  padding: 10px;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: left 0.3s ease-in-out, opacity 0.3s ease;\n}\n.sidebar-toggle.outside {\n  position: fixed;\n  top: 10px;\n  left: 20px;\n  z-index: 1002;\n  opacity: 1;\n}\n.sidebar-toggle.inside {\n  position: static;\n  opacity: 1;\n}\n.sidebar-toggle .toggle-icon {\n  transition: transform 0.3s ease, opacity 0.2s ease;\n  display: block;\n}\n.sidebar-toggle .toggle-icon.rotate {\n  transform: rotate(90deg);\n}\n.sidebar-toggle:hover .toggle-icon {\n  opacity: 0.8;\n}\n@media (min-width: 769px) {\n  .sidebar-toggle {\n    display: none;\n  }\n}\n\n.overlay {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 1000;\n}\n@media (max-width: 768px) {\n  .overlay.active {\n    display: block;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".app {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n  background: #F4F6F9;\n}\n\n.main-container {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n}\n@media (max-width: 768px) {\n  .main-container {\n    flex-direction: column;\n  }\n}\n\n.content {\n  flex: 1;\n  padding: 80px 20px 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: stretch;\n  background: white;\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  overflow-x: hidden;\n  box-sizing: border-box;\n  width: 100%;\n  max-width: 100vw;\n}\n.content.sidebar-expanded {\n  margin-left: 100px;\n  width: calc(100vw - 100px);\n}\n.content.sidebar-collapsed {\n  margin-left: 0;\n  width: 88vw;\n}\n@media (max-width: 768px) {\n  .content {\n    padding: 60px 10px 10px;\n  }\n  .content.sidebar-expanded, .content.sidebar-collapsed {\n    margin-left: 0;\n    width: 100vw;\n  }\n}\n\n.header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 24px;\n}\n@media (max-width: 768px) {\n  .header {\n    margin-bottom: 16px;\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n}\n@media (max-width: 480px) {\n  .header {\n    margin-bottom: 12px;\n    gap: 8px;\n  }\n}\n.header h1 {\n  font-size: 24px;\n  font-weight: 600;\n  color: #333333;\n  margin: 0;\n}\n@media (max-width: 768px) {\n  .header h1 {\n    font-size: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .header h1 {\n    font-size: 18px;\n  }\n}\n\n.stats-grid {\n  display: flex;\n  gap: 15px;\n  margin-bottom: 15px;\n  flex-wrap: wrap;\n}\n.stats-grid:first-child {\n  margin-top: 0;\n}\n@media (max-width: 768px) {\n  .stats-grid {\n    flex-direction: column;\n    gap: 10px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid {\n    gap: 8px;\n  }\n}\n.stats-grid .stat-card {\n  flex: 1;\n  background: linear-gradient(135deg, #E6F0FA 0%, #D1E3F6 100%);\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  min-width: 150px;\n}\n@media (max-width: 768px) {\n  .stats-grid .stat-card {\n    padding: 16px;\n    gap: 12px;\n    min-width: 100%;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card {\n    padding: 12px;\n    gap: 10px;\n    flex-direction: column;\n    text-align: center;\n  }\n}\n.stats-grid .stat-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n.stats-grid .stat-card .icon {\n  font-size: 28px;\n  color: #1E6BB8;\n}\n@media (max-width: 768px) {\n  .stats-grid .stat-card .icon {\n    font-size: 24px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .icon {\n    font-size: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .stat-info {\n    width: 100%;\n  }\n}\n.stats-grid .stat-card .stat-info h3 {\n  font-size: 16px;\n  font-weight: 500;\n  color: #1E6BB8;\n  margin: 0 0 4px;\n}\n@media (max-width: 768px) {\n  .stats-grid .stat-card .stat-info h3 {\n    font-size: 14px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .stat-info h3 {\n    font-size: 13px;\n  }\n}\n.stats-grid .stat-card .stat-info .value {\n  font-size: 24px;\n  font-weight: 700;\n  color: #003087;\n  margin: 0;\n}\n@media (max-width: 768px) {\n  .stats-grid .stat-card .stat-info .value {\n    font-size: 20px;\n  }\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .stat-info .value {\n    font-size: 18px;\n  }\n}\n.stats-grid .stat-card .stat-info .change {\n  font-size: 12px;\n  margin: 4px 0 0;\n}\n@media (max-width: 480px) {\n  .stats-grid .stat-card .stat-info .change {\n    font-size: 11px;\n  }\n}\n.stats-grid .stat-card .stat-info .change.positive {\n  color: #4CAF50;\n}\n\n.charts-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n  gap: 20px;\n  margin-bottom: 24px;\n}\n@media (max-width: 768px) {\n  .charts-grid {\n    grid-template-columns: 1fr;\n    gap: 16px;\n    margin-bottom: 16px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid {\n    gap: 12px;\n    margin-bottom: 12px;\n  }\n}\n.charts-grid .chart-card {\n  background: #FFFFFF;\n  padding: 20px;\n  border-radius: 8px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n@media (max-width: 768px) {\n  .charts-grid .chart-card {\n    padding: 16px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card {\n    padding: 12px;\n  }\n}\n.charts-grid .chart-card h4 {\n  font-size: 18px;\n  font-weight: 600;\n  color: #333333;\n  margin: 0 0 8px;\n}\n@media (max-width: 768px) {\n  .charts-grid .chart-card h4 {\n    font-size: 16px;\n    margin: 0 0 6px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card h4 {\n    font-size: 14px;\n    margin: 0 0 4px;\n  }\n}\n.charts-grid .chart-card .subtitle {\n  font-size: 14px;\n  color: #666666;\n  margin: 0 0 12px;\n}\n@media (max-width: 768px) {\n  .charts-grid .chart-card .subtitle {\n    font-size: 13px;\n    margin: 0 0 10px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card .subtitle {\n    font-size: 12px;\n    margin: 0 0 8px;\n  }\n}\n.charts-grid .chart-card .chart-placeholder {\n  height: 180px;\n  background: #F0F0F0;\n  border-radius: 6px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 14px;\n  color: #666666;\n}\n@media (max-width: 768px) {\n  .charts-grid .chart-card .chart-placeholder {\n    height: 150px;\n    font-size: 13px;\n  }\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card .chart-placeholder {\n    height: 120px;\n    font-size: 12px;\n  }\n}\n.charts-grid .chart-card .update-info {\n  font-size: 12px;\n  color: #999999;\n  margin-top: 12px;\n}\n@media (max-width: 480px) {\n  .charts-grid .chart-card .update-info {\n    font-size: 11px;\n    margin-top: 8px;\n  }\n}\n\n.sidebar-wrapper {\n  position: relative;\n  z-index: 1001;\n}\n\n.sidebar {\n  width: 250px;\n  height: 100vh;\n  background: linear-gradient(to bottom, #000000, #164F58);\n  color: white;\n  padding: 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  transition: transform 0.3s ease-in-out;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 20px;\n  position: relative;\n}\n.sidebar .sidebar-header:before {\n  content: \"\";\n  display: block;\n  width: 500px;\n  height: 80px;\n  background: url(\"./../img/worqo_admin.svg\") no-repeat center;\n  background-size: contain;\n}\n.sidebar h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.sidebar ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.sidebar li {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 15px;\n  cursor: pointer;\n  color: #ccc;\n  transition: 0.3s;\n  border-radius: 10px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n}\n.sidebar li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar li.active {\n  background: #2A6A72;\n  color: white;\n}\n.sidebar li .icon {\n  font-size: 16px;\n}\n.sidebar .admin-settings-header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  padding: 10px 15px;\n  width: 100%;\n  box-sizing: border-box;\n  color: white;\n  font-size: 12px;\n  text-transform: uppercase;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 700;\n}\n.sidebar .admin-settings-list {\n  width: 100%;\n  padding-left: 0;\n}\n.sidebar .admin-settings-list li {\n  padding: 10px 15px;\n  color: white;\n  border-radius: 8px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 10px;\n  font-size: 14px;\n}\n.sidebar .admin-settings-list li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar .admin-settings-list li .icon {\n  font-size: 16px;\n}\n.sidebar .separator {\n  border: none;\n  height: 1px;\n  background: #ffffff;\n  margin: 15px 0;\n}\n@media (max-width: 768px) {\n  .sidebar {\n    transform: translateX(-100%);\n  }\n  .sidebar.expanded {\n    transform: translateX(0);\n  }\n}\n@media (min-width: 769px) {\n  .sidebar {\n    transform: translateX(0);\n  }\n}\n\n.sidebar-toggle {\n  background: #ff0000;\n  color: white;\n  border: none;\n  padding: 10px;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: left 0.3s ease-in-out, opacity 0.3s ease;\n}\n.sidebar-toggle.outside {\n  position: fixed;\n  top: 10px;\n  left: 20px;\n  z-index: 1002;\n  opacity: 1;\n}\n.sidebar-toggle.inside {\n  position: static;\n  opacity: 1;\n}\n.sidebar-toggle .toggle-icon {\n  transition: transform 0.3s ease, opacity 0.2s ease;\n  display: block;\n}\n.sidebar-toggle .toggle-icon.rotate {\n  transform: rotate(90deg);\n}\n.sidebar-toggle:hover .toggle-icon {\n  opacity: 0.8;\n}\n@media (min-width: 769px) {\n  .sidebar-toggle {\n    display: none;\n  }\n}\n\n.overlay {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 1000;\n}\n@media (max-width: 768px) {\n  .overlay.active {\n    display: block;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72008,18 +71978,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _img_worqo_admin_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/worqo_admin.svg */ "./resources/sass/img/worqo_admin.svg");
 // Imports
-
-
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);"]);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_img_worqo_admin_svg__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".sidebar-wrapper {\n  position: relative;\n  z-index: 1001;\n}\n\n.sidebar {\n  width: 250px;\n  height: 100vh;\n  background: linear-gradient(to bottom, #000000, #164F58);\n  color: white;\n  padding: 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  transition: transform 0.3s ease-in-out;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 20px;\n  position: relative;\n}\n.sidebar .sidebar-header:before {\n  content: \"\";\n  display: block;\n  width: 500px;\n  height: 80px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center;\n  background-size: contain;\n}\n.sidebar h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.sidebar .sidebar-content {\n  height: calc(100vh - 120px);\n  overflow-y: auto;\n  overflow-x: hidden;\n  padding-right: 8px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 6px;\n  background: transparent;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background: rgba(255, 255, 255, 0.1);\n  border-radius: 3px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background: rgba(255, 255, 255, 0.3);\n  border-radius: 3px;\n  -webkit-transition: background 0.2s ease;\n  transition: background 0.2s ease;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background: rgba(255, 255, 255, 0.5);\n}\n.sidebar ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.sidebar li {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 15px;\n  cursor: pointer;\n  color: #ccc;\n  transition: 0.3s;\n  border-radius: 10px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n}\n.sidebar li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar li.active {\n  background: #2A6A72;\n  color: white;\n}\n.sidebar li .icon {\n  font-size: 16px;\n}\n.sidebar .admin-settings-header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  padding: 10px 15px;\n  width: 100%;\n  box-sizing: border-box;\n  color: white;\n  font-size: 12px;\n  text-transform: uppercase;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 700;\n}\n.sidebar .admin-settings-list {\n  width: 100%;\n  padding-left: 0;\n}\n.sidebar .admin-settings-list li {\n  padding: 10px 15px;\n  color: white;\n  border-radius: 8px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 10px;\n  font-size: 14px;\n}\n.sidebar .admin-settings-list li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar .admin-settings-list li .icon {\n  font-size: 16px;\n}\n.sidebar .separator {\n  border: none;\n  height: 1px;\n  background: #ffffff;\n  margin: 15px 0;\n}\n@media (max-width: 768px) {\n  .sidebar {\n    transform: translateX(-100%);\n  }\n  .sidebar.expanded {\n    transform: translateX(0);\n  }\n}\n@media (min-width: 769px) {\n  .sidebar {\n    transform: translateX(0);\n  }\n}\n\n.sidebar-toggle {\n  background: #1b2e61;\n  color: white;\n  border: none;\n  padding: 10px;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: left 0.3s ease-in-out, opacity 0.3s ease;\n}\n.sidebar-toggle.outside {\n  background: #164F58;\n  position: fixed;\n  top: 10px;\n  left: 20px;\n  z-index: 1002;\n  opacity: 1;\n}\n.sidebar-toggle.inside {\n  background: #164F58;\n  position: static;\n  opacity: 1;\n}\n.sidebar-toggle .toggle-icon {\n  transition: transform 0.3s ease, opacity 0.2s ease;\n  display: block;\n}\n.sidebar-toggle .toggle-icon.rotate {\n  transform: rotate(90deg);\n}\n.sidebar-toggle:hover .toggle-icon {\n  opacity: 0.8;\n}\n@media (min-width: 769px) {\n  .sidebar-toggle {\n    display: none;\n  }\n}\n\n.overlay {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 1000;\n}\n@media (max-width: 768px) {\n  .overlay.active {\n    display: block;\n  }\n}\n\n.main-container {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n}\n@media (max-width: 768px) {\n  .main-container {\n    flex-direction: column;\n  }\n}\n\n.content {\n  margin-left: 250px;\n  padding: 80px 20px 20px;\n  transition: margin-left 0.3s ease-in-out;\n  min-height: 100vh;\n  box-sizing: border-box;\n  width: 100%;\n}\n@media (max-width: 768px) {\n  .content {\n    margin-left: 0;\n    padding-top: 70px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sidebar-wrapper {\n  position: relative;\n  z-index: 1001;\n}\n\n.sidebar {\n  width: 250px;\n  height: 100vh;\n  background: linear-gradient(to bottom, #000000, #164F58);\n  color: white;\n  padding: 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  position: fixed;\n  top: 0;\n  left: 0;\n  transition: transform 0.3s ease-in-out;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 20px;\n  position: relative;\n}\n.sidebar .sidebar-header:before {\n  content: \"\";\n  display: block;\n  width: 500px;\n  height: 80px;\n  background: url(\"./../img/worqo_admin.svg\") no-repeat center;\n  background-size: contain;\n}\n.sidebar h2 {\n  text-align: center;\n  margin-bottom: 20px;\n  font-size: 16px;\n}\n.sidebar .sidebar-content {\n  height: calc(100vh - 120px);\n  overflow-y: auto;\n  overflow-x: hidden;\n  padding-right: 8px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 6px;\n  background: transparent;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background: rgba(255, 255, 255, 0.1);\n  border-radius: 3px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background: rgba(255, 255, 255, 0.3);\n  border-radius: 3px;\n  -webkit-transition: background 0.2s ease;\n  transition: background 0.2s ease;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background: rgba(255, 255, 255, 0.5);\n}\n.sidebar ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n.sidebar li {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 15px;\n  cursor: pointer;\n  color: #ccc;\n  transition: 0.3s;\n  border-radius: 10px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  font-size: 14px;\n}\n.sidebar li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar li.active {\n  background: #2A6A72;\n  color: white;\n}\n.sidebar li .icon {\n  font-size: 16px;\n}\n.sidebar .admin-settings-header {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  padding: 10px 15px;\n  width: 100%;\n  box-sizing: border-box;\n  color: white;\n  font-size: 12px;\n  text-transform: uppercase;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 700;\n}\n.sidebar .admin-settings-list {\n  width: 100%;\n  padding-left: 0;\n}\n.sidebar .admin-settings-list li {\n  padding: 10px 15px;\n  color: white;\n  border-radius: 8px;\n  margin-bottom: 5px;\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 10px;\n  font-size: 14px;\n}\n.sidebar .admin-settings-list li:hover {\n  background: #ffffff;\n  color: #164F58;\n}\n.sidebar .admin-settings-list li .icon {\n  font-size: 16px;\n}\n.sidebar .separator {\n  border: none;\n  height: 1px;\n  background: #ffffff;\n  margin: 15px 0;\n}\n@media (max-width: 768px) {\n  .sidebar {\n    transform: translateX(-100%);\n  }\n  .sidebar.expanded {\n    transform: translateX(0);\n  }\n}\n@media (min-width: 769px) {\n  .sidebar {\n    transform: translateX(0);\n  }\n}\n\n.sidebar-toggle {\n  background: #1b2e61;\n  color: white;\n  border: none;\n  padding: 10px;\n  border-radius: 5px;\n  cursor: pointer;\n  font-size: 16px;\n  transition: left 0.3s ease-in-out, opacity 0.3s ease;\n}\n.sidebar-toggle.outside {\n  background: #164F58;\n  position: fixed;\n  top: 10px;\n  left: 20px;\n  z-index: 1002;\n  opacity: 1;\n}\n.sidebar-toggle.inside {\n  background: #164F58;\n  position: static;\n  opacity: 1;\n}\n.sidebar-toggle .toggle-icon {\n  transition: transform 0.3s ease, opacity 0.2s ease;\n  display: block;\n}\n.sidebar-toggle .toggle-icon.rotate {\n  transform: rotate(90deg);\n}\n.sidebar-toggle:hover .toggle-icon {\n  opacity: 0.8;\n}\n@media (min-width: 769px) {\n  .sidebar-toggle {\n    display: none;\n  }\n}\n\n.overlay {\n  display: none;\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  z-index: 1000;\n}\n@media (max-width: 768px) {\n  .overlay.active {\n    display: block;\n  }\n}\n\n.main-container {\n  display: flex;\n  flex-direction: row;\n  min-height: 100vh;\n}\n@media (max-width: 768px) {\n  .main-container {\n    flex-direction: column;\n  }\n}\n\n.content {\n  margin-left: 250px;\n  padding: 80px 20px 20px;\n  transition: margin-left 0.3s ease-in-out;\n  min-height: 100vh;\n  box-sizing: border-box;\n  width: 100%;\n}\n@media (max-width: 768px) {\n  .content {\n    margin-left: 0;\n    padding-top: 70px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -73085,50 +73049,6 @@ module.exports = function (cssWithMappingToString) {
   };
 
   return list;
-};
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
-/*!********************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
-  \********************************************************/
-/***/ ((module) => {
-
-"use strict";
-
-
-module.exports = function (url, options) {
-  if (!options) {
-    // eslint-disable-next-line no-param-reassign
-    options = {};
-  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
-
-
-  url = url && url.__esModule ? url.default : url;
-
-  if (typeof url !== "string") {
-    return url;
-  } // If url is already wrapped in quotes, remove them
-
-
-  if (/^['"].*['"]$/.test(url)) {
-    // eslint-disable-next-line no-param-reassign
-    url = url.slice(1, -1);
-  }
-
-  if (options.hash) {
-    // eslint-disable-next-line no-param-reassign
-    url += options.hash;
-  } // Should url be wrapped?
-  // See https://drafts.csswg.org/css-values-3/#urls
-
-
-  if (/["'() \t\n]/.test(url) || options.needQuotes) {
-    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
-  }
-
-  return url;
 };
 
 /***/ }),
@@ -216439,531 +216359,6 @@ var Stats = function Stats() {
 
 /***/ }),
 
-/***/ "./resources/js/components/adminside/Adminlist/AdminListModal.js":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/adminside/Adminlist/AdminListModal.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
-/* harmony import */ var _sass_components_adminmodal_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../../sass/components/adminmodal.scss */ "./resources/sass/components/adminmodal.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
-function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
-
-
-
-
-
-var AdminModal = function AdminModal(_ref) {
-  var onClose = _ref.onClose,
-    onSubmit = _ref.onSubmit,
-    isEdit = _ref.isEdit,
-    initialData = _ref.initialData;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
-      first_name: (initialData === null || initialData === void 0 ? void 0 : initialData.first_name) || "",
-      middlename: (initialData === null || initialData === void 0 ? void 0 : initialData.middlename) || "",
-      last_name: (initialData === null || initialData === void 0 ? void 0 : initialData.last_name) || "",
-      suffix_id: initialData !== null && initialData !== void 0 && initialData.suffix_id ? String(initialData.suffix_id) : "",
-      email: (initialData === null || initialData === void 0 ? void 0 : initialData.email) || "",
-      password: "",
-      gender_id: initialData !== null && initialData !== void 0 && initialData.gender_id ? String(initialData.gender_id) : "",
-      profile_img: null,
-      image_url: (initialData === null || initialData === void 0 ? void 0 : initialData.image_url) || null
-    }),
-    _useState2 = _slicedToArray(_useState, 2),
-    formData = _useState2[0],
-    setFormData = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
-    _useState4 = _slicedToArray(_useState3, 2),
-    errors = _useState4[0],
-    setErrors = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState6 = _slicedToArray(_useState5, 2),
-    apiError = _useState6[0],
-    setApiError = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState8 = _slicedToArray(_useState7, 2),
-    genders = _useState8[0],
-    setGenders = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState0 = _slicedToArray(_useState9, 2),
-    suffixes = _useState0[0],
-    setSuffixes = _useState0[1];
-  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-    _useState10 = _slicedToArray(_useState1, 2),
-    isLoading = _useState10[0],
-    setIsLoading = _useState10[1];
-  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    abortControllerRef.current = new AbortController();
-    var fetchData = /*#__PURE__*/function () {
-      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var authToken, _yield$Promise$all, _yield$Promise$all2, gendersRes, suffixesRes, _error$response, _t;
-        return _regenerator().w(function (_context) {
-          while (1) switch (_context.p = _context.n) {
-            case 0:
-              _context.p = 0;
-              setIsLoading(true);
-              authToken = localStorage.getItem("auth_token");
-              if (authToken) {
-                _context.n = 1;
-                break;
-              }
-              throw new Error("No auth token found. Please log in.");
-            case 1:
-              _context.n = 2;
-              return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/genders", {
-                headers: {
-                  Authorization: "Bearer ".concat(authToken)
-                },
-                signal: abortControllerRef.current.signal
-              })["catch"](function (err) {
-                var _err$response;
-                console.error("Genders fetch error:", ((_err$response = err.response) === null || _err$response === void 0 ? void 0 : _err$response.data) || err.message);
-                throw err;
-              }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/suffixes", {
-                headers: {
-                  Authorization: "Bearer ".concat(authToken)
-                },
-                signal: abortControllerRef.current.signal
-              })["catch"](function (err) {
-                var _err$response2;
-                console.error("Suffixes fetch error:", ((_err$response2 = err.response) === null || _err$response2 === void 0 ? void 0 : _err$response2.data) || err.message);
-                throw err;
-              })]);
-            case 2:
-              _yield$Promise$all = _context.v;
-              _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
-              gendersRes = _yield$Promise$all2[0];
-              suffixesRes = _yield$Promise$all2[1];
-              setGenders(Array.isArray(gendersRes.data) ? gendersRes.data : []);
-              setSuffixes(Array.isArray(suffixesRes.data) ? suffixesRes.data : []);
-              _context.n = 5;
-              break;
-            case 3:
-              _context.p = 3;
-              _t = _context.v;
-              if (!(_t.name === "AbortError")) {
-                _context.n = 4;
-                break;
-              }
-              return _context.a(2);
-            case 4:
-              console.error("Error fetching dropdown data:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
-              setApiError(_t.message === "No auth token found. Please log in." ? _t.message : "Failed to load dropdown data. Please try again.");
-            case 5:
-              _context.p = 5;
-              setIsLoading(false);
-              return _context.f(5);
-            case 6:
-              return _context.a(2);
-          }
-        }, _callee, null, [[0, 3, 5, 6]]);
-      }));
-      return function fetchData() {
-        return _ref2.apply(this, arguments);
-      };
-    }();
-    fetchData();
-    if (isEdit && initialData) {
-      setFormData({
-        first_name: initialData.first_name || "",
-        middlename: initialData.middlename || "",
-        last_name: initialData.last_name || "",
-        suffix_id: initialData.suffix_id ? String(initialData.suffix_id) : "",
-        email: initialData.email || "",
-        password: "",
-        gender_id: initialData.gender_id ? String(initialData.gender_id) : "",
-        profile_img: null,
-        image_url: initialData.image_url || null
-      });
-      setErrors({});
-      setApiError("");
-    }
-    return function () {
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort();
-      }
-    };
-  }, [isEdit, initialData]);
-  var handleInputChange = function handleInputChange(e, field) {
-    var value = e.target.type === "file" ? e.target.files[0] : e.target.value;
-    if (field === "profile_img" && value) {
-      if (value.size > 2048 * 1024) {
-        setErrors(function (prev) {
-          return _objectSpread(_objectSpread({}, prev), {}, {
-            profile_img: "Image must not exceed 2 MB"
-          });
-        });
-        return;
-      }
-      if (!["image/jpeg", "image/png", "image/jpg"].includes(value.type)) {
-        setErrors(function (prev) {
-          return _objectSpread(_objectSpread({}, prev), {}, {
-            profile_img: "Image must be JPEG, PNG, or JPG"
-          });
-        });
-        return;
-      }
-    }
-    setFormData(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, value));
-    });
-    setErrors(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, ""));
-    });
-    setApiError("");
-  };
-  var removeImage = function removeImage() {
-    setFormData(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, {
-        profile_img: null,
-        image_url: null
-      });
-    });
-    setErrors(function (prev) {
-      return _objectSpread(_objectSpread({}, prev), {}, {
-        profile_img: ""
-      });
-    });
-    if (fileInputRef.current) fileInputRef.current.value = "";
-  };
-  var validateForm = function validateForm() {
-    var newErrors = {};
-    var requiredFields = isEdit ? ["first_name", "last_name", "email", "gender_id"] : ["first_name", "last_name", "email", "password", "gender_id"];
-    requiredFields.forEach(function (field) {
-      if (!formData[field] || formData[field] === "") {
-        newErrors[field] = "".concat(field.replace("_", " ").replace(/\b\w/g, function (l) {
-          return l.toUpperCase();
-        }), " is required");
-      }
-    });
-    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
-    }
-    if (!isEdit && formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
-      newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit";
-    }
-    if (formData.gender_id && !genders.some(function (gender) {
-      return String(gender.id) === String(formData.gender_id);
-    })) {
-      newErrors.gender_id = "Please select a valid gender";
-    }
-    if (formData.suffix_id && !suffixes.some(function (suffix) {
-      return String(suffix.id) === String(formData.suffix_id);
-    })) {
-      newErrors.suffix_id = "Please select a valid suffix";
-    }
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-  var handleSubmit = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
-      var _error$response2, _error$response3, _error$response4, _error$response5, _t2;
-      return _regenerator().w(function (_context2) {
-        while (1) switch (_context2.p = _context2.n) {
-          case 0:
-            e.preventDefault();
-            if (!isLoading) {
-              _context2.n = 1;
-              break;
-            }
-            return _context2.a(2);
-          case 1:
-            if (validateForm()) {
-              _context2.n = 2;
-              break;
-            }
-            return _context2.a(2);
-          case 2:
-            abortControllerRef.current = new AbortController();
-            _context2.p = 3;
-            _context2.n = 4;
-            return onSubmit(formData, abortControllerRef.current.signal);
-          case 4:
-            setApiError("");
-            setErrors({});
-            _context2.n = 7;
-            break;
-          case 5:
-            _context2.p = 5;
-            _t2 = _context2.v;
-            if (!(_t2.name === "AbortError")) {
-              _context2.n = 6;
-              break;
-            }
-            console.log("Request was aborted");
-            return _context2.a(2);
-          case 6:
-            console.error("Error submitting form:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
-            if ((_error$response3 = _t2.response) !== null && _error$response3 !== void 0 && (_error$response3 = _error$response3.data) !== null && _error$response3 !== void 0 && _error$response3.messages) {
-              setErrors(_t2.response.data.messages);
-              setApiError("Please correct the errors in the form.");
-            } else {
-              setApiError(((_error$response4 = _t2.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.status) === 401 ? "Unauthorized: Please log in again." : "Failed to ".concat(isEdit ? "update" : "create", " admin: ").concat(((_error$response5 = _t2.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.message) || _t2.message));
-            }
-          case 7:
-            return _context2.a(2);
-        }
-      }, _callee2, null, [[3, 5]]);
-    }));
-    return function handleSubmit(_x) {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-    className: "adminmodal-overlay",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "adminmodal",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-        children: isEdit ? "Edit Admin" : "Add New Admin"
-      }), apiError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "error-message",
-        style: {
-          color: "red",
-          marginBottom: "10px"
-        },
-        children: apiError
-      }), Object.keys(errors).length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "error-message",
-        style: {
-          color: "red",
-          marginBottom: "10px"
-        },
-        children: Object.entries(errors).map(function (_ref4) {
-          var _ref5 = _slicedToArray(_ref4, 2),
-            field = _ref5[0],
-            message = _ref5[1];
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            children: message
-          }, field);
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
-        className: "adminmodal-content",
-        onSubmit: handleSubmit,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "form-group name-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "name-field",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "first_name",
-              children: "First Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-              id: "first_name",
-              type: "text",
-              value: formData.first_name,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "first_name");
-              },
-              placeholder: "First Name",
-              required: true
-            }), errors.first_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "error",
-              children: errors.first_name
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "name-field",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "middlename",
-              children: "Middle Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-              id: "middlename",
-              type: "text",
-              value: formData.middlename,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "middlename");
-              },
-              placeholder: "Middle Name (optional)"
-            }), errors.middlename && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "error",
-              children: errors.middlename
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "name-field",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "last_name",
-              children: "Last Name"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-              id: "last_name",
-              type: "text",
-              value: formData.last_name,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "last_name");
-              },
-              placeholder: "Last Name",
-              required: true
-            }), errors.last_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "error",
-              children: errors.last_name
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "name-field",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-              htmlFor: "suffix_id",
-              children: "Suffix"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-              id: "suffix_id",
-              value: formData.suffix_id,
-              onChange: function onChange(e) {
-                return handleInputChange(e, "suffix_id");
-              },
-              disabled: isLoading || suffixes.length === 0,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                value: "",
-                children: "None"
-              }), suffixes.map(function (suffix) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                  value: suffix.id,
-                  children: suffix.suffix_name || "None"
-                }, suffix.id);
-              })]
-            }), errors.suffix_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              className: "error",
-              children: errors.suffix_id
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-            htmlFor: "email",
-            children: "Email"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-            id: "email",
-            type: "email",
-            value: formData.email,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "email");
-            },
-            placeholder: "Enter email address",
-            required: true
-          }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            className: "error",
-            children: errors.email
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-            htmlFor: "password",
-            children: isEdit ? "New Password (optional)" : "Password"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-            id: "password",
-            type: "password",
-            value: formData.password,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "password");
-            },
-            placeholder: isEdit ? "New password (optional)" : "Enter password"
-          }), errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            className: "error",
-            children: errors.password
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-            htmlFor: "gender_id",
-            children: "Gender"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
-            id: "gender_id",
-            value: formData.gender_id,
-            onChange: function onChange(e) {
-              return handleInputChange(e, "gender_id");
-            },
-            disabled: isLoading || genders.length === 0,
-            required: true,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-              value: "",
-              children: "Select Gender"
-            }), genders.map(function (gender) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
-                value: gender.id,
-                children: gender.name || gender.gender_name
-              }, gender.id);
-            })]
-          }), errors.gender_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            className: "error",
-            children: errors.gender_id
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-            htmlFor: "profile_img",
-            children: "Profile Picture (optional)"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-            id: "profile_img",
-            type: "file",
-            accept: "image/jpeg,image/png,image/jpg",
-            onChange: function onChange(e) {
-              return handleInputChange(e, "profile_img");
-            },
-            ref: fileInputRef
-          }), (formData.profile_img || formData.image_url) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            className: "profile-img-preview",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-              src: formData.profile_img ? URL.createObjectURL(formData.profile_img) : formData.image_url || "https://via.placeholder.com/100",
-              alt: "Profile Preview",
-              className: "preview-img",
-              style: {
-                width: "100px",
-                height: "100px",
-                objectFit: "contain"
-              }
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-              className: "remove-img-button",
-              type: "button",
-              onClick: removeImage,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {
-                size: 16
-              })
-            })]
-          }), errors.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            className: "error",
-            children: errors.profile_img
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "adminmodal-buttons",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "submit-button",
-            type: "submit",
-            disabled: isLoading,
-            children: isEdit ? "Update" : "Create"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-            className: "cancel-button",
-            type: "button",
-            onClick: onClose,
-            children: "Cancel"
-          })]
-        })]
-      })]
-    })
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AdminModal);
-
-/***/ }),
-
 /***/ "./resources/js/components/adminside/Adminlist/adminlist.js":
 /*!******************************************************************!*\
   !*** ./resources/js/components/adminside/Adminlist/adminlist.js ***!
@@ -216984,7 +216379,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArchive.mjs");
 /* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconPlus.mjs");
 /* harmony import */ var _sass_components_adminlist_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../../sass/components/_adminlist.scss */ "./resources/sass/components/_adminlist.scss");
-/* harmony import */ var _AdminListModal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AdminListModal */ "./resources/js/components/adminside/Adminlist/AdminListModal.js");
+/* harmony import */ var _adminlistmodal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./adminlistmodal */ "./resources/js/components/adminside/Adminlist/adminlistmodal.js");
 /* harmony import */ var _LoaderContent_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./../../LoaderContent/loader */ "./resources/js/components/LoaderContent/loader.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
 /* harmony import */ var _utils_profileImageUtils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../utils/profileImageUtils */ "./resources/js/utils/profileImageUtils.js");
@@ -217843,7 +217238,7 @@ var AdminList = function AdminList() {
           })]
         })]
       })
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_AdminListModal__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_adminlistmodal__WEBPACK_IMPORTED_MODULE_9__["default"], {
       onClose: handleModalClose,
       onSubmit: isEditMode ? handleAdminUpdate : handleAdminAdd,
       isEdit: isEditMode,
@@ -217852,6 +217247,531 @@ var AdminList = function AdminList() {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AdminList);
+
+/***/ }),
+
+/***/ "./resources/js/components/adminside/Adminlist/adminlistmodal.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/adminside/Adminlist/adminlistmodal.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/lib/axios.js");
+/* harmony import */ var _sass_components_adminmodal_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../../sass/components/adminmodal.scss */ "./resources/sass/components/adminmodal.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+
+
+
+var AdminModal = function AdminModal(_ref) {
+  var onClose = _ref.onClose,
+    onSubmit = _ref.onSubmit,
+    isEdit = _ref.isEdit,
+    initialData = _ref.initialData;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      first_name: (initialData === null || initialData === void 0 ? void 0 : initialData.first_name) || "",
+      middlename: (initialData === null || initialData === void 0 ? void 0 : initialData.middlename) || "",
+      last_name: (initialData === null || initialData === void 0 ? void 0 : initialData.last_name) || "",
+      suffix_id: initialData !== null && initialData !== void 0 && initialData.suffix_id ? String(initialData.suffix_id) : "",
+      email: (initialData === null || initialData === void 0 ? void 0 : initialData.email) || "",
+      password: "",
+      gender_id: initialData !== null && initialData !== void 0 && initialData.gender_id ? String(initialData.gender_id) : "",
+      profile_img: null,
+      image_url: (initialData === null || initialData === void 0 ? void 0 : initialData.image_url) || null
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    formData = _useState2[0],
+    setFormData = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState4 = _slicedToArray(_useState3, 2),
+    errors = _useState4[0],
+    setErrors = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    _useState6 = _slicedToArray(_useState5, 2),
+    apiError = _useState6[0],
+    setApiError = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState8 = _slicedToArray(_useState7, 2),
+    genders = _useState8[0],
+    setGenders = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState0 = _slicedToArray(_useState9, 2),
+    suffixes = _useState0[0],
+    setSuffixes = _useState0[1];
+  var _useState1 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState10 = _slicedToArray(_useState1, 2),
+    isLoading = _useState10[0],
+    setIsLoading = _useState10[1];
+  var fileInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  var abortControllerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    abortControllerRef.current = new AbortController();
+    var fetchData = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var authToken, _yield$Promise$all, _yield$Promise$all2, gendersRes, suffixesRes, _error$response, _t;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.p = _context.n) {
+            case 0:
+              _context.p = 0;
+              setIsLoading(true);
+              authToken = localStorage.getItem("auth_token");
+              if (authToken) {
+                _context.n = 1;
+                break;
+              }
+              throw new Error("No auth token found. Please log in.");
+            case 1:
+              _context.n = 2;
+              return Promise.all([axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/genders", {
+                headers: {
+                  Authorization: "Bearer ".concat(authToken)
+                },
+                signal: abortControllerRef.current.signal
+              })["catch"](function (err) {
+                var _err$response;
+                console.error("Genders fetch error:", ((_err$response = err.response) === null || _err$response === void 0 ? void 0 : _err$response.data) || err.message);
+                throw err;
+              }), axios__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/suffixes", {
+                headers: {
+                  Authorization: "Bearer ".concat(authToken)
+                },
+                signal: abortControllerRef.current.signal
+              })["catch"](function (err) {
+                var _err$response2;
+                console.error("Suffixes fetch error:", ((_err$response2 = err.response) === null || _err$response2 === void 0 ? void 0 : _err$response2.data) || err.message);
+                throw err;
+              })]);
+            case 2:
+              _yield$Promise$all = _context.v;
+              _yield$Promise$all2 = _slicedToArray(_yield$Promise$all, 2);
+              gendersRes = _yield$Promise$all2[0];
+              suffixesRes = _yield$Promise$all2[1];
+              setGenders(Array.isArray(gendersRes.data) ? gendersRes.data : []);
+              setSuffixes(Array.isArray(suffixesRes.data) ? suffixesRes.data : []);
+              _context.n = 5;
+              break;
+            case 3:
+              _context.p = 3;
+              _t = _context.v;
+              if (!(_t.name === "AbortError")) {
+                _context.n = 4;
+                break;
+              }
+              return _context.a(2);
+            case 4:
+              console.error("Error fetching dropdown data:", ((_error$response = _t.response) === null || _error$response === void 0 ? void 0 : _error$response.data) || _t.message);
+              setApiError(_t.message === "No auth token found. Please log in." ? _t.message : "Failed to load dropdown data. Please try again.");
+            case 5:
+              _context.p = 5;
+              setIsLoading(false);
+              return _context.f(5);
+            case 6:
+              return _context.a(2);
+          }
+        }, _callee, null, [[0, 3, 5, 6]]);
+      }));
+      return function fetchData() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+    fetchData();
+    if (isEdit && initialData) {
+      setFormData({
+        first_name: initialData.first_name || "",
+        middlename: initialData.middlename || "",
+        last_name: initialData.last_name || "",
+        suffix_id: initialData.suffix_id ? String(initialData.suffix_id) : "",
+        email: initialData.email || "",
+        password: "",
+        gender_id: initialData.gender_id ? String(initialData.gender_id) : "",
+        profile_img: null,
+        image_url: initialData.image_url || null
+      });
+      setErrors({});
+      setApiError("");
+    }
+    return function () {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, [isEdit, initialData]);
+  var handleInputChange = function handleInputChange(e, field) {
+    var value = e.target.type === "file" ? e.target.files[0] : e.target.value;
+    if (field === "profile_img" && value) {
+      if (value.size > 2048 * 1024) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            profile_img: "Image must not exceed 2 MB"
+          });
+        });
+        return;
+      }
+      if (!["image/jpeg", "image/png", "image/jpg"].includes(value.type)) {
+        setErrors(function (prev) {
+          return _objectSpread(_objectSpread({}, prev), {}, {
+            profile_img: "Image must be JPEG, PNG, or JPG"
+          });
+        });
+        return;
+      }
+    }
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, value));
+    });
+    setErrors(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, field, ""));
+    });
+    setApiError("");
+  };
+  var removeImage = function removeImage() {
+    setFormData(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        profile_img: null,
+        image_url: null
+      });
+    });
+    setErrors(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, {
+        profile_img: ""
+      });
+    });
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+  var validateForm = function validateForm() {
+    var newErrors = {};
+    var requiredFields = isEdit ? ["first_name", "last_name", "email", "gender_id"] : ["first_name", "last_name", "email", "password", "gender_id"];
+    requiredFields.forEach(function (field) {
+      if (!formData[field] || formData[field] === "") {
+        newErrors[field] = "".concat(field.replace("_", " ").replace(/\b\w/g, function (l) {
+          return l.toUpperCase();
+        }), " is required");
+      }
+    });
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+    if (!isEdit && formData.password && !/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(formData.password)) {
+      newErrors.password = "Password must be at least 8 characters with 1 uppercase letter and 1 digit";
+    }
+    if (formData.gender_id && !genders.some(function (gender) {
+      return String(gender.id) === String(formData.gender_id);
+    })) {
+      newErrors.gender_id = "Please select a valid gender";
+    }
+    if (formData.suffix_id && !suffixes.some(function (suffix) {
+      return String(suffix.id) === String(formData.suffix_id);
+    })) {
+      newErrors.suffix_id = "Please select a valid suffix";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2(e) {
+      var _error$response2, _error$response3, _error$response4, _error$response5, _t2;
+      return _regenerator().w(function (_context2) {
+        while (1) switch (_context2.p = _context2.n) {
+          case 0:
+            e.preventDefault();
+            if (!isLoading) {
+              _context2.n = 1;
+              break;
+            }
+            return _context2.a(2);
+          case 1:
+            if (validateForm()) {
+              _context2.n = 2;
+              break;
+            }
+            return _context2.a(2);
+          case 2:
+            abortControllerRef.current = new AbortController();
+            _context2.p = 3;
+            _context2.n = 4;
+            return onSubmit(formData, abortControllerRef.current.signal);
+          case 4:
+            setApiError("");
+            setErrors({});
+            _context2.n = 7;
+            break;
+          case 5:
+            _context2.p = 5;
+            _t2 = _context2.v;
+            if (!(_t2.name === "AbortError")) {
+              _context2.n = 6;
+              break;
+            }
+            console.log("Request was aborted");
+            return _context2.a(2);
+          case 6:
+            console.error("Error submitting form:", ((_error$response2 = _t2.response) === null || _error$response2 === void 0 ? void 0 : _error$response2.data) || _t2.message);
+            if ((_error$response3 = _t2.response) !== null && _error$response3 !== void 0 && (_error$response3 = _error$response3.data) !== null && _error$response3 !== void 0 && _error$response3.messages) {
+              setErrors(_t2.response.data.messages);
+              setApiError("Please correct the errors in the form.");
+            } else {
+              setApiError(((_error$response4 = _t2.response) === null || _error$response4 === void 0 ? void 0 : _error$response4.status) === 401 ? "Unauthorized: Please log in again." : "Failed to ".concat(isEdit ? "update" : "create", " admin: ").concat(((_error$response5 = _t2.response) === null || _error$response5 === void 0 || (_error$response5 = _error$response5.data) === null || _error$response5 === void 0 ? void 0 : _error$response5.message) || _t2.message));
+            }
+          case 7:
+            return _context2.a(2);
+        }
+      }, _callee2, null, [[3, 5]]);
+    }));
+    return function handleSubmit(_x) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    className: "adminmodal-overlay",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "adminmodal",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+        children: isEdit ? "Edit Admin" : "Add New Admin"
+      }), apiError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "error-message",
+        style: {
+          color: "red",
+          marginBottom: "10px"
+        },
+        children: apiError
+      }), Object.keys(errors).length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "error-message",
+        style: {
+          color: "red",
+          marginBottom: "10px"
+        },
+        children: Object.entries(errors).map(function (_ref4) {
+          var _ref5 = _slicedToArray(_ref4, 2),
+            field = _ref5[0],
+            message = _ref5[1];
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: message
+          }, field);
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+        className: "adminmodal-content",
+        onSubmit: handleSubmit,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "form-group name-row",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "name-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "first_name",
+              children: "First Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              id: "first_name",
+              type: "text",
+              value: formData.first_name,
+              onChange: function onChange(e) {
+                return handleInputChange(e, "first_name");
+              },
+              placeholder: "First Name",
+              required: true
+            }), errors.first_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "error",
+              children: errors.first_name
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "name-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "middlename",
+              children: "Middle Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              id: "middlename",
+              type: "text",
+              value: formData.middlename,
+              onChange: function onChange(e) {
+                return handleInputChange(e, "middlename");
+              },
+              placeholder: "Middle Name (optional)"
+            }), errors.middlename && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "error",
+              children: errors.middlename
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "name-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "last_name",
+              children: "Last Name"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              id: "last_name",
+              type: "text",
+              value: formData.last_name,
+              onChange: function onChange(e) {
+                return handleInputChange(e, "last_name");
+              },
+              placeholder: "Last Name",
+              required: true
+            }), errors.last_name && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "error",
+              children: errors.last_name
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "name-field",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              htmlFor: "suffix_id",
+              children: "Suffix"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+              id: "suffix_id",
+              value: formData.suffix_id,
+              onChange: function onChange(e) {
+                return handleInputChange(e, "suffix_id");
+              },
+              disabled: isLoading || suffixes.length === 0,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: "",
+                children: "None"
+              }), suffixes.map(function (suffix) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: suffix.id,
+                  children: suffix.suffix_name || "None"
+                }, suffix.id);
+              })]
+            }), errors.suffix_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "error",
+              children: errors.suffix_id
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            htmlFor: "email",
+            children: "Email"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            id: "email",
+            type: "email",
+            value: formData.email,
+            onChange: function onChange(e) {
+              return handleInputChange(e, "email");
+            },
+            placeholder: "Enter email address",
+            required: true
+          }), errors.email && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: "error",
+            children: errors.email
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            htmlFor: "password",
+            children: isEdit ? "New Password (optional)" : "Password"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            id: "password",
+            type: "password",
+            value: formData.password,
+            onChange: function onChange(e) {
+              return handleInputChange(e, "password");
+            },
+            placeholder: isEdit ? "New password (optional)" : "Enter password"
+          }), errors.password && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: "error",
+            children: errors.password
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            htmlFor: "gender_id",
+            children: "Gender"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+            id: "gender_id",
+            value: formData.gender_id,
+            onChange: function onChange(e) {
+              return handleInputChange(e, "gender_id");
+            },
+            disabled: isLoading || genders.length === 0,
+            required: true,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+              value: "",
+              children: "Select Gender"
+            }), genders.map(function (gender) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                value: gender.id,
+                children: gender.name || gender.gender_name
+              }, gender.id);
+            })]
+          }), errors.gender_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: "error",
+            children: errors.gender_id
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "form-group",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            htmlFor: "profile_img",
+            children: "Profile Picture (optional)"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            id: "profile_img",
+            type: "file",
+            accept: "image/jpeg,image/png,image/jpg",
+            onChange: function onChange(e) {
+              return handleInputChange(e, "profile_img");
+            },
+            ref: fileInputRef
+          }), (formData.profile_img || formData.image_url) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "profile-img-preview",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+              src: formData.profile_img ? URL.createObjectURL(formData.profile_img) : formData.image_url || "https://via.placeholder.com/100",
+              alt: "Profile Preview",
+              className: "preview-img",
+              style: {
+                width: "100px",
+                height: "100px",
+                objectFit: "contain"
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              className: "remove-img-button",
+              type: "button",
+              onClick: removeImage,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_icons_fa__WEBPACK_IMPORTED_MODULE_1__.FaTimes, {
+                size: 16
+              })
+            })]
+          }), errors.profile_img && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: "error",
+            children: errors.profile_img
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "adminmodal-buttons",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "submit-button",
+            type: "submit",
+            disabled: isLoading,
+            children: isEdit ? "Update" : "Create"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "cancel-button",
+            type: "button",
+            onClick: onClose,
+            children: "Cancel"
+          })]
+        })]
+      })]
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AdminModal);
 
 /***/ }),
 
@@ -232998,7 +232918,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.mjs");
-/* harmony import */ var _sass_components_ranksModal_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../sass/components/_ranksModal.scss */ "./resources/sass/components/_ranksModal.scss");
+/* harmony import */ var _sass_components_ranksmodal_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../sass/components/_ranksmodal.scss */ "./resources/sass/components/_ranksmodal.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
@@ -259506,9 +259426,9 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./resources/sass/components/_ranksModal.scss":
+/***/ "./resources/sass/components/_ranksmodal.scss":
 /*!****************************************************!*\
-  !*** ./resources/sass/components/_ranksModal.scss ***!
+  !*** ./resources/sass/components/_ranksmodal.scss ***!
   \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -259519,7 +259439,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranksModal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./_ranksModal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranksModal.scss");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranksmodal_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./_ranksmodal.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/sass/components/_ranksmodal.scss");
 
             
 
@@ -259528,11 +259448,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranksModal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranksmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranksModal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_ranksmodal_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -261273,51 +261193,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/search.svg?63d4efb9b288a57088b112d2fa76a290");
-
-/***/ }),
-
-/***/ "./resources/sass/img/worqo_admin.svg":
-/*!********************************************!*\
-  !*** ./resources/sass/img/worqo_admin.svg ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/worqo_admin.svg?9000f28dba6d3e27b09f209f716ae569");
-
-/***/ }),
-
-/***/ "./resources/sass/img/worqo_logo.svg":
-/*!*******************************************!*\
-  !*** ./resources/sass/img/worqo_logo.svg ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/worqo_logo.svg?33fe42f92274f9dddd2ad2779a770559");
-
-/***/ }),
-
-/***/ "./resources/sass/img/worqo_side.svg":
-/*!*******************************************!*\
-  !*** ./resources/sass/img/worqo_side.svg ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/worqo_side.svg?e22bf8ef05ef89d2515a1b765a31453d");
 
 /***/ })
 

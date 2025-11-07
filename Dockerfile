@@ -1,5 +1,14 @@
 # Multi-stage build for Laravel application
+# Stage 1: Get Node.js 18 from official Node image
+FROM node:18-alpine AS node-builder
+
+# Stage 2: PHP base image
 FROM php:8.0-fpm-alpine AS base
+
+# Copy Node.js 18 from node-builder stage
+COPY --from=node-builder /usr/local/bin/node /usr/local/bin/node
+COPY --from=node-builder /usr/local/bin/npm /usr/local/bin/npm
+COPY --from=node-builder /usr/local/lib/node_modules /usr/local/lib/node_modules
 
 # Install system dependencies
 RUN apk add --no-cache \
@@ -11,8 +20,6 @@ RUN apk add --no-cache \
     unzip \
     oniguruma-dev \
     postgresql-dev \
-    nodejs \
-    npm \
     nginx \
     supervisor \
     bash
@@ -36,7 +43,8 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --no-script
 COPY package.json package-lock.json ./
 
 # Install Node dependencies with clean install for consistency
-RUN npm ci --prefer-offline --no-audit
+# Suppress peer dependency warnings as they are non-blocking
+RUN npm ci --prefer-offline --no-audit --legacy-peer-deps
 
 # Copy application files
 COPY . .
