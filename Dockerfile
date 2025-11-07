@@ -41,13 +41,21 @@ RUN npm ci
 # Copy application files
 COPY . .
 
+# Create public directory if it doesn't exist and set permissions
+RUN mkdir -p /var/www/html/public && \
+    chown -R root:root /var/www/html && \
+    chmod -R 777 /var/www/html/public && \
+    chmod -R 755 /var/www/html/storage && \
+    chmod -R 755 /var/www/html/bootstrap/cache
+
 # Build assets
 RUN npm run production
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html/storage \
-    && chmod -R 755 /var/www/html/bootstrap/cache
+# Set final permissions
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 755 /var/www/html/public && \
+    chmod -R 755 /var/www/html/storage && \
+    chmod -R 755 /var/www/html/bootstrap/cache
 
 # Production stage
 FROM base AS production
